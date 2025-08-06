@@ -1,0 +1,6 @@
+cp_name = "ARVO"
+blob_file = "./exemplar_only/cpv_1/blobs/sample_solve.bin"
+harness_id = "id_1"
+sanitizer_id = "id_1"
+bug_introduce_commit = "e2919b503cf06a96c5658dbc05ff74fd04730d29~1"
+src_dir = "./src/openexr"

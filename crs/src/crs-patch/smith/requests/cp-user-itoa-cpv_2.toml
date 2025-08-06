@@ -1,0 +1,6 @@
+cp_name = "Mock CP"
+blob_file = "./exemplar_only/cpv_2/blobs/sample_solve.bin"
+harness_id = "id_1"
+sanitizer_id = "id_2"
+bug_introduce_commit = "7096f499e8ccdbdfbfb28335f19620a472fc7d16"
+src_dir = "./src/samples"

@@ -1,0 +1,953 @@
+CWE
+
+Common Weakness Enumeration
+
+A community-developed list of SW & HW weaknesses that can become vulnerabilities
+
+New to CWE? click here!
+CWE Most Important Hardware Weaknesses
+CWE Top 25 Most Dangerous Weaknesses
+Home > CWE List > CWE- Individual Dictionary Definition (4.14)                                                                                                   ID Lookup: [                    ] [Go]
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  • Home
+  • About ▼
+    About New to CWE User Stories History Documents FAQs Glossary Compatibility
+  • CWE List ▼
+    Latest Version Downloads Reports Visualizations Archive
+  • Mapping ▼
+    Root Cause Mapping Guidance Root Cause Mapping Quick Tips Root Cause Mapping Examples
+  • Top-N Lists ▼
+    Top 25 Software Top Hardware Top 10 KEV Weaknesses
+  • Community ▼
+    Community Working Groups & Special Interest Groups Board Board Meeting Minutes CWE Discussion List CWE Discussion Archives Contribute Weakness Content to CWE
+  • News ▼
+    Current News X-Twitter ● Mastodon ● LinkedIn ● YouTube YouTube Podcast Out of Bounds Read Podcast Medium Medium News Archive
+  • Search
+
+ 
+ CWE Glossary Definition                  x
+ 
+ 
+ CWE-119: Improper Restriction of Operations within the Bounds of a Memory Buffer
+ 
+ Weakness ID: 119
+ Vulnerability Mapping: DISCOURAGEDThis CWE ID should not be used to map to real-world vulnerabilities
+ Abstraction: ClassClass - a weakness that is described in a very abstract fashion, typically independent of any specific language or technology. More specific than a Pillar Weakness, but more general
+ than a Base Weakness. Class level weaknesses typically describe issues in terms of 1 or 2 of the following dimensions: behavior, property, and resource.
+ View customized information:
+ Conceptual For users who are interested in more notional aspects of a weakness. Example: educators, technical writers, and project/program managers. Operational For users who are concerned with the
+ practical application and details about the nature of a weakness and how to prevent it from happening. Example: tool developers, security researchers, pen-testers, incident response analysts. Mapping
+ Friendly For users who are mapping an issue to CWE/CAPEC IDs, i.e., finding the most appropriate CWE for a specific issue (e.g., a CVE record). Example: tool developers, security researchers. 
+ Complete For users who wish to see all available information for the CWE/CAPEC entry. Custom For users who want to customize what details are displayed.
+ ×
+
+ Edit Custom Filter
+
+ Conceptual Operational Mapping Friendly Select All
+ 
+ Reset Clear Submit Cancel
+ + Description
+ The product performs operations on a memory buffer, but it can read from or write to a memory location that is outside of the intended boundary of the buffer.
+ + Extended Description
+ 
+ Certain languages allow direct addressing of memory locations and do not automatically ensure that these locations are valid for the memory buffer that is being referenced. This can cause read or
+ write operations to be performed on memory locations that may be associated with other variables, data structures, or internal program data.
+
+ As a result, an attacker may be able to execute arbitrary code, alter the intended control flow, read sensitive information, or cause the system to crash.
+
+ + Alternate Terms
+ Buffer Overflow: This term has many different meanings to different audiences. From a CWE mapping perspective, this term should be avoided where possible. Some researchers, developers, and tools
+                  intend for it to mean "write past the end of a buffer," whereas others use the same term to mean "any read or write outside the boundaries of a buffer, whether before the
+                  beginning of the buffer or after the end of the buffer." Still others using the same term could mean "any action after the end of a buffer, whether it is a read or write." Since
+                  the term is commonly used for exploitation and for vulnerabilities, it further confuses things.
+ buffer overrun:  Some prominent vendors and researchers use the term "buffer overrun," but most people use "buffer overflow." See the alternate term for "buffer overflow" for context.
+  memory safety:  Generally used for techniques that avoid weaknesses related to memory access, such as those identified by CWE-119 and its descendants. However, the term is not formal, and there
+                  is likely disagreement between practitioners as to which weaknesses are implicitly covered by the "memory safety" term.
+ + Relationships
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Research Concepts" (CWE-1000)
+     Nature                                                                                                                                                                             Type                                                                                                                                                                           ID        Name
+ ChildOf                                                                               ClassClass - a weakness that is described in a very abstract fashion, typically independent of any specific language or technology. More specific than a Pillar Weakness, but more general than a Base                                                                        118     Incorrect
+                                                                                                                    Weakness. Class level weaknesses typically describe issues in terms of 1 or 2 of the following dimensions: behavior, property, and resource.                                                                                                             Access of
+                                                                                                                                                                                                                                                                                                                                                                             Indexable
+                                                                                                                                                                                                                                                                                                                                                                             Resource
+                                                                                                                                                                                                                                                                                                                                                                             ('Range
+                                                                                                                                                                                                                                                                                                                                                                             Error')
+ ParentOf                                                                                  BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level weaknesses                                                                           120     Buffer Copy
+                                                                                                                          typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                  without
+                                                                                                                                                                                                                                                                                                                                                                             Checking Size
+                                                                                                                                                                                                                                                                                                                                                                             of Input
+                                                                                                                                                                                                                                                                                                                                                                             ('Classic
+                                                                                                                                                                                                                                                                                                                                                                             Buffer
+                                                                                                                                                                                                                                                                                                                                                                             Overflow')
+ ParentOf                                                                                  BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level weaknesses                                                                           125     Out-of-bounds
+                                                                                                                          typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                  Read
+ ParentOf                                                                                  BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level weaknesses                                                                           466     Return of
+                                                                                                                          typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                  Pointer Value
+                                                                                                                                                                                                                                                                                                                                                                             Outside of
+                                                                                                                                                                                                                                                                                                                                                                             Expected
+                                                                                                                                                                                                                                                                                                                                                                             Range
+ ParentOf                                                                                  BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level weaknesses                                                                           786     Access of
+                                                                                                                          typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                  Memory
+                                                                                                                                                                                                                                                                                                                                                                             Location
+                                                                                                                                                                                                                                                                                                                                                                             Before Start
+                                                                                                                                                                                                                                                                                                                                                                             of Buffer
+ ParentOf                                                                                  BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level weaknesses                                                                           787     Out-of-bounds
+                                                                                                                          typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                  Write
+ ParentOf                                                                                  BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level weaknesses                                                                           788     Access of
+                                                                                                                          typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                  Memory
+                                                                                                                                                                                                                                                                                                                                                                             Location
+                                                                                                                                                                                                                                                                                                                                                                             After End of
+                                                                                                                                                                                                                                                                                                                                                                             Buffer
+ ParentOf                                                                                  BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level weaknesses                                                                           805     Buffer Access
+                                                                                                                          typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                  with
+                                                                                                                                                                                                                                                                                                                                                                             Incorrect
+                                                                                                                                                                                                                                                                                                                                                                             Length Value
+ ParentOf                                                                                  BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level weaknesses                                                                           822     Untrusted
+                                                                                                                          typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                  Pointer
+                                                                                                                                                                                                                                                                                                                                                                             Dereference
+ ParentOf                                                                                  BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level weaknesses                                                                           823     Use of
+                                                                                                                          typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                  Out-of-range
+                                                                                                                                                                                                                                                                                                                                                                             Pointer
+                                                                                                                                                                                                                                                                                                                                                                             Offset
+ ParentOf                                                                                  BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level weaknesses                                                                           824     Access of
+                                                                                                                          typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                  Uninitialized
+                                                                                                                                                                                                                                                                                                                                                                             Pointer
+ ParentOf                                                                                  BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level weaknesses                                                                           825     Expired
+                                                                                                                          typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                  Pointer
+                                                                                                                                                                                                                                                                                                                                                                             Dereference
+ CanFollow                                                                             ClassClass - a weakness that is described in a very abstract fashion, typically independent of any specific language or technology. More specific than a Pillar Weakness, but more general than a Base                                                                        20      Improper
+                                                                                                                    Weakness. Class level weaknesses typically describe issues in terms of 1 or 2 of the following dimensions: behavior, property, and resource.                                                                                                             Input
+                                                                                                                                                                                                                                                                                                                                                                             Validation
+ CanFollow                                                                                 BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level weaknesses                                                                           128     Wrap-around
+                                                                                                                          typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                  Error
+ CanFollow                                                                             VariantVariant - a weakness that is linked to a certain type of product, typically involving a specific language or technology. More specific than a Base weakness. Variant level weaknesses typically                                                                        129     Improper
+                                                                                                                               describe issues in terms of 3 to 5 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                       Validation of
+                                                                                                                                                                                                                                                                                                                                                                             Array Index
+ CanFollow                                                                                 BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level weaknesses                                                                           131     Incorrect
+                                                                                                                          typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                  Calculation
+                                                                                                                                                                                                                                                                                                                                                                             of Buffer
+                                                                                                                                                                                                                                                                                                                                                                             Size
+ CanFollow                                                                                 BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level weaknesses                                                                           190     Integer
+                                                                                                                          typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                  Overflow or
+                                                                                                                                                                                                                                                                                                                                                                             Wraparound
+ CanFollow                                                                                 BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level weaknesses                                                                           193     Off-by-one
+                                                                                                                          typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                  Error
+ CanFollow                                                                             VariantVariant - a weakness that is linked to a certain type of product, typically involving a specific language or technology. More specific than a Base weakness. Variant level weaknesses typically                                                                        195     Signed to
+                                                                                                                               describe issues in terms of 3 to 5 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                       Unsigned
+                                                                                                                                                                                                                                                                                                                                                                             Conversion
+                                                                                                                                                                                                                                                                                                                                                                             Error
+ CanFollow                                                                                 BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level weaknesses                                                                           839     Numeric Range
+                                                                                                                          typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                  Comparison
+                                                                                                                                                                                                                                                                                                                                                                             Without
+                                                                                                                                                                                                                                                                                                                                                                             Minimum Check
+ CanFollow                                                                                 BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level weaknesses                                                                           843     Access of
+                                                                                                                          typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                  Resource
+                                                                                                                                                                                                                                                                                                                                                                             Using
+                                                                                                                                                                                                                                                                                                                                                                             Incompatible
+                                                                                                                                                                                                                                                                                                                                                                             Type ('Type
+                                                                                                                                                                                                                                                                                                                                                                             Confusion')
+ CanFollow                                                                                 BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level weaknesses                                                                           1257    Improper
+                                                                                                                          typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                  Access
+                                                                                                                                                                                                                                                                                                                                                                             Control
+                                                                                                                                                                                                                                                                                                                                                                             Applied to
+                                                                                                                                                                                                                                                                                                                                                                             Mirrored or
+                                                                                                                                                                                                                                                                                                                                                                             Aliased
+                                                                                                                                                                                                                                                                                                                                                                             Memory
+                                                                                                                                                                                                                                                                                                                                                                             Regions
+ CanFollow                                                                                 BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level weaknesses                                                                           1260    Improper
+                                                                                                                          typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                  Handling of
+                                                                                                                                                                                                                                                                                                                                                                             Overlap
+                                                                                                                                                                                                                                                                                                                                                                             Between
+                                                                                                                                                                                                                                                                                                                                                                             Protected
+                                                                                                                                                                                                                                                                                                                                                                             Memory Ranges
+ CanFollow                                                                                 BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level weaknesses                                                                           1339    Insufficient
+                                                                                                                          typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                  Precision or
+                                                                                                                                                                                                                                                                                                                                                                             Accuracy of a
+                                                                                                                                                                                                                                                                                                                                                                             Real Number
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Weaknesses for Simplified Mapping of Published Vulnerabilities" (CWE-1003)
+     Nature                                                                                                                                                                    Type                                                                                                                                                                  ID        Name
+ ParentOf                                                                         BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level weaknesses                                                                  120     Buffer Copy
+                                                                                                                 typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                         without
+                                                                                                                                                                                                                                                                                                                                                           Checking Size
+                                                                                                                                                                                                                                                                                                                                                           of Input
+                                                                                                                                                                                                                                                                                                                                                           ('Classic
+                                                                                                                                                                                                                                                                                                                                                           Buffer
+                                                                                                                                                                                                                                                                                                                                                           Overflow')
+ ParentOf                                                                         BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level weaknesses                                                                  125     Out-of-bounds
+                                                                                                                 typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                         Read
+ ParentOf                                                                         BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level weaknesses                                                                  787     Out-of-bounds
+                                                                                                                 typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                         Write
+ ParentOf                                                                         BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level weaknesses                                                                  824     Access of
+                                                                                                                 typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                         Uninitialized
+                                                                                                                                                                                                                                                                                                                                                           Pointer
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "CISQ Quality Measures (2020)" (CWE-1305)
+     Nature                                                                                                                                                                    Type                                                                                                                                                                  ID          Name
+ ParentOf                                                                         BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level weaknesses                                                                  120     Buffer Copy
+                                                                                                                 typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                         without Checking
+                                                                                                                                                                                                                                                                                                                                                           Size of Input
+                                                                                                                                                                                                                                                                                                                                                           ('Classic Buffer
+                                                                                                                                                                                                                                                                                                                                                           Overflow')
+ ParentOf                                                                         BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level weaknesses                                                                  123     Write-what-where
+                                                                                                                 typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                         Condition
+ ParentOf                                                                         BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level weaknesses                                                                  125     Out-of-bounds
+                                                                                                                 typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                         Read
+ ParentOf                                                                         BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level weaknesses                                                                  130     Improper
+                                                                                                                 typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                         Handling of
+                                                                                                                                                                                                                                                                                                                                                           Length Parameter
+                                                                                                                                                                                                                                                                                                                                                           Inconsistency
+ ParentOf                                                                         BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level weaknesses                                                                  786     Access of Memory
+                                                                                                                 typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                         Location Before
+                                                                                                                                                                                                                                                                                                                                                           Start of Buffer
+ ParentOf                                                                         BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level weaknesses                                                                  787     Out-of-bounds
+                                                                                                                 typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                         Write
+ ParentOf                                                                         BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level weaknesses                                                                  788     Access of Memory
+                                                                                                                 typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                         Location After
+                                                                                                                                                                                                                                                                                                                                                           End of Buffer
+ ParentOf                                                                         BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level weaknesses                                                                  805     Buffer Access
+                                                                                                                 typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                         with Incorrect
+                                                                                                                                                                                                                                                                                                                                                           Length Value
+ ParentOf                                                                         BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level weaknesses                                                                  822     Untrusted
+                                                                                                                 typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                         Pointer
+                                                                                                                                                                                                                                                                                                                                                           Dereference
+ ParentOf                                                                         BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level weaknesses                                                                  823     Use of
+                                                                                                                 typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                         Out-of-range
+                                                                                                                                                                                                                                                                                                                                                           Pointer Offset
+ ParentOf                                                                         BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level weaknesses                                                                  824     Access of
+                                                                                                                 typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                         Uninitialized
+                                                                                                                                                                                                                                                                                                                                                           Pointer
+ ParentOf                                                                         BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level weaknesses                                                                  825     Expired Pointer
+                                                                                                                 typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                         Dereference
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "CISQ Data Protection Measures" (CWE-1340)
+     Nature                                                                                                                                                                    Type                                                                                                                                                                  ID          Name
+ ParentOf                                                                         BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level weaknesses                                                                  120     Buffer Copy
+                                                                                                                 typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                         without Checking
+                                                                                                                                                                                                                                                                                                                                                           Size of Input
+                                                                                                                                                                                                                                                                                                                                                           ('Classic Buffer
+                                                                                                                                                                                                                                                                                                                                                           Overflow')
+ ParentOf                                                                         BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level weaknesses                                                                  123     Write-what-where
+                                                                                                                 typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                         Condition
+ ParentOf                                                                         BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level weaknesses                                                                  125     Out-of-bounds
+                                                                                                                 typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                         Read
+ ParentOf                                                                         BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level weaknesses                                                                  130     Improper
+                                                                                                                 typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                         Handling of
+                                                                                                                                                                                                                                                                                                                                                           Length Parameter
+                                                                                                                                                                                                                                                                                                                                                           Inconsistency
+ ParentOf                                                                         BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level weaknesses                                                                  786     Access of Memory
+                                                                                                                 typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                         Location Before
+                                                                                                                                                                                                                                                                                                                                                           Start of Buffer
+ ParentOf                                                                         BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level weaknesses                                                                  787     Out-of-bounds
+                                                                                                                 typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                         Write
+ ParentOf                                                                         BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level weaknesses                                                                  788     Access of Memory
+                                                                                                                 typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                         Location After
+                                                                                                                                                                                                                                                                                                                                                           End of Buffer
+ ParentOf                                                                         BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level weaknesses                                                                  805     Buffer Access
+                                                                                                                 typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                         with Incorrect
+                                                                                                                                                                                                                                                                                                                                                           Length Value
+ ParentOf                                                                         BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level weaknesses                                                                  822     Untrusted
+                                                                                                                 typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                         Pointer
+                                                                                                                                                                                                                                                                                                                                                           Dereference
+ ParentOf                                                                         BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level weaknesses                                                                  823     Use of
+                                                                                                                 typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                         Out-of-range
+                                                                                                                                                                                                                                                                                                                                                           Pointer Offset
+ ParentOf                                                                         BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level weaknesses                                                                  824     Access of
+                                                                                                                 typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                         Uninitialized
+                                                                                                                                                                                                                                                                                                                                                           Pointer
+ ParentOf                                                                         BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level weaknesses                                                                  825     Expired Pointer
+                                                                                                                 typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                         Dereference
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Seven Pernicious Kingdoms" (CWE-700)
+     Nature                                                                                                                                                                             Type                                                                                                                                                                           ID       Name
+ ChildOf                                                                               ClassClass - a weakness that is described in a very abstract fashion, typically independent of any specific language or technology. More specific than a Pillar Weakness, but more general than a Base                                                                        20      Improper
+                                                                                                                    Weakness. Class level weaknesses typically describe issues in terms of 1 or 2 of the following dimensions: behavior, property, and resource.                                                                                                             Input
+                                                                                                                                                                                                                                                                                                                                                                             Validation
+ + Modes Of Introduction
+ Section HelpThe different Modes of Introduction provide information about how and when this weakness may be introduced. The Phase identifies a point in the life cycle at which introduction may occur,
+ while the Note provides a typical scenario related to introduction during the given phase.
+     Phase                                                                                              Note
+ Implementation
+ + Applicable Platforms
+ Section HelpThis listing shows possible areas for which the given weakness could appear. These may be for specific named Languages, Operating Systems, Architectures, Paradigms, Technologies, or a
+ class of such platforms. The platform is listed along with how frequently the given weakness appears for that instance.
+
+ Languages
+
+ C (Often Prevalent)
+
+ C++ (Often Prevalent)
+
+ Class: Assembly (Undetermined Prevalence)
+
+ + Common Consequences
+ Section HelpThis table specifies different individual consequences associated with the weakness. The Scope identifies the application security area that is violated, while the Impact describes the
+ negative technical impact that arises if an adversary succeeds in exploiting this weakness. The Likelihood provides information about how likely the specific consequence is expected to be seen
+ relative to the other consequences in the list. For example, there may be high likelihood that a weakness will be exploited to achieve a certain impact, but a low likelihood that it will be exploited
+ to achieve a different impact.
+       Scope                                                                                     Impact                                                                                 Likelihood
+                    Technical Impact: Execute Unauthorized Code or Commands; Modify Memory
+
+ Integrity          If the memory accessible by the attacker can be effectively controlled, it may be possible to execute arbitrary code, as with a standard buffer overflow. If the
+ Confidentiality    attacker can overwrite a pointer's worth of memory (usually 32 or 64 bits), they can redirect a function pointer to their own malicious code. Even when the
+ Availability       attacker can only modify a single byte arbitrary code execution can be possible. Sometimes this is because the same problem can be exploited repeatedly to the
+                    same effect. Other times it is because the attacker can overwrite security-critical application-specific data -- such as a flag indicating whether the user is an
+                    administrator.
+                    Technical Impact: Read Memory; DoS: Crash, Exit, or Restart; DoS: Resource Consumption (CPU); DoS: Resource Consumption (Memory)
+ Availability
+ Confidentiality    Out of bounds memory access will very likely result in the corruption of relevant memory, and perhaps instructions, possibly leading to a crash. Other attacks
+                    leading to lack of availability are possible, including putting the program into an infinite loop.
+                    Technical Impact: Read Memory
+ Confidentiality
+                    In the case of an out-of-bounds read, the attacker may have access to sensitive information. If the sensitive information contains system details, such as the
+                    current buffers position in memory, this knowledge can be used to craft further attacks, possibly with more severe consequences.
+ + Likelihood Of Exploit
+ High
+ + Demonstrative Examples
+ 
+ Example 1
+
+ This example takes an IP address from a user, verifies that it is well formed and then looks up the hostname and copies it into a buffer.
+
+ (bad code)
+ Example Language: C 
+ void host_lookup(char *user_supplied_addr){
+ struct hostent *hp;
+ in_addr_t *addr;
+ char hostname[64];
+ in_addr_t inet_addr(const char *cp);
+
+ /*routine that ensures user_supplied_addr is in the right format for conversion */
+
+ validate_addr_form(user_supplied_addr);
+ addr = inet_addr(user_supplied_addr);
+ hp = gethostbyaddr( addr, sizeof(struct in_addr), AF_INET);
+ strcpy(hostname, hp->h_name);
+ }
+
+ This function allocates a buffer of 64 bytes to store the hostname, however there is no guarantee that the hostname will not be larger than 64 bytes. If an attacker specifies an address which
+ resolves to a very large hostname, then the function may overwrite sensitive data or even relinquish control flow to the attacker.
+
+ Note that this example also contains an unchecked return value (CWE-252) that can lead to a NULL pointer dereference (CWE-476).
+
+ Example 2
+
+ This example applies an encoding procedure to an input string and stores it into a buffer.
+
+ (bad code)
+ Example Language: C 
+ char * copy_input(char *user_supplied_string){
+ int i, dst_index;
+ char *dst_buf = (char*)malloc(4*sizeof(char) * MAX_SIZE);
+ if ( MAX_SIZE <= strlen(user_supplied_string) ){
+ die("user string too long, die evil hacker!");
+ }
+ dst_index = 0;
+ for ( i = 0; i < strlen(user_supplied_string); i++ ){
+ if( '&' == user_supplied_string[i] ){
+ dst_buf[dst_index++] = '&';
+ dst_buf[dst_index++] = 'a';
+ dst_buf[dst_index++] = 'm';
+ dst_buf[dst_index++] = 'p';
+ dst_buf[dst_index++] = ';';
+ }
+ else if ('<' == user_supplied_string[i] ){
+ /* encode to &lt; */
+ }
+ else dst_buf[dst_index++] = user_supplied_string[i];
+ }
+ return dst_buf;
+ }
+
+ The programmer attempts to encode the ampersand character in the user-controlled string, however the length of the string is validated before the encoding procedure is applied. Furthermore, the
+ programmer assumes encoding expansion will only expand a given character by a factor of 4, while the encoding of the ampersand expands by 5. As a result, when the encoding procedure expands the
+ string it is possible to overflow the destination buffer if the attacker provides a string of many ampersands.
+
+ Example 3
+
+ The following example asks a user for an offset into an array to select an item.
+
+ (bad code)
+ Example Language: C 
+
+ int main (int argc, char **argv) {
+ char *items[] = {"boat", "car", "truck", "train"};
+ int index = GetUntrustedOffset();
+ printf("You selected %s\n", items[index-1]);
+ }
+
+ The programmer allows the user to specify which element in the list to select, however an attacker can provide an out-of-bounds offset, resulting in a buffer over-read (CWE-126).
+
+ Example 4
+
+ In the following code, the method retrieves a value from an array at a specific array index location that is given as an input parameter to the method
+
+ (bad code)
+ Example Language: C 
+ int getValueFromArray(int *array, int len, int index) {
+
+ int value;
+
+ // check that the array index is less than the maximum
+
+ // length of the array
+ if (index < len) {
+ // get the value at the specified index of the array
+ value = array[index];
+ }
+ // if array index is invalid then output error message
+ // and return value indicating error
+ else {
+ printf("Value is: %d\n", array[index]);
+ value = -1;
+ }
+
+ return value;
+ }
+
+ However, this method only verifies that the given array index is less than the maximum length of the array but does not check for the minimum value (CWE-839). This will allow a negative value to be
+ accepted as the input array index, which will result in a out of bounds read (CWE-125) and may allow access to sensitive memory. The input array index should be checked to verify that is within the
+ maximum and minimum range required for the array (CWE-129). In this example the if statement should be modified to include a minimum range check, as shown below.
+
+ (good code)
+ Example Language: C 
+
+ ...
+
+ // check that the array index is within the correct
+
+ // range of values for the array
+ if (index >= 0 && index < len) {
+
+ ...
+
+ Example 5
+
+ Windows provides the _mbs family of functions to perform various operations on multibyte strings. When these functions are passed a malformed multibyte string, such as a string containing a valid
+ leading byte followed by a single null byte, they can read or write past the end of the string buffer causing a buffer overflow. The following functions all pose a risk of buffer overflow: _mbsinc
+ _mbsdec _mbsncat _mbsncpy _mbsnextc _mbsnset _mbsrev _mbsset _mbsstr _mbstok _mbccpy _mbslen
+
+ + Observed Examples
+        Reference                                                                                        Description
+ CVE-2021-22991          Incorrect URI normalization in application traffic product leads to buffer overflow, as exploited in the wild per CISA KEV.
+ CVE-2020-29557          Buffer overflow in Wi-Fi router web interface, as exploited in the wild per CISA KEV.
+ CVE-2009-2550           Classic stack-based buffer overflow in media player using a long entry in a playlist
+ CVE-2009-2403           Heap-based buffer overflow in media player using a long entry in a playlist
+ CVE-2009-0689           large precision value in a format string triggers overflow
+ CVE-2009-0690           negative offset value leads to out-of-bounds read
+ CVE-2009-1532           malformed inputs cause accesses of uninitialized or previously-deleted objects, leading to memory corruption
+ CVE-2009-1528           chain: lack of synchronization leads to memory corruption
+ CVE-2021-29529          Chain: machine-learning product can have a heap-based buffer overflow (CWE-122) when some integer-oriented bounds are calculated by using ceiling() and floor() on floating
+                         point values (CWE-1339)
+ CVE-2009-0558           attacker-controlled array index leads to code execution
+ CVE-2009-0269           chain: -1 value from a function call was intended to indicate an error, but is used as an array index instead.
+ CVE-2009-0566           chain: incorrect calculations lead to incorrect pointer dereference and memory corruption
+ CVE-2009-1350           product accepts crafted messages that lead to a dereference of an arbitrary pointer
+ CVE-2009-0191           chain: malformed input causes dereference of uninitialized memory
+ CVE-2008-4113           OS kernel trusts userland-supplied length value, allowing reading of sensitive information
+ CVE-2005-1513           Chain: integer overflow in securely-coded mail program leads to buffer overflow. In 2005, this was regarded as unrealistic to exploit, but in 2020, it was rediscovered to
+                         be easier to exploit due to evolutions of the technology.
+ CVE-2003-0542           buffer overflow involving a regular expression with a large number of captures
+ CVE-2017-1000121        chain: unchecked message size metadata allows integer overflow (CWE-190) leading to buffer overflow (CWE-119).
+ + Potential Mitigations
+ Phase: Requirements
+
+ Strategy: Language Selection
+
+ Use a language that does not allow this weakness to occur or provides constructs that make this weakness easier to avoid.
+
+ For example, many languages that perform their own memory management, such as Java and Perl, are not subject to buffer overflows. Other languages, such as Ada and C#, typically provide overflow
+ protection, but the protection can be disabled by the programmer.
+
+ Be wary that a language's interface to native code may still be subject to overflows, even if the language itself is theoretically safe.
+
+ Phase: Architecture and Design
+
+ Strategy: Libraries or Frameworks
+
+ Use a vetted library or framework that does not allow this weakness to occur or provides constructs that make this weakness easier to avoid.
+
+ Examples include the Safe C String Library (SafeStr) by Messier and Viega [REF-57], and the Strsafe.h library from Microsoft [REF-56]. These libraries provide safer versions of overflow-prone
+ string-handling functions.
+
+ Note: This is not a complete solution, since many buffer overflows are not related to strings.
+ Phases: Operation; Build and Compilation
+
+ Strategy: Environment Hardening
+
+ Use automatic buffer overflow detection mechanisms that are offered by certain compilers or compiler extensions. Examples include: the Microsoft Visual Studio /GS flag, Fedora/Red Hat
+ FORTIFY_SOURCE GCC flag, StackGuard, and ProPolice, which provide various mechanisms including canary-based detection and range/index checking.
+
+ D3-SFCV (Stack Frame Canary Validation) from D3FEND [REF-1334] discusses canary-based detection in detail.
+
+ Effectiveness: Defense in Depth
+
+ Note:
+
+ This is not necessarily a complete solution, since these mechanisms only detect certain types of overflows. In addition, the result is still a denial of service, since the typical response is to
+ exit the application.
+
+ Phase: Implementation
+
+ Consider adhering to the following rules when allocating and managing an application's memory:
+
+   • Double check that the buffer is as large as specified.
+   • When using functions that accept a number of bytes to copy, such as strncpy(), be aware that if the destination buffer size is equal to the source buffer size, it may not NULL-terminate the
+     string.
+   • Check buffer boundaries if accessing the buffer in a loop and make sure there is no danger of writing past the allocated space.
+   • If necessary, truncate all input strings to a reasonable length before passing them to the copy and concatenation functions.
+
+ Phases: Operation; Build and Compilation
+
+ Strategy: Environment Hardening
+
+ Run or compile the software using features or extensions that randomly arrange the positions of a program's executable and libraries in memory. Because this makes the addresses unpredictable, it
+ can prevent an attacker from reliably jumping to exploitable code.
+
+ Examples include Address Space Layout Randomization (ASLR) [REF-58] [REF-60] and Position-Independent Executables (PIE) [REF-64]. Imported modules may be similarly realigned if their default
+ memory addresses conflict with other modules, in a process known as "rebasing" (for Windows) and "prelinking" (for Linux) [REF-1332] using randomly generated addresses. ASLR for libraries cannot
+ be used in conjunction with prelink since it would require relocating the libraries at run-time, defeating the whole purpose of prelinking.
+
+ For more information on these techniques see D3-SAOR (Segment Address Offset Randomization) from D3FEND [REF-1335].
+
+ Effectiveness: Defense in Depth
+
+ Note: These techniques do not provide a complete solution. For instance, exploits frequently use a bug that discloses memory addresses in order to maximize reliability of code execution [REF-1337
+ ]. It has also been shown that a side-channel attack can bypass ASLR [REF-1333]
+ Phase: Operation
+
+ Strategy: Environment Hardening
+
+ Use a CPU and operating system that offers Data Execution Protection (using hardware NX or XD bits) or the equivalent techniques that simulate this feature in software, such as PaX [REF-60] [
+ REF-61]. These techniques ensure that any instruction executed is exclusively at a memory address that is part of the code segment.
+
+ For more information on these techniques see D3-PSEP (Process Segment Execution Prevention) from D3FEND [REF-1336].
+
+ Effectiveness: Defense in Depth
+
+ Note: This is not a complete solution, since buffer overflows could be used to overwrite nearby variables to modify the software's state in dangerous ways. In addition, it cannot be used in cases
+ in which self-modifying code is required. Finally, an attack could still cause a denial of service, since the typical response is to exit the application.
+ Phase: Implementation
+
+ Replace unbounded copy functions with analogous functions that support length arguments, such as strcpy with strncpy. Create these if they are not available.
+
+ Effectiveness: Moderate
+
+ Note: This approach is still susceptible to calculation errors, including issues such as off-by-one errors (CWE-193) and incorrectly calculating buffer lengths (CWE-131).
+ + Detection Methods
+ Automated Static Analysis
+
+ This weakness can often be detected using automated static analysis tools. Many modern tools use data flow analysis or constraint-based techniques to minimize the number of false positives.
+
+ Automated static analysis generally does not account for environmental considerations when reporting out-of-bounds memory operations. This can make it difficult for users to determine which
+ warnings should be investigated first. For example, an analysis tool might report buffer overflows that originate from command line arguments in a program that is not expected to run with setuid
+ or other special privileges.
+
+ Effectiveness: High
+
+ Note: Detection techniques for buffer-related errors are more mature than for most other weakness types.
+ Automated Dynamic Analysis
+
+ This weakness can be detected using dynamic tools and techniques that interact with the software using large test suites with many diverse inputs, such as fuzz testing (fuzzing), robustness
+ testing, and fault injection. The software's operation may slow down, but it should not become unstable, crash, or generate incorrect results.
+ Automated Static Analysis - Binary or Bytecode
+
+ According to SOAR, the following detection techniques may be useful:
+
+ Cost effective for partial coverage:
+
+   • Binary / Bytecode Quality Analysis
+   • Bytecode Weakness Analysis - including disassembler + source code weakness analysis
+   • Binary Weakness Analysis - including disassembler + source code weakness analysis
+
+ Effectiveness: SOAR Partial
+
+ Manual Static Analysis - Binary or Bytecode
+
+ According to SOAR, the following detection techniques may be useful:
+
+ Cost effective for partial coverage:
+
+   • Binary / Bytecode disassembler - then use manual analysis for vulnerabilities & anomalies
+
+ Effectiveness: SOAR Partial
+
+ Dynamic Analysis with Automated Results Interpretation
+
+ According to SOAR, the following detection techniques may be useful:
+
+ Cost effective for partial coverage:
+
+   • Web Application Scanner
+   • Web Services Scanner
+   • Database Scanners
+
+ Effectiveness: SOAR Partial
+
+ Dynamic Analysis with Manual Results Interpretation
+
+ According to SOAR, the following detection techniques may be useful:
+
+ Cost effective for partial coverage:
+
+   • Fuzz Tester
+   • Framework-based Fuzzer
+
+ Effectiveness: SOAR Partial
+
+ Manual Static Analysis - Source Code
+
+ According to SOAR, the following detection techniques may be useful:
+
+ Cost effective for partial coverage:
+
+   • Focused Manual Spotcheck - Focused manual analysis of source
+   • Manual Source Code Review (not inspections)
+
+ Effectiveness: SOAR Partial
+
+ Automated Static Analysis - Source Code
+
+ According to SOAR, the following detection techniques may be useful:
+
+ Highly cost effective:
+
+   • Source code Weakness Analyzer
+   • Context-configured Source Code Weakness Analyzer
+
+ Cost effective for partial coverage:
+
+   • Source Code Quality Analyzer
+
+ Effectiveness: High
+
+ Architecture or Design Review
+
+ According to SOAR, the following detection techniques may be useful:
+
+ Highly cost effective:
+
+   • Formal Methods / Correct-By-Construction
+
+ Cost effective for partial coverage:
+
+   • Inspection (IEEE 1028 standard) (can apply to requirements, design, source code, etc.)
+
+ Effectiveness: High
+
+ + Affected Resources
+ 
+   • Memory
+
+ + Memberships
+ Section HelpThis MemberOf Relationships table shows additional CWE Categories and Views that reference this weakness as a member. This information is often useful in understanding where a weakness
+ fits within the context of external information sources.
+     Nature                                                                                                  Type                                                                                               ID         Name
+ MemberOf        ViewView - a subset of CWE entries that provides a way of examining CWE content. The two main view structures are Slices (flat lists) and Graphs (containing relationships between entries). 635     Weaknesses
+                                                                                                                                                                                                                      Originally Used
+                                                                                                                                                                                                                      by NVD from
+                                                                                                                                                                                                                      2008 to 2016
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            726     OWASP Top Ten
+                                                                                                                                                                                                                      2004 Category
+                                                                                                                                                                                                                      A5 - Buffer
+                                                                                                                                                                                                                      Overflows
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            740     CERT C Secure
+                                                                                                                                                                                                                      Coding Standard
+                                                                                                                                                                                                                      (2008) Chapter
+                                                                                                                                                                                                                      7 - Arrays
+                                                                                                                                                                                                                      (ARR)
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            741     CERT C Secure
+                                                                                                                                                                                                                      Coding Standard
+                                                                                                                                                                                                                      (2008) Chapter
+                                                                                                                                                                                                                      8 - Characters
+                                                                                                                                                                                                                      and Strings
+                                                                                                                                                                                                                      (STR)
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            742     CERT C Secure
+                                                                                                                                                                                                                      Coding Standard
+                                                                                                                                                                                                                      (2008) Chapter
+                                                                                                                                                                                                                      9 - Memory
+                                                                                                                                                                                                                      Management
+                                                                                                                                                                                                                      (MEM)
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            743     CERT C Secure
+                                                                                                                                                                                                                      Coding Standard
+                                                                                                                                                                                                                      (2008) Chapter
+                                                                                                                                                                                                                      10 - Input
+                                                                                                                                                                                                                      Output (FIO)
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            744     CERT C Secure
+                                                                                                                                                                                                                      Coding Standard
+                                                                                                                                                                                                                      (2008) Chapter
+                                                                                                                                                                                                                      11 -
+                                                                                                                                                                                                                      Environment
+                                                                                                                                                                                                                      (ENV)
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            752     2009 Top 25 -
+                                                                                                                                                                                                                      Risky Resource
+                                                                                                                                                                                                                      Management
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            874     CERT C++ Secure
+                                                                                                                                                                                                                      Coding Section
+                                                                                                                                                                                                                      06 - Arrays and
+                                                                                                                                                                                                                      the STL (ARR)
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            875     CERT C++ Secure
+                                                                                                                                                                                                                      Coding Section
+                                                                                                                                                                                                                      07 - Characters
+                                                                                                                                                                                                                      and Strings
+                                                                                                                                                                                                                      (STR)
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            876     CERT C++ Secure
+                                                                                                                                                                                                                      Coding Section
+                                                                                                                                                                                                                      08 - Memory
+                                                                                                                                                                                                                      Management
+                                                                                                                                                                                                                      (MEM)
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            877     CERT C++ Secure
+                                                                                                                                                                                                                      Coding Section
+                                                                                                                                                                                                                      09 - Input
+                                                                                                                                                                                                                      Output (FIO)
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            878     CERT C++ Secure
+                                                                                                                                                                                                                      Coding Section
+                                                                                                                                                                                                                      10 -
+                                                                                                                                                                                                                      Environment
+                                                                                                                                                                                                                      (ENV)
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            970     SFP Secondary
+                                                                                                                                                                                                                      Cluster: Faulty
+                                                                                                                                                                                                                      Buffer Access
+ MemberOf        ViewView - a subset of CWE entries that provides a way of examining CWE content. The two main view structures are Slices (flat lists) and Graphs (containing relationships between entries). 1003    Weaknesses for
+                                                                                                                                                                                                                      Simplified
+                                                                                                                                                                                                                      Mapping of
+                                                                                                                                                                                                                      Published
+                                                                                                                                                                                                                      Vulnerabilities
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            1157    SEI CERT C
+                                                                                                                                                                                                                      Coding Standard
+                                                                                                                                                                                                                      - Guidelines
+                                                                                                                                                                                                                      03. Expressions
+                                                                                                                                                                                                                      (EXP)
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            1160    SEI CERT C
+                                                                                                                                                                                                                      Coding Standard
+                                                                                                                                                                                                                      - Guidelines
+                                                                                                                                                                                                                      06. Arrays
+                                                                                                                                                                                                                      (ARR)
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            1161    SEI CERT C
+                                                                                                                                                                                                                      Coding Standard
+                                                                                                                                                                                                                      - Guidelines
+                                                                                                                                                                                                                      07. Characters
+                                                                                                                                                                                                                      and Strings
+                                                                                                                                                                                                                      (STR)
+ MemberOf        ViewView - a subset of CWE entries that provides a way of examining CWE content. The two main view structures are Slices (flat lists) and Graphs (containing relationships between entries). 1200    Weaknesses in
+                                                                                                                                                                                                                      the 2019 CWE
+                                                                                                                                                                                                                      Top 25 Most
+                                                                                                                                                                                                                      Dangerous
+                                                                                                                                                                                                                      Software Errors
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            1306    CISQ Quality
+                                                                                                                                                                                                                      Measures -
+                                                                                                                                                                                                                      Reliability
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            1308    CISQ Quality
+                                                                                                                                                                                                                      Measures -
+                                                                                                                                                                                                                      Security
+ MemberOf        ViewView - a subset of CWE entries that provides a way of examining CWE content. The two main view structures are Slices (flat lists) and Graphs (containing relationships between entries). 1337    Weaknesses in
+                                                                                                                                                                                                                      the 2021 CWE
+                                                                                                                                                                                                                      Top 25 Most
+                                                                                                                                                                                                                      Dangerous
+                                                                                                                                                                                                                      Software
+                                                                                                                                                                                                                      Weaknesses
+ MemberOf        ViewView - a subset of CWE entries that provides a way of examining CWE content. The two main view structures are Slices (flat lists) and Graphs (containing relationships between entries). 1340    CISQ Data
+                                                                                                                                                                                                                      Protection
+                                                                                                                                                                                                                      Measures
+ MemberOf        ViewView - a subset of CWE entries that provides a way of examining CWE content. The two main view structures are Slices (flat lists) and Graphs (containing relationships between entries). 1350    Weaknesses in
+                                                                                                                                                                                                                      the 2020 CWE
+                                                                                                                                                                                                                      Top 25 Most
+                                                                                                                                                                                                                      Dangerous
+                                                                                                                                                                                                                      Software
+                                                                                                                                                                                                                      Weaknesses
+ MemberOf        ViewView - a subset of CWE entries that provides a way of examining CWE content. The two main view structures are Slices (flat lists) and Graphs (containing relationships between entries). 1387    Weaknesses in
+                                                                                                                                                                                                                      the 2022 CWE
+                                                                                                                                                                                                                      Top 25 Most
+                                                                                                                                                                                                                      Dangerous
+                                                                                                                                                                                                                      Software
+                                                                                                                                                                                                                      Weaknesses
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            1399    Comprehensive
+                                                                                                                                                                                                                      Categorization:
+                                                                                                                                                                                                                      Memory Safety
+ MemberOf        ViewView - a subset of CWE entries that provides a way of examining CWE content. The two main view structures are Slices (flat lists) and Graphs (containing relationships between entries). 1425    Weaknesses in
+                                                                                                                                                                                                                      the 2023 CWE
+                                                                                                                                                                                                                      Top 25 Most
+                                                                                                                                                                                                                      Dangerous
+                                                                                                                                                                                                                      Software
+                                                                                                                                                                                                                      Weaknesses
+ + Vulnerability Mapping Notes
+ Usage: DISCOURAGED
+
+ (this CWE ID should not be used to map to real-world vulnerabilities)
+ Reason: Frequent Misuse
+
+ Rationale:
+
+ CWE-119 is commonly misused in low-information vulnerability reports when lower-level CWEs could be used instead, or when more details about the vulnerability are available.
+ Comments:
+
+ Look at CWE-119's children and consider mapping to CWEs such as CWE-787: Out-of-bounds Write, CWE-125: Out-of-bounds Read, or others.
+ + Notes
+ 
+ Applicable Platform
+
+ It is possible in any programming languages without memory management support to attempt an operation outside of the bounds of a memory buffer, but the consequences will vary widely depending on the
+ language, platform, and chip architecture.
+
+ + Taxonomy Mappings
+       Mapped Taxonomy Name          Node ID              Fit                                                                 Mapped Node Name
+ OWASP Top Ten 2004               A5             Exact                  Buffer Overflows
+ CERT C Secure Coding             ARR00-C                               Understand how arrays work
+ CERT C Secure Coding             ARR30-C        CWE More Abstract      Do not form or use out-of-bounds pointers or array subscripts
+ CERT C Secure Coding             ARR38-C        CWE More Abstract      Guarantee that library functions do not form invalid pointers
+ CERT C Secure Coding             ENV01-C                               Do not make assumptions about the size of an environment variable
+ CERT C Secure Coding             EXP39-C        Imprecise              Do not access a variable through a pointer of an incompatible type
+ CERT C Secure Coding             FIO37-C                               Do not assume character data has been read
+ CERT C Secure Coding             STR31-C        CWE More Abstract      Guarantee that storage for strings has sufficient space for character data and the null terminator
+ CERT C Secure Coding             STR32-C        CWE More Abstract      Do not pass a non-null-terminated character sequence to a library function that expects a string
+ WASC                             7                                     Buffer Overflow
+ Software Fault Patterns          SFP8                                  Faulty Buffer Access
+ + Related Attack Patterns
+    CAPEC-ID                                                                                     Attack Pattern Name
+ CAPEC-10        Buffer Overflow via Environment Variables
+ CAPEC-100       Overflow Buffers
+ CAPEC-123       Buffer Manipulation
+ CAPEC-14        Client-side Injection-induced Buffer Overflow
+ CAPEC-24        Filter Failure through Buffer Overflow
+ CAPEC-42        MIME Conversion
+ CAPEC-44        Overflow Binary Resource File
+ CAPEC-45        Buffer Overflow via Symbolic Links
+ CAPEC-46        Overflow Variables and Tags
+ CAPEC-47        Buffer Overflow via Parameter Expansion
+ CAPEC-8         Buffer Overflow in an API Call
+ CAPEC-9         Buffer Overflow in Local Command-Line Utilities
+ + References
+ [REF-1029] Aleph One. "Smashing The Stack For Fun And Profit". 1996-11-08. <http://phrack.org/issues/49/14.html>.
+ [REF-7] Michael Howard and David LeBlanc. "Writing Secure Code". Chapter 5, "Public Enemy #1: The Buffer Overrun" Page 127; Chapter 14, "Prevent I18N Buffer Overruns" Page 441. 2nd Edition.
+ Microsoft Press. 2002-12-04. <https://www.microsoftpressstore.com/store/writing-secure-code-9780735617223>.
+ [REF-56] Microsoft. "Using the Strsafe.h Functions". <https://learn.microsoft.com/en-us/windows/win32/menurc/strsafe-ovw?redirectedfrom=MSDN>. URL validated: 2023-04-07.
+ [REF-57] Matt Messier and John Viega. "Safe C String Library v1.0.3". <http://www.gnu-darwin.org/www001/ports-1.5a-CURRENT/devel/safestr/work/safestr-1.0.3/doc/safestr.html>. URL validated:
+ 2023-04-07.
+ [REF-58] Michael Howard. "Address Space Layout Randomization in Windows Vista". <https://learn.microsoft.com/en-us/archive/blogs/michael_howard/address-space-layout-randomization-in-windows-vista
+ >. URL validated: 2023-04-07.
+ [REF-59] Arjan van de Ven. "Limiting buffer overflows with ExecShield". <https://archive.is/saAFo>. URL validated: 2023-04-07.
+ [REF-60] "PaX". <https://en.wikipedia.org/wiki/Executable_space_protection#PaX>. URL validated: 2023-04-07.
+ [REF-61] Microsoft. "Understanding DEP as a mitigation technology part 1". <https://msrc.microsoft.com/blog/2009/06/understanding-dep-as-a-mitigation-technology-part-1/>. URL validated:
+ 2023-04-07.
+ [REF-62] Mark Dowd, John McDonald and Justin Schuh. "The Art of Software Security Assessment". Chapter 5, "Memory Corruption", Page 167. 1st Edition. Addison Wesley. 2006.
+ [REF-64] Grant Murphy. "Position Independent Executables (PIE)". Red Hat. 2012-11-28. <https://www.redhat.com/en/blog/position-independent-executables-pie>. URL validated: 2023-04-07.
+ [REF-1332] John Richard Moser. "Prelink and address space randomization". 2006-07-05. <https://lwn.net/Articles/190139/>. URL validated: 2023-04-26.
+ [REF-1333] Dmitry Evtyushkin, Dmitry Ponomarev, Nael Abu-Ghazaleh. "Jump Over ASLR: Attacking Branch Predictors to Bypass ASLR". 2016. <http://www.cs.ucr.edu/~nael/pubs/micro16.pdf>. URL
+ validated: 2023-04-26.
+ [REF-1334] D3FEND. "Stack Frame Canary Validation (D3-SFCV)". 2023. <https://d3fend.mitre.org/technique/d3f:StackFrameCanaryValidation/>. URL validated: 2023-04-26.
+ [REF-1335] D3FEND. "Segment Address Offset Randomization (D3-SAOR)". 2023. <https://d3fend.mitre.org/technique/d3f:SegmentAddressOffsetRandomization/>. URL validated: 2023-04-26.
+ [REF-1336] D3FEND. "Process Segment Execution Prevention (D3-PSEP)". 2023. <https://d3fend.mitre.org/technique/d3f:ProcessSegmentExecutionPrevention/>. URL validated: 2023-04-26.
+ [REF-1337] Alexander Sotirov and Mark Dowd. "Bypassing Browser Memory Protections: Setting back browser security by 10 years". Memory information leaks. 2008. <https://www.blackhat.com/
+ presentations/bh-usa-08/Sotirov_Dowd/bh08-sotirov-dowd.pdf>. URL validated: 2023-04-26.
+ + Content History
+                                                                                           + Submissions
+       Submission Date                                                  Submitter                                                                         Organization
+ 2006-07-19                  PLOVER
+ (CWE Draft 3, 2006-07-19)
+
+                                                                                          + Modifications
+      Modification Date                                                 Modifier                                                                          Organization
+ 2008-07-01                  Eric Dalci                                                                                      Cigital
+                             updated Time_of_Introduction
+ 2008-08-15                                                                                                                  Veracode
+                             Suggested OWASP Top Ten 2004 mapping
+ 2008-09-08                  CWE Content Team                                                                                MITRE
+                             updated Description, Relationships, Taxonomy_Mappings
+ 2008-10-14                  CWE Content Team                                                                                MITRE
+                             updated Relationships
+ 2008-11-24                  CWE Content Team                                                                                MITRE
+                             updated Relationships, Taxonomy_Mappings
+ 2009-01-12                  CWE Content Team                                                                                MITRE
+                             updated Applicable_Platforms, Common_Consequences, Demonstrative_Examples, Likelihood_of_Exploit, Name, Potential_Mitigations, References, Relationships
+ 2009-03-10                  CWE Content Team                                                                                MITRE
+                             updated Potential_Mitigations
+ 2009-05-27                  CWE Content Team                                                                                MITRE
+                             updated Demonstrative_Examples
+ 2009-07-27                  CWE Content Team                                                                                MITRE
+                             updated Observed_Examples
+ 2009-10-29                  CWE Content Team                                                                                MITRE
+                             updated Applicable_Platforms, Common_Consequences, Demonstrative_Examples, Description, Relationships, Time_of_Introduction
+ 2009-12-28                  CWE Content Team                                                                                MITRE
+                             updated Common_Consequences, Demonstrative_Examples, Detection_Factors, Observed_Examples
+ 2010-02-16                  CWE Content Team                                                                                MITRE
+                             updated Alternate_Terms, Applicable_Platforms, Demonstrative_Examples, Detection_Factors, Potential_Mitigations, References, Relationships, Taxonomy_Mappings
+ 2010-06-21                  CWE Content Team                                                                                MITRE
+                             updated Potential_Mitigations
+ 2010-09-27                  CWE Content Team                                                                                MITRE
+                             updated Potential_Mitigations, Relationships
+ 2010-12-13                  CWE Content Team                                                                                MITRE
+                             updated Name
+ 2011-03-29                  CWE Content Team                                                                                MITRE
+                             updated Relationships
+ 2011-06-01                  CWE Content Team                                                                                MITRE
+                             updated Common_Consequences, Relationships
+ 2011-09-13                  CWE Content Team                                                                                MITRE
+                             updated Relationships, Taxonomy_Mappings
+ 2012-05-11                  CWE Content Team                                                                                MITRE
+                             updated Demonstrative_Examples, Potential_Mitigations, References, Relationships
+ 2012-10-30                  CWE Content Team                                                                                MITRE
+                             updated Potential_Mitigations
+ 2013-02-21                  CWE Content Team                                                                                MITRE
+                             updated Demonstrative_Examples
+ 2014-02-18                  CWE Content Team                                                                                MITRE
+                             updated Potential_Mitigations, References
+ 2014-07-30                  CWE Content Team                                                                                MITRE
+                             updated Detection_Factors, Relationships, Taxonomy_Mappings
+ 2015-12-07                  CWE Content Team                                                                                MITRE
+                             updated Relationships
+ 2017-01-19                  CWE Content Team                                                                                MITRE
+                             updated Relationships
+ 2017-05-03                  CWE Content Team                                                                                MITRE
+                             updated Relationships
+ 2017-11-08                  CWE Content Team                                                                                MITRE
+                             updated Applicable_Platforms, Common_Consequences, Demonstrative_Examples, Observed_Examples, References, Relationships, Taxonomy_Mappings
+ 2018-03-27                  CWE Content Team                                                                                MITRE
+                             updated References
+ 2019-01-03                  CWE Content Team                                                                                MITRE
+                             updated Relationships
+ 2019-06-20                  CWE Content Team                                                                                MITRE
+                             updated Related_Attack_Patterns, Relationships
+ 2019-09-19                  CWE Content Team                                                                                MITRE
+                             updated References, Relationships
+ 2020-02-24                  CWE Content Team                                                                                MITRE
+                             updated Relationships, Taxonomy_Mappings, Time_of_Introduction
+ 2020-06-25                  CWE Content Team                                                                                MITRE
+                             updated Relationships
+ 2020-08-20                  CWE Content Team                                                                                MITRE
+                             updated Alternate_Terms, Relationships
+ 2020-12-10                  CWE Content Team                                                                                MITRE
+                             updated Alternate_Terms, Observed_Examples, Relationships
+ 2021-07-20                  CWE Content Team                                                                                MITRE
+                             updated Demonstrative_Examples, Observed_Examples, Potential_Mitigations, Relationships
+ 2022-06-28                  CWE Content Team                                                                                MITRE
+                             updated Observed_Examples, Relationships
+ 2022-10-13                  CWE Content Team                                                                                MITRE
+                             updated Relationships, Taxonomy_Mappings
+ 2023-01-31                  CWE Content Team                                                                                MITRE
+                             updated Alternate_Terms, Description
+ 2023-04-27                  CWE Content Team                                                                                MITRE
+                             updated Potential_Mitigations, References, Relationships, Time_of_Introduction
+ 2023-06-29                  CWE Content Team                                                                                MITRE
+                             updated Mapping_Notes, Relationships
+                                                                                       + Previous Entry Names
+         Change Date                                                                                   Previous Entry Name
+ 2008-04-11                  Buffer Errors
+ 2009-01-12                  Failure to Constrain Operations within the Bounds of an Allocated Memory Buffer
+ 2010-12-13                  Failure to Constrain Operations within the Bounds of a Memory Buffer
+ More information is available — Please edit the custom filter or select a different filter.
+Page Last Updated: February 29, 2024
+ 
+      Site Map | Terms of Use | Manage Cookies | Cookie Notice | Privacy Policy | Contact Us | CWE X-Twitter CWE Mastodon CWE on LinkedIn CWE YouTube channel CWE Out-of-Bounds-Read Podcast CWE
+      Blog on Medium blog
+
+MITRE Use of the Common Weakness Enumeration (CWE™) and the associated references from this website are subject to the Terms of Use. CWE is sponsored by the U.S. Department of Homeland         HSSEDI
+      Security (DHS) Cybersecurity and Infrastructure Security Agency (CISA) and managed by the Homeland Security Systems Engineering and Development Institute (HSSEDI) which is operated by
+      The MITRE Corporation (MITRE). Copyright © 2006–2024, The MITRE Corporation. CWE, CWSS, CWRAF, and the CWE logo are trademarks of The MITRE Corporation.
+

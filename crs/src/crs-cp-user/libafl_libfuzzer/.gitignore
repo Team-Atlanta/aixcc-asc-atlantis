@@ -1,0 +1,6 @@
+libpng-*
+*.tar.gz
+local-registry
+fuzzer_libpng
+vendor/
+.cargo

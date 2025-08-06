@@ -1,0 +1,60 @@
+if not get_option('tcg').allowed()
+   subdir_done()
+endif
+
+tcg_ss = ss.source_set()
+
+tcg_ss.add(files(
+  'optimize.c',
+  'region.c',
+  'tcg.c',
+  'tcg-common.c',
+  'tcg-op.c',
+  'tcg-op-ldst.c',
+  'tcg-op-gvec.c',
+  'tcg-op-vec.c',
+))
+
+if get_option('tcg_interpreter')
+  libffi = dependency('libffi', version: '>=3.0', required: true,
+                      method: 'pkg-config')
+  tcg_ss.add(libffi)
+  tcg_ss.add(files('tci.c'))
+endif
+
+config_target = config_target_mak[target]
+config_target += config_host
+target_inc = [include_directories('../target' / config_target['TARGET_BASE_ARCH'])]
+tcg_ss = tcg_ss.apply(config_target, strict: false)
+target_name = config_target['TCG_TESTS_TARGETS']
+
+
+libtcg_user = static_library('tcg_user',
+                             tcg_ss.sources() + genh,
+                             name_suffix: 'fa',
+                             c_args: ['-DCONFIG_USER_ONLY', 
+                                      '-DNEED_CPU_H',
+                                      '-DCONFIG_TARGET="@0@-config-target.h"'.format(target_name),
+                                      '-DCONFIG_DEVICES="@0@-config-devices.h"'.format(target_name)
+                             ],
+                             build_by_default: have_user,
+                             include_directories: target_inc)
+
+tcg_user = declare_dependency(link_with: libtcg_user,
+                              dependencies: tcg_ss.dependencies())
+user_ss.add(tcg_user)
+
+libtcg_softmmu = static_library('tcg_softmmu',
+                                tcg_ss.sources() + genh,
+                                name_suffix: 'fa',
+                                c_args: ['-DCONFIG_SOFTMMU',
+                                         '-DNEED_CPU_H',
+                                         '-DCONFIG_TARGET="@0@-config-target.h"'.format(target_name),
+                                         '-DCONFIG_DEVICES="@0@-config-devices.h"'.format(target_name)
+                                ],
+                                build_by_default: have_system,
+                                include_directories: target_inc)
+
+tcg_softmmu = declare_dependency(link_with: libtcg_softmmu,
+                                 dependencies: tcg_ss.dependencies())
+system_ss.add(tcg_softmmu)

@@ -1,0 +1,72 @@
+java_library(
+    name = "target_distance",
+    srcs = ["TargetDistance.java"],
+    visibility = ["//src/main/java/com/code_intelligence/jazzer/driver:__pkg__"],
+    deps = [
+        ":distance_map",
+        ":function_distance",
+        ":trace_distance",
+        ":util",
+        "//src/main/java/com/code_intelligence/jazzer/utils:log",
+        "//src/main/java/com/code_intelligence/jazzer/driver:opt",
+        "//src/main/java/com/code_intelligence/jazzer/instrumentor:instrumentor",
+        "//third_party:sootup",
+        "@org_ow2_asm_asm//jar",
+    ],
+)
+
+java_library(
+    name = "basic_block_distance",
+    srcs = ["BasicBlockDistance.java"],
+    visibility = ["//src/main/java/com/code_intelligence/jazzer/driver/directed:__pkg__"],
+    deps = [
+        ":function_distance",
+        "//src/main/java/com/code_intelligence/jazzer/utils:log",
+        "//third_party:sootup",
+    ],
+)
+
+java_library(
+    name = "distance_map",
+    srcs = ["DistanceMap.java"],
+    visibility = ["//src/main/java/com/code_intelligence/jazzer/driver/directed:__pkg__"],
+    deps = [
+        "//src/main/java/com/code_intelligence/jazzer/utils:log",
+        "//third_party:sootup",
+    ],
+)
+
+java_library(
+    name = "function_distance",
+    srcs = ["FunctionDistance.java"],
+    visibility = ["//src/main/java/com/code_intelligence/jazzer/driver/directed:__pkg__"],
+    deps = [
+        ":distance_map",
+        "//src/main/java/com/code_intelligence/jazzer/utils:log",
+        "//third_party:sootup",
+    ],
+)
+
+java_library(
+    name = "util",
+    srcs = ["Util.java"],
+    visibility = ["//src/main/java/com/code_intelligence/jazzer/driver/directed:__pkg__"],
+    deps = [
+        "//src/main/java/com/code_intelligence/jazzer/utils:log",
+        "//third_party:sootup",
+        "@maven//:com_google_guava_guava",
+    ],
+)
+
+java_library(
+    name = "trace_distance",
+    srcs = ["TraceDistance.java"],
+    visibility = ["//src/main/java/com/code_intelligence/jazzer/driver/directed:__pkg__"],
+    deps = [
+        ":basic_block_distance",
+        ":function_distance",
+        "//src/main/java/com/code_intelligence/jazzer/utils:log",
+        "//third_party:sootup",
+    ],
+)
+

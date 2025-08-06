@@ -1,0 +1,11 @@
+beautifulsoup4==4.12.3
+bs4==0.0.2
+certifi==2024.2.2
+charset-normalizer==3.3.2
+idna==3.7
+PyYAML==6.0.1
+requests==2.32.0
+soupsieve==2.5
+toml==0.10.2
+unidiff==0.7.5
+urllib3==2.2.1

@@ -1,0 +1,276 @@
+CWE
+
+Common Weakness Enumeration
+
+A community-developed list of SW & HW weaknesses that can become vulnerabilities
+
+New to CWE? click here!
+CWE Most Important Hardware Weaknesses
+CWE Top 25 Most Dangerous Weaknesses
+Home > CWE List > CWE- Individual Dictionary Definition (4.14)                                                                                                   ID Lookup: [                    ] [Go]
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  • Home
+  • About ▼
+    About New to CWE User Stories History Documents FAQs Glossary Compatibility
+  • CWE List ▼
+    Latest Version Downloads Reports Visualizations Archive
+  • Mapping ▼
+    Root Cause Mapping Guidance Root Cause Mapping Quick Tips Root Cause Mapping Examples
+  • Top-N Lists ▼
+    Top 25 Software Top Hardware Top 10 KEV Weaknesses
+  • Community ▼
+    Community Working Groups & Special Interest Groups Board Board Meeting Minutes CWE Discussion List CWE Discussion Archives Contribute Weakness Content to CWE
+  • News ▼
+    Current News X-Twitter ● Mastodon ● LinkedIn ● YouTube YouTube Podcast Out of Bounds Read Podcast Medium Medium News Archive
+  • Search
+
+ 
+ CWE Glossary Definition                  x
+ 
+ 
+ CWE-838: Inappropriate Encoding for Output Context
+ 
+ Weakness ID: 838
+ Vulnerability Mapping: ALLOWEDThis CWE ID may be used to map to real-world vulnerabilities
+ Abstraction: BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level
+ weaknesses typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.
+ View customized information:
+ Conceptual For users who are interested in more notional aspects of a weakness. Example: educators, technical writers, and project/program managers. Operational For users who are concerned with the
+ practical application and details about the nature of a weakness and how to prevent it from happening. Example: tool developers, security researchers, pen-testers, incident response analysts. Mapping
+ Friendly For users who are mapping an issue to CWE/CAPEC IDs, i.e., finding the most appropriate CWE for a specific issue (e.g., a CVE record). Example: tool developers, security researchers. 
+ Complete For users who wish to see all available information for the CWE/CAPEC entry. Custom For users who want to customize what details are displayed.
+ ×
+
+ Edit Custom Filter
+
+ Conceptual Operational Mapping Friendly Select All
+ 
+ Reset Clear Submit Cancel
+ + Description
+ The product uses or specifies an encoding when generating output to a downstream component, but the specified encoding is not the same as the encoding that is expected by the downstream component.
+ + Extended Description
+ 
+ This weakness can cause the downstream component to use a decoding method that produces different data than what the product intended to send. When the wrong encoding is used - even if closely
+ related - the downstream component could decode the data incorrectly. This can have security consequences when the provided boundaries between control and data are inadvertently broken, because the
+ resulting data could introduce control characters or special elements that were not sent by the product. The resulting data could then be used to bypass protection mechanisms such as input
+ validation, and enable injection attacks.
+
+ While using output encoding is essential for ensuring that communications between components are accurate, the use of the wrong encoding - even if closely related - could cause the downstream
+ component to misinterpret the output.
+
+ For example, HTML entity encoding is used for elements in the HTML body of a web page. However, a programmer might use entity encoding when generating output for that is used within an attribute of
+ an HTML tag, which could contain functional Javascript that is not affected by the HTML encoding.
+
+ While web applications have received the most attention for this problem, this weakness could potentially apply to any type of product that uses a communications stream that could support multiple
+ encodings.
+
+ + Relationships
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Research Concepts" (CWE-1000)
+     Nature                                                                                                                                                                             Type                                                                                                                                                                           ID      Name
+ ChildOf                                                                               ClassClass - a weakness that is described in a very abstract fashion, typically independent of any specific language or technology. More specific than a Pillar Weakness, but more general than a Base                                                                        116     Improper
+                                                                                                                    Weakness. Class level weaknesses typically describe issues in terms of 1 or 2 of the following dimensions: behavior, property, and resource.                                                                                                             Encoding
+                                                                                                                                                                                                                                                                                                                                                                             or
+                                                                                                                                                                                                                                                                                                                                                                             Escaping
+                                                                                                                                                                                                                                                                                                                                                                             of
+                                                                                                                                                                                                                                                                                                                                                                             Output
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Software Development" (CWE-699)
+     Nature                                                       Type                                                     ID                                   Name
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 137     Data Neutralization Issues
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Weaknesses for Simplified Mapping of Published Vulnerabilities" (CWE-1003)
+     Nature                                                                                                                                                                             Type                                                                                                                                                                           ID      Name
+ ChildOf                                                                               ClassClass - a weakness that is described in a very abstract fashion, typically independent of any specific language or technology. More specific than a Pillar Weakness, but more general than a Base                                                                        116     Improper
+                                                                                                                    Weakness. Class level weaknesses typically describe issues in terms of 1 or 2 of the following dimensions: behavior, property, and resource.                                                                                                             Encoding
+                                                                                                                                                                                                                                                                                                                                                                             or
+                                                                                                                                                                                                                                                                                                                                                                             Escaping
+                                                                                                                                                                                                                                                                                                                                                                             of
+                                                                                                                                                                                                                                                                                                                                                                             Output
+ + Applicable Platforms
+ Section HelpThis listing shows possible areas for which the given weakness could appear. These may be for specific named Languages, Operating Systems, Architectures, Paradigms, Technologies, or a
+ class of such platforms. The platform is listed along with how frequently the given weakness appears for that instance.
+
+ Languages
+
+ Class: Not Language-Specific (Undetermined Prevalence)
+
+ + Common Consequences
+ Section HelpThis table specifies different individual consequences associated with the weakness. The Scope identifies the application security area that is violated, while the Impact describes the
+ negative technical impact that arises if an adversary succeeds in exploiting this weakness. The Likelihood provides information about how likely the specific consequence is expected to be seen
+ relative to the other consequences in the list. For example, there may be high likelihood that a weakness will be exploited to achieve a certain impact, but a low likelihood that it will be exploited
+ to achieve a different impact.
+       Scope                                                                                     Impact                                                                                 Likelihood
+ Integrity          Technical Impact: Modify Application Data; Execute Unauthorized Code or Commands
+ Confidentiality
+ Availability       An attacker could modify the structure of the message or data being sent to the downstream component, possibly injecting commands.
+ + Demonstrative Examples
+ 
+ Example 1
+
+ This code dynamically builds an HTML page using POST data:
+
+ (bad code)
+ Example Language: PHP 
+ $username = $_POST['username'];
+ $picSource = $_POST['picsource'];
+ $picAltText = $_POST['picalttext'];
+ ...
+
+ echo "<title>Welcome, " . htmlentities($username) ."</title>";
+ echo "<img src='". htmlentities($picSource) ." ' alt='". htmlentities($picAltText) . '" />';
+ ...
+
+ The programmer attempts to avoid XSS exploits (CWE-79) by encoding the POST values so they will not be interpreted as valid HTML. However, the htmlentities() encoding is not appropriate when the data
+ are used as HTML attributes, allowing more attributes to be injected.
+
+ For example, an attacker can set picAltText to:
+
+ (attack code)
+  
+ "altTextHere' onload='alert(document.cookie)"
+
+ This will result in the generated HTML image tag:
+
+ (result)
+ Example Language: HTML 
+ <img src='pic.jpg' alt='altTextHere' onload='alert(document.cookie)' />
+
+ The attacker can inject arbitrary javascript into the tag due to this incorrect encoding.
+
+ + Observed Examples
+        Reference                                                                                        Description
+ CVE-2009-2814           Server does not properly handle requests that do not contain UTF-8 data; browser assumes UTF-8, allowing XSS.
+ + Potential Mitigations
+ Phase: Implementation
+
+ Strategy: Output Encoding
+
+ Use context-aware encoding. That is, understand which encoding is being used by the downstream component, and ensure that this encoding is used. If an encoding can be specified, do so, instead of
+ assuming that the default encoding is the same as the default being assumed by the downstream component.
+ Phase: Architecture and Design
+
+ Strategy: Output Encoding
+
+ Where possible, use communications protocols or data formats that provide strict boundaries between control and data. If this is not feasible, ensure that the protocols or formats allow the
+ communicating components to explicitly state which encoding/decoding method is being used. Some template frameworks provide built-in support.
+ Phase: Architecture and Design
+
+ Strategy: Libraries or Frameworks
+
+ Use a vetted library or framework that does not allow this weakness to occur or provides constructs that make this weakness easier to avoid.
+
+ For example, consider using the ESAPI Encoding control [REF-45] or a similar tool, library, or framework. These will help the programmer encode outputs in a manner less prone to error.
+
+ Note that some template mechanisms provide built-in support for the appropriate encoding.
+
+ + Detection Methods
+ Automated Static Analysis
+
+ Automated static analysis, commonly referred to as Static Application Security Testing (SAST), can find some instances of this weakness by analyzing source code (or binary/compiled code) without
+ having to execute it. Typically, this is done by building a model of data flow and control flow, then searching for potentially-vulnerable patterns that connect "sources" (origins of input) with
+ "sinks" (destinations where the data interacts with external components, a lower layer such as the OS, etc.)
+
+ Effectiveness: High
+
+ + Memberships
+ Section HelpThis MemberOf Relationships table shows additional CWE Categories and Views that reference this weakness as a member. This information is often useful in understanding where a weakness
+ fits within the context of external information sources.
+     Nature                                                                                                  Type                                                                                               ID         Name
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            845     The CERT Oracle
+                                                                                                                                                                                                                      Secure Coding
+                                                                                                                                                                                                                      Standard for
+                                                                                                                                                                                                                      Java (2011)
+                                                                                                                                                                                                                      Chapter 2 -
+                                                                                                                                                                                                                      Input
+                                                                                                                                                                                                                      Validation and
+                                                                                                                                                                                                                      Data
+                                                                                                                                                                                                                      Sanitization
+                                                                                                                                                                                                                      (IDS)
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            867     2011 Top 25 -
+                                                                                                                                                                                                                      Weaknesses On
+                                                                                                                                                                                                                      the Cusp
+ MemberOf        ViewView - a subset of CWE entries that provides a way of examining CWE content. The two main view structures are Slices (flat lists) and Graphs (containing relationships between entries). 884     CWE
+                                                                                                                                                                                                                      Cross-section
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            1138    SEI CERT Oracle
+                                                                                                                                                                                                                      Secure Coding
+                                                                                                                                                                                                                      Standard for
+                                                                                                                                                                                                                      Java -
+                                                                                                                                                                                                                      Guidelines 04.
+                                                                                                                                                                                                                      Characters and
+                                                                                                                                                                                                                      Strings (STR)
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            1407    Comprehensive
+                                                                                                                                                                                                                      Categorization:
+                                                                                                                                                                                                                      Improper
+                                                                                                                                                                                                                      Neutralization
+ + Vulnerability Mapping Notes
+ Usage: ALLOWED
+
+ (this CWE ID could be used to map to real-world vulnerabilities)
+ Reason: Acceptable-Use
+
+ Rationale:
+
+ This CWE entry is at the Base level of abstraction, which is a preferred level of abstraction for mapping to the root causes of vulnerabilities.
+ Comments:
+
+ Carefully read both the name and description to ensure that this mapping is an appropriate fit. Do not try to 'force' a mapping to a lower-level Base/Variant simply to comply with this preferred
+ level of abstraction.
+ + Taxonomy Mappings
+       Mapped Taxonomy Name          Node ID         Fit                                                                Mapped Node Name
+ The CERT Oracle Secure Coding    IDS13-J                    Use compatible encodings on both sides of file or network IO
+ Standard for Java (2011)
+ + Related Attack Patterns
+    CAPEC-ID                                                                                     Attack Pattern Name
+ CAPEC-468       Generic Cross-Browser Cross-Domain Theft
+ + References
+ [REF-786] Jim Manico. "Injection-safe templating languages". 2010-06-30. <https://manicode.blogspot.com/2010/06/injection-safe-templating-languages_30.html>. URL validated: 2023-04-07.
+ [REF-787] Dinis Cruz. "Can we please stop saying that XSS is boring and easy to fix!". 2010-09-25. <http://diniscruz.blogspot.com/2010/09/can-we-please-stop-saying-that-xss-is.html>.
+ [REF-788] Ivan Ristic. "Canoe: XSS prevention via context-aware output encoding". 2010-09-24. <https://blog.ivanristic.com/2010/09/
+ introducing-canoe-context-aware-output-encoding-for-xss-prevention.html>. URL validated: 2023-04-07.
+ [REF-789] Jim Manico. "What is the Future of Automated XSS Defense Tools?". 2011-03-08. <http://software-security.sans.org/downloads/appsec-2011-files/manico-appsec-future-tools.pdf>.
+ [REF-709] Jeremiah Grossman, Robert "RSnake" Hansen, Petko "pdp" D. Petkov, Anton Rager and Seth Fogie. "XSS Attacks". Preventing XSS Attacks. Syngress. 2007.
+ [REF-725] OWASP. "DOM based XSS Prevention Cheat Sheet". <http://www.owasp.org/index.php/DOM_based_XSS_Prevention_Cheat_Sheet>.
+ [REF-45] OWASP. "OWASP Enterprise Security API (ESAPI) Project". <http://www.owasp.org/index.php/ESAPI>.
+ + Content History
+                                                                                            + Submissions
+               Submission Date                                                      Submitter                                                                 Organization
+ 2011-03-24                                   CWE Content Team                                                                       MITRE
+ (CWE 1.12, 2011-03-30)
+
+                                                                                           + Modifications
+              Modification Date                                                      Modifier                                                                 Organization
+ 2011-06-01                                   CWE Content Team                                                                       MITRE
+                                              updated Common_Consequences, Relationships, Taxonomy_Mappings
+ 2011-06-27                                   CWE Content Team                                                                       MITRE
+                                              updated Demonstrative_Examples, Related_Attack_Patterns, Relationships
+ 2012-05-11                                   CWE Content Team                                                                       MITRE
+                                              updated Potential_Mitigations, References, Relationships, Taxonomy_Mappings
+ 2017-11-08                                   CWE Content Team                                                                       MITRE
+                                              updated References, Taxonomy_Mappings
+ 2019-01-03                                   CWE Content Team                                                                       MITRE
+                                              updated Relationships, Taxonomy_Mappings
+ 2019-06-20                                   CWE Content Team                                                                       MITRE
+                                              updated Relationships
+ 2020-02-24                                   CWE Content Team                                                                       MITRE
+                                              updated Relationships
+ 2023-01-31                                   CWE Content Team                                                                       MITRE
+                                              updated Description
+ 2023-04-27                                   CWE Content Team                                                                       MITRE
+                                              updated Detection_Factors, References, Relationships
+ 2023-06-29                                   CWE Content Team                                                                       MITRE
+                                              updated Mapping_Notes
+ More information is available — Please edit the custom filter or select a different filter.
+Page Last Updated: February 29, 2024
+ 
+      Site Map | Terms of Use | Manage Cookies | Cookie Notice | Privacy Policy | Contact Us | CWE X-Twitter CWE Mastodon CWE on LinkedIn CWE YouTube channel CWE Out-of-Bounds-Read Podcast CWE
+      Blog on Medium blog
+
+MITRE Use of the Common Weakness Enumeration (CWE™) and the associated references from this website are subject to the Terms of Use. CWE is sponsored by the U.S. Department of Homeland         HSSEDI
+      Security (DHS) Cybersecurity and Infrastructure Security Agency (CISA) and managed by the Homeland Security Systems Engineering and Development Institute (HSSEDI) which is operated by
+      The MITRE Corporation (MITRE). Copyright © 2006–2024, The MITRE Corporation. CWE, CWSS, CWRAF, and the CWE logo are trademarks of The MITRE Corporation.
+

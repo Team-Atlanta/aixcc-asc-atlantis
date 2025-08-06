@@ -1,0 +1,401 @@
+CWE
+
+Common Weakness Enumeration
+
+A community-developed list of SW & HW weaknesses that can become vulnerabilities
+
+New to CWE? click here!
+CWE Most Important Hardware Weaknesses
+CWE Top 25 Most Dangerous Weaknesses
+Home > CWE List > CWE- Individual Dictionary Definition (4.14)                                                                                                   ID Lookup: [                    ] [Go]
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  • Home
+  • About ▼
+    About New to CWE User Stories History Documents FAQs Glossary Compatibility
+  • CWE List ▼
+    Latest Version Downloads Reports Visualizations Archive
+  • Mapping ▼
+    Root Cause Mapping Guidance Root Cause Mapping Quick Tips Root Cause Mapping Examples
+  • Top-N Lists ▼
+    Top 25 Software Top Hardware Top 10 KEV Weaknesses
+  • Community ▼
+    Community Working Groups & Special Interest Groups Board Board Meeting Minutes CWE Discussion List CWE Discussion Archives Contribute Weakness Content to CWE
+  • News ▼
+    Current News X-Twitter ● Mastodon ● LinkedIn ● YouTube YouTube Podcast Out of Bounds Read Podcast Medium Medium News Archive
+  • Search
+
+ 
+ CWE Glossary Definition                  x
+ 
+ 
+ CWE-444: Inconsistent Interpretation of HTTP Requests ('HTTP Request/Response Smuggling')
+ 
+ Weakness ID: 444
+ Vulnerability Mapping: ALLOWEDThis CWE ID may be used to map to real-world vulnerabilities
+ Abstraction: BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level
+ weaknesses typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.
+ View customized information:
+ Conceptual For users who are interested in more notional aspects of a weakness. Example: educators, technical writers, and project/program managers. Operational For users who are concerned with the
+ practical application and details about the nature of a weakness and how to prevent it from happening. Example: tool developers, security researchers, pen-testers, incident response analysts. Mapping
+ Friendly For users who are mapping an issue to CWE/CAPEC IDs, i.e., finding the most appropriate CWE for a specific issue (e.g., a CVE record). Example: tool developers, security researchers. 
+ Complete For users who wish to see all available information for the CWE/CAPEC entry. Custom For users who want to customize what details are displayed.
+ ×
+
+ Edit Custom Filter
+
+ Conceptual Operational Mapping Friendly Select All
+ 
+ Reset Clear Submit Cancel
+ + Description
+ The product acts as an intermediary HTTP agent (such as a proxy or firewall) in the data flow between two entities such as a client and server, but it does not interpret malformed HTTP requests or
+ responses in ways that are consistent with how the messages will be processed by those entities that are at the ultimate destination.
+ + Extended Description
+ 
+ HTTP requests or responses ("messages") can be malformed or unexpected in ways that cause web servers or clients to interpret the messages in different ways than intermediary HTTP agents such as load
+ balancers, reverse proxies, web caching proxies, application firewalls, etc. For example, an adversary may be able to add duplicate or different header fields that a client or server might interpret
+ as one set of messages, whereas the intermediary might interpret the same sequence of bytes as a different set of messages. For example, discrepancies can arise in how to handle duplicate headers
+ like two Transfer-encoding (TE) or two Content-length (CL), or the malicious HTTP message will have different headers for TE and CL.
+
+ The inconsistent parsing and interpretation of messages can allow the adversary to "smuggle" a message to the client/server without the intermediary being aware of it.
+
+ This weakness is usually the result of the usage of outdated or incompatible HTTP protocol versions in the HTTP agents.
+
+ + Alternate Terms
+ HTTP Request Smuggling
+ HTTP Response Smuggling
+     HTTP Smuggling
+ + Relationships
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Research Concepts" (CWE-1000)
+     Nature                                                                                                                                                                             Type                                                                                                                                                                           ID         Name
+ ChildOf                                                                               ClassClass - a weakness that is described in a very abstract fashion, typically independent of any specific language or technology. More specific than a Pillar Weakness, but more general than a Base                                                                        436     Interpretation
+                                                                                                                    Weakness. Class level weaknesses typically describe issues in terms of 1 or 2 of the following dimensions: behavior, property, and resource.                                                                                                             Conflict
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Software Development" (CWE-699)
+     Nature                                                       Type                                                     ID                                   Name
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 438     Behavioral Problems
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Weaknesses for Simplified Mapping of Published Vulnerabilities" (CWE-1003)
+     Nature                                                                                                                                                                             Type                                                                                                                                                                           ID         Name
+ ChildOf                                                                               ClassClass - a weakness that is described in a very abstract fashion, typically independent of any specific language or technology. More specific than a Pillar Weakness, but more general than a Base                                                                        436     Interpretation
+                                                                                                                    Weakness. Class level weaknesses typically describe issues in terms of 1 or 2 of the following dimensions: behavior, property, and resource.                                                                                                             Conflict
+ + Modes Of Introduction
+ Section HelpThe different Modes of Introduction provide information about how and when this weakness may be introduced. The Phase identifies a point in the life cycle at which introduction may occur,
+ while the Note provides a typical scenario related to introduction during the given phase.
+     Phase                                                                                              Note
+ Implementation
+ + Applicable Platforms
+ Section HelpThis listing shows possible areas for which the given weakness could appear. These may be for specific named Languages, Operating Systems, Architectures, Paradigms, Technologies, or a
+ class of such platforms. The platform is listed along with how frequently the given weakness appears for that instance.
+
+ Languages
+
+ Class: Not Language-Specific (Undetermined Prevalence)
+
+ Technologies
+
+ Class: Web Based (Undetermined Prevalence)
+
+ + Common Consequences
+ Section HelpThis table specifies different individual consequences associated with the weakness. The Scope identifies the application security area that is violated, while the Impact describes the
+ negative technical impact that arises if an adversary succeeds in exploiting this weakness. The Likelihood provides information about how likely the specific consequence is expected to be seen
+ relative to the other consequences in the list. For example, there may be high likelihood that a weakness will be exploited to achieve a certain impact, but a low likelihood that it will be exploited
+ to achieve a different impact.
+       Scope                                                                                     Impact                                                                                 Likelihood
+                    Technical Impact: Unexpected State; Hide Activities; Bypass Protection Mechanism
+ Integrity
+ Non-Repudiation    An attacker could create HTTP messages to exploit a number of weaknesses including 1) the message can trick the web server to associate a URL with another URL's
+ Access Control     webpage and caching the contents of the webpage (web cache poisoning attack), 2) the message can be structured to bypass the firewall protection mechanisms and
+                    gain unauthorized access to a web application, and 3) the message can invoke a script or a page that returns client credentials (similar to a Cross Site
+                    Scripting attack).
+ + Demonstrative Examples
+ 
+ Example 1
+
+ In the following example, a malformed HTTP request is sent to a website that includes a proxy server and a web server with the intent of poisoning the cache to associate one webpage with another
+ malicious webpage.
+
+ (attack code)
+  
+ POST http://www.website.com/foobar.html HTTP/1.1
+ Host: www.website.com
+ Connection: Keep-Alive
+ Content-Type: application/x-www-form-urlencoded
+ Content-Length: 0
+ Content-Length: 54
+
+ GET /poison.html HTTP/1.1
+ Host: www.website.com
+ Bla: GET http://www.website.com/page_to_poison.html HTTP/1.1
+ Host: www.website.com
+ Connection: Keep-Alive
+
+ When this request is sent to the proxy server, the proxy server parses the first four lines of the POST request and encounters the two "Content-Length" headers. The proxy server ignores the first
+ header, so it assumes the request has a body of length 54 bytes. Therefore, it treats the data in the next three lines that contain exactly 54 bytes as the first request's body:
+
+ (result)
+  
+ GET /poison.html HTTP/1.1
+ Host: www.website.com
+ Bla:
+
+ The proxy then parses the remaining bytes, which it treats as the client's second request:
+
+ (attack code)
+  
+ GET http://www.website.com/page_to_poison.html HTTP/1.1
+ Host: www.website.com
+ Connection: Keep-Alive
+
+ The original request is forwarded by the proxy server to the web server. Unlike the proxy, the web server uses the first "Content-Length" header and considers that the first POST request has no body.
+
+ (attack code)
+  
+ POST http://www.website.com/foobar.html HTTP/1.1
+ Host: www.website.com
+ Connection: Keep-Alive
+ Content-Type: application/x-www-form-urlencoded
+ Content-Length: 0
+ Content-Length: 54 (ignored by server)
+
+ Because the web server has assumed the original POST request was length 0, it parses the second request that follows, i.e. for GET /poison.html:
+
+ (attack code)
+  
+ GET /poison.html HTTP/1.1
+ Host: www.website.com
+ Bla: GET http://www.website.com/page_to_poison.html HTTP/1.1
+ Host: www.website.com
+ Connection: Keep-Alive
+
+ Note that the "Bla:" header is treated as a regular header, so it is not parsed as a separate GET request.
+
+ The requests the web server sees are "POST /foobar.html" and "GET /poison.html", so it sends back two responses with the contents of the "foobar.html" page and the "poison.html" page, respectively.
+ The proxy matches these responses to the two requests it thinks were sent by the client - "POST /foobar.html" and "GET /page_to_poison.html". If the response is cacheable, the proxy caches the
+ contents of "poison.html" under the URL "page_to_poison.html", and the cache is poisoned! Any client requesting "page_to_poison.html" from the proxy would receive the "poison.html" page.
+
+ When a website includes both a proxy server and a web server, some protection against this type of attack can be achieved by installing a web application firewall, or using a web server that includes
+ a stricter HTTP parsing procedure or make all webpages non-cacheable.
+
+ Additionally, if a web application includes a Java servlet for processing requests, the servlet can check for multiple "Content-Length" headers and if they are found the servlet can return an error
+ response thereby preventing the poison page to be cached, as shown below.
+
+ (good code)
+ Example Language: Java 
+ protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+ // Set up response writer object
+ ...
+ try {
+ // check for multiple content length headers
+ Enumeration contentLengthHeaders = request.getHeaders("Content-Length");
+ int count = 0;
+ while (contentLengthHeaders.hasMoreElements()) {
+ count++;
+ }
+ if (count > 1) {
+ // output error response
+ }
+ else {
+ // process request
+ }
+ } catch (Exception ex) {...}
+ }
+
+ Example 2
+
+ In the following example, a malformed HTTP request is sent to a website that includes a web server with a firewall with the intent of bypassing the web server firewall to smuggle malicious code into
+ the system.
+
+ (attack code)
+  
+ POST /page.asp HTTP/1.1
+ Host: www.website.com
+ Connection: Keep-Alive
+ Content-Length: 49223
+
+ zzz...zzz ["z" x 49152]
+ POST /page.asp HTTP/1.0
+ Connection: Keep-Alive
+ Content-Length: 30
+
+ POST /page.asp HTTP/1.0
+ Bla: POST /page.asp?cmd.exe HTTP/1.0
+ Connection: Keep-Alive
+
+ When this request is sent to the web server, the first POST request has a content-length of 49,223 bytes, and the firewall treats the line with 49,152 copies of "z" and the lines with an additional
+ lines with 71 bytes as its body (49,152+71=49,223). The firewall then continues to parse what it thinks is the second request starting with the line with the third POST request.
+
+ Note that there is no CRLF after the "Bla: " header so the POST in the line is parsed as the value of the "Bla:" header. Although the line contains the pattern identified with a worm ("cmd.exe"), it
+ is not blocked, since it is considered part of a header value. Therefore, "cmd.exe" is smuggled through the firewall.
+
+ When the request is passed through the firewall the web server the first request is ignored because the web server does not find an expected "Content-Type: application/x-www-form-urlencoded" header,
+ and starts parsing the second request.
+
+ This second request has a content-length of 30 bytes, which is exactly the length of the next two lines up to the space after the "Bla:" header. And unlike the firewall, the web server processes the
+ final POST as a separate third request and the "cmd.exe" worm is smuggled through the firewall to the web server.
+
+ To avoid this attack a Web server firewall product must be used that is designed to prevent this type of attack.
+
+ Example 3
+
+ The interpretation of HTTP responses can be manipulated if response headers include a space between the header name and colon, or if HTTP 1.1 headers are sent through a proxy configured for HTTP 1.0,
+ allowing for HTTP response smuggling. This can be exploited in web browsers and other applications when used in combination with various proxy servers. For instance, the HTTP response interpreted by
+ the front-end/client HTTP agent/entity - in this case the web browser - can interpret a single response from an adversary-compromised web server as being two responses from two different web sites.
+ In the Example below, notice the extra space after the Content-Length and Set-Cookie headers.
+
+ (attack code)
+  
+ HTTP/1.1 200 OK
+ Date: Fri, 08 Aug 2016 08:12:31 GMT
+ Server: Apache (Unix)
+ Connection: Keep-Alive
+ Content-Encoding: gzip
+ Content-Type: text/html
+ Content-Length : 2345
+ Transfer-Encoding: chunked
+ Set-Cookie : token="Malicious Code"
+
+ <HTML> ... "Malicious Code"
+ + Observed Examples
+        Reference                                                                                        Description
+ CVE-2022-24766          SSL/TLS-capable proxy allows HTTP smuggling when used in tandem with HTTP/1.0 services, due to inconsistent interpretation and input sanitization of HTTP messages within
+                         the body of another message
+ CVE-2021-37147          Chain: caching proxy server has improper input validation (CWE-20) of headers, allowing HTTP response smuggling (CWE-444) using an "LF line ending"
+ CVE-2020-8287           Node.js platform allows request smuggling via two Transfer-Encoding headers
+ CVE-2006-6276           Web servers allow request smuggling via inconsistent HTTP headers.
+ CVE-2005-2088           HTTP server allows request smuggling with both a "Transfer-Encoding: chunked" header and a Content-Length header
+ CVE-2005-2089           HTTP server allows request smuggling with both a "Transfer-Encoding: chunked" header and a Content-Length header
+ + Potential Mitigations
+ Phase: Implementation
+
+ Use a web server that employs a strict HTTP parsing procedure, such as Apache [REF-433].
+ Phase: Implementation
+
+ Use only SSL communication.
+ Phase: Implementation
+
+ Terminate the client session after each request.
+ Phase: System Configuration
+
+ Turn all pages to non-cacheable.
+ + Memberships
+ Section HelpThis MemberOf Relationships table shows additional CWE Categories and Views that reference this weakness as a member. This information is often useful in understanding where a weakness
+ fits within the context of external information sources.
+     Nature                                                                                                  Type                                                                                               ID         Name
+ MemberOf        ViewView - a subset of CWE entries that provides a way of examining CWE content. The two main view structures are Slices (flat lists) and Graphs (containing relationships between entries). 884     CWE
+                                                                                                                                                                                                                      Cross-section
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            990     SFP Secondary
+                                                                                                                                                                                                                      Cluster:
+                                                                                                                                                                                                                      Tainted Input
+                                                                                                                                                                                                                      to Command
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            1348    OWASP Top Ten
+                                                                                                                                                                                                                      2021 Category
+                                                                                                                                                                                                                      A04:2021 -
+                                                                                                                                                                                                                      Insecure Design
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            1398    Comprehensive
+                                                                                                                                                                                                                      Categorization:
+                                                                                                                                                                                                                      Component
+                                                                                                                                                                                                                      Interaction
+ + Vulnerability Mapping Notes
+ Usage: ALLOWED
+
+ (this CWE ID could be used to map to real-world vulnerabilities)
+ Reason: Acceptable-Use
+
+ Rationale:
+
+ This CWE entry is at the Base level of abstraction, which is a preferred level of abstraction for mapping to the root causes of vulnerabilities.
+ Comments:
+
+ Carefully read both the name and description to ensure that this mapping is an appropriate fit. Do not try to 'force' a mapping to a lower-level Base/Variant simply to comply with this preferred
+ level of abstraction.
+ + Notes
+ 
+ Theoretical
+
+ Request smuggling can be performed due to a multiple interpretation error, where the target is an intermediary or monitor, via a consistency manipulation (Transfer-Encoding and Content-Length
+ headers).
+ + Taxonomy Mappings
+       Mapped Taxonomy Name          Node ID             Fit                                                                 Mapped Node Name
+ PLOVER                                                               HTTP Request Smuggling
+ WASC                             26                                  HTTP Request Smuggling
+ WASC                             27                                  HTTP Response Smuggling
+ + Related Attack Patterns
+    CAPEC-ID                                                                                     Attack Pattern Name
+ CAPEC-273       HTTP Response Smuggling
+ CAPEC-33        HTTP Request Smuggling
+ + References
+ [REF-433] Chaim Linhart, Amit Klein, Ronen Heled and Steve Orrin. "HTTP Request Smuggling". <https://www.cgisecurity.com/lib/HTTP-Request-Smuggling.pdf>. URL validated: 2023-04-07.
+ [REF-1273] Robert Auger. "HTTP Response Smuggling". 2011-02-01. <http://projects.webappsec.org/w/page/13246930/HTTP%20Response%20Smuggling>.
+ [REF-1274] Dzevad Alibegovic. "HTTP Request Smuggling: Complete Guide to Attack Types and Prevention". 2021-08-23. <https://brightsec.com/blog/http-request-smuggling-hrs/>.
+ [REF-1275] Busra Demir. "A Pentester's Guide to HTTP Request Smuggling". 2020-10-15. <https://www.cobalt.io/blog/a-pentesters-guide-to-http-request-smuggling>.
+ [REF-1276] Edi Kogan and Daniel Kerman. "HTTP Desync Attacks in the Wild and How to Defend Against Them". 2019-10-29. <https://www.imperva.com/blog/http-desync-attacks-and-defence-methods/>.
+ [REF-1277] James Kettle. "HTTP Desync Attacks: Request Smuggling Reborn". 2019-08-07. <https://portswigger.net/research/http-desync-attacks-request-smuggling-reborn>. URL validated: 2023-04-07.
+ [REF-1278] PortSwigger. "HTTP request smuggling". <https://portswigger.net/web-security/request-smuggling>. URL validated: 2023-04-07.
+ + Content History
+                                                                                           + Submissions
+        Submission Date                                                  Submitter                                                                        Organization
+ 2006-07-19                     PLOVER
+ (CWE Draft 3, 2006-07-19)
+
+                                                                                          + Modifications
+       Modification Date                                                  Modifier                                                                        Organization
+ 2008-07-01                     Eric Dalci                                                                                   Cigital
+                                updated Potential_Mitigations, Time_of_Introduction
+ 2008-09-08                     CWE Content Team                                                                             MITRE
+                                updated Name, Relationships, Other_Notes, Taxonomy_Mappings
+ 2009-05-27                     CWE Content Team                                                                             MITRE
+                                updated Name, Related_Attack_Patterns
+ 2010-02-16                     CWE Content Team                                                                             MITRE
+                                updated Taxonomy_Mappings
+ 2011-06-01                     CWE Content Team                                                                             MITRE
+                                updated Common_Consequences
+ 2012-05-11                     CWE Content Team                                                                             MITRE
+                                updated Common_Consequences, Relationships
+ 2012-10-30                     CWE Content Team                                                                             MITRE
+                                updated Demonstrative_Examples, Potential_Mitigations
+ 2014-06-23                     CWE Content Team                                                                             MITRE
+                                updated Other_Notes, Potential_Mitigations, Theoretical_Notes
+ 2014-07-30                     CWE Content Team                                                                             MITRE
+                                updated Relationships
+ 2015-12-07                     CWE Content Team                                                                             MITRE
+                                updated Relationships
+ 2017-11-08                     CWE Content Team                                                                             MITRE
+                                updated Applicable_Platforms
+ 2020-02-24                     CWE Content Team                                                                             MITRE
+                                updated Applicable_Platforms, Relationships
+ 2021-10-28                     CWE Content Team                                                                             MITRE
+                                updated Relationships
+ 2022-04-28                     CWE Content Team                                                                             MITRE
+                                updated Related_Attack_Patterns
+ 2022-06-28                     CWE Content Team                                                                             MITRE
+                                Extended the abstraction of this entry to include both HTTP request and response smuggling.
+ 2022-06-28                     CWE Content Team                                                                             MITRE
+                                updated Alternate_Terms, Common_Consequences, Demonstrative_Examples, Description, Name, Observed_Examples, References, Taxonomy_Mappings
+ 2022-10-13                     CWE Content Team                                                                             MITRE
+                                updated Related_Attack_Patterns
+ 2023-04-27                     CWE Content Team                                                                             MITRE
+                                updated References, Relationships, Time_of_Introduction
+ 2023-06-29                     CWE Content Team                                                                             MITRE
+                                updated Mapping_Notes
+                                                                                       + Previous Entry Names
+          Change Date                                                                                   Previous Entry Name
+ 2008-04-11                     HTTP Request Smuggling
+ 2008-09-09                     Interpretation Conflict in Web Traffic (aka 'HTTP Request Smuggling')
+ 2009-05-27                     Inconsistent Interpretation of HTTP Requests (aka 'HTTP Request Smuggling')
+ 2022-06-28                     Inconsistent Interpretation of HTTP Requests ('HTTP Request Smuggling')
+ More information is available — Please edit the custom filter or select a different filter.
+Page Last Updated: February 29, 2024
+ 
+      Site Map | Terms of Use | Manage Cookies | Cookie Notice | Privacy Policy | Contact Us | CWE X-Twitter CWE Mastodon CWE on LinkedIn CWE YouTube channel CWE Out-of-Bounds-Read Podcast CWE
+      Blog on Medium blog
+
+MITRE Use of the Common Weakness Enumeration (CWE™) and the associated references from this website are subject to the Terms of Use. CWE is sponsored by the U.S. Department of Homeland         HSSEDI
+      Security (DHS) Cybersecurity and Infrastructure Security Agency (CISA) and managed by the Homeland Security Systems Engineering and Development Institute (HSSEDI) which is operated by
+      The MITRE Corporation (MITRE). Copyright © 2006–2024, The MITRE Corporation. CWE, CWSS, CWRAF, and the CWE logo are trademarks of The MITRE Corporation.
+

@@ -1,0 +1,179 @@
+CWE
+
+Common Weakness Enumeration
+
+A community-developed list of SW & HW weaknesses that can become vulnerabilities
+
+New to CWE? click here!
+CWE Most Important Hardware Weaknesses
+CWE Top 25 Most Dangerous Weaknesses
+Home > CWE List > CWE- Individual Dictionary Definition (4.14)                                                                                                   ID Lookup: [                    ] [Go]
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  • Home
+  • About ▼
+    About New to CWE User Stories History Documents FAQs Glossary Compatibility
+  • CWE List ▼
+    Latest Version Downloads Reports Visualizations Archive
+  • Mapping ▼
+    Root Cause Mapping Guidance Root Cause Mapping Quick Tips Root Cause Mapping Examples
+  • Top-N Lists ▼
+    Top 25 Software Top Hardware Top 10 KEV Weaknesses
+  • Community ▼
+    Community Working Groups & Special Interest Groups Board Board Meeting Minutes CWE Discussion List CWE Discussion Archives Contribute Weakness Content to CWE
+  • News ▼
+    Current News X-Twitter ● Mastodon ● LinkedIn ● YouTube YouTube Podcast Out of Bounds Read Podcast Medium Medium News Archive
+  • Search
+
+ 
+ CWE Glossary Definition                  x
+ 
+ 
+ CWE-618: Exposed Unsafe ActiveX Method
+ 
+ Weakness ID: 618
+ Vulnerability Mapping: ALLOWEDThis CWE ID may be used to map to real-world vulnerabilities
+ Abstraction: VariantVariant - a weakness that is linked to a certain type of product, typically involving a specific language or technology. More specific than a Base weakness. Variant level
+ weaknesses typically describe issues in terms of 3 to 5 of the following dimensions: behavior, property, technology, language, and resource.
+ View customized information:
+ Conceptual For users who are interested in more notional aspects of a weakness. Example: educators, technical writers, and project/program managers. Operational For users who are concerned with the
+ practical application and details about the nature of a weakness and how to prevent it from happening. Example: tool developers, security researchers, pen-testers, incident response analysts. Mapping
+ Friendly For users who are mapping an issue to CWE/CAPEC IDs, i.e., finding the most appropriate CWE for a specific issue (e.g., a CVE record). Example: tool developers, security researchers. 
+ Complete For users who wish to see all available information for the CWE/CAPEC entry. Custom For users who want to customize what details are displayed.
+ ×
+
+ Edit Custom Filter
+
+ Conceptual Operational Mapping Friendly Select All
+ 
+ Reset Clear Submit Cancel
+ + Description
+ An ActiveX control is intended for use in a web browser, but it exposes dangerous methods that perform actions that are outside of the browser's security model (e.g. the zone or domain).
+ + Extended Description
+ ActiveX controls can exercise far greater control over the operating system than typical Java or javascript. Exposed methods can be subject to various vulnerabilities, depending on the implemented
+ behaviors of those methods, and whether input validation is performed on the provided arguments. If there is no integrity checking or origin validation, this method could be invoked by attackers.
+ + Relationships
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Research Concepts" (CWE-1000)
+     Nature                                                                                                                                                                    Type                                                                                                                                                                  ID      Name
+ ChildOf                                                                          BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level weaknesses                                                                  749     Exposed
+                                                                                                                 typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                         Dangerous
+                                                                                                                                                                                                                                                                                                                                                           Method or
+                                                                                                                                                                                                                                                                                                                                                           Function
+ PeerOf                                                                       VariantVariant - a weakness that is linked to a certain type of product, typically involving a specific language or technology. More specific than a Base weakness. Variant level weaknesses typically                                                               623     Unsafe
+                                                                                                                      describe issues in terms of 3 to 5 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                              ActiveX
+                                                                                                                                                                                                                                                                                                                                                           Control
+                                                                                                                                                                                                                                                                                                                                                           Marked
+                                                                                                                                                                                                                                                                                                                                                           Safe For
+                                                                                                                                                                                                                                                                                                                                                           Scripting
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Software Development" (CWE-699)
+     Nature                                                       Type                                                     ID                                   Name
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 275     Permission Issues
+ + Modes Of Introduction
+ Section HelpThe different Modes of Introduction provide information about how and when this weakness may be introduced. The Phase identifies a point in the life cycle at which introduction may occur,
+ while the Note provides a typical scenario related to introduction during the given phase.
+          Phase                                                                                             Note
+ Architecture and Design
+ Implementation
+ + Common Consequences
+ Section HelpThis table specifies different individual consequences associated with the weakness. The Scope identifies the application security area that is violated, while the Impact describes the
+ negative technical impact that arises if an adversary succeeds in exploiting this weakness. The Likelihood provides information about how likely the specific consequence is expected to be seen
+ relative to the other consequences in the list. For example, there may be high likelihood that a weakness will be exploited to achieve a certain impact, but a low likelihood that it will be exploited
+ to achieve a different impact.
+       Scope                                                                                     Impact                                                                                 Likelihood
+ Other              Technical Impact: Other
+
+ + Observed Examples
+        Reference                                                                                        Description
+ CVE-2007-1120           download a file to arbitrary folders.
+ CVE-2006-6838           control downloads and executes a url in a parameter
+ CVE-2007-0321           resultant buffer overflow
+ + Potential Mitigations
+ Phase: Implementation
+
+ If you must expose a method, make sure to perform input validation on all arguments, and protect against all possible vulnerabilities.
+ Phase: Architecture and Design
+
+ Use code signing, although this does not protect against any weaknesses that are already in the control.
+ Phases: Architecture and Design; System Configuration
+
+ Where possible, avoid marking the control as safe for scripting.
+ + Weakness Ordinalities
+ Ordinality                                                                                       Description
+ Primary    (where the weakness exists independent of other weaknesses)
+ + Detection Methods
+ Automated Static Analysis
+
+ Automated static analysis, commonly referred to as Static Application Security Testing (SAST), can find some instances of this weakness by analyzing source code (or binary/compiled code) without
+ having to execute it. Typically, this is done by building a model of data flow and control flow, then searching for potentially-vulnerable patterns that connect "sources" (origins of input) with
+ "sinks" (destinations where the data interacts with external components, a lower layer such as the OS, etc.)
+
+ Effectiveness: High
+
+ + Memberships
+ Section HelpThis MemberOf Relationships table shows additional CWE Categories and Views that reference this weakness as a member. This information is often useful in understanding where a weakness
+ fits within the context of external information sources.
+     Nature                                                       Type                                                     ID                                   Name
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 977     SFP Secondary Cluster: Design
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 1416    Comprehensive Categorization: Resource Lifecycle Management
+ + Vulnerability Mapping Notes
+ Usage: ALLOWED
+
+ (this CWE ID could be used to map to real-world vulnerabilities)
+ Reason: Acceptable-Use
+
+ Rationale:
+
+ This CWE entry is at the Variant level of abstraction, which is a preferred level of abstraction for mapping to the root causes of vulnerabilities.
+ Comments:
+
+ Carefully read both the name and description to ensure that this mapping is an appropriate fit. Do not try to 'force' a mapping to a lower-level Base/Variant simply to comply with this preferred
+ level of abstraction.
+ + References
+ [REF-503] Microsoft. "Developing Secure ActiveX Controls". 2005-04-13. <https://learn.microsoft.com/en-us/previous-versions//ms533046(v=vs.85)?redirectedfrom=MSDN>. URL validated: 2023-04-07.
+ [REF-62] Mark Dowd, John McDonald and Justin Schuh. "The Art of Software Security Assessment". Chapter 12, "ActiveX Security", Page 749. 1st Edition. Addison Wesley. 2006.
+ + Content History
+                                                                                            + Submissions
+                  Submission Date                                                       Submitter                                                              Organization
+ 2007-05-07                                        CWE Content Team                                                                    MITRE
+ (CWE Draft 6, 2007-05-07)
+
+                                                                                           + Modifications
+                 Modification Date                                                      Modifier                                                               Organization
+ 2008-07-01                                        Eric Dalci                                                                          Cigital
+                                                   updated Time_of_Introduction
+ 2008-09-08                                        CWE Content Team                                                                    MITRE
+                                                   updated Relationships, Observed_Example, Other_Notes, Weakness_Ordinalities
+ 2008-10-14                                        CWE Content Team                                                                    MITRE
+                                                   updated Description
+ 2008-11-24                                        CWE Content Team                                                                    MITRE
+                                                   updated Relationships, Type
+ 2009-10-29                                        CWE Content Team                                                                    MITRE
+                                                   updated Description, Other_Notes
+ 2011-06-01                                        CWE Content Team                                                                    MITRE
+                                                   updated Common_Consequences
+ 2012-05-11                                        CWE Content Team                                                                    MITRE
+                                                   updated References, Relationships
+ 2012-10-30                                        CWE Content Team                                                                    MITRE
+                                                   updated Potential_Mitigations
+ 2014-07-30                                        CWE Content Team                                                                    MITRE
+                                                   updated Relationships
+ 2017-11-08                                        CWE Content Team                                                                    MITRE
+                                                   updated References, Relationships
+ 2023-04-27                                        CWE Content Team                                                                    MITRE
+                                                   updated Detection_Factors, References, Relationships, Type
+ 2023-06-29                                        CWE Content Team                                                                    MITRE
+                                                   updated Mapping_Notes
+ More information is available — Please edit the custom filter or select a different filter.
+Page Last Updated: February 29, 2024
+ 
+      Site Map | Terms of Use | Manage Cookies | Cookie Notice | Privacy Policy | Contact Us | CWE X-Twitter CWE Mastodon CWE on LinkedIn CWE YouTube channel CWE Out-of-Bounds-Read Podcast CWE
+      Blog on Medium blog
+
+MITRE Use of the Common Weakness Enumeration (CWE™) and the associated references from this website are subject to the Terms of Use. CWE is sponsored by the U.S. Department of Homeland         HSSEDI
+      Security (DHS) Cybersecurity and Infrastructure Security Agency (CISA) and managed by the Homeland Security Systems Engineering and Development Institute (HSSEDI) which is operated by
+      The MITRE Corporation (MITRE). Copyright © 2006–2024, The MITRE Corporation. CWE, CWSS, CWRAF, and the CWE logo are trademarks of The MITRE Corporation.
+

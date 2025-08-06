@@ -1,0 +1,38 @@
+start: globals_? (record "\n"*)*
+
+globals_: CNAME "::=" global_+
+
+global_: CNAME "{" [ value_attribute | size_attribute ]+ "}" "\n"
+
+record: CNAME "::=" field+                -> seq
+      | CNAME "::=" field ("|" field)*    -> union
+
+field: normal
+     | CNAME "[" atvalue "]" "\n"         -> array
+     | CNAME "\n"                         -> reference
+
+normal: CNAME "{" attribute_list "}" "\n"
+
+attribute_list: [attribute ("," attribute)*]
+// attribute: CNAME ":" atvalue
+// Encode different attribute types in grammar
+attribute: size_attribute
+         | value_attribute
+         | type_attribute
+         | terminator_attribute
+size_attribute: /size/ ":" atvalue
+value_attribute: /value/ ":" atvalue
+type_attribute: /type/ ":" /string/
+terminator_attribute: /terminator/ ":" number
+
+literal: number | CNAME
+atvalue: literal | inrange | exrange | group
+number: ( ( "0x" (HEXDIGIT)+ ) | ( ["+" | "-"] (DIGIT)+ ) )
+inrange: literal "..=" literal
+exrange: literal ".." literal
+group: literal ("|" literal)+
+
+%import common.CNAME
+%import common.HEXDIGIT
+%import common.DIGIT
+%ignore " "

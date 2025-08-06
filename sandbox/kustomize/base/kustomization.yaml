@@ -1,0 +1,31 @@
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+metadata:
+  name: crs
+resources:
+  - resources.yaml
+patches:
+  - path: load-cp-images-config.json
+    target:
+      kind: Deployment
+      name: load-cp-images
+  - path: load-cp-images-config.json
+    target:
+      kind: DaemonSet
+      name: load-cp-images
+  - path: load-cp-images-config.json
+    target:
+      kind: ReplicaSet
+      name: load-cp-images
+  - path: load-cp-images-config-pod.json
+    target:
+      kind: Pod
+      name: load-cp-images
+
+configMapGenerator:
+  - name: cp-config
+    files:
+      - cp_config.yaml
+    options:
+      disableNameSuffixHash: true

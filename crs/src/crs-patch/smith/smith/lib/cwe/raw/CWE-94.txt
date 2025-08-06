@@ -1,0 +1,560 @@
+CWE
+
+Common Weakness Enumeration
+
+A community-developed list of SW & HW weaknesses that can become vulnerabilities
+
+New to CWE? click here!
+CWE Most Important Hardware Weaknesses
+CWE Top 25 Most Dangerous Weaknesses
+Home > CWE List > CWE- Individual Dictionary Definition (4.14)                                                                                                   ID Lookup: [                    ] [Go]
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  • Home
+  • About ▼
+    About New to CWE User Stories History Documents FAQs Glossary Compatibility
+  • CWE List ▼
+    Latest Version Downloads Reports Visualizations Archive
+  • Mapping ▼
+    Root Cause Mapping Guidance Root Cause Mapping Quick Tips Root Cause Mapping Examples
+  • Top-N Lists ▼
+    Top 25 Software Top Hardware Top 10 KEV Weaknesses
+  • Community ▼
+    Community Working Groups & Special Interest Groups Board Board Meeting Minutes CWE Discussion List CWE Discussion Archives Contribute Weakness Content to CWE
+  • News ▼
+    Current News X-Twitter ● Mastodon ● LinkedIn ● YouTube YouTube Podcast Out of Bounds Read Podcast Medium Medium News Archive
+  • Search
+
+ 
+ CWE Glossary Definition                  x
+ 
+ 
+ CWE-94: Improper Control of Generation of Code ('Code Injection')
+ 
+ Weakness ID: 94
+ Vulnerability Mapping: ALLOWEDThis CWE ID may be used to map to real-world vulnerabilities
+ Abstraction: BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level
+ weaknesses typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.
+ View customized information:
+ Conceptual For users who are interested in more notional aspects of a weakness. Example: educators, technical writers, and project/program managers. Operational For users who are concerned with the
+ practical application and details about the nature of a weakness and how to prevent it from happening. Example: tool developers, security researchers, pen-testers, incident response analysts. Mapping
+ Friendly For users who are mapping an issue to CWE/CAPEC IDs, i.e., finding the most appropriate CWE for a specific issue (e.g., a CVE record). Example: tool developers, security researchers. 
+ Complete For users who wish to see all available information for the CWE/CAPEC entry. Custom For users who want to customize what details are displayed.
+ ×
+
+ Edit Custom Filter
+
+ Conceptual Operational Mapping Friendly Select All
+ 
+ Reset Clear Submit Cancel
+ + Description
+ The product constructs all or part of a code segment using externally-influenced input from an upstream component, but it does not neutralize or incorrectly neutralizes special elements that could
+ modify the syntax or behavior of the intended code segment.
+ + Extended Description
+ 
+ When a product allows a user's input to contain code syntax, it might be possible for an attacker to craft the code in such a way that it will alter the intended control flow of the product. Such an
+ alteration could lead to arbitrary code execution.
+
+ Injection problems encompass a wide variety of issues -- all mitigated in very different ways. For this reason, the most effective way to discuss these weaknesses is to note the distinct features
+ which classify them as injection weaknesses. The most important issue to note is that all injection problems share one thing in common -- i.e., they allow for the injection of control plane data into
+ the user-controlled data plane. This means that the execution of the process may be altered by sending code in through legitimate data channels, using no other mechanism. While buffer overflows, and
+ many other flaws, involve the use of some further issue to gain execution, injection problems need only for the data to be parsed. The most classic instantiations of this category of weakness are SQL
+ injection and format string vulnerabilities.
+
+ + Relationships
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Research Concepts" (CWE-1000)
+     Nature                                                                                                                                                                             Type                                                                                                                                                                           ID           Name
+ ChildOf                                                                               ClassClass - a weakness that is described in a very abstract fashion, typically independent of any specific language or technology. More specific than a Pillar Weakness, but more general than a Base                                                                        913     Improper Control of
+                                                                                                                    Weakness. Class level weaknesses typically describe issues in terms of 1 or 2 of the following dimensions: behavior, property, and resource.                                                                                                             Dynamically-Managed
+                                                                                                                                                                                                                                                                                                                                                                             Code Resources
+ ChildOf                                                                               ClassClass - a weakness that is described in a very abstract fashion, typically independent of any specific language or technology. More specific than a Pillar Weakness, but more general than a Base                                                                        74      Improper
+                                                                                                                    Weakness. Class level weaknesses typically describe issues in terms of 1 or 2 of the following dimensions: behavior, property, and resource.                                                                                                             Neutralization of
+                                                                                                                                                                                                                                                                                                                                                                             Special Elements in
+                                                                                                                                                                                                                                                                                                                                                                             Output Used by a
+                                                                                                                                                                                                                                                                                                                                                                             Downstream
+                                                                                                                                                                                                                                                                                                                                                                             Component
+                                                                                                                                                                                                                                                                                                                                                                             ('Injection')
+ ParentOf                                                                              VariantVariant - a weakness that is linked to a certain type of product, typically involving a specific language or technology. More specific than a Base weakness. Variant level weaknesses typically                                                                        95      Improper
+                                                                                                                               describe issues in terms of 3 to 5 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                       Neutralization of
+                                                                                                                                                                                                                                                                                                                                                                             Directives in
+                                                                                                                                                                                                                                                                                                                                                                             Dynamically
+                                                                                                                                                                                                                                                                                                                                                                             Evaluated Code
+                                                                                                                                                                                                                                                                                                                                                                             ('Eval Injection')
+ ParentOf                                                                                  BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level weaknesses                                                                           96      Improper
+                                                                                                                          typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                  Neutralization of
+                                                                                                                                                                                                                                                                                                                                                                             Directives in
+                                                                                                                                                                                                                                                                                                                                                                             Statically Saved
+                                                                                                                                                                                                                                                                                                                                                                             Code ('Static Code
+                                                                                                                                                                                                                                                                                                                                                                             Injection')
+ ParentOf                                                                                  BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level weaknesses                                                                           1336    Improper
+                                                                                                                          typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                  Neutralization of
+                                                                                                                                                                                                                                                                                                                                                                             Special Elements
+                                                                                                                                                                                                                                                                                                                                                                             Used in a Template
+                                                                                                                                                                                                                                                                                                                                                                             Engine
+ CanFollow                                                                             VariantVariant - a weakness that is linked to a certain type of product, typically involving a specific language or technology. More specific than a Base weakness. Variant level weaknesses typically                                                                        98      Improper Control of
+                                                                                                                               describe issues in terms of 3 to 5 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                       Filename for
+                                                                                                                                                                                                                                                                                                                                                                             Include/Require
+                                                                                                                                                                                                                                                                                                                                                                             Statement in PHP
+                                                                                                                                                                                                                                                                                                                                                                             Program ('PHP
+                                                                                                                                                                                                                                                                                                                                                                             Remote File
+                                                                                                                                                                                                                                                                                                                                                                             Inclusion')
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Software Development" (CWE-699)
+     Nature                                                       Type                                                     ID                                   Name
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 137     Data Neutralization Issues
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Weaknesses for Simplified Mapping of Published Vulnerabilities" (CWE-1003)
+     Nature                                                                                                                                                                             Type                                                                                                                                                                           ID         Name
+ ChildOf                                                                               ClassClass - a weakness that is described in a very abstract fashion, typically independent of any specific language or technology. More specific than a Pillar Weakness, but more general than a Base                                                                        74      Improper
+                                                                                                                    Weakness. Class level weaknesses typically describe issues in terms of 1 or 2 of the following dimensions: behavior, property, and resource.                                                                                                             Neutralization
+                                                                                                                                                                                                                                                                                                                                                                             of Special
+                                                                                                                                                                                                                                                                                                                                                                             Elements in
+                                                                                                                                                                                                                                                                                                                                                                             Output Used by
+                                                                                                                                                                                                                                                                                                                                                                             a Downstream
+                                                                                                                                                                                                                                                                                                                                                                             Component
+                                                                                                                                                                                                                                                                                                                                                                             ('Injection')
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Architectural Concepts" (CWE-1008)
+     Nature                                                       Type                                                     ID                                   Name
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 1019    Validate Inputs
+ + Modes Of Introduction
+ Section HelpThe different Modes of Introduction provide information about how and when this weakness may be introduced. The Phase identifies a point in the life cycle at which introduction may occur,
+ while the Note provides a typical scenario related to introduction during the given phase.
+     Phase                                                                                              Note
+ Implementation REALIZATION: This weakness is caused during implementation of an architectural security tactic.
+ + Applicable Platforms
+ Section HelpThis listing shows possible areas for which the given weakness could appear. These may be for specific named Languages, Operating Systems, Architectures, Paradigms, Technologies, or a
+ class of such platforms. The platform is listed along with how frequently the given weakness appears for that instance.
+
+ Languages
+
+ Class: Interpreted (Sometimes Prevalent)
+
+ + Common Consequences
+ Section HelpThis table specifies different individual consequences associated with the weakness. The Scope identifies the application security area that is violated, while the Impact describes the
+ negative technical impact that arises if an adversary succeeds in exploiting this weakness. The Likelihood provides information about how likely the specific consequence is expected to be seen
+ relative to the other consequences in the list. For example, there may be high likelihood that a weakness will be exploited to achieve a certain impact, but a low likelihood that it will be exploited
+ to achieve a different impact.
+       Scope                                                                                     Impact                                                                                 Likelihood
+                    Technical Impact: Bypass Protection Mechanism
+ Access Control
+                    In some cases, injectable code controls authentication; this may lead to a remote vulnerability.
+                    Technical Impact: Gain Privileges or Assume Identity
+ Access Control
+                    Injected code can access resources that the attacker is directly prevented from accessing.
+ Integrity          Technical Impact: Execute Unauthorized Code or Commands
+ Confidentiality
+ Availability       Code injection attacks can lead to loss of data integrity in nearly all cases as the control-plane data injected is always incidental to data recall or writing.
+                    Additionally, code injection can often result in the execution of arbitrary code.
+                    Technical Impact: Hide Activities
+ Non-Repudiation
+                    Often the actions performed by injected control code are unlogged.
+ + Likelihood Of Exploit
+ Medium
+ + Demonstrative Examples
+ 
+ Example 1
+
+ This example attempts to write user messages to a message file and allow users to view them.
+
+ (bad code)
+ Example Language: PHP 
+ $MessageFile = "messages.out";
+ if ($_GET["action"] == "NewMessage") {
+ $name = $_GET["name"];
+ $message = $_GET["message"];
+ $handle = fopen($MessageFile, "a+");
+ fwrite($handle, "<b>$name</b> says '$message'<hr>\n");
+ fclose($handle);
+ echo "Message Saved!<p>\n";
+ }
+ else if ($_GET["action"] == "ViewMessages") {
+ include($MessageFile);
+ }
+
+ While the programmer intends for the MessageFile to only include data, an attacker can provide a message such as:
+
+ (attack code)
+  
+ name=h4x0r
+ message=%3C?php%20system(%22/bin/ls%20-l%22);?%3E
+
+ which will decode to the following:
+
+ (attack code)
+  
+ <?php system("/bin/ls -l");?>
+
+ The programmer thought they were just including the contents of a regular data file, but PHP parsed it and executed the code. Now, this code is executed any time people view messages.
+
+ Notice that XSS (CWE-79) is also possible in this situation.
+
+ Example 2
+
+ edit-config.pl: This CGI script is used to modify settings in a configuration file.
+
+ (bad code)
+ Example Language: Perl 
+ use CGI qw(:standard);
+
+ sub config_file_add_key {
+ my ($fname, $key, $arg) = @_;
+
+ # code to add a field/key to a file goes here
+ }
+
+ sub config_file_set_key {
+ my ($fname, $key, $arg) = @_;
+
+ # code to set key to a particular file goes here
+ }
+
+ sub config_file_delete_key {
+ my ($fname, $key, $arg) = @_;
+
+ # code to delete key from a particular file goes here
+ }
+
+ sub handleConfigAction {
+ my ($fname, $action) = @_;
+ my $key = param('key');
+ my $val = param('val');
+
+ # this is super-efficient code, especially if you have to invoke
+
+
+ # any one of dozens of different functions!
+
+ my $code = "config_file_$action_key(\$fname, \$key, \$val);";
+ eval($code);
+ }
+
+ $configfile = "/home/cwe/config.txt";
+ print header;
+ if (defined(param('action'))) {
+ handleConfigAction($configfile, param('action'));
+ }
+ else {
+ print "No action specified!\n";
+ }
+
+ The script intends to take the 'action' parameter and invoke one of a variety of functions based on the value of that parameter - config_file_add_key(), config_file_set_key(), or
+ config_file_delete_key(). It could set up a conditional to invoke each function separately, but eval() is a powerful way of doing the same thing in fewer lines of code, especially when a large number
+ of functions or variables are involved. Unfortunately, in this case, the attacker can provide other values in the action parameter, such as:
+
+ (attack code)
+  
+ add_key(",","); system("/bin/ls");
+
+ This would produce the following string in handleConfigAction():
+
+ (result)
+  
+ config_file_add_key(",","); system("/bin/ls");
+
+ Any arbitrary Perl code could be added after the attacker has "closed off" the construction of the original function call, in order to prevent parsing errors from causing the malicious eval() to fail
+ before the attacker's payload is activated. This particular manipulation would fail after the system() call, because the "_key(\$fname, \$key, \$val)" portion of the string would cause an error, but
+ this is irrelevant to the attack because the payload has already been activated.
+
+ Example 3
+
+ This simple script asks a user to supply a list of numbers as input and adds them together.
+
+ (bad code)
+ Example Language: Python 
+ def main():
+ sum = 0
+ numbers = eval(input("Enter a space-separated list of numbers: "))
+ for num in numbers:
+ sum = sum + num
+ print(f"Sum of {numbers} = {sum}")
+ main()
+
+ The eval() function can take the user-supplied list and convert it into a Python list object, therefore allowing the programmer to use list comprehension methods to work with the data. However, if
+ code is supplied to the eval() function, it will execute that code. For example, a malicious user could supply the following string:
+
+ (attack code)
+  
+ __import__('subprocess').getoutput('rm -r *')
+
+ This would delete all the files in the current directory. For this reason, it is not recommended to use eval() with untrusted input.
+
+ A way to accomplish this without the use of eval() is to apply an integer conversion on the input within a try/except block. If the user-supplied input is not numeric, this will raise a ValueError.
+ By avoiding eval(), there is no opportunity for the input string to be executed as code.
+
+ (good code)
+ Example Language: Python 
+ def main():
+ sum = 0
+ numbers = input("Enter a space-separated list of numbers: ").split(" ")
+ try:
+ for num in numbers:
+ sum = sum + int(num)
+ print(f"Sum of {numbers} = {sum}")
+ except ValueError:
+ print("Error: invalid input")
+ main()
+
+ An alternative, commonly-cited mitigation for this kind of weakness is to use the ast.literal_eval() function, since it is intentionally designed to avoid executing code. However, an adversary could
+ still cause excessive memory or stack consumption via deeply nested structures [REF-1372], so the python documentation discourages use of ast.literal_eval() on untrusted data [REF-1373].
+
+ + Observed Examples
+        Reference                                                                                        Description
+ CVE-2022-2054           Python compiler uses eval() to execute malicious strings as Python code.
+ CVE-2021-22204          Chain: regex in EXIF processor code does not correctly determine where a string ends (CWE-625), enabling eval injection (CWE-95), as exploited in the wild per CISA KEV.
+ CVE-2020-8218           "Code injection" in VPN product, as exploited in the wild per CISA KEV.
+ CVE-2008-5071           Eval injection in PHP program.
+ CVE-2002-1750           Eval injection in Perl program.
+ CVE-2008-5305           Eval injection in Perl program using an ID that should only contain hyphens and numbers.
+ CVE-2002-1752           Direct code injection into Perl eval function.
+ CVE-2002-1753           Eval injection in Perl program.
+ CVE-2005-1527           Direct code injection into Perl eval function.
+ CVE-2005-2837           Direct code injection into Perl eval function.
+ CVE-2005-1921           MFV. code injection into PHP eval statement using nested constructs that should not be nested.
+ CVE-2005-2498           MFV. code injection into PHP eval statement using nested constructs that should not be nested.
+ CVE-2005-3302           Code injection into Python eval statement from a field in a formatted file.
+ CVE-2007-1253           Eval injection in Python program.
+ CVE-2001-1471           chain: Resultant eval injection. An invalid value prevents initialization of variables, which can be modified by attacker and later injected into PHP eval statement.
+ CVE-2002-0495           Perl code directly injected into CGI library file from parameters to another CGI program.
+ CVE-2005-1876           Direct PHP code injection into supporting template file.
+ CVE-2005-1894           Direct code injection into PHP script that can be accessed by attacker.
+ CVE-2003-0395           PHP code from User-Agent HTTP header directly inserted into log file implemented as PHP script.
+ + Potential Mitigations
+ Phase: Architecture and Design
+
+ Refactor your program so that you do not have to dynamically generate code.
+ Phase: Architecture and Design
+
+ Run your code in a "jail" or similar sandbox environment that enforces strict boundaries between the process and the operating system. This may effectively restrict which code can be executed by
+ your product.
+
+ Examples include the Unix chroot jail and AppArmor. In general, managed code may provide some protection.
+
+ This may not be a feasible solution, and it only limits the impact to the operating system; the rest of your application may still be subject to compromise.
+
+ Be careful to avoid CWE-243 and other weaknesses related to jails.
+
+ Phase: Implementation
+
+ Strategy: Input Validation
+
+ Assume all input is malicious. Use an "accept known good" input validation strategy, i.e., use a list of acceptable inputs that strictly conform to specifications. Reject any input that does not
+ strictly conform to specifications, or transform it into something that does.
+
+ When performing input validation, consider all potentially relevant properties, including length, type of input, the full range of acceptable values, missing or extra inputs, syntax, consistency
+ across related fields, and conformance to business rules. As an example of business rule logic, "boat" may be syntactically valid because it only contains alphanumeric characters, but it is not
+ valid if the input is only expected to contain colors such as "red" or "blue."
+
+ Do not rely exclusively on looking for malicious or malformed inputs. This is likely to miss at least one undesirable input, especially if the code's environment changes. This can give attackers
+ enough room to bypass the intended validation. However, denylists can be useful for detecting potential attacks or determining which inputs are so malformed that they should be rejected outright.
+
+ To reduce the likelihood of code injection, use stringent allowlists that limit which constructs are allowed. If you are dynamically constructing code that invokes a function, then verifying that
+ the input is alphanumeric might be insufficient. An attacker might still be able to reference a dangerous function that you did not intend to allow, such as system(), exec(), or exit().
+
+ Phase: Testing
+
+ Use automated static analysis tools that target this type of weakness. Many modern techniques use data flow analysis to minimize the number of false positives. This is not a perfect solution,
+ since 100% accuracy and coverage are not feasible.
+ Phase: Testing
+
+ Use dynamic tools and techniques that interact with the product using large test suites with many diverse inputs, such as fuzz testing (fuzzing), robustness testing, and fault injection. The
+ product's operation may slow down, but it should not become unstable, crash, or generate incorrect results.
+ Phase: Operation
+
+ Strategy: Compilation or Build Hardening
+
+ Run the code in an environment that performs automatic taint propagation and prevents any command execution that uses tainted variables, such as Perl's "-T" switch. This will force the program to
+ perform validation steps that remove the taint, although you must be careful to correctly validate your inputs so that you do not accidentally mark dangerous inputs as untainted (see CWE-183 and
+ CWE-184).
+ Phase: Operation
+
+ Strategy: Environment Hardening
+
+ Run the code in an environment that performs automatic taint propagation and prevents any command execution that uses tainted variables, such as Perl's "-T" switch. This will force the program to
+ perform validation steps that remove the taint, although you must be careful to correctly validate your inputs so that you do not accidentally mark dangerous inputs as untainted (see CWE-183 and
+ CWE-184).
+ Phase: Implementation
+
+ For Python programs, it is frequently encouraged to use the ast.literal_eval() function instead of eval, since it is intentionally designed to avoid executing code. However, an adversary could
+ still cause excessive memory or stack consumption via deeply nested structures [REF-1372], so the python documentation discourages use of ast.literal_eval() on untrusted data [REF-1373].
+
+ Effectiveness: Discouraged Common Practice
+
+ + Detection Methods
+ Automated Static Analysis
+
+ Automated static analysis, commonly referred to as Static Application Security Testing (SAST), can find some instances of this weakness by analyzing source code (or binary/compiled code) without
+ having to execute it. Typically, this is done by building a model of data flow and control flow, then searching for potentially-vulnerable patterns that connect "sources" (origins of input) with
+ "sinks" (destinations where the data interacts with external components, a lower layer such as the OS, etc.)
+
+ Effectiveness: High
+
+ + Memberships
+ Section HelpThis MemberOf Relationships table shows additional CWE Categories and Views that reference this weakness as a member. This information is often useful in understanding where a weakness
+ fits within the context of external information sources.
+     Nature                                                                                                  Type                                                                                               ID         Name
+ MemberOf        ViewView - a subset of CWE entries that provides a way of examining CWE content. The two main view structures are Slices (flat lists) and Graphs (containing relationships between entries). 635     Weaknesses
+                                                                                                                                                                                                                      Originally Used
+                                                                                                                                                                                                                      by NVD from
+                                                                                                                                                                                                                      2008 to 2016
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            752     2009 Top 25 -
+                                                                                                                                                                                                                      Risky Resource
+                                                                                                                                                                                                                      Management
+ MemberOf        ViewView - a subset of CWE entries that provides a way of examining CWE content. The two main view structures are Slices (flat lists) and Graphs (containing relationships between entries). 884     CWE
+                                                                                                                                                                                                                      Cross-section
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            991     SFP Secondary
+                                                                                                                                                                                                                      Cluster:
+                                                                                                                                                                                                                      Tainted Input
+                                                                                                                                                                                                                      to Environment
+ MemberOf        ViewView - a subset of CWE entries that provides a way of examining CWE content. The two main view structures are Slices (flat lists) and Graphs (containing relationships between entries). 1200    Weaknesses in
+                                                                                                                                                                                                                      the 2019 CWE
+                                                                                                                                                                                                                      Top 25 Most
+                                                                                                                                                                                                                      Dangerous
+                                                                                                                                                                                                                      Software Errors
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            1347    OWASP Top Ten
+                                                                                                                                                                                                                      2021 Category
+                                                                                                                                                                                                                      A03:2021 -
+                                                                                                                                                                                                                      Injection
+ MemberOf        ViewView - a subset of CWE entries that provides a way of examining CWE content. The two main view structures are Slices (flat lists) and Graphs (containing relationships between entries). 1350    Weaknesses in
+                                                                                                                                                                                                                      the 2020 CWE
+                                                                                                                                                                                                                      Top 25 Most
+                                                                                                                                                                                                                      Dangerous
+                                                                                                                                                                                                                      Software
+                                                                                                                                                                                                                      Weaknesses
+ MemberOf        ViewView - a subset of CWE entries that provides a way of examining CWE content. The two main view structures are Slices (flat lists) and Graphs (containing relationships between entries). 1387    Weaknesses in
+                                                                                                                                                                                                                      the 2022 CWE
+                                                                                                                                                                                                                      Top 25 Most
+                                                                                                                                                                                                                      Dangerous
+                                                                                                                                                                                                                      Software
+                                                                                                                                                                                                                      Weaknesses
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            1409    Comprehensive
+                                                                                                                                                                                                                      Categorization:
+                                                                                                                                                                                                                      Injection
+ MemberOf        ViewView - a subset of CWE entries that provides a way of examining CWE content. The two main view structures are Slices (flat lists) and Graphs (containing relationships between entries). 1425    Weaknesses in
+                                                                                                                                                                                                                      the 2023 CWE
+                                                                                                                                                                                                                      Top 25 Most
+                                                                                                                                                                                                                      Dangerous
+                                                                                                                                                                                                                      Software
+                                                                                                                                                                                                                      Weaknesses
+ + Vulnerability Mapping Notes
+ Usage: ALLOWED
+
+ (this CWE ID could be used to map to real-world vulnerabilities)
+ Reason: Acceptable-Use
+
+ Rationale:
+
+ This CWE entry is at the Base level of abstraction, which is a preferred level of abstraction for mapping to the root causes of vulnerabilities.
+ Comments:
+
+ Carefully read both the name and description to ensure that this mapping is an appropriate fit. Do not try to 'force' a mapping to a lower-level Base/Variant simply to comply with this preferred
+ level of abstraction.
+ + Taxonomy Mappings
+       Mapped Taxonomy Name          Node ID           Fit                                                                 Mapped Node Name
+ PLOVER                           CODE                            Code Evaluation and Injection
+ ISA/IEC 62443                    Part 4-2                        Req CR 3.5
+ ISA/IEC 62443                    Part 3-3                        Req SR 3.5
+ ISA/IEC 62443                    Part 4-1                        Req SVV-1
+ ISA/IEC 62443                    Part 4-1                        Req SVV-3
+ + Related Attack Patterns
+    CAPEC-ID                                                                                     Attack Pattern Name
+ CAPEC-242       Code Injection
+ CAPEC-35        Leverage Executable Code in Non-Executable Files
+ CAPEC-77        Manipulating User-Controlled Variables
+ + References
+ [REF-44] Michael Howard, David LeBlanc and John Viega. "24 Deadly Sins of Software Security". "Sin 3: Web-Client Related Vulnerabilities (XSS)." Page 63. McGraw-Hill. 2010.
+ [REF-1372] "How ast.literal_eval can cause memory exhaustion". Reddit. 2022-12-14. <https://www.reddit.com/r/learnpython/comments/zmbhcf/how_astliteral_eval_can_cause_memory_exhaustion/>. URL
+ validated: 2023-11-03.
+ [REF-1373] "ast - Abstract Syntax Trees". ast.literal_eval(node_or_string). Python. 2023-11-02. <https://docs.python.org/3/library/ast.html#ast.literal_eval>. URL validated: 2023-11-03.
+ + Content History
+                                                                                           + Submissions
+         Submission Date                                                          Submitter                                                                       Organization
+ 2006-07-19                      PLOVER
+ (CWE Draft 3, 2006-07-19)
+
+                                                                                          + Contributions
+        Contribution Date                                                        Contributor                                                                      Organization
+ 2023-06-29                      "Mapping CWE to 62443" Sub-Working Group                                                                    CWE-CAPEC ICS/OT SIG
+ (CWE 4.12, 2023-06-29)          Suggested mappings to ISA/IEC 62443.
+                                                                                          + Modifications
+        Modification Date                                                         Modifier                                                                        Organization
+ 2008-07-01                      Eric Dalci                                                                                                  Cigital
+                                 updated Time_of_Introduction
+ 2008-09-08                      CWE Content Team                                                                                            MITRE
+                                 updated Applicable_Platforms, Relationships, Research_Gaps, Taxonomy_Mappings
+ 2009-01-12                      CWE Content Team                                                                                            MITRE
+                                 updated Common_Consequences, Demonstrative_Examples, Description, Likelihood_of_Exploit, Name, Potential_Mitigations, Relationships
+ 2009-03-10                      CWE Content Team                                                                                            MITRE
+                                 updated Potential_Mitigations
+ 2009-05-27                      CWE Content Team                                                                                            MITRE
+                                 updated Demonstrative_Examples, Name
+ 2010-02-16                      CWE Content Team                                                                                            MITRE
+                                 updated Potential_Mitigations
+ 2010-06-21                      CWE Content Team                                                                                            MITRE
+                                 updated Description, Potential_Mitigations
+ 2011-03-29                      CWE Content Team                                                                                            MITRE
+                                 updated Name
+ 2011-06-01                      CWE Content Team                                                                                            MITRE
+                                 updated Common_Consequences
+ 2012-05-11                      CWE Content Team                                                                                            MITRE
+                                 updated Common_Consequences, Demonstrative_Examples, Observed_Examples, References, Relationships
+ 2012-10-30                      CWE Content Team                                                                                            MITRE
+                                 updated Potential_Mitigations
+ 2013-02-21                      CWE Content Team                                                                                            MITRE
+                                 updated Relationships
+ 2014-07-30                      CWE Content Team                                                                                            MITRE
+                                 updated Relationships
+ 2015-12-07                      CWE Content Team                                                                                            MITRE
+                                 updated Relationships
+ 2017-11-08                      CWE Content Team                                                                                            MITRE
+                                 updated Demonstrative_Examples, Modes_of_Introduction, Relationships
+ 2019-06-20                      CWE Content Team                                                                                            MITRE
+                                 updated Related_Attack_Patterns, Type
+ 2019-09-19                      CWE Content Team                                                                                            MITRE
+                                 updated Relationships
+ 2020-02-24                      CWE Content Team                                                                                            MITRE
+                                 updated Potential_Mitigations, Relationships
+ 2020-06-25                      CWE Content Team                                                                                            MITRE
+                                 updated Potential_Mitigations
+ 2020-08-20                      CWE Content Team                                                                                            MITRE
+                                 updated Relationships
+ 2021-03-15                      CWE Content Team                                                                                            MITRE
+                                 updated Demonstrative_Examples
+ 2021-07-20                      CWE Content Team                                                                                            MITRE
+                                 updated Relationships
+ 2021-10-28                      CWE Content Team                                                                                            MITRE
+                                 updated Relationships
+ 2022-04-28                      CWE Content Team                                                                                            MITRE
+                                 updated Research_Gaps
+ 2022-06-28                      CWE Content Team                                                                                            MITRE
+                                 updated Observed_Examples, Relationships
+ 2022-10-13                      CWE Content Team                                                                                            MITRE
+                                 updated Observed_Examples
+ 2023-01-31                      CWE Content Team                                                                                            MITRE
+                                 updated Demonstrative_Examples, Description, Potential_Mitigations, Relationships
+ 2023-04-27                      CWE Content Team                                                                                            MITRE
+                                 updated Demonstrative_Examples, Detection_Factors, Relationships, Time_of_Introduction
+ 2023-06-29                      CWE Content Team                                                                                            MITRE
+                                 updated Mapping_Notes, Relationships, Taxonomy_Mappings
+ 2024-02-29                      CWE Content Team                                                                                            MITRE
+ (CWE 4.14, 2024-02-29)          updated Demonstrative_Examples, Potential_Mitigations, References
+                                                                                       + Previous Entry Names
+           Change Date                                                                                   Previous Entry Name
+ 2009-01-12                      Code Injection
+ 2009-05-27                      Failure to Control Generation of Code (aka 'Code Injection')
+ 2011-03-29                      Failure to Control Generation of Code ('Code Injection')
+ More information is available — Please edit the custom filter or select a different filter.
+Page Last Updated: February 29, 2024
+ 
+      Site Map | Terms of Use | Manage Cookies | Cookie Notice | Privacy Policy | Contact Us | CWE X-Twitter CWE Mastodon CWE on LinkedIn CWE YouTube channel CWE Out-of-Bounds-Read Podcast CWE
+      Blog on Medium blog
+
+MITRE Use of the Common Weakness Enumeration (CWE™) and the associated references from this website are subject to the Terms of Use. CWE is sponsored by the U.S. Department of Homeland         HSSEDI
+      Security (DHS) Cybersecurity and Infrastructure Security Agency (CISA) and managed by the Homeland Security Systems Engineering and Development Institute (HSSEDI) which is operated by
+      The MITRE Corporation (MITRE). Copyright © 2006–2024, The MITRE Corporation. CWE, CWSS, CWRAF, and the CWE logo are trademarks of The MITRE Corporation.
+

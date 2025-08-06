@@ -1,0 +1,346 @@
+CWE
+
+Common Weakness Enumeration
+
+A community-developed list of SW & HW weaknesses that can become vulnerabilities
+
+New to CWE? click here!
+CWE Most Important Hardware Weaknesses
+CWE Top 25 Most Dangerous Weaknesses
+Home > CWE List > CWE- Individual Dictionary Definition (4.14)                                                                                                   ID Lookup: [                    ] [Go]
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  • Home
+  • About ▼
+    About New to CWE User Stories History Documents FAQs Glossary Compatibility
+  • CWE List ▼
+    Latest Version Downloads Reports Visualizations Archive
+  • Mapping ▼
+    Root Cause Mapping Guidance Root Cause Mapping Quick Tips Root Cause Mapping Examples
+  • Top-N Lists ▼
+    Top 25 Software Top Hardware Top 10 KEV Weaknesses
+  • Community ▼
+    Community Working Groups & Special Interest Groups Board Board Meeting Minutes CWE Discussion List CWE Discussion Archives Contribute Weakness Content to CWE
+  • News ▼
+    Current News X-Twitter ● Mastodon ● LinkedIn ● YouTube YouTube Podcast Out of Bounds Read Podcast Medium Medium News Archive
+  • Search
+
+ 
+ CWE Glossary Definition                  x
+ 
+ 
+ CWE-369: Divide By Zero
+ 
+ Weakness ID: 369
+ Vulnerability Mapping: ALLOWEDThis CWE ID may be used to map to real-world vulnerabilities
+ Abstraction: BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level
+ weaknesses typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.
+ View customized information:
+ Conceptual For users who are interested in more notional aspects of a weakness. Example: educators, technical writers, and project/program managers. Operational For users who are concerned with the
+ practical application and details about the nature of a weakness and how to prevent it from happening. Example: tool developers, security researchers, pen-testers, incident response analysts. Mapping
+ Friendly For users who are mapping an issue to CWE/CAPEC IDs, i.e., finding the most appropriate CWE for a specific issue (e.g., a CVE record). Example: tool developers, security researchers. 
+ Complete For users who wish to see all available information for the CWE/CAPEC entry. Custom For users who want to customize what details are displayed.
+ ×
+
+ Edit Custom Filter
+
+ Conceptual Operational Mapping Friendly Select All
+ 
+ Reset Clear Submit Cancel
+ + Description
+ The product divides a value by zero.
+ + Extended Description
+ This weakness typically occurs when an unexpected value is provided to the product, or if an error occurs that is not properly detected. It frequently occurs in calculations involving physical
+ dimensions such as size, length, width, and height.
+ + Relationships
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Research Concepts" (CWE-1000)
+     Nature                                                                                                                                                                               Type                                                                                                                                                                            ID       Name
+ ChildOf                                                                                 PillarPillar - a weakness that is the most abstract type of weakness and represents a theme for all class/base/variant weaknesses related to it. A Pillar is different from a Category as a Pillar is                                                                          682     Incorrect
+                                                                                                                    still technically a type of weakness that describes a mistake, while a Category represents a common characteristic used to group related things.                                                                                                            Calculation
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Software Development" (CWE-699)
+     Nature                                                       Type                                                     ID                                   Name
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 189     Numeric Errors
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Weaknesses for Simplified Mapping of Published Vulnerabilities" (CWE-1003)
+     Nature                                                                                                                                                                               Type                                                                                                                                                                            ID       Name
+ ChildOf                                                                                 PillarPillar - a weakness that is the most abstract type of weakness and represents a theme for all class/base/variant weaknesses related to it. A Pillar is different from a Category as a Pillar is                                                                          682     Incorrect
+                                                                                                                    still technically a type of weakness that describes a mistake, while a Category represents a common characteristic used to group related things.                                                                                                            Calculation
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "CISQ Quality Measures (2020)" (CWE-1305)
+     Nature                                                                                                                                                                               Type                                                                                                                                                                            ID       Name
+ ChildOf                                                                                 PillarPillar - a weakness that is the most abstract type of weakness and represents a theme for all class/base/variant weaknesses related to it. A Pillar is different from a Category as a Pillar is                                                                          682     Incorrect
+                                                                                                                    still technically a type of weakness that describes a mistake, while a Category represents a common characteristic used to group related things.                                                                                                            Calculation
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "CISQ Data Protection Measures" (CWE-1340)
+     Nature                                                                                                                                                                               Type                                                                                                                                                                            ID       Name
+ ChildOf                                                                                 PillarPillar - a weakness that is the most abstract type of weakness and represents a theme for all class/base/variant weaknesses related to it. A Pillar is different from a Category as a Pillar is                                                                          682     Incorrect
+                                                                                                                    still technically a type of weakness that describes a mistake, while a Category represents a common characteristic used to group related things.                                                                                                            Calculation
+ + Modes Of Introduction
+ Section HelpThe different Modes of Introduction provide information about how and when this weakness may be introduced. The Phase identifies a point in the life cycle at which introduction may occur,
+ while the Note provides a typical scenario related to introduction during the given phase.
+     Phase                                                                                              Note
+ Implementation
+ + Common Consequences
+ Section HelpThis table specifies different individual consequences associated with the weakness. The Scope identifies the application security area that is violated, while the Impact describes the
+ negative technical impact that arises if an adversary succeeds in exploiting this weakness. The Likelihood provides information about how likely the specific consequence is expected to be seen
+ relative to the other consequences in the list. For example, there may be high likelihood that a weakness will be exploited to achieve a certain impact, but a low likelihood that it will be exploited
+ to achieve a different impact.
+       Scope                                                                                     Impact                                                                                 Likelihood
+                    Technical Impact: DoS: Crash, Exit, or Restart
+ Availability
+                    A Divide by Zero results in a crash.
+ + Likelihood Of Exploit
+ Medium
+ + Demonstrative Examples
+ 
+ Example 1
+
+ The following Java example contains a function to compute an average but does not validate that the input value used as the denominator is not zero. This will create an exception for attempting to
+ divide by zero. If this error is not handled by Java exception handling, unexpected results can occur.
+
+ (bad code)
+ Example Language: Java 
+ public int computeAverageResponseTime (int totalTime, int numRequests) {
+ return totalTime / numRequests;
+ }
+
+ By validating the input value used as the denominator the following code will ensure that a divide by zero error will not cause unexpected results. The following Java code example will validate the
+ input value, output an error message, and throw an exception.
+
+ (good code)
+  
+ public int computeAverageResponseTime (int totalTime, int numRequests) throws ArithmeticException {
+ if (numRequests == 0) {
+ System.out.println("Division by zero attempted!");
+ throw ArithmeticException;
+ }
+ return totalTime / numRequests;
+ }
+
+ Example 2
+
+ The following C/C++ example contains a function that divides two numeric values without verifying that the input value used as the denominator is not zero. This will create an error for attempting to
+ divide by zero, if this error is not caught by the error handling capabilities of the language, unexpected results can occur.
+
+ (bad code)
+ Example Language: C 
+ double divide(double x, double y){
+ return x/y;
+ }
+
+ By validating the input value used as the denominator the following code will ensure that a divide by zero error will not cause unexpected results. If the method is called and a zero is passed as the
+ second argument a DivideByZero error will be thrown and should be caught by the calling block with an output message indicating the error.
+
+ (good code)
+  
+ const int DivideByZero = 10;
+ double divide(double x, double y){
+ if ( 0 == y ){
+ throw DivideByZero;
+ }
+ return x/y;
+ }
+ ...
+ try{
+ divide(10, 0);
+ }
+ catch( int i ){
+ if(i==DivideByZero) {
+ cerr<<"Divide by zero error";
+ }
+ }
+ Example 2 References:
+ [REF-371] Alex Allain. "Handling Errors Exceptionally Well in C++". <https://www.cprogramming.com/tutorial/exceptions.html>. URL validated: 2023-04-07.
+
+ Example 3
+
+ The following C# example contains a function that divides two numeric values without verifying that the input value used as the denominator is not zero. This will create an error for attempting to
+ divide by zero, if this error is not caught by the error handling capabilities of the language, unexpected results can occur.
+
+ (bad code)
+ Example Language: C# 
+ int Division(int x, int y){
+ return (x / y);
+ }
+
+ The method can be modified to raise, catch and handle the DivideByZeroException if the input value used as the denominator is zero.
+
+ (good code)
+  
+ int SafeDivision(int x, int y){
+ try{
+ return (x / y);
+ }
+ catch (System.DivideByZeroException dbz){
+ System.Console.WriteLine("Division by zero attempted!");
+ return 0;
+ }
+ }
+ Example 3 References:
+ [REF-372] Microsoft. "Exceptions and Exception Handling (C# Programming Guide)". <https://msdn.microsoft.com/pl-pl/library/ms173160(v=vs.100).aspx>.
+ + Observed Examples
+        Reference                                                                                        Description
+ CVE-2007-3268           Invalid size value leads to divide by zero.
+ CVE-2007-2723           "Empty" content triggers divide by zero.
+ CVE-2007-2237           Height value of 0 triggers divide by zero.
+ + Detection Methods
+ Automated Static Analysis
+
+ Automated static analysis, commonly referred to as Static Application Security Testing (SAST), can find some instances of this weakness by analyzing source code (or binary/compiled code) without
+ having to execute it. Typically, this is done by building a model of data flow and control flow, then searching for potentially-vulnerable patterns that connect "sources" (origins of input) with
+ "sinks" (destinations where the data interacts with external components, a lower layer such as the OS, etc.)
+
+ Effectiveness: High
+
+ Fuzzing
+
+ Fuzz testing (fuzzing) is a powerful technique for generating large numbers of diverse inputs - either randomly or algorithmically - and dynamically invoking the code with those inputs. Even with
+ random inputs, it is often capable of generating unexpected results such as crashes, memory corruption, or resource consumption. Fuzzing effectively produces repeatable test cases that clearly
+ indicate bugs, which helps developers to diagnose the issues.
+
+ Effectiveness: High
+
+ + Memberships
+ Section HelpThis MemberOf Relationships table shows additional CWE Categories and Views that reference this weakness as a member. This information is often useful in understanding where a weakness
+ fits within the context of external information sources.
+     Nature                                                                                                  Type                                                                                               ID         Name
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            730     OWASP Top Ten
+                                                                                                                                                                                                                      2004 Category
+                                                                                                                                                                                                                      A9 - Denial of
+                                                                                                                                                                                                                      Service
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            738     CERT C Secure
+                                                                                                                                                                                                                      Coding Standard
+                                                                                                                                                                                                                      (2008) Chapter
+                                                                                                                                                                                                                      5 - Integers
+                                                                                                                                                                                                                      (INT)
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            739     CERT C Secure
+                                                                                                                                                                                                                      Coding Standard
+                                                                                                                                                                                                                      (2008) Chapter
+                                                                                                                                                                                                                      6 - Floating
+                                                                                                                                                                                                                      Point (FLP)
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            848     The CERT Oracle
+                                                                                                                                                                                                                      Secure Coding
+                                                                                                                                                                                                                      Standard for
+                                                                                                                                                                                                                      Java (2011)
+                                                                                                                                                                                                                      Chapter 5 -
+                                                                                                                                                                                                                      Numeric Types
+                                                                                                                                                                                                                      and Operations
+                                                                                                                                                                                                                      (NUM)
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            872     CERT C++ Secure
+                                                                                                                                                                                                                      Coding Section
+                                                                                                                                                                                                                      04 - Integers
+                                                                                                                                                                                                                      (INT)
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            873     CERT C++ Secure
+                                                                                                                                                                                                                      Coding Section
+                                                                                                                                                                                                                      05 - Floating
+                                                                                                                                                                                                                      Point
+                                                                                                                                                                                                                      Arithmetic
+                                                                                                                                                                                                                      (FLP)
+ MemberOf        ViewView - a subset of CWE entries that provides a way of examining CWE content. The two main view structures are Slices (flat lists) and Graphs (containing relationships between entries). 884     CWE
+                                                                                                                                                                                                                      Cross-section
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            998     SFP Secondary
+                                                                                                                                                                                                                      Cluster: Glitch
+                                                                                                                                                                                                                      in Computation
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            1137    SEI CERT Oracle
+                                                                                                                                                                                                                      Secure Coding
+                                                                                                                                                                                                                      Standard for
+                                                                                                                                                                                                                      Java -
+                                                                                                                                                                                                                      Guidelines 03.
+                                                                                                                                                                                                                      Numeric Types
+                                                                                                                                                                                                                      and Operations
+                                                                                                                                                                                                                      (NUM)
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            1158    SEI CERT C
+                                                                                                                                                                                                                      Coding Standard
+                                                                                                                                                                                                                      - Guidelines
+                                                                                                                                                                                                                      04. Integers
+                                                                                                                                                                                                                      (INT)
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            1408    Comprehensive
+                                                                                                                                                                                                                      Categorization:
+                                                                                                                                                                                                                      Incorrect
+                                                                                                                                                                                                                      Calculation
+ + Vulnerability Mapping Notes
+ Usage: ALLOWED
+
+ (this CWE ID could be used to map to real-world vulnerabilities)
+ Reason: Acceptable-Use
+
+ Rationale:
+
+ This CWE entry is at the Base level of abstraction, which is a preferred level of abstraction for mapping to the root causes of vulnerabilities.
+ Comments:
+
+ Carefully read both the name and description to ensure that this mapping is an appropriate fit. Do not try to 'force' a mapping to a lower-level Base/Variant simply to comply with this preferred
+ level of abstraction.
+ + Taxonomy Mappings
+       Mapped Taxonomy Name          Node ID                Fit                                                                Mapped Node Name
+ OWASP Top Ten 2004               A9             CWE More Specific         Denial of Service
+ CERT C Secure Coding             FLP03-C                                  Detect and handle floating point errors
+ CERT C Secure Coding             INT33-C        Exact                     Ensure that division and remainder operations do not result in divide-by-zero errors
+ The CERT Oracle Secure Coding    NUM02-J                                  Ensure that division and modulo operations do not result in divide-by-zero errors
+ Standard for Java (2011)
+ Software Fault Patterns          SFP1                                     Glitch in computation
+ + References
+ [REF-371] Alex Allain. "Handling Errors Exceptionally Well in C++". <https://www.cprogramming.com/tutorial/exceptions.html>. URL validated: 2023-04-07.
+ [REF-372] Microsoft. "Exceptions and Exception Handling (C# Programming Guide)". <https://msdn.microsoft.com/pl-pl/library/ms173160(v=vs.100).aspx>.
+ + Content History
+                                                                                            + Submissions
+               Submission Date                                                      Submitter                                                                 Organization
+ 2008-04-11                                   CWE Community
+ (CWE Draft 9, 2008-04-11)                    Submitted by members of the CWE community to extend early CWE versions
+                                                                                           + Modifications
+              Modification Date                                                      Modifier                                                                 Organization
+ 2008-07-01                                   Sean Eidemiller                                                                        Cigital
+                                              added/updated demonstrative examples
+ 2008-07-01                                   Eric Dalci                                                                             Cigital
+                                              updated Time_of_Introduction
+ 2008-09-08                                   CWE Content Team                                                                       MITRE
+                                              updated Common_Consequences, Description, Relationships, Other_Notes, Taxonomy_Mappings
+ 2008-11-24                                   CWE Content Team                                                                       MITRE
+                                              updated Relationships, Taxonomy_Mappings
+ 2009-05-27                                   CWE Content Team                                                                       MITRE
+                                              updated Demonstrative_Examples
+ 2009-10-29                                   CWE Content Team                                                                       MITRE
+                                              updated Other_Notes
+ 2011-06-01                                   CWE Content Team                                                                       MITRE
+                                              updated Common_Consequences, Relationships, Taxonomy_Mappings
+ 2011-09-13                                   CWE Content Team                                                                       MITRE
+                                              updated Relationships, Taxonomy_Mappings
+ 2012-05-11                                   CWE Content Team                                                                       MITRE
+                                              updated Relationships, Taxonomy_Mappings
+ 2014-07-30                                   CWE Content Team                                                                       MITRE
+                                              updated Relationships, Taxonomy_Mappings
+ 2015-12-07                                   CWE Content Team                                                                       MITRE
+                                              updated Relationships
+ 2017-11-08                                   CWE Content Team                                                                       MITRE
+                                              updated Demonstrative_Examples, Taxonomy_Mappings
+ 2019-01-03                                   CWE Content Team                                                                       MITRE
+                                              updated Relationships, Taxonomy_Mappings
+ 2020-02-24                                   CWE Content Team                                                                       MITRE
+                                              updated Relationships
+ 2020-08-20                                   CWE Content Team                                                                       MITRE
+                                              updated Relationships
+ 2020-12-10                                   CWE Content Team                                                                       MITRE
+                                              updated Relationships
+ 2022-10-13                                   CWE Content Team                                                                       MITRE
+                                              updated References
+ 2023-04-27                                   CWE Content Team                                                                       MITRE
+                                              updated Demonstrative_Examples, Detection_Factors, References, Relationships
+ 2023-06-29                                   CWE Content Team                                                                       MITRE
+                                              updated Mapping_Notes
+ More information is available — Please edit the custom filter or select a different filter.
+Page Last Updated: February 29, 2024
+ 
+      Site Map | Terms of Use | Manage Cookies | Cookie Notice | Privacy Policy | Contact Us | CWE X-Twitter CWE Mastodon CWE on LinkedIn CWE YouTube channel CWE Out-of-Bounds-Read Podcast CWE
+      Blog on Medium blog
+
+MITRE Use of the Common Weakness Enumeration (CWE™) and the associated references from this website are subject to the Terms of Use. CWE is sponsored by the U.S. Department of Homeland         HSSEDI
+      Security (DHS) Cybersecurity and Infrastructure Security Agency (CISA) and managed by the Homeland Security Systems Engineering and Development Institute (HSSEDI) which is operated by
+      The MITRE Corporation (MITRE). Copyright © 2006–2024, The MITRE Corporation. CWE, CWSS, CWRAF, and the CWE logo are trademarks of The MITRE Corporation.
+

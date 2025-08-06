@@ -1,0 +1,6 @@
+cp_name = "jenkins"
+blob_file = "./exemplar_only/cpv_exemplar/blobs/id_3.bin"
+harness_id = "id_3"
+sanitizer_id = "id_3"
+bug_introduce_commit = "e364568bdd932a44b18ee99eb9eec130a5d5660b"
+src_dir = "./src/jenkins"

@@ -1,0 +1,329 @@
+CWE
+
+Common Weakness Enumeration
+
+A community-developed list of SW & HW weaknesses that can become vulnerabilities
+
+New to CWE? click here!
+CWE Most Important Hardware Weaknesses
+CWE Top 25 Most Dangerous Weaknesses
+Home > CWE List > CWE- Individual Dictionary Definition (4.14)                                                                                                   ID Lookup: [                    ] [Go]
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  • Home
+  • About ▼
+    About New to CWE User Stories History Documents FAQs Glossary Compatibility
+  • CWE List ▼
+    Latest Version Downloads Reports Visualizations Archive
+  • Mapping ▼
+    Root Cause Mapping Guidance Root Cause Mapping Quick Tips Root Cause Mapping Examples
+  • Top-N Lists ▼
+    Top 25 Software Top Hardware Top 10 KEV Weaknesses
+  • Community ▼
+    Community Working Groups & Special Interest Groups Board Board Meeting Minutes CWE Discussion List CWE Discussion Archives Contribute Weakness Content to CWE
+  • News ▼
+    Current News X-Twitter ● Mastodon ● LinkedIn ● YouTube YouTube Podcast Out of Bounds Read Podcast Medium Medium News Archive
+  • Search
+
+ 
+ CWE Glossary Definition                  x
+ 
+ 
+ CWE-346: Origin Validation Error
+ 
+ Weakness ID: 346
+ Vulnerability Mapping: ALLOWEDThis CWE ID could be used to map to real-world vulnerabilities in limited situations requiring careful review (with careful review of mapping notes)
+ Abstraction: ClassClass - a weakness that is described in a very abstract fashion, typically independent of any specific language or technology. More specific than a Pillar Weakness, but more general
+ than a Base Weakness. Class level weaknesses typically describe issues in terms of 1 or 2 of the following dimensions: behavior, property, and resource.
+ View customized information:
+ Conceptual For users who are interested in more notional aspects of a weakness. Example: educators, technical writers, and project/program managers. Operational For users who are concerned with the
+ practical application and details about the nature of a weakness and how to prevent it from happening. Example: tool developers, security researchers, pen-testers, incident response analysts. Mapping
+ Friendly For users who are mapping an issue to CWE/CAPEC IDs, i.e., finding the most appropriate CWE for a specific issue (e.g., a CVE record). Example: tool developers, security researchers. 
+ Complete For users who wish to see all available information for the CWE/CAPEC entry. Custom For users who want to customize what details are displayed.
+ ×
+
+ Edit Custom Filter
+
+ Conceptual Operational Mapping Friendly Select All
+ 
+ Reset Clear Submit Cancel
+ + Description
+ The product does not properly verify that the source of data or communication is valid.
+ + Relationships
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Research Concepts" (CWE-1000)
+     Nature                                                                                                                                                                               Type                                                                                                                                                                            ID          Name
+ ChildOf                                                                                 PillarPillar - a weakness that is the most abstract type of weakness and represents a theme for all class/base/variant weaknesses related to it. A Pillar is different from a Category as a Pillar is                                                                          284     Improper Access
+                                                                                                                    still technically a type of weakness that describes a mistake, while a Category represents a common characteristic used to group related things.                                                                                                            Control
+ ChildOf                                                                                 ClassClass - a weakness that is described in a very abstract fashion, typically independent of any specific language or technology. More specific than a Pillar Weakness, but more general than a Base                                                                         345     Insufficient
+                                                                                                                      Weakness. Class level weaknesses typically describe issues in terms of 1 or 2 of the following dimensions: behavior, property, and resource.                                                                                                              Verification of
+                                                                                                                                                                                                                                                                                                                                                                                Data Authenticity
+ ParentOf                                                                                   BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level weaknesses                                                                             940     Improper
+                                                                                                                           typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                    Verification of
+                                                                                                                                                                                                                                                                                                                                                                                Source of a
+                                                                                                                                                                                                                                                                                                                                                                                Communication
+                                                                                                                                                                                                                                                                                                                                                                                Channel
+ ParentOf                                                                                VariantVariant - a weakness that is linked to a certain type of product, typically involving a specific language or technology. More specific than a Base weakness. Variant level weaknesses typically                                                                         1385    Missing Origin
+                                                                                                                                describe issues in terms of 3 to 5 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                         Validation in
+                                                                                                                                                                                                                                                                                                                                                                                WebSockets
+ PeerOf                                                                                  ClassClass - a weakness that is described in a very abstract fashion, typically independent of any specific language or technology. More specific than a Pillar Weakness, but more general than a Base                                                                         451     User Interface
+                                                                                                                      Weakness. Class level weaknesses typically describe issues in terms of 1 or 2 of the following dimensions: behavior, property, and resource.                                                                                                              (UI)
+                                                                                                                                                                                                                                                                                                                                                                                Misrepresentation
+                                                                                                                                                                                                                                                                                                                                                                                of Critical
+                                                                                                                                                                                                                                                                                                                                                                                Information
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Software Development" (CWE-699)
+     Nature                                                       Type                                                     ID                                   Name
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 1214    Data Integrity Issues
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 417     Communication Channel Errors
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Weaknesses for Simplified Mapping of Published Vulnerabilities" (CWE-1003)
+     Nature                                                                                                                                                                             Type                                                                                                                                                                           ID        Name
+ ChildOf                                                                               ClassClass - a weakness that is described in a very abstract fashion, typically independent of any specific language or technology. More specific than a Pillar Weakness, but more general than a Base                                                                        345     Insufficient
+                                                                                                                    Weakness. Class level weaknesses typically describe issues in terms of 1 or 2 of the following dimensions: behavior, property, and resource.                                                                                                             Verification
+                                                                                                                                                                                                                                                                                                                                                                             of Data
+                                                                                                                                                                                                                                                                                                                                                                             Authenticity
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Architectural Concepts" (CWE-1008)
+     Nature                                                       Type                                                     ID                                   Name
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 1014    Identify Actors
+ + Modes Of Introduction
+ Section HelpThe different Modes of Introduction provide information about how and when this weakness may be introduced. The Phase identifies a point in the life cycle at which introduction may occur,
+ while the Note provides a typical scenario related to introduction during the given phase.
+          Phase                                                                                             Note
+ Architecture and Design
+ Implementation          REALIZATION: This weakness is caused during implementation of an architectural security tactic.
+ + Applicable Platforms
+ Section HelpThis listing shows possible areas for which the given weakness could appear. These may be for specific named Languages, Operating Systems, Architectures, Paradigms, Technologies, or a
+ class of such platforms. The platform is listed along with how frequently the given weakness appears for that instance.
+
+ Languages
+
+ Class: Not Language-Specific (Undetermined Prevalence)
+
+ + Common Consequences
+ Section HelpThis table specifies different individual consequences associated with the weakness. The Scope identifies the application security area that is violated, while the Impact describes the
+ negative technical impact that arises if an adversary succeeds in exploiting this weakness. The Likelihood provides information about how likely the specific consequence is expected to be seen
+ relative to the other consequences in the list. For example, there may be high likelihood that a weakness will be exploited to achieve a certain impact, but a low likelihood that it will be exploited
+ to achieve a different impact.
+       Scope                                                                                     Impact                                                                                 Likelihood
+ Access Control     Technical Impact: Gain Privileges or Assume Identity; Varies by Context
+ Other
+                    An attacker can access any functionality that is inadvertently accessible to the source.
+ + Demonstrative Examples
+ 
+ Example 1
+
+ This Android application will remove a user account when it receives an intent to do so:
+
+ (bad code)
+ Example Language: Java 
+ IntentFilter filter = new IntentFilter("com.example.RemoveUser");
+ MyReceiver receiver = new MyReceiver();
+ registerReceiver(receiver, filter);
+
+ public class DeleteReceiver extends BroadcastReceiver {
+ @Override
+ public void onReceive(Context context, Intent intent) {
+ int userID = intent.getIntExtra("userID");
+ destroyUserData(userID);
+ }
+ }
+
+ This application does not check the origin of the intent, thus allowing any malicious application to remove a user. Always check the origin of an intent, or create an allowlist of trusted
+ applications using the manifest.xml file.
+
+ Example 2
+
+ These Android and iOS applications intercept URL loading within a WebView and perform special actions if a particular URL scheme is used, thus allowing the Javascript within the WebView to
+ communicate with the application:
+
+ (bad code)
+ Example Language: Java 
+ // Android
+ @Override
+ public boolean shouldOverrideUrlLoading(WebView view, String url){
+ if (url.substring(0,14).equalsIgnoreCase("examplescheme:")){
+ if(url.substring(14,25).equalsIgnoreCase("getUserInfo")){
+ writeDataToView(view, UserData);
+ return false;
+ }
+ else{
+ return true;
+ }
+ }
+ }
+ (bad code)
+ Example Language: Objective-C 
+ // iOS
+ -(BOOL) webView:(UIWebView *)exWebView shouldStartLoadWithRequest:(NSURLRequest *)exRequest navigationType:(UIWebViewNavigationType)exNavigationType
+ {
+ NSURL *URL = [exRequest URL];
+ if ([[URL scheme] isEqualToString:@"exampleScheme"])
+ {
+ NSString *functionString = [URL resourceSpecifier];
+ if ([functionString hasPrefix:@"specialFunction"])
+ {
+
+ // Make data available back in webview.
+ UIWebView *webView = [self writeDataToView:[URL query]];
+ }
+ return NO;
+ }
+ return YES;
+ }
+
+ A call into native code can then be initiated by passing parameters within the URL:
+
+ (attack code)
+ Example Language: JavaScript 
+ window.location = examplescheme://method?parameter=value
+
+ Because the application does not check the source, a malicious website loaded within this WebView has the same access to the API as a trusted site.
+
+ + Observed Examples
+        Reference                                                                                        Description
+ CVE-2000-1218           DNS server can accept DNS updates from hosts that it did not query, leading to cache poisoning
+ CVE-2005-0877           DNS server can accept DNS updates from hosts that it did not query, leading to cache poisoning
+ CVE-2001-1452           DNS server caches glue records received from non-delegated name servers
+ CVE-2005-2188           user ID obtained from untrusted source (URL)
+ CVE-2003-0174           LDAP service does not verify if a particular attribute was set by the LDAP server
+ CVE-1999-1549           product does not sufficiently distinguish external HTML from internal, potentially dangerous HTML, allowing bypass using special strings in the page title. Overlaps
+                         special elements.
+ CVE-2003-0981           product records the reverse DNS name of a visitor in the logs, allowing spoofing and resultant XSS.
+ + Weakness Ordinalities
+ Ordinality                                                                                       Description
+ Primary    (where the weakness exists independent of other weaknesses)
+ Resultant  (where the weakness is typically related to the presence of some other weaknesses)
+ + Memberships
+ Section HelpThis MemberOf Relationships table shows additional CWE Categories and Views that reference this weakness as a member. This information is often useful in understanding where a weakness
+ fits within the context of external information sources.
+     Nature                                                       Type                                                     ID                                   Name
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 949     SFP Secondary Cluster: Faulty Endpoint Authentication
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 1353    OWASP Top Ten 2021 Category A07:2021 - Identification and
+                                                                                                                                 Authentication Failures
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 1382    ICS Operations (& Maintenance): Emerging Energy Technologies
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 1411    Comprehensive Categorization: Insufficient Verification of Data
+                                                                                                                                 Authenticity
+ + Vulnerability Mapping Notes
+ Usage: ALLOWED-WITH-REVIEW
+
+ (this CWE ID could be used to map to real-world vulnerabilities in limited situations requiring careful review)
+ Reason: Abstraction
+
+ Rationale:
+
+ This CWE entry is a Class and might have Base-level children that would be more appropriate
+ Comments:
+
+ Examine children of this entry to see if there is a better fit
+ + Notes
+ 
+ Terminology
+
+ The "Origin Validation Error" term was originally used in a 1995 thesis [REF-324]. Although not formally defined, an issue is considered to be an origin validation error if either (1) "an object
+ [accepts] input from an unauthorized subject," or (2) "the system [fails] to properly or completely authenticate a subject." A later section says that an origin validation error can occur when the
+ system (1) "does not properly authenticate a user or process" or (2) "does not properly authenticate the shared data or libraries." The only example provided in the thesis (covered by OSVDB:57615)
+ involves a setuid program running command-line arguments without dropping privileges. So, this definition (and its examples in the thesis) effectively cover other weaknesses such as CWE-287 (Improper
+ Authentication), CWE-285 (Improper Authorization), and CWE-250 (Execution with Unnecessary Privileges). There appears to be little usage of this term today, except in the SecurityFocus vulnerability
+ database, where the term is used for a variety of issues, including web-browser problems that allow violation of the Same Origin Policy and improper validation of the source of an incoming message.
+
+ Maintenance
+
+ This entry has some significant overlap with other CWE entries and may need some clarification. See terminology notes.
+ + Taxonomy Mappings
+       Mapped Taxonomy Name          Node ID             Fit                                                                 Mapped Node Name
+ PLOVER                                                               Origin Validation Error
+ ISA/IEC 62443                    Part 3-3                            Req SR 2.12 RE(1)
+ ISA/IEC 62443                    Part 4-1                            Req SD-1
+ ISA/IEC 62443                    Part 4-1                            Req SR-2
+ ISA/IEC 62443                    Part 4-1                            Req SVV-1
+ ISA/IEC 62443                    Part 4-2                            Req CR 2.12 RE(1)
+ ISA/IEC 62443                    Part 4-2                            Req CR 3.1 RE(1)
+ + Related Attack Patterns
+    CAPEC-ID                                                                                     Attack Pattern Name
+ CAPEC-111       JSON Hijacking (aka JavaScript Hijacking)
+ CAPEC-141       Cache Poisoning
+ CAPEC-142       DNS Cache Poisoning
+ CAPEC-160       Exploit Script-Based APIs
+ CAPEC-21        Exploitation of Trusted Identifiers
+ CAPEC-384       Application API Message Manipulation via Man-in-the-Middle
+ CAPEC-385       Transaction or Event Tampering via Application API Manipulation
+ CAPEC-386       Application API Navigation Remapping
+ CAPEC-387       Navigation Remapping To Propagate Malicious Content
+ CAPEC-388       Application API Button Hijacking
+ CAPEC-510       SaaS User Request Forgery
+ CAPEC-59        Session Credential Falsification through Prediction
+ CAPEC-60        Reusing Session IDs (aka Session Replay)
+ CAPEC-75        Manipulating Writeable Configuration Files
+ CAPEC-76        Manipulating Web Input to File System Calls
+ CAPEC-89        Pharming
+ + References
+ [REF-324] Taimur Aslam. "A Taxonomy of Security Faults in the UNIX Operating System". 1995-08-01. <http://cwe.mitre.org/documents/sources/
+ ATaxonomyofSecurityFaultsintheUNIXOperatingSystem%5BAslam95%5D.pdf>.
+ + Content History
+                                                                                            + Submissions
+       Submission Date                                                          Submitter                                                                         Organization
+ 2006-07-19                  PLOVER
+ (CWE Draft 3, 2006-07-19)
+
+                                                                                           + Contributions
+      Contribution Date                                                        Contributor                                                                        Organization
+ 2023-04-25                  "Mapping CWE to 62443" Sub-Working Group                                                                        CWE-CAPEC ICS/OT SIG
+                             Suggested mappings to ISA/IEC 62443.
+                                                                                           + Modifications
+      Modification Date                                                         Modifier                                                                          Organization
+ 2008-07-01                  Eric Dalci                                                                                                      Cigital
+                             updated Time_of_Introduction
+ 2008-09-08                  CWE Content Team                                                                                                MITRE
+                             updated Relationships, Relationship_Notes, Taxonomy_Mappings, Weakness_Ordinalities
+ 2009-05-27                  CWE Content Team                                                                                                MITRE
+                             updated Related_Attack_Patterns
+ 2010-12-13                  CWE Content Team                                                                                                MITRE
+                             updated Related_Attack_Patterns
+ 2011-06-01                  CWE Content Team                                                                                                MITRE
+                             updated Common_Consequences
+ 2011-06-27                  CWE Content Team                                                                                                MITRE
+                             updated Common_Consequences
+ 2012-05-11                  CWE Content Team                                                                                                MITRE
+                             updated Related_Attack_Patterns, Relationships
+ 2014-02-18                  CWE Content Team                                                                                                MITRE
+                             updated Applicable_Platforms, Common_Consequences, Demonstrative_Examples, Maintenance_Notes, References, Relationship_Notes, Relationships, Terminology_Notes
+ 2014-06-23                  CWE Content Team                                                                                                MITRE
+                             updated Related_Attack_Patterns
+ 2014-07-30                  CWE Content Team                                                                                                MITRE
+                             updated Relationships
+ 2017-11-08                  CWE Content Team                                                                                                MITRE
+                             updated Modes_of_Introduction, References, Relationships
+ 2019-06-20                  CWE Content Team                                                                                                MITRE
+                             updated Related_Attack_Patterns, Relationships
+ 2020-02-24                  CWE Content Team                                                                                                MITRE
+                             updated Relationships
+ 2020-06-25                  CWE Content Team                                                                                                MITRE
+                             updated Demonstrative_Examples, Terminology_Notes
+ 2021-10-28                  CWE Content Team                                                                                                MITRE
+                             updated Relationships
+ 2022-04-28                  CWE Content Team                                                                                                MITRE
+                             updated Relationships
+ 2023-01-31                  CWE Content Team                                                                                                MITRE
+                             updated Description, Type
+ 2023-04-27                  CWE Content Team                                                                                                MITRE
+                             updated Relationships, Taxonomy_Mappings
+ 2023-06-29                  CWE Content Team                                                                                                MITRE
+                             updated Mapping_Notes, Relationships
+ 2024-02-29                  CWE Content Team                                                                                                MITRE
+ (CWE 4.14, 2024-02-29)      updated Taxonomy_Mappings
+ More information is available — Please edit the custom filter or select a different filter.
+Page Last Updated: February 29, 2024
+ 
+      Site Map | Terms of Use | Manage Cookies | Cookie Notice | Privacy Policy | Contact Us | CWE X-Twitter CWE Mastodon CWE on LinkedIn CWE YouTube channel CWE Out-of-Bounds-Read Podcast CWE
+      Blog on Medium blog
+
+MITRE Use of the Common Weakness Enumeration (CWE™) and the associated references from this website are subject to the Terms of Use. CWE is sponsored by the U.S. Department of Homeland         HSSEDI
+      Security (DHS) Cybersecurity and Infrastructure Security Agency (CISA) and managed by the Homeland Security Systems Engineering and Development Institute (HSSEDI) which is operated by
+      The MITRE Corporation (MITRE). Copyright © 2006–2024, The MITRE Corporation. CWE, CWSS, CWRAF, and the CWE logo are trademarks of The MITRE Corporation.
+

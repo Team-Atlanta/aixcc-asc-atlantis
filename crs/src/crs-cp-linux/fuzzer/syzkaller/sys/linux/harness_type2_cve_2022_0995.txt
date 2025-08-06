@@ -1,0 +1,8 @@
+syz_harness$type2_cve_2022_0995_cmd0(buf ptr[in, harness_type2_cve_2022_0995_cmd0], len bytesize[buf])
+
+harness_type2_cve_2022_0995_cmd0 {
+	pipe_flags	const[O_NOTIFICATION_PIPE, int32]
+	nr_filters	const[1, int32]
+	__reserved	const[0, int32]
+	type		int32
+} [packed]

@@ -1,0 +1,181 @@
+CWE
+
+Common Weakness Enumeration
+
+A community-developed list of SW & HW weaknesses that can become vulnerabilities
+
+New to CWE? click here!
+CWE Most Important Hardware Weaknesses
+CWE Top 25 Most Dangerous Weaknesses
+Home > CWE List > CWE- Individual Dictionary Definition (4.14)                                                                                                   ID Lookup: [                    ] [Go]
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  • Home
+  • About ▼
+    About New to CWE User Stories History Documents FAQs Glossary Compatibility
+  • CWE List ▼
+    Latest Version Downloads Reports Visualizations Archive
+  • Mapping ▼
+    Root Cause Mapping Guidance Root Cause Mapping Quick Tips Root Cause Mapping Examples
+  • Top-N Lists ▼
+    Top 25 Software Top Hardware Top 10 KEV Weaknesses
+  • Community ▼
+    Community Working Groups & Special Interest Groups Board Board Meeting Minutes CWE Discussion List CWE Discussion Archives Contribute Weakness Content to CWE
+  • News ▼
+    Current News X-Twitter ● Mastodon ● LinkedIn ● YouTube YouTube Podcast Out of Bounds Read Podcast Medium Medium News Archive
+  • Search
+
+ 
+ CWE Glossary Definition                  x
+ 
+ 
+ CWE-1173: Improper Use of Validation Framework
+ 
+ Weakness ID: 1173
+ Vulnerability Mapping: ALLOWEDThis CWE ID may be used to map to real-world vulnerabilities
+ Abstraction: BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level
+ weaknesses typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.
+ View customized information:
+ Conceptual For users who are interested in more notional aspects of a weakness. Example: educators, technical writers, and project/program managers. Operational For users who are concerned with the
+ practical application and details about the nature of a weakness and how to prevent it from happening. Example: tool developers, security researchers, pen-testers, incident response analysts. Mapping
+ Friendly For users who are mapping an issue to CWE/CAPEC IDs, i.e., finding the most appropriate CWE for a specific issue (e.g., a CVE record). Example: tool developers, security researchers. 
+ Complete For users who wish to see all available information for the CWE/CAPEC entry. Custom For users who want to customize what details are displayed.
+ ×
+
+ Edit Custom Filter
+
+ Conceptual Operational Mapping Friendly Select All
+ 
+ Reset Clear Submit Cancel
+ + Description
+ The product does not use, or incorrectly uses, an input validation framework that is provided by the source language or an independent library.
+ + Extended Description
+ Many modern coding languages provide developers with input validation frameworks to make the task of input validation easier and less error-prone. These frameworks will automatically check all input
+ against specified criteria and direct execution to error handlers when invalid input is received. The improper use (i.e., an incorrect implementation or missing altogether) of these frameworks is not
+ directly exploitable, but can lead to an exploitable condition if proper input validation is not performed later in the product. Not using provided input validation frameworks can also hurt the
+ maintainability of code as future developers may not recognize the downstream input validation being used in the place of the validation framework.
+ + Relationships
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Research Concepts" (CWE-1000)
+     Nature                                                                                                                                                                             Type                                                                                                                                                                           ID          Name
+ ChildOf                                                                               ClassClass - a weakness that is described in a very abstract fashion, typically independent of any specific language or technology. More specific than a Pillar Weakness, but more general than a Base                                                                        20      Improper Input
+                                                                                                                    Weakness. Class level weaknesses typically describe issues in terms of 1 or 2 of the following dimensions: behavior, property, and resource.                                                                                                             Validation
+ ParentOf                                                                              VariantVariant - a weakness that is linked to a certain type of product, typically involving a specific language or technology. More specific than a Base weakness. Variant level weaknesses typically                                                                        102     Struts: Duplicate
+                                                                                                                               describe issues in terms of 3 to 5 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                       Validation Forms
+ ParentOf                                                                              VariantVariant - a weakness that is linked to a certain type of product, typically involving a specific language or technology. More specific than a Base weakness. Variant level weaknesses typically                                                                        105     Struts: Form
+                                                                                                                               describe issues in terms of 3 to 5 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                       Field Without
+                                                                                                                                                                                                                                                                                                                                                                             Validator
+ ParentOf                                                                              VariantVariant - a weakness that is linked to a certain type of product, typically involving a specific language or technology. More specific than a Base weakness. Variant level weaknesses typically                                                                        106     Struts: Plug-in
+                                                                                                                               describe issues in terms of 3 to 5 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                       Framework not in
+                                                                                                                                                                                                                                                                                                                                                                             Use
+ ParentOf                                                                              VariantVariant - a weakness that is linked to a certain type of product, typically involving a specific language or technology. More specific than a Base weakness. Variant level weaknesses typically                                                                        108     Struts:
+                                                                                                                               describe issues in terms of 3 to 5 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                       Unvalidated
+                                                                                                                                                                                                                                                                                                                                                                             Action Form
+ ParentOf                                                                              VariantVariant - a weakness that is linked to a certain type of product, typically involving a specific language or technology. More specific than a Base weakness. Variant level weaknesses typically                                                                        109     Struts: Validator
+                                                                                                                               describe issues in terms of 3 to 5 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                       Turned Off
+ ParentOf                                                                              VariantVariant - a weakness that is linked to a certain type of product, typically involving a specific language or technology. More specific than a Base weakness. Variant level weaknesses typically                                                                        554     ASP.NET
+                                                                                                                               describe issues in terms of 3 to 5 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                       Misconfiguration:
+                                                                                                                                                                                                                                                                                                                                                                             Not Using Input
+                                                                                                                                                                                                                                                                                                                                                                             Validation
+                                                                                                                                                                                                                                                                                                                                                                             Framework
+ ParentOf                                                                              VariantVariant - a weakness that is linked to a certain type of product, typically involving a specific language or technology. More specific than a Base weakness. Variant level weaknesses typically                                                                        1174    ASP.NET
+                                                                                                                               describe issues in terms of 3 to 5 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                       Misconfiguration:
+                                                                                                                                                                                                                                                                                                                                                                             Improper Model
+                                                                                                                                                                                                                                                                                                                                                                             Validation
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Software Development" (CWE-699)
+     Nature                                                       Type                                                     ID                                   Name
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 1215    Data Validation Issues
+ + Modes Of Introduction
+ Section HelpThe different Modes of Introduction provide information about how and when this weakness may be introduced. The Phase identifies a point in the life cycle at which introduction may occur,
+ while the Note provides a typical scenario related to introduction during the given phase.
+          Phase                                                                                             Note
+ Architecture and Design This weakness may occur when software designers choose to not leverage input validation frameworks provided by the source language.
+ Implementation          This weakness may occur when developers do not correctly use a provided input validation framework.
+ + Applicable Platforms
+ Section HelpThis listing shows possible areas for which the given weakness could appear. These may be for specific named Languages, Operating Systems, Architectures, Paradigms, Technologies, or a
+ class of such platforms. The platform is listed along with how frequently the given weakness appears for that instance.
+
+ Languages
+
+ Class: Not Language-Specific (Undetermined Prevalence)
+
+ + Common Consequences
+ Section HelpThis table specifies different individual consequences associated with the weakness. The Scope identifies the application security area that is violated, while the Impact describes the
+ negative technical impact that arises if an adversary succeeds in exploiting this weakness. The Likelihood provides information about how likely the specific consequence is expected to be seen
+ relative to the other consequences in the list. For example, there may be high likelihood that a weakness will be exploited to achieve a certain impact, but a low likelihood that it will be exploited
+ to achieve a different impact.
+       Scope                                                                                     Impact                                                                                 Likelihood
+                    Technical Impact: Unexpected State
+ Integrity
+                    Unchecked input leads to cross-site scripting, process control, and SQL injection vulnerabilities, among others.
+ + Potential Mitigations
+ Phase: Implementation
+
+ Properly use provided input validation frameworks.
+ + Weakness Ordinalities
+ Ordinality                                                                                       Description
+ Indirect   (where the weakness is a quality issue that might indirectly make it easier to introduce security-relevant weaknesses or make them more difficult to detect)
+ + Detection Methods
+ Automated Static Analysis
+
+ Some instances of improper input validation can be detected using automated static analysis.
+
+ A static analysis tool might allow the user to specify which application-specific methods or functions perform input validation; the tool might also have built-in knowledge of validation
+ frameworks such as Struts. The tool may then suppress or de-prioritize any associated warnings. This allows the analyst to focus on areas of the software in which input validation does not appear
+ to be present.
+
+ Except in the cases described in the previous paragraph, automated static analysis might not be able to recognize when proper input validation is being performed, leading to false positives -
+ i.e., warnings that do not have any security consequences or require any code changes.
+
+ + Memberships
+ Section HelpThis MemberOf Relationships table shows additional CWE Categories and Views that reference this weakness as a member. This information is often useful in understanding where a weakness
+ fits within the context of external information sources.
+     Nature                                                       Type                                                     ID                                   Name
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 1348    OWASP Top Ten 2021 Category A04:2021 - Insecure Design
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 1406    Comprehensive Categorization: Improper Input Validation
+ + Vulnerability Mapping Notes
+ Usage: ALLOWED
+
+ (this CWE ID could be used to map to real-world vulnerabilities)
+ Reason: Acceptable-Use
+
+ Rationale:
+
+ This CWE entry is at the Base level of abstraction, which is a preferred level of abstraction for mapping to the root causes of vulnerabilities.
+ Comments:
+
+ Carefully read both the name and description to ensure that this mapping is an appropriate fit. Do not try to 'force' a mapping to a lower-level Base/Variant simply to comply with this preferred
+ level of abstraction.
+ + Content History
+                                                                                            + Submissions
+                                   Submission Date                                                              Submitter                                             Organization
+ 2018-12-21                                                                          CWE Content Team                                                MITRE
+ (CWE 3.2, 2019-01-03)
+
+                                                                                           + Modifications
+                                  Modification Date                                                             Modifier                                              Organization
+ 2020-02-24                                                                          CWE Content Team                                                MITRE
+                                                                                     updated Relationships
+ 2020-06-25                                                                          CWE Content Team                                                MITRE
+                                                                                     updated Relationships
+ 2021-10-28                                                                          CWE Content Team                                                MITRE
+                                                                                     updated Relationships
+ 2023-01-31                                                                          CWE Content Team                                                MITRE
+                                                                                     updated Description
+ 2023-04-27                                                                          CWE Content Team                                                MITRE
+                                                                                     updated Relationships
+ 2023-06-29                                                                          CWE Content Team                                                MITRE
+                                                                                     updated Mapping_Notes
+ More information is available — Please edit the custom filter or select a different filter.
+Page Last Updated: February 29, 2024
+ 
+      Site Map | Terms of Use | Manage Cookies | Cookie Notice | Privacy Policy | Contact Us | CWE X-Twitter CWE Mastodon CWE on LinkedIn CWE YouTube channel CWE Out-of-Bounds-Read Podcast CWE
+      Blog on Medium blog
+
+MITRE Use of the Common Weakness Enumeration (CWE™) and the associated references from this website are subject to the Terms of Use. CWE is sponsored by the U.S. Department of Homeland         HSSEDI
+      Security (DHS) Cybersecurity and Infrastructure Security Agency (CISA) and managed by the Homeland Security Systems Engineering and Development Institute (HSSEDI) which is operated by
+      The MITRE Corporation (MITRE). Copyright © 2006–2024, The MITRE Corporation. CWE, CWSS, CWRAF, and the CWE logo are trademarks of The MITRE Corporation.
+

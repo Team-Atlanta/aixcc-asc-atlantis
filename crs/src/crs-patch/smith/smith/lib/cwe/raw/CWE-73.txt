@@ -1,0 +1,396 @@
+CWE
+
+Common Weakness Enumeration
+
+A community-developed list of SW & HW weaknesses that can become vulnerabilities
+
+New to CWE? click here!
+CWE Most Important Hardware Weaknesses
+CWE Top 25 Most Dangerous Weaknesses
+Home > CWE List > CWE- Individual Dictionary Definition (4.14)                                                                                                   ID Lookup: [                    ] [Go]
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  • Home
+  • About ▼
+    About New to CWE User Stories History Documents FAQs Glossary Compatibility
+  • CWE List ▼
+    Latest Version Downloads Reports Visualizations Archive
+  • Mapping ▼
+    Root Cause Mapping Guidance Root Cause Mapping Quick Tips Root Cause Mapping Examples
+  • Top-N Lists ▼
+    Top 25 Software Top Hardware Top 10 KEV Weaknesses
+  • Community ▼
+    Community Working Groups & Special Interest Groups Board Board Meeting Minutes CWE Discussion List CWE Discussion Archives Contribute Weakness Content to CWE
+  • News ▼
+    Current News X-Twitter ● Mastodon ● LinkedIn ● YouTube YouTube Podcast Out of Bounds Read Podcast Medium Medium News Archive
+  • Search
+
+ 
+ CWE Glossary Definition                  x
+ 
+ 
+ CWE-73: External Control of File Name or Path
+ 
+ Weakness ID: 73
+ Vulnerability Mapping: ALLOWEDThis CWE ID may be used to map to real-world vulnerabilities
+ Abstraction: BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level
+ weaknesses typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.
+ View customized information:
+ Conceptual For users who are interested in more notional aspects of a weakness. Example: educators, technical writers, and project/program managers. Operational For users who are concerned with the
+ practical application and details about the nature of a weakness and how to prevent it from happening. Example: tool developers, security researchers, pen-testers, incident response analysts. Mapping
+ Friendly For users who are mapping an issue to CWE/CAPEC IDs, i.e., finding the most appropriate CWE for a specific issue (e.g., a CVE record). Example: tool developers, security researchers. 
+ Complete For users who wish to see all available information for the CWE/CAPEC entry. Custom For users who want to customize what details are displayed.
+ ×
+
+ Edit Custom Filter
+
+ Conceptual Operational Mapping Friendly Select All
+ 
+ Reset Clear Submit Cancel
+ + Description
+ The product allows user input to control or influence paths or file names that are used in filesystem operations.
+ + Extended Description
+ 
+ This could allow an attacker to access or modify system files or other files that are critical to the application.
+
+ Path manipulation errors occur when the following two conditions are met:
+
+ 1. An attacker can specify a path used in an operation on the filesystem.
+ 2. By specifying the resource, the attacker gains a capability that would not otherwise be permitted.
+
+ For example, the program may give the attacker the ability to overwrite the specified file or run with a configuration controlled by the attacker.
+
+ + Relationships
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Research Concepts" (CWE-1000)
+     Nature                                                                                                                                                                             Type                                                                                                                                                                           ID        Name
+ ChildOf                                                                               ClassClass - a weakness that is described in a very abstract fashion, typically independent of any specific language or technology. More specific than a Pillar Weakness, but more general than a Base                                                                        610     Externally
+                                                                                                                    Weakness. Class level weaknesses typically describe issues in terms of 1 or 2 of the following dimensions: behavior, property, and resource.                                                                                                             Controlled
+                                                                                                                                                                                                                                                                                                                                                                             Reference to
+                                                                                                                                                                                                                                                                                                                                                                             a Resource
+                                                                                                                                                                                                                                                                                                                                                                             in Another
+                                                                                                                                                                                                                                                                                                                                                                             Sphere
+ ChildOf                                                                               ClassClass - a weakness that is described in a very abstract fashion, typically independent of any specific language or technology. More specific than a Pillar Weakness, but more general than a Base                                                                        642     External
+                                                                                                                    Weakness. Class level weaknesses typically describe issues in terms of 1 or 2 of the following dimensions: behavior, property, and resource.                                                                                                             Control of
+                                                                                                                                                                                                                                                                                                                                                                             Critical
+                                                                                                                                                                                                                                                                                                                                                                             State Data
+ ParentOf                                                                              ClassClass - a weakness that is described in a very abstract fashion, typically independent of any specific language or technology. More specific than a Pillar Weakness, but more general than a Base                                                                        114     Process
+                                                                                                                    Weakness. Class level weaknesses typically describe issues in terms of 1 or 2 of the following dimensions: behavior, property, and resource.                                                                                                             Control
+ CanPrecede                                                                                BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level weaknesses                                                                           22      Improper
+                                                                                                                          typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                  Limitation
+                                                                                                                                                                                                                                                                                                                                                                             of a
+                                                                                                                                                                                                                                                                                                                                                                             Pathname to
+                                                                                                                                                                                                                                                                                                                                                                             a Restricted
+                                                                                                                                                                                                                                                                                                                                                                             Directory
+                                                                                                                                                                                                                                                                                                                                                                             ('Path
+                                                                                                                                                                                                                                                                                                                                                                             Traversal')
+ CanPrecede                                                                                BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level weaknesses                                                                           41      Improper
+                                                                                                                          typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                  Resolution
+                                                                                                                                                                                                                                                                                                                                                                             of Path
+                                                                                                                                                                                                                                                                                                                                                                             Equivalence
+ CanPrecede                                                                                BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level weaknesses                                                                           59      Improper
+                                                                                                                          typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                  Link
+                                                                                                                                                                                                                                                                                                                                                                             Resolution
+                                                                                                                                                                                                                                                                                                                                                                             Before File
+                                                                                                                                                                                                                                                                                                                                                                             Access
+                                                                                                                                                                                                                                                                                                                                                                             ('Link
+                                                                                                                                                                                                                                                                                                                                                                             Following')
+ CanPrecede                                                                            VariantVariant - a weakness that is linked to a certain type of product, typically involving a specific language or technology. More specific than a Base weakness. Variant level weaknesses typically                                                                        98      Improper
+                                                                                                                               describe issues in terms of 3 to 5 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                       Control of
+                                                                                                                                                                                                                                                                                                                                                                             Filename for
+                                                                                                                                                                                                                                                                                                                                                                             Include/
+                                                                                                                                                                                                                                                                                                                                                                             Require
+                                                                                                                                                                                                                                                                                                                                                                             Statement in
+                                                                                                                                                                                                                                                                                                                                                                             PHP Program
+                                                                                                                                                                                                                                                                                                                                                                             ('PHP Remote
+                                                                                                                                                                                                                                                                                                                                                                             File
+                                                                                                                                                                                                                                                                                                                                                                             Inclusion')
+ CanPrecede                                                                                BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level weaknesses                                                                           434     Unrestricted
+                                                                                                                          typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                  Upload of
+                                                                                                                                                                                                                                                                                                                                                                             File with
+                                                                                                                                                                                                                                                                                                                                                                             Dangerous
+                                                                                                                                                                                                                                                                                                                                                                             Type
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Software Development" (CWE-699)
+     Nature                                                       Type                                                     ID                                   Name
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 399     Resource Management Errors
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Architectural Concepts" (CWE-1008)
+     Nature                                                       Type                                                     ID                                   Name
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 1015    Limit Access
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Seven Pernicious Kingdoms" (CWE-700)
+     Nature                                                                                                                                                                             Type                                                                                                                                                                           ID       Name
+ ChildOf                                                                               ClassClass - a weakness that is described in a very abstract fashion, typically independent of any specific language or technology. More specific than a Pillar Weakness, but more general than a Base                                                                        20      Improper
+                                                                                                                    Weakness. Class level weaknesses typically describe issues in terms of 1 or 2 of the following dimensions: behavior, property, and resource.                                                                                                             Input
+                                                                                                                                                                                                                                                                                                                                                                             Validation
+ + Modes Of Introduction
+ Section HelpThe different Modes of Introduction provide information about how and when this weakness may be introduced. The Phase identifies a point in the life cycle at which introduction may occur,
+ while the Note provides a typical scenario related to introduction during the given phase.
+          Phase                                                                                             Note
+ Architecture and Design
+ Implementation          REALIZATION: This weakness is caused during implementation of an architectural security tactic.
+ + Applicable Platforms
+ Section HelpThis listing shows possible areas for which the given weakness could appear. These may be for specific named Languages, Operating Systems, Architectures, Paradigms, Technologies, or a
+ class of such platforms. The platform is listed along with how frequently the given weakness appears for that instance.
+
+ Languages
+
+ Class: Not Language-Specific (Undetermined Prevalence)
+
+ Operating Systems
+
+ Class: Unix (Often Prevalent)
+
+ Class: Windows (Often Prevalent)
+
+ Class: macOS (Often Prevalent)
+
+ + Common Consequences
+ Section HelpThis table specifies different individual consequences associated with the weakness. The Scope identifies the application security area that is violated, while the Impact describes the
+ negative technical impact that arises if an adversary succeeds in exploiting this weakness. The Likelihood provides information about how likely the specific consequence is expected to be seen
+ relative to the other consequences in the list. For example, there may be high likelihood that a weakness will be exploited to achieve a certain impact, but a low likelihood that it will be exploited
+ to achieve a different impact.
+       Scope                                                                                     Impact                                                                                 Likelihood
+ Integrity          Technical Impact: Read Files or Directories; Modify Files or Directories
+ Confidentiality
+                    The application can operate on unexpected files. Confidentiality is violated when the targeted filename is not directly readable by the attacker.
+ Integrity          Technical Impact: Modify Files or Directories; Execute Unauthorized Code or Commands
+ Confidentiality
+ Availability       The application can operate on unexpected files. This may violate integrity if the filename is written to, or if the filename is for a program or other form of
+                    executable code.
+                    Technical Impact: DoS: Crash, Exit, or Restart; DoS: Resource Consumption (Other)
+
+ Availability       The application can operate on unexpected files. Availability can be violated if the attacker specifies an unexpected file that the application modifies.
+                    Availability can also be affected if the attacker specifies a filename for a large file, or points to a special device or a file that does not have the format
+                    that the application expects.
+ + Likelihood Of Exploit
+ High
+ + Demonstrative Examples
+ 
+ Example 1
+
+ The following code uses input from an HTTP request to create a file name. The programmer has not considered the possibility that an attacker could provide a file name such as "../../tomcat/conf/
+ server.xml", which causes the application to delete one of its own configuration files (CWE-22).
+
+ (bad code)
+ Example Language: Java 
+ String rName = request.getParameter("reportName");
+ File rFile = new File("/usr/local/apfr/reports/" + rName);
+ ...
+ rFile.delete();
+
+ Example 2
+
+ The following code uses input from a configuration file to determine which file to open and echo back to the user. If the program runs with privileges and malicious users can change the configuration
+ file, they can use the program to read any file on the system that ends with the extension .txt.
+
+ (bad code)
+ Example Language: Java 
+ fis = new FileInputStream(cfg.getProperty("sub")+".txt");
+ amt = fis.read(arr);
+ out.println(arr);
+ + Observed Examples
+        Reference                                                                                        Description
+ CVE-2022-45918          Chain: a learning management tool debugger uses external input to locate previous session logs (CWE-73) and does not properly validate the given path (CWE-20), allowing
+                         for filesystem path traversal using "../" sequences (CWE-24)
+ CVE-2008-5748           Chain: external control of values for user's desired language and theme enables path traversal.
+ CVE-2008-5764           Chain: external control of user's target language enables remote file inclusion.
+ + Potential Mitigations
+ Phase: Architecture and Design
+
+ When the set of filenames is limited or known, create a mapping from a set of fixed input values (such as numeric IDs) to the actual filenames, and reject all other inputs. For example, ID 1
+ could map to "inbox.txt" and ID 2 could map to "profile.txt". Features such as the ESAPI AccessReferenceMap provide this capability.
+ Phases: Architecture and Design; Operation
+
+ Run your code in a "jail" or similar sandbox environment that enforces strict boundaries between the process and the operating system. This may effectively restrict all access to files within a
+ particular directory.
+
+ Examples include the Unix chroot jail and AppArmor. In general, managed code may provide some protection.
+
+ This may not be a feasible solution, and it only limits the impact to the operating system; the rest of your application may still be subject to compromise.
+
+ Be careful to avoid CWE-243 and other weaknesses related to jails.
+
+ Phase: Architecture and Design
+
+ For any security checks that are performed on the client side, ensure that these checks are duplicated on the server side, in order to avoid CWE-602. Attackers can bypass the client-side checks
+ by modifying values after the checks have been performed, or by changing the client to remove the client-side checks entirely. Then, these modified values would be submitted to the server.
+ Phase: Implementation
+
+ Strategy: Input Validation
+
+ Assume all input is malicious. Use an "accept known good" input validation strategy, i.e., use a list of acceptable inputs that strictly conform to specifications. Reject any input that does not
+ strictly conform to specifications, or transform it into something that does.
+
+ When performing input validation, consider all potentially relevant properties, including length, type of input, the full range of acceptable values, missing or extra inputs, syntax, consistency
+ across related fields, and conformance to business rules. As an example of business rule logic, "boat" may be syntactically valid because it only contains alphanumeric characters, but it is not
+ valid if the input is only expected to contain colors such as "red" or "blue."
+
+ Do not rely exclusively on looking for malicious or malformed inputs. This is likely to miss at least one undesirable input, especially if the code's environment changes. This can give attackers
+ enough room to bypass the intended validation. However, denylists can be useful for detecting potential attacks or determining which inputs are so malformed that they should be rejected outright.
+
+ When validating filenames, use stringent allowlists that limit the character set to be used. If feasible, only allow a single "." character in the filename to avoid weaknesses such as CWE-23, and
+ exclude directory separators such as "/" to avoid CWE-36. Use a list of allowable file extensions, which will help to avoid CWE-434.
+
+ Do not rely exclusively on a filtering mechanism that removes potentially dangerous characters. This is equivalent to a denylist, which may be incomplete (CWE-184). For example, filtering "/" is
+ insufficient protection if the filesystem also supports the use of "\" as a directory separator. Another possible error could occur when the filtering is applied in a way that still produces
+ dangerous data (CWE-182). For example, if "../" sequences are removed from the ".../...//" string in a sequential fashion, two instances of "../" would be removed from the original string, but
+ the remaining characters would still form the "../" string.
+
+ Effectiveness: High
+
+ Phase: Implementation
+
+ Use a built-in path canonicalization function (such as realpath() in C) that produces the canonical version of the pathname, which effectively removes ".." sequences and symbolic links (CWE-23,
+ CWE-59).
+ Phases: Installation; Operation
+
+ Use OS-level permissions and run as a low-privileged user to limit the scope of any successful attack.
+ Phases: Operation; Implementation
+
+ If you are using PHP, configure your application so that it does not use register_globals. During implementation, develop your application so that it does not rely on this feature, but be wary of
+ implementing a register_globals emulation that is subject to weaknesses such as CWE-95, CWE-621, and similar issues.
+ Phase: Testing
+
+ Use tools and techniques that require manual (human) analysis, such as penetration testing, threat modeling, and interactive tools that allow the tester to record and modify an active session.
+ These may be more effective than strictly automated techniques. This is especially the case with weaknesses that are related to design and business rules.
+ + Weakness Ordinalities
+ Ordinality                                                                                       Description
+ Primary    (where the weakness exists independent of other weaknesses)
+ + Detection Methods
+ Automated Static Analysis
+
+ The external control or influence of filenames can often be detected using automated static analysis that models data flow within the product.
+
+ Automated static analysis might not be able to recognize when proper input validation is being performed, leading to false positives - i.e., warnings that do not have any security consequences or
+ require any code changes.
+
+ + Memberships
+ Section HelpThis MemberOf Relationships table shows additional CWE Categories and Views that reference this weakness as a member. This information is often useful in understanding where a weakness
+ fits within the context of external information sources.
+     Nature                                                       Type                                                     ID                                   Name
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 723     OWASP Top Ten 2004 Category A2 - Broken Access Control
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 752     2009 Top 25 - Risky Resource Management
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 877     CERT C++ Secure Coding Section 09 - Input Output (FIO)
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 981     SFP Secondary Cluster: Path Traversal
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 1348    OWASP Top Ten 2021 Category A04:2021 - Insecure Design
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 1403    Comprehensive Categorization: Exposed Resource
+ + Vulnerability Mapping Notes
+ Usage: ALLOWED
+
+ (this CWE ID could be used to map to real-world vulnerabilities)
+ Reason: Acceptable-Use
+
+ Rationale:
+
+ This CWE entry is at the Base level of abstraction, which is a preferred level of abstraction for mapping to the root causes of vulnerabilities.
+ Comments:
+
+ Carefully read both the name and description to ensure that this mapping is an appropriate fit. Do not try to 'force' a mapping to a lower-level Base/Variant simply to comply with this preferred
+ level of abstraction.
+ + Notes
+ 
+ Relationship
+
+ The external control of filenames can be the primary link in chains with other file-related weaknesses, as seen in the CanPrecede relationships. This is because software systems use files for many
+ different purposes: to execute programs, load code libraries, to store application data, to store configuration settings, record temporary data, act as signals or semaphores to other processes, etc.
+
+ However, those weaknesses do not always require external control. For example, link-following weaknesses (CWE-59) often involve pathnames that are not controllable by the attacker at all.
+
+ The external control can be resultant from other issues. For example, in PHP applications, the register_globals setting can allow an attacker to modify variables that the programmer thought were
+ immutable, enabling file inclusion (CWE-98) and path traversal (CWE-22). Operating with excessive privileges (CWE-250) might allow an attacker to specify an input filename that is not directly
+ readable by the attacker, but is accessible to the privileged program. A buffer overflow (CWE-119) might give an attacker control over nearby memory locations that are related to pathnames, but were
+ not directly modifiable by the attacker.
+
+ Maintenance
+
+ CWE-114 is a Class, but it is listed a child of CWE-73 in view 1000. This suggests some abstraction problems that should be resolved in future versions.
+ + Taxonomy Mappings
+       Mapped Taxonomy Name          Node ID                 Fit                                                                Mapped Node Name
+ 7 Pernicious Kingdoms                                                       Path Manipulation
+ Software Fault Patterns          SFP16                                      Path Traversal
+ + Related Attack Patterns
+    CAPEC-ID                                                                                     Attack Pattern Name
+ CAPEC-13        Subverting Environment Variable Values
+ CAPEC-267       Leverage Alternate Encoding
+ CAPEC-64        Using Slashes and URL Encoding Combined to Bypass Validation Logic
+ CAPEC-72        URL Encoding
+ CAPEC-76        Manipulating Web Input to File System Calls
+ CAPEC-78        Using Escaped Slashes in Alternate Encoding
+ CAPEC-79        Using Slashes in Alternate Encoding
+ CAPEC-80        Using UTF-8 Encoding to Bypass Validation Logic
+ + References
+ [REF-6] Katrina Tsipenyuk, Brian Chess and Gary McGraw. "Seven Pernicious Kingdoms: A Taxonomy of Software Security Errors". NIST Workshop on Software Security Assurance Tools Techniques and
+ Metrics. NIST. 2005-11-07. <https://samate.nist.gov/SSATTM_Content/papers/Seven%20Pernicious%20Kingdoms%20-%20Taxonomy%20of%20Sw%20Security%20Errors%20-%20Tsipenyuk%20-%20Chess%20-%20McGraw.pdf>.
+ [REF-45] OWASP. "OWASP Enterprise Security API (ESAPI) Project". <http://www.owasp.org/index.php/ESAPI>.
+ + Content History
+                                                                                           + Submissions
+      Submission Date                                                      Submitter                                                                          Organization
+ 2006-07-19                7 Pernicious Kingdoms
+ (CWE Draft 3, 2006-07-19)
+
+                                                                                          + Modifications
+     Modification Date                                                     Modifier                                                                           Organization
+ 2008-07-01                Eric Dalci                                                                                                Cigital
+                           updated Time_of_Introduction
+ 2008-09-08                CWE Content Team                                                                                          MITRE
+                           updated Relationships, Other_Notes, Taxonomy_Mappings, Weakness_Ordinalities
+ 2009-01-12                CWE Content Team                                                                                          MITRE
+                           updated Applicable_Platforms, Causal_Nature, Common_Consequences, Demonstrative_Examples, Description, Observed_Examples, Other_Notes, Potential_Mitigations,
+                           References, Relationship_Notes, Relationships, Weakness_Ordinalities
+ 2009-03-10                CWE Content Team                                                                                          MITRE
+                           updated Potential_Mitigations, Relationships
+ 2009-07-27                CWE Content Team                                                                                          MITRE
+                           updated Demonstrative_Examples
+ 2009-10-29                CWE Content Team                                                                                          MITRE
+                           updated Common_Consequences, Description
+ 2009-12-28                CWE Content Team                                                                                          MITRE
+                           updated Detection_Factors
+ 2010-02-16                CWE Content Team                                                                                          MITRE
+                           updated Potential_Mitigations
+ 2011-06-01                CWE Content Team                                                                                          MITRE
+                           updated Common_Consequences, Relationships, Taxonomy_Mappings
+ 2011-09-13                CWE Content Team                                                                                          MITRE
+                           updated Relationships, Taxonomy_Mappings
+ 2012-05-11                CWE Content Team                                                                                          MITRE
+                           updated Demonstrative_Examples, References, Related_Attack_Patterns, Relationships, Taxonomy_Mappings
+ 2012-10-30                CWE Content Team                                                                                          MITRE
+                           updated Potential_Mitigations
+ 2014-07-30                CWE Content Team                                                                                          MITRE
+                           updated Relationships, Taxonomy_Mappings
+ 2017-11-08                CWE Content Team                                                                                          MITRE
+                           updated Applicable_Platforms, Likelihood_of_Exploit, Modes_of_Introduction, Relationships, Taxonomy_Mappings
+ 2020-02-24                CWE Content Team                                                                                          MITRE
+                           updated Potential_Mitigations, References, Relationships, Time_of_Introduction, Type
+ 2020-06-25                CWE Content Team                                                                                          MITRE
+                           updated Potential_Mitigations, Relationships
+ 2021-03-15                CWE Content Team                                                                                          MITRE
+                           updated Maintenance_Notes, Potential_Mitigations
+ 2021-10-28                CWE Content Team                                                                                          MITRE
+                           updated Relationships
+ 2023-01-31                CWE Content Team                                                                                          MITRE
+                           updated Description, Detection_Factors, Potential_Mitigations
+ 2023-04-27                CWE Content Team                                                                                          MITRE
+                           updated Potential_Mitigations, Relationships
+ 2023-06-29                CWE Content Team                                                                                          MITRE
+                           updated Mapping_Notes
+ 2023-10-26                CWE Content Team                                                                                          MITRE
+                           updated Observed_Examples
+                                                                                       + Previous Entry Names
+        Change Date                                                                                   Previous Entry Name
+ 2008-04-11                Path Manipulation
+ More information is available — Please edit the custom filter or select a different filter.
+Page Last Updated: February 29, 2024
+ 
+      Site Map | Terms of Use | Manage Cookies | Cookie Notice | Privacy Policy | Contact Us | CWE X-Twitter CWE Mastodon CWE on LinkedIn CWE YouTube channel CWE Out-of-Bounds-Read Podcast CWE
+      Blog on Medium blog
+
+MITRE Use of the Common Weakness Enumeration (CWE™) and the associated references from this website are subject to the Terms of Use. CWE is sponsored by the U.S. Department of Homeland         HSSEDI
+      Security (DHS) Cybersecurity and Infrastructure Security Agency (CISA) and managed by the Homeland Security Systems Engineering and Development Institute (HSSEDI) which is operated by
+      The MITRE Corporation (MITRE). Copyright © 2006–2024, The MITRE Corporation. CWE, CWSS, CWRAF, and the CWE logo are trademarks of The MITRE Corporation.
+

@@ -1,0 +1,24 @@
+diff --git a/Dockerfile b/Dockerfile
+index a01c431..25ed2ca 100644
+--- a/Dockerfile
++++ b/Dockerfile
+@@ -60,6 +60,7 @@ ENV SRC=/src
+ ENV OUT=/out
+ ENV WORK=/work
+ ENV MVN=/usr/bin/mvn
++ENV WARS=/wars
+ 
+ # Create needed directories
+ RUN mkdir -p $OUT $WORK $SRC $BINS && chmod -R 0755 $OUT $WORK $SRC $BINS
+diff --git a/container_scripts/entrypoint.sh b/container_scripts/entrypoint.sh
+index 6893e2f..1ebcc1d 100755
+--- a/container_scripts/entrypoint.sh
++++ b/container_scripts/entrypoint.sh
+@@ -30,6 +30,7 @@ if [[ -n "${LOCAL_USER}" ]] && [[ "${LOCAL_USER}" != "0:0" ]]; then
+     # set output directories to be owned by the user
+     # shellcheck disable=SC2086
+     chown -R ${LOCAL_USER} "${WORK}" "${OUT}"
++    chown -R ${LOCAL_USER} "${WARS}" "${OUT}"
+ 
+     # run the passed command and user aixcc
+     # shellcheck disable=SC2086

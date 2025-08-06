@@ -1,0 +1,40 @@
+# How to run
+
+```
+; download cps
+$ make cps
+...
+
+; build each of arvo projects if you'd like to test against
+; see, https://github.com/Team-Atlanta/arvo/tree/master
+
+; make sure each cp can be built and ran with the tests
+$ cd cp_root/mock-cp
+$ make docker-config-local
+$ make docker-build
+$ ./run.sh build
+$ ./run.sh run_tests
+...
+
+$ python3 src/main.py --cp mock-cp
+```
+
+# For fuzzing dictionary generation
+
+```
+$ python3 src/fuzzdict.py --repo cp_root/cp-user-libcue/src/samples --out out.dict
+                                 [CODE repo, not project]                 [where to store]
+```
+
+# Record and replay
+
+It helps "quick" iteration -- due to slow gpt responses, and testing it deterministically.
+
+```
+$ pytest --replay=tests/db.json -v --capture=no tests/test_plugins.py
+$ pytest --replay=tests/db.json -v --capture=no tests/test_crs.py
+```
+
+Update `db.json` if it fails to replay with '--record'.
+
+It aggregates ChatGPT completion objects to `db.json` and makes it reusable across testing.

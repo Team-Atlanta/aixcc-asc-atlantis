@@ -1,0 +1,24 @@
+INPUT ::= COMMAND_CNT { size: 4 }
+          COMMAND[COMMAND_CNT]
+
+COMMAND ::= CSAW_READ_HANDLE
+          | CSAW_WRITE_HANDLE
+          | CSAW_GET_CONSUMER
+          | CSAW_SET_CONSUMER
+          | CSAW_GET_STATS
+
+// 2002875235 base
+CSAW_READ_HANDLE ::= OPCODE { size: 4, value: 2002875237 }
+
+CSAW_WRITE_HANDLE ::= OPCODE { size: 4, value: 2002875238 }
+                      STRLEN { size: 4 }
+                      STRING { size: STRLEN, type: string }
+
+CSAW_GET_CONSUMER ::= OPCODE { size: 4, value: 2002875239 }
+                      OFFSET { size: 1 }
+
+CSAW_SET_CONSUMER ::= OPCODE { size: 4, value: 2002875240 }
+                      OFFSET { size: 1 }
+                      PID { size: 4 }
+
+CSAW_GET_STATS ::= OPCODE { size: 4, value: 2002875242 }

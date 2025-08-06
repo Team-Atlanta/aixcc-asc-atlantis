@@ -1,0 +1,52 @@
+plugins {
+    id 'java'
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.incremental = true // one flag, and things will get MUCH faster
+}
+
+
+repositories {
+    mavenCentral()
+}
+
+// In this section you declare the dependencies for your production and test code
+//dependencies {
+//}
+
+jar {
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+    manifest {
+        attributes (
+                "Can-Redefine-Classes": true,
+                "Can-Retransform-Classes": true,
+                'Premain-Class': 'org.team_atlanta.BinaryArgumentLoader')
+    }
+
+    from {
+        exclude '**/module-info.class'
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+
+}
+
+tasks.register('copyJar', Copy) {
+    from jar
+    into 'lib'
+    rename (String fileName) -> { fileName = 'BinaryArgumentLoader.jar' }
+}
+
+
+build.finalizedBy copyJar
+assemble.finalizedBy copyJar
+test {
+    // Configure test logging
+    testLogging {
+        // Ensure the output from standard out is shown as it occurs:
+        showStandardStreams = true
+
+        // You can also set event types to be logged:
+        events "passed", "skipped", "failed", "standardOut", "standardError"
+    }
+}

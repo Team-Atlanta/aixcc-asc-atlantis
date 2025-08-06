@@ -1,0 +1,93 @@
+Entry Point: PipelineCommandUtilFuzzer.fuzzerTestOneInput:void(byte[])
+Data Usage: 
+ - data.length < 5
+ - data.length
+ - String whole = new String(data)
+ - new String(data)
+ - new String(data)
+
+Parts Usage: 
+ - String[] parts = whole.split("\0")
+ - parts.length == 3
+ - parts.length
+ - headerNamesList.add(parts[0])
+ - parts[0]
+ - when(mockRequest.getHeader(parts[0])).thenReturn(parts[1])
+ - when(mockRequest.getHeader(parts[0]))
+ - getHeader(parts[0])
+ - parts[0]
+ - parts[1]
+ - doexecCommandUtils(parts[2], req, resp)
+ - parts[2]
+
+Data Operations: 
+ - Operation: data.length, Original Call: data.length < 5
+ - Operation: new String(data), Original Call: String whole = new String(data)
+ - Operation: whole.split("\0"), Original Call: String[] parts = whole.split("\0")
+ - Operation: parts.length, Original Call: parts.length == 3
+ - Operation: parts[0], Original Call: headerNamesList.add(parts[0])
+ - Operation: when(mockRequest.getHeader(parts[0])), Original Call: when(mockRequest.getHeader(parts[0])).thenReturn(parts[1])
+ - Operation: parts[1], Original Call: when(mockRequest.getHeader(parts[0])).thenReturn(parts[1])
+ - Operation: getHeader(parts[0]), Original Call: when(mockRequest.getHeader(parts[0]))
+ - Operation: parts[0], Original Call: getHeader(parts[0])
+ - Operation: parts[2], Original Call: doexecCommandUtils(parts[2], req, resp)
+
+Input Nature: 
+ - new String(data)
+ - whole.split("\0")
+
+Headers: 
+
+Jenkins Commands: 
+ - hasPermission(Jenkins.ADMINISTER)
+
+Conditions to Reach Command (excluding exceptions or System.exit): 
+ - Condition: parts.length == 3
+   -> The condition leads to the command: parts.length == 3
+
+String Literals: 
+ - "\0"
+ - "Referer"
+ - "http://localhost:8080/UtilPlug/execCommandUtils"
+
+Potential Input Values to Reach Command: 
+ - Condition: parts.length == 3
+ - new WebApp(Mockito.mock(ServletContext.class))
+
+Conditions to Reach Command (excluding exceptions or System.exit): 
+ - Condition: parts.length == 3
+   -> The condition leads to the command: parts.length == 3
+
+String Literals: 
+ - "\0"
+ - "Referer"
+ - "http://localhost:8080/UtilPlug/execCommandUtils"
+
+Potential Input Values to Reach Command: 
+ - Condition: parts.length == 3
+ - new RequestImpl(replacer.stapler, mockRequest, Collections.emptyList(), null)
+
+Conditions to Reach Command (excluding exceptions or System.exit): 
+ - Condition: parts.length == 3
+   -> The condition leads to the command: parts.length == 3
+
+String Literals: 
+ - "\0"
+ - "Referer"
+ - "http://localhost:8080/UtilPlug/execCommandUtils"
+
+Potential Input Values to Reach Command: 
+ - Condition: parts.length == 3
+ - new ResponseImpl(replacer.stapler, mockResp)
+
+Conditions to Reach Command (excluding exceptions or System.exit): 
+ - Condition: parts.length == 3
+   -> The condition leads to the command: parts.length == 3
+
+String Literals: 
+ - "\0"
+ - "Referer"
+ - "http://localhost:8080/UtilPlug/execCommandUtils"
+
+Potential Input Values to Reach Command: 
+ - Condition: parts.length == 3

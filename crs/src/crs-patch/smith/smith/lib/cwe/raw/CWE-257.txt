@@ -1,0 +1,262 @@
+CWE
+
+Common Weakness Enumeration
+
+A community-developed list of SW & HW weaknesses that can become vulnerabilities
+
+New to CWE? click here!
+CWE Most Important Hardware Weaknesses
+CWE Top 25 Most Dangerous Weaknesses
+Home > CWE List > CWE- Individual Dictionary Definition (4.14)                                                                                                   ID Lookup: [                    ] [Go]
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  • Home
+  • About ▼
+    About New to CWE User Stories History Documents FAQs Glossary Compatibility
+  • CWE List ▼
+    Latest Version Downloads Reports Visualizations Archive
+  • Mapping ▼
+    Root Cause Mapping Guidance Root Cause Mapping Quick Tips Root Cause Mapping Examples
+  • Top-N Lists ▼
+    Top 25 Software Top Hardware Top 10 KEV Weaknesses
+  • Community ▼
+    Community Working Groups & Special Interest Groups Board Board Meeting Minutes CWE Discussion List CWE Discussion Archives Contribute Weakness Content to CWE
+  • News ▼
+    Current News X-Twitter ● Mastodon ● LinkedIn ● YouTube YouTube Podcast Out of Bounds Read Podcast Medium Medium News Archive
+  • Search
+
+ 
+ CWE Glossary Definition                  x
+ 
+ 
+ CWE-257: Storing Passwords in a Recoverable Format
+ 
+ Weakness ID: 257
+ Vulnerability Mapping: ALLOWEDThis CWE ID may be used to map to real-world vulnerabilities
+ Abstraction: BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level
+ weaknesses typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.
+ View customized information:
+ Conceptual For users who are interested in more notional aspects of a weakness. Example: educators, technical writers, and project/program managers. Operational For users who are concerned with the
+ practical application and details about the nature of a weakness and how to prevent it from happening. Example: tool developers, security researchers, pen-testers, incident response analysts. Mapping
+ Friendly For users who are mapping an issue to CWE/CAPEC IDs, i.e., finding the most appropriate CWE for a specific issue (e.g., a CVE record). Example: tool developers, security researchers. 
+ Complete For users who wish to see all available information for the CWE/CAPEC entry. Custom For users who want to customize what details are displayed.
+ ×
+
+ Edit Custom Filter
+
+ Conceptual Operational Mapping Friendly Select All
+ 
+ Reset Clear Submit Cancel
+ + Description
+ The storage of passwords in a recoverable format makes them subject to password reuse attacks by malicious users. In fact, it should be noted that recoverable encrypted passwords provide no
+ significant benefit over plaintext passwords since they are subject not only to reuse by malicious attackers but also by malicious insiders. If a system administrator can recover a password directly,
+ or use a brute force search on the available information, the administrator can use the password on other accounts.
+ + Relationships
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Research Concepts" (CWE-1000)
+     Nature                                                                                                                                                                             Type                                                                                                                                                                           ID         Name
+ ChildOf                                                                               ClassClass - a weakness that is described in a very abstract fashion, typically independent of any specific language or technology. More specific than a Pillar Weakness, but more general than a Base                                                                        522     Insufficiently
+                                                                                                                    Weakness. Class level weaknesses typically describe issues in terms of 1 or 2 of the following dimensions: behavior, property, and resource.                                                                                                             Protected
+                                                                                                                                                                                                                                                                                                                                                                             Credentials
+ PeerOf                                                                                VariantVariant - a weakness that is linked to a certain type of product, typically involving a specific language or technology. More specific than a Base weakness. Variant level weaknesses typically                                                                        259     Use of
+                                                                                                                               describe issues in terms of 3 to 5 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                       Hard-coded
+                                                                                                                                                                                                                                                                                                                                                                             Password
+ PeerOf                                                                                    BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level weaknesses                                                                           798     Use of
+                                                                                                                          typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                  Hard-coded
+                                                                                                                                                                                                                                                                                                                                                                             Credentials
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Software Development" (CWE-699)
+     Nature                                                       Type                                                     ID                                   Name
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 255     Credentials Management Errors
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Architectural Concepts" (CWE-1008)
+     Nature                                                       Type                                                     ID                                   Name
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 1013    Encrypt Data
+ + Modes Of Introduction
+ Section HelpThe different Modes of Introduction provide information about how and when this weakness may be introduced. The Phase identifies a point in the life cycle at which introduction may occur,
+ while the Note provides a typical scenario related to introduction during the given phase.
+          Phase                                                                                             Note
+ Architecture and Design COMMISSION: This weakness refers to an incorrect design related to an architectural security tactic.
+ + Applicable Platforms
+ Section HelpThis listing shows possible areas for which the given weakness could appear. These may be for specific named Languages, Operating Systems, Architectures, Paradigms, Technologies, or a
+ class of such platforms. The platform is listed along with how frequently the given weakness appears for that instance.
+
+ Languages
+
+ Class: Not Language-Specific (Undetermined Prevalence)
+
+ + Common Consequences
+ Section HelpThis table specifies different individual consequences associated with the weakness. The Scope identifies the application security area that is violated, while the Impact describes the
+ negative technical impact that arises if an adversary succeeds in exploiting this weakness. The Likelihood provides information about how likely the specific consequence is expected to be seen
+ relative to the other consequences in the list. For example, there may be high likelihood that a weakness will be exploited to achieve a certain impact, but a low likelihood that it will be exploited
+ to achieve a different impact.
+       Scope                                                                                     Impact                                                                                 Likelihood
+ Confidentiality    Technical Impact: Gain Privileges or Assume Identity
+ Access Control
+                    User's passwords may be revealed.
+                    Technical Impact: Gain Privileges or Assume Identity
+ Access Control
+                    Revealed passwords may be reused elsewhere to impersonate the users in question.
+ + Likelihood Of Exploit
+ High
+ + Demonstrative Examples
+ 
+ Example 1
+
+ Both of these examples verify a password by comparing it to a stored compressed version.
+
+ (bad code)
+ Example Language: C 
+ int VerifyAdmin(char *password) {
+ if (strcmp(compress(password), compressed_password)) {
+ printf("Incorrect Password!\n");
+ return(0);
+ }
+ printf("Entering Diagnostic Mode...\n");
+ return(1);
+ }
+ (bad code)
+ Example Language: Java 
+ int VerifyAdmin(String password) {
+ if (passwd.Equals(compress(password), compressed_password)) {
+ return(0);
+ }
+ //Diagnostic Mode
+ return(1);
+ }
+
+ Because a compression algorithm is used instead of a one way hashing algorithm, an attacker can recover compressed passwords stored in the database.
+
+ Example 2
+
+ The following examples show a portion of properties and configuration files for Java and ASP.NET applications. The files include username and password information but they are stored in cleartext.
+
+ This Java example shows a properties file with a cleartext username / password pair.
+
+ (bad code)
+ Example Language: Java 
+
+ # Java Web App ResourceBundle properties file
+ ...
+ webapp.ldap.username=secretUsername
+ webapp.ldap.password=secretPassword
+ ...
+
+ The following example shows a portion of a configuration file for an ASP.Net application. This configuration file includes username and password information for a connection to a database but the
+ pair is stored in cleartext.
+
+ (bad code)
+ Example Language: ASP.NET 
+ ...
+ <connectionStrings>
+ <add name="ud_DEV" connectionString="connectDB=uDB; uid=db2admin; pwd=password; dbalias=uDB;" providerName="System.Data.Odbc" />
+ </connectionStrings>
+ ...
+
+ Username and password information should not be included in a configuration file or a properties file in cleartext as this will allow anyone who can read the file access to the resource. If possible,
+ encrypt this information.
+
+ + Observed Examples
+        Reference                                                                                        Description
+ CVE-2022-30018          A messaging platform serializes all elements of User/Group objects, making private information available to adversaries
+ + Potential Mitigations
+ Phase: Architecture and Design
+
+ Use strong, non-reversible encryption to protect stored passwords.
+ + Weakness Ordinalities
+ Ordinality                                                                                       Description
+ Primary    (where the weakness exists independent of other weaknesses)
+ + Detection Methods
+ Automated Static Analysis
+
+ Automated static analysis, commonly referred to as Static Application Security Testing (SAST), can find some instances of this weakness by analyzing source code (or binary/compiled code) without
+ having to execute it. Typically, this is done by building a model of data flow and control flow, then searching for potentially-vulnerable patterns that connect "sources" (origins of input) with
+ "sinks" (destinations where the data interacts with external components, a lower layer such as the OS, etc.)
+
+ Effectiveness: High
+
+ + Memberships
+ Section HelpThis MemberOf Relationships table shows additional CWE Categories and Views that reference this weakness as a member. This information is often useful in understanding where a weakness
+ fits within the context of external information sources.
+     Nature                                                       Type                                                     ID                                   Name
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 963     SFP Secondary Cluster: Exposed Data
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 1348    OWASP Top Ten 2021 Category A04:2021 - Insecure Design
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 1396    Comprehensive Categorization: Access Control
+ + Vulnerability Mapping Notes
+ Usage: ALLOWED
+
+ (this CWE ID could be used to map to real-world vulnerabilities)
+ Reason: Acceptable-Use
+
+ Rationale:
+
+ This CWE entry is at the Base level of abstraction, which is a preferred level of abstraction for mapping to the root causes of vulnerabilities.
+ Comments:
+
+ Carefully read both the name and description to ensure that this mapping is an appropriate fit. Do not try to 'force' a mapping to a lower-level Base/Variant simply to comply with this preferred
+ level of abstraction.
+ + Notes
+ 
+ Maintenance
+
+ The meaning of this entry needs to be investigated more closely, especially with respect to what is meant by "recoverable."
+ + Taxonomy Mappings
+       Mapped Taxonomy Name          Node ID         Fit                                                                 Mapped Node Name
+ CLASP                                                        Storing passwords in a recoverable format
+ Software Fault Patterns          SFP23                       Exposed Data
+ + Related Attack Patterns
+    CAPEC-ID                                                                                     Attack Pattern Name
+ CAPEC-49        Password Brute Forcing
+ + References
+ [REF-18] Secure Software, Inc.. "The CLASP Application Security Process". 2005. <https://cwe.mitre.org/documents/sources/TheCLASPApplicationSecurityProcess.pdf>.
+ + Content History
+                                                                                            + Submissions
+         Submission Date                                                   Submitter                                                                       Organization
+ 2006-07-19                       CLASP
+ (CWE Draft 3, 2006-07-19)
+
+                                                                                           + Modifications
+        Modification Date                                                   Modifier                                                                       Organization
+ 2008-09-08                       CWE Content Team                                                                             MITRE
+                                  updated Common_Consequences, Relationships, Other_Notes, Taxonomy_Mappings, Weakness_Ordinalities
+ 2008-10-14                       CWE Content Team                                                                             MITRE
+                                  updated Demonstrative_Examples, Description, Maintenance_Notes, Potential_Mitigations
+ 2010-02-16                       CWE Content Team                                                                             MITRE
+                                  updated Relationships
+ 2011-06-01                       CWE Content Team                                                                             MITRE
+                                  updated Common_Consequences, Demonstrative_Examples
+ 2012-05-11                       CWE Content Team                                                                             MITRE
+                                  updated Demonstrative_Examples, Relationships
+ 2012-10-30                       CWE Content Team                                                                             MITRE
+                                  updated Demonstrative_Examples
+ 2014-06-23                       CWE Content Team                                                                             MITRE
+                                  updated Description, Other_Notes
+ 2014-07-30                       CWE Content Team                                                                             MITRE
+                                  updated Relationships, Taxonomy_Mappings
+ 2017-11-08                       CWE Content Team                                                                             MITRE
+                                  updated Applicable_Platforms, Causal_Nature, Demonstrative_Examples, Likelihood_of_Exploit, Modes_of_Introduction, Relationships
+ 2020-02-24                       CWE Content Team                                                                             MITRE
+                                  updated References, Relationships
+ 2021-03-15                       CWE Content Team                                                                             MITRE
+                                  updated Demonstrative_Examples, Maintenance_Notes
+ 2021-10-28                       CWE Content Team                                                                             MITRE
+                                  updated Relationships
+ 2023-04-27                       CWE Content Team                                                                             MITRE
+                                  updated Detection_Factors, Relationships
+ 2023-06-29                       CWE Content Team                                                                             MITRE
+                                  updated Mapping_Notes
+ 2023-10-26                       CWE Content Team                                                                             MITRE
+                                  updated Observed_Examples
+ More information is available — Please edit the custom filter or select a different filter.
+Page Last Updated: February 29, 2024
+ 
+      Site Map | Terms of Use | Manage Cookies | Cookie Notice | Privacy Policy | Contact Us | CWE X-Twitter CWE Mastodon CWE on LinkedIn CWE YouTube channel CWE Out-of-Bounds-Read Podcast CWE
+      Blog on Medium blog
+
+MITRE Use of the Common Weakness Enumeration (CWE™) and the associated references from this website are subject to the Terms of Use. CWE is sponsored by the U.S. Department of Homeland         HSSEDI
+      Security (DHS) Cybersecurity and Infrastructure Security Agency (CISA) and managed by the Homeland Security Systems Engineering and Development Institute (HSSEDI) which is operated by
+      The MITRE Corporation (MITRE). Copyright © 2006–2024, The MITRE Corporation. CWE, CWSS, CWRAF, and the CWE logo are trademarks of The MITRE Corporation.
+

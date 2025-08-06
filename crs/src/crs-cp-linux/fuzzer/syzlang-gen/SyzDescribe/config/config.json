@@ -1,0 +1,5 @@
+{
+  "bitcode": "/root/linux-6.1/drivers/ata/built-in.bc",
+  "knowledge": "~/SyzDescribe/config/knowledge.json",
+  "version": "v6.1"
+}

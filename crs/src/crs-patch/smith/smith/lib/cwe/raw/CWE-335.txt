@@ -1,0 +1,272 @@
+CWE
+
+Common Weakness Enumeration
+
+A community-developed list of SW & HW weaknesses that can become vulnerabilities
+
+New to CWE? click here!
+CWE Most Important Hardware Weaknesses
+CWE Top 25 Most Dangerous Weaknesses
+Home > CWE List > CWE- Individual Dictionary Definition (4.14)                                                                                                   ID Lookup: [                    ] [Go]
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  • Home
+  • About ▼
+    About New to CWE User Stories History Documents FAQs Glossary Compatibility
+  • CWE List ▼
+    Latest Version Downloads Reports Visualizations Archive
+  • Mapping ▼
+    Root Cause Mapping Guidance Root Cause Mapping Quick Tips Root Cause Mapping Examples
+  • Top-N Lists ▼
+    Top 25 Software Top Hardware Top 10 KEV Weaknesses
+  • Community ▼
+    Community Working Groups & Special Interest Groups Board Board Meeting Minutes CWE Discussion List CWE Discussion Archives Contribute Weakness Content to CWE
+  • News ▼
+    Current News X-Twitter ● Mastodon ● LinkedIn ● YouTube YouTube Podcast Out of Bounds Read Podcast Medium Medium News Archive
+  • Search
+
+ 
+ CWE Glossary Definition                  x
+ 
+ 
+ CWE-335: Incorrect Usage of Seeds in Pseudo-Random Number Generator (PRNG)
+ 
+ Weakness ID: 335
+ Vulnerability Mapping: ALLOWEDThis CWE ID may be used to map to real-world vulnerabilities
+ Abstraction: BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level
+ weaknesses typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.
+ View customized information:
+ Conceptual For users who are interested in more notional aspects of a weakness. Example: educators, technical writers, and project/program managers. Operational For users who are concerned with the
+ practical application and details about the nature of a weakness and how to prevent it from happening. Example: tool developers, security researchers, pen-testers, incident response analysts. Mapping
+ Friendly For users who are mapping an issue to CWE/CAPEC IDs, i.e., finding the most appropriate CWE for a specific issue (e.g., a CVE record). Example: tool developers, security researchers. 
+ Complete For users who wish to see all available information for the CWE/CAPEC entry. Custom For users who want to customize what details are displayed.
+ ×
+
+ Edit Custom Filter
+
+ Conceptual Operational Mapping Friendly Select All
+ 
+ Reset Clear Submit Cancel
+ + Description
+ The product uses a Pseudo-Random Number Generator (PRNG) but does not correctly manage seeds.
+ + Extended Description
+ 
+ PRNGs are deterministic and, while their output appears random, they cannot actually create entropy. They rely on cryptographically secure and unique seeds for entropy so proper seeding is critical
+ to the secure operation of the PRNG.
+
+ Management of seeds could be broken down into two main areas:
+
+   • (1) protecting seeds as cryptographic material (such as a cryptographic key);
+   • (2) whenever possible, using a uniquely generated seed from a cryptographically secure source
+
+ PRNGs require a seed as input to generate a stream of numbers that are functionally indistinguishable from random numbers. While the output is, in many cases, sufficient for cryptographic uses, the
+ output of any PRNG is directly determined by the seed provided as input. If the seed can be ascertained by a third party, the entire output of the PRNG can be made known to them. As such, the seed
+ should be kept secret and should ideally not be able to be guessed. For example, the current time may be a poor seed. Knowing the approximate time the PRNG was seeded greatly reduces the possible key
+ space.
+
+ Seeds do not necessarily need to be unique, but reusing seeds may open up attacks if the seed is discovered.
+
+ + Relationships
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Research Concepts" (CWE-1000)
+     Nature                                                                                                                                                                             Type                                                                                                                                                                           ID         Name
+ ChildOf                                                                               ClassClass - a weakness that is described in a very abstract fashion, typically independent of any specific language or technology. More specific than a Pillar Weakness, but more general than a Base                                                                        330     Use of
+                                                                                                                    Weakness. Class level weaknesses typically describe issues in terms of 1 or 2 of the following dimensions: behavior, property, and resource.                                                                                                             Insufficiently
+                                                                                                                                                                                                                                                                                                                                                                             Random Values
+ ParentOf                                                                              VariantVariant - a weakness that is linked to a certain type of product, typically involving a specific language or technology. More specific than a Base weakness. Variant level weaknesses typically                                                                        336     Same Seed in
+                                                                                                                               describe issues in terms of 3 to 5 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                       Pseudo-Random
+                                                                                                                                                                                                                                                                                                                                                                             Number
+                                                                                                                                                                                                                                                                                                                                                                             Generator
+                                                                                                                                                                                                                                                                                                                                                                             (PRNG)
+ ParentOf                                                                              VariantVariant - a weakness that is linked to a certain type of product, typically involving a specific language or technology. More specific than a Base weakness. Variant level weaknesses typically                                                                        337     Predictable
+                                                                                                                               describe issues in terms of 3 to 5 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                       Seed in
+                                                                                                                                                                                                                                                                                                                                                                             Pseudo-Random
+                                                                                                                                                                                                                                                                                                                                                                             Number
+                                                                                                                                                                                                                                                                                                                                                                             Generator
+                                                                                                                                                                                                                                                                                                                                                                             (PRNG)
+ ParentOf                                                                              VariantVariant - a weakness that is linked to a certain type of product, typically involving a specific language or technology. More specific than a Base weakness. Variant level weaknesses typically                                                                        339     Small Seed
+                                                                                                                               describe issues in terms of 3 to 5 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                       Space in PRNG
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Software Development" (CWE-699)
+     Nature                                                       Type                                                     ID                                   Name
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 1213    Random Number Issues
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 310     Cryptographic Issues
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Weaknesses for Simplified Mapping of Published Vulnerabilities" (CWE-1003)
+     Nature                                                                                                                                                                             Type                                                                                                                                                                           ID         Name
+ ChildOf                                                                               ClassClass - a weakness that is described in a very abstract fashion, typically independent of any specific language or technology. More specific than a Pillar Weakness, but more general than a Base                                                                        330     Use of
+                                                                                                                    Weakness. Class level weaknesses typically describe issues in terms of 1 or 2 of the following dimensions: behavior, property, and resource.                                                                                                             Insufficiently
+                                                                                                                                                                                                                                                                                                                                                                             Random Values
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Architectural Concepts" (CWE-1008)
+     Nature                                                       Type                                                     ID                                   Name
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 1013    Encrypt Data
+ + Modes Of Introduction
+ Section HelpThe different Modes of Introduction provide information about how and when this weakness may be introduced. The Phase identifies a point in the life cycle at which introduction may occur,
+ while the Note provides a typical scenario related to introduction during the given phase.
+     Phase                                                                                              Note
+ Implementation REALIZATION: This weakness is caused during implementation of an architectural security tactic.
+ + Applicable Platforms
+ Section HelpThis listing shows possible areas for which the given weakness could appear. These may be for specific named Languages, Operating Systems, Architectures, Paradigms, Technologies, or a
+ class of such platforms. The platform is listed along with how frequently the given weakness appears for that instance.
+
+ Languages
+
+ Class: Not Language-Specific (Undetermined Prevalence)
+
+ + Common Consequences
+ Section HelpThis table specifies different individual consequences associated with the weakness. The Scope identifies the application security area that is violated, while the Impact describes the
+ negative technical impact that arises if an adversary succeeds in exploiting this weakness. The Likelihood provides information about how likely the specific consequence is expected to be seen
+ relative to the other consequences in the list. For example, there may be high likelihood that a weakness will be exploited to achieve a certain impact, but a low likelihood that it will be exploited
+ to achieve a different impact.
+       Scope                                                                                     Impact                                                                                 Likelihood
+                    Technical Impact: Bypass Protection Mechanism; Other
+ Access Control
+ Other              If a PRNG is used incorrectly, such as using the same seed for each initialization or using a predictable seed, then an attacker may be able to easily guess the
+                    seed and thus the random numbers. This could lead to unauthorized access to a system if the seed is used for authentication and authorization.
+ + Demonstrative Examples
+ 
+ Example 1
+
+ The following code uses a statistical PRNG to generate account IDs.
+
+ (bad code)
+ Example Language: Java 
+ private static final long SEED = 1234567890;
+ public int generateAccountID() {
+ Random random = new Random(SEED);
+ return random.nextInt();
+ }
+
+ Because the program uses the same seed value for every invocation of the PRNG, its values are predictable, making the system vulnerable to attack.
+
+ Example 2
+
+ Both of these examples use a statistical PRNG seeded with the current value of the system clock to generate a random number:
+
+ (bad code)
+ Example Language: Java 
+ Random random = new Random(System.currentTimeMillis());
+ int accountID = random.nextInt();
+ (bad code)
+ Example Language: C 
+ srand(time());
+ int randNum = rand();
+
+ An attacker can easily predict the seed used by these PRNGs, and so also predict the stream of random numbers generated. Note these examples also exhibit CWE-338 (Use of Cryptographically Weak PRNG).
+
+ Example 3
+
+ This code grabs some random bytes and uses them for a seed in a PRNG, in order to generate a new cryptographic key.
+
+ (bad code)
+ Example Language: Python 
+ # getting 2 bytes of randomness for the seeding the PRNG
+ seed = os.urandom(2)
+ random.seed(a=seed)
+ key = random.getrandbits(128)
+
+ Since only 2 bytes are used as a seed, an attacker will only need to guess 2^16 (65,536) values before being able to replicate the state of the PRNG.
+
+ + Observed Examples
+        Reference                                                                                        Description
+ CVE-2020-7010           Cloud application on Kubernetes generates passwords using a weak random number generator based on deployment time.
+ CVE-2019-11495          server uses erlang:now() to seed the PRNG, which results in a small search space for potential random seeds
+ CVE-2018-12520          Product's PRNG is not seeded for the generation of session IDs
+ CVE-2016-10180          Router's PIN generation is based on rand(time(0)) seeding.
+ + Memberships
+ Section HelpThis MemberOf Relationships table shows additional CWE Categories and Views that reference this weakness as a member. This information is often useful in understanding where a weakness
+ fits within the context of external information sources.
+     Nature                                                                                                  Type                                                                                               ID         Name
+ MemberOf        ViewView - a subset of CWE entries that provides a way of examining CWE content. The two main view structures are Slices (flat lists) and Graphs (containing relationships between entries). 884     CWE
+                                                                                                                                                                                                                      Cross-section
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            905     SFP Primary
+                                                                                                                                                                                                                      Cluster:
+                                                                                                                                                                                                                      Predictability
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            1346    OWASP Top Ten
+                                                                                                                                                                                                                      2021 Category
+                                                                                                                                                                                                                      A02:2021 -
+                                                                                                                                                                                                                      Cryptographic
+                                                                                                                                                                                                                      Failures
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            1414    Comprehensive
+                                                                                                                                                                                                                      Categorization:
+                                                                                                                                                                                                                      Randomness
+ + Vulnerability Mapping Notes
+ Usage: ALLOWED
+
+ (this CWE ID could be used to map to real-world vulnerabilities)
+ Reason: Acceptable-Use
+
+ Rationale:
+
+ This CWE entry is at the Base level of abstraction, which is a preferred level of abstraction for mapping to the root causes of vulnerabilities.
+ Comments:
+
+ Carefully read both the name and description to ensure that this mapping is an appropriate fit. Do not try to 'force' a mapping to a lower-level Base/Variant simply to comply with this preferred
+ level of abstraction.
+ + Notes
+ 
+ Maintenance
+
+ As of CWE 4.5, terminology related to randomness, entropy, and predictability can vary widely. Within the developer and other communities, "randomness" is used heavily. However, within cryptography,
+ "entropy" is distinct, typically implied as a measurement. There are no commonly-used definitions, even within standards documents and cryptography papers. Future versions of CWE will attempt to
+ define these terms and, if necessary, distinguish between them in ways that are appropriate for different communities but do not reduce the usability of CWE for mapping, understanding, or other
+ scenarios.
+ + Taxonomy Mappings
+       Mapped Taxonomy Name          Node ID                 Fit                                                                Mapped Node Name
+ PLOVER                                                                      PRNG Seed Error
+ + References
+ [REF-44] Michael Howard, David LeBlanc and John Viega. "24 Deadly Sins of Software Security". "Sin 20: Weak Random Numbers." Page 299. McGraw-Hill. 2010.
+ + Content History
+                                                                                           + Submissions
+              Submission Date                                                     Submitter                                                                  Organization
+ 2006-07-19                                 PLOVER
+ (CWE Draft 3, 2006-07-19)
+
+                                                                                          + Modifications
+             Modification Date                                                     Modifier                                                                  Organization
+ 2008-07-01                                 Eric Dalci                                                                             Cigital
+                                            updated Time_of_Introduction
+ 2008-09-08                                 CWE Content Team                                                                       MITRE
+                                            updated Relationships, Taxonomy_Mappings
+ 2011-06-01                                 CWE Content Team                                                                       MITRE
+                                            updated Common_Consequences
+ 2012-05-11                                 CWE Content Team                                                                       MITRE
+                                            updated Common_Consequences, References, Relationships
+ 2017-11-08                                 CWE Content Team                                                                       MITRE
+                                            updated Applicable_Platforms, Description, Modes_of_Introduction, Name, Relationships, Type
+ 2019-06-20                                 CWE Content Team                                                                       MITRE
+                                            updated Relationships
+ 2020-02-24                                 CWE Content Team                                                                       MITRE
+                                            updated Relationships
+ 2021-07-20                                 CWE Content Team                                                                       MITRE
+                                            updated Description, Maintenance_Notes, Observed_Examples
+ 2021-10-28                                 CWE Content Team                                                                       MITRE
+                                            updated Relationships
+ 2022-10-13                                 CWE Content Team                                                                       MITRE
+                                            updated Observed_Examples
+ 2023-01-31                                 CWE Content Team                                                                       MITRE
+                                            updated Description
+ 2023-04-27                                 CWE Content Team                                                                       MITRE
+                                            updated Relationships, Time_of_Introduction
+ 2023-06-29                                 CWE Content Team                                                                       MITRE
+                                            updated Mapping_Notes
+ 2023-10-26                                 CWE Content Team                                                                       MITRE
+                                            updated Demonstrative_Examples
+                                                                                       + Previous Entry Names
+                Change Date                                                                                   Previous Entry Name
+ 2017-11-08                                 PRNG Seed Error
+ More information is available — Please edit the custom filter or select a different filter.
+Page Last Updated: February 29, 2024
+ 
+      Site Map | Terms of Use | Manage Cookies | Cookie Notice | Privacy Policy | Contact Us | CWE X-Twitter CWE Mastodon CWE on LinkedIn CWE YouTube channel CWE Out-of-Bounds-Read Podcast CWE
+      Blog on Medium blog
+
+MITRE Use of the Common Weakness Enumeration (CWE™) and the associated references from this website are subject to the Terms of Use. CWE is sponsored by the U.S. Department of Homeland         HSSEDI
+      Security (DHS) Cybersecurity and Infrastructure Security Agency (CISA) and managed by the Homeland Security Systems Engineering and Development Institute (HSSEDI) which is operated by
+      The MITRE Corporation (MITRE). Copyright © 2006–2024, The MITRE Corporation. CWE, CWSS, CWRAF, and the CWE logo are trademarks of The MITRE Corporation.
+

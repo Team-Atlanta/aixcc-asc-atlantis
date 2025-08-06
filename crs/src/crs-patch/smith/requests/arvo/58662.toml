@@ -1,0 +1,6 @@
+cp_name = "ARVO"
+blob_file = "./exemplar_only/cpv_1/blobs/sample_solve.bin"
+harness_id = "id_1"
+sanitizer_id = "id_1"
+bug_introduce_commit = "3194963657a3049961fb64c9be86c1629afcea4b~3"
+src_dir = "./src/harfbuzz"

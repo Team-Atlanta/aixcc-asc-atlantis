@@ -1,0 +1,283 @@
+CWE
+
+Common Weakness Enumeration
+
+A community-developed list of SW & HW weaknesses that can become vulnerabilities
+
+New to CWE? click here!
+CWE Most Important Hardware Weaknesses
+CWE Top 25 Most Dangerous Weaknesses
+Home > CWE List > CWE- Individual Dictionary Definition (4.14)                                                                                                   ID Lookup: [                    ] [Go]
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  • Home
+  • About ▼
+    About New to CWE User Stories History Documents FAQs Glossary Compatibility
+  • CWE List ▼
+    Latest Version Downloads Reports Visualizations Archive
+  • Mapping ▼
+    Root Cause Mapping Guidance Root Cause Mapping Quick Tips Root Cause Mapping Examples
+  • Top-N Lists ▼
+    Top 25 Software Top Hardware Top 10 KEV Weaknesses
+  • Community ▼
+    Community Working Groups & Special Interest Groups Board Board Meeting Minutes CWE Discussion List CWE Discussion Archives Contribute Weakness Content to CWE
+  • News ▼
+    Current News X-Twitter ● Mastodon ● LinkedIn ● YouTube YouTube Podcast Out of Bounds Read Podcast Medium Medium News Archive
+  • Search
+
+ 
+ CWE Glossary Definition                  x
+ 
+ 
+ CWE-909: Missing Initialization of Resource
+ 
+ Weakness ID: 909
+ Vulnerability Mapping: ALLOWEDThis CWE ID could be used to map to real-world vulnerabilities in limited situations requiring careful review (with careful review of mapping notes)
+ Abstraction: ClassClass - a weakness that is described in a very abstract fashion, typically independent of any specific language or technology. More specific than a Pillar Weakness, but more general
+ than a Base Weakness. Class level weaknesses typically describe issues in terms of 1 or 2 of the following dimensions: behavior, property, and resource.
+ View customized information:
+ Conceptual For users who are interested in more notional aspects of a weakness. Example: educators, technical writers, and project/program managers. Operational For users who are concerned with the
+ practical application and details about the nature of a weakness and how to prevent it from happening. Example: tool developers, security researchers, pen-testers, incident response analysts. Mapping
+ Friendly For users who are mapping an issue to CWE/CAPEC IDs, i.e., finding the most appropriate CWE for a specific issue (e.g., a CVE record). Example: tool developers, security researchers. 
+ Complete For users who wish to see all available information for the CWE/CAPEC entry. Custom For users who want to customize what details are displayed.
+ ×
+
+ Edit Custom Filter
+
+ Conceptual Operational Mapping Friendly Select All
+ 
+ Reset Clear Submit Cancel
+ + Description
+ The product does not initialize a critical resource.
+ + Extended Description
+ Many resources require initialization before they can be properly used. If a resource is not initialized, it could contain unpredictable or expired data, or it could be initialized to defaults that
+ are invalid. This can have security implications when the resource is expected to have certain properties or values.
+ + Relationships
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Research Concepts" (CWE-1000)
+     Nature                                                                                                                                                                             Type                                                                                                                                                                           ID         Name
+ ChildOf                                                                               ClassClass - a weakness that is described in a very abstract fashion, typically independent of any specific language or technology. More specific than a Pillar Weakness, but more general than a Base                                                                        665     Improper
+                                                                                                                    Weakness. Class level weaknesses typically describe issues in terms of 1 or 2 of the following dimensions: behavior, property, and resource.                                                                                                             Initialization
+ ParentOf                                                                              VariantVariant - a weakness that is linked to a certain type of product, typically involving a specific language or technology. More specific than a Base weakness. Variant level weaknesses typically                                                                        456     Missing
+                                                                                                                               describe issues in terms of 3 to 5 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                       Initialization
+                                                                                                                                                                                                                                                                                                                                                                             of a Variable
+ ParentOf                                                                                  BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level weaknesses                                                                           1271    Uninitialized
+                                                                                                                          typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                  Value on Reset
+                                                                                                                                                                                                                                                                                                                                                                             for Registers
+                                                                                                                                                                                                                                                                                                                                                                             Holding
+                                                                                                                                                                                                                                                                                                                                                                             Security
+                                                                                                                                                                                                                                                                                                                                                                             Settings
+ CanPrecede                                                                                BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level weaknesses                                                                           908     Use of
+                                                                                                                          typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                  Uninitialized
+                                                                                                                                                                                                                                                                                                                                                                             Resource
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Software Development" (CWE-699)
+     Nature                                                       Type                                                     ID                                   Name
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 399     Resource Management Errors
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Weaknesses for Simplified Mapping of Published Vulnerabilities" (CWE-1003)
+     Nature                                                                                                                                                                             Type                                                                                                                                                                           ID         Name
+ ChildOf                                                                               ClassClass - a weakness that is described in a very abstract fashion, typically independent of any specific language or technology. More specific than a Pillar Weakness, but more general than a Base                                                                        665     Improper
+                                                                                                                    Weakness. Class level weaknesses typically describe issues in terms of 1 or 2 of the following dimensions: behavior, property, and resource.                                                                                                             Initialization
+ + Modes Of Introduction
+ Section HelpThe different Modes of Introduction provide information about how and when this weakness may be introduced. The Phase identifies a point in the life cycle at which introduction may occur,
+ while the Note provides a typical scenario related to introduction during the given phase.
+     Phase                                                                                              Note
+ Implementation
+ + Applicable Platforms
+ Section HelpThis listing shows possible areas for which the given weakness could appear. These may be for specific named Languages, Operating Systems, Architectures, Paradigms, Technologies, or a
+ class of such platforms. The platform is listed along with how frequently the given weakness appears for that instance.
+
+ Languages
+
+ Class: Not Language-Specific (Undetermined Prevalence)
+
+ + Common Consequences
+ Section HelpThis table specifies different individual consequences associated with the weakness. The Scope identifies the application security area that is violated, while the Impact describes the
+ negative technical impact that arises if an adversary succeeds in exploiting this weakness. The Likelihood provides information about how likely the specific consequence is expected to be seen
+ relative to the other consequences in the list. For example, there may be high likelihood that a weakness will be exploited to achieve a certain impact, but a low likelihood that it will be exploited
+ to achieve a different impact.
+       Scope                                                                                     Impact                                                                                 Likelihood
+                    Technical Impact: Read Memory; Read Application Data
+ Confidentiality
+                    When reusing a resource such as memory or a program variable, the original contents of that resource may not be cleared before it is sent to an untrusted party.
+                    Technical Impact: DoS: Crash, Exit, or Restart
+ Availability
+                    The uninitialized resource may contain values that cause program flow to change in ways that the programmer did not intend.
+ + Likelihood Of Exploit
+ Medium
+ + Demonstrative Examples
+ 
+ Example 1
+
+ Here, a boolean initiailized field is consulted to ensure that initialization tasks are only completed once. However, the field is mistakenly set to true during static initialization, so the
+ initialization code is never reached.
+
+ (bad code)
+ Example Language: Java 
+ private boolean initialized = true;
+ public void someMethod() {
+ if (!initialized) {
+
+ // perform initialization tasks
+ ...
+
+ initialized = true;
+ }
+
+ Example 2
+
+ The following code intends to limit certain operations to the administrator only.
+
+ (bad code)
+ Example Language: Perl 
+ $username = GetCurrentUser();
+ $state = GetStateData($username);
+ if (defined($state)) {
+ $uid = ExtractUserID($state);
+ }
+
+ # do stuff
+ if ($uid == 0) {
+ DoAdminThings();
+ }
+
+ If the application is unable to extract the state information - say, due to a database timeout - then the $uid variable will not be explicitly set by the programmer. This will cause $uid to be
+ regarded as equivalent to "0" in the conditional, allowing the original user to perform administrator actions. Even if the attacker cannot directly influence the state data, unexpected errors could
+ cause incorrect privileges to be assigned to a user just by accident.
+
+ Example 3
+
+ The following code intends to concatenate a string to a variable and print the string.
+
+ (bad code)
+ Example Language: C 
+ char str[20];
+ strcat(str, "hello world");
+ printf("%s", str);
+
+ This might seem innocent enough, but str was not initialized, so it contains random memory. As a result, str[0] might not contain the null terminator, so the copy might start at an offset other than
+ 0. The consequences can vary, depending on the underlying memory.
+
+ If a null terminator is found before str[8], then some bytes of random garbage will be printed before the "hello world" string. The memory might contain sensitive information from previous uses, such
+ as a password (which might occur as a result of CWE-14 or CWE-244). In this example, it might not be a big deal, but consider what could happen if large amounts of memory are printed out before the
+ null terminator is found.
+
+ If a null terminator isn't found before str[8], then a buffer overflow could occur, since strcat will first look for the null terminator, then copy 12 bytes starting with that location. Alternately,
+ a buffer over-read might occur (CWE-126) if a null terminator isn't found before the end of the memory segment is reached, leading to a segmentation fault and crash.
+
+ Example 4
+
+ This example will leave test_string in an unknown condition when i is the same value as err_val, because test_string is not initialized (CWE-456). Depending on where this code segment appears (e.g.
+ within a function body), test_string might be random if it is stored on the heap or stack. If the variable is declared in static memory, it might be zero or NULL. Compiler optimization might
+ contribute to the unpredictability of this address.
+
+ (bad code)
+ Example Language: C 
+ char *test_string;
+ if (i != err_val)
+ {
+ test_string = "Hello World!";
+ }
+ printf("%s", test_string);
+
+ When the printf() is reached, test_string might be an unexpected address, so the printf might print junk strings (CWE-457).
+
+ To fix this code, there are a couple approaches to making sure that test_string has been properly set once it reaches the printf().
+
+ One solution would be to set test_string to an acceptable default before the conditional:
+
+ (good code)
+ Example Language: C 
+ char *test_string = "Done at the beginning";
+ if (i != err_val)
+ {
+ test_string = "Hello World!";
+ }
+ printf("%s", test_string);
+
+ Another solution is to ensure that each branch of the conditional - including the default/else branch - could ensure that test_string is set:
+
+ (good code)
+ Example Language: C 
+ char *test_string;
+ if (i != err_val)
+ {
+ test_string = "Hello World!";
+ }
+ else {
+ test_string = "Done on the other side!";
+ }
+ printf("%s", test_string);
+ + Observed Examples
+        Reference                                                                                        Description
+ CVE-2020-20739          A variable that has its value set in a conditional statement is sometimes used when the conditional fails, sometimes causing data leakage
+ CVE-2005-1036           Chain: Bypass of access restrictions due to improper authorization (CWE-862) of a user results from an improperly initialized (CWE-909) I/O permission bitmap
+ + Potential Mitigations
+ Phase: Implementation
+
+ Explicitly initialize the resource before use. If this is performed through an API function or standard procedure, follow all specified steps.
+ Phase: Implementation
+
+ Pay close attention to complex conditionals that affect initialization, since some branches might not perform the initialization.
+ Phase: Implementation
+
+ Avoid race conditions (CWE-362) during initialization routines.
+ Phase: Build and Compilation
+
+ Run or compile your product with settings that generate warnings about uninitialized variables or data.
+ + Weakness Ordinalities
+ Ordinality                                                                                       Description
+ Primary    (where the weakness exists independent of other weaknesses)
+ Resultant  (where the weakness is typically related to the presence of some other weaknesses)
+ + Memberships
+ Section HelpThis MemberOf Relationships table shows additional CWE Categories and Views that reference this weakness as a member. This information is often useful in understanding where a weakness
+ fits within the context of external information sources.
+     Nature                                                       Type                                                     ID                                   Name
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 1416    Comprehensive Categorization: Resource Lifecycle Management
+ + Vulnerability Mapping Notes
+ Usage: ALLOWED-WITH-REVIEW
+
+ (this CWE ID could be used to map to real-world vulnerabilities in limited situations requiring careful review)
+ Reason: Abstraction
+
+ Rationale:
+
+ This CWE entry is a Class and might have Base-level children that would be more appropriate
+ Comments:
+
+ Examine children of this entry to see if there is a better fit
+ + Content History
+                                                                                            + Submissions
+               Submission Date                                                     Submitter                                                                  Organization
+ 2012-12-21                                  CWE Content Team                                                                       MITRE
+ (CWE 2.4, 2013-02-21)                       New weakness based on discussion on the CWE research list in December 2012.
+                                                                                           + Modifications
+              Modification Date                                                     Modifier                                                                  Organization
+ 2019-06-20                                  CWE Content Team                                                                       MITRE
+                                             updated Relationships
+ 2020-02-24                                  CWE Content Team                                                                       MITRE
+                                             updated Relationships
+ 2021-03-15                                  CWE Content Team                                                                       MITRE
+                                             updated Demonstrative_Examples, Observed_Examples
+ 2023-01-31                                  CWE Content Team                                                                       MITRE
+                                             updated Description, Potential_Mitigations, Relationships
+ 2023-04-27                                  CWE Content Team                                                                       MITRE
+                                             updated Relationships
+ 2023-06-29                                  CWE Content Team                                                                       MITRE
+                                             updated Mapping_Notes
+ 2023-10-26                                  CWE Content Team                                                                       MITRE
+                                             updated Mapping_Notes, Type
+ More information is available — Please edit the custom filter or select a different filter.
+Page Last Updated: February 29, 2024
+ 
+      Site Map | Terms of Use | Manage Cookies | Cookie Notice | Privacy Policy | Contact Us | CWE X-Twitter CWE Mastodon CWE on LinkedIn CWE YouTube channel CWE Out-of-Bounds-Read Podcast CWE
+      Blog on Medium blog
+
+MITRE Use of the Common Weakness Enumeration (CWE™) and the associated references from this website are subject to the Terms of Use. CWE is sponsored by the U.S. Department of Homeland         HSSEDI
+      Security (DHS) Cybersecurity and Infrastructure Security Agency (CISA) and managed by the Homeland Security Systems Engineering and Development Institute (HSSEDI) which is operated by
+      The MITRE Corporation (MITRE). Copyright © 2006–2024, The MITRE Corporation. CWE, CWSS, CWRAF, and the CWE logo are trademarks of The MITRE Corporation.
+

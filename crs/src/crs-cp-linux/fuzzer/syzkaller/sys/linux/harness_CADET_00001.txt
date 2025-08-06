@@ -1,0 +1,13 @@
+define CADET_00001_MAX_STDOUT	1024
+
+syz_harness$cadet_00001_cmd1(a0 ptr[in, cadet_00001_cmd0], a1 bytesize[a0])
+
+cadet_00001_command_data {
+	buf_len	len[buf, int32]
+	buf	array[int8]
+} [packed]
+
+cadet_00001_cmd0 {
+	cmd		int32[0]
+	cmd_data	cadet_00001_command_data
+} [packed]

@@ -1,0 +1,6 @@
+cp_name = "ARVO"
+blob_file = "./exemplar_only/cpv_1/blobs/sample_solve.bin"
+harness_id = "id_1"
+sanitizer_id = "id_1"
+bug_introduce_commit = "e4adf388aaaccccaf08fc0fc38419a5b0117b299~6"
+src_dir = "./src/exiv2"

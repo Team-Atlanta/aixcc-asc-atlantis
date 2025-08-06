@@ -1,0 +1,16 @@
+INPUT ::= COMMAND_CNT { size: 4 }
+          COMMAND[COMMAND_CNT]
+
+COMMAND ::= SEND_PACKET
+          | SEND_NETLINK_PACKET
+
+SEND_PACKET ::= OPCODE { size: 4, value: 0 }
+                FLAGS { size: 4 }
+                PACKET_DATA {}
+
+SEND_NETLINK_PACKET ::= OPCODE { size: 4, value: 1 }
+                        MSG_TYPE { size: 4 }
+                        MSG_FLAGS { size: 4 }
+                        NETLINK_PROTOCOL { size: 4 }
+                        SIZE { size: 4 }
+                        DATA { size: SIZE }

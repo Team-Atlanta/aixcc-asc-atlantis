@@ -1,0 +1,27 @@
+[package]
+name = "testlang_fuzz"
+version = "0.8.2"
+edition = "2021"
+
+[features]
+default = ["std"]
+std = []
+
+[dependencies]
+clap = { version = "4.0", features = ["derive"] }
+nix = "0.27"
+libafl = { path = "../third_party/LibAFL/libafl/" }
+libafl_bolts = { path = "../third_party/LibAFL/libafl_bolts/" }
+libafl_cc = { path = "../third_party/LibAFL/libafl_cc/" }
+libafl_targets = { path = "../third_party/LibAFL/libafl_targets/", features = ["sancov_pcguard_hitcounts", "libfuzzer", "pointer_maps"] }
+env_logger = "0.10"
+itertools = "0.13.0"
+rand_core = "0.6.4"
+
+[dependencies.pyo3]
+version = "0.21.2"
+features = ["auto-initialize"]
+
+[lib]
+name = "libforkserver_libafl_cc"
+crate-type = ["staticlib"]

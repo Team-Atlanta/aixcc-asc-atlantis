@@ -1,0 +1,58 @@
+--- drivers/KPRCA-00001/service.c
++++ drivers/KPRCA-00001/service.c
+@@ -216,7 +216,7 @@
+   memset(buf, 0, sizeof(buf));
+ 
+   //while (readuntil(STDIN, buf, sizeof(buf), '\n') == 0)
+-  if (kprca00001_read_until_delim_null(kpraca00001_current_req, buf, sizeof(buf) - 1, '\n') >= 0)
++  if (kprca00001_read_until_delim_null(kpraca00001_current_req, buf, sizeof(buf), '\n') >= 0)
+   {
+     char *tok, *input = buf;
+     if (strlen(buf) == 0)
+@@ -369,9 +369,7 @@
+     return 1;
+   }
+ 
+-  if (strcmp(mode, "encode") == 0)
+-  {
+-    if (strlen(data) / 3 * 4 <= sizeof(buf))
++    if (strlen(data) * 4 / 3 + 4 <= sizeof(buf))
+     {
+       size_t n = kprca00001_root64_encode(buf, data);
+       output_write(buf, n);
+@@ -494,22 +492,20 @@
+         printk(KERN_INFO "service_ioctl: work_with_data enter");
+         memset(req.stdout, 0, MAX_STDOUT);
+         req.out_len = 0;
+-        if(req.buf_len > 0){
+-          buf = vmalloc(req.buf_len);
+-          dprintk(KERN_INFO "vmalloc() to copy user buf at %px", buf);
+-          if (copy_from_user(buf, req.buf, req.buf_len)) {
+-            printk(KERN_INFO "service_ioctl main: [!] copy_from_user failed!");
+-          }
+-          user_buf = req.buf;
+-          req.buf = buf;
+-          req.buf_idx = 0;
+-
+-          // call main
+-          kpraca00001_current_req = &req;
+-          r = handle_main(command, &req);
+-          // free buf and roll back user buffer
+-          vfree(buf);
++        buf = vmalloc(req.buf_len);
++        dprintk(KERN_INFO "vmalloc() to copy user buf at %px", buf);
++        if (copy_from_user(buf, req.buf, req.buf_len)) {
++          printk(KERN_INFO "service_ioctl main: [!] copy_from_user failed!");
+         }
++        user_buf = req.buf;
++        req.buf = buf;
++        req.buf_idx = 0;
++
++        // call main
++        kpraca00001_current_req = &req;
++        r = handle_main(command, &req);
++        // free buf and roll back user buffer
++        vfree(buf);
+         req.buf = user_buf;
+         result = copy_to_user(&((kprca00001_req_t*)arg)->stdout, &req.stdout, req.out_len);
+         result = r;

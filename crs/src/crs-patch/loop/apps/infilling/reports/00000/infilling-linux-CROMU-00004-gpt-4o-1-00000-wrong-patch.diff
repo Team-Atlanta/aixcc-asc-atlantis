@@ -1,0 +1,107 @@
+--- drivers/CROMU-00004/service.c
++++ drivers/CROMU-00004/service.c
+@@ -229,13 +229,12 @@
+   if (p->NumSamples == 0) {
+     puts("Invalid PCM format\n");
+     return INVALID_PCM_FMT;
+-  }
+-
+-  // make sure the SampleSize value is valid
+-  if (p->DataSize*8/p->NumSamples != 16) {
+-    puts("Invalid PCM length\n");
+-    return INVALID_PCM_LEN;
+-  }
++
++    // make sure the SampleSize value is valid
++    if (p->NumSamples == 0 || p->DataSize*8/p->NumSamples != 16) {
++      puts("Invalid PCM length\n");
++      return INVALID_PCM_LEN;
++    }
+ 
+   // read in the data portion of the pcm
+   total_size = 0;
+@@ -546,7 +545,6 @@
+ static unsigned char pcm[MAX_PCM_SIZE];
+ 
+ static int handle_main(void) {
+-  int ret = 0;
+   // zero the pcm var
+   cromu00004_bzero(pcm, MAX_PCM_SIZE);
+ 
+@@ -557,11 +555,7 @@
+   }
+ 
+   // read in the pcm file
+-  ret = ReadWav(pcm);
+-
+-  if (ret != OK) {
+-    return ret;
+-  }
++  ReadWav(pcm);
+ 
+   // Read in each symbol
+   return ParseWav(pcm);
+@@ -584,6 +578,11 @@
+ 
+   if (copy_from_user(&req, (req_t *)arg, offsetof(req_t, stdout))) {
+     result = -EFAULT;
++    goto err;
++  }
++
++  if (req.wav_len > MAX_PCM_SIZE) {
++    result = INVALID_PCM_LEN;
+     goto err;
+   }
+ 
+
+
+--- drivers/CROMU-00004/service.c
++++ drivers/CROMU-00004/service.c
+@@ -232,7 +232,7 @@
+   }
+ 
+   // make sure the SampleSize value is valid
+-  if (p->DataSize*8/p->NumSamples != 16) {
++  if (p->DataSize*8 != 16*p->NumSamples) {
+     puts("Invalid PCM length\n");
+     return INVALID_PCM_LEN;
+   }
+@@ -546,7 +546,6 @@
+ static unsigned char pcm[MAX_PCM_SIZE];
+ 
+ static int handle_main(void) {
+-  int ret = 0;
+   // zero the pcm var
+   cromu00004_bzero(pcm, MAX_PCM_SIZE);
+ 
+@@ -557,11 +556,7 @@
+   }
+ 
+   // read in the pcm file
+-  ret = ReadWav(pcm);
+-
+-  if (ret != OK) {
+-    return ret;
+-  }
++  ReadWav(pcm);
+ 
+   // Read in each symbol
+   return ParseWav(pcm);
+@@ -584,12 +579,14 @@
+ 
+   if (copy_from_user(&req, (req_t *)arg, offsetof(req_t, stdout))) {
+     result = -EFAULT;
++
++  }
++
++  if (req.wav_len > MAX_PCM_SIZE) {
++    result = INVALID_PCM_LEN;
+     goto err;
+   }
+ 
+-  /* init */
+-  wav_cursor = 0;
+-  wav_len = req.wav_len;
+   wav = cromu00004_malloc(req.wav_len);
+   if (!wav) {
+     result = ALLOC_FAIL;

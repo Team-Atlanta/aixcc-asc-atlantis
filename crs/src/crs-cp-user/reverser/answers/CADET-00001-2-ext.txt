@@ -1,0 +1,5 @@
+INPUT ::= DEVICE_SIZE { size: 4 }
+          DEVICE { size: DEVICE_SIZE, type: string }
+          FLAGS { size: 4 }
+          DATA_SIZE { size: 4 }
+          DATA { size: DATA_SIZE }

@@ -1,0 +1,250 @@
+CWE
+
+Common Weakness Enumeration
+
+A community-developed list of SW & HW weaknesses that can become vulnerabilities
+
+New to CWE? click here!
+CWE Most Important Hardware Weaknesses
+CWE Top 25 Most Dangerous Weaknesses
+Home > CWE List > CWE- Individual Dictionary Definition (4.14)                                                                                                   ID Lookup: [                    ] [Go]
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  • Home
+  • About ▼
+    About New to CWE User Stories History Documents FAQs Glossary Compatibility
+  • CWE List ▼
+    Latest Version Downloads Reports Visualizations Archive
+  • Mapping ▼
+    Root Cause Mapping Guidance Root Cause Mapping Quick Tips Root Cause Mapping Examples
+  • Top-N Lists ▼
+    Top 25 Software Top Hardware Top 10 KEV Weaknesses
+  • Community ▼
+    Community Working Groups & Special Interest Groups Board Board Meeting Minutes CWE Discussion List CWE Discussion Archives Contribute Weakness Content to CWE
+  • News ▼
+    Current News X-Twitter ● Mastodon ● LinkedIn ● YouTube YouTube Podcast Out of Bounds Read Podcast Medium Medium News Archive
+  • Search
+
+ 
+ CWE Glossary Definition                  x
+ 
+ 
+ CWE-204: Observable Response Discrepancy
+ 
+ Weakness ID: 204
+ Vulnerability Mapping: ALLOWEDThis CWE ID may be used to map to real-world vulnerabilities
+ Abstraction: BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level
+ weaknesses typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.
+ View customized information:
+ Conceptual For users who are interested in more notional aspects of a weakness. Example: educators, technical writers, and project/program managers. Operational For users who are concerned with the
+ practical application and details about the nature of a weakness and how to prevent it from happening. Example: tool developers, security researchers, pen-testers, incident response analysts. Mapping
+ Friendly For users who are mapping an issue to CWE/CAPEC IDs, i.e., finding the most appropriate CWE for a specific issue (e.g., a CVE record). Example: tool developers, security researchers. 
+ Complete For users who wish to see all available information for the CWE/CAPEC entry. Custom For users who want to customize what details are displayed.
+ ×
+
+ Edit Custom Filter
+
+ Conceptual Operational Mapping Friendly Select All
+ 
+ Reset Clear Submit Cancel
+ + Description
+ The product provides different responses to incoming requests in a way that reveals internal state information to an unauthorized actor outside of the intended control sphere.
+ + Extended Description
+ This issue frequently occurs during authentication, where a difference in failed-login messages could allow an attacker to determine if the username is valid or not. These exposures can be
+ inadvertent (bug) or intentional (design).
+ + Relationships
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Research Concepts" (CWE-1000)
+     Nature                                                                                                                                                                    Type                                                                                                                                                                  ID       Name
+ ChildOf                                                                          BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level weaknesses                                                                  203     Observable
+                                                                                                                 typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                         Discrepancy
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Software Development" (CWE-699)
+     Nature                                                       Type                                                     ID                                   Name
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 199     Information Management Errors
+ + Modes Of Introduction
+ Section HelpThe different Modes of Introduction provide information about how and when this weakness may be introduced. The Phase identifies a point in the life cycle at which introduction may occur,
+ while the Note provides a typical scenario related to introduction during the given phase.
+          Phase                                                                                             Note
+ Architecture and Design
+ Implementation
+ + Applicable Platforms
+ Section HelpThis listing shows possible areas for which the given weakness could appear. These may be for specific named Languages, Operating Systems, Architectures, Paradigms, Technologies, or a
+ class of such platforms. The platform is listed along with how frequently the given weakness appears for that instance.
+
+ Languages
+
+ Class: Not Language-Specific (Undetermined Prevalence)
+
+ + Common Consequences
+ Section HelpThis table specifies different individual consequences associated with the weakness. The Scope identifies the application security area that is violated, while the Impact describes the
+ negative technical impact that arises if an adversary succeeds in exploiting this weakness. The Likelihood provides information about how likely the specific consequence is expected to be seen
+ relative to the other consequences in the list. For example, there may be high likelihood that a weakness will be exploited to achieve a certain impact, but a low likelihood that it will be exploited
+ to achieve a different impact.
+       Scope                                                                                     Impact                                                                                 Likelihood
+ Confidentiality    Technical Impact: Read Application Data; Bypass Protection Mechanism
+ Access Control
+ + Demonstrative Examples
+ 
+ Example 1
+
+ The following code checks validity of the supplied username and password and notifies the user of a successful or failed login.
+
+ (bad code)
+ Example Language: Perl 
+ my $username=param('username');
+ my $password=param('password');
+
+ if (IsValidUsername($username) == 1)
+ {
+ if (IsValidPassword($username, $password) == 1)
+ {
+ print "Login Successful";
+ }
+ else
+ {
+ print "Login Failed - incorrect password";
+ }
+ }
+ else
+ {
+ print "Login Failed - unknown username";
+ }
+
+ In the above code, there are different messages for when an incorrect username is supplied, versus when the username is correct but the password is wrong. This difference enables a potential attacker
+ to understand the state of the login function, and could allow an attacker to discover a valid username by trying different values until the incorrect password message is returned. In essence, this
+ makes it easier for an attacker to obtain half of the necessary authentication credentials.
+
+ While this type of information may be helpful to a user, it is also useful to a potential attacker. In the above example, the message for both failed cases should be the same, such as:
+
+ (result)
+  
+ "Login Failed - incorrect username or password"
+ + Observed Examples
+        Reference                                                                                        Description
+ CVE-2002-2094           This, and others, use ".." attacks and monitor error responses, so there is overlap with directory traversal.
+ CVE-2001-1483           Enumeration of valid usernames based on inconsistent responses
+ CVE-2001-1528           Account number enumeration via inconsistent responses.
+ CVE-2004-2150           User enumeration via discrepancies in error messages.
+ CVE-2005-1650           User enumeration via discrepancies in error messages.
+ CVE-2004-0294           Bulletin Board displays different error messages when a user exists or not, which makes it easier for remote attackers to identify valid users and conduct a brute force
+                         password guessing attack.
+ CVE-2004-0243           Operating System, when direct remote login is disabled, displays a different message if the password is correct, which allows remote attackers to guess the password via
+                         brute force methods.
+ CVE-2002-0514           Product allows remote attackers to determine if a port is being filtered because the response packet TTL is different than the default TTL.
+ CVE-2002-0515           Product sets a different TTL when a port is being filtered than when it is not being filtered, which allows remote attackers to identify filtered ports by comparing TTLs.
+ CVE-2001-1387           Product may generate different responses than specified by the administrator, possibly leading to an information leak.
+ CVE-2004-0778           Version control system allows remote attackers to determine the existence of arbitrary files and directories via the -X command for an alternate history file, which causes
+                         different error messages to be returned.
+ CVE-2004-1428           FTP server generates an error message if the user name does not exist instead of prompting for a password, which allows remote attackers to determine valid usernames.
+ + Potential Mitigations
+ Phase: Architecture and Design
+
+ Strategy: Separation of Privilege
+
+ Compartmentalize the system to have "safe" areas where trust boundaries can be unambiguously drawn. Do not allow sensitive data to go outside of the trust boundary and always be careful when
+ interfacing with a compartment outside of the safe area.
+
+ Ensure that appropriate compartmentalization is built into the system design, and the compartmentalization allows for and reinforces privilege separation functionality. Architects and designers
+ should rely on the principle of least privilege to decide the appropriate time to use privileges and the time to drop privileges.
+
+ Phase: Implementation
+
+ Ensure that error messages only contain minimal details that are useful to the intended audience and no one else. The messages need to strike the balance between being too cryptic (which can
+ confuse users) or being too detailed (which may reveal more than intended). The messages should not reveal the methods that were used to determine the error. Attackers can use detailed
+ information to refine or optimize their original attack, thereby increasing their chances of success.
+
+ If errors must be captured in some detail, record them in log messages, but consider what could occur if the log messages can be viewed by attackers. Highly sensitive information such as
+ passwords should never be saved to log files.
+
+ Avoid inconsistent messaging that might accidentally tip off an attacker about internal state, such as whether a user account exists or not.
+
+ + Memberships
+ Section HelpThis MemberOf Relationships table shows additional CWE Categories and Views that reference this weakness as a member. This information is often useful in understanding where a weakness
+ fits within the context of external information sources.
+     Nature                                                       Type                                                     ID                                   Name
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 967     SFP Secondary Cluster: State Disclosure
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 1417    Comprehensive Categorization: Sensitive Information Exposure
+ + Vulnerability Mapping Notes
+ Usage: ALLOWED
+
+ (this CWE ID could be used to map to real-world vulnerabilities)
+ Reason: Acceptable-Use
+
+ Rationale:
+
+ This CWE entry is at the Base level of abstraction, which is a preferred level of abstraction for mapping to the root causes of vulnerabilities.
+ Comments:
+
+ Carefully read both the name and description to ensure that this mapping is an appropriate fit. Do not try to 'force' a mapping to a lower-level Base/Variant simply to comply with this preferred
+ level of abstraction.
+ + Notes
+ 
+ Relationship
+
+ can overlap errors related to escalated privileges
+ + Taxonomy Mappings
+       Mapped Taxonomy Name          Node ID           Fit                                                                 Mapped Node Name
+ PLOVER                                                           Response discrepancy infoleak
+ + Related Attack Patterns
+    CAPEC-ID                                                                                     Attack Pattern Name
+ CAPEC-331       ICMP IP Total Length Field Probe
+ CAPEC-332       ICMP IP 'ID' Field Error Message Probe
+ CAPEC-541       Application Fingerprinting
+ CAPEC-580       System Footprinting
+ + References
+ [REF-44] Michael Howard, David LeBlanc and John Viega. "24 Deadly Sins of Software Security". "Sin 12: Information Leakage." Page 191. McGraw-Hill. 2010.
+ + Content History
+                                                                                           + Submissions
+                 Submission Date                                                      Submitter                                                               Organization
+ 2006-07-19                                       PLOVER
+ (CWE Draft 3, 2006-07-19)
+
+                                                                                          + Modifications
+                Modification Date                                                      Modifier                                                               Organization
+ 2008-07-01                                       Eric Dalci                                                                         Cigital
+                                                  updated Potential_Mitigations, Time_of_Introduction
+ 2008-09-08                                       CWE Content Team                                                                   MITRE
+                                                  updated Relationships, Relationship_Notes, Taxonomy_Mappings
+ 2008-10-14                                       CWE Content Team                                                                   MITRE
+                                                  updated Description, Potential_Mitigations
+ 2009-12-28                                       CWE Content Team                                                                   MITRE
+                                                  updated Demonstrative_Examples
+ 2010-09-27                                       CWE Content Team                                                                   MITRE
+                                                  updated Description, Name, Observed_Examples
+ 2011-06-01                                       CWE Content Team                                                                   MITRE
+                                                  updated Common_Consequences
+ 2012-05-11                                       CWE Content Team                                                                   MITRE
+                                                  updated Demonstrative_Examples, Observed_Examples, References, Relationships
+ 2012-10-30                                       CWE Content Team                                                                   MITRE
+                                                  updated Potential_Mitigations
+ 2014-07-30                                       CWE Content Team                                                                   MITRE
+                                                  updated Relationships
+ 2017-11-08                                       CWE Content Team                                                                   MITRE
+                                                  updated Applicable_Platforms
+ 2020-02-24                                       CWE Content Team                                                                   MITRE
+                                                  updated Description, Name, Relationships
+ 2020-12-10                                       CWE Content Team                                                                   MITRE
+                                                  updated Potential_Mitigations
+ 2023-01-31                                       CWE Content Team                                                                   MITRE
+                                                  updated Related_Attack_Patterns
+ 2023-04-27                                       CWE Content Team                                                                   MITRE
+                                                  updated Relationships
+ 2023-06-29                                       CWE Content Team                                                                   MITRE
+                                                  updated Mapping_Notes
+                                                                                       + Previous Entry Names
+                   Change Date                                                                                   Previous Entry Name
+ 2010-09-27                                       Response Discrepancy Information Leak
+ 2020-02-24                                       Response Discrepancy Information Exposure
+ More information is available — Please edit the custom filter or select a different filter.
+Page Last Updated: February 29, 2024
+ 
+      Site Map | Terms of Use | Manage Cookies | Cookie Notice | Privacy Policy | Contact Us | CWE X-Twitter CWE Mastodon CWE on LinkedIn CWE YouTube channel CWE Out-of-Bounds-Read Podcast CWE
+      Blog on Medium blog
+
+MITRE Use of the Common Weakness Enumeration (CWE™) and the associated references from this website are subject to the Terms of Use. CWE is sponsored by the U.S. Department of Homeland         HSSEDI
+      Security (DHS) Cybersecurity and Infrastructure Security Agency (CISA) and managed by the Homeland Security Systems Engineering and Development Institute (HSSEDI) which is operated by
+      The MITRE Corporation (MITRE). Copyright © 2006–2024, The MITRE Corporation. CWE, CWSS, CWRAF, and the CWE logo are trademarks of The MITRE Corporation.
+

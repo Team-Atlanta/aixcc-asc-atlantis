@@ -1,0 +1,139 @@
+# Background
+
+This is a bit of context. We are participating in the competition as a team,
+and implementing a CRS (cyber reasoning system). In particular, our team is in
+charge of "bug finding" of a given CP (challenge project). To get a score, we
+have to "craft" the bug-triggering input that can be caught by "sanitizers".
+
+Let me explain a bit of how the game is organized a bit. CP is basically a code
+repository that contains a series of commits, some of which contain the bug
+that can trigger a pre-defined sanitizer -- you can think of like ASAN, UBSAN,
+MSAN, etc to catch bugs in C or C++ program. Your job is to find a program
+input (expressed in a file) that the "testing" harness can accept and trigger
+the bug in the project behind. The "testing" harness is very specific to the
+CP. Although the final form is very unspecified, we have three examples so far.
+(1) in case of the Linux kernel, a userspace program is given as a harness that
+accepts a binary blob and interprets as a sequence of system calls along with
+the arguments. (2) Another example of a Jenkins provides a "fuzzing" harness as
+it is as a testing harness. (3) in case of a simple user program (called a mock
+CP), a shell script is given as a harness so that it naively relay the standard
+input to the program.
+
+You job again is to understand the given CP, recognize the input that can
+trigger the bug "via" the fuzzing harness. To do so, it is a key to understand
+the relationship between the testing harness with the given CP. The complexity
+of CP varies a lot -- in case of the Linux kernel, you have to understand how
+the testing harness parses the input and how to link them to the code that
+leads "inside" the kernel. In other words, even after you recognize the bug
+inside the kernel, you still have to formulate the input that maneuver the
+testing harness to the right place. Other team members are working on how to
+patch the found bug, so focus on bug finding in this session.
+
+The bug in the competition is not arbitrary; we consider the bugs that can be
+caught by the sanitizers specific to the CP. `project.yaml` in the CP directory
+specifies what sanitizers' output they are looking for (under the "sanitizers"
+section in `project.yaml`). Your job again is to find the bug that will be
+provided to the testing harness, so that the sanitizers can print out such
+message specified in the `project.yaml`.
+
+# Workspace
+
+The files related to CP locates under `./` (or `tools.cpdir()` in your python code).
+
+There are some interesting directories in the workspace you have to know.
+
+```
+./             : main directory for CP
+./project.yaml : describing test harnesses and sanitizers
+./run.sh       : a script to run and test CP
+./src          : source code of the project -- where you have to find a bug from
+./work         : feel free to stash a temporary file (persistent in this session) here
+```
+
+- Example harnesses in `project.yaml`
+```bash
+# CP: Userspace program
+$ yq '.harnesses' < project.yaml
+id_1:
+  name: stdin_harness.sh
+  source: src/test/stdin_harness.sh
+  binary: out/stdin_harness.sh
+
+# CP: Linux
+$ yq '.harnesses' < project.yaml
+id_1:
+  name: linux_test_harness
+  source: src/test_harnesses/linux_test_harness.c
+  binary: out/linux_test_harness
+id_2:
+  name: CADET-00001
+  source: src/test_harnesses/CADET-00001.c
+  binary: out/CADET-00001
+
+# CP: Jenkins
+$ yq '.harnesses' < project.yaml
+id_1:
+  name: "id_1"
+  source: "container_scripts/PipelineCommandUtilPovRunner.java"
+  binary: "n/a"
+  sanitizer: id_1
+id_2:
+  name: "id_2"
+  source: "container_scripts/UserRemoteCountPovRunner.java"
+  binary: "n/a"
+  sanitizer: id_2
+```
+
+- Example sanitizers in `project.yaml`
+```bash
+# CP: Userspace program
+$ yq '.sanitizers' < project.yaml
+id_1: "AddressSanitizer: global-buffer-overflow"
+id_2: "AddressSanitizer: SEGV"
+
+# CP: Linux
+$ yq '.sanitizers' < project.yaml
+id_1: "KASAN: slab-out-of-bounds"
+id_2: "KASAN: stack-out-of-bounds"
+id_3: "KASAN: use-after-free"
+id_4: "KASAN: null-ptr-deref"
+id_5: "KASAN: global-out-of-bounds"
+id_6: "UBSAN: array-index-out-of-bounds"
+
+# CP: Jenkins
+$ yq '.sanitizers' < project.yaml
+id_1: "FuzzerSecurityIssueCritical: OS Command Injection"
+id_2: "FuzzerSecurityIssueCritical: Integer Overflow"
+id_3: "FuzzerSecurityIssueMedium: Server Side Request Forgery (SSRF)"
+id_4: "FuzzerSecurityIssueHigh: Remote Code Execution"
+id_5: "FuzzerSecurityIssueHigh: SQL Injection"
+id_6: "FuzzerSecurityIssueCritical: Remote JNDI Lookup"
+id_7: "FuzzerSecurityIssueCritical: LDAP Injection"
+id_8: "FuzzerSecurityIssueHigh: XPath Injection"
+id_9: "FuzzerSecurityIssueHigh: load arbitrary library"
+id_10: "FuzzerSecurityIssueLow: Regular Expression Injection"
+id_11: "FuzzerSecurityIssueCritical: Script Engine Injection"
+id_12: "FuzzerSecurityIssueCritical: File read/write hook path"
+```
+
+# Example usage of `run.sh`
+
+You can execute and test the pre-built CP with `./run.sh`
+
+```bash
+$ ./run.sh
+A helper script for CP interactions.
+
+Usage: run.sh build|run_pov|run_test|custom
+
+Subcommands:
+  build [<patch_file> <source>]       Build the CP (an optional patch file for a given source repo can be supplied)
+  run_pov <blob_file> <harness_name>  Run the binary data blob against specified harness
+  run_tests                           Run functionality tests
+  custom <arbitrary cmd ...>          Run an arbitrary command in the docker container
+```
+"""
+
+Note that to run `./run.sh run_pov <blob_file> <harness_name>`, you should
+provide the actual name of harness like "linux_test_harness" or
+"stdin_harness.sh" listed in `project.yaml` not "id_N".

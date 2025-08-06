@@ -1,0 +1,75 @@
+ ASCII is the American Standard Code for Information Interchange.
+       It is a 7-bit code.  Many 8-bit codes (e.g., ISO 8859-1) contain
+       ASCII as their lower half.  The international counterpart of
+       ASCII is known as ISO 646-IRV.
+
+       The following table contains the 128 ASCII characters.
+
+       C program '\X' escapes are noted.
+
+       Dec   Char                      | Dec   Char
+       ────────────────────────────────|───────────────
+       0     NUL '\0' (null character) | 64    @
+       1     SOH (start of heading)    | 65    A
+       2     STX (start of text)       | 66    B
+       3     ETX (end of text)         | 67    C
+       4     EOT (end of transmission) | 68    D
+       5     ENQ (enquiry)             | 69    E
+       6     ACK (acknowledge)         | 70    F
+       7     BEL '\a' (bell)           | 71    G
+       8     BS  '\b' (backspace)      | 72    H
+       9     HT  '\t' (horizontal tab) | 73    I
+       10    LF  '\n' (new line)       | 74    J
+       11    VT  '\v' (vertical tab)   | 75    K
+       12    FF  '\f' (form feed)      | 76    L
+       13    CR  '\r' (carriage ret)   | 77    M
+       14    SO  (shift out)           | 78    N
+       15    SI  (shift in)            | 79    O
+       16    DLE (data link escape)    | 80    P
+       17    DC1 (device control 1)    | 81    Q
+       18    DC2 (device control 2)    | 82    R
+       19    DC3 (device control 3)    | 83    S
+       20    DC4 (device control 4)    | 84    T
+       21    NAK (negative ack.)       | 85    U
+       22    SYN (synchronous idle)    | 86    V
+       23    ETB (end of trans. blk)   | 87    W
+       24    CAN (cancel)              | 88    X
+       25    EM  (end of medium)       | 89    Y
+       26    SUB (substitute)          | 90    Z
+       27    ESC (escape)              | 91    [
+       28    FS  (file separator)      | 92    \  '\\'
+       29    GS  (group separator)     | 93    ]
+       30    RS  (record separator)    | 94    ^
+       31    US  (unit separator)      | 95    _
+       32    SPACE                     | 96    `
+       33    !                         | 97    a
+       34    "                         | 98    b
+       35    #                         | 99    c
+       36    $                         | 100   d
+       37    %                         | 101   e
+       38    &                         | 102   f
+       39    '                         | 103   g
+       40    (                         | 104   h
+       41    )                         | 105   i
+       42    *                         | 106   j
+       43    +                         | 107   k
+       44    ,                         | 108   l
+       45    -                         | 109   m
+       46    .                         | 110   n
+       47    /                         | 111   o
+       48    0                         | 112   p
+       49    1                         | 113   q
+       50    2                         | 114   r
+       51    3                         | 115   s
+       52    4                         | 116   t
+       53    5                         | 117   u
+       54    6                         | 118   v
+       55    7                         | 119   w
+       56    8                         | 120   x
+       57    9                         | 121   y
+       58    :                         | 122   z
+       59    ;                         | 123   {
+       60    <                         | 124   |
+       61    =                         | 125   }
+       62    >                         | 126   ~
+       63    ?                         | 127   DEL

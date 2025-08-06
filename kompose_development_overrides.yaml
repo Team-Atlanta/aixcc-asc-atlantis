@@ -1,0 +1,135 @@
+---
+# This file can be modified to add services which need access to /crs_scratch or read-only access to /cp_root.
+# Competitors may also use this to tune the deploy or labels section of all services as needed.
+# Competitors should ensure their CRS executes properly with `make k8s` after making changes here.
+
+services:
+  load-cp-images:
+    restart: always
+    environment:
+      - "ENABLE_HEALTH_ENDPOINT=true"
+      - "LOAD_CPS=true"
+    volumes:
+      - cp_root:/cp_root
+  dind:
+    # deploy:
+    #   resources:
+    #     limits:
+    #       cpus: '8'
+    #       memory: 8GB
+    #     reservations:
+    #       cpus: '1'
+    #       memory: 256M
+    volumes:
+      - crs_scratch:/crs_scratch
+    command: ["dockerd", "-H", "tcp://0.0.0.0:2375", "--tls=false"]
+  iapi:
+    configs:
+      - source: nginx_kube_config
+        target: /etc/nginx/templates/default.conf.template
+    environment:
+      - CAPI_UPSTREAM_HOST=http://capi:8080
+    depends_on:
+      capi:
+        condition: service_healthy
+  capi:
+    labels:
+      kompose.init.containers.command: '["sh", "-c", "until curl http://load-cp-images:8080; do echo \"Waiting for CP image load to complete\"; sleep 5; done"]'
+      kompose.init.containers.image: curlimages/curl:8.8.0
+      kompose.init.containers.name: wait-for-cp-load
+    volumes:
+      - cp_root:/cp_root
+      - crs_scratch:/crs_scratch
+
+####################
+  vapi:
+    environment:
+      # These values will be modified automatically at competition time
+      # Competitors MUST map any services which need these environment variables
+      # in the exact same way, or they will not be overridden during competition
+      - DOCKER_HOST=tcp://dind:2375
+      - AIXCC_LITELLM_HOSTNAME=http://litellm
+      - AIXCC_API_HOSTNAME=http://iapi:8080
+      - AIXCC_CP_ROOT=/cp_root
+      - AIXCC_CRS_SCRATCH_SPACE=/crs_scratch
+      - LITELLM_KEY=sk-1234
+    volumes:
+      - cp_root:/cp_root
+      - crs_scratch:/crs_scratch
+    depends_on:
+      iapi:
+        condition: service_healthy
+
+  crs-patch:
+    environment:
+      # These values will be modified automatically at competition time
+      # Competitors MUST map any services which need these environment variables
+      # in the exact same way, or they will not be overridden during competition
+      - DOCKER_HOST=tcp://dind:2375
+      - AIXCC_LITELLM_HOSTNAME=http://litellm
+      - AIXCC_API_HOSTNAME=http://iapi:8080
+      - AIXCC_CP_ROOT=/cp_root
+      - AIXCC_CRS_SCRATCH_SPACE=/crs_scratch
+      - LITELLM_KEY=sk-1234
+      # These will not
+      - IN_DOCKER_CONTAINER=1
+      - VAPI_HOSTNAME=http://vapi:18080
+    volumes:
+      - cp_root:/cp_root
+      - crs_scratch:/crs_scratch
+  
+  crs-cp-user:
+    environment:
+      # These values will be modified automatically at competition time
+      # Competitors MUST map any services which need these environment variables
+      # in the exact same way, or they will not be overridden during competition
+      - DOCKER_HOST=tcp://dind:2375
+      - AIXCC_LITELLM_HOSTNAME=http://litellm
+      - AIXCC_API_HOSTNAME=http://iapi:8080
+      - AIXCC_CP_ROOT=/cp_root
+      - AIXCC_CRS_SCRATCH_SPACE=/crs_scratch
+      - LITELLM_KEY=sk-1234
+      # These will not
+      - IN_DOCKER_CONTAINER=1
+      - VAPI_HOSTNAME=http://vapi:18080
+    volumes:
+      - cp_root:/cp_root
+      - crs_scratch:/crs_scratch
+  
+  crs-cp-linux:
+    environment:
+      # These values will be modified automatically at competition time
+      # Competitors MUST map any services which need these environment variables
+      # in the exact same way, or they will not be overridden during competition
+      - DOCKER_HOST=tcp://dind:2375
+      - AIXCC_LITELLM_HOSTNAME=http://litellm
+      - AIXCC_API_HOSTNAME=http://iapi:8080
+      - AIXCC_CP_ROOT=/cp_root
+      - AIXCC_CRS_SCRATCH_SPACE=/crs_scratch
+      - LITELLM_KEY=sk-1234
+      # These will not
+      - VAPI_HOSTNAME=http://vapi:18080
+    volumes:
+      - cp_root:/cp_root
+      - crs_scratch:/crs_scratch
+  
+  crs-cp-java:
+    environment:
+      # These values will be modified automatically at competition time
+      # Competitors MUST map any services which need these environment variables
+      # in the exact same way, or they will not be overridden during competition
+      - DOCKER_HOST=tcp://dind:2375
+      - AIXCC_LITELLM_HOSTNAME=http://litellm
+      - AIXCC_API_HOSTNAME=http://iapi:8080
+      - AIXCC_CP_ROOT=/cp_root
+      - AIXCC_CRS_SCRATCH_SPACE=/crs_scratch
+      - LITELLM_KEY=sk-1234
+      # These will not
+      - VAPI_HOSTNAME=http://vapi:18080
+    volumes:
+      - cp_root:/cp_root
+      - crs_scratch:/crs_scratch
+
+volumes:
+  cp_root:
+  crs_scratch:

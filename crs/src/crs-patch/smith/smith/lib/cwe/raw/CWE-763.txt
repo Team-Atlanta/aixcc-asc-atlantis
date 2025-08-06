@@ -1,0 +1,413 @@
+CWE
+
+Common Weakness Enumeration
+
+A community-developed list of SW & HW weaknesses that can become vulnerabilities
+
+New to CWE? click here!
+CWE Most Important Hardware Weaknesses
+CWE Top 25 Most Dangerous Weaknesses
+Home > CWE List > CWE- Individual Dictionary Definition (4.14)                                                                                                   ID Lookup: [                    ] [Go]
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  • Home
+  • About ▼
+    About New to CWE User Stories History Documents FAQs Glossary Compatibility
+  • CWE List ▼
+    Latest Version Downloads Reports Visualizations Archive
+  • Mapping ▼
+    Root Cause Mapping Guidance Root Cause Mapping Quick Tips Root Cause Mapping Examples
+  • Top-N Lists ▼
+    Top 25 Software Top Hardware Top 10 KEV Weaknesses
+  • Community ▼
+    Community Working Groups & Special Interest Groups Board Board Meeting Minutes CWE Discussion List CWE Discussion Archives Contribute Weakness Content to CWE
+  • News ▼
+    Current News X-Twitter ● Mastodon ● LinkedIn ● YouTube YouTube Podcast Out of Bounds Read Podcast Medium Medium News Archive
+  • Search
+
+ 
+ CWE Glossary Definition                  x
+ 
+ 
+ CWE-763: Release of Invalid Pointer or Reference
+ 
+ Weakness ID: 763
+ Vulnerability Mapping: ALLOWEDThis CWE ID may be used to map to real-world vulnerabilities
+ Abstraction: BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level
+ weaknesses typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.
+ View customized information:
+ Conceptual For users who are interested in more notional aspects of a weakness. Example: educators, technical writers, and project/program managers. Operational For users who are concerned with the
+ practical application and details about the nature of a weakness and how to prevent it from happening. Example: tool developers, security researchers, pen-testers, incident response analysts. Mapping
+ Friendly For users who are mapping an issue to CWE/CAPEC IDs, i.e., finding the most appropriate CWE for a specific issue (e.g., a CVE record). Example: tool developers, security researchers. 
+ Complete For users who wish to see all available information for the CWE/CAPEC entry. Custom For users who want to customize what details are displayed.
+ ×
+
+ Edit Custom Filter
+
+ Conceptual Operational Mapping Friendly Select All
+ 
+ Reset Clear Submit Cancel
+ + Description
+ The product attempts to return a memory resource to the system, but it calls the wrong release function or calls the appropriate release function incorrectly.
+ + Extended Description
+ 
+ This weakness can take several forms, such as:
+
+   • The memory was allocated, explicitly or implicitly, via one memory management method and deallocated using a different, non-compatible function (CWE-762).
+   • The function calls or memory management routines chosen are appropriate, however they are used incorrectly, such as in CWE-761.
+
+ + Relationships
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Research Concepts" (CWE-1000)
+     Nature                                                                                                                                                                             Type                                                                                                                                                                           ID       Name
+ ChildOf                                                                               ClassClass - a weakness that is described in a very abstract fashion, typically independent of any specific language or technology. More specific than a Pillar Weakness, but more general than a Base                                                                        404     Improper
+                                                                                                                    Weakness. Class level weaknesses typically describe issues in terms of 1 or 2 of the following dimensions: behavior, property, and resource.                                                                                                             Resource
+                                                                                                                                                                                                                                                                                                                                                                             Shutdown
+                                                                                                                                                                                                                                                                                                                                                                             or Release
+ ParentOf                                                                              VariantVariant - a weakness that is linked to a certain type of product, typically involving a specific language or technology. More specific than a Base weakness. Variant level weaknesses typically                                                                        761     Free of
+                                                                                                                               describe issues in terms of 3 to 5 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                       Pointer
+                                                                                                                                                                                                                                                                                                                                                                             not at
+                                                                                                                                                                                                                                                                                                                                                                             Start of
+                                                                                                                                                                                                                                                                                                                                                                             Buffer
+ ParentOf                                                                              VariantVariant - a weakness that is linked to a certain type of product, typically involving a specific language or technology. More specific than a Base weakness. Variant level weaknesses typically                                                                        762     Mismatched
+                                                                                                                               describe issues in terms of 3 to 5 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                       Memory
+                                                                                                                                                                                                                                                                                                                                                                             Management
+                                                                                                                                                                                                                                                                                                                                                                             Routines
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Software Development" (CWE-699)
+     Nature                                                       Type                                                     ID                                   Name
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 399     Resource Management Errors
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 465     Pointer Issues
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Weaknesses for Simplified Mapping of Published Vulnerabilities" (CWE-1003)
+     Nature                                                                                                                                                                             Type                                                                                                                                                                           ID      Name
+ ChildOf                                                                               ClassClass - a weakness that is described in a very abstract fashion, typically independent of any specific language or technology. More specific than a Pillar Weakness, but more general than a Base                                                                        404     Improper
+                                                                                                                    Weakness. Class level weaknesses typically describe issues in terms of 1 or 2 of the following dimensions: behavior, property, and resource.                                                                                                             Resource
+                                                                                                                                                                                                                                                                                                                                                                             Shutdown
+                                                                                                                                                                                                                                                                                                                                                                             or
+                                                                                                                                                                                                                                                                                                                                                                             Release
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "CISQ Data Protection Measures" (CWE-1340)
+     Nature                                                                                                                                                                             Type                                                                                                                                                                           ID      Name
+ ChildOf                                                                               ClassClass - a weakness that is described in a very abstract fashion, typically independent of any specific language or technology. More specific than a Pillar Weakness, but more general than a Base                                                                        404     Improper
+                                                                                                                    Weakness. Class level weaknesses typically describe issues in terms of 1 or 2 of the following dimensions: behavior, property, and resource.                                                                                                             Resource
+                                                                                                                                                                                                                                                                                                                                                                             Shutdown
+                                                                                                                                                                                                                                                                                                                                                                             or
+                                                                                                                                                                                                                                                                                                                                                                             Release
+ + Modes Of Introduction
+ Section HelpThe different Modes of Introduction provide information about how and when this weakness may be introduced. The Phase identifies a point in the life cycle at which introduction may occur,
+ while the Note provides a typical scenario related to introduction during the given phase.
+     Phase                                                                                              Note
+ Implementation
+ + Common Consequences
+ Section HelpThis table specifies different individual consequences associated with the weakness. The Scope identifies the application security area that is violated, while the Impact describes the
+ negative technical impact that arises if an adversary succeeds in exploiting this weakness. The Likelihood provides information about how likely the specific consequence is expected to be seen
+ relative to the other consequences in the list. For example, there may be high likelihood that a weakness will be exploited to achieve a certain impact, but a low likelihood that it will be exploited
+ to achieve a different impact.
+       Scope                                                                                     Impact                                                                                 Likelihood
+ Integrity          Technical Impact: Modify Memory; DoS: Crash, Exit, or Restart; Execute Unauthorized Code or Commands
+ Availability
+ Confidentiality    This weakness may result in the corruption of memory, and perhaps instructions, possibly leading to a crash. If the corrupted memory can be effectively
+                    controlled, it may be possible to execute arbitrary code.
+ + Demonstrative Examples
+ 
+ Example 1
+
+ This code attempts to tokenize a string and place it into an array using the strsep function, which inserts a \0 byte in place of whitespace or a tab character. After finishing the loop, each string
+ in the AP array points to a location within the input string.
+
+ (bad code)
+ Example Language: C 
+ char **ap, *argv[10], *inputstring;
+ for (ap = argv; (*ap = strsep(&inputstring, " \t")) != NULL;)
+ if (**ap != '\0')
+ if (++ap >= &argv[10])
+ break;
+
+ /.../
+ free(ap[4]);
+
+ Since strsep is not allocating any new memory, freeing an element in the middle of the array is equivalent to free a pointer in the middle of inputstring.
+
+ Example 2
+
+ This example allocates a BarObj object using the new operator in C++, however, the programmer then deallocates the object using free(), which may lead to unexpected behavior.
+
+ (bad code)
+ Example Language: C++ 
+ void foo(){
+ BarObj *ptr = new BarObj()
+ /* do some work with ptr here */
+
+ ...
+
+ free(ptr);
+ }
+
+ Instead, the programmer should have either created the object with one of the malloc family functions, or else deleted the object with the delete operator.
+
+ (good code)
+ Example Language: C++ 
+ void foo(){
+ BarObj *ptr = new BarObj()
+ /* do some work with ptr here */
+
+ ...
+
+ delete ptr;
+ }
+
+ Example 3
+
+ In this example, the programmer dynamically allocates a buffer to hold a string and then searches for a specific character. After completing the search, the programmer attempts to release the
+ allocated memory and return SUCCESS or FAILURE to the caller. Note: for simplification, this example uses a hard-coded "Search Me!" string and a constant string length of 20.
+
+ (bad code)
+ Example Language: C 
+ #define SUCCESS (1)
+ #define FAILURE (0)
+
+ int contains_char(char c){
+ char *str;
+ str = (char*)malloc(20*sizeof(char));
+ strcpy(str, "Search Me!");
+ while( *str != NULL){
+ if( *str == c ){
+
+ /* matched char, free string and return success */
+ free(str);
+ return SUCCESS;
+ }
+ /* didn't match yet, increment pointer and try next char */
+
+ str = str + 1;
+ }
+ /* we did not match the char in the string, free mem and return failure */
+
+ free(str);
+ return FAILURE;
+ }
+
+ However, if the character is not at the beginning of the string, or if it is not in the string at all, then the pointer will not be at the start of the buffer when the programmer frees it.
+
+ Instead of freeing the pointer in the middle of the buffer, the programmer can use an indexing pointer to step through the memory or abstract the memory calculations by using array indexing.
+
+ (good code)
+ Example Language: C 
+ #define SUCCESS (1)
+ #define FAILURE (0)
+
+ int cointains_char(char c){
+ char *str;
+ int i = 0;
+ str = (char*)malloc(20*sizeof(char));
+ strcpy(str, "Search Me!");
+ while( i < strlen(str) ){
+ if( str[i] == c ){
+
+ /* matched char, free string and return success */
+ free(str);
+ return SUCCESS;
+ }
+ /* didn't match yet, increment pointer and try next char */
+
+ i = i + 1;
+ }
+ /* we did not match the char in the string, free mem and return failure */
+
+ free(str);
+ return FAILURE;
+ }
+
+ Example 4
+
+ Consider the following code in the context of a parsing application to extract commands out of user data. The intent is to parse each command and add it to a queue of commands to be executed,
+ discarding each malformed entry.
+
+ (bad code)
+ Example Language: C 
+
+ //hardcode input length for simplicity
+ char* input = (char*) malloc(40*sizeof(char));
+ char *tok;
+ char* sep = " \t";
+
+ get_user_input( input );
+
+ /* The following loop will parse and process each token in the input string */
+
+ tok = strtok( input, sep);
+ while( NULL != tok ){
+ if( isMalformed( tok ) ){
+
+ /* ignore and discard bad data */
+ free( tok );
+ }
+ else{
+ add_to_command_queue( tok );
+ }
+ tok = strtok( NULL, sep));
+ }
+
+ While the above code attempts to free memory associated with bad commands, since the memory was all allocated in one chunk, it must all be freed together.
+
+ One way to fix this problem would be to copy the commands into a new memory location before placing them in the queue. Then, after all commands have been processed, the memory can safely be freed.
+
+ (good code)
+ Example Language: C 
+
+ //hardcode input length for simplicity
+ char* input = (char*) malloc(40*sizeof(char));
+ char *tok, *command;
+ char* sep = " \t";
+
+ get_user_input( input );
+
+ /* The following loop will parse and process each token in the input string */
+
+ tok = strtok( input, sep);
+ while( NULL != tok ){
+ if( !isMalformed( command ) ){
+
+ /* copy and enqueue good data */
+ command = (char*) malloc( (strlen(tok) + 1) * sizeof(char) );
+ strcpy( command, tok );
+ add_to_command_queue( command );
+ }
+ tok = strtok( NULL, sep));
+ }
+
+ free( input )
+ + Observed Examples
+        Reference                                                                                        Description
+ CVE-2019-11930          function "internally calls 'calloc' and returns a pointer at an index... inside the allocated buffer. This led to freeing invalid memory."
+ + Potential Mitigations
+ Phase: Implementation
+
+ Only call matching memory management functions. Do not mix and match routines. For example, when you allocate a buffer with malloc(), dispose of the original pointer with free().
+ Phase: Implementation
+
+ When programming in C++, consider using smart pointers provided by the boost library to help correctly and consistently manage memory.
+ Phase: Architecture and Design
+
+ Strategy: Libraries or Frameworks
+
+ Use a vetted library or framework that does not allow this weakness to occur or provides constructs that make this weakness easier to avoid.
+
+ For example, glibc in Linux provides protection against free of invalid pointers.
+
+ Phase: Architecture and Design
+
+ Use a language that provides abstractions for memory allocation and deallocation.
+ Phase: Testing
+
+ Use a tool that dynamically detects memory management problems, such as valgrind.
+ + Detection Methods
+ Fuzzing
+
+ Fuzz testing (fuzzing) is a powerful technique for generating large numbers of diverse inputs - either randomly or algorithmically - and dynamically invoking the code with those inputs. Even with
+ random inputs, it is often capable of generating unexpected results such as crashes, memory corruption, or resource consumption. Fuzzing effectively produces repeatable test cases that clearly
+ indicate bugs, which helps developers to diagnose the issues.
+
+ Effectiveness: High
+
+ + Affected Resources
+ 
+   • Memory
+
+ + Memberships
+ Section HelpThis MemberOf Relationships table shows additional CWE Categories and Views that reference this weakness as a member. This information is often useful in understanding where a weakness
+ fits within the context of external information sources.
+     Nature                                                                                                  Type                                                                                               ID         Name
+ MemberOf        ViewView - a subset of CWE entries that provides a way of examining CWE content. The two main view structures are Slices (flat lists) and Graphs (containing relationships between entries). 884     CWE
+                                                                                                                                                                                                                      Cross-section
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            969     SFP Secondary
+                                                                                                                                                                                                                      Cluster: Faulty
+                                                                                                                                                                                                                      Memory Release
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            1237    SFP Primary
+                                                                                                                                                                                                                      Cluster: Faulty
+                                                                                                                                                                                                                      Resource
+                                                                                                                                                                                                                      Release
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            1399    Comprehensive
+                                                                                                                                                                                                                      Categorization:
+                                                                                                                                                                                                                      Memory Safety
+ + Vulnerability Mapping Notes
+ Usage: ALLOWED
+
+ (this CWE ID could be used to map to real-world vulnerabilities)
+ Reason: Acceptable-Use
+
+ Rationale:
+
+ This CWE entry is at the Base level of abstraction, which is a preferred level of abstraction for mapping to the root causes of vulnerabilities.
+ Comments:
+
+ Carefully read both the name and description to ensure that this mapping is an appropriate fit. Do not try to 'force' a mapping to a lower-level Base/Variant simply to comply with this preferred
+ level of abstraction.
+ + Notes
+ 
+ Maintenance
+
+ The view-1000 subtree that is associated with this weakness needs additional work. Several entries will likely be created in this branch. Currently the focus is on free() of memory, but delete and
+ other related release routines may require the creation of intermediate entries that are not specific to a particular function. In addition, the role of other types of invalid pointers, such as an
+ expired pointer, i.e. CWE-415 Double Free and release of uninitialized pointers, related to CWE-457.
+ + Taxonomy Mappings
+       Mapped Taxonomy Name          Node ID              Fit                                                                 Mapped Node Name
+ Software Fault Patterns          SFP12                                 Faulty Memory Release
+ + References
+ [REF-657] "boost C++ Library Smart Pointers". <https://www.boost.org/doc/libs/1_38_0/libs/smart_ptr/smart_ptr.htm>. URL validated: 2023-04-07.
+ [REF-480] "Valgrind". <http://valgrind.org/>.
+ + Content History
+                                                                                            + Submissions
+                 Submission Date                                                      Submitter                                                                Organization
+ 2009-05-08                                      CWE Content Team                                                                     MITRE
+ (CWE 1.4, 2009-05-27)
+
+                                                                                           + Modifications
+                Modification Date                                                      Modifier                                                                Organization
+ 2010-06-21                                      CWE Content Team                                                                     MITRE
+                                                 updated Description
+ 2010-09-27                                      CWE Content Team                                                                     MITRE
+                                                 updated Relationships
+ 2011-06-01                                      CWE Content Team                                                                     MITRE
+                                                 updated Common_Consequences
+ 2012-05-11                                      CWE Content Team                                                                     MITRE
+                                                 updated Common_Consequences, Demonstrative_Examples, Relationships
+ 2012-10-30                                      CWE Content Team                                                                     MITRE
+                                                 updated Potential_Mitigations
+ 2014-02-18                                      CWE Content Team                                                                     MITRE
+                                                 updated Potential_Mitigations
+ 2014-07-30                                      CWE Content Team                                                                     MITRE
+                                                 updated Relationships, Taxonomy_Mappings
+ 2017-11-08                                      CWE Content Team                                                                     MITRE
+                                                 updated Relationships
+ 2019-06-20                                      CWE Content Team                                                                     MITRE
+                                                 updated Relationships
+ 2020-02-24                                      CWE Content Team                                                                     MITRE
+                                                 updated Relationships
+ 2020-12-10                                      CWE Content Team                                                                     MITRE
+                                                 updated Relationships
+ 2021-03-15                                      CWE Content Team                                                                     MITRE
+                                                 updated Maintenance_Notes
+ 2023-01-31                                      CWE Content Team                                                                     MITRE
+                                                 updated Description
+ 2023-04-27                                      CWE Content Team                                                                     MITRE
+                                                 updated Detection_Factors, References, Relationships
+ 2023-06-29                                      CWE Content Team                                                                     MITRE
+                                                 updated Mapping_Notes
+ 2023-10-26                                      CWE Content Team                                                                     MITRE
+                                                 updated Observed_Examples
+ More information is available — Please edit the custom filter or select a different filter.
+Page Last Updated: February 29, 2024
+ 
+      Site Map | Terms of Use | Manage Cookies | Cookie Notice | Privacy Policy | Contact Us | CWE X-Twitter CWE Mastodon CWE on LinkedIn CWE YouTube channel CWE Out-of-Bounds-Read Podcast CWE
+      Blog on Medium blog
+
+MITRE Use of the Common Weakness Enumeration (CWE™) and the associated references from this website are subject to the Terms of Use. CWE is sponsored by the U.S. Department of Homeland         HSSEDI
+      Security (DHS) Cybersecurity and Infrastructure Security Agency (CISA) and managed by the Homeland Security Systems Engineering and Development Institute (HSSEDI) which is operated by
+      The MITRE Corporation (MITRE). Copyright © 2006–2024, The MITRE Corporation. CWE, CWSS, CWRAF, and the CWE logo are trademarks of The MITRE Corporation.
+

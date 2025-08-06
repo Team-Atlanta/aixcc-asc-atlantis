@@ -1,0 +1,1001 @@
+CWE
+
+Common Weakness Enumeration
+
+A community-developed list of SW & HW weaknesses that can become vulnerabilities
+
+New to CWE? click here!
+CWE Most Important Hardware Weaknesses
+CWE Top 25 Most Dangerous Weaknesses
+Home > CWE List > CWE- Individual Dictionary Definition (4.14)                                                                                                   ID Lookup: [                    ] [Go]
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  • Home
+  • About ▼
+    About New to CWE User Stories History Documents FAQs Glossary Compatibility
+  • CWE List ▼
+    Latest Version Downloads Reports Visualizations Archive
+  • Mapping ▼
+    Root Cause Mapping Guidance Root Cause Mapping Quick Tips Root Cause Mapping Examples
+  • Top-N Lists ▼
+    Top 25 Software Top Hardware Top 10 KEV Weaknesses
+  • Community ▼
+    Community Working Groups & Special Interest Groups Board Board Meeting Minutes CWE Discussion List CWE Discussion Archives Contribute Weakness Content to CWE
+  • News ▼
+    Current News X-Twitter ● Mastodon ● LinkedIn ● YouTube YouTube Podcast Out of Bounds Read Podcast Medium Medium News Archive
+  • Search
+
+ 
+ CWE Glossary Definition                  x
+ 
+ 
+ CWE-20: Improper Input Validation
+ 
+ Weakness ID: 20
+ Vulnerability Mapping: DISCOURAGEDThis CWE ID should not be used to map to real-world vulnerabilities
+ Abstraction: ClassClass - a weakness that is described in a very abstract fashion, typically independent of any specific language or technology. More specific than a Pillar Weakness, but more general
+ than a Base Weakness. Class level weaknesses typically describe issues in terms of 1 or 2 of the following dimensions: behavior, property, and resource.
+ View customized information:
+ Conceptual For users who are interested in more notional aspects of a weakness. Example: educators, technical writers, and project/program managers. Operational For users who are concerned with the
+ practical application and details about the nature of a weakness and how to prevent it from happening. Example: tool developers, security researchers, pen-testers, incident response analysts. Mapping
+ Friendly For users who are mapping an issue to CWE/CAPEC IDs, i.e., finding the most appropriate CWE for a specific issue (e.g., a CVE record). Example: tool developers, security researchers. 
+ Complete For users who wish to see all available information for the CWE/CAPEC entry. Custom For users who want to customize what details are displayed.
+ ×
+
+ Edit Custom Filter
+
+ Conceptual Operational Mapping Friendly Select All
+ 
+ Reset Clear Submit Cancel
+ + Description
+ The product receives input or data, but it does not validate or incorrectly validates that the input has the properties that are required to process the data safely and correctly.
+ + Extended Description
+ 
+ Input validation is a frequently-used technique for checking potentially dangerous inputs in order to ensure that the inputs are safe for processing within the code, or when communicating with other
+ components. When software does not validate input properly, an attacker is able to craft the input in a form that is not expected by the rest of the application. This will lead to parts of the system
+ receiving unintended input, which may result in altered control flow, arbitrary control of a resource, or arbitrary code execution.
+
+ Input validation is not the only technique for processing input, however. Other techniques attempt to transform potentially-dangerous input into something safe, such as filtering (CWE-790) - which
+ attempts to remove dangerous inputs - or encoding/escaping (CWE-116), which attempts to ensure that the input is not misinterpreted when it is included in output to another component. Other
+ techniques exist as well (see CWE-138 for more examples.)
+
+ Input validation can be applied to:
+
+   • raw data - strings, numbers, parameters, file contents, etc.
+   • metadata - information about the raw data, such as headers or size
+
+ Data can be simple or structured. Structured data can be composed of many nested layers, composed of combinations of metadata and raw data, with other simple or structured data.
+
+ Many properties of raw data or metadata may need to be validated upon entry into the code, such as:
+
+   • specified quantities such as size, length, frequency, price, rate, number of operations, time, etc.
+   • implied or derived quantities, such as the actual size of a file instead of a specified size
+   • indexes, offsets, or positions into more complex data structures
+   • symbolic keys or other elements into hash tables, associative arrays, etc.
+   • well-formedness, i.e. syntactic correctness - compliance with expected syntax
+   • lexical token correctness - compliance with rules for what is treated as a token
+   • specified or derived type - the actual type of the input (or what the input appears to be)
+   • consistency - between individual data elements, between raw data and metadata, between references, etc.
+   • conformance to domain-specific rules, e.g. business logic
+   • equivalence - ensuring that equivalent inputs are treated the same
+   • authenticity, ownership, or other attestations about the input, e.g. a cryptographic signature to prove the source of the data
+
+ Implied or derived properties of data must often be calculated or inferred by the code itself. Errors in deriving properties may be considered a contributing factor to improper input validation.
+
+ Note that "input validation" has very different meanings to different people, or within different classification schemes. Caution must be used when referencing this CWE entry or mapping to it. For
+ example, some weaknesses might involve inadvertently giving control to an attacker over an input when they should not be able to provide an input at all, but sometimes this is referred to as input
+ validation.
+
+ Finally, it is important to emphasize that the distinctions between input validation and output escaping are often blurred, and developers must be careful to understand the difference, including how
+ input validation is not always sufficient to prevent vulnerabilities, especially when less stringent data types must be supported, such as free-form text. Consider a SQL injection scenario in which a
+ person's last name is inserted into a query. The name "O'Reilly" would likely pass the validation step since it is a common last name in the English language. However, this valid name cannot be
+ directly inserted into the database because it contains the "'" apostrophe character, which would need to be escaped or otherwise transformed. In this case, removing the apostrophe might reduce the
+ risk of SQL injection, but it would produce incorrect behavior because the wrong name would be recorded.
+
+ + Relationships
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Research Concepts" (CWE-1000)
+     Nature                                                                                                                                                                               Type                                                                                                                                                                            ID         Name
+ ChildOf                                                                                 PillarPillar - a weakness that is the most abstract type of weakness and represents a theme for all class/base/variant weaknesses related to it. A Pillar is different from a Category as a Pillar is                                                                          707     Improper
+                                                                                                                    still technically a type of weakness that describes a mistake, while a Category represents a common characteristic used to group related things.                                                                                                            Neutralization
+ ParentOf                                                                                   BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level weaknesses                                                                             179     Incorrect
+                                                                                                                           typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                    Behavior
+                                                                                                                                                                                                                                                                                                                                                                                Order: Early
+                                                                                                                                                                                                                                                                                                                                                                                Validation
+ ParentOf                                                                                VariantVariant - a weakness that is linked to a certain type of product, typically involving a specific language or technology. More specific than a Base weakness. Variant level weaknesses typically                                                                         622     Improper
+                                                                                                                                describe issues in terms of 3 to 5 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                         Validation of
+                                                                                                                                                                                                                                                                                                                                                                                Function Hook
+                                                                                                                                                                                                                                                                                                                                                                                Arguments
+ ParentOf                                                                                   BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level weaknesses                                                                             1173    Improper Use
+                                                                                                                           typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                    of Validation
+                                                                                                                                                                                                                                                                                                                                                                                Framework
+ ParentOf                                                                                   BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level weaknesses                                                                             1284    Improper
+                                                                                                                           typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                    Validation of
+                                                                                                                                                                                                                                                                                                                                                                                Specified
+                                                                                                                                                                                                                                                                                                                                                                                Quantity in
+                                                                                                                                                                                                                                                                                                                                                                                Input
+ ParentOf                                                                                   BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level weaknesses                                                                             1285    Improper
+                                                                                                                           typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                    Validation of
+                                                                                                                                                                                                                                                                                                                                                                                Specified
+                                                                                                                                                                                                                                                                                                                                                                                Index,
+                                                                                                                                                                                                                                                                                                                                                                                Position, or
+                                                                                                                                                                                                                                                                                                                                                                                Offset in
+                                                                                                                                                                                                                                                                                                                                                                                Input
+ ParentOf                                                                                   BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level weaknesses                                                                             1286    Improper
+                                                                                                                           typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                    Validation of
+                                                                                                                                                                                                                                                                                                                                                                                Syntactic
+                                                                                                                                                                                                                                                                                                                                                                                Correctness of
+                                                                                                                                                                                                                                                                                                                                                                                Input
+ ParentOf                                                                                   BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level weaknesses                                                                             1287    Improper
+                                                                                                                           typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                    Validation of
+                                                                                                                                                                                                                                                                                                                                                                                Specified Type
+                                                                                                                                                                                                                                                                                                                                                                                of Input
+ ParentOf                                                                                   BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level weaknesses                                                                             1288    Improper
+                                                                                                                           typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                    Validation of
+                                                                                                                                                                                                                                                                                                                                                                                Consistency
+                                                                                                                                                                                                                                                                                                                                                                                within Input
+ ParentOf                                                                                   BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level weaknesses                                                                             1289    Improper
+                                                                                                                           typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                    Validation of
+                                                                                                                                                                                                                                                                                                                                                                                Unsafe
+                                                                                                                                                                                                                                                                                                                                                                                Equivalence in
+                                                                                                                                                                                                                                                                                                                                                                                Input
+ PeerOf                                                                                  ClassClass - a weakness that is described in a very abstract fashion, typically independent of any specific language or technology. More specific than a Pillar Weakness, but more general than a Base                                                                         345     Insufficient
+                                                                                                                      Weakness. Class level weaknesses typically describe issues in terms of 1 or 2 of the following dimensions: behavior, property, and resource.                                                                                                              Verification
+                                                                                                                                                                                                                                                                                                                                                                                of Data
+                                                                                                                                                                                                                                                                                                                                                                                Authenticity
+ CanPrecede                                                                                 BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level weaknesses                                                                             22      Improper
+                                                                                                                           typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                    Limitation of
+                                                                                                                                                                                                                                                                                                                                                                                a Pathname to
+                                                                                                                                                                                                                                                                                                                                                                                a Restricted
+                                                                                                                                                                                                                                                                                                                                                                                Directory
+                                                                                                                                                                                                                                                                                                                                                                                ('Path
+                                                                                                                                                                                                                                                                                                                                                                                Traversal')
+ CanPrecede                                                                                 BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level weaknesses                                                                             41      Improper
+                                                                                                                           typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                    Resolution of
+                                                                                                                                                                                                                                                                                                                                                                                Path
+                                                                                                                                                                                                                                                                                                                                                                                Equivalence
+ CanPrecede                                                                              ClassClass - a weakness that is described in a very abstract fashion, typically independent of any specific language or technology. More specific than a Pillar Weakness, but more general than a Base                                                                         74      Improper
+                                                                                                                      Weakness. Class level weaknesses typically describe issues in terms of 1 or 2 of the following dimensions: behavior, property, and resource.                                                                                                              Neutralization
+                                                                                                                                                                                                                                                                                                                                                                                of Special
+                                                                                                                                                                                                                                                                                                                                                                                Elements in
+                                                                                                                                                                                                                                                                                                                                                                                Output Used by
+                                                                                                                                                                                                                                                                                                                                                                                a Downstream
+                                                                                                                                                                                                                                                                                                                                                                                Component
+                                                                                                                                                                                                                                                                                                                                                                                ('Injection')
+ CanPrecede                                                                              ClassClass - a weakness that is described in a very abstract fashion, typically independent of any specific language or technology. More specific than a Pillar Weakness, but more general than a Base                                                                         119     Improper
+                                                                                                                      Weakness. Class level weaknesses typically describe issues in terms of 1 or 2 of the following dimensions: behavior, property, and resource.                                                                                                              Restriction of
+                                                                                                                                                                                                                                                                                                                                                                                Operations
+                                                                                                                                                                                                                                                                                                                                                                                within the
+                                                                                                                                                                                                                                                                                                                                                                                Bounds of a
+                                                                                                                                                                                                                                                                                                                                                                                Memory Buffer
+ CanPrecede                                                                                 BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level weaknesses                                                                             770     Allocation of
+                                                                                                                           typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                    Resources
+                                                                                                                                                                                                                                                                                                                                                                                Without Limits
+                                                                                                                                                                                                                                                                                                                                                                                or Throttling
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Weaknesses for Simplified Mapping of Published Vulnerabilities" (CWE-1003)
+     Nature                                                                                                                                                                    Type                                                                                                                                                                  ID       Name
+ ParentOf                                                                     VariantVariant - a weakness that is linked to a certain type of product, typically involving a specific language or technology. More specific than a Base weakness. Variant level weaknesses typically                                                               129     Improper
+                                                                                                                      describe issues in terms of 3 to 5 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                              Validation
+                                                                                                                                                                                                                                                                                                                                                           of Array
+                                                                                                                                                                                                                                                                                                                                                           Index
+ ParentOf                                                                         BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level weaknesses                                                                  1284    Improper
+                                                                                                                 typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                         Validation
+                                                                                                                                                                                                                                                                                                                                                           of
+                                                                                                                                                                                                                                                                                                                                                           Specified
+                                                                                                                                                                                                                                                                                                                                                           Quantity
+                                                                                                                                                                                                                                                                                                                                                           in Input
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Architectural Concepts" (CWE-1008)
+     Nature                                                       Type                                                     ID                                   Name
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 1019    Validate Inputs
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Seven Pernicious Kingdoms" (CWE-700)
+     Nature                                                                                                                                                                             Type                                                                                                                                                                           ID            Name
+ ParentOf                                                                                  BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level weaknesses                                                                           15      External Control of
+                                                                                                                          typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                  System or
+                                                                                                                                                                                                                                                                                                                                                                             Configuration Setting
+ ParentOf                                                                                  BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level weaknesses                                                                           73      External Control of
+                                                                                                                          typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                  File Name or Path
+ ParentOf                                                                              VariantVariant - a weakness that is linked to a certain type of product, typically involving a specific language or technology. More specific than a Base weakness. Variant level weaknesses typically                                                                        102     Struts: Duplicate
+                                                                                                                               describe issues in terms of 3 to 5 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                       Validation Forms
+ ParentOf                                                                              VariantVariant - a weakness that is linked to a certain type of product, typically involving a specific language or technology. More specific than a Base weakness. Variant level weaknesses typically                                                                        103     Struts: Incomplete
+                                                                                                                               describe issues in terms of 3 to 5 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                       validate() Method
+                                                                                                                                                                                                                                                                                                                                                                             Definition
+ ParentOf                                                                              VariantVariant - a weakness that is linked to a certain type of product, typically involving a specific language or technology. More specific than a Base weakness. Variant level weaknesses typically                                                                        104     Struts: Form Bean
+                                                                                                                               describe issues in terms of 3 to 5 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                       Does Not Extend
+                                                                                                                                                                                                                                                                                                                                                                             Validation Class
+ ParentOf                                                                              VariantVariant - a weakness that is linked to a certain type of product, typically involving a specific language or technology. More specific than a Base weakness. Variant level weaknesses typically                                                                        105     Struts: Form Field
+                                                                                                                               describe issues in terms of 3 to 5 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                       Without Validator
+ ParentOf                                                                              VariantVariant - a weakness that is linked to a certain type of product, typically involving a specific language or technology. More specific than a Base weakness. Variant level weaknesses typically                                                                        106     Struts: Plug-in
+                                                                                                                               describe issues in terms of 3 to 5 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                       Framework not in Use
+ ParentOf                                                                              VariantVariant - a weakness that is linked to a certain type of product, typically involving a specific language or technology. More specific than a Base weakness. Variant level weaknesses typically                                                                        107     Struts: Unused
+                                                                                                                               describe issues in terms of 3 to 5 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                       Validation Form
+ ParentOf                                                                              VariantVariant - a weakness that is linked to a certain type of product, typically involving a specific language or technology. More specific than a Base weakness. Variant level weaknesses typically                                                                        108     Struts: Unvalidated
+                                                                                                                               describe issues in terms of 3 to 5 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                       Action Form
+ ParentOf                                                                              VariantVariant - a weakness that is linked to a certain type of product, typically involving a specific language or technology. More specific than a Base weakness. Variant level weaknesses typically                                                                        109     Struts: Validator
+                                                                                                                               describe issues in terms of 3 to 5 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                       Turned Off
+ ParentOf                                                                              VariantVariant - a weakness that is linked to a certain type of product, typically involving a specific language or technology. More specific than a Base weakness. Variant level weaknesses typically                                                                        110     Struts: Validator
+                                                                                                                               describe issues in terms of 3 to 5 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                       Without Form Field
+ ParentOf                                                                              VariantVariant - a weakness that is linked to a certain type of product, typically involving a specific language or technology. More specific than a Base weakness. Variant level weaknesses typically                                                                        111     Direct Use of Unsafe
+                                                                                                                               describe issues in terms of 3 to 5 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                       JNI
+ ParentOf                                                                                  BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level weaknesses                                                                           112     Missing XML
+                                                                                                                          typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                  Validation
+ ParentOf                                                                              VariantVariant - a weakness that is linked to a certain type of product, typically involving a specific language or technology. More specific than a Base weakness. Variant level weaknesses typically                                                                        113     Improper
+                                                                                                                               describe issues in terms of 3 to 5 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                       Neutralization of
+                                                                                                                                                                                                                                                                                                                                                                             CRLF Sequences in
+                                                                                                                                                                                                                                                                                                                                                                             HTTP Headers ('HTTP
+                                                                                                                                                                                                                                                                                                                                                                             Request/Response
+                                                                                                                                                                                                                                                                                                                                                                             Splitting')
+ ParentOf                                                                              ClassClass - a weakness that is described in a very abstract fashion, typically independent of any specific language or technology. More specific than a Pillar Weakness, but more general than a Base                                                                        114     Process Control
+                                                                                                                    Weakness. Class level weaknesses typically describe issues in terms of 1 or 2 of the following dimensions: behavior, property, and resource.
+ ParentOf                                                                                  BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level weaknesses                                                                           117     Improper Output
+                                                                                                                          typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                  Neutralization for
+                                                                                                                                                                                                                                                                                                                                                                             Logs
+ ParentOf                                                                              ClassClass - a weakness that is described in a very abstract fashion, typically independent of any specific language or technology. More specific than a Pillar Weakness, but more general than a Base                                                                        119     Improper Restriction
+                                                                                                                    Weakness. Class level weaknesses typically describe issues in terms of 1 or 2 of the following dimensions: behavior, property, and resource.                                                                                                             of Operations within
+                                                                                                                                                                                                                                                                                                                                                                             the Bounds of a
+                                                                                                                                                                                                                                                                                                                                                                             Memory Buffer
+ ParentOf                                                                                  BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level weaknesses                                                                           120     Buffer Copy without
+                                                                                                                          typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                  Checking Size of
+                                                                                                                                                                                                                                                                                                                                                                             Input ('Classic
+                                                                                                                                                                                                                                                                                                                                                                             Buffer Overflow')
+ ParentOf                                                                                  BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level weaknesses                                                                           134     Use of
+                                                                                                                          typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                  Externally-Controlled
+                                                                                                                                                                                                                                                                                                                                                                             Format String
+ ParentOf                                                                                  BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level weaknesses                                                                           170     Improper Null
+                                                                                                                          typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                  Termination
+ ParentOf                                                                                  BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level weaknesses                                                                           190     Integer Overflow or
+                                                                                                                          typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                  Wraparound
+ ParentOf                                                                                  BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level weaknesses                                                                           466     Return of Pointer
+                                                                                                                          typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                  Value Outside of
+                                                                                                                                                                                                                                                                                                                                                                             Expected Range
+ ParentOf                                                                                  BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level weaknesses                                                                           470     Use of
+                                                                                                                          typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                  Externally-Controlled
+                                                                                                                                                                                                                                                                                                                                                                             Input to Select
+                                                                                                                                                                                                                                                                                                                                                                             Classes or Code
+                                                                                                                                                                                                                                                                                                                                                                             ('Unsafe Reflection')
+ ParentOf                                                                              VariantVariant - a weakness that is linked to a certain type of product, typically involving a specific language or technology. More specific than a Base weakness. Variant level weaknesses typically                                                                        785     Use of Path
+                                                                                                                               describe issues in terms of 3 to 5 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                       Manipulation Function
+                                                                                                                                                                                                                                                                                                                                                                             without Maximum-sized
+                                                                                                                                                                                                                                                                                                                                                                             Buffer
+ + Modes Of Introduction
+ Section HelpThe different Modes of Introduction provide information about how and when this weakness may be introduced. The Phase identifies a point in the life cycle at which introduction may occur,
+ while the Note provides a typical scenario related to introduction during the given phase.
+          Phase                                                                                             Note
+ Architecture and Design
+                         REALIZATION: This weakness is caused during implementation of an architectural security tactic.
+
+                         If a programmer believes that an attacker cannot modify certain inputs, then the programmer might not perform any input validation at all. For example, in web
+ Implementation          applications, many programmers believe that cookies and hidden form fields can not be modified from a web browser (CWE-472), although they can be altered using a proxy or
+                         a custom program. In a client-server architecture, the programmer might assume that client-side security checks cannot be bypassed, even when a custom client could be
+                         written that skips those checks (CWE-602).
+
+ + Applicable Platforms
+ Section HelpThis listing shows possible areas for which the given weakness could appear. These may be for specific named Languages, Operating Systems, Architectures, Paradigms, Technologies, or a
+ class of such platforms. The platform is listed along with how frequently the given weakness appears for that instance.
+
+ Languages
+
+ Class: Not Language-Specific (Often Prevalent)
+
+ + Common Consequences
+ Section HelpThis table specifies different individual consequences associated with the weakness. The Scope identifies the application security area that is violated, while the Impact describes the
+ negative technical impact that arises if an adversary succeeds in exploiting this weakness. The Likelihood provides information about how likely the specific consequence is expected to be seen
+ relative to the other consequences in the list. For example, there may be high likelihood that a weakness will be exploited to achieve a certain impact, but a low likelihood that it will be exploited
+ to achieve a different impact.
+       Scope                                                                                     Impact                                                                                 Likelihood
+                    Technical Impact: DoS: Crash, Exit, or Restart; DoS: Resource Consumption (CPU); DoS: Resource Consumption (Memory)
+ Availability
+                    An attacker could provide unexpected values and cause a program crash or excessive consumption of resources, such as memory and CPU.
+                    Technical Impact: Read Memory; Read Files or Directories
+ Confidentiality
+                    An attacker could read confidential data if they are able to control resource references.
+ Integrity          Technical Impact: Modify Memory; Execute Unauthorized Code or Commands
+ Confidentiality
+ Availability       An attacker could use malicious input to modify data or possibly alter control flow in unexpected ways, including arbitrary command execution.
+ + Likelihood Of Exploit
+ High
+ + Demonstrative Examples
+ 
+ Example 1
+
+ This example demonstrates a shopping interaction in which the user is free to specify the quantity of items to be purchased and a total is calculated.
+
+ (bad code)
+ Example Language: Java 
+ ...
+ public static final double price = 20.00;
+ int quantity = currentUser.getAttribute("quantity");
+ double total = price * quantity;
+ chargeUser(total);
+ ...
+
+ The user has no control over the price variable, however the code does not prevent a negative value from being specified for quantity. If an attacker were to provide a negative value, then the user
+ would have their account credited instead of debited.
+
+ Example 2
+
+ This example asks the user for a height and width of an m X n game board with a maximum dimension of 100 squares.
+
+ (bad code)
+ Example Language: C 
+ ...
+ #define MAX_DIM 100
+ ...
+ /* board dimensions */
+
+ int m,n, error;
+ board_square_t *board;
+ printf("Please specify the board height: \n");
+ error = scanf("%d", &m);
+ if ( EOF == error ){
+ die("No integer passed: Die evil hacker!\n");
+ }
+ printf("Please specify the board width: \n");
+ error = scanf("%d", &n);
+ if ( EOF == error ){
+ die("No integer passed: Die evil hacker!\n");
+ }
+ if ( m > MAX_DIM || n > MAX_DIM ) {
+ die("Value too large: Die evil hacker!\n");
+ }
+ board = (board_square_t*) malloc( m * n * sizeof(board_square_t));
+ ...
+
+ While this code checks to make sure the user cannot specify large, positive integers and consume too much memory, it does not check for negative values supplied by the user. As a result, an attacker
+ can perform a resource consumption (CWE-400) attack against this program by specifying two, large negative values that will not overflow, resulting in a very large memory allocation (CWE-789) and
+ possibly a system crash. Alternatively, an attacker can provide very large negative values which will cause an integer overflow (CWE-190) and unexpected behavior will follow depending on how the
+ values are treated in the remainder of the program.
+
+ Example 3
+
+ The following example shows a PHP application in which the programmer attempts to display a user's birthday and homepage.
+
+ (bad code)
+ Example Language: PHP 
+ $birthday = $_GET['birthday'];
+ $homepage = $_GET['homepage'];
+ echo "Birthday: $birthday<br>Homepage: <a href=$homepage>click here</a>"
+
+ The programmer intended for $birthday to be in a date format and $homepage to be a valid URL. However, since the values are derived from an HTTP request, if an attacker can trick a victim into
+ clicking a crafted URL with <script> tags providing the values for birthday and / or homepage, then the script will run on the client's browser when the web server echoes the content. Notice that
+ even if the programmer were to defend the $birthday variable by restricting input to integers and dashes, it would still be possible for an attacker to provide a string of the form:
+
+ (attack code)
+  
+ 2009-01-09--
+
+ If this data were used in a SQL statement, it would treat the remainder of the statement as a comment. The comment could disable other security-related logic in the statement. In this case, encoding
+ combined with input validation would be a more useful protection mechanism.
+
+ Furthermore, an XSS (CWE-79) attack or SQL injection (CWE-89) are just a few of the potential consequences when input validation is not used. Depending on the context of the code, CRLF Injection (
+ CWE-93), Argument Injection (CWE-88), or Command Injection (CWE-77) may also be possible.
+
+ Example 4
+
+ The following example takes a user-supplied value to allocate an array of objects and then operates on the array.
+
+ (bad code)
+ Example Language: Java 
+ private void buildList ( int untrustedListSize ){
+ if ( 0 > untrustedListSize ){
+ die("Negative value supplied for list size, die evil hacker!");
+ }
+ Widget[] list = new Widget [ untrustedListSize ];
+ list[0] = new Widget();
+ }
+
+ This example attempts to build a list from a user-specified value, and even checks to ensure a non-negative value is supplied. If, however, a 0 value is provided, the code will build an array of size
+ 0 and then try to store a new Widget in the first location, causing an exception to be thrown.
+
+ Example 5
+
+ This Android application has registered to handle a URL when sent an intent:
+
+ (bad code)
+ Example Language: Java 
+
+ ...
+ IntentFilter filter = new IntentFilter("com.example.URLHandler.openURL");
+ MyReceiver receiver = new MyReceiver();
+ registerReceiver(receiver, filter);
+ ...
+
+ public class UrlHandlerReceiver extends BroadcastReceiver {
+ @Override
+ public void onReceive(Context context, Intent intent) {
+ if("com.example.URLHandler.openURL".equals(intent.getAction())) {
+ String URL = intent.getStringExtra("URLToOpen");
+ int length = URL.length();
+
+ ...
+ }
+ }
+ }
+
+ The application assumes the URL will always be included in the intent. When the URL is not present, the call to getStringExtra() will return null, thus causing a null pointer exception when length()
+ is called.
+
+ + Observed Examples
+        Reference                                                                                        Description
+ CVE-2022-45918          Chain: a learning management tool debugger uses external input to locate previous session logs (CWE-73) and does not properly validate the given path (CWE-20), allowing
+                         for filesystem path traversal using "../" sequences (CWE-24)
+ CVE-2021-30860          Chain: improper input validation (CWE-20) leads to integer overflow (CWE-190) in mobile OS, as exploited in the wild per CISA KEV.
+ CVE-2021-30663          Chain: improper input validation (CWE-20) leads to integer overflow (CWE-190) in mobile OS, as exploited in the wild per CISA KEV.
+ CVE-2021-22205          Chain: backslash followed by a newline can bypass a validation step (CWE-20), leading to eval injection (CWE-95), as exploited in the wild per CISA KEV.
+ CVE-2021-21220          Chain: insufficient input validation (CWE-20) in browser allows heap corruption (CWE-787), as exploited in the wild per CISA KEV.
+ CVE-2020-9054           Chain: improper input validation (CWE-20) in username parameter, leading to OS command injection (CWE-78), as exploited in the wild per CISA KEV.
+ CVE-2020-3452           Chain: security product has improper input validation (CWE-20) leading to directory traversal (CWE-22), as exploited in the wild per CISA KEV.
+ CVE-2020-3161           Improper input validation of HTTP requests in IP phone, as exploited in the wild per CISA KEV.
+ CVE-2020-3580           Chain: improper input validation (CWE-20) in firewall product leads to XSS (CWE-79), as exploited in the wild per CISA KEV.
+ CVE-2021-37147          Chain: caching proxy server has improper input validation (CWE-20) of headers, allowing HTTP response smuggling (CWE-444) using an "LF line ending"
+ CVE-2008-5305           Eval injection in Perl program using an ID that should only contain hyphens and numbers.
+ CVE-2008-2223           SQL injection through an ID that was supposed to be numeric.
+ CVE-2008-3477           lack of input validation in spreadsheet program leads to buffer overflows, integer overflows, array index errors, and memory corruption.
+ CVE-2008-3843           insufficient validation enables XSS
+ CVE-2008-3174           driver in security product allows code execution due to insufficient validation
+ CVE-2007-3409           infinite loop from DNS packet with a label that points to itself
+ CVE-2006-6870           infinite loop from DNS packet with a label that points to itself
+ CVE-2008-1303           missing parameter leads to crash
+ CVE-2007-5893           HTTP request with missing protocol version number leads to crash
+ CVE-2006-6658           request with missing parameters leads to information exposure
+ CVE-2008-4114           system crash with offset value that is inconsistent with packet size
+ CVE-2006-3790           size field that is inconsistent with packet size leads to buffer over-read
+ CVE-2008-2309           product uses a denylist to identify potentially dangerous content, allowing attacker to bypass a warning
+ CVE-2008-3494           security bypass via an extra header
+ CVE-2008-3571           empty packet triggers reboot
+ CVE-2006-5525           incomplete denylist allows SQL injection
+ CVE-2008-1284           NUL byte in theme name causes directory traversal impact to be worse
+ CVE-2008-0600           kernel does not validate an incoming pointer before dereferencing it
+ CVE-2008-1738           anti-virus product has insufficient input validation of hooked SSDT functions, allowing code execution
+ CVE-2008-1737           anti-virus product allows DoS via zero-length field
+ CVE-2008-3464           driver does not validate input from userland to the kernel
+ CVE-2008-2252           kernel does not validate parameters sent in from userland, allowing code execution
+ CVE-2008-2374           lack of validation of string length fields allows memory consumption or buffer over-read
+ CVE-2008-1440           lack of validation of length field leads to infinite loop
+ CVE-2008-1625           lack of validation of input to an IOCTL allows code execution
+ CVE-2008-3177           zero-length attachment causes crash
+ CVE-2007-2442           zero-length input causes free of uninitialized pointer
+ CVE-2008-5563           crash via a malformed frame structure
+ CVE-2008-5285           infinite loop from a long SMTP request
+ CVE-2008-3812           router crashes with a malformed packet
+ CVE-2008-3680           packet with invalid version number leads to NULL pointer dereference
+ CVE-2008-3660           crash via multiple "." characters in file extension
+ + Potential Mitigations
+ Phase: Architecture and Design
+
+ Strategy: Attack Surface Reduction
+
+ Consider using language-theoretic security (LangSec) techniques that characterize inputs using a formal language and build "recognizers" for that language. This effectively requires parsing to be
+ a distinct layer that effectively enforces a boundary between raw input and internal data representations, instead of allowing parser code to be scattered throughout the program, where it could
+ be subject to errors or inconsistencies that create weaknesses. [REF-1109] [REF-1110] [REF-1111]
+ Phase: Architecture and Design
+
+ Strategy: Libraries or Frameworks
+
+ Use an input validation framework such as Struts or the OWASP ESAPI Validation API. Note that using a framework does not automatically address all input validation problems; be mindful of
+ weaknesses that could arise from misusing the framework itself (CWE-1173).
+ Phases: Architecture and Design; Implementation
+
+ Strategy: Attack Surface Reduction
+
+ Understand all the potential areas where untrusted inputs can enter your software: parameters or arguments, cookies, anything read from the network, environment variables, reverse DNS lookups,
+ query results, request headers, URL components, e-mail, files, filenames, databases, and any external systems that provide data to the application. Remember that such inputs may be obtained
+ indirectly through API calls.
+ Phase: Implementation
+
+ Strategy: Input Validation
+
+ Assume all input is malicious. Use an "accept known good" input validation strategy, i.e., use a list of acceptable inputs that strictly conform to specifications. Reject any input that does not
+ strictly conform to specifications, or transform it into something that does.
+
+ When performing input validation, consider all potentially relevant properties, including length, type of input, the full range of acceptable values, missing or extra inputs, syntax, consistency
+ across related fields, and conformance to business rules. As an example of business rule logic, "boat" may be syntactically valid because it only contains alphanumeric characters, but it is not
+ valid if the input is only expected to contain colors such as "red" or "blue."
+
+ Do not rely exclusively on looking for malicious or malformed inputs. This is likely to miss at least one undesirable input, especially if the code's environment changes. This can give attackers
+ enough room to bypass the intended validation. However, denylists can be useful for detecting potential attacks or determining which inputs are so malformed that they should be rejected outright.
+
+ Effectiveness: High
+
+ Phase: Architecture and Design
+
+ For any security checks that are performed on the client side, ensure that these checks are duplicated on the server side, in order to avoid CWE-602. Attackers can bypass the client-side checks
+ by modifying values after the checks have been performed, or by changing the client to remove the client-side checks entirely. Then, these modified values would be submitted to the server.
+
+ Even though client-side checks provide minimal benefits with respect to server-side security, they are still useful. First, they can support intrusion detection. If the server receives input that
+ should have been rejected by the client, then it may be an indication of an attack. Second, client-side error-checking can provide helpful feedback to the user about the expectations for valid
+ input. Third, there may be a reduction in server-side processing time for accidental input errors, although this is typically a small savings.
+
+ Phase: Implementation
+
+ When your application combines data from multiple sources, perform the validation after the sources have been combined. The individual data elements may pass the validation step but violate the
+ intended restrictions after they have been combined.
+ Phase: Implementation
+
+ Be especially careful to validate all input when invoking code that crosses language boundaries, such as from an interpreted language to native code. This could create an unexpected interaction
+ between the language boundaries. Ensure that you are not violating any of the expectations of the language with which you are interfacing. For example, even though Java may not be susceptible to
+ buffer overflows, providing a large argument in a call to native code might trigger an overflow.
+ Phase: Implementation
+
+ Directly convert your input type into the expected data type, such as using a conversion function that translates a string into a number. After converting to the expected data type, ensure that
+ the input's values fall within the expected range of allowable values and that multi-field consistencies are maintained.
+ Phase: Implementation
+
+ Inputs should be decoded and canonicalized to the application's current internal representation before being validated (CWE-180, CWE-181). Make sure that your application does not inadvertently
+ decode the same input twice (CWE-174). Such errors could be used to bypass allowlist schemes by introducing dangerous inputs after they have been checked. Use libraries such as the OWASP ESAPI
+ Canonicalization control.
+
+ Consider performing repeated canonicalization until your input does not change any more. This will avoid double-decoding and similar scenarios, but it might inadvertently modify inputs that are
+ allowed to contain properly-encoded dangerous content.
+
+ Phase: Implementation
+
+ When exchanging data between components, ensure that both components are using the same character encoding. Ensure that the proper encoding is applied at each interface. Explicitly set the
+ encoding you are using whenever the protocol allows you to do so.
+ + Detection Methods
+ Automated Static Analysis
+
+ Some instances of improper input validation can be detected using automated static analysis.
+
+ A static analysis tool might allow the user to specify which application-specific methods or functions perform input validation; the tool might also have built-in knowledge of validation
+ frameworks such as Struts. The tool may then suppress or de-prioritize any associated warnings. This allows the analyst to focus on areas of the software in which input validation does not appear
+ to be present.
+
+ Except in the cases described in the previous paragraph, automated static analysis might not be able to recognize when proper input validation is being performed, leading to false positives -
+ i.e., warnings that do not have any security consequences or require any code changes.
+
+ Manual Static Analysis
+
+ When custom input validation is required, such as when enforcing business rules, manual analysis is necessary to ensure that the validation is properly implemented.
+ Fuzzing
+
+ Fuzzing techniques can be useful for detecting input validation errors. When unexpected inputs are provided to the software, the software should not crash or otherwise become unstable, and it
+ should generate application-controlled error messages. If exceptions or interpreter-generated error messages occur, this indicates that the input was not detected and handled within the
+ application logic itself.
+ Automated Static Analysis - Binary or Bytecode
+
+ According to SOAR, the following detection techniques may be useful:
+
+ Cost effective for partial coverage:
+
+   • Bytecode Weakness Analysis - including disassembler + source code weakness analysis
+   • Binary Weakness Analysis - including disassembler + source code weakness analysis
+
+ Effectiveness: SOAR Partial
+
+ Manual Static Analysis - Binary or Bytecode
+
+ According to SOAR, the following detection techniques may be useful:
+
+ Cost effective for partial coverage:
+
+   • Binary / Bytecode disassembler - then use manual analysis for vulnerabilities & anomalies
+
+ Effectiveness: SOAR Partial
+
+ Dynamic Analysis with Automated Results Interpretation
+
+ According to SOAR, the following detection techniques may be useful:
+
+ Highly cost effective:
+
+   • Web Application Scanner
+   • Web Services Scanner
+   • Database Scanners
+
+ Effectiveness: High
+
+ Dynamic Analysis with Manual Results Interpretation
+
+ According to SOAR, the following detection techniques may be useful:
+
+ Highly cost effective:
+
+   • Fuzz Tester
+   • Framework-based Fuzzer
+
+ Cost effective for partial coverage:
+
+   • Host Application Interface Scanner
+   • Monitored Virtual Environment - run potentially malicious code in sandbox / wrapper / virtual machine, see if it does anything suspicious
+
+ Effectiveness: High
+
+ Manual Static Analysis - Source Code
+
+ According to SOAR, the following detection techniques may be useful:
+
+ Highly cost effective:
+
+   • Focused Manual Spotcheck - Focused manual analysis of source
+   • Manual Source Code Review (not inspections)
+
+ Effectiveness: High
+
+ Automated Static Analysis - Source Code
+
+ According to SOAR, the following detection techniques may be useful:
+
+ Highly cost effective:
+
+   • Source code Weakness Analyzer
+   • Context-configured Source Code Weakness Analyzer
+
+ Effectiveness: High
+
+ Architecture or Design Review
+
+ According to SOAR, the following detection techniques may be useful:
+
+ Highly cost effective:
+
+   • Inspection (IEEE 1028 standard) (can apply to requirements, design, source code, etc.)
+   • Formal Methods / Correct-By-Construction
+
+ Cost effective for partial coverage:
+
+   • Attack Modeling
+
+ Effectiveness: High
+
+ + Memberships
+ Section HelpThis MemberOf Relationships table shows additional CWE Categories and Views that reference this weakness as a member. This information is often useful in understanding where a weakness
+ fits within the context of external information sources.
+     Nature                                                                                                  Type                                                                                               ID         Name
+ MemberOf        ViewView - a subset of CWE entries that provides a way of examining CWE content. The two main view structures are Slices (flat lists) and Graphs (containing relationships between entries). 635     Weaknesses
+                                                                                                                                                                                                                      Originally Used
+                                                                                                                                                                                                                      by NVD from
+                                                                                                                                                                                                                      2008 to 2016
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            722     OWASP Top Ten
+                                                                                                                                                                                                                      2004 Category
+                                                                                                                                                                                                                      A1 -
+                                                                                                                                                                                                                      Unvalidated
+                                                                                                                                                                                                                      Input
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            738     CERT C Secure
+                                                                                                                                                                                                                      Coding Standard
+                                                                                                                                                                                                                      (2008) Chapter
+                                                                                                                                                                                                                      5 - Integers
+                                                                                                                                                                                                                      (INT)
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            742     CERT C Secure
+                                                                                                                                                                                                                      Coding Standard
+                                                                                                                                                                                                                      (2008) Chapter
+                                                                                                                                                                                                                      9 - Memory
+                                                                                                                                                                                                                      Management
+                                                                                                                                                                                                                      (MEM)
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            746     CERT C Secure
+                                                                                                                                                                                                                      Coding Standard
+                                                                                                                                                                                                                      (2008) Chapter
+                                                                                                                                                                                                                      13 - Error
+                                                                                                                                                                                                                      Handling (ERR)
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            747     CERT C Secure
+                                                                                                                                                                                                                      Coding Standard
+                                                                                                                                                                                                                      (2008) Chapter
+                                                                                                                                                                                                                      14 -
+                                                                                                                                                                                                                      Miscellaneous
+                                                                                                                                                                                                                      (MSC)
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            751     2009 Top 25 -
+                                                                                                                                                                                                                      Insecure
+                                                                                                                                                                                                                      Interaction
+                                                                                                                                                                                                                      Between
+                                                                                                                                                                                                                      Components
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            872     CERT C++ Secure
+                                                                                                                                                                                                                      Coding Section
+                                                                                                                                                                                                                      04 - Integers
+                                                                                                                                                                                                                      (INT)
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            876     CERT C++ Secure
+                                                                                                                                                                                                                      Coding Section
+                                                                                                                                                                                                                      08 - Memory
+                                                                                                                                                                                                                      Management
+                                                                                                                                                                                                                      (MEM)
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            883     CERT C++ Secure
+                                                                                                                                                                                                                      Coding Section
+                                                                                                                                                                                                                      49 -
+                                                                                                                                                                                                                      Miscellaneous
+                                                                                                                                                                                                                      (MSC)
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            994     SFP Secondary
+                                                                                                                                                                                                                      Cluster:
+                                                                                                                                                                                                                      Tainted Input
+                                                                                                                                                                                                                      to Variable
+ MemberOf        ViewView - a subset of CWE entries that provides a way of examining CWE content. The two main view structures are Slices (flat lists) and Graphs (containing relationships between entries). 1003    Weaknesses for
+                                                                                                                                                                                                                      Simplified
+                                                                                                                                                                                                                      Mapping of
+                                                                                                                                                                                                                      Published
+                                                                                                                                                                                                                      Vulnerabilities
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            1005    7PK - Input
+                                                                                                                                                                                                                      Validation and
+                                                                                                                                                                                                                      Representation
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            1163    SEI CERT C
+                                                                                                                                                                                                                      Coding Standard
+                                                                                                                                                                                                                      - Guidelines
+                                                                                                                                                                                                                      09. Input
+                                                                                                                                                                                                                      Output (FIO)
+ MemberOf        ViewView - a subset of CWE entries that provides a way of examining CWE content. The two main view structures are Slices (flat lists) and Graphs (containing relationships between entries). 1200    Weaknesses in
+                                                                                                                                                                                                                      the 2019 CWE
+                                                                                                                                                                                                                      Top 25 Most
+                                                                                                                                                                                                                      Dangerous
+                                                                                                                                                                                                                      Software Errors
+ MemberOf        ViewView - a subset of CWE entries that provides a way of examining CWE content. The two main view structures are Slices (flat lists) and Graphs (containing relationships between entries). 1337    Weaknesses in
+                                                                                                                                                                                                                      the 2021 CWE
+                                                                                                                                                                                                                      Top 25 Most
+                                                                                                                                                                                                                      Dangerous
+                                                                                                                                                                                                                      Software
+                                                                                                                                                                                                                      Weaknesses
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            1347    OWASP Top Ten
+                                                                                                                                                                                                                      2021 Category
+                                                                                                                                                                                                                      A03:2021 -
+                                                                                                                                                                                                                      Injection
+ MemberOf        ViewView - a subset of CWE entries that provides a way of examining CWE content. The two main view structures are Slices (flat lists) and Graphs (containing relationships between entries). 1350    Weaknesses in
+                                                                                                                                                                                                                      the 2020 CWE
+                                                                                                                                                                                                                      Top 25 Most
+                                                                                                                                                                                                                      Dangerous
+                                                                                                                                                                                                                      Software
+                                                                                                                                                                                                                      Weaknesses
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            1382    ICS Operations
+                                                                                                                                                                                                                      (&
+                                                                                                                                                                                                                      Maintenance):
+                                                                                                                                                                                                                      Emerging Energy
+                                                                                                                                                                                                                      Technologies
+ MemberOf        ViewView - a subset of CWE entries that provides a way of examining CWE content. The two main view structures are Slices (flat lists) and Graphs (containing relationships between entries). 1387    Weaknesses in
+                                                                                                                                                                                                                      the 2022 CWE
+                                                                                                                                                                                                                      Top 25 Most
+                                                                                                                                                                                                                      Dangerous
+                                                                                                                                                                                                                      Software
+                                                                                                                                                                                                                      Weaknesses
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            1406    Comprehensive
+                                                                                                                                                                                                                      Categorization:
+                                                                                                                                                                                                                      Improper Input
+                                                                                                                                                                                                                      Validation
+ MemberOf        ViewView - a subset of CWE entries that provides a way of examining CWE content. The two main view structures are Slices (flat lists) and Graphs (containing relationships between entries). 1425    Weaknesses in
+                                                                                                                                                                                                                      the 2023 CWE
+                                                                                                                                                                                                                      Top 25 Most
+                                                                                                                                                                                                                      Dangerous
+                                                                                                                                                                                                                      Software
+                                                                                                                                                                                                                      Weaknesses
+ + Vulnerability Mapping Notes
+ Usage: DISCOURAGED
+
+ (this CWE ID should not be used to map to real-world vulnerabilities)
+ Reason: Frequent Misuse
+
+ Rationale:
+
+ CWE-20 is commonly misused in low-information vulnerability reports when lower-level CWEs could be used instead, or when more details about the vulnerability are available [REF-1287]. It is not
+ useful for trend analysis. It is also a level-1 Class (i.e., a child of a Pillar).
+ Comments:
+
+ Consider lower-level children such as Improper Use of Validation Framework (CWE-1173) or improper validation involving specific types or properties of input such as Specified Quantity (CWE-1284);
+ Specified Index, Position, or Offset (CWE-1285); Syntactic Correctness (CWE-1286); Specified Type (CWE-1287); Consistency within Input (CWE-1288); or Unsafe Equivalence (CWE-1289).
+ Suggestions:
+     CWE-ID                                                                                            Comment
+ CWE-1284        Specified Quantity
+ CWE-1285        Specified Index, Position, or Offset
+ CWE-1286        Syntactic Correctness
+ CWE-1287        Specified Type
+ CWE-1288        Consistency within Input
+ CWE-1289        Unsafe Equivalence
+ CWE-116         Improper Encoding or Escaping of Output
+ + Notes
+ 
+ Relationship
+
+ CWE-116 and CWE-20 have a close association because, depending on the nature of the structured message, proper input validation can indirectly prevent special characters from changing the meaning of
+ a structured message. For example, by validating that a numeric ID field should only contain the 0-9 characters, the programmer effectively prevents injection attacks.
+
+ Terminology
+
+ The "input validation" term is extremely common, but it is used in many different ways. In some cases its usage can obscure the real underlying weakness or otherwise hide chaining and composite
+ relationships.
+
+ Some people use "input validation" as a general term that covers many different neutralization techniques for ensuring that input is appropriate, such as filtering, canonicalization, and escaping.
+ Others use the term in a more narrow context to simply mean "checking if an input conforms to expectations without changing it." CWE uses this more narrow interpretation.
+
+ Maintenance
+
+ As of 2020, this entry is used more often than preferred, and it is a source of frequent confusion. It is being actively modified for CWE 4.1 and subsequent versions.
+
+ Maintenance
+
+ Concepts such as validation, data transformation, and neutralization are being refined, so relationships between CWE-20 and other entries such as CWE-707 may change in future versions, along with an
+ update to the Vulnerability Theory document.
+
+ Maintenance
+
+ Input validation - whether missing or incorrect - is such an essential and widespread part of secure development that it is implicit in many different weaknesses. Traditionally, problems such as
+ buffer overflows and XSS have been classified as input validation problems by many security professionals. However, input validation is not necessarily the only protection mechanism available for
+ avoiding such problems, and in some cases it is not even sufficient. The CWE team has begun capturing these subtleties in chains within the Research Concepts view (CWE-1000), but more work is needed.
+ + Taxonomy Mappings
+       Mapped Taxonomy Name          Node ID                Fit                                                                Mapped Node Name
+ 7 Pernicious Kingdoms                                                     Input validation and representation
+ OWASP Top Ten 2004               A1             CWE More Specific         Unvalidated Input
+ CERT C Secure Coding             ERR07-C                                  Prefer functions that support error checking over equivalent functions that don't
+ CERT C Secure Coding             FIO30-C        CWE More Abstract         Exclude user input from format strings
+ CERT C Secure Coding             MEM10-C                                  Define and use a pointer validation function
+ WASC                             20                                       Improper Input Handling
+ Software Fault Patterns          SFP25                                    Tainted input to variable
+ + Related Attack Patterns
+    CAPEC-ID                                                                                     Attack Pattern Name
+ CAPEC-10        Buffer Overflow via Environment Variables
+ CAPEC-101       Server Side Include (SSI) Injection
+ CAPEC-104       Cross Zone Scripting
+ CAPEC-108       Command Line Execution through SQL Injection
+ CAPEC-109       Object Relational Mapping Injection
+ CAPEC-110       SQL Injection through SOAP Parameter Tampering
+ CAPEC-120       Double Encoding
+ CAPEC-13        Subverting Environment Variable Values
+ CAPEC-135       Format String Injection
+ CAPEC-136       LDAP Injection
+ CAPEC-14        Client-side Injection-induced Buffer Overflow
+ CAPEC-153       Input Data Manipulation
+ CAPEC-182       Flash Injection
+ CAPEC-209       XSS Using MIME Type Mismatch
+ CAPEC-22        Exploiting Trust in Client
+ CAPEC-23        File Content Injection
+ CAPEC-230       Serialized Data with Nested Payloads
+ CAPEC-231       Oversized Serialized Data Payloads
+ CAPEC-24        Filter Failure through Buffer Overflow
+ CAPEC-250       XML Injection
+ CAPEC-261       Fuzzing for garnering other adjacent user/sensitive data
+ CAPEC-267       Leverage Alternate Encoding
+ CAPEC-28        Fuzzing
+ CAPEC-3         Using Leading 'Ghost' Character Sequences to Bypass Input Filters
+ CAPEC-31        Accessing/Intercepting/Modifying HTTP Cookies
+ CAPEC-42        MIME Conversion
+ CAPEC-43        Exploiting Multiple Input Interpretation Layers
+ CAPEC-45        Buffer Overflow via Symbolic Links
+ CAPEC-46        Overflow Variables and Tags
+ CAPEC-47        Buffer Overflow via Parameter Expansion
+ CAPEC-473       Signature Spoof
+ CAPEC-52        Embedding NULL Bytes
+ CAPEC-53        Postfix, Null Terminate, and Backslash
+ CAPEC-588       DOM-Based XSS
+ CAPEC-63        Cross-Site Scripting (XSS)
+ CAPEC-64        Using Slashes and URL Encoding Combined to Bypass Validation Logic
+ CAPEC-664       Server Side Request Forgery
+ CAPEC-67        String Format Overflow in syslog()
+ CAPEC-7         Blind SQL Injection
+ CAPEC-71        Using Unicode Encoding to Bypass Validation Logic
+ CAPEC-72        URL Encoding
+ CAPEC-73        User-Controlled Filename
+ CAPEC-78        Using Escaped Slashes in Alternate Encoding
+ CAPEC-79        Using Slashes in Alternate Encoding
+ CAPEC-8         Buffer Overflow in an API Call
+ CAPEC-80        Using UTF-8 Encoding to Bypass Validation Logic
+ CAPEC-81        Web Server Logs Tampering
+ CAPEC-83        XPath Injection
+ CAPEC-85        AJAX Footprinting
+ CAPEC-88        OS Command Injection
+ CAPEC-9         Buffer Overflow in Local Command-Line Utilities
+ + References
+ [REF-6] Katrina Tsipenyuk, Brian Chess and Gary McGraw. "Seven Pernicious Kingdoms: A Taxonomy of Software Security Errors". NIST Workshop on Software Security Assurance Tools Techniques and
+ Metrics. NIST. 2005-11-07. <https://samate.nist.gov/SSATTM_Content/papers/Seven%20Pernicious%20Kingdoms%20-%20Taxonomy%20of%20Sw%20Security%20Errors%20-%20Tsipenyuk%20-%20Chess%20-%20McGraw.pdf>.
+ [REF-166] Jim Manico. "Input Validation with ESAPI - Very Important". 2008-08-15. <https://manicode.blogspot.com/2008/08/input-validation-with-esapi.html>. URL validated: 2023-04-07.
+ [REF-45] OWASP. "OWASP Enterprise Security API (ESAPI) Project". <http://www.owasp.org/index.php/ESAPI>.
+ [REF-168] Joel Scambray, Mike Shema and Caleb Sima. "Hacking Exposed Web Applications, Second Edition". Input Validation Attacks. McGraw-Hill. 2006-06-05.
+ [REF-48] Jeremiah Grossman. "Input validation or output filtering, which is better?". 2007-01-30. <https://blog.jeremiahgrossman.com/2007/01/input-validation-or-output-filtering.html>. URL
+ validated: 2023-04-07.
+ [REF-170] Kevin Beaver. "The importance of input validation". 2006-09-06. <http://searchsoftwarequality.techtarget.com/tip/0,289483,sid92_gci1214373,00.html>.
+ [REF-7] Michael Howard and David LeBlanc. "Writing Secure Code". Chapter 10, "All Input Is Evil!" Page 341. 2nd Edition. Microsoft Press. 2002-12-04. <https://www.microsoftpressstore.com/store/
+ writing-secure-code-9780735617223>.
+ [REF-1109] "LANGSEC: Language-theoretic Security". <http://langsec.org/>.
+ [REF-1110] "LangSec: Recognition, Validation, and Compositional Correctness for Real World Security". <http://langsec.org/bof-handout.pdf>.
+ [REF-1111] Sergey Bratus, Lars Hermerschmidt, Sven M. Hallberg, Michael E. Locasto, Falcon D. Momot, Meredith L. Patterson and Anna Shubina. "Curing the Vulnerable Parser: Design Patterns for
+ Secure Input Handling". USENIX ;login:. 2017. <https://www.usenix.org/system/files/login/articles/login_spring17_08_bratus.pdf>.
+ [REF-1287] MITRE. "Supplemental Details - 2022 CWE Top 25". Details of Problematic Mappings. 2022-06-28. <https://cwe.mitre.org/top25/archive/2022/2022_cwe_top25_supplemental.html#
+ problematicMappingDetails>.
+ + Content History
+                                                                                           + Submissions
+      Submission Date                                                      Submitter                                                                          Organization
+ 2006-07-19                7 Pernicious Kingdoms
+ (CWE Draft 3, 2006-07-19)
+
+                                                                                          + Modifications
+     Modification Date                                                      Modifier                                                                          Organization
+ 2008-07-01                Eric Dalci                                                                                                 Cigital
+                           updated Potential_Mitigations, Time_of_Introduction
+ 2008-08-15                                                                                                                           Veracode
+                           Suggested OWASP Top Ten 2004 mapping
+ 2008-09-08                CWE Content Team                                                                                           MITRE
+                           updated Relationships, Other_Notes, Taxonomy_Mappings
+ 2008-11-24                CWE Content Team                                                                                           MITRE
+                           updated Relationships, Taxonomy_Mappings
+ 2009-01-12                CWE Content Team                                                                                           MITRE
+                           updated Applicable_Platforms, Common_Consequences, Demonstrative_Examples, Description, Likelihood_of_Exploit, Name, Observed_Examples, Other_Notes,
+                           Potential_Mitigations, References, Relationship_Notes, Relationships
+ 2009-03-10                CWE Content Team                                                                                           MITRE
+                           updated Description, Potential_Mitigations
+ 2009-05-27                CWE Content Team                                                                                           MITRE
+                           updated Related_Attack_Patterns
+ 2009-07-27                CWE Content Team                                                                                           MITRE
+                           updated Relationships
+ 2009-10-29                CWE Content Team                                                                                           MITRE
+                           updated Common_Consequences, Demonstrative_Examples, Maintenance_Notes, Modes_of_Introduction, Observed_Examples, Relationships, Research_Gaps, Terminology_Notes
+ 2009-12-28                CWE Content Team                                                                                           MITRE
+                           updated Applicable_Platforms, Demonstrative_Examples, Detection_Factors
+ 2010-02-16                CWE Content Team                                                                                           MITRE
+                           updated Detection_Factors, Potential_Mitigations, References, Taxonomy_Mappings
+ 2010-04-05                CWE Content Team                                                                                           MITRE
+                           updated Related_Attack_Patterns
+ 2010-06-21                CWE Content Team                                                                                           MITRE
+                           updated Potential_Mitigations, Research_Gaps, Terminology_Notes
+ 2010-09-27                CWE Content Team                                                                                           MITRE
+                           updated Potential_Mitigations, Relationships
+ 2010-12-13                CWE Content Team                                                                                           MITRE
+                           updated Demonstrative_Examples, Description
+ 2011-03-29                CWE Content Team                                                                                           MITRE
+                           updated Observed_Examples
+ 2011-06-01                CWE Content Team                                                                                           MITRE
+                           updated Applicable_Platforms, Common_Consequences, Relationship_Notes
+ 2011-09-13                CWE Content Team                                                                                           MITRE
+                           updated Relationships, Taxonomy_Mappings
+ 2012-05-11                CWE Content Team                                                                                           MITRE
+                           updated Demonstrative_Examples, References, Related_Attack_Patterns, Relationships
+ 2012-10-30                CWE Content Team                                                                                           MITRE
+                           updated Potential_Mitigations
+ 2013-02-21                CWE Content Team                                                                                           MITRE
+                           updated Relationships
+ 2013-07-17                CWE Content Team                                                                                           MITRE
+                           updated Relationships
+ 2014-02-18                CWE Content Team                                                                                           MITRE
+                           updated Demonstrative_Examples, Related_Attack_Patterns
+ 2014-07-30                CWE Content Team                                                                                           MITRE
+                           updated Detection_Factors, Relationships, Taxonomy_Mappings
+ 2015-12-07                CWE Content Team                                                                                           MITRE
+                           updated Relationships
+ 2017-01-19                CWE Content Team                                                                                           MITRE
+                           updated Related_Attack_Patterns, Relationships
+ 2017-05-03                CWE Content Team                                                                                           MITRE
+                           updated Related_Attack_Patterns, Relationships
+ 2017-11-08                CWE Content Team                                                                                           MITRE
+                           updated Modes_of_Introduction, References, Relationships, Taxonomy_Mappings
+ 2018-03-27                CWE Content Team                                                                                           MITRE
+                           updated References
+ 2019-01-03                CWE Content Team                                                                                           MITRE
+                           updated Related_Attack_Patterns, Relationships
+ 2019-06-20                CWE Content Team                                                                                           MITRE
+                           updated Related_Attack_Patterns, Relationships
+ 2019-09-19                CWE Content Team                                                                                           MITRE
+                           updated Relationships
+ 2020-02-24                CWE Content Team                                                                                           MITRE
+                           updated Potential_Mitigations, References, Related_Attack_Patterns, Relationships
+ 2020-06-25                CWE Content Team                                                                                           MITRE
+                           updated Applicable_Platforms, Demonstrative_Examples, Description, Maintenance_Notes, Observed_Examples, Potential_Mitigations, References, Relationship_Notes,
+                           Relationships, Research_Gaps, Terminology_Notes
+ 2020-08-20                CWE Content Team                                                                                           MITRE
+                           updated Potential_Mitigations, Related_Attack_Patterns, Relationships
+ 2021-03-15                CWE Content Team                                                                                           MITRE
+                           updated Description, Potential_Mitigations
+ 2021-07-20                CWE Content Team                                                                                           MITRE
+                           updated Related_Attack_Patterns, Relationships
+ 2021-10-28                CWE Content Team                                                                                           MITRE
+                           updated Relationships
+ 2022-04-28                CWE Content Team                                                                                           MITRE
+                           updated Relationships
+ 2022-06-28                CWE Content Team                                                                                           MITRE
+                           updated Observed_Examples, Relationships
+ 2022-10-13                CWE Content Team                                                                                           MITRE
+                           updated References, Relationships
+ 2023-04-27                CWE Content Team                                                                                           MITRE
+                           updated References, Relationships
+ 2023-06-29                CWE Content Team                                                                                           MITRE
+                           updated Mapping_Notes, Relationships
+ 2023-10-26                CWE Content Team                                                                                           MITRE
+                           updated Observed_Examples
+                                                                                       + Previous Entry Names
+        Change Date                                                                                   Previous Entry Name
+ 2009-01-12                Insufficient Input Validation
+ More information is available — Please edit the custom filter or select a different filter.
+Page Last Updated: February 29, 2024
+ 
+      Site Map | Terms of Use | Manage Cookies | Cookie Notice | Privacy Policy | Contact Us | CWE X-Twitter CWE Mastodon CWE on LinkedIn CWE YouTube channel CWE Out-of-Bounds-Read Podcast CWE
+      Blog on Medium blog
+
+MITRE Use of the Common Weakness Enumeration (CWE™) and the associated references from this website are subject to the Terms of Use. CWE is sponsored by the U.S. Department of Homeland         HSSEDI
+      Security (DHS) Cybersecurity and Infrastructure Security Agency (CISA) and managed by the Homeland Security Systems Engineering and Development Institute (HSSEDI) which is operated by
+      The MITRE Corporation (MITRE). Copyright © 2006–2024, The MITRE Corporation. CWE, CWSS, CWRAF, and the CWE logo are trademarks of The MITRE Corporation.
+

@@ -1,0 +1,114 @@
+define CROMU_00003_YOLO_ADD	0x40
+define CROMU_00003_YOLO_DEL	0x41
+define CROMU_00003_YOLO_EDIT	0x42
+define CROMU_00003_YOLO_SHOW	0x43
+define CROMU_00003_YOLO_LIST	0x44
+define CROMU_00003_YOLO_SORT	0x45
+define CROMU_00003_YOLO_EXIT	0x46
+
+define CROMU_00003_YOLO_SHOW_Q	0x51
+define CROMU_00003_YOLO_SHOW_D	0x52
+define CROMU_00003_YOLO_SHOW_E	0x53
+define CROMU_00003_YOLO_SHOW_N	0x54
+define CROMU_00003_YOLO_SHOW_P	0x55
+
+syz_harness$cromu_00003_cmd_yolo_add(a0 ptr[in, cromu_00003_cmd_yolo_add], a1 bytesize[a0])
+syz_harness$cromu_00003_cmd_yolo_del(a0 ptr[in, cromu_00003_cmd_yolo_del], a1 bytesize[a0])
+syz_harness$cromu_00003_cmd_yolo_edit(a0 ptr[in, cromu_00003_cmd_yolo_edit], a1 bytesize[a0])
+syz_harness$cromu_00003_cmd_yolo_show(a0 ptr[in, cromu_00003_cmd_yolo_show], a1 bytesize[a0])
+syz_harness$cromu_00003_cmd_yolo_list(a0 ptr[in, cromu_00003_cmd_yolo_list], a1 bytesize[a0])
+syz_harness$cromu_00003_cmd_yolo_sort(a0 ptr[in, cromu_00003_cmd_yolo_sort], a1 bytesize[a0])
+syz_harness$cromu_00003_cmd_yolo_exit(a0 ptr[in, cromu_00003_cmd_yolo_exit], a1 bytesize[a0])
+
+syz_harness$cromu_00003_cmd_yolo_show_q(a0 ptr[in, cromu_00003_cmd_yolo_show_q], a1 bytesize[a0])
+syz_harness$cromu_00003_cmd_yolo_show_d(a0 ptr[in, cromu_00003_cmd_yolo_show_d], a1 bytesize[a0])
+syz_harness$cromu_00003_cmd_yolo_show_e(a0 ptr[in, cromu_00003_cmd_yolo_show_e], a1 bytesize[a0])
+syz_harness$cromu_00003_cmd_yolo_show_n(a0 ptr[in, cromu_00003_cmd_yolo_show_n], a1 bytesize[a0])
+syz_harness$cromu_00003_cmd_yolo_show_p(a0 ptr[in, cromu_00003_cmd_yolo_show_p], a1 bytesize[a0])
+
+cromu_00003_cmd_yolo_add {
+	cmd		int32[CROMU_00003_YOLO_ADD]
+	first_name_len	len[first_name, int32]
+	first_name	string
+	last_name_len	len[last_name, int32]
+	last_name	string
+	phone_len	len[phone, int32]
+	phone		string
+	office		int16
+	gender		int8
+	is_hacker	bool8
+} [packed]
+
+cromu_00003_cmd_yolo_del {
+	cmd		int32[CROMU_00003_YOLO_DEL]
+	first_name_len	len[first_name, int32]
+	first_name	string
+	last_name_len	len[last_name, int32]
+	last_name	string
+} [packed]
+
+cromu_00003_cmd_yolo_edit {
+	cmd			int32[CROMU_00003_YOLO_EDIT]
+	old_first_name_len	len[old_first_name, int32]
+	old_first_name		string
+	old_last_name_len	len[old_last_name, int32]
+	old_last_name		string
+	first_name_len		len[first_name, int32]
+	first_name		string
+	last_name_len		len[last_name, int32]
+	last_name		string
+	phone_len		len[phone, int32]
+	phone			string
+	office			int16
+	gender			int8
+	is_hacker		bool8
+} [packed]
+
+cromu_00003_cmd_yolo_show {
+	cmd		int32[CROMU_00003_YOLO_SHOW]
+	first_name_len	len[first_name, int32]
+	first_name	string
+	last_name_len	len[last_name, int32]
+	last_name	string
+} [packed]
+
+cromu_00003_cmd_yolo_list {
+	cmd	int32[CROMU_00003_YOLO_LIST]
+} [packed]
+
+cromu_00003_cmd_yolo_sort {
+	cmd	int32[CROMU_00003_YOLO_SORT]
+} [packed]
+
+cromu_00003_cmd_yolo_exit {
+	cmd	int32[CROMU_00003_YOLO_EXIT]
+} [packed]
+
+cromu_00003_cmd_yolo_show_q {
+	cmd	int32[CROMU_00003_YOLO_SHOW_Q]
+} [packed]
+
+cromu_00003_cmd_yolo_show_d {
+	cmd	int32[CROMU_00003_YOLO_SHOW_D]
+} [packed]
+
+cromu_00003_cmd_yolo_show_e {
+	cmd		int32[CROMU_00003_YOLO_SHOW_E]
+	first_name_len	len[first_name, int32]
+	first_name	string
+	last_name_len	len[last_name, int32]
+	last_name	string
+	phone_len	len[phone, int32]
+	phone		string
+	office		int16
+	gender		int8
+	is_hacker	bool8
+} [packed]
+
+cromu_00003_cmd_yolo_show_n {
+	cmd	int32[CROMU_00003_YOLO_SHOW_N]
+} [packed]
+
+cromu_00003_cmd_yolo_show_p {
+	cmd	int32[CROMU_00003_YOLO_SHOW_P]
+} [packed]

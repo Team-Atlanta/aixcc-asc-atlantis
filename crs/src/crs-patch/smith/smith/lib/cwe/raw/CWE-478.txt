@@ -1,0 +1,466 @@
+CWE
+
+Common Weakness Enumeration
+
+A community-developed list of SW & HW weaknesses that can become vulnerabilities
+
+New to CWE? click here!
+CWE Most Important Hardware Weaknesses
+CWE Top 25 Most Dangerous Weaknesses
+Home > CWE List > CWE- Individual Dictionary Definition (4.14)                                                                                                   ID Lookup: [                    ] [Go]
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  • Home
+  • About ▼
+    About New to CWE User Stories History Documents FAQs Glossary Compatibility
+  • CWE List ▼
+    Latest Version Downloads Reports Visualizations Archive
+  • Mapping ▼
+    Root Cause Mapping Guidance Root Cause Mapping Quick Tips Root Cause Mapping Examples
+  • Top-N Lists ▼
+    Top 25 Software Top Hardware Top 10 KEV Weaknesses
+  • Community ▼
+    Community Working Groups & Special Interest Groups Board Board Meeting Minutes CWE Discussion List CWE Discussion Archives Contribute Weakness Content to CWE
+  • News ▼
+    Current News X-Twitter ● Mastodon ● LinkedIn ● YouTube YouTube Podcast Out of Bounds Read Podcast Medium Medium News Archive
+  • Search
+
+ 
+ CWE Glossary Definition                  x
+ 
+ 
+ CWE-478: Missing Default Case in Multiple Condition Expression
+ 
+ Weakness ID: 478
+ Vulnerability Mapping: ALLOWEDThis CWE ID may be used to map to real-world vulnerabilities
+ Abstraction: BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level
+ weaknesses typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.
+ View customized information:
+ Conceptual For users who are interested in more notional aspects of a weakness. Example: educators, technical writers, and project/program managers. Operational For users who are concerned with the
+ practical application and details about the nature of a weakness and how to prevent it from happening. Example: tool developers, security researchers, pen-testers, incident response analysts. Mapping
+ Friendly For users who are mapping an issue to CWE/CAPEC IDs, i.e., finding the most appropriate CWE for a specific issue (e.g., a CVE record). Example: tool developers, security researchers. 
+ Complete For users who wish to see all available information for the CWE/CAPEC entry. Custom For users who want to customize what details are displayed.
+ ×
+
+ Edit Custom Filter
+
+ Conceptual Operational Mapping Friendly Select All
+ 
+ Reset Clear Submit Cancel
+ + Description
+ The code does not have a default case in an expression with multiple conditions, such as a switch statement.
+ + Extended Description
+ If a multiple-condition expression (such as a switch in C) omits the default case but does not consider or handle all possible values that could occur, then this might lead to complex logical errors
+ and resultant weaknesses. Because of this, further decisions are made based on poor information, and cascading failure results. This cascading failure may result in any number of security issues, and
+ constitutes a significant failure in the system.
+ + Relationships
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Research Concepts" (CWE-1000)
+     Nature                                                                                                                                                                             Type                                                                                                                                                                           ID       Name
+ ChildOf                                                                               ClassClass - a weakness that is described in a very abstract fashion, typically independent of any specific language or technology. More specific than a Pillar Weakness, but more general than a Base                                                                        1023    Incomplete
+                                                                                                                    Weakness. Class level weaknesses typically describe issues in terms of 1 or 2 of the following dimensions: behavior, property, and resource.                                                                                                             Comparison
+                                                                                                                                                                                                                                                                                                                                                                             with
+                                                                                                                                                                                                                                                                                                                                                                             Missing
+                                                                                                                                                                                                                                                                                                                                                                             Factors
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Software Development" (CWE-699)
+     Nature                                                       Type                                                     ID                                   Name
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 1006    Bad Coding Practices
+ + Modes Of Introduction
+ Section HelpThe different Modes of Introduction provide information about how and when this weakness may be introduced. The Phase identifies a point in the life cycle at which introduction may occur,
+ while the Note provides a typical scenario related to introduction during the given phase.
+     Phase                                                                                              Note
+ Implementation
+ + Applicable Platforms
+ Section HelpThis listing shows possible areas for which the given weakness could appear. These may be for specific named Languages, Operating Systems, Architectures, Paradigms, Technologies, or a
+ class of such platforms. The platform is listed along with how frequently the given weakness appears for that instance.
+
+ Languages
+
+ C (Undetermined Prevalence)
+
+ C++ (Undetermined Prevalence)
+
+ Java (Undetermined Prevalence)
+
+ C# (Undetermined Prevalence)
+
+ Python (Undetermined Prevalence)
+
+ JavaScript (Undetermined Prevalence)
+
+ + Common Consequences
+ Section HelpThis table specifies different individual consequences associated with the weakness. The Scope identifies the application security area that is violated, while the Impact describes the
+ negative technical impact that arises if an adversary succeeds in exploiting this weakness. The Likelihood provides information about how likely the specific consequence is expected to be seen
+ relative to the other consequences in the list. For example, there may be high likelihood that a weakness will be exploited to achieve a certain impact, but a low likelihood that it will be exploited
+ to achieve a different impact.
+       Scope                                                                                     Impact                                                                                 Likelihood
+                    Technical Impact: Varies by Context; Alter Execution Logic
+ Integrity
+                    Depending on the logical circumstances involved, any consequences may result: e.g., issues of confidentiality, authentication, authorization, availability,
+                    integrity, accountability, or non-repudiation.
+ + Demonstrative Examples
+ 
+ Example 1
+
+ The following does not properly check the return code in the case where the security_check function returns a -1 value when an error occurs. If an attacker can supply data that will invoke an error,
+ the attacker can bypass the security check:
+
+ (bad code)
+ Example Language: C 
+ #define FAILED 0
+ #define PASSED 1
+ int result;
+ ...
+ result = security_check(data);
+ switch (result) {
+ case FAILED:
+ printf("Security check failed!\n");
+ exit(-1);
+ //Break never reached because of exit()
+ break;
+
+ case PASSED:
+ printf("Security check passed.\n");
+ break;
+ }
+ // program execution continues...
+ ...
+
+ Instead a default label should be used for unaccounted conditions:
+
+ (good code)
+ Example Language: C 
+ #define FAILED 0
+ #define PASSED 1
+ int result;
+ ...
+ result = security_check(data);
+ switch (result) {
+ case FAILED:
+ printf("Security check failed!\n");
+ exit(-1);
+ //Break never reached because of exit()
+ break;
+
+ case PASSED:
+ printf("Security check passed.\n");
+ break;
+
+ default:
+ printf("Unknown error (%d), exiting...\n",result);
+ exit(-1);
+ }
+
+ This label is used because the assumption cannot be made that all possible cases are accounted for. A good practice is to reserve the default case for error handling.
+
+ Example 2
+
+ In the following Java example the method getInterestRate retrieves the interest rate for the number of points for a mortgage. The number of points is provided within the input parameter and a switch
+ statement will set the interest rate value to be returned based on the number of points.
+
+ (bad code)
+ Example Language: Java 
+ public static final String INTEREST_RATE_AT_ZERO_POINTS = "5.00";
+ public static final String INTEREST_RATE_AT_ONE_POINTS = "4.75";
+ public static final String INTEREST_RATE_AT_TWO_POINTS = "4.50";
+ ...
+ public BigDecimal getInterestRate(int points) {
+ BigDecimal result = new BigDecimal(INTEREST_RATE_AT_ZERO_POINTS);
+
+ switch (points) {
+ case 0:
+ result = new BigDecimal(INTEREST_RATE_AT_ZERO_POINTS);
+ break;
+
+ case 1:
+ result = new BigDecimal(INTEREST_RATE_AT_ONE_POINTS);
+ break;
+
+ case 2:
+ result = new BigDecimal(INTEREST_RATE_AT_TWO_POINTS);
+ break;
+ }
+ return result;
+ }
+
+ However, this code assumes that the value of the points input parameter will always be 0, 1 or 2 and does not check for other incorrect values passed to the method. This can be easily accomplished by
+ providing a default label in the switch statement that outputs an error message indicating an invalid value for the points input parameter and returning a null value.
+
+ (good code)
+ Example Language: Java 
+ public static final String INTEREST_RATE_AT_ZERO_POINTS = "5.00";
+ public static final String INTEREST_RATE_AT_ONE_POINTS = "4.75";
+ public static final String INTEREST_RATE_AT_TWO_POINTS = "4.50";
+ ...
+ public BigDecimal getInterestRate(int points) {
+ BigDecimal result = new BigDecimal(INTEREST_RATE_AT_ZERO_POINTS);
+
+ switch (points) {
+ case 0:
+ result = new BigDecimal(INTEREST_RATE_AT_ZERO_POINTS);
+ break;
+
+ case 1:
+ result = new BigDecimal(INTEREST_RATE_AT_ONE_POINTS);
+ break;
+
+ case 2:
+ result = new BigDecimal(INTEREST_RATE_AT_TWO_POINTS);
+ break;
+
+ default:
+ System.err.println("Invalid value for points, must be 0, 1 or 2");
+ System.err.println("Returning null value for interest rate");
+ result = null;
+ }
+
+ return result;
+ }
+
+ Example 3
+
+ In the following Python example the match-case statements (available in Python version 3.10 and later) perform actions based on the result of the process_data() function. The expected return is
+ either 0 or 1. However, if an unexpected result (e.g., -1 or 2) is obtained then no actions will be taken potentially leading to an unexpected program state.
+
+ (bad code)
+ Example Language: Python 
+ result = process_data(data)
+ match result:
+ case 0:
+ print("Properly handle zero case.")
+
+ case 1:
+ print("Properly handle one case.")
+
+ # program execution continues...
+
+ The recommended approach is to add a default case that captures any unexpected result conditions, regardless of how improbable these unexpected conditions might be, and properly handles them.
+
+ (good code)
+ Example Language: Python 
+ result = process_data(data)
+ match result:
+ case 0:
+ print("Properly handle zero case.")
+
+ case 1:
+ print("Properly handle one case.")
+
+ case _:
+ print("Properly handle unexpected condition.")
+
+ # program execution continues...
+
+ Example 4
+
+ In the following JavaScript example the switch-case statements (available in JavaScript version 1.2 and later) are used to process a given step based on the result of a calcuation involving two
+ inputs. The expected return is either 1, 2, or 3. However, if an unexpected result (e.g., 4) is obtained then no action will be taken potentially leading to an unexpected program state.
+
+ (bad code)
+ Example Language: JavaScript 
+ let step = input1 + input2;
+ switch(step) {
+ case 1:
+ alert("Process step 1.");
+ break;
+
+ case 2:
+ alert("Process step 2.");
+ break;
+
+ case 3:
+ alert("Process step 3.");
+ break;
+
+ }
+ // program execution continues...
+
+ The recommended approach is to add a default case that captures any unexpected result conditions and properly handles them.
+
+ (good code)
+ Example Language: JavaScript 
+ let step = input1 + input2;
+ switch(step) {
+ case 1:
+ alert("Process step 1.");
+ break;
+
+ case 2:
+ alert("Process step 2.");
+ break;
+
+ case 3:
+ alert("Process step 3.");
+ break;
+
+ default:
+ alert("Unexpected step encountered.");
+
+ }
+ // program execution continues...
+
+ Example 5
+
+ The Finite State Machine (FSM) shown in the "bad" code snippet below assigns the output ("out") based on the value of state, which is determined based on the user provided input ("user_input").
+
+ (bad code)
+ Example Language: Verilog 
+ module fsm_1(out, user_input, clk, rst_n);
+ input [2:0] user_input;
+ input clk, rst_n;
+ output reg [2:0] out;
+ reg [1:0] state;
+ always @ (posedge clk or negedge rst_n )
+ begin
+ if (!rst_n)
+ state = 3'h0;
+ else
+ case (user_input)
+ 3'h0:
+ 3'h1:
+ 3'h2:
+ 3'h3: state = 2'h3;
+ 3'h4: state = 2'h2;
+ 3'h5: state = 2'h1;
+ endcase
+ end
+ out <= {1'h1, state};
+ endmodule
+
+ The case statement does not include a default to handle the scenario when the user provides inputs of 3'h6 and 3'h7. Those inputs push the system to an undefined state and might cause a crash (denial
+ of service) or any other unanticipated outcome.
+
+ Adding a default statement to handle undefined inputs mitigates this issue. This is shown in the "Good" code snippet below. The default statement is in bold.
+
+ (good code)
+ Example Language: Verilog 
+ case (user_input)
+ 3'h0:
+ 3'h1:
+ 3'h2:
+ 3'h3: state = 2'h3;
+ 3'h4: state = 2'h2;
+ 3'h5: state = 2'h1;
+ default: state = 2'h0;
+ endcase
+ + Potential Mitigations
+ Phase: Implementation
+
+ Ensure that there are no cases unaccounted for when adjusting program flow or values based on the value of a given variable. In the case of switch style statements, the very simple act of
+ creating a default case can, if done correctly, mitigate this situation. Often however, the default case is used simply to represent an assumed option, as opposed to working as a check for
+ invalid input. This is poor practice and in some cases is as bad as omitting a default case entirely.
+ + Weakness Ordinalities
+ Ordinality                                                                                       Description
+ Primary    (where the weakness exists independent of other weaknesses)
+ + Detection Methods
+ Automated Static Analysis
+
+ Automated static analysis, commonly referred to as Static Application Security Testing (SAST), can find some instances of this weakness by analyzing source code (or binary/compiled code) without
+ having to execute it. Typically, this is done by building a model of data flow and control flow, then searching for potentially-vulnerable patterns that connect "sources" (origins of input) with
+ "sinks" (destinations where the data interacts with external components, a lower layer such as the OS, etc.)
+
+ Effectiveness: High
+
+ + Memberships
+ Section HelpThis MemberOf Relationships table shows additional CWE Categories and Views that reference this weakness as a member. This information is often useful in understanding where a weakness
+ fits within the context of external information sources.
+     Nature                                                                                                  Type                                                                                               ID         Name
+ MemberOf        ViewView - a subset of CWE entries that provides a way of examining CWE content. The two main view structures are Slices (flat lists) and Graphs (containing relationships between entries). 884     CWE
+                                                                                                                                                                                                                      Cross-section
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            962     SFP Secondary
+                                                                                                                                                                                                                      Cluster:
+                                                                                                                                                                                                                      Unchecked
+                                                                                                                                                                                                                      Status
+                                                                                                                                                                                                                      Condition
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            1307    CISQ Quality
+                                                                                                                                                                                                                      Measures -
+                                                                                                                                                                                                                      Maintainability
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            1397    Comprehensive
+                                                                                                                                                                                                                      Categorization:
+                                                                                                                                                                                                                      Comparison
+ + Vulnerability Mapping Notes
+ Usage: ALLOWED
+
+ (this CWE ID could be used to map to real-world vulnerabilities)
+ Reason: Acceptable-Use
+
+ Rationale:
+
+ This CWE entry is at the Base level of abstraction, which is a preferred level of abstraction for mapping to the root causes of vulnerabilities.
+ Comments:
+
+ Carefully read both the name and description to ensure that this mapping is an appropriate fit. Do not try to 'force' a mapping to a lower-level Base/Variant simply to comply with this preferred
+ level of abstraction.
+ + Taxonomy Mappings
+       Mapped Taxonomy Name          Node ID         Fit                                                                Mapped Node Name
+ CLASP                                                       Failure to account for default case in switch
+ Software Fault Patterns          SFP4                       Unchecked Status Condition
+ + References
+ [REF-18] Secure Software, Inc.. "The CLASP Application Security Process". 2005. <https://cwe.mitre.org/documents/sources/TheCLASPApplicationSecurityProcess.pdf>.
+ [REF-62] Mark Dowd, John McDonald and Justin Schuh. "The Art of Software Security Assessment". Chapter 7, "Switch Statements", Page 337. 1st Edition. Addison Wesley. 2006.
+ + Content History
+                                                                                           + Submissions
+         Submission Date                                                  Submitter                                                                       Organization
+ 2006-07-19                      CLASP
+ (CWE Draft 3, 2006-07-19)
+
+                                                                                          + Contributions
+        Contribution Date                                                Contributor                                                                      Organization
+ 2022-08-15                      Drew Buttner
+                                 Suggested name change and other modifications, including a new demonstrative example.
+                                                                                          + Modifications
+        Modification Date                                                  Modifier                                                                       Organization
+ 2008-07-01                      Eric Dalci                                                                                   Cigital
+                                 updated Time_of_Introduction
+ 2008-09-08                      CWE Content Team                                                                             MITRE
+                                 updated Applicable_Platforms, Common_Consequences, Description, Relationships, Other_Notes, Taxonomy_Mappings, Weakness_Ordinalities
+ 2009-05-27                      CWE Content Team                                                                             MITRE
+                                 updated Description, Name
+ 2010-06-21                      CWE Content Team                                                                             MITRE
+                                 updated Demonstrative_Examples
+ 2011-03-29                      CWE Content Team                                                                             MITRE
+                                 updated Demonstrative_Examples
+ 2011-06-01                      CWE Content Team                                                                             MITRE
+                                 updated Common_Consequences
+ 2011-06-27                      CWE Content Team                                                                             MITRE
+                                 updated Common_Consequences
+ 2012-05-11                      CWE Content Team                                                                             MITRE
+                                 updated References, Relationships
+ 2014-06-23                      CWE Content Team                                                                             MITRE
+                                 updated Description, Other_Notes, Potential_Mitigations
+ 2014-07-30                      CWE Content Team                                                                             MITRE
+                                 updated Relationships, Taxonomy_Mappings
+ 2017-11-08                      CWE Content Team                                                                             MITRE
+                                 updated Relationships
+ 2018-03-27                      CWE Content Team                                                                             MITRE
+                                 updated Relationships
+ 2019-01-03                      CWE Content Team                                                                             MITRE
+                                 updated Relationships
+ 2020-02-24                      CWE Content Team                                                                             MITRE
+                                 updated References, Relationships, Type
+ 2020-08-20                      CWE Content Team                                                                             MITRE
+                                 updated Relationships
+ 2022-10-13                      CWE Content Team                                                                             MITRE
+                                 updated Applicable_Platforms, Demonstrative_Examples, Description, Name, Potential_Mitigations
+ 2023-04-27                      CWE Content Team                                                                             MITRE
+                                 updated Detection_Factors, Relationships
+ 2023-06-29                      CWE Content Team                                                                             MITRE
+                                 updated Mapping_Notes
+                                                                                       + Previous Entry Names
+           Change Date                                                                                   Previous Entry Name
+ 2008-04-11                      Failure to Account for Default Case in Switch
+ 2009-05-27                      Failure to Use Default Case in Switch
+ 2022-10-13                      Missing Default Case in Switch Statement
+ More information is available — Please edit the custom filter or select a different filter.
+Page Last Updated: February 29, 2024
+ 
+      Site Map | Terms of Use | Manage Cookies | Cookie Notice | Privacy Policy | Contact Us | CWE X-Twitter CWE Mastodon CWE on LinkedIn CWE YouTube channel CWE Out-of-Bounds-Read Podcast CWE
+      Blog on Medium blog
+
+MITRE Use of the Common Weakness Enumeration (CWE™) and the associated references from this website are subject to the Terms of Use. CWE is sponsored by the U.S. Department of Homeland         HSSEDI
+      Security (DHS) Cybersecurity and Infrastructure Security Agency (CISA) and managed by the Homeland Security Systems Engineering and Development Institute (HSSEDI) which is operated by
+      The MITRE Corporation (MITRE). Copyright © 2006–2024, The MITRE Corporation. CWE, CWSS, CWRAF, and the CWE logo are trademarks of The MITRE Corporation.
+

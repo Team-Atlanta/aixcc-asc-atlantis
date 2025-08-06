@@ -1,0 +1,19 @@
+--- drivers/NRFIN-00001/joke.c
++++ drivers/NRFIN-00001/joke.c
+@@ -83,13 +83,13 @@
+ 
+ 	// return error (-2) if the joke_str is too long.
+ 	} else if (strlen(joke_str) >= MAX_JOKE_STRING_LEN - 1) {
++
+ 		if (LOGLEVEL >= NRFIN00001_LOG_INFO) {
+ 			nrfin00001_syslog(NRFIN00001_LOG_ERROR, "Joke was too long -->\n");
+-
+-			nrfin00001_syslog(NRFIN00001_LOG_ERROR, joke_str);
++			// Prevents format string vulnerability
++			nrfin00001_syslog(NRFIN00001_LOG_ERROR, "%s\n", joke_str);
+ 		}
+ 		return -2;
+-
+ 	} else {
+ 		int idx = jokedb->count;
+ 		// copy joke_str into next slot in joke db

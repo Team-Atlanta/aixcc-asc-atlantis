@@ -1,0 +1,21 @@
+GLOBALS ::= MAX_CATALOG_SIZE { value: 1024 }
+            MAX_CDTEXT_SIZE { value: 1024 }
+            MAX_TRACKS { value: 100 }
+            MAX_TRACK_SIZE { value: 1024 }
+            MAX_CDTEXT_DATA { value: 1024 }
+            MAX_REM_DATA { value: 1024 }
+
+INPUT ::= HAS_CATALOG { size: 1 }
+          CATALOG { size: MAX_CATALOG_SIZE, terminator: 0 }
+          HAS_CDTEXT { size: 1 }
+          CDTEXTFILE { size: MAX_CDTEXT_SIZE, terminator: 0 }
+          NUM_TRACKS { size: 4 }
+          TRACKS[NUM_TRACKS]
+          HAS_CDTEXT_DATA { size: 1 }
+          CDTEXT_DATA { size: MAX_CDTEXT_DATA }
+          HAS_REM_DATA { size: 1 }
+          REM_DATA { size: MAX_REM_DATA }
+
+TRACKS ::= TRACK_SIZE { size: 4 }
+           TRACK { size: TRACK_SIZE, terminator: 0 }
+

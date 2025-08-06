@@ -1,0 +1,6 @@
+cp_name = "linux kernel"
+blob_file = "./exemplar_only/blobs/repro"
+harness_id = "id_1"
+sanitizer_id = "id_1"
+bug_introduce_commit = "a33df75c6328bf40078b35f2040d8e54d574c357"
+src_dir = "./src/linux_kernel"

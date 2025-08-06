@@ -1,0 +1,14 @@
+INPUT ::= COMMAND_CNT { size: 4 }
+          COMMAND[COMMAND_CNT]
+
+COMMAND ::= INIT_STDIN
+          | GET_STDOUT
+          | WORK_WITH_DATA
+
+INIT_STDIN ::= OPCODE { size: 4, value: 64 }
+
+GET_STDOUT ::= OPCODE { size: 4, value: 65 }
+
+WORK_WITH_DATA ::= OPCODE { size: 4, value: 80 }
+                   BUF_LEN { size: 8 }
+                   BUF { size: BUF_LEN, type: string }

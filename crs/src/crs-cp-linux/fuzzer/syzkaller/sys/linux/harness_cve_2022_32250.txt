@@ -1,0 +1,16 @@
+syz_harness$cve_2022_32250_cmd0(buf ptr[in, harness_cve_2022_32250_cmd0], len bytesize[buf])
+syz_harness$cve_2022_32250_cmd1(buf ptr[in, harness_cve_2022_32250_cmd1], len bytesize[buf])
+
+harness_cve_2022_32250_cmd0 {
+	cmd		int32[0]
+	tablename_len	len[tablename, int32]
+	tablename	string[nft_table_name]
+} [packed]
+
+harness_cve_2022_32250_cmd1 {
+	cmd		int32[1]
+	tablename_len	len[tablename, int32]
+	tablename	string[nft_table_name]
+	setname_len	len[setname, int32]
+	setname		string[nft_set_name]
+} [packed]

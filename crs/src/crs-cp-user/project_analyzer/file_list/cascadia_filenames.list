@@ -1,0 +1,12 @@
+serialize_test.go
+w3_test.go
+serialize.go
+parser_test.go
+selector.go
+specificity.go
+specificity_test.go
+parser.go
+benchmark_test.go
+selector_test.go
+pseudo_classes.go
+fuzz.go

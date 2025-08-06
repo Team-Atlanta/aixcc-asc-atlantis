@@ -1,0 +1,219 @@
+CWE
+
+Common Weakness Enumeration
+
+A community-developed list of SW & HW weaknesses that can become vulnerabilities
+
+New to CWE? click here!
+CWE Most Important Hardware Weaknesses
+CWE Top 25 Most Dangerous Weaknesses
+Home > CWE List > CWE- Individual Dictionary Definition (4.14)                                                                                                   ID Lookup: [                    ] [Go]
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  • Home
+  • About ▼
+    About New to CWE User Stories History Documents FAQs Glossary Compatibility
+  • CWE List ▼
+    Latest Version Downloads Reports Visualizations Archive
+  • Mapping ▼
+    Root Cause Mapping Guidance Root Cause Mapping Quick Tips Root Cause Mapping Examples
+  • Top-N Lists ▼
+    Top 25 Software Top Hardware Top 10 KEV Weaknesses
+  • Community ▼
+    Community Working Groups & Special Interest Groups Board Board Meeting Minutes CWE Discussion List CWE Discussion Archives Contribute Weakness Content to CWE
+  • News ▼
+    Current News X-Twitter ● Mastodon ● LinkedIn ● YouTube YouTube Podcast Out of Bounds Read Podcast Medium Medium News Archive
+  • Search
+
+ 
+ CWE Glossary Definition                  x
+ 
+ 
+ CWE-280: Improper Handling of Insufficient Permissions or Privileges
+ 
+ Weakness ID: 280
+ Vulnerability Mapping: ALLOWEDThis CWE ID may be used to map to real-world vulnerabilities
+ Abstraction: BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level
+ weaknesses typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.
+ View customized information:
+ Conceptual For users who are interested in more notional aspects of a weakness. Example: educators, technical writers, and project/program managers. Operational For users who are concerned with the
+ practical application and details about the nature of a weakness and how to prevent it from happening. Example: tool developers, security researchers, pen-testers, incident response analysts. Mapping
+ Friendly For users who are mapping an issue to CWE/CAPEC IDs, i.e., finding the most appropriate CWE for a specific issue (e.g., a CVE record). Example: tool developers, security researchers. 
+ Complete For users who wish to see all available information for the CWE/CAPEC entry. Custom For users who want to customize what details are displayed.
+ ×
+
+ Edit Custom Filter
+
+ Conceptual Operational Mapping Friendly Select All
+ 
+ Reset Clear Submit Cancel
+ + Description
+ The product does not handle or incorrectly handles when it has insufficient privileges to access resources or functionality as specified by their permissions. This may cause it to follow unexpected
+ code paths that may leave the product in an invalid state.
+ + Relationships
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Research Concepts" (CWE-1000)
+     Nature                                                                                                                                                                             Type                                                                                                                                                                           ID       Name
+ ChildOf                                                                               ClassClass - a weakness that is described in a very abstract fashion, typically independent of any specific language or technology. More specific than a Pillar Weakness, but more general than a Base                                                                        755     Improper
+                                                                                                                    Weakness. Class level weaknesses typically describe issues in terms of 1 or 2 of the following dimensions: behavior, property, and resource.                                                                                                             Handling of
+                                                                                                                                                                                                                                                                                                                                                                             Exceptional
+                                                                                                                                                                                                                                                                                                                                                                             Conditions
+ PeerOf                                                                                ClassClass - a weakness that is described in a very abstract fashion, typically independent of any specific language or technology. More specific than a Pillar Weakness, but more general than a Base                                                                        636     Not Failing
+                                                                                                                    Weakness. Class level weaknesses typically describe issues in terms of 1 or 2 of the following dimensions: behavior, property, and resource.                                                                                                             Securely
+                                                                                                                                                                                                                                                                                                                                                                             ('Failing
+                                                                                                                                                                                                                                                                                                                                                                             Open')
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Software Development" (CWE-699)
+     Nature                                                       Type                                                     ID                                   Name
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 265     Privilege Issues
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 275     Permission Issues
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Architectural Concepts" (CWE-1008)
+     Nature                                                       Type                                                     ID                                   Name
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 1011    Authorize Actors
+ + Modes Of Introduction
+ Section HelpThe different Modes of Introduction provide information about how and when this weakness may be introduced. The Phase identifies a point in the life cycle at which introduction may occur,
+ while the Note provides a typical scenario related to introduction during the given phase.
+     Phase                                                                                              Note
+ Implementation REALIZATION: This weakness is caused during implementation of an architectural security tactic.
+ + Applicable Platforms
+ Section HelpThis listing shows possible areas for which the given weakness could appear. These may be for specific named Languages, Operating Systems, Architectures, Paradigms, Technologies, or a
+ class of such platforms. The platform is listed along with how frequently the given weakness appears for that instance.
+
+ Languages
+
+ Class: Not Language-Specific (Undetermined Prevalence)
+
+ + Common Consequences
+ Section HelpThis table specifies different individual consequences associated with the weakness. The Scope identifies the application security area that is violated, while the Impact describes the
+ negative technical impact that arises if an adversary succeeds in exploiting this weakness. The Likelihood provides information about how likely the specific consequence is expected to be seen
+ relative to the other consequences in the list. For example, there may be high likelihood that a weakness will be exploited to achieve a certain impact, but a low likelihood that it will be exploited
+ to achieve a different impact.
+       Scope                                                                                     Impact                                                                                 Likelihood
+ Other              Technical Impact: Other; Alter Execution Logic
+
+ + Observed Examples
+        Reference                                                                                        Description
+ CVE-2003-0501           Special file system allows attackers to prevent ownership/permission change of certain entries by opening the entries before calling a setuid program.
+ CVE-2004-0148           FTP server places a user in the root directory when the user's permissions prevent access to the their own home directory.
+ + Potential Mitigations
+ Phase: Architecture and Design
+
+ Strategy: Separation of Privilege
+
+ Compartmentalize the system to have "safe" areas where trust boundaries can be unambiguously drawn. Do not allow sensitive data to go outside of the trust boundary and always be careful when
+ interfacing with a compartment outside of the safe area.
+
+ Ensure that appropriate compartmentalization is built into the system design, and the compartmentalization allows for and reinforces privilege separation functionality. Architects and designers
+ should rely on the principle of least privilege to decide the appropriate time to use privileges and the time to drop privileges.
+
+ Phase: Implementation
+
+ Always check to see if you have successfully accessed a resource or system functionality, and use proper error handling if it is unsuccessful. Do this even when you are operating in a highly
+ privileged mode, because errors or environmental conditions might still cause a failure. For example, environments with highly granular permissions/privilege models, such as Windows or Linux
+ capabilities, can cause unexpected failures.
+ + Memberships
+ Section HelpThis MemberOf Relationships table shows additional CWE Categories and Views that reference this weakness as a member. This information is often useful in understanding where a weakness
+ fits within the context of external information sources.
+     Nature                                                       Type                                                     ID                                   Name
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 962     SFP Secondary Cluster: Unchecked Status Condition
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 1348    OWASP Top Ten 2021 Category A04:2021 - Insecure Design
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 1396    Comprehensive Categorization: Access Control
+ + Vulnerability Mapping Notes
+ Usage: ALLOWED
+
+ (this CWE ID could be used to map to real-world vulnerabilities)
+ Reason: Acceptable-Use
+
+ Rationale:
+
+ This CWE entry is at the Base level of abstraction, which is a preferred level of abstraction for mapping to the root causes of vulnerabilities.
+ Comments:
+
+ Carefully read both the name and description to ensure that this mapping is an appropriate fit. Do not try to 'force' a mapping to a lower-level Base/Variant simply to comply with this preferred
+ level of abstraction.
+ + Notes
+ 
+ Relationship
+
+ This can be both primary and resultant. When primary, it can expose a variety of weaknesses because a resource might not have the expected state, and subsequent operations might fail. It is often
+ resultant from Unchecked Error Condition (CWE-391).
+
+ Theoretical
+
+ Within the context of vulnerability theory, privileges and permissions are two sides of the same coin. Privileges are associated with actors, and permissions are associated with resources. To perform
+ access control, at some point the software makes a decision about whether the actor (and the privileges that have been assigned to that actor) is allowed to access the resource (based on the
+ permissions that have been specified for that resource).
+
+ Research Gap
+
+ This type of issue is under-studied, since researchers often concentrate on whether an object has too many permissions, instead of not enough. These weaknesses are likely to appear in environments
+ with fine-grained models for permissions and privileges, which can include operating systems and other large-scale software packages. However, even highly simplistic permission/privilege models are
+ likely to contain these issues if the developer has not considered the possibility of access failure.
+
+ Maintenance
+
+ CWE-280 and CWE-274 are too similar. It is likely that CWE-274 will be deprecated in the future.
+ + Taxonomy Mappings
+       Mapped Taxonomy Name          Node ID         Fit                                                                Mapped Node Name
+ PLOVER                                                      Fails poorly due to insufficient permissions
+ WASC                             17                         Improper Filesystem Permissions
+ Software Fault Patterns          SFP4                       Unchecked Status Condition
+ + Content History
+                                                                                           + Submissions
+               Submission Date                                                     Submitter                                                                 Organization
+ 2006-07-19                                   PLOVER
+ (CWE Draft 3, 2006-07-19)
+
+                                                                                          + Modifications
+              Modification Date                                                     Modifier                                                                 Organization
+ 2008-07-01                                   Eric Dalci                                                                           Cigital
+                                              updated Time_of_Introduction
+ 2008-09-08                                   CWE Content Team                                                                     MITRE
+                                              updated Maintenance_Notes, Relationships, Relationship_Notes, Taxonomy_Mappings
+ 2009-03-10                                   CWE Content Team                                                                     MITRE
+                                              updated Description, Name, Theoretical_Notes
+ 2010-02-16                                   CWE Content Team                                                                     MITRE
+                                              updated Taxonomy_Mappings
+ 2011-06-01                                   CWE Content Team                                                                     MITRE
+                                              updated Common_Consequences
+ 2012-05-11                                   CWE Content Team                                                                     MITRE
+                                              updated Relationships
+ 2012-10-30                                   CWE Content Team                                                                     MITRE
+                                              updated Potential_Mitigations
+ 2014-07-30                                   CWE Content Team                                                                     MITRE
+                                              updated Relationships, Taxonomy_Mappings
+ 2017-11-08                                   CWE Content Team                                                                     MITRE
+                                              updated Applicable_Platforms, Modes_of_Introduction, Observed_Examples, Relationships
+ 2019-06-20                                   CWE Content Team                                                                     MITRE
+                                              updated Relationships
+ 2020-02-24                                   CWE Content Team                                                                     MITRE
+                                              updated Relationships
+ 2020-12-10                                   CWE Content Team                                                                     MITRE
+                                              updated Potential_Mitigations
+ 2021-03-15                                   CWE Content Team                                                                     MITRE
+                                              updated Maintenance_Notes
+ 2021-10-28                                   CWE Content Team                                                                     MITRE
+                                              updated Relationships
+ 2023-01-31                                   CWE Content Team                                                                     MITRE
+                                              updated Description
+ 2023-04-27                                   CWE Content Team                                                                     MITRE
+                                              updated Relationships, Time_of_Introduction
+ 2023-06-29                                   CWE Content Team                                                                     MITRE
+                                              updated Mapping_Notes
+                                                                                       + Previous Entry Names
+                 Change Date                                                                                   Previous Entry Name
+ 2009-03-10                                   Failure to Handle Insufficient Permissions or Privileges
+ More information is available — Please edit the custom filter or select a different filter.
+Page Last Updated: February 29, 2024
+ 
+      Site Map | Terms of Use | Manage Cookies | Cookie Notice | Privacy Policy | Contact Us | CWE X-Twitter CWE Mastodon CWE on LinkedIn CWE YouTube channel CWE Out-of-Bounds-Read Podcast CWE
+      Blog on Medium blog
+
+MITRE Use of the Common Weakness Enumeration (CWE™) and the associated references from this website are subject to the Terms of Use. CWE is sponsored by the U.S. Department of Homeland         HSSEDI
+      Security (DHS) Cybersecurity and Infrastructure Security Agency (CISA) and managed by the Homeland Security Systems Engineering and Development Institute (HSSEDI) which is operated by
+      The MITRE Corporation (MITRE). Copyright © 2006–2024, The MITRE Corporation. CWE, CWSS, CWRAF, and the CWE logo are trademarks of The MITRE Corporation.
+

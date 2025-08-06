@@ -1,0 +1,387 @@
+CWE
+
+Common Weakness Enumeration
+
+A community-developed list of SW & HW weaknesses that can become vulnerabilities
+
+New to CWE? click here!
+CWE Most Important Hardware Weaknesses
+CWE Top 25 Most Dangerous Weaknesses
+Home > CWE List > CWE- Individual Dictionary Definition (4.14)                                                                                                   ID Lookup: [                    ] [Go]
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  • Home
+  • About ▼
+    About New to CWE User Stories History Documents FAQs Glossary Compatibility
+  • CWE List ▼
+    Latest Version Downloads Reports Visualizations Archive
+  • Mapping ▼
+    Root Cause Mapping Guidance Root Cause Mapping Quick Tips Root Cause Mapping Examples
+  • Top-N Lists ▼
+    Top 25 Software Top Hardware Top 10 KEV Weaknesses
+  • Community ▼
+    Community Working Groups & Special Interest Groups Board Board Meeting Minutes CWE Discussion List CWE Discussion Archives Contribute Weakness Content to CWE
+  • News ▼
+    Current News X-Twitter ● Mastodon ● LinkedIn ● YouTube YouTube Podcast Out of Bounds Read Podcast Medium Medium News Archive
+  • Search
+
+ 
+ CWE Glossary Definition                  x
+ 
+ 
+ CWE-676: Use of Potentially Dangerous Function
+ 
+ Weakness ID: 676
+ Vulnerability Mapping: ALLOWEDThis CWE ID may be used to map to real-world vulnerabilities
+ Abstraction: BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level
+ weaknesses typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.
+ View customized information:
+ Conceptual For users who are interested in more notional aspects of a weakness. Example: educators, technical writers, and project/program managers. Operational For users who are concerned with the
+ practical application and details about the nature of a weakness and how to prevent it from happening. Example: tool developers, security researchers, pen-testers, incident response analysts. Mapping
+ Friendly For users who are mapping an issue to CWE/CAPEC IDs, i.e., finding the most appropriate CWE for a specific issue (e.g., a CVE record). Example: tool developers, security researchers. 
+ Complete For users who wish to see all available information for the CWE/CAPEC entry. Custom For users who want to customize what details are displayed.
+ ×
+
+ Edit Custom Filter
+
+ Conceptual Operational Mapping Friendly Select All
+ 
+ Reset Clear Submit Cancel
+ + Description
+ The product invokes a potentially dangerous function that could introduce a vulnerability if it is used incorrectly, but the function can also be used safely.
+ + Relationships
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Research Concepts" (CWE-1000)
+     Nature                                                                                                                                                                             Type                                                                                                                                                                           ID        Name
+ ChildOf                                                                               ClassClass - a weakness that is described in a very abstract fashion, typically independent of any specific language or technology. More specific than a Pillar Weakness, but more general than a Base                                                                        1177    Use of
+                                                                                                                    Weakness. Class level weaknesses typically describe issues in terms of 1 or 2 of the following dimensions: behavior, property, and resource.                                                                                                             Prohibited
+                                                                                                                                                                                                                                                                                                                                                                             Code
+ ParentOf                                                                              VariantVariant - a weakness that is linked to a certain type of product, typically involving a specific language or technology. More specific than a Base weakness. Variant level weaknesses typically                                                                        785     Use of Path
+                                                                                                                               describe issues in terms of 3 to 5 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                       Manipulation
+                                                                                                                                                                                                                                                                                                                                                                             Function
+                                                                                                                                                                                                                                                                                                                                                                             without
+                                                                                                                                                                                                                                                                                                                                                                             Maximum-sized
+                                                                                                                                                                                                                                                                                                                                                                             Buffer
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Software Development" (CWE-699)
+     Nature                                                       Type                                                     ID                                   Name
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 1228    API / Function Errors
+ + Modes Of Introduction
+ Section HelpThe different Modes of Introduction provide information about how and when this weakness may be introduced. The Phase identifies a point in the life cycle at which introduction may occur,
+ while the Note provides a typical scenario related to introduction during the given phase.
+     Phase                                                                                              Note
+ Implementation
+ + Applicable Platforms
+ Section HelpThis listing shows possible areas for which the given weakness could appear. These may be for specific named Languages, Operating Systems, Architectures, Paradigms, Technologies, or a
+ class of such platforms. The platform is listed along with how frequently the given weakness appears for that instance.
+
+ Languages
+
+ C (Undetermined Prevalence)
+
+ C++ (Undetermined Prevalence)
+
+ + Common Consequences
+ Section HelpThis table specifies different individual consequences associated with the weakness. The Scope identifies the application security area that is violated, while the Impact describes the
+ negative technical impact that arises if an adversary succeeds in exploiting this weakness. The Likelihood provides information about how likely the specific consequence is expected to be seen
+ relative to the other consequences in the list. For example, there may be high likelihood that a weakness will be exploited to achieve a certain impact, but a low likelihood that it will be exploited
+ to achieve a different impact.
+       Scope                                                                                     Impact                                                                                 Likelihood
+                    Technical Impact: Varies by Context; Quality Degradation; Unexpected State
+ Other
+                    If the function is used incorrectly, then it could result in security problems.
+ + Likelihood Of Exploit
+ High
+ + Demonstrative Examples
+ 
+ Example 1
+
+ The following code attempts to create a local copy of a buffer to perform some manipulations to the data.
+
+ (bad code)
+ Example Language: C 
+ void manipulate_string(char * string){
+ char buf[24];
+ strcpy(buf, string);
+ ...
+ }
+
+ However, the programmer does not ensure that the size of the data pointed to by string will fit in the local buffer and copies the data with the potentially dangerous strcpy() function. This may
+ result in a buffer overflow condition if an attacker can influence the contents of the string parameter.
+
+ + Observed Examples
+        Reference                                                                                        Description
+ CVE-2007-1470           Library has multiple buffer overflows using sprintf() and strcpy()
+ CVE-2009-3849           Buffer overflow using strcat()
+ CVE-2006-2114           Buffer overflow using strcpy()
+ CVE-2006-0963           Buffer overflow using strcpy()
+ CVE-2011-0712           Vulnerable use of strcpy() changed to use safer strlcpy()
+ CVE-2008-5005           Buffer overflow using strcpy()
+ + Potential Mitigations
+ Phases: Build and Compilation; Implementation
+
+ Identify a list of prohibited API functions and prohibit developers from using these functions, providing safer alternatives. In some cases, automatic code analysis tools or the compiler can be
+ instructed to spot use of prohibited functions, such as the "banned.h" include file from Microsoft's SDL. [REF-554] [REF-7]
+ + Weakness Ordinalities
+ Ordinality                                                                                       Description
+ Primary    (where the weakness exists independent of other weaknesses)
+ Indirect   (where the weakness is a quality issue that might indirectly make it easier to introduce security-relevant weaknesses or make them more difficult to detect)
+ + Detection Methods
+ Automated Static Analysis - Binary or Bytecode
+
+ According to SOAR, the following detection techniques may be useful:
+
+ Highly cost effective:
+
+   • Bytecode Weakness Analysis - including disassembler + source code weakness analysis
+   • Binary Weakness Analysis - including disassembler + source code weakness analysis
+
+ Cost effective for partial coverage:
+
+   • Binary / Bytecode Quality Analysis
+   • Binary / Bytecode simple extractor - strings, ELF readers, etc.
+
+ Effectiveness: High
+
+ Manual Static Analysis - Binary or Bytecode
+
+ According to SOAR, the following detection techniques may be useful:
+
+ Cost effective for partial coverage:
+
+   • Binary / Bytecode disassembler - then use manual analysis for vulnerabilities & anomalies
+
+ Effectiveness: SOAR Partial
+
+ Dynamic Analysis with Manual Results Interpretation
+
+ According to SOAR, the following detection techniques may be useful:
+
+ Highly cost effective:
+
+   • Debugger
+
+ Cost effective for partial coverage:
+
+   • Monitored Virtual Environment - run potentially malicious code in sandbox / wrapper / virtual machine, see if it does anything suspicious
+
+ Effectiveness: High
+
+ Manual Static Analysis - Source Code
+
+ According to SOAR, the following detection techniques may be useful:
+
+ Highly cost effective:
+
+   • Manual Source Code Review (not inspections)
+
+ Cost effective for partial coverage:
+
+   • Focused Manual Spotcheck - Focused manual analysis of source
+
+ Effectiveness: High
+
+ Automated Static Analysis - Source Code
+
+ According to SOAR, the following detection techniques may be useful:
+
+ Highly cost effective:
+
+   • Source code Weakness Analyzer
+   • Context-configured Source Code Weakness Analyzer
+
+ Cost effective for partial coverage:
+
+   • Warning Flags
+   • Source Code Quality Analyzer
+
+ Effectiveness: High
+
+ Automated Static Analysis
+
+ According to SOAR, the following detection techniques may be useful:
+
+ Cost effective for partial coverage:
+
+   • Origin Analysis
+
+ Effectiveness: SOAR Partial
+
+ Architecture or Design Review
+
+ According to SOAR, the following detection techniques may be useful:
+
+ Highly cost effective:
+
+   • Formal Methods / Correct-By-Construction
+   • Inspection (IEEE 1028 standard) (can apply to requirements, design, source code, etc.)
+
+ Effectiveness: High
+
+ + Memberships
+ Section HelpThis MemberOf Relationships table shows additional CWE Categories and Views that reference this weakness as a member. This information is often useful in understanding where a weakness
+ fits within the context of external information sources.
+     Nature                                                                                                  Type                                                                                               ID         Name
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            738     CERT C Secure
+                                                                                                                                                                                                                      Coding Standard
+                                                                                                                                                                                                                      (2008) Chapter
+                                                                                                                                                                                                                      5 - Integers
+                                                                                                                                                                                                                      (INT)
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            743     CERT C Secure
+                                                                                                                                                                                                                      Coding Standard
+                                                                                                                                                                                                                      (2008) Chapter
+                                                                                                                                                                                                                      10 - Input
+                                                                                                                                                                                                                      Output (FIO)
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            746     CERT C Secure
+                                                                                                                                                                                                                      Coding Standard
+                                                                                                                                                                                                                      (2008) Chapter
+                                                                                                                                                                                                                      13 - Error
+                                                                                                                                                                                                                      Handling (ERR)
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            865     2011 Top 25 -
+                                                                                                                                                                                                                      Risky Resource
+                                                                                                                                                                                                                      Management
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            872     CERT C++ Secure
+                                                                                                                                                                                                                      Coding Section
+                                                                                                                                                                                                                      04 - Integers
+                                                                                                                                                                                                                      (INT)
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            877     CERT C++ Secure
+                                                                                                                                                                                                                      Coding Section
+                                                                                                                                                                                                                      09 - Input
+                                                                                                                                                                                                                      Output (FIO)
+ MemberOf        ViewView - a subset of CWE entries that provides a way of examining CWE content. The two main view structures are Slices (flat lists) and Graphs (containing relationships between entries). 884     CWE
+                                                                                                                                                                                                                      Cross-section
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            1001    SFP Secondary
+                                                                                                                                                                                                                      Cluster: Use of
+                                                                                                                                                                                                                      an Improper API
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            1161    SEI CERT C
+                                                                                                                                                                                                                      Coding Standard
+                                                                                                                                                                                                                      - Guidelines
+                                                                                                                                                                                                                      07. Characters
+                                                                                                                                                                                                                      and Strings
+                                                                                                                                                                                                                      (STR)
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            1165    SEI CERT C
+                                                                                                                                                                                                                      Coding Standard
+                                                                                                                                                                                                                      - Guidelines
+                                                                                                                                                                                                                      10. Environment
+                                                                                                                                                                                                                      (ENV)
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            1167    SEI CERT C
+                                                                                                                                                                                                                      Coding Standard
+                                                                                                                                                                                                                      - Guidelines
+                                                                                                                                                                                                                      12. Error
+                                                                                                                                                                                                                      Handling (ERR)
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            1169    SEI CERT C
+                                                                                                                                                                                                                      Coding Standard
+                                                                                                                                                                                                                      - Guidelines
+                                                                                                                                                                                                                      14. Concurrency
+                                                                                                                                                                                                                      (CON)
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            1170    SEI CERT C
+                                                                                                                                                                                                                      Coding Standard
+                                                                                                                                                                                                                      - Guidelines
+                                                                                                                                                                                                                      48.
+                                                                                                                                                                                                                      Miscellaneous
+                                                                                                                                                                                                                      (MSC)
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            1412    Comprehensive
+                                                                                                                                                                                                                      Categorization:
+                                                                                                                                                                                                                      Poor Coding
+                                                                                                                                                                                                                      Practices
+ + Vulnerability Mapping Notes
+ Usage: ALLOWED
+
+ (this CWE ID could be used to map to real-world vulnerabilities)
+ Reason: Acceptable-Use
+
+ Rationale:
+
+ This CWE entry is at the Base level of abstraction, which is a preferred level of abstraction for mapping to the root causes of vulnerabilities.
+ Comments:
+
+ Carefully read both the name and description to ensure that this mapping is an appropriate fit. Do not try to 'force' a mapping to a lower-level Base/Variant simply to comply with this preferred
+ level of abstraction.
+ + Notes
+ 
+ Relationship
+
+ This weakness is different than CWE-242 (Use of Inherently Dangerous Function). CWE-242 covers functions with such significant security problems that they can never be guaranteed to be safe. Some
+ functions, if used properly, do not directly pose a security risk, but can introduce a weakness if not called correctly. These are regarded as potentially dangerous. A well-known example is the
+ strcpy() function. When provided with a destination buffer that is larger than its source, strcpy() will not overflow. However, it is so often misused that some developers prohibit strcpy() entirely.
+ + Taxonomy Mappings
+       Mapped Taxonomy Name          Node ID              Fit                                                                 Mapped Node Name
+ 7 Pernicious Kingdoms                                                  Dangerous Functions
+ CERT C Secure Coding             CON33-C        CWE More Abstract      Avoid race conditions when using library functions
+ CERT C Secure Coding             ENV33-C        CWE More Abstract      Do not call system()
+ CERT C Secure Coding             ERR07-C                               Prefer functions that support error checking over equivalent functions that don't
+ CERT C Secure Coding             ERR34-C        CWE More Abstract      Detect errors when converting a string to a number
+ CERT C Secure Coding             FIO01-C                               Be careful using functions that use file names for identification
+ CERT C Secure Coding             MSC30-C        CWE More Abstract      Do not use the rand() function for generating pseudorandom numbers
+ CERT C Secure Coding             STR31-C        Imprecise              Guarantee that storage for strings has sufficient space for character data and the null terminator
+ Software Fault Patterns          SFP3                                  Use of an improper API
+ + References
+ [REF-6] Katrina Tsipenyuk, Brian Chess and Gary McGraw. "Seven Pernicious Kingdoms: A Taxonomy of Software Security Errors". NIST Workshop on Software Security Assurance Tools Techniques and
+ Metrics. NIST. 2005-11-07. <https://samate.nist.gov/SSATTM_Content/papers/Seven%20Pernicious%20Kingdoms%20-%20Taxonomy%20of%20Sw%20Security%20Errors%20-%20Tsipenyuk%20-%20Chess%20-%20McGraw.pdf>.
+ [REF-554] Michael Howard. "Security Development Lifecycle (SDL) Banned Function Calls". <https://learn.microsoft.com/en-us/previous-versions/bb288454(v=msdn.10)?redirectedfrom=MSDN>. URL
+ validated: 2023-04-07.
+ [REF-7] Michael Howard and David LeBlanc. "Writing Secure Code". Chapter 5, "Safe String Handling" Page 156, 160. 2nd Edition. Microsoft Press. 2002-12-04. <https://www.microsoftpressstore.com/
+ store/writing-secure-code-9780735617223>.
+ [REF-62] Mark Dowd, John McDonald and Justin Schuh. "The Art of Software Security Assessment". Chapter 8, "C String Handling", Page 388. 1st Edition. Addison Wesley. 2006.
+ + Content History
+                                                                                            + Submissions
+             Submission Date                                                          Submitter                                                                   Organization
+ 2008-04-11                               7 Pernicious Kingdoms
+ (CWE Draft 9, 2008-04-11)
+
+                                                                                           + Modifications
+            Modification Date                                                         Modifier                                                                    Organization
+ 2008-07-01                               Sean Eidemiller                                                                                   Cigital
+                                          added/updated demonstrative examples
+ 2008-07-01                               Eric Dalci                                                                                        Cigital
+                                          updated Potential_Mitigations, Time_of_Introduction
+ 2008-09-08                               CWE Content Team                                                                                  MITRE
+                                          updated Applicable_Platforms, Relationships, Other_Notes, Taxonomy_Mappings, Weakness_Ordinalities
+ 2008-11-24                               CWE Content Team                                                                                  MITRE
+                                          updated Relationships, Taxonomy_Mappings
+ 2009-07-27                               CWE Content Team                                                                                  MITRE
+                                          updated Relationships
+ 2010-02-16                               CWE Content Team                                                                                  MITRE
+                                          updated Demonstrative_Examples, Other_Notes, References, Relationship_Notes
+ 2011-06-01                               CWE Content Team                                                                                  MITRE
+                                          updated Common_Consequences
+ 2011-06-27                               CWE Content Team                                                                                  MITRE
+                                          updated Common_Consequences, Observed_Examples, Potential_Mitigations, References, Relationships
+ 2011-09-13                               CWE Content Team                                                                                  MITRE
+                                          updated Potential_Mitigations, Relationships, Taxonomy_Mappings
+ 2012-05-11                               CWE Content Team                                                                                  MITRE
+                                          updated References, Related_Attack_Patterns, Relationships, Weakness_Ordinalities
+ 2014-07-30                               CWE Content Team                                                                                  MITRE
+                                          updated Detection_Factors, Relationships, Taxonomy_Mappings
+ 2017-05-03                               CWE Content Team                                                                                  MITRE
+                                          updated Related_Attack_Patterns
+ 2017-11-08                               CWE Content Team                                                                                  MITRE
+                                          updated Causal_Nature, References, Relationships, Taxonomy_Mappings
+ 2018-03-27                               CWE Content Team                                                                                  MITRE
+                                          updated References
+ 2019-01-03                               CWE Content Team                                                                                  MITRE
+                                          updated Relationships, Weakness_Ordinalities
+ 2020-02-24                               CWE Content Team                                                                                  MITRE
+                                          updated Detection_Factors, References, Relationships
+ 2020-12-10                               CWE Content Team                                                                                  MITRE
+                                          updated Demonstrative_Examples
+ 2021-03-15                               CWE Content Team                                                                                  MITRE
+                                          updated Demonstrative_Examples
+ 2023-01-31                               CWE Content Team                                                                                  MITRE
+                                          updated Description
+ 2023-04-27                               CWE Content Team                                                                                  MITRE
+                                          updated References, Relationships, Time_of_Introduction
+ 2023-06-29                               CWE Content Team                                                                                  MITRE
+                                          updated Mapping_Notes
+ More information is available — Please edit the custom filter or select a different filter.
+Page Last Updated: February 29, 2024
+ 
+      Site Map | Terms of Use | Manage Cookies | Cookie Notice | Privacy Policy | Contact Us | CWE X-Twitter CWE Mastodon CWE on LinkedIn CWE YouTube channel CWE Out-of-Bounds-Read Podcast CWE
+      Blog on Medium blog
+
+MITRE Use of the Common Weakness Enumeration (CWE™) and the associated references from this website are subject to the Terms of Use. CWE is sponsored by the U.S. Department of Homeland         HSSEDI
+      Security (DHS) Cybersecurity and Infrastructure Security Agency (CISA) and managed by the Homeland Security Systems Engineering and Development Institute (HSSEDI) which is operated by
+      The MITRE Corporation (MITRE). Copyright © 2006–2024, The MITRE Corporation. CWE, CWSS, CWRAF, and the CWE logo are trademarks of The MITRE Corporation.
+

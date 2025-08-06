@@ -1,0 +1,20 @@
+
+    // INPUT is the start of the input format.
+    // INPUT will be [CMD_CNT (4byte) ][ CMD_CNT chunks of CMD]
+    INPUT ::= CMD_CNT { size: 4 }
+              CMD[CMD_CNT]
+
+    // CMD will be CMD1 or CMD2 if the example program has two commands.
+    CMD   ::= CMD1
+            | CMD2
+
+    CMD1  ::= OPCODE { size: 4, value: 0 } // OPCODE is 4 byte and its value is 0.
+              FLAG { size: 4 }
+              DATA1_SIZE { size: 4 }
+              DATA1 { size: DATA1_SIZE }     // the size of DATA1 is DATA_SIZE
+              DATA2_SIZE { size: 4 }
+              DATA2 { size: DATA2_SIZE }
+
+    CMD2  ::= OPCODE { size: 4, value: 1}
+              FLAG { size: 4}
+    

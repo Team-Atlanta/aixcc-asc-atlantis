@@ -1,0 +1,42 @@
+define NRFIN_00001_IOCTL_BASE	0xdeadbeef
+define NRFIN_00001_IOCTL_ONE	NRFIN_00001_IOCTL_BASE + 1
+define NRFIN_00001_IOCTL_TWO	NRFIN_00001_IOCTL_BASE + 2
+define NRFIN_00001_IOCTL_THREE	NRFIN_00001_IOCTL_BASE + 3
+define NRFIN_00001_IOCTL_FOUR	NRFIN_00001_IOCTL_BASE + 4
+define NRFIN_00001_IOCTL_FIVE	NRFIN_00001_IOCTL_BASE + 5
+define NRFIN_00001_IOCTL_SIX	NRFIN_00001_IOCTL_BASE + 6
+
+syz_harness$nrfin_00001_cmd1(a0 ptr[in, nrfin_00001_cmd1], a1 bytesize[a0])
+syz_harness$nrfin_00001_cmd2(a0 ptr[in, nrfin_00001_cmd2], a1 bytesize[a0])
+syz_harness$nrfin_00001_cmd3(a0 ptr[in, nrfin_00001_cmd3], a1 bytesize[a0])
+syz_harness$nrfin_00001_cmd4(a0 ptr[in, nrfin_00001_cmd4], a1 bytesize[a0])
+syz_harness$nrfin_00001_cmd5(a0 ptr[in, nrfin_00001_cmd5], a1 bytesize[a0])
+syz_harness$nrfin_00001_cmd6(a0 ptr[in, nrfin_00001_cmd6], a1 bytesize[a0])
+
+nrfin_00001_cmd1 {
+	cmd	int32[NRFIN_00001_IOCTL_ONE]
+} [packed]
+
+nrfin_00001_cmd2 {
+	cmd		int32[NRFIN_00001_IOCTL_TWO]
+	data_len	len[data, int32]
+	data		string
+} [packed]
+
+nrfin_00001_cmd3 {
+	cmd	int32[NRFIN_00001_IOCTL_THREE]
+} [packed]
+
+nrfin_00001_cmd4 {
+	cmd		int32[NRFIN_00001_IOCTL_FOUR]
+	data_len	len[data, int32]
+	data		string
+} [packed]
+
+nrfin_00001_cmd5 {
+	cmd	int32[NRFIN_00001_IOCTL_FIVE]
+} [packed]
+
+nrfin_00001_cmd6 {
+	cmd	int32[NRFIN_00001_IOCTL_SIX]
+} [packed]

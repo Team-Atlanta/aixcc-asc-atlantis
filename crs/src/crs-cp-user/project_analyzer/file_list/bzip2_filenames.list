@@ -1,0 +1,15 @@
+randtable.c
+mk251.c
+compress.c
+decompress.c
+bzlib_private.h
+bzlib.h
+blocksort.c
+huffman.c
+spewG.c
+dlltest.c
+bzip2recover.c
+crctable.c
+unzcrash.c
+bzlib.c
+bzip2.c

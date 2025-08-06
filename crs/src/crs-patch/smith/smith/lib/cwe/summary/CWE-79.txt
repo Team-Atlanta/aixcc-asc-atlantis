@@ -1,0 +1,10 @@
+The Common Weakness Enumeration (CWE-79) refers to the security issue known as Cross-Site Scripting (XSS). This issue occurs when a software doesn't properly neutralize user-controlled input before it's included in output used to generate web pages. 
+
+There are three kinds of XSS;
+1. Reflected XSS: Occurs when the server reads data directly from the HTTP request and reflects it back in the HTTP response.
+2. Stored XSS: Happens when the application stores dangerous data (e.g., in a database or log), which is later included in dynamic content.
+3. DOM-Based XSS: Occurs when the client injects XSS into the page; the server sends trusted script to the client, and the script processes user-supplied data and injects it back into the web page.
+
+An attacker can perform various malicious activities with XSS, like transferring private information (including session information), sending malicious requests, emulating trusted websites, exploiting browser vulnerabilities, and more. This can violate the web browser's same-origin policy, which is meant to prevent scripts from one domain from accessing resources or running code in another domain.
+
+To prevent XSS, it's essential to properly encode or escape all user-controlled inputs in web pages, especially those to be included in dynamic content. Removing suspicious or malicious content from inputs and responses is another crucial preventive step. Further, using a list of acceptable inputs or 'accept known good' strategy is recommended to prevent these flaws. But, encoding and input validation alone is not sufficient; developers need to adopt security practices targeting different levels of software architecture to achieve better protection.

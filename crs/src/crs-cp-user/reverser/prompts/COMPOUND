@@ -1,0 +1,152 @@
+You are a software testing expert. Your job is extracting the input format of the target program.
+The target program will take the input file name as argv[1].
+
+- For a given target program, INPUT will always correspond with the blob byte-array in harness()
+- An entry can either by a reference to another record, or a primitive (which has fields in curly braces). Only primitives are allowed to have fields
+- The only valid fields for an entry are `size` (mandatory), `value` (optional, fixed value), `values` (optional, fixed choice of values). The fields must be integers or referencing an entry.
+- Compound prompts can be created by wrapping the aggregate subcomponent with parentheses
+E.g.
+```
+COMPLEX ::= (
+              OP1 { size: 4, value: 0 }
+              PROTO1 { size: 4 }
+              PROTO2 { size: 4 }
+            )
+          |    
+            (
+              OP2 { size: 4, value: 1 }
+              SIZE { size: 4 }
+              DATA { size: SIZE }
+            )
+```
+
+
+Here is a result format example for an extracted input format of an example program.
+```
+// INPUT is the start of the input format.
+// INPUT will be [CMD_CNT (4byte) ][ CMD_CNT chunks of CMD]
+INPUT ::= CMD_CNT { size: 4 }
+          CMD[CMD_CNT]
+
+// CMD will be CMD1 or CMD2 if the example program has two commands.
+CMD   ::= CMD1 
+        | CMD2
+
+CMD1  ::= OPCODE { size: 4, value: 0 }
+          FLAG { size: 4 }
+          DATA1_SIZE { size: 4 }       
+          DATA1 { size: DATA1_SIZE }
+          NT
+          DATA2_SIZE { size: 4 }
+          DATA2 { size: DATA2_SIZE }
+
+NT ::= NT1
+     | NT2
+
+NT1 ::= DATA3 { size: DATA1_SIZE }
+
+CMD2  ::= OPCODE { size: 4, value: 1}
+          FLAG { size: 4}
+          // COND { size: 4, values: [0, 1, 4] }
+          COND
+
+COND ::= CHOICE1 { size: 4, value: FLAG }
+         CHOICE2 { size: 4, value: 1 }
+         CHOICE3 { size: 4, value: 4 }
+```
+
+X ::= SIZE {size: 4, values: []}
+
+      DATA {size: SIZE}
+
+- Scoping
+- Multi-value (trying to resolve into nonterms is hairy)
+- (is referencing non-immediate nonterms an issue)
+
+
+We enforce the type for value as ints (cannot have nonterms)
+Suppose the opposite, that values can be nonterm
+- then if anywhere in the expansion 
+```
+
+```
+
+
+What does the multivalue version of the following look like?
+COMMAND ::=
+    START
+    START
+    DATA { size: 16 }
+    END { size: 1, value: START } // which start does this refer to
+
+Something like this?
+COMMAND ::=
+    START {size:1, value: [0, 1]}
+    START {size:1, value: [0, 1]}
+    DATA { size: 16 }
+    END { size: 1, value: START } // which start does this refer to
+
+We still have the ambiguous reference. To dis-ambiguate the ref, we use diff ID's
+COMMAND ::=
+    START1 {size:1, value: [0, 1]}
+
+Which resolves into 2 non terms
+
+START ::= ...
+START1 ::= START
+START2 ::= START
+
+COMMAND ::=
+    START1
+    START2
+    DATA { size: 16 }
+    END { size: 1, value: START1 }
+
+
+COMMAND ::=
+    START1
+    START2
+    DATA { size: 16 }
+    END { size: 1, value: START1 }
+
+CMD11  ::= OPCODE { size: 4, value: 0 }
+          FLAG { size: 4 }
+          DATA1_SIZE { size: 4 }       
+          DATA1 { size: DATA1_SIZE }
+          DATA2_SIZE { size: 4 }
+          DATA2 { size: DATA2_SIZE }
+          DATA3 { size: DATA1_SIZE }
+
+CMD12  ::= OPCODE { size: 4, value: 0 }
+          FLAG { size: 4 }
+          DATA1_SIZE { size: 4 }       
+          DATA1 { size: DATA1_SIZE }
+          DATA2_SIZE { size: 4 }
+          DATA2 { size: DATA2_SIZE }
+          DATA4 { size: DATA2_SIZE }
+
+COMMAND ::= CMD1
+          | CMD2
+
+CMD1  ::= OPCODE { size: 4, value: 0 }
+          FLAG { size: 4 }
+          DATA1_SIZE { size: 4 }       
+          DATA1 { size: DATA1_SIZE }
+          DATA2_SIZE { size: 4 }
+          DATA2 { size: DATA2_SIZE }
+          NT
+
+NT ::= DATA3 { size: DATA1_SIZE }
+     | DATA4 { size: DATA2_SIZE }
+
+CMD2  ::= OPCODE { size: 4, value: 0 }
+
+COMMAND ::=
+    DATA_SIZE1 { size: 4 }
+    DATA1 { size: DATA_SIZE1 } // allowed
+    DATA_SIZE2
+    DATA1 { size: DATA_SIZE2 } // disallowed
+
+DATA_SIZE2 ::= ...
+
+COMMAND ::= START1 {size: 4, value: [0, 1]}

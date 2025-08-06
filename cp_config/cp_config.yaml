@@ -1,0 +1,24 @@
+---
+# Each item listed under "cp_targets" is treated as a CP repository
+# to initialize in the target CP volume (e.g., ./cp_root)
+#
+# The "ref" element is optional. It indicates the git repository
+# branch, tag, or commit that should be checked out. If not
+# specified, it will default to checking out the "main" branch
+# of the specified repo from "url".
+
+cp_targets:
+  mock-cp:
+    url: git@github.com:aixcc-sc/mock-cp.git
+    ref: v3.0.2
+  #linux-cp:
+    #url: git@github.com:aixcc-sc/challenge-001-linux-cp.git
+    #ref: v3.0.0
+#
+#  jenkins-cp:
+#    url: git@github.com:aixcc-sc/challenge-002-jenkins-cp.git
+#    ref: v3.1.0
+#
+#  nginx-cp:
+#    url: git@github.com:aixcc-sc/challenge-004-nginx-cp.git
+#    ref: v1.0.3

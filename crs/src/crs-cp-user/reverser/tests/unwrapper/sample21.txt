@@ -1,0 +1,6 @@
+INPUT ::= v2 { size: 4 }
+          v1[v2]
+v0 ::= v2 { size: 4, value: 0 }
+       v3 { size: 4 }
+       v4 { size: v3 }
+v1 ::= v0

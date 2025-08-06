@@ -1,0 +1,400 @@
+CWE
+
+Common Weakness Enumeration
+
+A community-developed list of SW & HW weaknesses that can become vulnerabilities
+
+New to CWE? click here!
+CWE Most Important Hardware Weaknesses
+CWE Top 25 Most Dangerous Weaknesses
+Home > CWE List > CWE- Individual Dictionary Definition (4.14)                                                                                                   ID Lookup: [                    ] [Go]
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  • Home
+  • About ▼
+    About New to CWE User Stories History Documents FAQs Glossary Compatibility
+  • CWE List ▼
+    Latest Version Downloads Reports Visualizations Archive
+  • Mapping ▼
+    Root Cause Mapping Guidance Root Cause Mapping Quick Tips Root Cause Mapping Examples
+  • Top-N Lists ▼
+    Top 25 Software Top Hardware Top 10 KEV Weaknesses
+  • Community ▼
+    Community Working Groups & Special Interest Groups Board Board Meeting Minutes CWE Discussion List CWE Discussion Archives Contribute Weakness Content to CWE
+  • News ▼
+    Current News X-Twitter ● Mastodon ● LinkedIn ● YouTube YouTube Podcast Out of Bounds Read Podcast Medium Medium News Archive
+  • Search
+
+ 
+ CWE Glossary Definition                  x
+ 
+ 
+ CWE-367: Time-of-check Time-of-use (TOCTOU) Race Condition
+ 
+ Weakness ID: 367
+ Vulnerability Mapping: ALLOWEDThis CWE ID may be used to map to real-world vulnerabilities
+ Abstraction: BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level
+ weaknesses typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.
+ View customized information:
+ Conceptual For users who are interested in more notional aspects of a weakness. Example: educators, technical writers, and project/program managers. Operational For users who are concerned with the
+ practical application and details about the nature of a weakness and how to prevent it from happening. Example: tool developers, security researchers, pen-testers, incident response analysts. Mapping
+ Friendly For users who are mapping an issue to CWE/CAPEC IDs, i.e., finding the most appropriate CWE for a specific issue (e.g., a CVE record). Example: tool developers, security researchers. 
+ Complete For users who wish to see all available information for the CWE/CAPEC entry. Custom For users who want to customize what details are displayed.
+ ×
+
+ Edit Custom Filter
+
+ Conceptual Operational Mapping Friendly Select All
+ 
+ Reset Clear Submit Cancel
+ + Description
+ The product checks the state of a resource before using that resource, but the resource's state can change between the check and the use in a way that invalidates the results of the check. This can
+ cause the product to perform invalid actions when the resource is in an unexpected state.
+ + Extended Description
+ This weakness can be security-relevant when an attacker can influence the state of the resource between check and use. This can happen with shared resources such as files, memory, or even variables
+ in multithreaded programs.
+ + Alternate Terms
+ TOCTTOU: The TOCTTOU acronym expands to "Time Of Check To Time Of Use".
+ TOCCTOU: The TOCCTOU acronym is most likely a typo of TOCTTOU, but it has been used in some influential documents, so the typo is repeated fairly frequently.
+ + Relationships
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Research Concepts" (CWE-1000)
+     Nature                                                                                                                                                                             Type                                                                                                                                                                           ID         Name
+ ChildOf                                                                               ClassClass - a weakness that is described in a very abstract fashion, typically independent of any specific language or technology. More specific than a Pillar Weakness, but more general than a Base                                                                        362     Concurrent
+                                                                                                                    Weakness. Class level weaknesses typically describe issues in terms of 1 or 2 of the following dimensions: behavior, property, and resource.                                                                                                             Execution using
+                                                                                                                                                                                                                                                                                                                                                                             Shared Resource
+                                                                                                                                                                                                                                                                                                                                                                             with Improper
+                                                                                                                                                                                                                                                                                                                                                                             Synchronization
+                                                                                                                                                                                                                                                                                                                                                                             ('Race
+                                                                                                                                                                                                                                                                                                                                                                             Condition')
+ ParentOf                                                                                  BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level weaknesses                                                                           363     Race Condition
+                                                                                                                          typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                  Enabling Link
+                                                                                                                                                                                                                                                                                                                                                                             Following
+ PeerOf                                                                                    BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level weaknesses                                                                           386     Symbolic Name
+                                                                                                                          typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                  not Mapping to
+                                                                                                                                                                                                                                                                                                                                                                             Correct Object
+ CanFollow                                                                                 BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level weaknesses                                                                           609     Double-Checked
+                                                                                                                          typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                  Locking
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Software Development" (CWE-699)
+     Nature                                                       Type                                                     ID                                   Name
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 557     Concurrency Issues
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Weaknesses for Simplified Mapping of Published Vulnerabilities" (CWE-1003)
+     Nature                                                                                                                                                                             Type                                                                                                                                                                           ID         Name
+ ChildOf                                                                               ClassClass - a weakness that is described in a very abstract fashion, typically independent of any specific language or technology. More specific than a Pillar Weakness, but more general than a Base                                                                        362     Concurrent
+                                                                                                                    Weakness. Class level weaknesses typically describe issues in terms of 1 or 2 of the following dimensions: behavior, property, and resource.                                                                                                             Execution using
+                                                                                                                                                                                                                                                                                                                                                                             Shared Resource
+                                                                                                                                                                                                                                                                                                                                                                             with Improper
+                                                                                                                                                                                                                                                                                                                                                                             Synchronization
+                                                                                                                                                                                                                                                                                                                                                                             ('Race
+                                                                                                                                                                                                                                                                                                                                                                             Condition')
+ + Modes Of Introduction
+ Section HelpThe different Modes of Introduction provide information about how and when this weakness may be introduced. The Phase identifies a point in the life cycle at which introduction may occur,
+ while the Note provides a typical scenario related to introduction during the given phase.
+     Phase                                                                                              Note
+ Implementation
+ + Applicable Platforms
+ Section HelpThis listing shows possible areas for which the given weakness could appear. These may be for specific named Languages, Operating Systems, Architectures, Paradigms, Technologies, or a
+ class of such platforms. The platform is listed along with how frequently the given weakness appears for that instance.
+
+ Languages
+
+ Class: Not Language-Specific (Undetermined Prevalence)
+
+ + Common Consequences
+ Section HelpThis table specifies different individual consequences associated with the weakness. The Scope identifies the application security area that is violated, while the Impact describes the
+ negative technical impact that arises if an adversary succeeds in exploiting this weakness. The Likelihood provides information about how likely the specific consequence is expected to be seen
+ relative to the other consequences in the list. For example, there may be high likelihood that a weakness will be exploited to achieve a certain impact, but a low likelihood that it will be exploited
+ to achieve a different impact.
+       Scope                                                                                     Impact                                                                                 Likelihood
+ Integrity          Technical Impact: Alter Execution Logic; Unexpected State
+ Other
+                    The attacker can gain access to otherwise unauthorized resources.
+ Integrity          Technical Impact: Modify Application Data; Modify Files or Directories; Modify Memory; Other
+ Other
+                    Race conditions such as this kind may be employed to gain read or write access to resources which are not normally readable or writable by the user in question.
+ Integrity          Technical Impact: Other
+ Other
+                    The resource in question, or other resources (through the corrupted one), may be changed in undesirable ways by a malicious user.
+                    Technical Impact: Hide Activities
+ Non-Repudiation
+                    If a file or other resource is written in this method, as opposed to in a valid way, logging of the activity may not occur.
+ Non-Repudiation    Technical Impact: Other
+ Other
+                    In some cases it may be possible to delete files a malicious user might not otherwise have access to, such as log files.
+ + Likelihood Of Exploit
+ Medium
+ + Demonstrative Examples
+ 
+ Example 1
+
+ The following code checks a file, then updates its contents.
+
+ (bad code)
+ Example Language: C 
+ struct stat *sb;
+ ...
+ lstat("...",sb); // it has not been updated since the last time it was read
+ printf("stated file\n");
+ if (sb->st_mtimespec==...){
+ print("Now updating things\n");
+ updateThings();
+ }
+
+ Potentially the file could have been updated between the time of the check and the lstat, especially since the printf has latency.
+
+ Example 2
+
+ The following code is from a program installed setuid root. The program performs certain file operations on behalf of non-privileged users, and uses access checks to ensure that it does not use its
+ root privileges to perform operations that should otherwise be unavailable the current user. The program uses the access() system call to check if the person running the program has permission to
+ access the specified file before it opens the file and performs the necessary operations.
+
+ (bad code)
+ Example Language: C 
+ if(!access(file,W_OK)) {
+ f = fopen(file,"w+");
+ operate(f);
+ ...
+ }
+ else {
+
+ fprintf(stderr,"Unable to open file %s.\n",file);
+ }
+
+ The call to access() behaves as expected, and returns 0 if the user running the program has the necessary permissions to write to the file, and -1 otherwise. However, because both access() and fopen
+ () operate on filenames rather than on file handles, there is no guarantee that the file variable still refers to the same file on disk when it is passed to fopen() that it did when it was passed to
+ access(). If an attacker replaces file after the call to access() with a symbolic link to a different file, the program will use its root privileges to operate on the file even if it is a file that
+ the attacker would otherwise be unable to modify. By tricking the program into performing an operation that would otherwise be impermissible, the attacker has gained elevated privileges. This type of
+ vulnerability is not limited to programs with root privileges. If the application is capable of performing any operation that the attacker would not otherwise be allowed perform, then it is a
+ possible target.
+
+ Example 3
+
+ This code prints the contents of a file if a user has permission.
+
+ (bad code)
+ Example Language: PHP 
+ function readFile($filename){
+ $user = getCurrentUser();
+
+ //resolve file if its a symbolic link
+ if(is_link($filename)){
+ $filename = readlink($filename);
+ }
+
+ if(fileowner($filename) == $user){
+ echo file_get_contents($realFile);
+ return;
+ }
+ else{
+ echo 'Access denied';
+ return false;
+ }
+ }
+
+ This code attempts to resolve symbolic links before checking the file and printing its contents. However, an attacker may be able to change the file from a real file to a symbolic link between the
+ calls to is_link() and file_get_contents(), allowing the reading of arbitrary files. Note that this code fails to log the attempted access (CWE-778).
+
+ Example 4
+
+ This example is adapted from [REF-18]. Assume that this code block is invoked from multiple threads. The switch statement will execute different code depending on the time when MYFILE.txt was last
+ changed.
+
+ (bad code)
+ Example Language: C 
+ #include <sys/types.h>
+ #include <sys/stat.h>
+
+ ...
+
+ struct stat sb;
+ stat("MYFILE.txt",&sb);
+ printf("file change time: %d\n",sb->st_ctime);
+ switch(sb->st_ctime % 2){
+ case 0: printf("Option 1\n"); break;
+ case 1: printf("Option 2\n"); break;
+ default: printf("this should be unreachable?\n"); break;
+ }
+
+ If this code block were executed within multiple threads, and MYFILE.txt changed between the operation of one thread and another, then the switch could produce different, possibly unexpected results.
+
+ + Observed Examples
+        Reference                                                                                        Description
+ CVE-2015-1743           TOCTOU in sandbox process allows installation of untrusted browser add-ons by replacing a file after it has been verified, but before it is executed
+ CVE-2003-0813           A multi-threaded race condition allows remote attackers to cause a denial of service (crash or reboot) by causing two threads to process the same RPC request, which causes
+                         one thread to use memory after it has been freed.
+ CVE-2004-0594           PHP flaw allows remote attackers to execute arbitrary code by aborting execution before the initialization of key data structures is complete.
+ CVE-2008-2958           chain: time-of-check time-of-use (TOCTOU) race condition in program allows bypass of protection mechanism that was designed to prevent symlink attacks.
+ CVE-2008-1570           chain: time-of-check time-of-use (TOCTOU) race condition in program allows bypass of protection mechanism that was designed to prevent symlink attacks.
+ + Potential Mitigations
+ Phase: Implementation
+
+ The most basic advice for TOCTOU vulnerabilities is to not perform a check before the use. This does not resolve the underlying issue of the execution of a function on a resource whose state and
+ identity cannot be assured, but it does help to limit the false sense of security given by the check.
+ Phase: Implementation
+
+ When the file being altered is owned by the current user and group, set the effective gid and uid to that of the current user and group when executing this statement.
+ Phase: Architecture and Design
+
+ Limit the interleaving of operations on files from multiple processes.
+ Phases: Implementation; Architecture and Design
+
+ If you cannot perform operations atomically and you must share access to the resource between multiple processes or threads, then try to limit the amount of time (CPU cycles) between the check
+ and use of the resource. This will not fix the problem, but it could make it more difficult for an attack to succeed.
+ Phase: Implementation
+
+ Recheck the resource after the use call to verify that the action was taken appropriately.
+ Phase: Architecture and Design
+
+ Ensure that some environmental locking mechanism can be used to protect resources effectively.
+ Phase: Implementation
+
+ Ensure that locking occurs before the check, as opposed to afterwards, such that the resource, as checked, is the same as it is when in use.
+ + Detection Methods
+ Automated Static Analysis
+
+ Automated static analysis, commonly referred to as Static Application Security Testing (SAST), can find some instances of this weakness by analyzing source code (or binary/compiled code) without
+ having to execute it. Typically, this is done by building a model of data flow and control flow, then searching for potentially-vulnerable patterns that connect "sources" (origins of input) with
+ "sinks" (destinations where the data interacts with external components, a lower layer such as the OS, etc.)
+
+ Effectiveness: High
+
+ + Memberships
+ Section HelpThis MemberOf Relationships table shows additional CWE Categories and Views that reference this weakness as a member. This information is often useful in understanding where a weakness
+ fits within the context of external information sources.
+     Nature                                                                                                  Type                                                                                               ID         Name
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            361     7PK - Time and
+                                                                                                                                                                                                                      State
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            743     CERT C Secure
+                                                                                                                                                                                                                      Coding Standard
+                                                                                                                                                                                                                      (2008) Chapter
+                                                                                                                                                                                                                      10 - Input
+                                                                                                                                                                                                                      Output (FIO)
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            877     CERT C++ Secure
+                                                                                                                                                                                                                      Coding Section
+                                                                                                                                                                                                                      09 - Input
+                                                                                                                                                                                                                      Output (FIO)
+ MemberOf        ViewView - a subset of CWE entries that provides a way of examining CWE content. The two main view structures are Slices (flat lists) and Graphs (containing relationships between entries). 884     CWE
+                                                                                                                                                                                                                      Cross-section
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            988     SFP Secondary
+                                                                                                                                                                                                                      Cluster: Race
+                                                                                                                                                                                                                      Condition
+                                                                                                                                                                                                                      Window
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            1401    Comprehensive
+                                                                                                                                                                                                                      Categorization:
+                                                                                                                                                                                                                      Concurrency
+ + Vulnerability Mapping Notes
+ Usage: ALLOWED
+
+ (this CWE ID could be used to map to real-world vulnerabilities)
+ Reason: Acceptable-Use
+
+ Rationale:
+
+ This CWE entry is at the Base level of abstraction, which is a preferred level of abstraction for mapping to the root causes of vulnerabilities.
+ Comments:
+
+ Carefully read both the name and description to ensure that this mapping is an appropriate fit. Do not try to 'force' a mapping to a lower-level Base/Variant simply to comply with this preferred
+ level of abstraction.
+ + Notes
+ 
+ Relationship
+
+ TOCTOU issues do not always involve symlinks, and not every symlink issue is a TOCTOU problem.
+
+ Research Gap
+
+ Non-symlink TOCTOU issues are not reported frequently, but they are likely to occur in code that attempts to be secure.
+ + Taxonomy Mappings
+       Mapped Taxonomy Name          Node ID       Fit                                                                Mapped Node Name
+ PLOVER                                                  Time-of-check Time-of-use race condition
+ 7 Pernicious Kingdoms                                   File Access Race Conditions: TOCTOU
+ CLASP                                                   Time of check, time of use race condition
+ CLASP                                                   Race condition in switch
+ CERT C Secure Coding             FIO01-C                Be careful using functions that use file names for identification
+ Software Fault Patterns          SFP20                  Race Condition Window
+ + Related Attack Patterns
+    CAPEC-ID                                                                                     Attack Pattern Name
+ CAPEC-27        Leveraging Race Conditions via Symbolic Links
+ CAPEC-29        Leveraging Time-of-Check and Time-of-Use (TOCTOU) Race Conditions
+ + References
+ [REF-18] Secure Software, Inc.. "The CLASP Application Security Process". 5.4.6 Race condition in switch. 2005. <https://cwe.mitre.org/documents/sources/TheCLASPApplicationSecurityProcess.pdf>.
+ [REF-367] Dan Tsafrir, Tomer Hertz, David Wagner and Dilma Da Silva. "Portably Solving File TOCTTOU Races with Hardness Amplification". 2008-02-28. <https://www.usenix.org/legacy/events/fast08/
+ tech/tsafrir.html>. URL validated: 2023-04-07.
+ [REF-44] Michael Howard, David LeBlanc and John Viega. "24 Deadly Sins of Software Security". "Sin 13: Race Conditions." Page 205. McGraw-Hill. 2010.
+ [REF-62] Mark Dowd, John McDonald and Justin Schuh. "The Art of Software Security Assessment". Chapter 9, "TOCTOU", Page 527. 1st Edition. Addison Wesley. 2006.
+ + Content History
+                                                                                           + Submissions
+       Submission Date                                                Submitter                                                                         Organization
+ 2006-07-19                   PLOVER
+ (CWE Draft 3, 2006-07-19)
+
+                                                                                          + Modifications
+      Modification Date                                                Modifier                                                                         Organization
+ 2008-07-01                   Eric Dalci                                                                                 Cigital
+                              updated Time_of_Introduction
+ 2008-08-01                                                                                                              KDM Analytics
+                              added/updated white box definitions
+ 2008-09-08                   CWE Content Team                                                                           MITRE
+                              updated Common_Consequences, Relationships, Other_Notes, Taxonomy_Mappings
+ 2008-10-14                   CWE Content Team                                                                           MITRE
+                              updated Description, Name, Relationships
+ 2008-11-24                   CWE Content Team                                                                           MITRE
+                              updated Relationships, Taxonomy_Mappings
+ 2009-01-12                   CWE Content Team                                                                           MITRE
+                              updated Alternate_Terms, Observed_Examples, Other_Notes, References, Relationship_Notes, Relationships, Research_Gaps
+ 2009-05-27                   CWE Content Team                                                                           MITRE
+                              updated Demonstrative_Examples
+ 2009-07-17                   KDM Analytics
+                              Improved the White_Box_Definition
+ 2009-07-27                   CWE Content Team                                                                           MITRE
+                              updated White_Box_Definitions
+ 2010-09-27                   CWE Content Team                                                                           MITRE
+                              updated Description, Relationships
+ 2010-12-13                   CWE Content Team                                                                           MITRE
+                              updated Alternate_Terms, Relationships
+ 2011-06-01                   CWE Content Team                                                                           MITRE
+                              updated Common_Consequences
+ 2011-06-27                   CWE Content Team                                                                           MITRE
+                              updated Common_Consequences
+ 2011-09-13                   CWE Content Team                                                                           MITRE
+                              updated Relationships, Taxonomy_Mappings
+ 2012-05-11                   CWE Content Team                                                                           MITRE
+                              updated Demonstrative_Examples, Observed_Examples, References, Relationships
+ 2012-10-30                   CWE Content Team                                                                           MITRE
+                              updated Potential_Mitigations
+ 2014-07-30                   CWE Content Team                                                                           MITRE
+                              updated Demonstrative_Examples, Relationships, Taxonomy_Mappings
+ 2017-11-08                   CWE Content Team                                                                           MITRE
+                              updated Applicable_Platforms, Demonstrative_Examples, Likelihood_of_Exploit, References, Relationships, Taxonomy_Mappings, White_Box_Definitions
+ 2019-06-20                   CWE Content Team                                                                           MITRE
+                              updated Relationships
+ 2020-02-24                   CWE Content Team                                                                           MITRE
+                              updated References, Relationships
+ 2022-04-28                   CWE Content Team                                                                           MITRE
+                              updated Demonstrative_Examples, References, Relationships, Taxonomy_Mappings
+ 2022-06-28                   CWE Content Team                                                                           MITRE
+                              updated Observed_Examples
+ 2023-01-31                   CWE Content Team                                                                           MITRE
+                              updated Description
+ 2023-04-27                   CWE Content Team                                                                           MITRE
+                              updated Detection_Factors, References, Relationships
+ 2023-06-29                   CWE Content Team                                                                           MITRE
+                              updated Mapping_Notes
+                                                                                       + Previous Entry Names
+         Change Date                                                                                   Previous Entry Name
+ 2008-10-14                   Time-of-check Time-of-use Race Condition
+ More information is available — Please edit the custom filter or select a different filter.
+Page Last Updated: February 29, 2024
+ 
+      Site Map | Terms of Use | Manage Cookies | Cookie Notice | Privacy Policy | Contact Us | CWE X-Twitter CWE Mastodon CWE on LinkedIn CWE YouTube channel CWE Out-of-Bounds-Read Podcast CWE
+      Blog on Medium blog
+
+MITRE Use of the Common Weakness Enumeration (CWE™) and the associated references from this website are subject to the Terms of Use. CWE is sponsored by the U.S. Department of Homeland         HSSEDI
+      Security (DHS) Cybersecurity and Infrastructure Security Agency (CISA) and managed by the Homeland Security Systems Engineering and Development Institute (HSSEDI) which is operated by
+      The MITRE Corporation (MITRE). Copyright © 2006–2024, The MITRE Corporation. CWE, CWSS, CWRAF, and the CWE logo are trademarks of The MITRE Corporation.
+

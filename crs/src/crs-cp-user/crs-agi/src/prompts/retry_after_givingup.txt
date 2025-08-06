@@ -1,0 +1,12 @@
+# Summary of the previous trial
+
+You have attempted to achieve the goal ${tries} times, but shamefully
+failed.
+
+This is a summary of what "you" have tried:
+
+${reason}
+
+Considering this, tries hard to **avoid the same issue**.
+Only stupid person make the same mistake!
+I am giving you another chance, perhaps the last chance!

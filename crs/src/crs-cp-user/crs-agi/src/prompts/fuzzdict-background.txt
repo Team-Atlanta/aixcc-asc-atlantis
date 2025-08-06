@@ -1,0 +1,47 @@
+Fuzzer dictionaries
+===================
+
+By default, afl-fuzz mutation engine is optimized for compact data formats -
+say, images, multimedia, compressed data, regular expression syntax, or shell
+scripts. It is somewhat less suited for languages with particularly verbose and
+redundant verbiage - notably including HTML, SQL, or JavaScript.
+
+To avoid the hassle of building syntax-aware tools, afl-fuzz provides a way to
+seed the fuzzing process with an optional dictionary of language keywords,
+magic headers, or other special tokens associated with the targeted data type
+- and use that to reconstruct the underlying grammar on the go.
+
+To use this feature, you first need to create a dictionary in one of the two
+formats discussed (below). Custom dictionaries can be added at will. They should
+consist of a reasonably-sized set of rudimentary syntax units that the fuzzer
+will then try to clobber together in various ways. Snippets between 2 and 16
+bytes are usually the sweet spot.
+
+Custom dictionaries can be created in two ways:
+
+
+  1) By creating a new directory and placing each token in a separate file, in
+    which case, there is no need to escape or otherwise format the data.
+
+  2) By creating a flat text file where tokens are listed one per line in the
+    format of name="value". The alphanumeric name is ignored and can be omitted,
+    although it is a convenient way to document the meaning of a particular
+    token. The value must appear in quotes, with hex escaping (\xNN) applied to
+    all non-printable, high-bit, or otherwise problematic characters (\\ and \"
+    shorthands are recognized, too).
+
+
+~~~{sample.dict}
+# Lines starting with '#' and empty lines are ignored.
+
+# Adds "blah" (w/o quotes) to the dictionary.
+kw1="blah"
+# Use \\ for backslash and \" for quotes.
+kw2="\"ac\\dc\""
+# Use \xAB for hex values
+kw3="\xF7\xF8"
+# the name of the keyword followed by '=' may be omitted:
+"foo\x0Abar"
+# simple token
+"magic"
+~~~~

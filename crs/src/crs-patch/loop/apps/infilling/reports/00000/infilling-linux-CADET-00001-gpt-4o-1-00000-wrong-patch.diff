@@ -1,0 +1,75 @@
+--- drivers/CADET-00001/service.c
++++ drivers/CADET-00001/service.c
+@@ -36,13 +36,13 @@
+ int handle_main(void) {
+   int r;
+ 
+-  if (cadet00001_transmit_all(1, HI, sizeof(HI)-1) != 0) {
++  if (transmit_all(1, HI, sizeof(HI)-1) != 0) {
+     terminated = true;
+     return 0;
+   }
+ 
+   while(1){
+-    if (cadet00001_transmit_all(1, ASK, sizeof(ASK)-1) != 0) {
++    if (transmit_all(1, ASK, sizeof(ASK)-1) != 0) {
+       terminated = true;
+       return 0;
+     }
+@@ -51,13 +51,13 @@
+       break;
+     }
+     else if (r == 0){
+-      if (cadet00001_transmit_all(1, NO, sizeof(NO)-1) != 0) {
++      if (transmit_all(1, NO, sizeof(NO)-1) != 0) {
+         terminated = true;
+         return 0;
+       }
+     }
+     else{
+-      if (cadet00001_transmit_all(1, YES, sizeof(YES)-1) != 0) {
++      if (transmit_all(1, YES, sizeof(YES)-1) != 0) {
+         terminated = true;
+         return 0;
+       }
+@@ -75,15 +75,15 @@
+ 
+   for (i = 0; i < sizeof(string); i++)
+     string[i] = '\0';
+-  if (cadet00001_receive_delim(0, string, 128, '\n') != 0)
++  if (receive_delim(0, string, sizeof(string), '\n') != 0)
+     return -1;
+-  for(i = 0; i < sizeof(string) && string[i] != '\0'; i++){
++  for (i = 0; i < sizeof(string) && string[i] != '\0'; i++) {
+     len++;
+   }
+ 
+ 
+   if(string[0] == '^'){
+-    if (cadet00001_transmit_all(1, EASTEREGG, sizeof(EASTEREGG)-1) != 0) {
++    if (transmit_all(1, EASTEREGG, sizeof(EASTEREGG)-1) != 0) {
+       terminated = true;
+       return 0;
+     }
+@@ -118,10 +118,10 @@
+   mutex_lock(&locked_ioctl);
+   printk(KERN_INFO "service_ioctl: mutex acquired");
+ 
+-  cadet00001_kernel_puts_init();
++  kernel_puts_init();
+   printk(KERN_INFO "service_ioctl: puts init");
+ 
+-  result = cadet00001_kernel_receive_init(arg);
++  result = kernel_receive_init(arg);
+   printk(KERN_INFO "service_ioctl: receive init");
+ 
+   if (result != 0) {
+@@ -133,7 +133,7 @@
+   printk(KERN_INFO "service_ioctl: running handle_main finished");
+ 
+   // dump stdout
+-  if (cadet00001_kernel_puts_copy_to_user(((cadet00001_req_t *)arg)->stdout)) {
++  if (kernel_puts_copy_to_user(((req_t *)arg)->stdout)) {
+     result = -EFAULT;
+   }
+   printk(KERN_INFO "service_ioctl: dumping kernel puts finished");

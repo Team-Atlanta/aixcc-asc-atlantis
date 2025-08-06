@@ -1,0 +1,13 @@
+diff --git FuzzerTracePC.cpp FuzzerTracePC.cpp
+index 805e5c31a..1e9a2d355 100644
+--- FuzzerTracePC.cpp
++++ FuzzerTracePC.cpp
+@@ -388,7 +388,7 @@ void TracePC::AddValueForMemcmp(void *caller_pc, const void *s1, const void *s2,
+     }
+   }
+   size_t PC = reinterpret_cast<size_t>(caller_pc);
+-  size_t Idx = (PC & 4095) | (I << 12);
++  size_t Idx = (PC & 1023) | (I << 10);
+   Idx += HammingDistance;
+   ValueProfileMap.AddValue(Idx);
+   TORCW.Insert(Idx ^ Hash, Word(B1, Len1), Word(B2, Len2));

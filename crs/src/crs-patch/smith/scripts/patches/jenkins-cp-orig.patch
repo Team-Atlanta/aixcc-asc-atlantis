@@ -1,0 +1,42 @@
+diff --git a/Dockerfile b/Dockerfile
+index b4e3f74..33e8645 100644
+--- a/Dockerfile
++++ b/Dockerfile
+@@ -20,7 +20,7 @@
+ #       DOCKER_IMAGE_NAME=my-custom-image ./run.sh
+ 
+ #################################################################################################################
+-FROM ghcr.io/aixcc-sc/jazzer:v2.0.0
++FROM jazzer:v2.0.0
+ 
+ # global environment variables
+ ENV LC_ALL C.UTF-8
+diff --git a/project.yaml b/project.yaml
+index 021600f..66cee30 100644
+--- a/project.yaml
++++ b/project.yaml
+@@ -16,12 +16,12 @@ language: java
+ # associated with the repository.
+ cp_sources:
+     jenkins:
+-        address: "git@github.com:aixcc-sc/challenge-002-jenkins-source.git"
+-        ref: v3.0.0
++        address: "git@github.com:Team-Atlanta/asc-challenge-002-jenkins-cp-orig.git"
++        ref: main
+         artifacts:
+             - src/jenkins/war/target/jenkins.war
+     plugins/pipeline-util-plugin:
+-        address: "git@github.com:aixcc-sc/challenge-002-jenkins-plugins.git"
++        address: "git@github.com:Team-Atlanta/asc-challenge-002-jenkins-plugins.git"
+         ref: v2.0.0
+         artifacts:
+             - src/plugins/pipeline-util-plugin/target/UtilPlug.jar
+@@ -29,7 +29,7 @@ cp_sources:
+ 
+ # The docker_image property denotes the address to pull the pre-built Docker
+ # image for the CP.
+-docker_image: "ghcr.io/aixcc-sc/challenge-002-jenkins-cp:v3.0.0"
++docker_image: "ghcr.io/aixcc-sc/challenge-002-jenkins-cp-orig:v3.0.0"
+ 
+ # The sanitizers property denotes which sanitizers are available for scoring for
+ # the CP. When specifying a sanitizer ID to the scoring server, use the *key*

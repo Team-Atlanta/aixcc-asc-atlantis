@@ -1,0 +1,9 @@
+GitPython
+tree-sitter
+tree-sitter-c
+pygments
+langchain
+python-dotenv
+litellm
+openai
+langchain_community==0.2.4

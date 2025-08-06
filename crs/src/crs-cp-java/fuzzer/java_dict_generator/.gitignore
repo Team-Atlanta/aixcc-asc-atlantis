@@ -1,0 +1,11 @@
+.vscode
+target
+*.jar
+*.class
+!test/*/*.class
+sootOutput
+test/test.dict
+java.log
+venv
+*.dot
+test.sh

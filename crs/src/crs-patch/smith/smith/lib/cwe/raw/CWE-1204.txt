@@ -1,0 +1,229 @@
+CWE
+
+Common Weakness Enumeration
+
+A community-developed list of SW & HW weaknesses that can become vulnerabilities
+
+New to CWE? click here!
+CWE Most Important Hardware Weaknesses
+CWE Top 25 Most Dangerous Weaknesses
+Home > CWE List > CWE- Individual Dictionary Definition (4.14)                                                                                                   ID Lookup: [                    ] [Go]
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  • Home
+  • About ▼
+    About New to CWE User Stories History Documents FAQs Glossary Compatibility
+  • CWE List ▼
+    Latest Version Downloads Reports Visualizations Archive
+  • Mapping ▼
+    Root Cause Mapping Guidance Root Cause Mapping Quick Tips Root Cause Mapping Examples
+  • Top-N Lists ▼
+    Top 25 Software Top Hardware Top 10 KEV Weaknesses
+  • Community ▼
+    Community Working Groups & Special Interest Groups Board Board Meeting Minutes CWE Discussion List CWE Discussion Archives Contribute Weakness Content to CWE
+  • News ▼
+    Current News X-Twitter ● Mastodon ● LinkedIn ● YouTube YouTube Podcast Out of Bounds Read Podcast Medium Medium News Archive
+  • Search
+
+ 
+ CWE Glossary Definition                  x
+ 
+ 
+ CWE-1204: Generation of Weak Initialization Vector (IV)
+ 
+ Weakness ID: 1204
+ Vulnerability Mapping: ALLOWEDThis CWE ID may be used to map to real-world vulnerabilities
+ Abstraction: BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level
+ weaknesses typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.
+ View customized information:
+ Conceptual For users who are interested in more notional aspects of a weakness. Example: educators, technical writers, and project/program managers. Operational For users who are concerned with the
+ practical application and details about the nature of a weakness and how to prevent it from happening. Example: tool developers, security researchers, pen-testers, incident response analysts. Mapping
+ Friendly For users who are mapping an issue to CWE/CAPEC IDs, i.e., finding the most appropriate CWE for a specific issue (e.g., a CVE record). Example: tool developers, security researchers. 
+ Complete For users who wish to see all available information for the CWE/CAPEC entry. Custom For users who want to customize what details are displayed.
+ ×
+
+ Edit Custom Filter
+
+ Conceptual Operational Mapping Friendly Select All
+ 
+ Reset Clear Submit Cancel
+ + Description
+ The product uses a cryptographic primitive that uses an Initialization Vector (IV), but the product does not generate IVs that are sufficiently unpredictable or unique according to the expected
+ cryptographic requirements for that primitive.
+ + Extended Description
+ By design, some cryptographic primitives (such as block ciphers) require that IVs must have certain properties for the uniqueness and/or unpredictability of an IV. Primitives may vary in how
+ important these properties are. If these properties are not maintained, e.g. by a bug in the code, then the cryptography may be weakened or broken by attacking the IVs themselves.
+ + Relationships
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Research Concepts" (CWE-1000)
+     Nature                                                                                                                                                                             Type                                                                                                                                                                           ID         Name
+ ChildOf                                                                               ClassClass - a weakness that is described in a very abstract fashion, typically independent of any specific language or technology. More specific than a Pillar Weakness, but more general than a Base                                                                        330     Use of
+                                                                                                                    Weakness. Class level weaknesses typically describe issues in terms of 1 or 2 of the following dimensions: behavior, property, and resource.                                                                                                             Insufficiently
+                                                                                                                                                                                                                                                                                                                                                                             Random Values
+ ParentOf                                                                              VariantVariant - a weakness that is linked to a certain type of product, typically involving a specific language or technology. More specific than a Base weakness. Variant level weaknesses typically                                                                        329     Generation of
+                                                                                                                               describe issues in terms of 3 to 5 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                       Predictable IV
+                                                                                                                                                                                                                                                                                                                                                                             with CBC Mode
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Software Development" (CWE-699)
+     Nature                                                       Type                                                     ID                                   Name
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 310     Cryptographic Issues
+ + Modes Of Introduction
+ Section HelpThe different Modes of Introduction provide information about how and when this weakness may be introduced. The Phase identifies a point in the life cycle at which introduction may occur,
+ while the Note provides a typical scenario related to introduction during the given phase.
+     Phase                                                                                              Note
+ Implementation
+ + Applicable Platforms
+ Section HelpThis listing shows possible areas for which the given weakness could appear. These may be for specific named Languages, Operating Systems, Architectures, Paradigms, Technologies, or a
+ class of such platforms. The platform is listed along with how frequently the given weakness appears for that instance.
+
+ Languages
+
+ Class: Not Language-Specific (Undetermined Prevalence)
+
+ + Common Consequences
+ Section HelpThis table specifies different individual consequences associated with the weakness. The Scope identifies the application security area that is violated, while the Impact describes the
+ negative technical impact that arises if an adversary succeeds in exploiting this weakness. The Likelihood provides information about how likely the specific consequence is expected to be seen
+ relative to the other consequences in the list. For example, there may be high likelihood that a weakness will be exploited to achieve a certain impact, but a low likelihood that it will be exploited
+ to achieve a different impact.
+       Scope                                                                                     Impact                                                                                 Likelihood
+                    Technical Impact: Read Application Data
+ Confidentiality
+                    If the IV is not properly initialized, data that is encrypted can be compromised and information about the data can be leaked. See [REF-1179].
+ + Demonstrative Examples
+ 
+ Example 1
+
+ In the following examples, CBC mode is used when encrypting data:
+
+ (bad code)
+ Example Language: C 
+ EVP_CIPHER_CTX ctx;
+ char key[EVP_MAX_KEY_LENGTH];
+ char iv[EVP_MAX_IV_LENGTH];
+ RAND_bytes(key, b);
+ memset(iv,0,EVP_MAX_IV_LENGTH);
+ EVP_EncryptInit(&ctx,EVP_bf_cbc(), key,iv);
+ (bad code)
+ Example Language: Java 
+ public class SymmetricCipherTest {
+ public static void main() {
+
+ byte[] text ="Secret".getBytes();
+ byte[] iv ={
+ 0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00
+ };
+ KeyGenerator kg = KeyGenerator.getInstance("DES");
+ kg.init(56);
+ SecretKey key = kg.generateKey();
+ Cipher cipher = Cipher.getInstance("DES/CBC/PKCS5Padding");
+ IvParameterSpec ips = new IvParameterSpec(iv);
+ cipher.init(Cipher.ENCRYPT_MODE, key, ips);
+ return cipher.doFinal(inpBytes);
+ }
+ }
+
+ In both of these examples, the initialization vector (IV) is always a block of zeros. This makes the resulting cipher text much more predictable and susceptible to a dictionary attack.
+
+ Example 2
+
+ The Wired Equivalent Privacy (WEP) protocol used in the 802.11 wireless standard only supported 40-bit keys, and the IVs were only 24 bits, increasing the chances that the same IV would be reused for
+ multiple messages. The IV was included in plaintext as part of the packet, making it directly observable to attackers. Only 5000 messages are needed before a collision occurs due to the "birthday
+ paradox" [REF-1176]. Some implementations would reuse the same IV for each packet. This IV reuse made it much easier for attackers to recover plaintext from two packets with the same IV, using
+ well-understood attacks, especially if the plaintext was known for one of the packets [REF-1175].
+
+ + Observed Examples
+        Reference                                                                                        Description
+ CVE-2020-1472           ZeroLogon vulnerability - use of a static IV of all zeroes in AES-CFB8 mode
+ CVE-2011-3389           BEAST attack in SSL 3.0 / TLS 1.0. In CBC mode, chained initialization vectors are non-random, allowing decryption of HTTPS traffic using a chosen plaintext attack.
+ CVE-2001-0161           wireless router does not use 6 of the 24 bits for WEP encryption, making it easier for attackers to decrypt traffic
+ CVE-2001-0160           WEP card generates predictable IV values, making it easier for attackers to decrypt traffic
+ CVE-2017-3225           device bootloader uses a zero initialization vector during AES-CBC
+ CVE-2016-6485           crypto framework uses PHP rand function - which is not cryptographically secure - for an initialization vector
+ CVE-2014-5386           encryption routine does not seed the random number generator, causing the same initialization vector to be generated repeatedly
+ CVE-2020-5408           encryption functionality in an authentication framework uses a fixed null IV with CBC mode, allowing attackers to decrypt traffic in applications that use this
+                         functionality
+ CVE-2017-17704          messages for a door-unlocking product use a fixed IV in CBC mode, which is the same after each restart
+ CVE-2017-11133          application uses AES in CBC mode, but the pseudo-random secret and IV are generated using math.random, which is not cryptographically strong.
+ CVE-2007-3528           Blowfish-CBC implementation constructs an IV where each byte is calculated modulo 8 instead of modulo 256, resulting in less than 12 bits for the effective IV length, and
+                         less than 4096 possible IV values.
+ + Potential Mitigations
+ Phase: Implementation
+
+ Different cipher modes have different requirements for their IVs. When choosing and implementing a mode, it is important to understand those requirements in order to keep security guarantees
+ intact. Generally, it is safest to generate a random IV, since it will be both unpredictable and have a very low chance of being non-unique. IVs do not have to be kept secret, so if generating
+ duplicate IVs is a concern, a list of already-used IVs can be kept and checked against.
+
+ NIST offers recommendations on generation of IVs for modes of which they have approved. These include options for when random IVs are not practical. For CBC, CFB, and OFB, see [REF-1175]; for
+ GCM, see [REF-1178].
+
+ + Functional Areas
+ 
+   • Cryptography
+
+ + Memberships
+ Section HelpThis MemberOf Relationships table shows additional CWE Categories and Views that reference this weakness as a member. This information is often useful in understanding where a weakness
+ fits within the context of external information sources.
+     Nature                                                       Type                                                     ID                                   Name
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 1414    Comprehensive Categorization: Randomness
+ + Vulnerability Mapping Notes
+ Usage: ALLOWED
+
+ (this CWE ID could be used to map to real-world vulnerabilities)
+ Reason: Acceptable-Use
+
+ Rationale:
+
+ This CWE entry is at the Base level of abstraction, which is a preferred level of abstraction for mapping to the root causes of vulnerabilities.
+ Comments:
+
+ Carefully read both the name and description to ensure that this mapping is an appropriate fit. Do not try to 'force' a mapping to a lower-level Base/Variant simply to comply with this preferred
+ level of abstraction.
+ + Notes
+ 
+ Maintenance
+
+ As of CWE 4.5, terminology related to randomness, entropy, and predictability can vary widely. Within the developer and other communities, "randomness" is used heavily. However, within cryptography,
+ "entropy" is distinct, typically implied as a measurement. There are no commonly-used definitions, even within standards documents and cryptography papers. Future versions of CWE will attempt to
+ define these terms and, if necessary, distinguish between them in ways that are appropriate for different communities but do not reduce the usability of CWE for mapping, understanding, or other
+ scenarios.
+ + Related Attack Patterns
+    CAPEC-ID                                                                                     Attack Pattern Name
+ CAPEC-20        Encryption Brute Forcing
+ CAPEC-97        Cryptanalysis
+ + References
+ [REF-1175] Nikita Borisov, Ian Goldberg and David Wagner. "Intercepting Mobile Communications: The Insecurity of 802.11". 3. Risks of Keystream Reuse. Proceedings of the Seventh Annual
+ International Conference on Mobile Computing And Networking. ACM. 2001-07. <http://www.isaac.cs.berkeley.edu/isaac/mobicom.pdf>.
+ [REF-1175] Nikita Borisov, Ian Goldberg and David Wagner. "Intercepting Mobile Communications: The Insecurity of 802.11". Appendix C. Proceedings of the Seventh Annual International Conference on
+ Mobile Computing And Networking. ACM. 2001-07. <http://www.isaac.cs.berkeley.edu/isaac/mobicom.pdf>.
+ [REF-1176] Wikipedia. "Birthday problem". 2021-03-06. <https://en.wikipedia.org/wiki/Birthday_problem>.
+ [REF-1177] Wikipedia. "Initialization Vector". 2021-03-08. <https://en.wikipedia.org/wiki/Initialization_vector>.
+ [REF-1178] NIST. "Recommendation for Block Cipher Modes of Operation: Galois/Counter Mode (GCM) and GMAC". 8.2 IV Constructions. 2007-11. <https://nvlpubs.nist.gov/nistpubs/Legacy/SP/
+ nistspecialpublication800-38d.pdf>. URL validated: 2023-04-07.
+ [REF-1179] Arxum Path Security. "CBC Mode is Malleable. Don't trust it for Authentication". 2019-10-16. <https://arxumpathsecurity.com/blog/2019/10/16/
+ cbc-mode-is-malleable-dont-trust-it-for-authentication>. URL validated: 2023-04-07.
+ + Content History
+                                                                                            + Submissions
+                    Submission Date                                                       Submitter                                                             Organization
+ 2021-03-09                                            CWE Content Team                                                                 MITRE
+ (CWE 4.4, 2021-03-15)
+
+                                                                                           + Modifications
+                   Modification Date                                                       Modifier                                                             Organization
+ 2021-07-20                                            CWE Content Team                                                                 MITRE
+                                                       updated Maintenance_Notes, Observed_Examples, References
+ 2023-04-27                                            CWE Content Team                                                                 MITRE
+                                                       updated References, Relationships, Time_of_Introduction
+ 2023-06-29                                            CWE Content Team                                                                 MITRE
+                                                       updated Mapping_Notes
+ More information is available — Please edit the custom filter or select a different filter.
+Page Last Updated: February 29, 2024
+ 
+      Site Map | Terms of Use | Manage Cookies | Cookie Notice | Privacy Policy | Contact Us | CWE X-Twitter CWE Mastodon CWE on LinkedIn CWE YouTube channel CWE Out-of-Bounds-Read Podcast CWE
+      Blog on Medium blog
+
+MITRE Use of the Common Weakness Enumeration (CWE™) and the associated references from this website are subject to the Terms of Use. CWE is sponsored by the U.S. Department of Homeland         HSSEDI
+      Security (DHS) Cybersecurity and Infrastructure Security Agency (CISA) and managed by the Homeland Security Systems Engineering and Development Institute (HSSEDI) which is operated by
+      The MITRE Corporation (MITRE). Copyright © 2006–2024, The MITRE Corporation. CWE, CWSS, CWRAF, and the CWE logo are trademarks of The MITRE Corporation.
+

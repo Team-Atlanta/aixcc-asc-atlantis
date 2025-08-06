@@ -1,0 +1,320 @@
+CWE
+
+Common Weakness Enumeration
+
+A community-developed list of SW & HW weaknesses that can become vulnerabilities
+
+New to CWE? click here!
+CWE Most Important Hardware Weaknesses
+CWE Top 25 Most Dangerous Weaknesses
+Home > CWE List > CWE- Individual Dictionary Definition (4.14)                                                                                                   ID Lookup: [                    ] [Go]
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  • Home
+  • About ▼
+    About New to CWE User Stories History Documents FAQs Glossary Compatibility
+  • CWE List ▼
+    Latest Version Downloads Reports Visualizations Archive
+  • Mapping ▼
+    Root Cause Mapping Guidance Root Cause Mapping Quick Tips Root Cause Mapping Examples
+  • Top-N Lists ▼
+    Top 25 Software Top Hardware Top 10 KEV Weaknesses
+  • Community ▼
+    Community Working Groups & Special Interest Groups Board Board Meeting Minutes CWE Discussion List CWE Discussion Archives Contribute Weakness Content to CWE
+  • News ▼
+    Current News X-Twitter ● Mastodon ● LinkedIn ● YouTube YouTube Podcast Out of Bounds Read Podcast Medium Medium News Archive
+  • Search
+
+ 
+ CWE Glossary Definition                  x
+ 
+ 
+ CWE-835: Loop with Unreachable Exit Condition ('Infinite Loop')
+ 
+ Weakness ID: 835
+ Vulnerability Mapping: ALLOWEDThis CWE ID may be used to map to real-world vulnerabilities
+ Abstraction: BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level
+ weaknesses typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.
+ View customized information:
+ Conceptual For users who are interested in more notional aspects of a weakness. Example: educators, technical writers, and project/program managers. Operational For users who are concerned with the
+ practical application and details about the nature of a weakness and how to prevent it from happening. Example: tool developers, security researchers, pen-testers, incident response analysts. Mapping
+ Friendly For users who are mapping an issue to CWE/CAPEC IDs, i.e., finding the most appropriate CWE for a specific issue (e.g., a CVE record). Example: tool developers, security researchers. 
+ Complete For users who wish to see all available information for the CWE/CAPEC entry. Custom For users who want to customize what details are displayed.
+ ×
+
+ Edit Custom Filter
+
+ Conceptual Operational Mapping Friendly Select All
+ 
+ Reset Clear Submit Cancel
+ + Description
+ The product contains an iteration or loop with an exit condition that cannot be reached, i.e., an infinite loop.
+ + Extended Description
+ If the loop can be influenced by an attacker, this weakness could allow attackers to consume excessive resources such as CPU or memory.
+ + Relationships
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Research Concepts" (CWE-1000)
+     Nature                                                                                                                                                                             Type                                                                                                                                                                           ID          Name
+ ChildOf                                                                               ClassClass - a weakness that is described in a very abstract fashion, typically independent of any specific language or technology. More specific than a Pillar Weakness, but more general than a Base                                                                        834     Excessive
+                                                                                                                    Weakness. Class level weaknesses typically describe issues in terms of 1 or 2 of the following dimensions: behavior, property, and resource.                                                                                                             Iteration
+ CanFollow                                                                                 BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level weaknesses                                                                           1322    Use of Blocking
+                                                                                                                          typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                  Code in
+                                                                                                                                                                                                                                                                                                                                                                             Single-threaded,
+                                                                                                                                                                                                                                                                                                                                                                             Non-blocking
+                                                                                                                                                                                                                                                                                                                                                                             Context
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Software Development" (CWE-699)
+     Nature                                                       Type                                                     ID                                   Name
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 438     Behavioral Problems
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Weaknesses for Simplified Mapping of Published Vulnerabilities" (CWE-1003)
+     Nature                                                                                                                                                                             Type                                                                                                                                                                           ID      Name
+ ChildOf                                                                               ClassClass - a weakness that is described in a very abstract fashion, typically independent of any specific language or technology. More specific than a Pillar Weakness, but more general than a Base                                                                        834     Excessive
+                                                                                                                    Weakness. Class level weaknesses typically describe issues in terms of 1 or 2 of the following dimensions: behavior, property, and resource.                                                                                                             Iteration
+ + Applicable Platforms
+ Section HelpThis listing shows possible areas for which the given weakness could appear. These may be for specific named Languages, Operating Systems, Architectures, Paradigms, Technologies, or a
+ class of such platforms. The platform is listed along with how frequently the given weakness appears for that instance.
+
+ Languages
+
+ Class: Not Language-Specific (Undetermined Prevalence)
+
+ + Common Consequences
+ Section HelpThis table specifies different individual consequences associated with the weakness. The Scope identifies the application security area that is violated, while the Impact describes the
+ negative technical impact that arises if an adversary succeeds in exploiting this weakness. The Likelihood provides information about how likely the specific consequence is expected to be seen
+ relative to the other consequences in the list. For example, there may be high likelihood that a weakness will be exploited to achieve a certain impact, but a low likelihood that it will be exploited
+ to achieve a different impact.
+       Scope                                                                                     Impact                                                                                 Likelihood
+                    Technical Impact: DoS: Resource Consumption (CPU); DoS: Resource Consumption (Memory); DoS: Amplification
+ Availability
+                    An infinite loop will cause unexpected consumption of resources, such as CPU cycles or memory. The software's operation may slow down, or cause a long time to
+                    respond.
+ + Demonstrative Examples
+ 
+ Example 1
+
+ In the following code the method processMessagesFromServer attempts to establish a connection to a server and read and process messages from the server. The method uses a do/while loop to continue
+ trying to establish the connection to the server when an attempt fails.
+
+ (bad code)
+ Example Language: C 
+ int processMessagesFromServer(char *hostaddr, int port) {
+ ...
+ int servsock;
+ int connected;
+ struct sockaddr_in servaddr;
+
+ // create socket to connect to server
+ servsock = socket( AF_INET, SOCK_STREAM, 0);
+ memset( &servaddr, 0, sizeof(servaddr));
+ servaddr.sin_family = AF_INET;
+ servaddr.sin_port = htons(port);
+ servaddr.sin_addr.s_addr = inet_addr(hostaddr);
+
+ do {
+
+ // establish connection to server
+ connected = connect(servsock, (struct sockaddr *)&servaddr, sizeof(servaddr));
+
+ // if connected then read and process messages from server
+ if (connected > -1) {
+
+ // read and process messages
+ ...
+ }
+
+ // keep trying to establish connection to the server
+ } while (connected < 0);
+
+ // close socket and return success or failure
+ ...
+ }
+
+ However, this will create an infinite loop if the server does not respond. This infinite loop will consume system resources and can be used to create a denial of service attack. To resolve this a
+ counter should be used to limit the number of attempts to establish a connection to the server, as in the following code.
+
+ (good code)
+ Example Language: C 
+ int processMessagesFromServer(char *hostaddr, int port) {
+ ...
+ // initialize number of attempts counter
+ int count = 0;
+ do {
+
+ // establish connection to server
+ connected = connect(servsock, (struct sockaddr *)&servaddr, sizeof(servaddr));
+
+ // increment counter
+ count++;
+
+ // if connected then read and process messages from server
+ if (connected > -1) {
+
+ // read and process messages
+ ...
+ }
+
+ // keep trying to establish connection to the server
+
+ // up to a maximum number of attempts
+ } while (connected < 0 && count < MAX_ATTEMPTS);
+
+ // close socket and return success or failure
+ ...
+ }
+
+ Example 2
+
+ For this example, the method isReorderNeeded is part of a bookstore application that determines if a particular book needs to be reordered based on the current inventory count and the rate at which
+ the book is being sold.
+
+ (bad code)
+ Example Language: Java 
+ public boolean isReorderNeeded(String bookISBN, int rateSold) {
+
+ boolean isReorder = false;
+
+ int minimumCount = 10;
+ int days = 0;
+
+ // get inventory count for book
+ int inventoryCount = inventory.getIventoryCount(bookISBN);
+
+ // find number of days until inventory count reaches minimum
+ while (inventoryCount > minimumCount) {
+
+ inventoryCount = inventoryCount - rateSold;
+ days++;
+ }
+
+ // if number of days within reorder timeframe
+
+ // set reorder return boolean to true
+ if (days > 0 && days < 5) {
+ isReorder = true;
+ }
+
+ return isReorder;
+ }
+
+ However, the while loop will become an infinite loop if the rateSold input parameter has a value of zero since the inventoryCount will never fall below the minimumCount. In this case the input
+ parameter should be validated to ensure that a value of zero does not cause an infinite loop, as in the following code.
+
+ (good code)
+ Example Language: Java 
+ public boolean isReorderNeeded(String bookISBN, int rateSold) {
+ ...
+
+ // validate rateSold variable
+ if (rateSold < 1) {
+ return isReorder;
+ }
+
+ ...
+ }
+ + Observed Examples
+        Reference                                                                                        Description
+ CVE-2022-22224          Chain: an operating system does not properly process malformed Open Shortest Path First (OSPF) Type/Length/Value Identifiers (TLV) (CWE-703), which can cause the process
+                         to enter an infinite loop (CWE-835)
+ CVE-2022-25304          A Python machine communication platform did not account for receiving a malformed packet with a null size, causing the receiving function to never update the message
+                         buffer and be caught in an infinite loop.
+ CVE-2011-1027           Chain: off-by-one error (CWE-193) leads to infinite loop (CWE-835) using invalid hex-encoded characters.
+ CVE-2011-1142           Chain: self-referential values in recursive definitions lead to infinite loop.
+ CVE-2011-1002           NULL UDP packet is never cleared from a queue, leading to infinite loop.
+ CVE-2006-6499           Chain: web browser crashes due to infinite loop - "bad looping logic [that relies on] floating point math [CWE-1339] to exit the loop [CWE-835]"
+ CVE-2010-4476           Floating point conversion routine cycles back and forth between two different values.
+ CVE-2010-4645           Floating point conversion routine cycles back and forth between two different values.
+ CVE-2010-2534           Chain: improperly clearing a pointer in a linked list leads to infinite loop.
+ CVE-2013-1591           Chain: an integer overflow (CWE-190) in the image size calculation causes an infinite loop (CWE-835) which sequentially allocates buffers without limits (CWE-1325) until
+                         the stack is full.
+ CVE-2008-3688           Chain: A denial of service may be caused by an uninitialized variable (CWE-457) allowing an infinite loop (CWE-835) resulting from a connection to an unresponsive server.
+ + Memberships
+ Section HelpThis MemberOf Relationships table shows additional CWE Categories and Views that reference this weakness as a member. This information is often useful in understanding where a weakness
+ fits within the context of external information sources.
+     Nature                                                                                                  Type                                                                                               ID         Name
+ MemberOf        ViewView - a subset of CWE entries that provides a way of examining CWE content. The two main view structures are Slices (flat lists) and Graphs (containing relationships between entries). 884     CWE
+                                                                                                                                                                                                                      Cross-section
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            1131    CISQ Quality
+                                                                                                                                                                                                                      Measures (2016)
+                                                                                                                                                                                                                      - Security
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            1306    CISQ Quality
+                                                                                                                                                                                                                      Measures -
+                                                                                                                                                                                                                      Reliability
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            1308    CISQ Quality
+                                                                                                                                                                                                                      Measures -
+                                                                                                                                                                                                                      Security
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            1410    Comprehensive
+                                                                                                                                                                                                                      Categorization:
+                                                                                                                                                                                                                      Insufficient
+                                                                                                                                                                                                                      Control Flow
+                                                                                                                                                                                                                      Management
+ + Vulnerability Mapping Notes
+ Usage: ALLOWED
+
+ (this CWE ID could be used to map to real-world vulnerabilities)
+ Reason: Acceptable-Use
+
+ Rationale:
+
+ This CWE entry is at the Base level of abstraction, which is a preferred level of abstraction for mapping to the root causes of vulnerabilities.
+ Comments:
+
+ Carefully read both the name and description to ensure that this mapping is an appropriate fit. Do not try to 'force' a mapping to a lower-level Base/Variant simply to comply with this preferred
+ level of abstraction.
+ + Taxonomy Mappings
+       Mapped Taxonomy Name          Node ID                  Fit                                                                Mapped Node Name
+ OMG ASCSM                        ASCSM-CWE-835
+ + References
+ [REF-62] Mark Dowd, John McDonald and Justin Schuh. "The Art of Software Security Assessment". Chapter 7, "Looping Constructs", Page 327. 1st Edition. Addison Wesley. 2006.
+ [REF-962] Object Management Group (OMG). "Automated Source Code Security Measure (ASCSM)". ASCSM-CWE-835. 2016-01. <http://www.omg.org/spec/ASCSM/1.0/>.
+ + Content History
+                                                                                            + Submissions
+               Submission Date                                                      Submitter                                                                 Organization
+ 2011-03-22                                   CWE Content Team                                                                      MITRE
+ (CWE 1.12, 2011-03-30)
+
+                                                                                           + Modifications
+              Modification Date                                                     Modifier                                                                  Organization
+ 2011-06-01                                   CWE Content Team                                                                      MITRE
+                                              updated Common_Consequences, Relationships, Taxonomy_Mappings
+ 2012-05-11                                   CWE Content Team                                                                      MITRE
+                                              updated Demonstrative_Examples, References, Relationships, Taxonomy_Mappings
+ 2017-11-08                                   CWE Content Team                                                                      MITRE
+                                              updated Demonstrative_Examples
+ 2019-01-03                                   CWE Content Team                                                                      MITRE
+                                              updated References, Relationships, Taxonomy_Mappings
+ 2019-06-20                                   CWE Content Team                                                                      MITRE
+                                              updated Relationships
+ 2020-02-24                                   CWE Content Team                                                                      MITRE
+                                              updated Relationships
+ 2020-08-20                                   CWE Content Team                                                                      MITRE
+                                              updated Relationships
+ 2020-12-10                                   CWE Content Team                                                                      MITRE
+                                              updated Observed_Examples, Relationships
+ 2021-03-15                                   CWE Content Team                                                                      MITRE
+                                              updated Observed_Examples
+ 2021-07-20                                   CWE Content Team                                                                      MITRE
+                                              updated Observed_Examples
+ 2023-01-31                                   CWE Content Team                                                                      MITRE
+                                              updated Description, Observed_Examples
+ 2023-04-27                                   CWE Content Team                                                                      MITRE
+                                              updated Relationships
+ 2023-06-29                                   CWE Content Team                                                                      MITRE
+                                              updated Mapping_Notes
+ 2023-10-26                                   CWE Content Team                                                                      MITRE
+                                              updated Observed_Examples
+ 2024-02-29                                   CWE Content Team                                                                      MITRE
+ (CWE 4.14, 2024-02-29)                       updated Demonstrative_Examples
+ More information is available — Please edit the custom filter or select a different filter.
+Page Last Updated: February 29, 2024
+ 
+      Site Map | Terms of Use | Manage Cookies | Cookie Notice | Privacy Policy | Contact Us | CWE X-Twitter CWE Mastodon CWE on LinkedIn CWE YouTube channel CWE Out-of-Bounds-Read Podcast CWE
+      Blog on Medium blog
+
+MITRE Use of the Common Weakness Enumeration (CWE™) and the associated references from this website are subject to the Terms of Use. CWE is sponsored by the U.S. Department of Homeland         HSSEDI
+      Security (DHS) Cybersecurity and Infrastructure Security Agency (CISA) and managed by the Homeland Security Systems Engineering and Development Institute (HSSEDI) which is operated by
+      The MITRE Corporation (MITRE). Copyright © 2006–2024, The MITRE Corporation. CWE, CWSS, CWRAF, and the CWE logo are trademarks of The MITRE Corporation.
+

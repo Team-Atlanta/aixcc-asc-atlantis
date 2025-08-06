@@ -1,0 +1,8 @@
+__pycache__/
+env
+.coverage
+capi_logs/
+artifact_cache/
+cp_root/
+e2e/*.json
+loadtest/loadtest_config.yaml

@@ -1,0 +1,4 @@
+[url "https://github.com/"]
+    insteadOf = "git@github.com:"
+[credential]
+    helper = "!f() { sleep 1; echo \"username=${GITHUB_USER}\"; echo \"password=${GITHUB_TOKEN}\"; }; f"

@@ -1,0 +1,40 @@
+[tool.poetry]
+name = "redia"
+version = "0.1.0"
+description = ""
+authors = ["Minjae Gwon <beta.underalpha@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+pydantic = "^2.7.1"
+backoff = "^2.2.1"
+litellm = "^1.35.34"
+tree-sitter = "^0.21.3"
+grep-ast = "^0.2.4"
+pygments = "^2.18.0"
+networkx = "^3.3"
+numpy = "^1.26.4"
+scipy = "^1.13.0"
+rusty-results = "^1.1.1"
+openai = "^1.35.3"
+tiktoken = "^0.7.0"
+tree-sitter-languages = "^1.10.2"
+
+
+[tool.poetry.group.dev.dependencies]
+black = "^24.4.2"
+isort = "^5.13.2"
+pytest = "^8.2.0"
+pyright = "^1.1.362"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.pyright]
+reportMissingTypeStubs = false
+exclude = ["**/node_modules", "**/__pycache__", "**/.*", "dependencies/**"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

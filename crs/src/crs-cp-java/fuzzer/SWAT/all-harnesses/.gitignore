@@ -1,0 +1,5 @@
+init.value
+logs
+*.class
+.DS_Store
+.*.swp

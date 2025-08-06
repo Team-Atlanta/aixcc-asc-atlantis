@@ -1,0 +1,262 @@
+CWE
+
+Common Weakness Enumeration
+
+A community-developed list of SW & HW weaknesses that can become vulnerabilities
+
+New to CWE? click here!
+CWE Most Important Hardware Weaknesses
+CWE Top 25 Most Dangerous Weaknesses
+Home > CWE List > CWE- Individual Dictionary Definition (4.14)                                                                                                   ID Lookup: [                    ] [Go]
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  • Home
+  • About ▼
+    About New to CWE User Stories History Documents FAQs Glossary Compatibility
+  • CWE List ▼
+    Latest Version Downloads Reports Visualizations Archive
+  • Mapping ▼
+    Root Cause Mapping Guidance Root Cause Mapping Quick Tips Root Cause Mapping Examples
+  • Top-N Lists ▼
+    Top 25 Software Top Hardware Top 10 KEV Weaknesses
+  • Community ▼
+    Community Working Groups & Special Interest Groups Board Board Meeting Minutes CWE Discussion List CWE Discussion Archives Contribute Weakness Content to CWE
+  • News ▼
+    Current News X-Twitter ● Mastodon ● LinkedIn ● YouTube YouTube Podcast Out of Bounds Read Podcast Medium Medium News Archive
+  • Search
+
+ 
+ CWE Glossary Definition                  x
+ 
+ 
+ CWE-267: Privilege Defined With Unsafe Actions
+ 
+ Weakness ID: 267
+ Vulnerability Mapping: ALLOWEDThis CWE ID may be used to map to real-world vulnerabilities
+ Abstraction: BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level
+ weaknesses typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.
+ View customized information:
+ Conceptual For users who are interested in more notional aspects of a weakness. Example: educators, technical writers, and project/program managers. Operational For users who are concerned with the
+ practical application and details about the nature of a weakness and how to prevent it from happening. Example: tool developers, security researchers, pen-testers, incident response analysts. Mapping
+ Friendly For users who are mapping an issue to CWE/CAPEC IDs, i.e., finding the most appropriate CWE for a specific issue (e.g., a CVE record). Example: tool developers, security researchers. 
+ Complete For users who wish to see all available information for the CWE/CAPEC entry. Custom For users who want to customize what details are displayed.
+ ×
+
+ Edit Custom Filter
+
+ Conceptual Operational Mapping Friendly Select All
+ 
+ Reset Clear Submit Cancel
+ + Description
+ A particular privilege, role, capability, or right can be used to perform unsafe actions that were not intended, even when it is assigned to the correct entity.
+ + Relationships
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Research Concepts" (CWE-1000)
+     Nature                                                                                                                                                                             Type                                                                                                                                                                           ID       Name
+ ChildOf                                                                               ClassClass - a weakness that is described in a very abstract fashion, typically independent of any specific language or technology. More specific than a Pillar Weakness, but more general than a Base                                                                        269     Improper
+                                                                                                                    Weakness. Class level weaknesses typically describe issues in terms of 1 or 2 of the following dimensions: behavior, property, and resource.                                                                                                             Privilege
+                                                                                                                                                                                                                                                                                                                                                                             Management
+ ParentOf                                                                              VariantVariant - a weakness that is linked to a certain type of product, typically involving a specific language or technology. More specific than a Base weakness. Variant level weaknesses typically                                                                        623     Unsafe
+                                                                                                                               describe issues in terms of 3 to 5 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                       ActiveX
+                                                                                                                                                                                                                                                                                                                                                                             Control
+                                                                                                                                                                                                                                                                                                                                                                             Marked
+                                                                                                                                                                                                                                                                                                                                                                             Safe For
+                                                                                                                                                                                                                                                                                                                                                                             Scripting
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Software Development" (CWE-699)
+     Nature                                                       Type                                                     ID                                   Name
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 265     Privilege Issues
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Architectural Concepts" (CWE-1008)
+     Nature                                                       Type                                                     ID                                   Name
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 1011    Authorize Actors
+ + Modes Of Introduction
+ Section HelpThe different Modes of Introduction provide information about how and when this weakness may be introduced. The Phase identifies a point in the life cycle at which introduction may occur,
+ while the Note provides a typical scenario related to introduction during the given phase.
+          Phase                                                                                             Note
+ Architecture and Design
+ Implementation          REALIZATION: This weakness is caused during implementation of an architectural security tactic.
+ Operation
+ + Applicable Platforms
+ Section HelpThis listing shows possible areas for which the given weakness could appear. These may be for specific named Languages, Operating Systems, Architectures, Paradigms, Technologies, or a
+ class of such platforms. The platform is listed along with how frequently the given weakness appears for that instance.
+
+ Languages
+
+ Class: Not Language-Specific (Undetermined Prevalence)
+
+ + Common Consequences
+ Section HelpThis table specifies different individual consequences associated with the weakness. The Scope identifies the application security area that is violated, while the Impact describes the
+ negative technical impact that arises if an adversary succeeds in exploiting this weakness. The Likelihood provides information about how likely the specific consequence is expected to be seen
+ relative to the other consequences in the list. For example, there may be high likelihood that a weakness will be exploited to achieve a certain impact, but a low likelihood that it will be exploited
+ to achieve a different impact.
+       Scope                                                                                     Impact                                                                                 Likelihood
+                    Technical Impact: Gain Privileges or Assume Identity
+ Access Control
+                    A user can access restricted functionality and/or sensitive information that may include administrative functionality and user accounts.
+ + Demonstrative Examples
+ 
+ Example 1
+
+ This code intends to allow only Administrators to print debug information about a system.
+
+ (bad code)
+ Example Language: Java 
+ public enum Roles {
+ ADMIN,USER,GUEST
+ }
+
+ public void printDebugInfo(User requestingUser){
+ if(isAuthenticated(requestingUser)){
+ switch(requestingUser.role){
+ case GUEST:
+ System.out.println("You are not authorized to perform this command");
+ break;
+
+ default:
+ System.out.println(currentDebugState());
+ break;
+ }
+ }
+ else{
+ System.out.println("You must be logged in to perform this command");
+ }
+ }
+
+ While the intention was to only allow Administrators to print the debug information, the code as written only excludes those with the role of "GUEST". Someone with the role of "ADMIN" or "USER" will
+ be allowed access, which goes against the original intent. An attacker may be able to use this debug information to craft an attack on the system.
+
+ + Observed Examples
+        Reference                                                                                        Description
+ CVE-2002-1981           Roles have access to dangerous procedures (Accessible entities).
+ CVE-2002-1671           Untrusted object/method gets access to clipboard (Accessible entities).
+ CVE-2004-2204           Gain privileges using functions/tags that should be restricted (Accessible entities).
+ CVE-2000-0315           Traceroute program allows unprivileged users to modify source address of packet (Accessible entities).
+ CVE-2004-0380           Bypass domain restrictions using a particular file that references unsafe URI schemes (Accessible entities).
+ CVE-2002-1154           Script does not restrict access to an update command, leading to resultant disk consumption and filled error logs (Accessible entities).
+ CVE-2002-1145           "public" database user can use stored procedure to modify data controlled by the database owner (Unsafe privileged actions).
+ CVE-2000-0506           User with capability can prevent setuid program from dropping privileges (Unsafe privileged actions).
+ CVE-2002-2042           Allows attachment to and modification of privileged processes (Unsafe privileged actions).
+ CVE-2000-1212           User with privilege can edit raw underlying object using unprotected method (Unsafe privileged actions).
+ CVE-2005-1742           Inappropriate actions allowed by a particular role(Unsafe privileged actions).
+ CVE-2001-1480           Untrusted entity allowed to access the system clipboard (Unsafe privileged actions).
+ CVE-2001-1551           Extra Linux capability allows bypass of system-specified restriction (Unsafe privileged actions).
+ CVE-2001-1166           User with debugging rights can read entire process (Unsafe privileged actions).
+ CVE-2005-1816           Non-root admins can add themselves or others to the root admin group (Unsafe privileged actions).
+ CVE-2005-2173           Users can change certain properties of objects to perform otherwise unauthorized actions (Unsafe privileged actions).
+ CVE-2005-2027           Certain debugging commands not restricted to just the administrator, allowing registry modification and infoleak (Unsafe privileged actions).
+ + Potential Mitigations
+ Phases: Architecture and Design; Operation
+
+ Very carefully manage the setting, management, and handling of privileges. Explicitly manage trust zones in the software.
+ Phases: Architecture and Design; Operation
+
+ Strategy: Environment Hardening
+
+ Run your code using the lowest privileges that are required to accomplish the necessary tasks [REF-76]. If possible, create isolated accounts with limited privileges that are only used for a
+ single task. That way, a successful attack will not immediately give the attacker access to the rest of the software or its environment. For example, database applications rarely need to run as
+ the database administrator, especially in day-to-day operations.
+ + Memberships
+ Section HelpThis MemberOf Relationships table shows additional CWE Categories and Views that reference this weakness as a member. This information is often useful in understanding where a weakness
+ fits within the context of external information sources.
+     Nature                                                                                                  Type                                                                                               ID         Name
+ MemberOf        ViewView - a subset of CWE entries that provides a way of examining CWE content. The two main view structures are Slices (flat lists) and Graphs (containing relationships between entries). 884     CWE
+                                                                                                                                                                                                                      Cross-section
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            901     SFP Primary
+                                                                                                                                                                                                                      Cluster:
+                                                                                                                                                                                                                      Privilege
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            1396    Comprehensive
+                                                                                                                                                                                                                      Categorization:
+                                                                                                                                                                                                                      Access Control
+ + Vulnerability Mapping Notes
+ Usage: ALLOWED
+
+ (this CWE ID could be used to map to real-world vulnerabilities)
+ Reason: Acceptable-Use
+
+ Rationale:
+
+ This CWE entry is at the Base level of abstraction, which is a preferred level of abstraction for mapping to the root causes of vulnerabilities.
+ Comments:
+
+ Carefully read both the name and description to ensure that this mapping is an appropriate fit. Do not try to 'force' a mapping to a lower-level Base/Variant simply to comply with this preferred
+ level of abstraction.
+ + Notes
+ 
+ Maintenance
+
+ Note: there are 2 separate sub-categories here:
+
+ - privilege incorrectly allows entities to perform certain actions
+ - object is incorrectly accessible to entities with a given privilege
+ + Taxonomy Mappings
+       Mapped Taxonomy Name          Node ID                 Fit                                                                Mapped Node Name
+ PLOVER                                                                      Unsafe Privilege
+ + Related Attack Patterns
+    CAPEC-ID                                                                                     Attack Pattern Name
+ CAPEC-58        Restful Privilege Elevation
+ CAPEC-634       Probe Audio and Video Peripherals
+ CAPEC-637       Collect Data from Clipboard
+ CAPEC-643       Identify Shared Files/Directories on System
+ CAPEC-648       Collect Data from Screen Capture
+ + References
+ [REF-76] Sean Barnum and Michael Gegick. "Least Privilege". 2005-09-14. <https://web.archive.org/web/20211209014121/https://www.cisa.gov/uscert/bsi/articles/knowledge/principles/least-privilege>.
+ URL validated: 2023-04-07.
+ + Content History
+                                                                                           + Submissions
+                 Submission Date                                                     Submitter                                                               Organization
+ 2006-07-19                                      PLOVER
+ (CWE Draft 3, 2006-07-19)
+
+                                                                                          + Modifications
+                Modification Date                                                     Modifier                                                               Organization
+ 2008-07-01                                      Eric Dalci                                                                         Cigital
+                                                 updated Time_of_Introduction
+ 2008-09-08                                      CWE Content Team                                                                   MITRE
+                                                 updated Description, Maintenance_Notes, Relationships, Taxonomy_Mappings
+ 2008-11-24                                      CWE Content Team                                                                   MITRE
+                                                 updated Relationships
+ 2009-12-28                                      CWE Content Team                                                                   MITRE
+                                                 updated Potential_Mitigations
+ 2010-06-21                                      CWE Content Team                                                                   MITRE
+                                                 updated Potential_Mitigations
+ 2011-06-01                                      CWE Content Team                                                                   MITRE
+                                                 updated Common_Consequences
+ 2012-05-11                                      CWE Content Team                                                                   MITRE
+                                                 updated Common_Consequences, Demonstrative_Examples, Relationships
+ 2012-10-30                                      CWE Content Team                                                                   MITRE
+                                                 updated Potential_Mitigations, References
+ 2017-11-08                                      CWE Content Team                                                                   MITRE
+                                                 updated Applicable_Platforms, Modes_of_Introduction, References, Relationships
+ 2019-01-03                                      CWE Content Team                                                                   MITRE
+                                                 updated Related_Attack_Patterns
+ 2019-09-19                                      CWE Content Team                                                                   MITRE
+                                                 updated Demonstrative_Examples
+ 2020-02-24                                      CWE Content Team                                                                   MITRE
+                                                 updated Relationships
+ 2020-08-20                                      CWE Content Team                                                                   MITRE
+                                                 updated Demonstrative_Examples
+ 2021-03-15                                      CWE Content Team                                                                   MITRE
+                                                 updated Maintenance_Notes
+ 2022-10-13                                      CWE Content Team                                                                   MITRE
+                                                 updated References
+ 2023-04-27                                      CWE Content Team                                                                   MITRE
+                                                 updated References, Relationships
+ 2023-06-29                                      CWE Content Team                                                                   MITRE
+                                                 updated Mapping_Notes
+                                                                                       + Previous Entry Names
+                   Change Date                                                                                   Previous Entry Name
+ 2008-04-11                                      Unsafe Privilege
+ More information is available — Please edit the custom filter or select a different filter.
+Page Last Updated: February 29, 2024
+ 
+      Site Map | Terms of Use | Manage Cookies | Cookie Notice | Privacy Policy | Contact Us | CWE X-Twitter CWE Mastodon CWE on LinkedIn CWE YouTube channel CWE Out-of-Bounds-Read Podcast CWE
+      Blog on Medium blog
+
+MITRE Use of the Common Weakness Enumeration (CWE™) and the associated references from this website are subject to the Terms of Use. CWE is sponsored by the U.S. Department of Homeland         HSSEDI
+      Security (DHS) Cybersecurity and Infrastructure Security Agency (CISA) and managed by the Homeland Security Systems Engineering and Development Institute (HSSEDI) which is operated by
+      The MITRE Corporation (MITRE). Copyright © 2006–2024, The MITRE Corporation. CWE, CWSS, CWRAF, and the CWE logo are trademarks of The MITRE Corporation.
+

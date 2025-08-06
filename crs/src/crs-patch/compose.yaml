@@ -1,0 +1,81 @@
+### Additional services are welcomed, just make sure to use the supplied variables and profile names
+services:
+  crs-patch:
+    profiles:
+      - development
+      - competition
+    # Competitors: All services that are expected to have a clean exit must have restart: on-failure
+    restart: on-failure
+    build:
+      context: .  # Note that this uses the base folder for context, you may not need this for your CRS
+      # Competitors: You MUST change to your Dockerfile location for your CRS.
+      # This points to the mock_crs by default.
+      dockerfile: Dockerfile
+      # Competitors: You will need to change this command to trigger your CRS.
+      # If you have multiple containers for your CRS you must design your own
+      # orchestration and sychronization mechanisms.
+    # command: ["./run.sh"]
+    privileged: true
+    volumes:
+      #################################################################################
+      ### THESE VOLUMES MUST BE INCLUDED WITHOUT MODIFICATION TO ALL CRS CONTAINERS ###
+      # A CRS MUST copy CP repositories from `/cp_root` to a writable location such as `/crs_scratch` for building and testing CPs.
+      # A CRS MUST not modify settings within this section.
+      - type: bind
+        # TODO: Fix this to use source path as ${PWD}/crs_scratch
+        source: /crs_scratch
+        target: /crs_scratch
+        bind:
+          propagation: rshared
+      - type: bind
+        source: ./cp_root
+        target: /cp_root
+        read_only: true
+      #################################################################################
+      - /dev/kvm:/dev/kvm
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /var/lib/docker/:/var/lib/docker/
+      # TODO: may need to change this to `/crs_scratch`
+      - type: bind
+        source: /crs-workdir-${LOGNAME}
+        target: /crs-workdir-${LOGNAME}
+        bind:
+          create_host_path: true
+
+    environment:
+      # These values will be modified automatically at competition time
+      # - DOCKER_HOST=tcp://dind:2375
+      - AIXCC_LITELLM_HOSTNAME=${LITELLM_HOSTNAME}
+      - AIXCC_API_HOSTNAME=http://iapi:8080
+      - AIXCC_CP_ROOT=/cp_root
+      - AIXCC_CRS_SCRATCH_SPACE=/crs_scratch
+      - LITELLM_KEY=${LITELLM_KEY}
+    # depends_on:
+    #   iapi:
+    #     condition: service_healthy
+
+  crs-mock-vd:
+    profiles:
+      - development
+    # Competitors: All services that are expected to have a clean exit must have restart: on-failure
+    restart: on-failure
+    build:
+      context: mock-vd  # Note that this uses the base folder for context, you may not need this for your CRS
+      # Competitors: You MUST change to your Dockerfile location for your CRS.
+      # This points to the mock_crs by default.
+      dockerfile: Dockerfile
+      # Competitors: You will need to change this command to trigger your CRS.
+      # If you have multiple containers for your CRS you must design your own
+      # orchestration and sychronization mechanisms.
+    # command: ["./run.py"]
+    volumes:
+      #################################################################################
+      ### THESE VOLUMES MUST BE INCLUDED WITHOUT MODIFICATION TO ALL CRS CONTAINERS ###
+      # A CRS MUST copy CP repositories from `/cp_root` to a writable location such as `/crs_scratch` for building and testing CPs.
+      # A CRS MUST not modify settings within this section.
+      - type: bind
+        source: /crs_scratch
+        target: /crs_scratch
+        bind:
+          propagation: rshared
+      #################################################################################

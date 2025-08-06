@@ -1,0 +1,29 @@
+file: AIxCC-Rules-V5.pdf
+
+Read this document carefully. Digest all pages! Nail it.
+
+This is a bit of context. We are participating in the competition as a team, and implementing a CRS (cyber reasoning system). In particular, our team is in charge of "bug finding" of a given CP (challenge project). To get a score, we have to "craft" the bug-triggering input that can be caught by "sanitizers".
+
+Let me explain a bit of how the game is organized a bit. CP is basically a code repository that contains a series of commits, some of which contain the bug that can trigger a pre-defined sanitizer -- you can think of like ASAN, UBSAN, MSAN, etc to catch bugs in C or C++ program. Your job is to find a program input (expressed in a file) that the "testing" harness can accept and trigger the bug in the project behind. The "testing" harness is very specific to the CP. Although the final form is very unspecified, we have three examples so far. (1) in case of the Linux kernel, a userspace program is given as a harness that accepts a binary blob and interprets as a sequence of system calls along with the arguments. (2) Another example of a Jenkins provides a "fuzzing" harness as it is as a testing harness. (3) in case of a simple user program (called a mock CP), a shell script is given as a harness so that it naively relay the standard input to the program.
+
+You job again is to understand the given CP, recognize the input that can trigger the bug "via" the fuzzing harness. To do so, it is a key to understand the relationship between the testing harness with the given CP. The complexity of CP varies a lot -- in case of the Linux kernel, you have to understand how the testing harness parses the input and how to link them to the code that leads "inside" the kernel. In other words, even after you recognize the bug inside the kernel, you still have to formulate the input that maneuver the testing harness to the right place. Other team members are working on how to patch the found bug, so focus on bug finding in this session.
+
+The bug in the competition is not arbitrary; we consider the bugs that can be caught by the sanitizers specific to the CP. `project.yaml` in the CP directory specifies what sanitizers' output they are looking for (under the "sanitizers" section in `project.yaml`). Your job again is to find the bug that will be provided to the testing harness, so that the sanitizers can print out such message specified in the `project.yaml`.
+
+```
+ls(<path>)                             : Provide a list of files
+read_file(<path>)                      : Read the content of the file in the path (not directory)
+write_file(<path>, <content>)          : Overwrite (or create) a file with the content
+shell(<shell_cmd>)                     : Run a shell command
+```
+
+You have a complete access to the CP repository, and can run a shell command under that directory. The provided CP is already built, tested to run the provided test cases (`./run.sh run_tests`), so you don't have to build or pull the source code. Use the `work/` directory as a place to put a temporary file.
+
+Your first task is to understand how the testing harness work in this CP.
+Here are a list of files of your interests:
+
+`project.yaml` : describing "sanitizers" and "harnesses"
+`README.md`    : describing the project
+`run.sh`       : describing how to run/test CP
+
+DO WORK!

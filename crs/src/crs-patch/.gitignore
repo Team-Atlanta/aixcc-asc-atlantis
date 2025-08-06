@@ -1,0 +1,6 @@
+.vscode
+**/__pycache__
+
+# Docker created directory/files
+cp_root
+crs_scratch

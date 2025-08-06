@@ -1,0 +1,369 @@
+CWE
+
+Common Weakness Enumeration
+
+A community-developed list of SW & HW weaknesses that can become vulnerabilities
+
+New to CWE? click here!
+CWE Most Important Hardware Weaknesses
+CWE Top 25 Most Dangerous Weaknesses
+Home > CWE List > CWE- Individual Dictionary Definition (4.14)                                                                                                   ID Lookup: [                    ] [Go]
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  • Home
+  • About ▼
+    About New to CWE User Stories History Documents FAQs Glossary Compatibility
+  • CWE List ▼
+    Latest Version Downloads Reports Visualizations Archive
+  • Mapping ▼
+    Root Cause Mapping Guidance Root Cause Mapping Quick Tips Root Cause Mapping Examples
+  • Top-N Lists ▼
+    Top 25 Software Top Hardware Top 10 KEV Weaknesses
+  • Community ▼
+    Community Working Groups & Special Interest Groups Board Board Meeting Minutes CWE Discussion List CWE Discussion Archives Contribute Weakness Content to CWE
+  • News ▼
+    Current News X-Twitter ● Mastodon ● LinkedIn ● YouTube YouTube Podcast Out of Bounds Read Podcast Medium Medium News Archive
+  • Search
+
+ 
+ CWE Glossary Definition                  x
+ 
+ 
+ CWE-193: Off-by-one Error
+ 
+ Weakness ID: 193
+ Vulnerability Mapping: ALLOWEDThis CWE ID may be used to map to real-world vulnerabilities
+ Abstraction: BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level
+ weaknesses typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.
+ View customized information:
+ Conceptual For users who are interested in more notional aspects of a weakness. Example: educators, technical writers, and project/program managers. Operational For users who are concerned with the
+ practical application and details about the nature of a weakness and how to prevent it from happening. Example: tool developers, security researchers, pen-testers, incident response analysts. Mapping
+ Friendly For users who are mapping an issue to CWE/CAPEC IDs, i.e., finding the most appropriate CWE for a specific issue (e.g., a CVE record). Example: tool developers, security researchers. 
+ Complete For users who wish to see all available information for the CWE/CAPEC entry. Custom For users who want to customize what details are displayed.
+ ×
+
+ Edit Custom Filter
+
+ Conceptual Operational Mapping Friendly Select All
+ 
+ Reset Clear Submit Cancel
+ + Description
+ A product calculates or uses an incorrect maximum or minimum value that is 1 more, or 1 less, than the correct value.
+ + Alternate Terms
+ off-by-five: An "off-by-five" error was reported for sudo in 2002 (CVE-2002-0184), but that is more like a "length calculation" error.
+ + Relationships
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Research Concepts" (CWE-1000)
+     Nature                                                                                                                                                                               Type                                                                                                                                                                            ID       Name
+ ChildOf                                                                                 PillarPillar - a weakness that is the most abstract type of weakness and represents a theme for all class/base/variant weaknesses related to it. A Pillar is different from a Category as a Pillar is                                                                          682     Incorrect
+                                                                                                                    still technically a type of weakness that describes a mistake, while a Category represents a common characteristic used to group related things.                                                                                                            Calculation
+ CanPrecede                                                                              ClassClass - a weakness that is described in a very abstract fashion, typically independent of any specific language or technology. More specific than a Pillar Weakness, but more general than a Base                                                                         119     Improper
+                                                                                                                      Weakness. Class level weaknesses typically describe issues in terms of 1 or 2 of the following dimensions: behavior, property, and resource.                                                                                                              Restriction
+                                                                                                                                                                                                                                                                                                                                                                                of
+                                                                                                                                                                                                                                                                                                                                                                                Operations
+                                                                                                                                                                                                                                                                                                                                                                                within the
+                                                                                                                                                                                                                                                                                                                                                                                Bounds of a
+                                                                                                                                                                                                                                                                                                                                                                                Memory
+                                                                                                                                                                                                                                                                                                                                                                                Buffer
+ CanPrecede                                                                                 BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level weaknesses                                                                             170     Improper
+                                                                                                                           typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                    Null
+                                                                                                                                                                                                                                                                                                                                                                                Termination
+ CanPrecede                                                                                 BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level weaknesses                                                                             617     Reachable
+                                                                                                                           typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                    Assertion
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Software Development" (CWE-699)
+     Nature                                                       Type                                                     ID                                   Name
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 189     Numeric Errors
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Weaknesses for Simplified Mapping of Published Vulnerabilities" (CWE-1003)
+     Nature                                                                                                                                                                               Type                                                                                                                                                                            ID       Name
+ ChildOf                                                                                 PillarPillar - a weakness that is the most abstract type of weakness and represents a theme for all class/base/variant weaknesses related to it. A Pillar is different from a Category as a Pillar is                                                                          682     Incorrect
+                                                                                                                    still technically a type of weakness that describes a mistake, while a Category represents a common characteristic used to group related things.                                                                                                            Calculation
+ + Modes Of Introduction
+ Section HelpThe different Modes of Introduction provide information about how and when this weakness may be introduced. The Phase identifies a point in the life cycle at which introduction may occur,
+ while the Note provides a typical scenario related to introduction during the given phase.
+     Phase                                                                                              Note
+ Implementation
+ + Applicable Platforms
+ Section HelpThis listing shows possible areas for which the given weakness could appear. These may be for specific named Languages, Operating Systems, Architectures, Paradigms, Technologies, or a
+ class of such platforms. The platform is listed along with how frequently the given weakness appears for that instance.
+
+ Languages
+
+ Class: Not Language-Specific (Undetermined Prevalence)
+
+ + Common Consequences
+ Section HelpThis table specifies different individual consequences associated with the weakness. The Scope identifies the application security area that is violated, while the Impact describes the
+ negative technical impact that arises if an adversary succeeds in exploiting this weakness. The Likelihood provides information about how likely the specific consequence is expected to be seen
+ relative to the other consequences in the list. For example, there may be high likelihood that a weakness will be exploited to achieve a certain impact, but a low likelihood that it will be exploited
+ to achieve a different impact.
+       Scope                                                                                     Impact                                                                                 Likelihood
+                    Technical Impact: DoS: Crash, Exit, or Restart; DoS: Resource Consumption (CPU); DoS: Resource Consumption (Memory); DoS: Instability
+ Availability
+                    This weakness will generally lead to undefined behavior and therefore crashes. In the case of overflows involving loop index variables, the likelihood of
+                    infinite loops is also high.
+                    Technical Impact: Modify Memory
+ Integrity
+                    If the value in question is important to data (as opposed to flow), simple data corruption has occurred. Also, if the wrap around results in other conditions
+                    such as buffer overflows, further memory corruption may occur.
+ Confidentiality    Technical Impact: Execute Unauthorized Code or Commands; Bypass Protection Mechanism
+ Availability
+ Access Control     This weakness can sometimes trigger buffer overflows which can be used to execute arbitrary code. This is usually outside the scope of a program's implicit
+                    security policy.
+ + Demonstrative Examples
+ 
+ Example 1
+
+ The following code allocates memory for a maximum number of widgets. It then gets a user-specified number of widgets, making sure that the user does not request too many. It then initializes the
+ elements of the array using InitializeWidget(). Because the number of widgets can vary for each request, the code inserts a NULL pointer to signify the location of the last widget.
+
+ (bad code)
+ Example Language: C 
+ int i;
+ unsigned int numWidgets;
+ Widget **WidgetList;
+
+ numWidgets = GetUntrustedSizeValue();
+ if ((numWidgets == 0) || (numWidgets > MAX_NUM_WIDGETS)) {
+ ExitError("Incorrect number of widgets requested!");
+ }
+ WidgetList = (Widget **)malloc(numWidgets * sizeof(Widget *));
+ printf("WidgetList ptr=%p\n", WidgetList);
+ for(i=0; i<numWidgets; i++) {
+ WidgetList[i] = InitializeWidget();
+ }
+ WidgetList[numWidgets] = NULL;
+ showWidgets(WidgetList);
+
+ However, this code contains an off-by-one calculation error (CWE-193). It allocates exactly enough space to contain the specified number of widgets, but it does not include the space for the NULL
+ pointer. As a result, the allocated buffer is smaller than it is supposed to be (CWE-131). So if the user ever requests MAX_NUM_WIDGETS, there is an out-of-bounds write (CWE-787) when the NULL is
+ assigned. Depending on the environment and compilation settings, this could cause memory corruption.
+
+ Example 2
+
+ In this example, the code does not account for the terminating null character, and it writes one byte beyond the end of the buffer.
+
+ The first call to strncat() appends up to 20 characters plus a terminating null character to fullname[]. There is plenty of allocated space for this, and there is no weakness associated with this
+ first call. However, the second call to strncat() potentially appends another 20 characters. The code does not account for the terminating null character that is automatically added by strncat().
+ This terminating null character would be written one byte beyond the end of the fullname[] buffer. Therefore an off-by-one error exists with the second strncat() call, as the third argument should be
+ 19.
+
+ (bad code)
+ Example Language: C 
+ char firstname[20];
+ char lastname[20];
+ char fullname[40];
+
+ fullname[0] = '\0';
+
+ strncat(fullname, firstname, 20);
+ strncat(fullname, lastname, 20);
+
+ When using a function like strncat() one must leave a free byte at the end of the buffer for a terminating null character, thus avoiding the off-by-one weakness. Additionally, the last argument to
+ strncat() is the number of characters to append, which must be less than the remaining space in the buffer. Be careful not to just use the total size of the buffer.
+
+ (good code)
+ Example Language: C 
+ char firstname[20];
+ char lastname[20];
+ char fullname[40];
+
+ fullname[0] = '\0';
+
+ strncat(fullname, firstname, sizeof(fullname)-strlen(fullname)-1);
+ strncat(fullname, lastname, sizeof(fullname)-strlen(fullname)-1);
+
+ Example 3
+
+ The Off-by-one error can also be manifested when reading characters from a character array within a for loop that has an incorrect continuation condition.
+
+ (bad code)
+ Example Language: C 
+ #define PATH_SIZE 60
+
+ char filename[PATH_SIZE];
+
+ for(i=0; i<=PATH_SIZE; i++) {
+ char c = getc();
+ if (c == 'EOF') {
+ filename[i] = '\0';
+ }
+
+ filename[i] = getc();
+ }
+
+ In this case, the correct continuation condition is shown below.
+
+ (good code)
+ Example Language: C 
+ for(i=0; i<PATH_SIZE; i++) {
+ ...
+
+ Example 4
+
+ As another example the Off-by-one error can occur when using the sprintf library function to copy a string variable to a formatted string variable and the original string variable comes from an
+ untrusted source. As in the following example where a local function, setFilename is used to store the value of a filename to a database but first uses sprintf to format the filename. The setFilename
+ function includes an input parameter with the name of the file that is used as the copy source in the sprintf function. The sprintf function will copy the file name to a char array of size 20 and
+ specifies the format of the new variable as 16 characters followed by the file extension .dat.
+
+ (bad code)
+ Example Language: C 
+ int setFilename(char *filename) {
+ char name[20];
+ sprintf(name, "%16s.dat", filename);
+ int success = saveFormattedFilenameToDB(name);
+ return success;
+ }
+
+ However this will cause an Off-by-one error if the original filename is exactly 16 characters or larger because the format of 16 characters with the file extension is exactly 20 characters and does
+ not take into account the required null terminator that will be placed at the end of the string.
+
+ + Observed Examples
+        Reference                                                                                        Description
+ CVE-2003-0252           Off-by-one error allows remote attackers to cause a denial of service and possibly execute arbitrary code via requests that do not contain newlines.
+ CVE-2001-1391           Off-by-one vulnerability in driver allows users to modify kernel memory.
+ CVE-2002-0083           Off-by-one error allows local users or remote malicious servers to gain privileges.
+ CVE-2002-0653           Off-by-one buffer overflow in function usd by server allows local users to execute arbitrary code as the server user via .htaccess files with long entries.
+ CVE-2002-0844           Off-by-one buffer overflow in version control system allows local users to execute arbitrary code.
+ CVE-1999-1568           Off-by-one error in FTP server allows a remote attacker to cause a denial of service (crash) via a long PORT command.
+ CVE-2004-0346           Off-by-one buffer overflow in FTP server allows local users to gain privileges via a 1024 byte RETR command.
+ CVE-2004-0005           Multiple buffer overflows in chat client allow remote attackers to cause a denial of service and possibly execute arbitrary code.
+ CVE-2003-0356           Multiple off-by-one vulnerabilities in product allow remote attackers to cause a denial of service and possibly execute arbitrary code.
+ CVE-2001-1496           Off-by-one buffer overflow in server allows remote attackers to cause a denial of service and possibly execute arbitrary code.
+ CVE-2004-0342           This is an interesting example that might not be an off-by-one.
+ CVE-2001-0609           An off-by-one enables a terminating null to be overwritten, which causes 2 strings to be merged and enable a format string.
+ CVE-2002-1745           Off-by-one error allows source code disclosure of files with 4 letter extensions that match an accepted 3-letter extension.
+ CVE-2002-1816           Off-by-one buffer overflow.
+ CVE-2002-1721           Off-by-one error causes an snprintf call to overwrite a critical internal variable with a null value.
+ CVE-2003-0466           Off-by-one error in function used in many products leads to a buffer overflow during pathname management, as demonstrated using multiple commands in an FTP server.
+ CVE-2003-0625           Off-by-one error allows read of sensitive memory via a malformed request.
+ CVE-2006-4574           Chain: security monitoring product has an off-by-one error that leads to unexpected length values, triggering an assertion.
+ + Potential Mitigations
+ Phase: Implementation
+
+ When copying character arrays or using character manipulation methods, the correct size parameter must be used to account for the null terminator that needs to be added at the end of the array.
+ Some examples of functions susceptible to this weakness in C include strcpy(), strncpy(), strcat(), strncat(), printf(), sprintf(), scanf() and sscanf().
+ + Detection Methods
+ Automated Static Analysis
+
+ Automated static analysis, commonly referred to as Static Application Security Testing (SAST), can find some instances of this weakness by analyzing source code (or binary/compiled code) without
+ having to execute it. Typically, this is done by building a model of data flow and control flow, then searching for potentially-vulnerable patterns that connect "sources" (origins of input) with
+ "sinks" (destinations where the data interacts with external components, a lower layer such as the OS, etc.)
+
+ Effectiveness: High
+
+ + Memberships
+ Section HelpThis MemberOf Relationships table shows additional CWE Categories and Views that reference this weakness as a member. This information is often useful in understanding where a weakness
+ fits within the context of external information sources.
+     Nature                                                                                                  Type                                                                                               ID         Name
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            741     CERT C Secure
+                                                                                                                                                                                                                      Coding Standard
+                                                                                                                                                                                                                      (2008) Chapter
+                                                                                                                                                                                                                      8 - Characters
+                                                                                                                                                                                                                      and Strings
+                                                                                                                                                                                                                      (STR)
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            875     CERT C++ Secure
+                                                                                                                                                                                                                      Coding Section
+                                                                                                                                                                                                                      07 - Characters
+                                                                                                                                                                                                                      and Strings
+                                                                                                                                                                                                                      (STR)
+ MemberOf        ViewView - a subset of CWE entries that provides a way of examining CWE content. The two main view structures are Slices (flat lists) and Graphs (containing relationships between entries). 884     CWE
+                                                                                                                                                                                                                      Cross-section
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            977     SFP Secondary
+                                                                                                                                                                                                                      Cluster: Design
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            1408    Comprehensive
+                                                                                                                                                                                                                      Categorization:
+                                                                                                                                                                                                                      Incorrect
+                                                                                                                                                                                                                      Calculation
+ + Vulnerability Mapping Notes
+ Usage: ALLOWED
+
+ (this CWE ID could be used to map to real-world vulnerabilities)
+ Reason: Acceptable-Use
+
+ Rationale:
+
+ This CWE entry is at the Base level of abstraction, which is a preferred level of abstraction for mapping to the root causes of vulnerabilities.
+ Comments:
+
+ Carefully read both the name and description to ensure that this mapping is an appropriate fit. Do not try to 'force' a mapping to a lower-level Base/Variant simply to comply with this preferred
+ level of abstraction.
+ + Notes
+ 
+ Relationship
+
+ This is not always a buffer overflow. For example, an off-by-one error could be a factor in a partial comparison, a read from the wrong memory location, an incorrect conditional, etc.
+ + Taxonomy Mappings
+       Mapped Taxonomy Name          Node ID     Fit                                                                 Mapped Node Name
+ PLOVER                                               Off-by-one Error
+ CERT C Secure Coding             STR31-C             Guarantee that storage for strings has sufficient space for character data and the null terminator
+ + References
+ [REF-155] Halvar Flake. "Third Generation Exploits". presentation at Black Hat Europe 2001. <https://view.officeapps.live.com/op/view.aspx?src=
+ https%3A%2F%2Fwww.blackhat.com%2Fpresentations%2Fbh-europe-01%2Fhalvar-flake%2Fbh-europe-01-halvarflake.ppt&wdOrigin=BROWSELINK>. URL validated: 2023-04-07.
+ [REF-156] Steve Christey. "Off-by-one errors: a brief explanation". Secprog and SC-L mailing list posts. 2004-05-05. <http://marc.info/?l=secprog&m=108379742110553&w=2>.
+ [REF-157] klog. "The Frame Pointer Overwrite". Phrack Issue 55, Chapter 8. 1999-09-09. <https://kaizo.org/mirrors/phrack/phrack55/P55-08>. URL validated: 2023-04-07.
+ [REF-140] Greg Hoglund and Gary McGraw. "Exploiting Software: How to Break Code". Chapter 7, "Buffer Overflow". Addison-Wesley. 2004-02-27. <https://www.amazon.com/
+ Exploiting-Software-How-Break-Code/dp/0201786958>. URL validated: 2023-04-07.
+ [REF-44] Michael Howard, David LeBlanc and John Viega. "24 Deadly Sins of Software Security". "Sin 5: Buffer Overruns." Page 89. McGraw-Hill. 2010.
+ [REF-62] Mark Dowd, John McDonald and Justin Schuh. "The Art of Software Security Assessment". Chapter 5, "Off-by-One Errors", Page 180. 1st Edition. Addison Wesley. 2006.
+ + Content History
+                                                                                            + Submissions
+           Submission Date                                                   Submitter                                                                      Organization
+ 2006-07-19                          PLOVER
+ (CWE Draft 3, 2006-07-19)
+
+                                                                                           + Modifications
+          Modification Date                                                   Modifier                                                                      Organization
+ 2008-09-08                          CWE Content Team                                                                           MITRE
+                                     updated Alternate_Terms, Common_Consequences, Relationships, Observed_Example, Relationship_Notes, Taxonomy_Mappings
+ 2008-11-24                          CWE Content Team                                                                           MITRE
+                                     updated Relationships, Taxonomy_Mappings
+ 2009-12-28                          CWE Content Team                                                                           MITRE
+                                     updated Demonstrative_Examples, Potential_Mitigations
+ 2010-02-16                          CWE Content Team                                                                           MITRE
+                                     updated Demonstrative_Examples
+ 2010-12-13                          CWE Content Team                                                                           MITRE
+                                     updated Demonstrative_Examples
+ 2011-06-01                          CWE Content Team                                                                           MITRE
+                                     updated Common_Consequences
+ 2011-06-27                          CWE Content Team                                                                           MITRE
+                                     updated Common_Consequences
+ 2011-09-13                          CWE Content Team                                                                           MITRE
+                                     updated Relationships, Taxonomy_Mappings
+ 2012-05-11                          CWE Content Team                                                                           MITRE
+                                     updated Common_Consequences, Observed_Examples, References, Relationships
+ 2014-06-23                          CWE Content Team                                                                           MITRE
+                                     updated References
+ 2014-07-30                          CWE Content Team                                                                           MITRE
+                                     updated Demonstrative_Examples, Relationships
+ 2017-05-03                          CWE Content Team                                                                           MITRE
+                                     updated Demonstrative_Examples
+ 2017-11-08                          CWE Content Team                                                                           MITRE
+                                     updated Applicable_Platforms, References, Taxonomy_Mappings
+ 2018-03-27                          CWE Content Team                                                                           MITRE
+                                     updated Demonstrative_Examples
+ 2019-06-20                          CWE Content Team                                                                           MITRE
+                                     updated Demonstrative_Examples, Relationships
+ 2020-02-24                          CWE Content Team                                                                           MITRE
+                                     updated Relationships
+ 2021-03-15                          CWE Content Team                                                                           MITRE
+                                     updated Demonstrative_Examples
+ 2022-04-28                          CWE Content Team                                                                           MITRE
+                                     updated Research_Gaps
+ 2023-04-27                          CWE Content Team                                                                           MITRE
+                                     updated Detection_Factors, References, Relationships
+ 2023-06-29                          CWE Content Team                                                                           MITRE
+                                     updated Mapping_Notes
+ More information is available — Please edit the custom filter or select a different filter.
+Page Last Updated: February 29, 2024
+ 
+      Site Map | Terms of Use | Manage Cookies | Cookie Notice | Privacy Policy | Contact Us | CWE X-Twitter CWE Mastodon CWE on LinkedIn CWE YouTube channel CWE Out-of-Bounds-Read Podcast CWE
+      Blog on Medium blog
+
+MITRE Use of the Common Weakness Enumeration (CWE™) and the associated references from this website are subject to the Terms of Use. CWE is sponsored by the U.S. Department of Homeland         HSSEDI
+      Security (DHS) Cybersecurity and Infrastructure Security Agency (CISA) and managed by the Homeland Security Systems Engineering and Development Institute (HSSEDI) which is operated by
+      The MITRE Corporation (MITRE). Copyright © 2006–2024, The MITRE Corporation. CWE, CWSS, CWRAF, and the CWE logo are trademarks of The MITRE Corporation.
+

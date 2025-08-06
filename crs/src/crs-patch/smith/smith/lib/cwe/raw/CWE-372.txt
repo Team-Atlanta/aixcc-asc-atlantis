@@ -1,0 +1,176 @@
+CWE
+
+Common Weakness Enumeration
+
+A community-developed list of SW & HW weaknesses that can become vulnerabilities
+
+New to CWE? click here!
+CWE Most Important Hardware Weaknesses
+CWE Top 25 Most Dangerous Weaknesses
+Home > CWE List > CWE- Individual Dictionary Definition (4.14)                                                                                                   ID Lookup: [                    ] [Go]
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  • Home
+  • About ▼
+    About New to CWE User Stories History Documents FAQs Glossary Compatibility
+  • CWE List ▼
+    Latest Version Downloads Reports Visualizations Archive
+  • Mapping ▼
+    Root Cause Mapping Guidance Root Cause Mapping Quick Tips Root Cause Mapping Examples
+  • Top-N Lists ▼
+    Top 25 Software Top Hardware Top 10 KEV Weaknesses
+  • Community ▼
+    Community Working Groups & Special Interest Groups Board Board Meeting Minutes CWE Discussion List CWE Discussion Archives Contribute Weakness Content to CWE
+  • News ▼
+    Current News X-Twitter ● Mastodon ● LinkedIn ● YouTube YouTube Podcast Out of Bounds Read Podcast Medium Medium News Archive
+  • Search
+
+ 
+ CWE Glossary Definition                  x
+ 
+ 
+ CWE-372: Incomplete Internal State Distinction
+ 
+ Weakness ID: 372
+ Vulnerability Mapping: DISCOURAGEDThis CWE ID should not be used to map to real-world vulnerabilities
+ Abstraction: BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level
+ weaknesses typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.
+ View customized information:
+ Conceptual For users who are interested in more notional aspects of a weakness. Example: educators, technical writers, and project/program managers. Operational For users who are concerned with the
+ practical application and details about the nature of a weakness and how to prevent it from happening. Example: tool developers, security researchers, pen-testers, incident response analysts. Mapping
+ Friendly For users who are mapping an issue to CWE/CAPEC IDs, i.e., finding the most appropriate CWE for a specific issue (e.g., a CVE record). Example: tool developers, security researchers. 
+ Complete For users who wish to see all available information for the CWE/CAPEC entry. Custom For users who want to customize what details are displayed.
+ ×
+
+ Edit Custom Filter
+
+ Conceptual Operational Mapping Friendly Select All
+ 
+ Reset Clear Submit Cancel
+ + Description
+ The product does not properly determine which state it is in, causing it to assume it is in state X when in fact it is in state Y, causing it to perform incorrect operations in a security-relevant
+ manner.
+ + Relationships
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Research Concepts" (CWE-1000)
+     Nature                                                                                                                                                                               Type                                                                                                                                                                            ID      Name
+ ChildOf                                                                                 PillarPillar - a weakness that is the most abstract type of weakness and represents a theme for all class/base/variant weaknesses related to it. A Pillar is different from a Category as a Pillar is                                                                          664     Improper
+                                                                                                                    still technically a type of weakness that describes a mistake, while a Category represents a common characteristic used to group related things.                                                                                                            Control
+                                                                                                                                                                                                                                                                                                                                                                                of a
+                                                                                                                                                                                                                                                                                                                                                                                Resource
+                                                                                                                                                                                                                                                                                                                                                                                Through
+                                                                                                                                                                                                                                                                                                                                                                                its
+                                                                                                                                                                                                                                                                                                                                                                                Lifetime
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Software Development" (CWE-699)
+     Nature                                                       Type                                                     ID                                   Name
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 371     State Issues
+ + Modes Of Introduction
+ Section HelpThe different Modes of Introduction provide information about how and when this weakness may be introduced. The Phase identifies a point in the life cycle at which introduction may occur,
+ while the Note provides a typical scenario related to introduction during the given phase.
+     Phase                                                                                              Note
+ Implementation
+ + Applicable Platforms
+ Section HelpThis listing shows possible areas for which the given weakness could appear. These may be for specific named Languages, Operating Systems, Architectures, Paradigms, Technologies, or a
+ class of such platforms. The platform is listed along with how frequently the given weakness appears for that instance.
+
+ Languages
+
+ Class: Not Language-Specific (Undetermined Prevalence)
+
+ + Common Consequences
+ Section HelpThis table specifies different individual consequences associated with the weakness. The Scope identifies the application security area that is violated, while the Impact describes the
+ negative technical impact that arises if an adversary succeeds in exploiting this weakness. The Likelihood provides information about how likely the specific consequence is expected to be seen
+ relative to the other consequences in the list. For example, there may be high likelihood that a weakness will be exploited to achieve a certain impact, but a low likelihood that it will be exploited
+ to achieve a different impact.
+       Scope                                                                                     Impact                                                                                 Likelihood
+ Integrity          Technical Impact: Varies by Context; Unexpected State
+ Other
+ + Memberships
+ Section HelpThis MemberOf Relationships table shows additional CWE Categories and Views that reference this weakness as a member. This information is often useful in understanding where a weakness
+ fits within the context of external information sources.
+     Nature                                                       Type                                                     ID                                   Name
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 962     SFP Secondary Cluster: Unchecked Status Condition
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 1416    Comprehensive Categorization: Resource Lifecycle Management
+ + Vulnerability Mapping Notes
+ Usage: DISCOURAGED
+
+ (this CWE ID should not be used to map to real-world vulnerabilities)
+ Reasons: Potential Deprecation, CWE Overlap
+
+ Rationale:
+
+ This CWE entry could be deprecated in a future version of CWE.
+ Comments:
+
+ See maintenance notes.
+ + Notes
+ 
+ Relationship
+
+ This conceptually overlaps other categories such as insufficient verification, but this entry refers to the product's incorrect perception of its own state.
+
+ Relationship
+
+ This is probably resultant from other weaknesses such as unhandled error conditions, inability to handle out-of-order steps, multiple interpretation errors, etc.
+
+ Maintenance
+
+ This entry is being considered for deprecation. It was poorly-defined in PLOVER and is not easily described using the behavior/resource/property model of vulnerability theory.
+ + Taxonomy Mappings
+       Mapped Taxonomy Name          Node ID         Fit                                                                 Mapped Node Name
+ PLOVER                                                       Incomplete Internal State Distinction
+ + Related Attack Patterns
+    CAPEC-ID                                                                                     Attack Pattern Name
+ CAPEC-140       Bypassing of Intermediate Forms in Multiple-Form Sets
+ CAPEC-74        Manipulating State
+ + Content History
+                                                                                            + Submissions
+                 Submission Date                                                      Submitter                                                               Organization
+ 2006-07-19                                      PLOVER
+ (CWE Draft 3, 2006-07-19)
+
+                                                                                           + Modifications
+                Modification Date                                                     Modifier                                                                Organization
+ 2008-07-01                                      Eric Dalci                                                                          Cigital
+                                                 updated Time_of_Introduction
+ 2008-09-08                                      CWE Content Team                                                                    MITRE
+                                                 updated Maintenance_Notes, Relationships, Relationship_Notes, Taxonomy_Mappings
+ 2010-12-13                                      CWE Content Team                                                                    MITRE
+                                                 updated Maintenance_Notes
+ 2011-06-01                                      CWE Content Team                                                                    MITRE
+                                                 updated Common_Consequences
+ 2011-06-27                                      CWE Content Team                                                                    MITRE
+                                                 updated Common_Consequences
+ 2012-05-11                                      CWE Content Team                                                                    MITRE
+                                                 updated Relationships
+ 2014-07-30                                      CWE Content Team                                                                    MITRE
+                                                 updated Relationships
+ 2017-05-03                                      CWE Content Team                                                                    MITRE
+                                                 updated Related_Attack_Patterns
+ 2017-11-08                                      CWE Content Team                                                                    MITRE
+                                                 updated Applicable_Platforms
+ 2018-03-27                                      CWE Content Team                                                                    MITRE
+                                                 updated Maintenance_Notes, Relationships
+ 2019-06-20                                      CWE Content Team                                                                    MITRE
+                                                 updated Related_Attack_Patterns
+ 2023-01-31                                      CWE Content Team                                                                    MITRE
+                                                 updated Description
+ 2023-04-27                                      CWE Content Team                                                                    MITRE
+                                                 updated Relationships, Time_of_Introduction
+ 2023-06-29                                      CWE Content Team                                                                    MITRE
+                                                 updated Mapping_Notes
+ 2024-02-29                                      CWE Content Team                                                                    MITRE
+ (CWE 4.14, 2024-02-29)                          updated Mapping_Notes
+ More information is available — Please edit the custom filter or select a different filter.
+Page Last Updated: February 29, 2024
+ 
+      Site Map | Terms of Use | Manage Cookies | Cookie Notice | Privacy Policy | Contact Us | CWE X-Twitter CWE Mastodon CWE on LinkedIn CWE YouTube channel CWE Out-of-Bounds-Read Podcast CWE
+      Blog on Medium blog
+
+MITRE Use of the Common Weakness Enumeration (CWE™) and the associated references from this website are subject to the Terms of Use. CWE is sponsored by the U.S. Department of Homeland         HSSEDI
+      Security (DHS) Cybersecurity and Infrastructure Security Agency (CISA) and managed by the Homeland Security Systems Engineering and Development Institute (HSSEDI) which is operated by
+      The MITRE Corporation (MITRE). Copyright © 2006–2024, The MITRE Corporation. CWE, CWSS, CWRAF, and the CWE logo are trademarks of The MITRE Corporation.
+

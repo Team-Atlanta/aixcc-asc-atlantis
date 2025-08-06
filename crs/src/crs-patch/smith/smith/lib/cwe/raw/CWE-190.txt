@@ -1,0 +1,645 @@
+CWE
+
+Common Weakness Enumeration
+
+A community-developed list of SW & HW weaknesses that can become vulnerabilities
+
+New to CWE? click here!
+CWE Most Important Hardware Weaknesses
+CWE Top 25 Most Dangerous Weaknesses
+Home > CWE List > CWE- Individual Dictionary Definition (4.14)                                                                                                   ID Lookup: [                    ] [Go]
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  • Home
+  • About ▼
+    About New to CWE User Stories History Documents FAQs Glossary Compatibility
+  • CWE List ▼
+    Latest Version Downloads Reports Visualizations Archive
+  • Mapping ▼
+    Root Cause Mapping Guidance Root Cause Mapping Quick Tips Root Cause Mapping Examples
+  • Top-N Lists ▼
+    Top 25 Software Top Hardware Top 10 KEV Weaknesses
+  • Community ▼
+    Community Working Groups & Special Interest Groups Board Board Meeting Minutes CWE Discussion List CWE Discussion Archives Contribute Weakness Content to CWE
+  • News ▼
+    Current News X-Twitter ● Mastodon ● LinkedIn ● YouTube YouTube Podcast Out of Bounds Read Podcast Medium Medium News Archive
+  • Search
+
+ 
+ CWE Glossary Definition                  x
+ 
+ 
+ CWE-190: Integer Overflow or Wraparound
+ 
+ Weakness ID: 190
+ Vulnerability Mapping: ALLOWEDThis CWE ID may be used to map to real-world vulnerabilities
+ Abstraction: BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level
+ weaknesses typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.
+ View customized information:
+ Conceptual For users who are interested in more notional aspects of a weakness. Example: educators, technical writers, and project/program managers. Operational For users who are concerned with the
+ practical application and details about the nature of a weakness and how to prevent it from happening. Example: tool developers, security researchers, pen-testers, incident response analysts. Mapping
+ Friendly For users who are mapping an issue to CWE/CAPEC IDs, i.e., finding the most appropriate CWE for a specific issue (e.g., a CVE record). Example: tool developers, security researchers. 
+ Complete For users who wish to see all available information for the CWE/CAPEC entry. Custom For users who want to customize what details are displayed.
+ ×
+
+ Edit Custom Filter
+
+ Conceptual Operational Mapping Friendly Select All
+ 
+ Reset Clear Submit Cancel
+ + Description
+ The product performs a calculation that can produce an integer overflow or wraparound, when the logic assumes that the resulting value will always be larger than the original value. This can
+ introduce other weaknesses when the calculation is used for resource management or execution control.
+ + Extended Description
+ An integer overflow or wraparound occurs when an integer value is incremented to a value that is too large to store in the associated representation. When this occurs, the value may wrap to become a
+ very small or negative number. While this may be intended behavior in circumstances that rely on wrapping, it can have security consequences if the wrap is unexpected. This is especially the case if
+ the integer overflow can be triggered using user-supplied inputs. This becomes security-critical when the result is used to control looping, make a security decision, or determine the offset or size
+ in behaviors such as memory allocation, copying, concatenation, etc.
+ + Relationships
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Research Concepts" (CWE-1000)
+     Nature                                                                                                                                                                                                                                         Type                                                                                                                                                                                                                                      ID        Name
+ ChildOf                                                                                                                                           PillarPillar - a weakness that is the most abstract type of weakness and represents a theme for all class/base/variant weaknesses related to it. A Pillar is different from a Category as a Pillar is                                                                                                                                    682     Incorrect
+                                                                                                                                                                              still technically a type of weakness that describes a mistake, while a Category represents a common characteristic used to group related things.                                                                                                                                                                      Calculation
+ ParentOf                                                                                                                                         ChainChain - a Compound Element that is a sequence of two or more separate weaknesses that can be closely linked together within software. One weakness, X, can directly create the conditions that are                                                                                                                                   680     Integer
+                                                                                                                                                        necessary to cause another weakness, Y, to enter a vulnerable condition. When this happens, CWE refers to X as "primary" to Y, and Y is "resultant" from X. Chains can involve more than two                                                                                                                                                Overflow to
+                                                                                                                                                                                                                   weaknesses, and in some cases, they might have a tree-like structure.                                                                                                                                                                                                            Buffer
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    Overflow
+ PeerOf                                                                                                                                               BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level weaknesses                                                                                                                                       128     Wrap-around
+                                                                                                                                                                                     typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                                                                              Error
+ PeerOf                                                                                                                                               BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level weaknesses                                                                                                                                       1339    Insufficient
+                                                                                                                                                                                     typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                                                                              Precision or
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    Accuracy of
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    a Real
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    Number
+ CanPrecede                                                                                                                                        ClassClass - a weakness that is described in a very abstract fashion, typically independent of any specific language or technology. More specific than a Pillar Weakness, but more general than a Base                                                                                                                                   119     Improper
+                                                                                                                                                                                Weakness. Class level weaknesses typically describe issues in terms of 1 or 2 of the following dimensions: behavior, property, and resource.                                                                                                                                                                        Restriction
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    of
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    Operations
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    within the
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    Bounds of a
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    Memory
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    Buffer
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Software Development" (CWE-699)
+     Nature                                                       Type                                                     ID                                   Name
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 189     Numeric Errors
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Weaknesses for Simplified Mapping of Published Vulnerabilities" (CWE-1003)
+     Nature                                                                                                                                                                               Type                                                                                                                                                                            ID       Name
+ ChildOf                                                                                 PillarPillar - a weakness that is the most abstract type of weakness and represents a theme for all class/base/variant weaknesses related to it. A Pillar is different from a Category as a Pillar is                                                                          682     Incorrect
+                                                                                                                    still technically a type of weakness that describes a mistake, while a Category represents a common characteristic used to group related things.                                                                                                            Calculation
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Seven Pernicious Kingdoms" (CWE-700)
+     Nature                                                                                                                                                                             Type                                                                                                                                                                           ID       Name
+ ChildOf                                                                               ClassClass - a weakness that is described in a very abstract fashion, typically independent of any specific language or technology. More specific than a Pillar Weakness, but more general than a Base                                                                        20      Improper
+                                                                                                                    Weakness. Class level weaknesses typically describe issues in terms of 1 or 2 of the following dimensions: behavior, property, and resource.                                                                                                             Input
+                                                                                                                                                                                                                                                                                                                                                                             Validation
+ + Modes Of Introduction
+ Section HelpThe different Modes of Introduction provide information about how and when this weakness may be introduced. The Phase identifies a point in the life cycle at which introduction may occur,
+ while the Note provides a typical scenario related to introduction during the given phase.
+     Phase                                                                                              Note
+ Implementation
+ + Applicable Platforms
+ Section HelpThis listing shows possible areas for which the given weakness could appear. These may be for specific named Languages, Operating Systems, Architectures, Paradigms, Technologies, or a
+ class of such platforms. The platform is listed along with how frequently the given weakness appears for that instance.
+
+ Languages
+
+ Class: Not Language-Specific (Undetermined Prevalence)
+
+ + Common Consequences
+ Section HelpThis table specifies different individual consequences associated with the weakness. The Scope identifies the application security area that is violated, while the Impact describes the
+ negative technical impact that arises if an adversary succeeds in exploiting this weakness. The Likelihood provides information about how likely the specific consequence is expected to be seen
+ relative to the other consequences in the list. For example, there may be high likelihood that a weakness will be exploited to achieve a certain impact, but a low likelihood that it will be exploited
+ to achieve a different impact.
+       Scope                                                                                     Impact                                                                                 Likelihood
+                    Technical Impact: DoS: Crash, Exit, or Restart; DoS: Resource Consumption (CPU); DoS: Resource Consumption (Memory); DoS: Instability
+ Availability
+                    This weakness will generally lead to undefined behavior and therefore crashes. In the case of overflows involving loop index variables, the likelihood of
+                    infinite loops is also high.
+                    Technical Impact: Modify Memory
+ Integrity
+                    If the value in question is important to data (as opposed to flow), simple data corruption has occurred. Also, if the wrap around results in other conditions
+                    such as buffer overflows, further memory corruption may occur.
+ Confidentiality    Technical Impact: Execute Unauthorized Code or Commands; Bypass Protection Mechanism
+ Availability
+ Access Control     This weakness can sometimes trigger buffer overflows which can be used to execute arbitrary code. This is usually outside the scope of a program's implicit
+                    security policy.
+ + Likelihood Of Exploit
+ Medium
+ + Demonstrative Examples
+ 
+ Example 1
+
+ The following image processing code allocates a table for images.
+
+ (bad code)
+ Example Language: C 
+ img_t table_ptr; /*struct containing img data, 10kB each*/
+ int num_imgs;
+ ...
+ num_imgs = get_num_imgs();
+ table_ptr = (img_t*)malloc(sizeof(img_t)*num_imgs);
+ ...
+
+ This code intends to allocate a table of size num_imgs, however as num_imgs grows large, the calculation determining the size of the list will eventually overflow (CWE-190). This will result in a
+ very small list to be allocated instead. If the subsequent code operates on the list as if it were num_imgs long, it may result in many types of out-of-bounds problems (CWE-119).
+
+ Example 2
+
+ The following code excerpt from OpenSSH 3.3 demonstrates a classic case of integer overflow:
+
+ (bad code)
+ Example Language: C 
+ nresp = packet_get_int();
+ if (nresp > 0) {
+ response = xmalloc(nresp*sizeof(char*));
+ for (i = 0; i < nresp; i++) response[i] = packet_get_string(NULL);
+ }
+
+ If nresp has the value 1073741824 and sizeof(char*) has its typical value of 4, then the result of the operation nresp*sizeof(char*) overflows, and the argument to xmalloc() will be 0. Most malloc()
+ implementations will happily allocate a 0-byte buffer, causing the subsequent loop iterations to overflow the heap buffer response.
+
+ Example 3
+
+ Integer overflows can be complicated and difficult to detect. The following example is an attempt to show how an integer overflow may lead to undefined looping behavior:
+
+ (bad code)
+ Example Language: C 
+ short int bytesRec = 0;
+ char buf[SOMEBIGNUM];
+
+ while(bytesRec < MAXGET) {
+ bytesRec += getFromInput(buf+bytesRec);
+ }
+
+ In the above case, it is entirely possible that bytesRec may overflow, continuously creating a lower number than MAXGET and also overwriting the first MAXGET-1 bytes of buf.
+
+ Example 4
+
+ In this example the method determineFirstQuarterRevenue is used to determine the first quarter revenue for an accounting/business application. The method retrieves the monthly sales totals for the
+ first three months of the year, calculates the first quarter sales totals from the monthly sales totals, calculates the first quarter revenue based on the first quarter sales, and finally saves the
+ first quarter revenue results to the database.
+
+ (bad code)
+ Example Language: C 
+ #define JAN 1
+ #define FEB 2
+ #define MAR 3
+
+ short getMonthlySales(int month) {...}
+
+ float calculateRevenueForQuarter(short quarterSold) {...}
+
+ int determineFirstQuarterRevenue() {
+
+ // Variable for sales revenue for the quarter
+ float quarterRevenue = 0.0f;
+
+ short JanSold = getMonthlySales(JAN); /* Get sales in January */
+ short FebSold = getMonthlySales(FEB); /* Get sales in February */
+ short MarSold = getMonthlySales(MAR); /* Get sales in March */
+
+ // Calculate quarterly total
+ short quarterSold = JanSold + FebSold + MarSold;
+
+ // Calculate the total revenue for the quarter
+ quarterRevenue = calculateRevenueForQuarter(quarterSold);
+
+ saveFirstQuarterRevenue(quarterRevenue);
+
+ return 0;
+ }
+
+ However, in this example the primitive type short int is used for both the monthly and the quarterly sales variables. In C the short int primitive type has a maximum value of 32768. This creates a
+ potential integer overflow if the value for the three monthly sales adds up to more than the maximum value for the short int primitive type. An integer overflow can lead to data corruption,
+ unexpected behavior, infinite loops and system crashes. To correct the situation the appropriate primitive type should be used, as in the example below, and/or provide some validation mechanism to
+ ensure that the maximum value for the primitive type is not exceeded.
+
+ (good code)
+ Example Language: C 
+ ...
+ float calculateRevenueForQuarter(long quarterSold) {...}
+
+ int determineFirstQuarterRevenue() {
+ ...
+ // Calculate quarterly total
+ long quarterSold = JanSold + FebSold + MarSold;
+
+ // Calculate the total revenue for the quarter
+ quarterRevenue = calculateRevenueForQuarter(quarterSold);
+
+ ...
+ }
+
+ Note that an integer overflow could also occur if the quarterSold variable has a primitive type long but the method calculateRevenueForQuarter has a parameter of type short.
+
+ + Observed Examples
+        Reference                                                                                        Description
+ CVE-2021-43537          Chain: in a web browser, an unsigned 64-bit integer is forcibly cast to a 32-bit integer (CWE-681) and potentially leading to an integer overflow (CWE-190). If an integer
+                         overflow occurs, this can cause heap memory corruption (CWE-122)
+ CVE-2022-21668          Chain: Python library does not limit the resources used to process images that specify a very large number of bands (CWE-1284), leading to excessive memory consumption (
+                         CWE-789) or an integer overflow (CWE-190).
+ CVE-2022-0545           Chain: 3D renderer has an integer overflow (CWE-190) leading to write-what-where condition (CWE-123) using a crafted image.
+ CVE-2021-30860          Chain: improper input validation (CWE-20) leads to integer overflow (CWE-190) in mobile OS, as exploited in the wild per CISA KEV.
+ CVE-2021-30663          Chain: improper input validation (CWE-20) leads to integer overflow (CWE-190) in mobile OS, as exploited in the wild per CISA KEV.
+ CVE-2018-10887          Chain: unexpected sign extension (CWE-194) leads to integer overflow (CWE-190), causing an out-of-bounds read (CWE-125)
+ CVE-2019-1010006        Chain: compiler optimization (CWE-733) removes or modifies code used to detect integer overflow (CWE-190), allowing out-of-bounds write (CWE-787).
+ CVE-2010-1866           Chain: integer overflow (CWE-190) causes a negative signed value, which later bypasses a maximum-only check (CWE-839), leading to heap-based buffer overflow (CWE-122).
+ CVE-2010-2753           Chain: integer overflow leads to use-after-free
+ CVE-2005-1513           Chain: integer overflow in securely-coded mail program leads to buffer overflow. In 2005, this was regarded as unrealistic to exploit, but in 2020, it was rediscovered to
+                         be easier to exploit due to evolutions of the technology.
+ CVE-2002-0391           Integer overflow via a large number of arguments.
+ CVE-2002-0639           Integer overflow in OpenSSH as listed in the demonstrative examples.
+ CVE-2005-1141           Image with large width and height leads to integer overflow.
+ CVE-2005-0102           Length value of -1 leads to allocation of 0 bytes and resultant heap overflow.
+ CVE-2004-2013           Length value of -1 leads to allocation of 0 bytes and resultant heap overflow.
+ CVE-2017-1000121        chain: unchecked message size metadata allows integer overflow (CWE-190) leading to buffer overflow (CWE-119).
+ CVE-2013-1591           Chain: an integer overflow (CWE-190) in the image size calculation causes an infinite loop (CWE-835) which sequentially allocates buffers without limits (CWE-1325) until
+                         the stack is full.
+ + Potential Mitigations
+ Phase: Requirements
+
+ Ensure that all protocols are strictly defined, such that all out-of-bounds behavior can be identified simply, and require strict conformance to the protocol.
+ Phase: Requirements
+
+ Strategy: Language Selection
+
+ Use a language that does not allow this weakness to occur or provides constructs that make this weakness easier to avoid.
+
+ If possible, choose a language or compiler that performs automatic bounds checking.
+
+ Phase: Architecture and Design
+
+ Strategy: Libraries or Frameworks
+
+ Use a vetted library or framework that does not allow this weakness to occur or provides constructs that make this weakness easier to avoid.
+
+ Use libraries or frameworks that make it easier to handle numbers without unexpected consequences.
+
+ Examples include safe integer handling packages such as SafeInt (C++) or IntegerLib (C or C++). [REF-106]
+
+ Phase: Implementation
+
+ Strategy: Input Validation
+
+ Perform input validation on any numeric input by ensuring that it is within the expected range. Enforce that the input meets both the minimum and maximum requirements for the expected range.
+
+ Use unsigned integers where possible. This makes it easier to perform validation for integer overflows. When signed integers are required, ensure that the range check includes minimum values as
+ well as maximum values.
+
+ Phase: Implementation
+
+ Understand the programming language's underlying representation and how it interacts with numeric calculation (CWE-681). Pay close attention to byte size discrepancies, precision, signed/unsigned
+ distinctions, truncation, conversion and casting between types, "not-a-number" calculations, and how the language handles numbers that are too large or too small for its underlying
+ representation. [REF-7]
+
+ Also be careful to account for 32-bit, 64-bit, and other potential differences that may affect the numeric representation.
+
+ Phase: Architecture and Design
+
+ For any security checks that are performed on the client side, ensure that these checks are duplicated on the server side, in order to avoid CWE-602. Attackers can bypass the client-side checks
+ by modifying values after the checks have been performed, or by changing the client to remove the client-side checks entirely. Then, these modified values would be submitted to the server.
+ Phase: Implementation
+
+ Strategy: Compilation or Build Hardening
+
+ Examine compiler warnings closely and eliminate problems with potential security implications, such as signed / unsigned mismatch in memory operations, or use of uninitialized variables. Even if
+ the weakness is rarely exploitable, a single failure may lead to the compromise of the entire system.
+ + Detection Methods
+ Automated Static Analysis
+
+ This weakness can often be detected using automated static analysis tools. Many modern tools use data flow analysis or constraint-based techniques to minimize the number of false positives.
+
+ Effectiveness: High
+
+ Black Box
+
+ Sometimes, evidence of this weakness can be detected using dynamic tools and techniques that interact with the product using large test suites with many diverse inputs, such as fuzz testing
+ (fuzzing), robustness testing, and fault injection. The product's operation may slow down, but it should not become unstable, crash, or generate incorrect results.
+
+ Effectiveness: Moderate
+
+ Note: Without visibility into the code, black box methods may not be able to sufficiently distinguish this weakness from others, requiring follow-up manual methods to diagnose the underlying
+ problem.
+ Manual Analysis
+
+ This weakness can be detected using tools and techniques that require manual (human) analysis, such as penetration testing, threat modeling, and interactive tools that allow the tester to record
+ and modify an active session.
+
+ Specifically, manual static analysis is useful for evaluating the correctness of allocation calculations. This can be useful for detecting overflow conditions (CWE-190) or similar weaknesses that
+ might have serious security impacts on the program.
+
+ Effectiveness: High
+
+ Note: These may be more effective than strictly automated techniques. This is especially the case with weaknesses that are related to design and business rules.
+ Automated Static Analysis - Binary or Bytecode
+
+ According to SOAR, the following detection techniques may be useful:
+
+ Highly cost effective:
+
+   • Bytecode Weakness Analysis - including disassembler + source code weakness analysis
+   • Binary Weakness Analysis - including disassembler + source code weakness analysis
+
+ Effectiveness: High
+
+ Dynamic Analysis with Manual Results Interpretation
+
+ According to SOAR, the following detection techniques may be useful:
+
+ Cost effective for partial coverage:
+
+   • Fuzz Tester
+   • Framework-based Fuzzer
+
+ Effectiveness: SOAR Partial
+
+ Manual Static Analysis - Source Code
+
+ According to SOAR, the following detection techniques may be useful:
+
+ Cost effective for partial coverage:
+
+   • Manual Source Code Review (not inspections)
+
+ Effectiveness: SOAR Partial
+
+ Automated Static Analysis - Source Code
+
+ According to SOAR, the following detection techniques may be useful:
+
+ Highly cost effective:
+
+   • Source code Weakness Analyzer
+   • Context-configured Source Code Weakness Analyzer
+
+ Effectiveness: High
+
+ Architecture or Design Review
+
+ According to SOAR, the following detection techniques may be useful:
+
+ Highly cost effective:
+
+   • Formal Methods / Correct-By-Construction
+
+ Cost effective for partial coverage:
+
+   • Inspection (IEEE 1028 standard) (can apply to requirements, design, source code, etc.)
+
+ Effectiveness: High
+
+ + Functional Areas
+ 
+   • Number Processing
+   • Memory Management
+   • Counters
+
+ + Memberships
+ Section HelpThis MemberOf Relationships table shows additional CWE Categories and Views that reference this weakness as a member. This information is often useful in understanding where a weakness
+ fits within the context of external information sources.
+     Nature                                                                                                  Type                                                                                               ID         Name
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            738     CERT C Secure
+                                                                                                                                                                                                                      Coding Standard
+                                                                                                                                                                                                                      (2008) Chapter
+                                                                                                                                                                                                                      5 - Integers
+                                                                                                                                                                                                                      (INT)
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            742     CERT C Secure
+                                                                                                                                                                                                                      Coding Standard
+                                                                                                                                                                                                                      (2008) Chapter
+                                                                                                                                                                                                                      9 - Memory
+                                                                                                                                                                                                                      Management
+                                                                                                                                                                                                                      (MEM)
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            802     2010 Top 25 -
+                                                                                                                                                                                                                      Risky Resource
+                                                                                                                                                                                                                      Management
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            865     2011 Top 25 -
+                                                                                                                                                                                                                      Risky Resource
+                                                                                                                                                                                                                      Management
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            872     CERT C++ Secure
+                                                                                                                                                                                                                      Coding Section
+                                                                                                                                                                                                                      04 - Integers
+                                                                                                                                                                                                                      (INT)
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            876     CERT C++ Secure
+                                                                                                                                                                                                                      Coding Section
+                                                                                                                                                                                                                      08 - Memory
+                                                                                                                                                                                                                      Management
+                                                                                                                                                                                                                      (MEM)
+ MemberOf        ViewView - a subset of CWE entries that provides a way of examining CWE content. The two main view structures are Slices (flat lists) and Graphs (containing relationships between entries). 884     CWE
+                                                                                                                                                                                                                      Cross-section
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            998     SFP Secondary
+                                                                                                                                                                                                                      Cluster: Glitch
+                                                                                                                                                                                                                      in Computation
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            1137    SEI CERT Oracle
+                                                                                                                                                                                                                      Secure Coding
+                                                                                                                                                                                                                      Standard for
+                                                                                                                                                                                                                      Java -
+                                                                                                                                                                                                                      Guidelines 03.
+                                                                                                                                                                                                                      Numeric Types
+                                                                                                                                                                                                                      and Operations
+                                                                                                                                                                                                                      (NUM)
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            1158    SEI CERT C
+                                                                                                                                                                                                                      Coding Standard
+                                                                                                                                                                                                                      - Guidelines
+                                                                                                                                                                                                                      04. Integers
+                                                                                                                                                                                                                      (INT)
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            1162    SEI CERT C
+                                                                                                                                                                                                                      Coding Standard
+                                                                                                                                                                                                                      - Guidelines
+                                                                                                                                                                                                                      08. Memory
+                                                                                                                                                                                                                      Management
+                                                                                                                                                                                                                      (MEM)
+ MemberOf        ViewView - a subset of CWE entries that provides a way of examining CWE content. The two main view structures are Slices (flat lists) and Graphs (containing relationships between entries). 1200    Weaknesses in
+                                                                                                                                                                                                                      the 2019 CWE
+                                                                                                                                                                                                                      Top 25 Most
+                                                                                                                                                                                                                      Dangerous
+                                                                                                                                                                                                                      Software Errors
+ MemberOf        ViewView - a subset of CWE entries that provides a way of examining CWE content. The two main view structures are Slices (flat lists) and Graphs (containing relationships between entries). 1337    Weaknesses in
+                                                                                                                                                                                                                      the 2021 CWE
+                                                                                                                                                                                                                      Top 25 Most
+                                                                                                                                                                                                                      Dangerous
+                                                                                                                                                                                                                      Software
+                                                                                                                                                                                                                      Weaknesses
+ MemberOf        ViewView - a subset of CWE entries that provides a way of examining CWE content. The two main view structures are Slices (flat lists) and Graphs (containing relationships between entries). 1350    Weaknesses in
+                                                                                                                                                                                                                      the 2020 CWE
+                                                                                                                                                                                                                      Top 25 Most
+                                                                                                                                                                                                                      Dangerous
+                                                                                                                                                                                                                      Software
+                                                                                                                                                                                                                      Weaknesses
+ MemberOf        ViewView - a subset of CWE entries that provides a way of examining CWE content. The two main view structures are Slices (flat lists) and Graphs (containing relationships between entries). 1387    Weaknesses in
+                                                                                                                                                                                                                      the 2022 CWE
+                                                                                                                                                                                                                      Top 25 Most
+                                                                                                                                                                                                                      Dangerous
+                                                                                                                                                                                                                      Software
+                                                                                                                                                                                                                      Weaknesses
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            1408    Comprehensive
+                                                                                                                                                                                                                      Categorization:
+                                                                                                                                                                                                                      Incorrect
+                                                                                                                                                                                                                      Calculation
+ MemberOf        ViewView - a subset of CWE entries that provides a way of examining CWE content. The two main view structures are Slices (flat lists) and Graphs (containing relationships between entries). 1425    Weaknesses in
+                                                                                                                                                                                                                      the 2023 CWE
+                                                                                                                                                                                                                      Top 25 Most
+                                                                                                                                                                                                                      Dangerous
+                                                                                                                                                                                                                      Software
+                                                                                                                                                                                                                      Weaknesses
+ + Vulnerability Mapping Notes
+ Usage: ALLOWED
+
+ (this CWE ID could be used to map to real-world vulnerabilities)
+ Reason: Acceptable-Use
+
+ Rationale:
+
+ This CWE entry is at the Base level of abstraction, which is a preferred level of abstraction for mapping to the root causes of vulnerabilities.
+ Comments:
+
+ Carefully read both the name and description to ensure that this mapping is an appropriate fit. Do not try to 'force' a mapping to a lower-level Base/Variant simply to comply with this preferred
+ level of abstraction.
+ + Notes
+ 
+ Relationship
+
+ Integer overflows can be primary to buffer overflows.
+
+ Terminology
+
+ "Integer overflow" is sometimes used to cover several types of errors, including signedness errors, or buffer overflows that involve manipulation of integer data types instead of characters. Part of
+ the confusion results from the fact that 0xffffffff is -1 in a signed context. Other confusion also arises because of the role that integer overflows have in chains.
+ + Taxonomy Mappings
+       Mapped Taxonomy Name          Node ID               Fit                                                                 Mapped Node Name
+ PLOVER                                                                   Integer overflow (wrap or wraparound)
+ 7 Pernicious Kingdoms                                                    Integer Overflow
+ CLASP                                                                    Integer overflow
+ CERT C Secure Coding             INT18-C        CWE More Abstract        Evaluate integer expressions in a larger size before comparing or assigning to that size
+ CERT C Secure Coding             INT30-C        CWE More Abstract        Ensure that unsigned integer operations do not wrap
+ CERT C Secure Coding             INT32-C        Imprecise                Ensure that operations on signed integers do not result in overflow
+ CERT C Secure Coding             INT35-C                                 Evaluate integer expressions in a larger size before comparing or assigning to that size
+ CERT C Secure Coding             MEM07-C        CWE More Abstract        Ensure that the arguments to calloc(), when multiplied, do not wrap
+ CERT C Secure Coding             MEM35-C                                 Allocate sufficient memory for an object
+ WASC                             3                                       Integer Overflows
+ Software Fault Patterns          SFP1                                    Glitch in computation
+ ISA/IEC 62443                    Part 3-3                                Req SR 3.5
+ ISA/IEC 62443                    Part 3-3                                Req SR 7.2
+ ISA/IEC 62443                    Part 4-1                                Req SR-2
+ ISA/IEC 62443                    Part 4-1                                Req SI-2
+ ISA/IEC 62443                    Part 4-1                                Req SVV-1
+ ISA/IEC 62443                    Part 4-1                                Req SVV-3
+ ISA/IEC 62443                    Part 4-2                                Req CR 3.5
+ ISA/IEC 62443                    Part 4-2                                Req CR 7.2
+ + Related Attack Patterns
+    CAPEC-ID                                                                                     Attack Pattern Name
+ CAPEC-92        Forced Integer Overflow
+ + References
+ [REF-145] Yves Younan. "An overview of common programming security vulnerabilities and possible solutions". Student thesis section 5.4.3. 2003-08. <http://fort-knox.org/thesis.pdf>.
+ [REF-146] blexim. "Basic Integer Overflows". Phrack - Issue 60, Chapter 10. <http://www.phrack.org/issues.html?issue=60&id=10#article>.
+ [REF-7] Michael Howard and David LeBlanc. "Writing Secure Code". Chapter 20, "Integer Overflows" Page 620. 2nd Edition. Microsoft Press. 2002-12-04. <https://www.microsoftpressstore.com/store/
+ writing-secure-code-9780735617223>.
+ [REF-44] Michael Howard, David LeBlanc and John Viega. "24 Deadly Sins of Software Security". "Sin 7: Integer Overflows." Page 119. McGraw-Hill. 2010.
+ [REF-106] David LeBlanc and Niels Dekker. "SafeInt". <http://safeint.codeplex.com/>.
+ [REF-150] Johannes Ullrich. "Top 25 Series - Rank 17 - Integer Overflow Or Wraparound". SANS Software Security Institute. 2010-03-18. <http://software-security.sans.org/blog/2010/03/18/
+ top-25-series-rank-17-integer-overflow-or-wraparound>.
+ [REF-62] Mark Dowd, John McDonald and Justin Schuh. "The Art of Software Security Assessment". Chapter 6, "Signed Integer Boundaries", Page 220. 1st Edition. Addison Wesley. 2006.
+ + Content History
+                                                                                           + Submissions
+      Submission Date                                                        Submitter                                                                          Organization
+ 2006-07-19                PLOVER
+ (CWE Draft 3, 2006-07-19)
+
+                                                                                          + Contributions
+     Contribution Date                                                      Contributor                                                                         Organization
+ 2023-04-25                "Mapping CWE to 62443" Sub-Working Group                                                                       CWE-CAPEC ICS/OT SIG
+                           Suggested mappings to ISA/IEC 62443.
+                                                                                          + Modifications
+     Modification Date                                                        Modifier                                                                          Organization
+ 2008-09-08                CWE Content Team                                                                                               MITRE
+                           updated Common_Consequences, Relationships, Relationship_Notes, Taxonomy_Mappings, Terminology_Notes
+ 2008-10-14                CWE Content Team                                                                                               MITRE
+                           updated Common_Consequences, Description, Potential_Mitigations, Terminology_Notes
+ 2008-11-24                CWE Content Team                                                                                               MITRE
+                           updated Relationships, Taxonomy_Mappings
+ 2009-01-12                CWE Content Team                                                                                               MITRE
+                           updated Description, Name
+ 2009-05-27                CWE Content Team                                                                                               MITRE
+                           updated Demonstrative_Examples
+ 2009-10-29                CWE Content Team                                                                                               MITRE
+                           updated Relationships
+ 2010-02-16                CWE Content Team                                                                                               MITRE
+                           updated Applicable_Platforms, Detection_Factors, Functional_Areas, Observed_Examples, Potential_Mitigations, References, Related_Attack_Patterns, Relationships,
+                           Taxonomy_Mappings, Terminology_Notes
+ 2010-04-05                CWE Content Team                                                                                               MITRE
+                           updated Demonstrative_Examples, Detection_Factors, Potential_Mitigations, References, Related_Attack_Patterns
+ 2010-06-21                CWE Content Team                                                                                               MITRE
+                           updated Common_Consequences, Potential_Mitigations, References
+ 2010-09-27                CWE Content Team                                                                                               MITRE
+                           updated Observed_Examples, Potential_Mitigations
+ 2011-06-01                CWE Content Team                                                                                               MITRE
+                           updated Common_Consequences
+ 2011-06-27                CWE Content Team                                                                                               MITRE
+                           updated Relationships
+ 2011-09-13                CWE Content Team                                                                                               MITRE
+                           updated Potential_Mitigations, References, Relationships, Taxonomy_Mappings
+ 2012-05-11                CWE Content Team                                                                                               MITRE
+                           updated Common_Consequences, Demonstrative_Examples, References, Relationships
+ 2012-10-30                CWE Content Team                                                                                               MITRE
+                           updated Potential_Mitigations
+ 2013-07-17                CWE Content Team                                                                                               MITRE
+                           updated References
+ 2014-07-30                CWE Content Team                                                                                               MITRE
+                           updated Detection_Factors, Relationships, Taxonomy_Mappings
+ 2015-12-07                CWE Content Team                                                                                               MITRE
+                           updated Relationships
+ 2017-01-19                CWE Content Team                                                                                               MITRE
+                           updated Relationships
+ 2017-11-08                CWE Content Team                                                                                               MITRE
+                           updated Functional_Areas, Observed_Examples, References, Taxonomy_Mappings
+ 2018-03-27                CWE Content Team                                                                                               MITRE
+                           updated References
+ 2019-01-03                CWE Content Team                                                                                               MITRE
+                           updated Relationships
+ 2019-09-19                CWE Content Team                                                                                               MITRE
+                           updated Relationships
+ 2020-02-24                CWE Content Team                                                                                               MITRE
+                           updated Relationships
+ 2020-06-25                CWE Content Team                                                                                               MITRE
+                           updated Observed_Examples
+ 2020-08-20                CWE Content Team                                                                                               MITRE
+                           updated Relationships
+ 2020-12-10                CWE Content Team                                                                                               MITRE
+                           updated Observed_Examples
+ 2021-03-15                CWE Content Team                                                                                               MITRE
+                           updated Potential_Mitigations
+ 2021-07-20                CWE Content Team                                                                                               MITRE
+                           updated Relationships
+ 2022-06-28                CWE Content Team                                                                                               MITRE
+                           updated Observed_Examples, Relationships
+ 2022-10-13                CWE Content Team                                                                                               MITRE
+                           updated Observed_Examples
+ 2023-01-31                CWE Content Team                                                                                               MITRE
+                           updated Description, Detection_Factors
+ 2023-04-27                CWE Content Team                                                                                               MITRE
+                           updated Relationships, Taxonomy_Mappings
+ 2023-06-29                CWE Content Team                                                                                               MITRE
+                           updated Mapping_Notes, Relationships
+ 2023-10-26                CWE Content Team                                                                                               MITRE
+                           updated Observed_Examples
+ 2024-02-29                CWE Content Team                                                                                               MITRE
+ (CWE 4.14, 2024-02-29)    updated Observed_Examples
+                                                                                       + Previous Entry Names
+        Change Date                                                                                   Previous Entry Name
+ 2009-01-12                Integer Overflow (Wrap or Wraparound)
+ More information is available — Please edit the custom filter or select a different filter.
+Page Last Updated: February 29, 2024
+ 
+      Site Map | Terms of Use | Manage Cookies | Cookie Notice | Privacy Policy | Contact Us | CWE X-Twitter CWE Mastodon CWE on LinkedIn CWE YouTube channel CWE Out-of-Bounds-Read Podcast CWE
+      Blog on Medium blog
+
+MITRE Use of the Common Weakness Enumeration (CWE™) and the associated references from this website are subject to the Terms of Use. CWE is sponsored by the U.S. Department of Homeland         HSSEDI
+      Security (DHS) Cybersecurity and Infrastructure Security Agency (CISA) and managed by the Homeland Security Systems Engineering and Development Institute (HSSEDI) which is operated by
+      The MITRE Corporation (MITRE). Copyright © 2006–2024, The MITRE Corporation. CWE, CWSS, CWRAF, and the CWE logo are trademarks of The MITRE Corporation.
+

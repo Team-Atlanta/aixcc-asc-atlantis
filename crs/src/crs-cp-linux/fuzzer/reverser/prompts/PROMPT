@@ -1,0 +1,66 @@
+Here is a result format example for an extracted input format of an example program.
+
+Example Control Flow
+<pseudocode>
+cmd_cnt = input[0:4]
+i = 4
+while i < size:
+  opcode = input[i:i + 4]
+  if opcode == 0:
+    flag = input[i + 4:i + 8]
+    data_one_size = input[i + 8:i + 12]
+    data_one = input[i + 12:i + 12 + data_one_size]
+    i += 12 + data_one_size
+    data_two_size = input[i:i+4]
+    data_two = input[i + 4:i + 4 + data_two_size]
+    call(opcode, flag, data_one, data_two)
+  else if opcode == 1:
+    flag = input[i + 4:i + 8]
+    call(opcode, flag)
+    i += 8
+  else
+    panic
+</pseudocode>
+
+<chain-of-thought>
+Four bytes are taken out for a command count, and then a loop starts, so this is likely the number of commands and then a list of commands.
+There are two cases in the switch statement, so there are likely two possible commands, each stating with some opcode.
+The first command has a flag and has two data blobs each with a size and a blob.
+The second command just has a size.
+</chain-of-thought>
+
+Example Input Format:
+<testlang>
+// INPUT is the start of the input format.
+// INPUT will be [COMMAND_CNT (4byte) ][ COMMAND_CNT chunks of COMMAND]
+INPUT ::= COMMAND_CNT { size: 4 }
+          COMMAND[COMMAND_CNT]
+
+// COMMAND will be COMMAND1 or COMMAND2 if the example program has two commands.
+COMMAND ::= COMMAND1 
+          | COMMAND2
+
+COMMAND1  ::= OPCODE { size: 4, value: 0 } // OPCODE value 0 comes from the first if statement
+          FLAG { size: 4 }
+          DATA1_SIZE { size: 4 }       
+          DATA1 { size: DATA1_SIZE }     // the size of DATA1 is DATA1_SIZE
+          DATA2_SIZE { size: 4 }
+          DATA2 { size: DATA2_SIZE }
+
+CMD2  ::= OPCODE { size: 4, value: 1} // OPCODE value 1 comes from the second if statement
+          FLAG { size: 4}
+</testlang>
+
+The above is just an example. Do not copy this and give it as your solution! Come up with your own solution based on the code and this.
+It is important that you understand that records and their order matters: OPCODE then FLAG is not the same to FLAG then OPCODE. 
+A common mistake is to put a number as the first element of a record.
+`value` attributes MUST be numeric (not constant variable names or math expressions)!
+Resolve preprocessor define's and other compile time constants to their numeric value. Otherwise, do not insert a value attribute at all if unsure.
+Only output the input format data representing the input format; do not provide commentary on the format.
+
+We recommend that you first give a "chain of thought" containing some information you'll find useful in generating your final input format.
+It may be helpful to convert parts of the c program to an intermediate representation, take notes on the c program, or record the lines which read the input.
+You may use "<chain-of-thought>" and "</chain-of-thought>" (without the quotes) to denote where your notes start and end.
+"<testlang>" and "</testlang>" respectively denote the start and end of your final response.
+You should try to have variable names in your final output, so we recommend that you keep them in any intermediate representation you produce.
+Always put the chain-of-thought before your final testlang or else!

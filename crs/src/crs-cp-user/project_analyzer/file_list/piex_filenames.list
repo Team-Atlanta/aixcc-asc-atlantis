@@ -1,0 +1,13 @@
+tiff_parser.h
+piex_types.h
+tiff_parser.cc
+piex.h
+piex.cc
+tiff_directory.h
+tiff_directory.cc
+cached_paged_byte_array.cc
+range_checked_byte_ptr.cc
+cached_paged_byte_array.h
+range_checked_byte_ptr.h
+image_type_recognition_lite.cc
+image_type_recognition_lite.h

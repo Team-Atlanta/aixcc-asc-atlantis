@@ -1,0 +1,8 @@
+__pycache__
+output/cpg.bin
+jazzer_mutator/build
+.metals
+.scala-build
+.vscode
+*.swp
+tool

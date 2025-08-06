@@ -1,0 +1,6 @@
+dump.c
+regress.c
+fuzz.cc
+sha1.c
+nestegg.c
+nestegg.h

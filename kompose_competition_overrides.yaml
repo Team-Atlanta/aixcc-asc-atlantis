@@ -1,0 +1,270 @@
+---
+# This file can be modified to add services which need access to /crs_scratch or read-only access to /cp_root.
+# Competitors may also use this to tune the deploy or labels section of all services as needed.
+# Competitors should ensure their CRS executes properly within the vCluster environment after making any changes here.
+
+services:
+  load-cp-images:
+    restart: always
+    environment:
+      - DOCKER_HOST=$${DOCKER_HOST:-tcp://dind:2375}
+      - "ENABLE_HEALTH_ENDPOINT=true"
+      - "LOAD_CPS=true"
+    volumes:
+      - cp_root:/cp_root
+    deploy:
+      placement:
+        constraints:
+          - node.labels.node == node1
+  iapi:
+    restart: always
+    configs:
+      - source: nginx_kube_config
+        target: /etc/nginx/templates/default.conf.template
+    environment:
+      - CAPI_UPSTREAM_HOST=$${CAPI_UPSTREAM_HOST:-http://capi:8080}
+    deploy:
+      placement:
+        constraints:
+          - node.labels.node == node1
+  dind:
+    restart: always
+    labels:
+      kompose.volume.type: persistentVolumeClaim
+      kompose.volume.size: 1Ti
+      kompose.volume.storage-class-name: rook-cephfs
+    volumes:
+      - crs_scratch:/crs_scratch
+    command: ["dockerd", "-H", "tcp://0.0.0.0:2375", "--tls=false"]
+    deploy:
+      placement:
+        constraints:
+          - node.labels.node == node1
+
+####################
+  
+  vapi:
+    restart: always
+    labels:
+      kompose.init.containers.command: '["sh", "-c", "until curl http://load-cp-images:8080; do echo \"Waiting for CP image load to complete\"; sleep 5; done"]'
+      kompose.init.containers.image: curlimages/curl:8.8.0
+      kompose.init.containers.name: wait-for-cp-load
+    environment:
+      - DOCKER_HOST=$${DOCKER_HOST:-tcp://dind:2375}
+      - AIXCC_LITELLM_HOSTNAME=$${AIXCC_LITELLM_HOSTNAME:-http://litellm}
+      - AIXCC_API_HOSTNAME=$${AIXCC_API_HOSTNAME:-http://iapi:8080}
+      - AIXCC_CP_ROOT=$${AIXCC_CP_ROOT:-/cp_root}
+      - AIXCC_CRS_SCRATCH_SPACE=$${AIXCC_CRS_SCRATCH_SPACE:-/crs_scratch}
+      - LITELLM_KEY=$${LITELLM_KEY:-sk-1234}
+      #####################################################################
+      - VAPI_DOCKER_IMAGE_USAGE=none
+      - VAPI_DOCKER_VOL_ARGS_BEHAVIOR=none
+      - WEB_CONCURRENCY=8
+    volumes:
+      - cp_root:/cp_root
+      - crs_scratch:/crs_scratch
+    deploy:
+      placement:
+        constraints:
+          - node.labels.node == node1
+  
+  crs-patch:
+    labels:
+      kompose.init.containers.command: '["sh", "-c", "until curl http://vapi:18080/health/; do echo \"Waiting for VAPI\"; sleep 5; done"]'
+      kompose.init.containers.image: curlimages/curl:8.8.0
+      kompose.init.containers.name: wait-for-cp-load
+    environment:
+      - DOCKER_HOST=$${DOCKER_HOST:-tcp://dind:2375}
+      - AIXCC_LITELLM_HOSTNAME=$${AIXCC_LITELLM_HOSTNAME:-http://litellm}
+      - AIXCC_API_HOSTNAME=$${AIXCC_API_HOSTNAME:-http://iapi:8080}
+      - AIXCC_CP_ROOT=$${AIXCC_CP_ROOT:-/cp_root}
+      - AIXCC_CRS_SCRATCH_SPACE=$${AIXCC_CRS_SCRATCH_SPACE:-/crs_scratch}
+      - LITELLM_KEY=$${LITELLM_KEY:-sk-1234}
+      #####################################################################
+      - IN_DOCKER_CONTAINER=1
+      - VAPI_HOSTNAME=http://vapi:18080
+    volumes:
+      - cp_root:/cp_root
+      - crs_scratch:/crs_scratch
+    deploy:
+      placement:
+        constraints:
+          - node.labels.node == node1
+  
+  crs-cp-user:
+    labels:
+      kompose.init.containers.command: '["sh", "-c", "until curl http://vapi:18080/health/; do echo \"Waiting for VAPI\"; sleep 5; done  && until curl dind2:2375/_ping; do echo \"Waiting for dind2\"; sleep 5; done"]'
+      kompose.init.containers.image: curlimages/curl:8.8.0
+      kompose.init.containers.name: wait-for-cp-load
+    environment:
+      - DOCKER_HOST=$${DOCKER_HOST:-tcp://dind:2375}
+      - AIXCC_LITELLM_HOSTNAME=$${AIXCC_LITELLM_HOSTNAME:-http://litellm}
+      - AIXCC_API_HOSTNAME=$${AIXCC_API_HOSTNAME:-http://iapi:8080}
+      - AIXCC_CP_ROOT=$${AIXCC_CP_ROOT:-/cp_root}
+      - AIXCC_CRS_SCRATCH_SPACE=$${AIXCC_CRS_SCRATCH_SPACE:-/crs_scratch}
+      - LITELLM_KEY=$${LITELLM_KEY:-sk-1234}
+      #####################################################################
+      - IN_DOCKER_CONTAINER=1
+      - VAPI_HOSTNAME=http://vapi:18080
+      - CRS_USER_NODE=0
+      - CRS_USER_CNT=2
+      - OUR_DOCKER_HOST=tcp://dind2:2375
+    volumes:
+      - cp_root:/cp_root
+      - crs_scratch:/crs_scratch
+    deploy:
+      placement:
+        constraints:
+          - node.labels.node == node2
+
+  crs-cp-user-worker:
+    labels:
+      kompose.init.containers.command: '["sh", "-c", "until curl http://vapi:18080/health/; do echo \"Waiting for VAPI\"; sleep 5; done  && until curl dind2:2375/_ping; do echo \"Waiting for dind3\"; sleep 5; done"]'
+      kompose.init.containers.image: curlimages/curl:8.8.0
+      kompose.init.containers.name: wait-for-cp-load
+    environment:
+      - DOCKER_HOST=$${DOCKER_HOST:-tcp://dind:2375}
+      - AIXCC_LITELLM_HOSTNAME=$${AIXCC_LITELLM_HOSTNAME:-http://litellm}
+      - AIXCC_API_HOSTNAME=$${AIXCC_API_HOSTNAME:-http://iapi:8080}
+      - AIXCC_CP_ROOT=$${AIXCC_CP_ROOT:-/cp_root}
+      - AIXCC_CRS_SCRATCH_SPACE=$${AIXCC_CRS_SCRATCH_SPACE:-/crs_scratch}
+      - LITELLM_KEY=$${LITELLM_KEY:-sk-1234}
+      #####################################################################
+      - IN_DOCKER_CONTAINER=1
+      - VAPI_HOSTNAME=http://vapi:18080
+      - CRS_USER_NODE=1
+      - CRS_USER_CNT=2
+      - OUR_DOCKER_HOST=tcp://dind3:2375
+    volumes:
+      - cp_root:/cp_root
+      - crs_scratch:/crs_scratch
+    deploy:
+      placement:
+        constraints:
+          - node.labels.node == node3
+  
+  crs-cp-linux:
+    labels:
+      kompose.init.containers.command: '["sh", "-c", "until curl http://vapi:18080/health/; do echo \"Waiting for VAPI\"; sleep 5; done"]'
+      kompose.init.containers.image: curlimages/curl:8.8.0
+      kompose.init.containers.name: wait-for-cp-load
+    environment:
+      - DOCKER_HOST=$${DOCKER_HOST:-tcp://dind:2375}
+      - AIXCC_LITELLM_HOSTNAME=$${AIXCC_LITELLM_HOSTNAME:-http://litellm}
+      - AIXCC_API_HOSTNAME=$${AIXCC_API_HOSTNAME:-http://iapi:8080}
+      - AIXCC_CP_ROOT=$${AIXCC_CP_ROOT:-/cp_root}
+      - AIXCC_CRS_SCRATCH_SPACE=$${AIXCC_CRS_SCRATCH_SPACE:-/crs_scratch}
+      - LITELLM_KEY=$${LITELLM_KEY:-sk-1234}
+      #####################################################################
+      - VAPI_HOSTNAME=http://vapi:18080
+      - CP_LINUX_CRS_TYPE=MAIN
+      - CP_LINUX_CRS_CNT=2
+    volumes:
+      - cp_root:/cp_root
+      - crs_scratch:/crs_scratch
+    deploy:
+      placement:
+        constraints:
+          - node.labels.node == node2
+  
+  crs-cp-linux-worker:
+    labels:
+      kompose.init.containers.command: '["sh", "-c", "until curl http://vapi:18080/health/; do echo \"Waiting for VAPI\"; sleep 5; done"]'
+      kompose.init.containers.image: curlimages/curl:8.8.0
+      kompose.init.containers.name: wait-for-cp-load
+    environment:
+      - DOCKER_HOST=$${DOCKER_HOST:-tcp://dind:2375}
+      - AIXCC_LITELLM_HOSTNAME=$${AIXCC_LITELLM_HOSTNAME:-http://litellm}
+      - AIXCC_API_HOSTNAME=$${AIXCC_API_HOSTNAME:-http://iapi:8080}
+      - AIXCC_CP_ROOT=$${AIXCC_CP_ROOT:-/cp_root}
+      - AIXCC_CRS_SCRATCH_SPACE=$${AIXCC_CRS_SCRATCH_SPACE:-/crs_scratch}
+      - LITELLM_KEY=$${LITELLM_KEY:-sk-1234}
+      #####################################################################
+      - VAPI_HOSTNAME=http://vapi:18080
+      - CP_LINUX_CRS_TYPE=WORKER_1
+      - CP_LINUX_CRS_CNT=2
+    volumes:
+      - cp_root:/cp_root
+      - crs_scratch:/crs_scratch
+    deploy:
+      placement:
+        constraints:
+          - node.labels.node == node3
+  
+  crs-cp-java:
+    labels:
+      kompose.init.containers.command: '["sh", "-c", "until curl http://vapi:18080/health/; do echo \"Waiting for VAPI\"; sleep 5; done"]'
+      kompose.init.containers.image: curlimages/curl:8.8.0
+      kompose.init.containers.name: wait-for-cp-load
+    environment:
+      - DOCKER_HOST=$${DOCKER_HOST:-tcp://dind:2375}
+      - AIXCC_LITELLM_HOSTNAME=$${AIXCC_LITELLM_HOSTNAME:-http://litellm}
+      - AIXCC_API_HOSTNAME=$${AIXCC_API_HOSTNAME:-http://iapi:8080}
+      - AIXCC_CP_ROOT=$${AIXCC_CP_ROOT:-/cp_root}
+      - AIXCC_CRS_SCRATCH_SPACE=$${AIXCC_CRS_SCRATCH_SPACE:-/crs_scratch}
+      - LITELLM_KEY=$${LITELLM_KEY:-sk-1234}
+      #####################################################################
+      - VAPI_HOSTNAME=http://vapi:18080
+      - CP_JAVA_CRS_TYPE=MAIN
+      - CP_JAVA_CRS_CNT=2
+    volumes:
+      - cp_root:/cp_root
+      - crs_scratch:/crs_scratch
+    deploy:
+      placement:
+        constraints:
+          - node.labels.node == node2
+  
+  crs-cp-java-worker:
+    labels:
+      kompose.init.containers.command: '["sh", "-c", "until curl http://vapi:18080/health/; do echo \"Waiting for VAPI\"; sleep 5; done"]'
+      kompose.init.containers.image: curlimages/curl:8.8.0
+      kompose.init.containers.name: wait-for-cp-load
+    environment:
+      - DOCKER_HOST=$${DOCKER_HOST:-tcp://dind:2375}
+      - AIXCC_LITELLM_HOSTNAME=$${AIXCC_LITELLM_HOSTNAME:-http://litellm}
+      - AIXCC_API_HOSTNAME=$${AIXCC_API_HOSTNAME:-http://iapi:8080}
+      - AIXCC_CP_ROOT=$${AIXCC_CP_ROOT:-/cp_root}
+      - AIXCC_CRS_SCRATCH_SPACE=$${AIXCC_CRS_SCRATCH_SPACE:-/crs_scratch}
+      - LITELLM_KEY=$${LITELLM_KEY:-sk-1234}
+      #####################################################################
+      - VAPI_HOSTNAME=http://vapi:18080
+      - CP_JAVA_CRS_TYPE=WORKER_1
+      - CP_JAVA_CRS_CNT=2
+    volumes:
+      - cp_root:/cp_root
+      - crs_scratch:/crs_scratch
+    deploy:
+      placement:
+        constraints:
+          - node.labels.node == node3
+
+  dind2:
+    restart: always
+    image: docker:24-dind
+    extends:
+      service: dind
+    privileged: true
+    expose:
+      - "2375"
+    deploy:
+      placement:
+        constraints:
+          - node.labels.node == node2
+
+  dind3:
+    restart: always
+    image: docker:24-dind
+    extends:
+      service: dind
+    privileged: true
+    expose:
+      - "2375"
+    deploy:
+      placement:
+        constraints:
+          - node.labels.node == node3
+
+volumes:
+  cp_root:
+  crs_scratch:

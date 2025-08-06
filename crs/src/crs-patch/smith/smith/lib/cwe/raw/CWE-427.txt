@@ -1,0 +1,387 @@
+CWE
+
+Common Weakness Enumeration
+
+A community-developed list of SW & HW weaknesses that can become vulnerabilities
+
+New to CWE? click here!
+CWE Most Important Hardware Weaknesses
+CWE Top 25 Most Dangerous Weaknesses
+Home > CWE List > CWE- Individual Dictionary Definition (4.14)                                                                                                   ID Lookup: [                    ] [Go]
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  • Home
+  • About ▼
+    About New to CWE User Stories History Documents FAQs Glossary Compatibility
+  • CWE List ▼
+    Latest Version Downloads Reports Visualizations Archive
+  • Mapping ▼
+    Root Cause Mapping Guidance Root Cause Mapping Quick Tips Root Cause Mapping Examples
+  • Top-N Lists ▼
+    Top 25 Software Top Hardware Top 10 KEV Weaknesses
+  • Community ▼
+    Community Working Groups & Special Interest Groups Board Board Meeting Minutes CWE Discussion List CWE Discussion Archives Contribute Weakness Content to CWE
+  • News ▼
+    Current News X-Twitter ● Mastodon ● LinkedIn ● YouTube YouTube Podcast Out of Bounds Read Podcast Medium Medium News Archive
+  • Search
+
+ 
+ CWE Glossary Definition                  x
+ 
+ 
+ CWE-427: Uncontrolled Search Path Element
+ 
+ Weakness ID: 427
+ Vulnerability Mapping: ALLOWEDThis CWE ID may be used to map to real-world vulnerabilities
+ Abstraction: BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level
+ weaknesses typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.
+ View customized information:
+ Conceptual For users who are interested in more notional aspects of a weakness. Example: educators, technical writers, and project/program managers. Operational For users who are concerned with the
+ practical application and details about the nature of a weakness and how to prevent it from happening. Example: tool developers, security researchers, pen-testers, incident response analysts. Mapping
+ Friendly For users who are mapping an issue to CWE/CAPEC IDs, i.e., finding the most appropriate CWE for a specific issue (e.g., a CVE record). Example: tool developers, security researchers. 
+ Complete For users who wish to see all available information for the CWE/CAPEC entry. Custom For users who want to customize what details are displayed.
+ ×
+
+ Edit Custom Filter
+
+ Conceptual Operational Mapping Friendly Select All
+ 
+ Reset Clear Submit Cancel
+ + Description
+ The product uses a fixed or controlled search path to find resources, but one or more locations in that path can be under the control of unintended actors.
+ + Extended Description
+ 
+ Although this weakness can occur with any type of resource, it is frequently introduced when a product uses a directory search path to find executables or code libraries, but the path contains a
+ directory that can be modified by an attacker, such as "/tmp" or the current working directory.
+
+ In Windows-based systems, when the LoadLibrary or LoadLibraryEx function is called with a DLL name that does not contain a fully qualified path, the function follows a search order that includes two
+ path elements that might be uncontrolled:
+
+   • the directory from which the program has been loaded
+   • the current working directory
+
+ In some cases, the attack can be conducted remotely, such as when SMB or WebDAV network shares are used.
+
+ One or more locations in that path could include the Windows drive root or its subdirectories. This often exists in Linux-based code assuming the controlled nature of the root directory (/) or its
+ subdirectories (/etc, etc), or a code that recursively accesses the parent directory. In Windows, the drive root and some of its subdirectories have weak permissions by default, which makes them
+ uncontrolled.
+
+ In some Unix-based systems, a PATH might be created that contains an empty element, e.g. by splicing an empty variable into the PATH. This empty element can be interpreted as equivalent to the
+ current working directory, which might be an untrusted search element.
+
+ In software package management frameworks (e.g., npm, RubyGems, or PyPi), the framework may identify dependencies on third-party libraries or other packages, then consult a repository that contains
+ the desired package. The framework may search a public repository before a private repository. This could be exploited by attackers by placing a malicious package in the public repository that has
+ the same name as a package from the private repository. The search path might not be directly under control of the developer relying on the framework, but this search order effectively contains an
+ untrusted element.
+
+ + Alternate Terms
+      DLL preloading:      This term is one of several that are used to describe exploitation of untrusted search path elements in Windows systems, which received wide attention in August 2010.
+                           From a weakness perspective, the term is imprecise because it can apply to both CWE-426 and CWE-427.
+     Binary planting:      This term is one of several that are used to describe exploitation of untrusted search path elements in Windows systems, which received wide attention in August 2010.
+                           From a weakness perspective, the term is imprecise because it can apply to both CWE-426 and CWE-427.
+ Insecure library loading: This term is one of several that are used to describe exploitation of untrusted search path elements in Windows systems, which received wide attention in August 2010.
+                           From a weakness perspective, the term is imprecise because it can apply to both CWE-426 and CWE-427.
+   Dependency confusion:   As of February 2021, this term is used to describe CWE-427 in the context of managing installation of software package dependencies, in which attackers release packages
+                           on public sites where the names are the same as package names used by private repositories, and the search for the dependent package tries the public site first,
+                           downloading untrusted code. It may also be referred to as a "substitution attack."
+ + Relationships
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Research Concepts" (CWE-1000)
+     Nature                                                                                                                                                                             Type                                                                                                                                                                           ID      Name
+ ChildOf                                                                               ClassClass - a weakness that is described in a very abstract fashion, typically independent of any specific language or technology. More specific than a Pillar Weakness, but more general than a Base                                                                        668     Exposure
+                                                                                                                    Weakness. Class level weaknesses typically describe issues in terms of 1 or 2 of the following dimensions: behavior, property, and resource.                                                                                                             of
+                                                                                                                                                                                                                                                                                                                                                                             Resource
+                                                                                                                                                                                                                                                                                                                                                                             to Wrong
+                                                                                                                                                                                                                                                                                                                                                                             Sphere
+ PeerOf                                                                                    BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level weaknesses                                                                           426     Untrusted
+                                                                                                                          typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                  Search
+                                                                                                                                                                                                                                                                                                                                                                             Path
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Software Development" (CWE-699)
+     Nature                                                       Type                                                     ID                                   Name
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 1219    File Handling Issues
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Weaknesses for Simplified Mapping of Published Vulnerabilities" (CWE-1003)
+     Nature                                                                                                                                                                             Type                                                                                                                                                                           ID      Name
+ ChildOf                                                                               ClassClass - a weakness that is described in a very abstract fashion, typically independent of any specific language or technology. More specific than a Pillar Weakness, but more general than a Base                                                                        668     Exposure
+                                                                                                                    Weakness. Class level weaknesses typically describe issues in terms of 1 or 2 of the following dimensions: behavior, property, and resource.                                                                                                             of
+                                                                                                                                                                                                                                                                                                                                                                             Resource
+                                                                                                                                                                                                                                                                                                                                                                             to Wrong
+                                                                                                                                                                                                                                                                                                                                                                             Sphere
+ + Modes Of Introduction
+ Section HelpThe different Modes of Introduction provide information about how and when this weakness may be introduced. The Phase identifies a point in the life cycle at which introduction may occur,
+ while the Note provides a typical scenario related to introduction during the given phase.
+     Phase                                                                                              Note
+ Implementation
+ + Applicable Platforms
+ Section HelpThis listing shows possible areas for which the given weakness could appear. These may be for specific named Languages, Operating Systems, Architectures, Paradigms, Technologies, or a
+ class of such platforms. The platform is listed along with how frequently the given weakness appears for that instance.
+
+ Languages
+
+ Class: Not Language-Specific (Undetermined Prevalence)
+
+ Operating Systems
+
+ Class: Not OS-Specific (Undetermined Prevalence)
+
+ + Common Consequences
+ Section HelpThis table specifies different individual consequences associated with the weakness. The Scope identifies the application security area that is violated, while the Impact describes the
+ negative technical impact that arises if an adversary succeeds in exploiting this weakness. The Likelihood provides information about how likely the specific consequence is expected to be seen
+ relative to the other consequences in the list. For example, there may be high likelihood that a weakness will be exploited to achieve a certain impact, but a low likelihood that it will be exploited
+ to achieve a different impact.
+       Scope                                                                                     Impact                                                                                 Likelihood
+ Confidentiality    Technical Impact: Execute Unauthorized Code or Commands
+ Integrity
+ Availability
+ + Demonstrative Examples
+ 
+ Example 1
+
+ The following code is from a web application that allows users access to an interface through which they can update their password on the system. In this environment, user passwords can be managed
+ using the Network Information System (NIS), which is commonly used on UNIX systems. When performing NIS updates, part of the process for updating passwords is to run a make command in the /var/yp
+ directory. Performing NIS updates requires extra privileges.
+
+ (bad code)
+ Example Language: Java 
+ ...
+ System.Runtime.getRuntime().exec("make");
+ ...
+
+ The problem here is that the program does not specify an absolute path for make and does not clean its environment prior to executing the call to Runtime.exec(). If an attacker can modify the $PATH
+ variable to point to a malicious binary called make and cause the program to be executed in their environment, then the malicious binary will be loaded instead of the one intended. Because of the
+ nature of the application, it runs with the privileges necessary to perform system operations, which means the attacker's make will now be run with these privileges, possibly giving the attacker
+ complete control of the system.
+
+ Example 2
+
+ In versions of Go prior to v1.19, the LookPath function would follow the conventions of the runtime OS and look for a program in the directiories listed in the current path [REF-1325].
+
+ Therefore, Go would prioritize searching the current directory when the provided command name does not contain a directory separator and continued to search for programs even when the specified
+ program name is empty.
+
+ Consider the following where an application executes a git command to run on the system.
+
+ (bad code)
+ Example Language: Go 
+ func ExecuteGitCommand(name string, arg []string) error {
+ c := exec.Command(name, arg...)
+ var err error
+ c.Path, err = exec.LookPath(name)
+ if err != nil {
+ return err
+ }
+ }
+
+ An attacker could create a malicious repository with a file named ..exe and another file named git.exe. If git.exe is not found in the system PATH, then ..exe would execute [REF-1326].
+
+ Example 3
+
+ In February 2021 [REF-1169], a researcher was able to demonstrate the ability to breach major technology companies by using "dependency confusion" where the companies would download and execute
+ untrusted packages.
+
+ The researcher discovered the names of some internal, private packages by looking at dependency lists in public source code, such as package.json. The researcher then created new, untrusted packages
+ with the same name as the internal packages, then uploaded them to package hosting services. These services included the npm registry for Node, PyPi for Python, and RubyGems. In affected companies,
+ their dependency resolution would search the public hosting services first before consulting their internal service, causing the untrusted packages to be automatically downloaded and executed.
+
+ + Observed Examples
+        Reference                                                                                        Description
+ CVE-2023-25815          chain: a change in an underlying package causes the gettext function to use implicit initialization with a hard-coded path (CWE-1419) under the user-writable C:\ drive,
+                         introducing an untrusted search path element (CWE-427) that enables spoofing of messages.
+ CVE-2022-4826           Go-based git extension on Windows can search for and execute a malicious "..exe" in a repository because Go searches the current working directory if git.exe is not found
+                         in the PATH
+ CVE-2020-26284          A Static Site Generator built in Go, when running on Windows, searches the current working directory for a command, possibly allowing code execution using a malicious .exe
+                         or .bat file with the name being searched
+ CVE-2022-24765          Windows-based fork of git creates a ".git" folder in the C: drive, allowing local attackers to create a .git folder with a malicious config file
+ CVE-2019-1552           SSL package searches under "C:/usr/local" for configuration files and other critical data, but C:/usr/local might be world-writable.
+ CVE-2010-3402           "DLL hijacking" issue in document editor.
+ CVE-2010-3397           "DLL hijacking" issue in encryption software.
+ CVE-2010-3138           "DLL hijacking" issue in library used by multiple media players.
+ CVE-2010-3152           "DLL hijacking" issue in illustration program.
+ CVE-2010-3147           "DLL hijacking" issue in address book.
+ CVE-2010-3135           "DLL hijacking" issue in network monitoring software.
+ CVE-2010-3131           "DLL hijacking" issue in web browser.
+ CVE-2010-1795           "DLL hijacking" issue in music player/organizer.
+ CVE-2002-1576           Product uses the current working directory to find and execute a program, which allows local users to gain privileges by creating a symlink that points to a malicious
+                         version of the program.
+ CVE-1999-1461           Product trusts the PATH environmental variable to find and execute a program, which allows local users to obtain root access by modifying the PATH to point to a malicous
+                         version of that program.
+ CVE-1999-1318           Software uses a search path that includes the current working directory (.), which allows local users to gain privileges via malicious programs.
+ CVE-2003-0579           Admin software trusts the user-supplied -uv.install command line option to find and execute the uv.install program, which allows local users to gain privileges by
+                         providing a pathname that is under control of the user.
+ CVE-2000-0854           When a document is opened, the directory of that document is first used to locate DLLs , which could allow an attacker to execute arbitrary commands by inserting malicious
+                         DLLs into the same directory as the document.
+ CVE-2001-0943           Database trusts the PATH environment variable to find and execute programs, which allows local users to modify the PATH to point to malicious programs.
+ CVE-2001-0942           Database uses an environment variable to find and execute a program, which allows local users to execute arbitrary programs by changing the environment variable.
+ CVE-2001-0507           Server uses relative paths to find system files that will run in-process, which allows local users to gain privileges via a malicious file.
+ CVE-2002-2017           Product allows local users to execute arbitrary code by setting an environment variable to reference a malicious program.
+ CVE-1999-0690           Product includes the current directory in root's PATH variable.
+ CVE-2001-0912           Error during packaging causes product to include a hard-coded, non-standard directory in search path.
+ CVE-2001-0289           Product searches current working directory for configuration file.
+ CVE-2005-1705           Product searches current working directory for configuration file.
+ CVE-2005-1307           Product executable other program from current working directory.
+ CVE-2002-2040           Untrusted path.
+ CVE-2005-2072           Modification of trusted environment variable leads to untrusted path vulnerability.
+ CVE-2005-1632           Product searches /tmp for modules before other paths.
+ + Potential Mitigations
+ Phases: Architecture and Design; Implementation
+
+ Strategy: Attack Surface Reduction
+
+ Hard-code the search path to a set of known-safe values (such as system directories), or only allow them to be specified by the administrator in a configuration file. Do not allow these settings
+ to be modified by an external party. Be careful to avoid related weaknesses such as CWE-426 and CWE-428.
+ Phase: Implementation
+
+ Strategy: Attack Surface Reduction
+
+ When invoking other programs, specify those programs using fully-qualified pathnames. While this is an effective approach, code that uses fully-qualified pathnames might not be portable to other
+ systems that do not use the same pathnames. The portability can be improved by locating the full-qualified paths in a centralized, easily-modifiable location within the source code, and having
+ the code refer to these paths.
+ Phase: Implementation
+
+ Strategy: Attack Surface Reduction
+
+ Remove or restrict all environment settings before invoking other programs. This includes the PATH environment variable, LD_LIBRARY_PATH, and other settings that identify the location of code
+ libraries, and any application-specific search paths.
+ Phase: Implementation
+
+ Check your search path before use and remove any elements that are likely to be unsafe, such as the current working directory or a temporary files directory. Since this is a denylist approach, it
+ might not be a complete solution.
+ Phase: Implementation
+
+ Use other functions that require explicit paths. Making use of any of the other readily available functions that require explicit paths is a safe way to avoid this problem. For example, system()
+ in C does not require a full path since the shell can take care of finding the program using the PATH environment variable, while execl() and execv() require a full path.
+ + Detection Methods
+ Automated Static Analysis
+
+ Automated static analysis, commonly referred to as Static Application Security Testing (SAST), can find some instances of this weakness by analyzing source code (or binary/compiled code) without
+ having to execute it. Typically, this is done by building a model of data flow and control flow, then searching for potentially-vulnerable patterns that connect "sources" (origins of input) with
+ "sinks" (destinations where the data interacts with external components, a lower layer such as the OS, etc.)
+
+ Effectiveness: High
+
+ + Memberships
+ Section HelpThis MemberOf Relationships table shows additional CWE Categories and Views that reference this weakness as a member. This information is often useful in understanding where a weakness
+ fits within the context of external information sources.
+     Nature                                                       Type                                                     ID                                   Name
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 991     SFP Secondary Cluster: Tainted Input to Environment
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 1403    Comprehensive Categorization: Exposed Resource
+ + Vulnerability Mapping Notes
+ Usage: ALLOWED
+
+ (this CWE ID could be used to map to real-world vulnerabilities)
+ Reason: Acceptable-Use
+
+ Rationale:
+
+ This CWE entry is at the Base level of abstraction, which is a preferred level of abstraction for mapping to the root causes of vulnerabilities.
+ Comments:
+
+ Carefully read both the name and description to ensure that this mapping is an appropriate fit. Do not try to 'force' a mapping to a lower-level Base/Variant simply to comply with this preferred
+ level of abstraction.
+ + Notes
+ 
+ Relationship
+
+ Unlike untrusted search path (CWE-426), which inherently involves control over the definition of a control sphere (i.e., modification of a search path), this entry concerns a fixed control sphere in
+ which some part of the sphere may be under attacker control (i.e., the search path cannot be modified by an attacker, but one element of the path can be under attacker control).
+
+ Theoretical
+
+ This weakness is not a clean fit under CWE-668 or CWE-610, which suggests that the control sphere model might need enhancement or clarification.
+ + Taxonomy Mappings
+       Mapped Taxonomy Name          Node ID          Fit                                                                 Mapped Node Name
+ PLOVER                                                         Uncontrolled Search Path Element
+ + Related Attack Patterns
+    CAPEC-ID                                                                                     Attack Pattern Name
+ CAPEC-38        Leveraging/Manipulating Configuration File Search Paths
+ CAPEC-471       Search Order Hijacking
+ + References
+ [REF-409] Georgi Guninski. "Double clicking on MS Office documents from Windows Explorer may execute arbitrary programs in some cases". Bugtraq. 2000-09-18. <https://seclists.org/bugtraq/2000/Sep
+ /331>. URL validated: 2023-01-30.
+ [REF-410] Mitja Kolsek. "ACROS Security: Remote Binary Planting in Apple iTunes for Windows (ASPR #2010-08-18-1)". Bugtraq. 2010-08-18. <https://lists.openwall.net/bugtraq/2010/08/18/4>. URL
+ validated: 2023-01-30.
+ [REF-411] Taeho Kwon and Zhendong Su. "Automatic Detection of Vulnerable Dynamic Component Loadings". <https://dl.acm.org/doi/10.1145/1831708.1831722>. URL validated: 2023-04-07.
+ [REF-412] "Dynamic-Link Library Search Order". Microsoft. 2010-09-02. <https://learn.microsoft.com/en-us/windows/win32/dlls/dynamic-link-library-search-order?redirectedfrom=MSDN>. URL validated:
+ 2023-04-07.
+ [REF-413] "Dynamic-Link Library Security". Microsoft. 2010-09-02. <https://learn.microsoft.com/en-us/windows/win32/dlls/dynamic-link-library-security>. URL validated: 2023-04-07.
+ [REF-414] "An update on the DLL-preloading remote attack vector". Microsoft. 2010-08-31. <https://msrc.microsoft.com/blog/2010/08/an-update-on-the-dll-preloading-remote-attack-vector/>. URL
+ validated: 2023-04-07.
+ [REF-415] "Insecure Library Loading Could Allow Remote Code Execution". Microsoft. 2010-08-23. <https://learn.microsoft.com/en-us/security-updates/securityadvisories/2010/2269637#
+ insecure-library-loading-could-allow-remote-code-execution>. URL validated: 2023-04-07.
+ [REF-416] HD Moore. "Application DLL Load Hijacking". 2010-08-23. <https://www.rapid7.com/blog/?p=5325>. URL validated: 2023-04-07.
+ [REF-417] Oliver Lavery. "DLL Hijacking: Facts and Fiction". 2010-08-26. <https://threatpost.com/dll-hijacking-facts-and-fiction-082610/74384/>. URL validated: 2023-04-07.
+ [REF-1168] Catalin Cimpanu. "Microsoft warns enterprises of new 'dependency confusion' attack technique". ZDNet. 2021-02-10. <https://www.zdnet.com/article/
+ microsoft-warns-enterprises-of-new-dependency-confusion-attack-technique/>.
+ [REF-1169] Alex Birsan. "Dependency Confusion: How I Hacked Into Apple, Microsoft and Dozens of Other Companies". 2021-02-09. <https://medium.com/@alex.birsan/dependency-confusion-4a5d60fec610>.
+ [REF-1170] Microsoft. "3 Ways to Mitigate Risk When Using Private Package Feeds". 2021-02-09. <https://azure.microsoft.com/mediahandler/files/resourcefiles/
+ 3-ways-to-mitigate-risk-using-private-package-feeds/3%20Ways%20to%20Mitigate%20Risk%20When%20Using%20Private%20Package%20Feeds%20-%20v1.0.pdf>.
+ [REF-1325] "exec package - os/exec - Go Packages". 2023-04-04. <https://pkg.go.dev/os/exec>. URL validated: 2023-04-21.
+ [REF-1326] Brian M. Carlson. "Git LFS Changelog". 2022-04-19. <https://github.com/git-lfs/git-lfs/commit/032dca8ee69c193208cd050024c27e82e11aef81>. URL validated: 2023-04-21.
+ + Content History
+                                                                                            + Submissions
+        Submission Date                                                              Submitter                                                                        Organization
+ 2006-07-19                    PLOVER
+ (CWE Draft 3, 2006-07-19)
+
+                                                                                           + Contributions
+       Contribution Date                                                            Contributor                                                                       Organization
+ 2022-05-24                    Anonymous External Contributor
+                               provided observed examples and descriptions for Windows drive root
+                                                                                           + Modifications
+       Modification Date                                                             Modifier                                                                         Organization
+ 2008-07-01                    Eric Dalci                                                                                                            Cigital
+                               updated Potential_Mitigations, Time_of_Introduction
+ 2008-09-08                    CWE Content Team                                                                                                      MITRE
+                               updated Relationships, Observed_Example, Other_Notes, Taxonomy_Mappings
+ 2009-07-27                    CWE Content Team                                                                                                      MITRE
+                               updated Description, Maintenance_Notes, Observed_Examples, Other_Notes, Potential_Mitigations, Relationships
+ 2010-09-27                    CWE Content Team                                                                                                      MITRE
+                               updated Alternate_Terms, Applicable_Platforms, Description, Maintenance_Notes, Observed_Examples, References, Relationship_Notes, Relationships
+ 2011-03-29                    CWE Content Team                                                                                                      MITRE
+                               updated Potential_Mitigations
+ 2011-06-01                    CWE Content Team                                                                                                      MITRE
+                               updated Common_Consequences
+ 2012-05-11                    CWE Content Team                                                                                                      MITRE
+                               updated Observed_Examples, Related_Attack_Patterns, Relationships
+ 2014-02-18                    CWE Content Team                                                                                                      MITRE
+                               updated Demonstrative_Examples, Observed_Examples, Potential_Mitigations
+ 2014-07-30                    CWE Content Team                                                                                                      MITRE
+                               updated Relationships
+ 2015-12-07                    CWE Content Team                                                                                                      MITRE
+                               updated Relationships
+ 2019-01-03                    CWE Content Team                                                                                                      MITRE
+                               updated Related_Attack_Patterns
+ 2019-06-20                    CWE Content Team                                                                                                      MITRE
+                               updated Related_Attack_Patterns, Relationships
+ 2020-02-24                    CWE Content Team                                                                                                      MITRE
+                               updated Relationships
+ 2020-06-25                    CWE Content Team                                                                                                      MITRE
+                               updated Potential_Mitigations
+ 2021-03-15                    CWE Content Team                                                                                                      MITRE
+                               updated Alternate_Terms, Description, Maintenance_Notes, References, Theoretical_Notes
+ 2022-04-28                    CWE Content Team                                                                                                      MITRE
+                               updated Demonstrative_Examples
+ 2022-10-13                    CWE Content Team                                                                                                      MITRE
+                               updated Observed_Examples
+ 2023-01-31                    CWE Content Team                                                                                                      MITRE
+                               updated Description, Observed_Examples, References
+ 2023-04-27                    CWE Content Team                                                                                                      MITRE
+                               updated Demonstrative_Examples, Detection_Factors, References, Relationships
+ 2023-06-29                    CWE Content Team                                                                                                      MITRE
+                               updated Mapping_Notes
+ 2023-10-26                    CWE Content Team                                                                                                      MITRE
+                               updated Observed_Examples
+ More information is available — Please edit the custom filter or select a different filter.
+Page Last Updated: February 29, 2024
+ 
+      Site Map | Terms of Use | Manage Cookies | Cookie Notice | Privacy Policy | Contact Us | CWE X-Twitter CWE Mastodon CWE on LinkedIn CWE YouTube channel CWE Out-of-Bounds-Read Podcast CWE
+      Blog on Medium blog
+
+MITRE Use of the Common Weakness Enumeration (CWE™) and the associated references from this website are subject to the Terms of Use. CWE is sponsored by the U.S. Department of Homeland         HSSEDI
+      Security (DHS) Cybersecurity and Infrastructure Security Agency (CISA) and managed by the Homeland Security Systems Engineering and Development Institute (HSSEDI) which is operated by
+      The MITRE Corporation (MITRE). Copyright © 2006–2024, The MITRE Corporation. CWE, CWSS, CWRAF, and the CWE logo are trademarks of The MITRE Corporation.
+

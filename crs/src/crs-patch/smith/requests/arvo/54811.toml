@@ -1,0 +1,6 @@
+cp_name = "ARVO"
+blob_file = "./exemplar_only/cpv_1/blobs/sample_solve.bin"
+harness_id = "id_1"
+sanitizer_id = "id_1"
+bug_introduce_commit = "f45cfe0d53fb06deb0e61f19325bbf7123dcbc02~4"
+src_dir = "./src/gstreamer"

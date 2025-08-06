@@ -1,0 +1,6 @@
+cp_name = "userland_c"
+blob_file = "./exemplar_only/cpv_1/blobs/sample_solve.bin"
+harness_id = "id_1"
+sanitizer_id = "id_1"
+bug_introduce_commit = "86b4fe5b45458c65f26762fb1de2803056e3d37e"
+src_dir = "./src/samples"

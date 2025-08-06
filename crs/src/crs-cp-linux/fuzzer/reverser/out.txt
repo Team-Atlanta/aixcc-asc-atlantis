@@ -1,0 +1,34 @@
+python ./run.py ./linux_test_harness.c
+content='Based on the provided target program, I have extracted the input format:\n\n```\n// INPUT is the start of the input format.\n// INPUT will be [CMD_CNT (4byte) ][ CMD_CNT chunks of CMD]\nINPUT ::= CMD_CNT { size: 4 }\n           CMD[CMD_CNT]\n\n// CMD will be CMD0 or CMD1 if the target program has two commands.\nCMD   ::= CMD0\n        | CMD1\n\nCMD0  ::= COMMAND0 \nCMD1  ::= COMMAND1\n\nCOMMAND0 ::= SIZE { size: 4 }\n            FLAGS { size: 4 }\n            DATA { size: SIZE }\n\nCOMMAND1 ::= BLOB_SIZE { size: 4 }\n            MSG_TYPE { size: 4 }\n            MSG_FLAGS { size: 4 }\n            PROTOCOL { size: 4 }\n            SIZE { size: 4 }\n            DATA { size: SIZE }\n``` \n\nIn this extracted format, the input will start with a command count (CMD_CNT) followed by sequences of commands CMD0 and CMD1. \n\n- CMD_CNT: The total count of commands.\n- CMD0: Represents a command to send a packet blob, which consists of SIZE (size of the packet), FLAGS, and the actual data (DATA) of size SIZE.\n- CMD1: Represents a command to send a netlink packet, containing BLOB_SIZE, MSG_TYPE, MSG_FLAGS, PROTOCOL, SIZE, and the actual data (DATA) of size SIZE.' response_metadata={'token_usage': Usage(completion_tokens=299, prompt_tokens=2241, total_tokens=2540), 'model': 'gpt-3.5-turbo', 'finish_reason': 'stop'} id='run-83c5c921-3dcb-4128-a0d7-0ccb8ff23f14-0'
+Based on the provided target program, I have extracted the input format:
+
+```
+// INPUT is the start of the input format.
+// INPUT will be [CMD_CNT (4byte) ][ CMD_CNT chunks of CMD]
+INPUT ::= CMD_CNT { size: 4 }
+           CMD[CMD_CNT]
+
+// CMD will be CMD0 or CMD1 if the target program has two commands.
+CMD   ::= CMD0
+        | CMD1
+
+CMD0  ::= COMMAND0 
+CMD1  ::= COMMAND1
+
+COMMAND0 ::= SIZE { size: 4 }
+            FLAGS { size: 4 }
+            DATA { size: SIZE }
+
+COMMAND1 ::= BLOB_SIZE { size: 4 }
+            MSG_TYPE { size: 4 }
+            MSG_FLAGS { size: 4 }
+            PROTOCOL { size: 4 }
+            SIZE { size: 4 }
+            DATA { size: SIZE }
+``` 
+
+In this extracted format, the input will start with a command count (CMD_CNT) followed by sequences of commands CMD0 and CMD1. 
+
+- CMD_CNT: The total count of commands.
+- CMD0: Represents a command to send a packet blob, which consists of SIZE (size of the packet), FLAGS, and the actual data (DATA) of size SIZE.
+- CMD1: Represents a command to send a netlink packet, containing BLOB_SIZE, MSG_TYPE, MSG_FLAGS, PROTOCOL, SIZE, and the actual data (DATA) of size SIZE.

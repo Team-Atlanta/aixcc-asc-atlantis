@@ -1,0 +1,304 @@
+CWE
+
+Common Weakness Enumeration
+
+A community-developed list of SW & HW weaknesses that can become vulnerabilities
+
+New to CWE? click here!
+CWE Most Important Hardware Weaknesses
+CWE Top 25 Most Dangerous Weaknesses
+Home > CWE List > CWE- Individual Dictionary Definition (4.14)                                                                                                   ID Lookup: [                    ] [Go]
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  • Home
+  • About ▼
+    About New to CWE User Stories History Documents FAQs Glossary Compatibility
+  • CWE List ▼
+    Latest Version Downloads Reports Visualizations Archive
+  • Mapping ▼
+    Root Cause Mapping Guidance Root Cause Mapping Quick Tips Root Cause Mapping Examples
+  • Top-N Lists ▼
+    Top 25 Software Top Hardware Top 10 KEV Weaknesses
+  • Community ▼
+    Community Working Groups & Special Interest Groups Board Board Meeting Minutes CWE Discussion List CWE Discussion Archives Contribute Weakness Content to CWE
+  • News ▼
+    Current News X-Twitter ● Mastodon ● LinkedIn ● YouTube YouTube Podcast Out of Bounds Read Podcast Medium Medium News Archive
+  • Search
+
+ 
+ CWE Glossary Definition                  x
+ 
+ 
+ CWE-778: Insufficient Logging
+ 
+ Weakness ID: 778
+ Vulnerability Mapping: ALLOWEDThis CWE ID may be used to map to real-world vulnerabilities
+ Abstraction: BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level
+ weaknesses typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.
+ View customized information:
+ Conceptual For users who are interested in more notional aspects of a weakness. Example: educators, technical writers, and project/program managers. Operational For users who are concerned with the
+ practical application and details about the nature of a weakness and how to prevent it from happening. Example: tool developers, security researchers, pen-testers, incident response analysts. Mapping
+ Friendly For users who are mapping an issue to CWE/CAPEC IDs, i.e., finding the most appropriate CWE for a specific issue (e.g., a CVE record). Example: tool developers, security researchers. 
+ Complete For users who wish to see all available information for the CWE/CAPEC entry. Custom For users who want to customize what details are displayed.
+ ×
+
+ Edit Custom Filter
+
+ Conceptual Operational Mapping Friendly Select All
+ 
+ Reset Clear Submit Cancel
+ + Description
+ When a security-critical event occurs, the product either does not record the event or omits important details about the event when logging it.
+ + Extended Description
+ 
+ When security-critical events are not logged properly, such as a failed login attempt, this can make malicious behavior more difficult to detect and may hinder forensic analysis after an attack
+ succeeds.
+
+ As organizations adopt cloud storage resources, these technologies often require configuration changes to enable detailed logging information, since detailed logging can incur additional costs. This
+ could lead to telemetry gaps in critical audit logs. For example, in Azure, the default value for logging is disabled.
+
+ + Relationships
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Research Concepts" (CWE-1000)
+     Nature                                                                                                                                                                               Type                                                                                                                                                                            ID          Name
+ ChildOf                                                                                 PillarPillar - a weakness that is the most abstract type of weakness and represents a theme for all class/base/variant weaknesses related to it. A Pillar is different from a Category as a Pillar is                                                                          693     Protection
+                                                                                                                    still technically a type of weakness that describes a mistake, while a Category represents a common characteristic used to group related things.                                                                                                            Mechanism Failure
+ ChildOf                                                                                    BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level weaknesses                                                                             223     Omission of
+                                                                                                                           typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                    Security-relevant
+                                                                                                                                                                                                                                                                                                                                                                                Information
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Software Development" (CWE-699)
+     Nature                                                       Type                                                     ID                                   Name
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 1210    Audit / Logging Errors
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Architectural Concepts" (CWE-1008)
+     Nature                                                       Type                                                     ID                                   Name
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 1009    Audit
+ + Modes Of Introduction
+ Section HelpThe different Modes of Introduction provide information about how and when this weakness may be introduced. The Phase identifies a point in the life cycle at which introduction may occur,
+ while the Note provides a typical scenario related to introduction during the given phase.
+     Phase                                                                                              Note
+ Operation      COMMISSION: This weakness refers to an incorrect design related to an architectural security tactic.
+ + Applicable Platforms
+ Section HelpThis listing shows possible areas for which the given weakness could appear. These may be for specific named Languages, Operating Systems, Architectures, Paradigms, Technologies, or a
+ class of such platforms. The platform is listed along with how frequently the given weakness appears for that instance.
+
+ Languages
+
+ Class: Not Language-Specific (Undetermined Prevalence)
+
+ Technologies
+
+ Class: Cloud Computing (Undetermined Prevalence)
+
+ + Common Consequences
+ Section HelpThis table specifies different individual consequences associated with the weakness. The Scope identifies the application security area that is violated, while the Impact describes the
+ negative technical impact that arises if an adversary succeeds in exploiting this weakness. The Likelihood provides information about how likely the specific consequence is expected to be seen
+ relative to the other consequences in the list. For example, there may be high likelihood that a weakness will be exploited to achieve a certain impact, but a low likelihood that it will be exploited
+ to achieve a different impact.
+       Scope                                                                                     Impact                                                                                 Likelihood
+                    Technical Impact: Hide Activities
+ Non-Repudiation
+                    If security critical information is not recorded, there will be no trail for forensic analysis and discovering the cause of problems or the source of attacks may
+                    become more difficult or impossible.
+ + Likelihood Of Exploit
+ Medium
+ + Demonstrative Examples
+ 
+ Example 1
+
+ The example below shows a configuration for the service security audit feature in the Windows Communication Foundation (WCF).
+
+ (bad code)
+ Example Language: XML 
+ <system.serviceModel>
+ <behaviors>
+ <serviceBehaviors>
+ <behavior name="NewBehavior">
+ <serviceSecurityAudit auditLogLocation="Default"
+ suppressAuditFailure="false"
+ serviceAuthorizationAuditLevel="None"
+ messageAuthenticationAuditLevel="None" />
+ ...
+ </system.serviceModel>
+
+ The previous configuration file has effectively disabled the recording of security-critical events, which would force the administrator to look to other sources during debug or recovery efforts.
+
+ Logging failed authentication attempts can warn administrators of potential brute force attacks. Similarly, logging successful authentication events can provide a useful audit trail when a legitimate
+ account is compromised. The following configuration shows appropriate settings, assuming that the site does not have excessive traffic, which could fill the logs if there are a large number of
+ success or failure events (CWE-779).
+
+ (good code)
+ Example Language: XML 
+ <system.serviceModel>
+ <behaviors>
+ <serviceBehaviors>
+ <behavior name="NewBehavior">
+ <serviceSecurityAudit auditLogLocation="Default"
+ suppressAuditFailure="false"
+ serviceAuthorizationAuditLevel="SuccessAndFailure"
+ messageAuthenticationAuditLevel="SuccessAndFailure" />
+ ...
+ </system.serviceModel>
+
+ Example 2
+
+ In the following Java example the code attempts to authenticate the user. If the login fails a retry is made. Proper restrictions on the number of login attempts are of course part of the retry
+ functionality. Unfortunately, the failed login is not recorded and there would be no record of an adversary attempting to brute force the program.
+
+ (bad code)
+ Example Language: Java 
+ if LoginUser(){
+ // Login successful
+ RunProgram();
+ } else {
+ // Login unsuccessful
+ LoginRetry();
+ }
+
+ It is recommended to log the failed login action. Note that unneutralized usernames should not be part of the log message, and passwords should never be part of the log message.
+
+ (good code)
+ Example Language: Java 
+ if LoginUser(){
+ // Login successful
+ log.warn("Login by user successful.");
+ RunProgram();
+ } else {
+ // Login unsuccessful
+ log.warn("Login attempt by user failed, trying again.");
+ LoginRetry();
+ }
+
+ Example 3
+
+ Consider this command for updating Azure's Storage Logging for Blob service, adapted from [REF-1307]:
+
+ (bad code)
+ Example Language: Shell 
+ az storage logging update --account-name --account-key --services b --log d --retention 90
+
+ The "--log d" portion of the command says to log deletes. However, the argument does not include the logging of writes and reads. Adding the "rw" arguments to the -log parameter will fix the issue:
+
+ (good code)
+ Example Language: Shell 
+ az storage logging update --account-name --account-key --services b --log rwd --retention 90
+
+ To enable Azure's storage analytic logs programmatically using PowerShell:
+
+ (good code)
+ Example Language: Shell 
+ Set-AzStorageServiceLoggingProperty -ServiceType Queue -LoggingOperations read,write,delete -RetentionDays 5 -Context $MyContextObject
+
+ Notice that here, the retention has been limited to 5 days.
+
+ + Observed Examples
+        Reference                                                                                        Description
+ CVE-2008-4315           server does not log failed authentication attempts, making it easier for attackers to perform brute force password guessing without being detected
+ CVE-2008-1203           admin interface does not log failed authentication attempts, making it easier for attackers to perform brute force password guessing without being detected
+ CVE-2007-3730           default configuration for POP server does not log source IP or username for login attempts
+ CVE-2007-1225           proxy does not log requests without "http://" in the URL, allowing web surfers to access restricted web content without detection
+ CVE-2003-1566           web server does not log requests for a non-standard request type
+ + Potential Mitigations
+ Phase: Architecture and Design
+
+ Use a centralized logging mechanism that supports multiple levels of detail.
+ Phase: Implementation
+
+ Ensure that all security-related successes and failures can be logged. When storing data in the cloud (e.g., AWS S3 buckets, Azure blobs, Google Cloud Storage, etc.), use the provider's controls
+ to enable and capture detailed logging information.
+ Phase: Operation
+
+ Be sure to set the level of logging appropriately in a production environment. Sufficient data should be logged to enable system administrators to detect attacks, diagnose errors, and recover
+ from attacks. At the same time, logging too much data (CWE-779) can cause the same problems, including unexpected costs when using a cloud environment.
+ Phase: Operation
+
+ To enable storage logging using Azure's Portal, navigate to the name of the Storage Account, locate Monitoring (CLASSIC) section, and select Diagnostic settings (classic). For each of the various
+ properties (blob, file, table, queue), ensure the status is properly set for the desired logging data. If using PowerShell, the Set-AzStorageServiceLoggingProperty command could be called using
+ appropriate -ServiceType, -LoggingOperations, and -RetentionDays arguments.
+ + Detection Methods
+ Automated Static Analysis
+
+ Automated static analysis, commonly referred to as Static Application Security Testing (SAST), can find some instances of this weakness by analyzing source code (or binary/compiled code) without
+ having to execute it. Typically, this is done by building a model of data flow and control flow, then searching for potentially-vulnerable patterns that connect "sources" (origins of input) with
+ "sinks" (destinations where the data interacts with external components, a lower layer such as the OS, etc.)
+
+ Effectiveness: High
+
+ + Memberships
+ Section HelpThis MemberOf Relationships table shows additional CWE Categories and Views that reference this weakness as a member. This information is often useful in understanding where a weakness
+ fits within the context of external information sources.
+     Nature                                                       Type                                                     ID                                   Name
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 1036    OWASP Top Ten 2017 Category A10 - Insufficient Logging & Monitoring
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 1308    CISQ Quality Measures - Security
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 1355    OWASP Top Ten 2021 Category A09:2021 - Security Logging and
+                                                                                                                                 Monitoring Failures
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 1413    Comprehensive Categorization: Protection Mechanism Failure
+ + Vulnerability Mapping Notes
+ Usage: ALLOWED
+
+ (this CWE ID could be used to map to real-world vulnerabilities)
+ Reason: Acceptable-Use
+
+ Rationale:
+
+ This CWE entry is at the Base level of abstraction, which is a preferred level of abstraction for mapping to the root causes of vulnerabilities.
+ Comments:
+
+ Carefully read both the name and description to ensure that this mapping is an appropriate fit. Do not try to 'force' a mapping to a lower-level Base/Variant simply to comply with this preferred
+ level of abstraction.
+ + References
+ [REF-62] Mark Dowd, John McDonald and Justin Schuh. "The Art of Software Security Assessment". Chapter 2, "Accountability", Page 40. 1st Edition. Addison Wesley. 2006.
+ [REF-1307] Center for Internet Security. "CIS Microsoft Azure Foundations Benchmark version 1.5.0". Sections 3.5, 3.13, and 3.14. 2022-08-16. <https://www.cisecurity.org/benchmark/azure>. URL
+ validated: 2023-01-19.
+ [REF-1308] Microsoft. "Enable and manage Azure Storage Analytics logs (classic)". 2023-01-23. <https://learn.microsoft.com/en-us/azure/storage/common/manage-storage-analytics-logs>. URL
+ validated: 2023-01-24.
+ + Content History
+                                                                                           + Submissions
+          Submission Date                                              Submitter                                                                     Organization
+ 2009-07-02                         CWE Content Team                                                                MITRE
+ (CWE 1.5, 2009-07-27)
+
+                                                                                          + Contributions
+         Contribution Date                                            Contributor                                                                    Organization
+ 2009-07-02                                                                                                         Fortify Software
+                                    Provided code example and additional information for description and consequences.
+ 2022-08-15                         Drew Buttner
+                                    Suggested a new demonstrative example and changes to the mitigations.
+                                                                                          + Modifications
+         Modification Date                                             Modifier                                                                      Organization
+ 2011-06-01                         CWE Content Team                                                                MITRE
+                                    updated Common_Consequences
+ 2012-05-11                         CWE Content Team                                                                MITRE
+                                    updated References
+ 2017-11-08                         CWE Content Team                                                                MITRE
+                                    updated Modes_of_Introduction, Relationships
+ 2018-03-27                         CWE Content Team                                                                MITRE
+                                    updated Relationships
+ 2020-02-24                         CWE Content Team                                                                MITRE
+                                    updated Relationships
+ 2020-08-20                         CWE Content Team                                                                MITRE
+                                    updated Relationships
+ 2021-10-28                         CWE Content Team                                                                MITRE
+                                    updated Relationships
+ 2022-10-13                         CWE Content Team                                                                MITRE
+                                    updated Demonstrative_Examples, Potential_Mitigations
+ 2023-01-31                         CWE Content Team                                                                MITRE
+                                    updated Applicable_Platforms, Demonstrative_Examples, Description, Potential_Mitigations, References
+ 2023-04-27                         CWE Content Team                                                                MITRE
+                                    updated Detection_Factors, Relationships
+ 2023-06-29                         CWE Content Team                                                                MITRE
+                                    updated Mapping_Notes
+ More information is available — Please edit the custom filter or select a different filter.
+Page Last Updated: February 29, 2024
+ 
+      Site Map | Terms of Use | Manage Cookies | Cookie Notice | Privacy Policy | Contact Us | CWE X-Twitter CWE Mastodon CWE on LinkedIn CWE YouTube channel CWE Out-of-Bounds-Read Podcast CWE
+      Blog on Medium blog
+
+MITRE Use of the Common Weakness Enumeration (CWE™) and the associated references from this website are subject to the Terms of Use. CWE is sponsored by the U.S. Department of Homeland         HSSEDI
+      Security (DHS) Cybersecurity and Infrastructure Security Agency (CISA) and managed by the Homeland Security Systems Engineering and Development Institute (HSSEDI) which is operated by
+      The MITRE Corporation (MITRE). Copyright © 2006–2024, The MITRE Corporation. CWE, CWSS, CWRAF, and the CWE logo are trademarks of The MITRE Corporation.
+

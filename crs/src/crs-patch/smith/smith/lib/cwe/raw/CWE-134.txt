@@ -1,0 +1,532 @@
+CWE
+
+Common Weakness Enumeration
+
+A community-developed list of SW & HW weaknesses that can become vulnerabilities
+
+New to CWE? click here!
+CWE Most Important Hardware Weaknesses
+CWE Top 25 Most Dangerous Weaknesses
+Home > CWE List > CWE- Individual Dictionary Definition (4.14)                                                                                                   ID Lookup: [                    ] [Go]
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  • Home
+  • About ▼
+    About New to CWE User Stories History Documents FAQs Glossary Compatibility
+  • CWE List ▼
+    Latest Version Downloads Reports Visualizations Archive
+  • Mapping ▼
+    Root Cause Mapping Guidance Root Cause Mapping Quick Tips Root Cause Mapping Examples
+  • Top-N Lists ▼
+    Top 25 Software Top Hardware Top 10 KEV Weaknesses
+  • Community ▼
+    Community Working Groups & Special Interest Groups Board Board Meeting Minutes CWE Discussion List CWE Discussion Archives Contribute Weakness Content to CWE
+  • News ▼
+    Current News X-Twitter ● Mastodon ● LinkedIn ● YouTube YouTube Podcast Out of Bounds Read Podcast Medium Medium News Archive
+  • Search
+
+ 
+ CWE Glossary Definition                  x
+ 
+ 
+ CWE-134: Use of Externally-Controlled Format String
+ 
+ Weakness ID: 134
+ Vulnerability Mapping: ALLOWEDThis CWE ID may be used to map to real-world vulnerabilities
+ Abstraction: BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level
+ weaknesses typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.
+ View customized information:
+ Conceptual For users who are interested in more notional aspects of a weakness. Example: educators, technical writers, and project/program managers. Operational For users who are concerned with the
+ practical application and details about the nature of a weakness and how to prevent it from happening. Example: tool developers, security researchers, pen-testers, incident response analysts. Mapping
+ Friendly For users who are mapping an issue to CWE/CAPEC IDs, i.e., finding the most appropriate CWE for a specific issue (e.g., a CVE record). Example: tool developers, security researchers. 
+ Complete For users who wish to see all available information for the CWE/CAPEC entry. Custom For users who want to customize what details are displayed.
+ ×
+
+ Edit Custom Filter
+
+ Conceptual Operational Mapping Friendly Select All
+ 
+ Reset Clear Submit Cancel
+ + Description
+ The product uses a function that accepts a format string as an argument, but the format string originates from an external source.
+ + Extended Description
+ 
+ When an attacker can modify an externally-controlled format string, this can lead to buffer overflows, denial of service, or data representation problems.
+
+ It should be noted that in some circumstances, such as internationalization, the set of format strings is externally controlled by design. If the source of these format strings is trusted (e.g. only
+ contained in library files that are only modifiable by the system administrator), then the external control might not itself pose a vulnerability.
+
+ + Relationships
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Research Concepts" (CWE-1000)
+     Nature                                                                                                                                                                             Type                                                                                                                                                                           ID          Name
+ ChildOf                                                                               ClassClass - a weakness that is described in a very abstract fashion, typically independent of any specific language or technology. More specific than a Pillar Weakness, but more general than a Base                                                                        668     Exposure of
+                                                                                                                    Weakness. Class level weaknesses typically describe issues in terms of 1 or 2 of the following dimensions: behavior, property, and resource.                                                                                                             Resource to
+                                                                                                                                                                                                                                                                                                                                                                             Wrong Sphere
+ CanPrecede                                                                                BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level weaknesses                                                                           123     Write-what-where
+                                                                                                                          typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                  Condition
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Software Development" (CWE-699)
+     Nature                                                       Type                                                     ID                                   Name
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 133     String Errors
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Weaknesses for Simplified Mapping of Published Vulnerabilities" (CWE-1003)
+     Nature                                                                                                                                                                             Type                                                                                                                                                                           ID      Name
+ ChildOf                                                                               ClassClass - a weakness that is described in a very abstract fashion, typically independent of any specific language or technology. More specific than a Pillar Weakness, but more general than a Base                                                                        668     Exposure
+                                                                                                                    Weakness. Class level weaknesses typically describe issues in terms of 1 or 2 of the following dimensions: behavior, property, and resource.                                                                                                             of
+                                                                                                                                                                                                                                                                                                                                                                             Resource
+                                                                                                                                                                                                                                                                                                                                                                             to Wrong
+                                                                                                                                                                                                                                                                                                                                                                             Sphere
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Seven Pernicious Kingdoms" (CWE-700)
+     Nature                                                                                                                                                                             Type                                                                                                                                                                           ID       Name
+ ChildOf                                                                               ClassClass - a weakness that is described in a very abstract fashion, typically independent of any specific language or technology. More specific than a Pillar Weakness, but more general than a Base                                                                        20      Improper
+                                                                                                                    Weakness. Class level weaknesses typically describe issues in terms of 1 or 2 of the following dimensions: behavior, property, and resource.                                                                                                             Input
+                                                                                                                                                                                                                                                                                                                                                                             Validation
+ + Modes Of Introduction
+ Section HelpThe different Modes of Introduction provide information about how and when this weakness may be introduced. The Phase identifies a point in the life cycle at which introduction may occur,
+ while the Note provides a typical scenario related to introduction during the given phase.
+     Phase                                                                                              Note
+ Implementation The programmer rarely intends for a format string to be externally-controlled at all. This weakness is frequently introduced in code that constructs log messages, where a constant
+                format string is omitted.
+ Implementation In cases such as localization and internationalization, the language-specific message repositories could be an avenue for exploitation, but the format string issue would be
+                resultant, since attacker control of those repositories would also allow modification of message length, format, and content.
+ + Applicable Platforms
+ Section HelpThis listing shows possible areas for which the given weakness could appear. These may be for specific named Languages, Operating Systems, Architectures, Paradigms, Technologies, or a
+ class of such platforms. The platform is listed along with how frequently the given weakness appears for that instance.
+
+ Languages
+
+ C (Often Prevalent)
+
+ C++ (Often Prevalent)
+
+ Perl (Rarely Prevalent)
+
+ + Common Consequences
+ Section HelpThis table specifies different individual consequences associated with the weakness. The Scope identifies the application security area that is violated, while the Impact describes the
+ negative technical impact that arises if an adversary succeeds in exploiting this weakness. The Likelihood provides information about how likely the specific consequence is expected to be seen
+ relative to the other consequences in the list. For example, there may be high likelihood that a weakness will be exploited to achieve a certain impact, but a low likelihood that it will be exploited
+ to achieve a different impact.
+       Scope                                                                                     Impact                                                                                 Likelihood
+                    Technical Impact: Read Memory
+ Confidentiality
+                    Format string problems allow for information disclosure which can severely simplify exploitation of the program.
+ Integrity          Technical Impact: Modify Memory; Execute Unauthorized Code or Commands
+ Confidentiality
+ Availability       Format string problems can result in the execution of arbitrary code.
+ + Likelihood Of Exploit
+ High
+ + Demonstrative Examples
+ 
+ Example 1
+
+ The following program prints a string provided as an argument.
+
+ (bad code)
+ Example Language: C 
+ #include <stdio.h>
+
+ void printWrapper(char *string) {
+
+ printf(string);
+ }
+
+ int main(int argc, char **argv) {
+
+ char buf[5012];
+ memcpy(buf, argv[1], 5012);
+ printWrapper(argv[1]);
+ return (0);
+ }
+
+ The example is exploitable, because of the call to printf() in the printWrapper() function. Note: The stack buffer was added to make exploitation more simple.
+
+ Example 2
+
+ The following code copies a command line argument into a buffer using snprintf().
+
+ (bad code)
+ Example Language: C 
+ int main(int argc, char **argv){
+ char buf[128];
+ ...
+ snprintf(buf,128,argv[1]);
+ }
+
+ This code allows an attacker to view the contents of the stack and write to the stack using a command line argument containing a sequence of formatting directives. The attacker can read from the
+ stack by providing more formatting directives, such as %x, than the function takes as arguments to be formatted. (In this example, the function takes no arguments to be formatted.) By using the %n
+ formatting directive, the attacker can write to the stack, causing snprintf() to write the number of bytes output thus far to the specified argument (rather than reading a value from the argument,
+ which is the intended behavior). A sophisticated version of this attack will use four staggered writes to completely control the value of a pointer on the stack.
+
+ Example 3
+
+ Certain implementations make more advanced attacks even easier by providing format directives that control the location in memory to read from or write to. An example of these directives is shown in
+ the following code, written for glibc:
+
+ (bad code)
+ Example Language: C 
+ printf("%d %d %1$d %1$d\n", 5, 9);
+
+ This code produces the following output: 5 9 5 5 It is also possible to use half-writes (%hn) to accurately control arbitrary DWORDS in memory, which greatly reduces the complexity needed to execute
+ an attack that would otherwise require four staggered writes, such as the one mentioned in the first example.
+
+ + Observed Examples
+        Reference                                                                                        Description
+ CVE-2002-1825           format string in Perl program
+ CVE-2001-0717           format string in bad call to syslog function
+ CVE-2002-0573           format string in bad call to syslog function
+ CVE-2002-1788           format strings in NNTP server responses
+ CVE-2006-2480           Format string vulnerability exploited by triggering errors or warnings, as demonstrated via format string specifiers in a .bmp filename.
+ CVE-2007-2027           Chain: untrusted search path enabling resultant format string by loading malicious internationalization messages
+ + Potential Mitigations
+ Phase: Requirements
+
+ Choose a language that is not subject to this flaw.
+ Phase: Implementation
+
+ Ensure that all format string functions are passed a static string which cannot be controlled by the user, and that the proper number of arguments are always sent to that function as well. If at
+ all possible, use functions that do not support the %n operator in format strings. [REF-116] [REF-117]
+ Phase: Build and Compilation
+
+ Run compilers and linkers with high warning levels, since they may detect incorrect usage.
+ + Weakness Ordinalities
+ Ordinality                                                                                       Description
+ Primary    (where the weakness exists independent of other weaknesses)
+ + Detection Methods
+ Automated Static Analysis
+
+ This weakness can often be detected using automated static analysis tools. Many modern tools use data flow analysis or constraint-based techniques to minimize the number of false positives.
+ Black Box
+
+ Since format strings often occur in rarely-occurring erroneous conditions (e.g. for error message logging), they can be difficult to detect using black box methods. It is highly likely that many
+ latent issues exist in executables that do not have associated source code (or equivalent source.
+
+ Effectiveness: Limited
+
+ Automated Static Analysis - Binary or Bytecode
+
+ According to SOAR, the following detection techniques may be useful:
+
+ Highly cost effective:
+
+   • Bytecode Weakness Analysis - including disassembler + source code weakness analysis
+   • Binary Weakness Analysis - including disassembler + source code weakness analysis
+
+ Cost effective for partial coverage:
+
+   • Binary / Bytecode simple extractor - strings, ELF readers, etc.
+
+ Effectiveness: High
+
+ Manual Static Analysis - Binary or Bytecode
+
+ According to SOAR, the following detection techniques may be useful:
+
+ Cost effective for partial coverage:
+
+   • Binary / Bytecode disassembler - then use manual analysis for vulnerabilities & anomalies
+
+ Effectiveness: SOAR Partial
+
+ Dynamic Analysis with Automated Results Interpretation
+
+ According to SOAR, the following detection techniques may be useful:
+
+ Cost effective for partial coverage:
+
+   • Web Application Scanner
+   • Web Services Scanner
+   • Database Scanners
+
+ Effectiveness: SOAR Partial
+
+ Dynamic Analysis with Manual Results Interpretation
+
+ According to SOAR, the following detection techniques may be useful:
+
+ Cost effective for partial coverage:
+
+   • Fuzz Tester
+   • Framework-based Fuzzer
+
+ Effectiveness: SOAR Partial
+
+ Manual Static Analysis - Source Code
+
+ According to SOAR, the following detection techniques may be useful:
+
+ Highly cost effective:
+
+   • Manual Source Code Review (not inspections)
+
+ Cost effective for partial coverage:
+
+   • Focused Manual Spotcheck - Focused manual analysis of source
+
+ Effectiveness: High
+
+ Automated Static Analysis - Source Code
+
+ According to SOAR, the following detection techniques may be useful:
+
+ Highly cost effective:
+
+   • Source code Weakness Analyzer
+   • Context-configured Source Code Weakness Analyzer
+
+ Cost effective for partial coverage:
+
+   • Warning Flags
+
+ Effectiveness: High
+
+ Architecture or Design Review
+
+ According to SOAR, the following detection techniques may be useful:
+
+ Highly cost effective:
+
+   • Formal Methods / Correct-By-Construction
+
+ Cost effective for partial coverage:
+
+   • Inspection (IEEE 1028 standard) (can apply to requirements, design, source code, etc.)
+
+ Effectiveness: High
+
+ + Functional Areas
+ 
+   • Logging
+   • Error Handling
+   • String Processing
+
+ + Affected Resources
+ 
+   • Memory
+
+ + Memberships
+ Section HelpThis MemberOf Relationships table shows additional CWE Categories and Views that reference this weakness as a member. This information is often useful in understanding where a weakness
+ fits within the context of external information sources.
+     Nature                                                                                                  Type                                                                                               ID         Name
+ MemberOf        ViewView - a subset of CWE entries that provides a way of examining CWE content. The two main view structures are Slices (flat lists) and Graphs (containing relationships between entries). 635     Weaknesses
+                                                                                                                                                                                                                      Originally Used
+                                                                                                                                                                                                                      by NVD from
+                                                                                                                                                                                                                      2008 to 2016
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            726     OWASP Top Ten
+                                                                                                                                                                                                                      2004 Category
+                                                                                                                                                                                                                      A5 - Buffer
+                                                                                                                                                                                                                      Overflows
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            743     CERT C Secure
+                                                                                                                                                                                                                      Coding Standard
+                                                                                                                                                                                                                      (2008) Chapter
+                                                                                                                                                                                                                      10 - Input
+                                                                                                                                                                                                                      Output (FIO)
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            808     2010 Top 25 -
+                                                                                                                                                                                                                      Weaknesses On
+                                                                                                                                                                                                                      the Cusp
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            845     The CERT Oracle
+                                                                                                                                                                                                                      Secure Coding
+                                                                                                                                                                                                                      Standard for
+                                                                                                                                                                                                                      Java (2011)
+                                                                                                                                                                                                                      Chapter 2 -
+                                                                                                                                                                                                                      Input
+                                                                                                                                                                                                                      Validation and
+                                                                                                                                                                                                                      Data
+                                                                                                                                                                                                                      Sanitization
+                                                                                                                                                                                                                      (IDS)
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            865     2011 Top 25 -
+                                                                                                                                                                                                                      Risky Resource
+                                                                                                                                                                                                                      Management
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            877     CERT C++ Secure
+                                                                                                                                                                                                                      Coding Section
+                                                                                                                                                                                                                      09 - Input
+                                                                                                                                                                                                                      Output (FIO)
+ MemberOf        ViewView - a subset of CWE entries that provides a way of examining CWE content. The two main view structures are Slices (flat lists) and Graphs (containing relationships between entries). 884     CWE
+                                                                                                                                                                                                                      Cross-section
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            990     SFP Secondary
+                                                                                                                                                                                                                      Cluster:
+                                                                                                                                                                                                                      Tainted Input
+                                                                                                                                                                                                                      to Command
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            1131    CISQ Quality
+                                                                                                                                                                                                                      Measures (2016)
+                                                                                                                                                                                                                      - Security
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            1134    SEI CERT Oracle
+                                                                                                                                                                                                                      Secure Coding
+                                                                                                                                                                                                                      Standard for
+                                                                                                                                                                                                                      Java -
+                                                                                                                                                                                                                      Guidelines 00.
+                                                                                                                                                                                                                      Input
+                                                                                                                                                                                                                      Validation and
+                                                                                                                                                                                                                      Data
+                                                                                                                                                                                                                      Sanitization
+                                                                                                                                                                                                                      (IDS)
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            1163    SEI CERT C
+                                                                                                                                                                                                                      Coding Standard
+                                                                                                                                                                                                                      - Guidelines
+                                                                                                                                                                                                                      09. Input
+                                                                                                                                                                                                                      Output (FIO)
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            1179    SEI CERT Perl
+                                                                                                                                                                                                                      Coding Standard
+                                                                                                                                                                                                                      - Guidelines
+                                                                                                                                                                                                                      01. Input
+                                                                                                                                                                                                                      Validation and
+                                                                                                                                                                                                                      Data
+                                                                                                                                                                                                                      Sanitization
+                                                                                                                                                                                                                      (IDS)
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            1308    CISQ Quality
+                                                                                                                                                                                                                      Measures -
+                                                                                                                                                                                                                      Security
+ MemberOf        ViewView - a subset of CWE entries that provides a way of examining CWE content. The two main view structures are Slices (flat lists) and Graphs (containing relationships between entries). 1340    CISQ Data
+                                                                                                                                                                                                                      Protection
+                                                                                                                                                                                                                      Measures
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            1399    Comprehensive
+                                                                                                                                                                                                                      Categorization:
+                                                                                                                                                                                                                      Memory Safety
+ + Vulnerability Mapping Notes
+ Usage: ALLOWED
+
+ (this CWE ID could be used to map to real-world vulnerabilities)
+ Reason: Acceptable-Use
+
+ Rationale:
+
+ This CWE entry is at the Base level of abstraction, which is a preferred level of abstraction for mapping to the root causes of vulnerabilities.
+ Comments:
+
+ Carefully read both the name and description to ensure that this mapping is an appropriate fit. Do not try to 'force' a mapping to a lower-level Base/Variant simply to comply with this preferred
+ level of abstraction.
+ + Notes
+ 
+ Applicable Platform
+
+ This weakness is possible in any programming language that support format strings.
+
+ Research Gap
+
+ Format string issues are under-studied for languages other than C. Memory or disk consumption, control flow or variable alteration, and data corruption may result from format string exploitation in
+ applications written in other languages such as Perl, PHP, Python, etc.
+
+ Other
+
+ While Format String vulnerabilities typically fall under the Buffer Overflow category, technically they are not overflowed buffers. The Format String vulnerability is fairly new (circa 1999) and
+ stems from the fact that there is no realistic way for a function that takes a variable number of arguments to determine just how many arguments were passed in. The most common functions that take a
+ variable number of arguments, including C-runtime functions, are the printf() family of calls. The Format String problem appears in a number of ways. A *printf() call without a format specifier is
+ dangerous and can be exploited. For example, printf(input); is exploitable, while printf(y, input); is not exploitable in that context. The result of the first call, used incorrectly, allows for an
+ attacker to be able to peek at stack memory since the input string will be used as the format specifier. The attacker can stuff the input string with format specifiers and begin reading stack values,
+ since the remaining parameters will be pulled from the stack. Worst case, this improper use may give away enough control to allow an arbitrary value (or values in the case of an exploit program) to
+ be written into the memory of the running program.
+
+ Frequently targeted entities are file names, process names, identifiers.
+
+ Format string problems are a classic C/C++ issue that are now rare due to the ease of discovery. One main reason format string vulnerabilities can be exploited is due to the %n operator. The %n
+ operator will write the number of characters, which have been printed by the format string therefore far, to the memory pointed to by its argument. Through skilled creation of a format string, a
+ malicious user may use values on the stack to create a write-what-where condition. Once this is achieved, they can execute arbitrary code. Other operators can be used as well; for example, a %9999s
+ operator could also trigger a buffer overflow, or when used in file-formatting functions like fprintf, it can generate a much larger output than intended.
+
+ + Taxonomy Mappings
+       Mapped Taxonomy Name          Node ID                          Fit                                                                 Mapped Node Name
+ PLOVER                                                                                         Format string vulnerability
+ 7 Pernicious Kingdoms                                                                          Format String
+ CLASP                                                                                          Format string problem
+ CERT C Secure Coding             FIO30-C        Exact                                          Exclude user input from format strings
+ CERT C Secure Coding             FIO47-C        CWE More Specific                              Use valid format strings
+ OWASP Top Ten 2004               A1             CWE More Specific                              Unvalidated Input
+ WASC                             6                                                             Format String
+ The CERT Oracle Secure Coding    IDS06-J                                                       Exclude user input from format strings
+ Standard for Java (2011)
+ SEI CERT Perl Coding Standard    IDS30-PL       Exact                                          Exclude user input from format strings
+ Software Fault Patterns          SFP24                                                         Tainted input to command
+ OMG ASCSM                        ASCSM-CWE-134
+ + Related Attack Patterns
+    CAPEC-ID                                                                                     Attack Pattern Name
+ CAPEC-135       Format String Injection
+ CAPEC-67        String Format Overflow in syslog()
+ + References
+ [REF-116] Steve Christey. "Format String Vulnerabilities in Perl Programs". <https://seclists.org/fulldisclosure/2005/Dec/91>. URL validated: 2023-04-07.
+ [REF-117] Hal Burch and Robert C. Seacord. "Programming Language Format String Vulnerabilities". <https://drdobbs.com/security/programming-language-format-string-vulne/197002914>. URL validated:
+ 2023-04-07.
+ [REF-118] Tim Newsham. "Format String Attacks". Guardent. 2000-09-09. <http://www.thenewsh.com/~newsham/format-string-attacks.pdf>.
+ [REF-7] Michael Howard and David LeBlanc. "Writing Secure Code". Chapter 5, "Format String Bugs" Page 147. 2nd Edition. Microsoft Press. 2002-12-04. <https://www.microsoftpressstore.com/store/
+ writing-secure-code-9780735617223>.
+ [REF-44] Michael Howard, David LeBlanc and John Viega. "24 Deadly Sins of Software Security". "Sin 6: Format String Problems." Page 109. McGraw-Hill. 2010.
+ [REF-62] Mark Dowd, John McDonald and Justin Schuh. "The Art of Software Security Assessment". Chapter 8, "C Format Strings", Page 422. 1st Edition. Addison Wesley. 2006.
+ [REF-962] Object Management Group (OMG). "Automated Source Code Security Measure (ASCSM)". ASCSM-CWE-134. 2016-01. <http://www.omg.org/spec/ASCSM/1.0/>.
+ + Content History
+                                                                                           + Submissions
+      Submission Date                                               Submitter                                                                          Organization
+ 2006-07-19                PLOVER
+ (CWE Draft 3, 2006-07-19)
+
+                                                                                          + Modifications
+     Modification Date                                              Modifier                                                                           Organization
+ 2008-08-01                                                                                                            KDM Analytics
+                           added/updated white box definitions
+ 2008-09-08                CWE Content Team                                                                            MITRE
+                           updated Applicable_Platforms, Common_Consequences, Detection_Factors, Modes_of_Introduction, Relationships, Other_Notes, Research_Gaps, Taxonomy_Mappings,
+                           Weakness_Ordinalities
+ 2008-11-24                CWE Content Team                                                                            MITRE
+                           updated Relationships, Taxonomy_Mappings
+ 2009-03-10                CWE Content Team                                                                            MITRE
+                           updated Relationships
+ 2009-05-27                CWE Content Team                                                                            MITRE
+                           updated Demonstrative_Examples
+ 2009-07-17                KDM Analytics
+                           Improved the White_Box_Definition
+ 2009-07-27                CWE Content Team                                                                            MITRE
+                           updated White_Box_Definitions
+ 2010-02-16                CWE Content Team                                                                            MITRE
+                           updated Detection_Factors, References, Relationships, Taxonomy_Mappings
+ 2011-06-01                CWE Content Team                                                                            MITRE
+                           updated Common_Consequences, Relationships, Taxonomy_Mappings
+ 2011-06-27                CWE Content Team                                                                            MITRE
+                           updated Modes_of_Introduction, Relationships
+ 2011-09-13                CWE Content Team                                                                            MITRE
+                           updated Potential_Mitigations, References, Relationships, Taxonomy_Mappings
+ 2012-05-11                CWE Content Team                                                                            MITRE
+                           updated Observed_Examples, References, Related_Attack_Patterns, Relationships, Taxonomy_Mappings
+ 2014-07-30                CWE Content Team                                                                            MITRE
+                           updated Demonstrative_Examples, Detection_Factors, Relationships, Taxonomy_Mappings
+ 2015-12-07                CWE Content Team                                                                            MITRE
+                           updated Description, Modes_of_Introduction, Name, Relationships
+ 2017-11-08                CWE Content Team                                                                            MITRE
+                           updated Applicable_Platforms, Causal_Nature, Functional_Areas, Likelihood_of_Exploit, Other_Notes, References, Relationships, Taxonomy_Mappings, White_Box_Definitions
+ 2018-03-27                CWE Content Team                                                                            MITRE
+                           updated References
+ 2019-01-03                CWE Content Team                                                                            MITRE
+                           updated References, Relationships, Taxonomy_Mappings
+ 2019-06-20                CWE Content Team                                                                            MITRE
+                           updated Relationships
+ 2019-09-19                CWE Content Team                                                                            MITRE
+                           updated Relationships
+ 2020-02-24                CWE Content Team                                                                            MITRE
+                           updated Detection_Factors, Relationships
+ 2020-08-20                CWE Content Team                                                                            MITRE
+                           updated Relationships
+ 2020-12-10                CWE Content Team                                                                            MITRE
+                           updated Common_Consequences, Relationships
+ 2021-03-15                CWE Content Team                                                                            MITRE
+                           updated Potential_Mitigations, Relationships
+ 2023-01-31                CWE Content Team                                                                            MITRE
+                           updated Description
+ 2023-04-27                CWE Content Team                                                                            MITRE
+                           updated References, Relationships
+ 2023-06-29                CWE Content Team                                                                            MITRE
+                           updated Mapping_Notes
+                                                                                       + Previous Entry Names
+        Change Date                                                                                   Previous Entry Name
+ 2015-12-07                Uncontrolled Format String
+ More information is available — Please edit the custom filter or select a different filter.
+Page Last Updated: February 29, 2024
+ 
+      Site Map | Terms of Use | Manage Cookies | Cookie Notice | Privacy Policy | Contact Us | CWE X-Twitter CWE Mastodon CWE on LinkedIn CWE YouTube channel CWE Out-of-Bounds-Read Podcast CWE
+      Blog on Medium blog
+
+MITRE Use of the Common Weakness Enumeration (CWE™) and the associated references from this website are subject to the Terms of Use. CWE is sponsored by the U.S. Department of Homeland         HSSEDI
+      Security (DHS) Cybersecurity and Infrastructure Security Agency (CISA) and managed by the Homeland Security Systems Engineering and Development Institute (HSSEDI) which is operated by
+      The MITRE Corporation (MITRE). Copyright © 2006–2024, The MITRE Corporation. CWE, CWSS, CWRAF, and the CWE logo are trademarks of The MITRE Corporation.
+

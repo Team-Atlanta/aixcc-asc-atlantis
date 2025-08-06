@@ -1,0 +1,8 @@
+The Common Weakness Enumeration (CWE) ID 77 refers to the Improper Neutralization of Special Elements used in a command, also known as 'Command Injection'. This vulnerability arises when a program constructs a command using externally-influenced input from an upstream component but fails to properly neutralize special elements that could modify the intended command when sent to a downstream component. 
+
+Three typical scenarios for command injection vulnerabilities to occur include:
+1. Data entering the application from an untrusted source.
+2. The data being part of a string executed as a command by the application.
+3. By executing the command, the application gives an attacker a privilege or capability that they wouldn't have otherwise.
+
+This weakness is commonly found in wrapper programs and can be potentially exploited if the application interacts with a command interpreter. Consequences of this vulnerability include execution of unauthorized code or commands, and it's often associated with high exploit likelihood. Mitigation strategies include the use of library calls instead of external processes, ensuring all external commands are statically created, and input validation.

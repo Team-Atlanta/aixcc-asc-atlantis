@@ -1,0 +1,277 @@
+CWE
+
+Common Weakness Enumeration
+
+A community-developed list of SW & HW weaknesses that can become vulnerabilities
+
+New to CWE? click here!
+CWE Most Important Hardware Weaknesses
+CWE Top 25 Most Dangerous Weaknesses
+Home > CWE List > CWE- Individual Dictionary Definition (4.14)                                                                                                   ID Lookup: [                    ] [Go]
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  • Home
+  • About ▼
+    About New to CWE User Stories History Documents FAQs Glossary Compatibility
+  • CWE List ▼
+    Latest Version Downloads Reports Visualizations Archive
+  • Mapping ▼
+    Root Cause Mapping Guidance Root Cause Mapping Quick Tips Root Cause Mapping Examples
+  • Top-N Lists ▼
+    Top 25 Software Top Hardware Top 10 KEV Weaknesses
+  • Community ▼
+    Community Working Groups & Special Interest Groups Board Board Meeting Minutes CWE Discussion List CWE Discussion Archives Contribute Weakness Content to CWE
+  • News ▼
+    Current News X-Twitter ● Mastodon ● LinkedIn ● YouTube YouTube Podcast Out of Bounds Read Podcast Medium Medium News Archive
+  • Search
+
+ 
+ CWE Glossary Definition                  x
+ 
+ 
+ CWE-124: Buffer Underwrite ('Buffer Underflow')
+ 
+ Weakness ID: 124
+ Vulnerability Mapping: ALLOWEDThis CWE ID may be used to map to real-world vulnerabilities
+ Abstraction: BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level
+ weaknesses typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.
+ View customized information:
+ Conceptual For users who are interested in more notional aspects of a weakness. Example: educators, technical writers, and project/program managers. Operational For users who are concerned with the
+ practical application and details about the nature of a weakness and how to prevent it from happening. Example: tool developers, security researchers, pen-testers, incident response analysts. Mapping
+ Friendly For users who are mapping an issue to CWE/CAPEC IDs, i.e., finding the most appropriate CWE for a specific issue (e.g., a CVE record). Example: tool developers, security researchers. 
+ Complete For users who wish to see all available information for the CWE/CAPEC entry. Custom For users who want to customize what details are displayed.
+ ×
+
+ Edit Custom Filter
+
+ Conceptual Operational Mapping Friendly Select All
+ 
+ Reset Clear Submit Cancel
+ + Description
+ The product writes to a buffer using an index or pointer that references a memory location prior to the beginning of the buffer.
+ + Extended Description
+ This typically occurs when a pointer or its index is decremented to a position before the buffer, when pointer arithmetic results in a position before the beginning of the valid memory location, or
+ when a negative index is used.
+ + Alternate Terms
+ buffer underrun: Some prominent vendors and researchers use the term "buffer underrun". "Buffer underflow" is more commonly used, although both terms are also sometimes used to describe a buffer
+                  under-read (CWE-127).
+ + Relationships
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Research Concepts" (CWE-1000)
+     Nature                                                                                                                                                                    Type                                                                                                                                                                  ID        Name
+ ChildOf                                                                          BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level weaknesses                                                                  787     Out-of-bounds
+                                                                                                                 typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                         Write
+ ChildOf                                                                          BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level weaknesses                                                                  786     Access of
+                                                                                                                 typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                         Memory
+                                                                                                                                                                                                                                                                                                                                                           Location
+                                                                                                                                                                                                                                                                                                                                                           Before Start
+                                                                                                                                                                                                                                                                                                                                                           of Buffer
+ CanFollow                                                                        BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level weaknesses                                                                  839     Numeric Range
+                                                                                                                 typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                         Comparison
+                                                                                                                                                                                                                                                                                                                                                           Without
+                                                                                                                                                                                                                                                                                                                                                           Minimum Check
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Software Development" (CWE-699)
+     Nature                                                       Type                                                     ID                                   Name
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 1218    Memory Buffer Errors
+ + Modes Of Introduction
+ Section HelpThe different Modes of Introduction provide information about how and when this weakness may be introduced. The Phase identifies a point in the life cycle at which introduction may occur,
+ while the Note provides a typical scenario related to introduction during the given phase.
+     Phase                                                                                              Note
+ Implementation
+ + Applicable Platforms
+ Section HelpThis listing shows possible areas for which the given weakness could appear. These may be for specific named Languages, Operating Systems, Architectures, Paradigms, Technologies, or a
+ class of such platforms. The platform is listed along with how frequently the given weakness appears for that instance.
+
+ Languages
+
+ C (Undetermined Prevalence)
+
+ C++ (Undetermined Prevalence)
+
+ + Common Consequences
+ Section HelpThis table specifies different individual consequences associated with the weakness. The Scope identifies the application security area that is violated, while the Impact describes the
+ negative technical impact that arises if an adversary succeeds in exploiting this weakness. The Likelihood provides information about how likely the specific consequence is expected to be seen
+ relative to the other consequences in the list. For example, there may be high likelihood that a weakness will be exploited to achieve a certain impact, but a low likelihood that it will be exploited
+ to achieve a different impact.
+       Scope                                                                                     Impact                                                                                 Likelihood
+ Integrity          Technical Impact: Modify Memory; DoS: Crash, Exit, or Restart
+ Availability
+                    Out of bounds memory access will very likely result in the corruption of relevant memory, and perhaps instructions, possibly leading to a crash.
+ Integrity          Technical Impact: Execute Unauthorized Code or Commands; Modify Memory; Bypass Protection Mechanism; Other
+ Confidentiality
+ Availability       If the corrupted memory can be effectively controlled, it may be possible to execute arbitrary code. If the corrupted memory is data rather than instructions,
+ Access Control     the system will continue to function with improper changes, possibly in violation of an implicit or explicit policy. The consequences would only be limited by
+ Other              how the affected data is used, such as an adjacent memory location that is used to specify whether the user has special privileges.
+ Access Control     Technical Impact: Bypass Protection Mechanism; Other
+ Other
+                    When the consequence is arbitrary code execution, this can often be used to subvert any other security service.
+ + Likelihood Of Exploit
+ Medium
+ + Demonstrative Examples
+ 
+ Example 1
+
+ In the following C/C++ example, a utility function is used to trim trailing whitespace from a character string. The function copies the input string to a local character string and uses a while
+ statement to remove the trailing whitespace by moving backward through the string and overwriting whitespace with a NUL character.
+
+ (bad code)
+ Example Language: C 
+ char* trimTrailingWhitespace(char *strMessage, int length) {
+ char *retMessage;
+ char *message = malloc(sizeof(char)*(length+1));
+
+ // copy input string to a temporary string
+ char message[length+1];
+ int index;
+ for (index = 0; index < length; index++) {
+ message[index] = strMessage[index];
+ }
+ message[index] = '\0';
+
+ // trim trailing whitespace
+ int len = index-1;
+ while (isspace(message[len])) {
+ message[len] = '\0';
+ len--;
+ }
+
+ // return string without trailing whitespace
+ retMessage = message;
+ return retMessage;
+ }
+
+ However, this function can cause a buffer underwrite if the input character string contains all whitespace. On some systems the while statement will move backwards past the beginning of a character
+ string and will call the isspace() function on an address outside of the bounds of the local buffer.
+
+ Example 2
+
+ The following is an example of code that may result in a buffer underwrite. This code is attempting to replace the substring "Replace Me" in destBuf with the string stored in srcBuf. It does so by
+ using the function strstr(), which returns a pointer to the found substring in destBuf. Using pointer arithmetic, the starting index of the substring is found.
+
+ (bad code)
+ Example Language: C 
+ int main() {
+ ...
+ char *result = strstr(destBuf, "Replace Me");
+ int idx = result - destBuf;
+ strcpy(&destBuf[idx], srcBuf);
+ ...
+ }
+
+ In the case where the substring is not found in destBuf, strstr() will return NULL, causing the pointer arithmetic to be undefined, potentially setting the value of idx to a negative number. If idx
+ is negative, this will result in a buffer underwrite of destBuf.
+
+ + Observed Examples
+        Reference                                                                                        Description
+ CVE-2021-24018          buffer underwrite in firmware verification routine allows code execution via a crafted firmware image
+ CVE-2002-2227           Unchecked length of SSLv2 challenge value leads to buffer underflow.
+ CVE-2007-4580           Buffer underflow from a small size value with a large buffer (length parameter inconsistency, CWE-130)
+ CVE-2007-1584           Buffer underflow from an all-whitespace string, which causes a counter to be decremented before the buffer while looking for a non-whitespace character.
+ CVE-2007-0886           Buffer underflow resultant from encoded data that triggers an integer overflow.
+ CVE-2006-6171           Product sets an incorrect buffer size limit, leading to "off-by-two" buffer underflow.
+ CVE-2006-4024           Negative value is used in a memcpy() operation, leading to buffer underflow.
+ CVE-2004-2620           Buffer underflow due to mishandled special characters
+ + Potential Mitigations
+ Phase: Requirements
+
+ Choose a language that is not susceptible to these issues.
+ Phase: Implementation
+
+ All calculated values that are used as index or for pointer arithmetic should be validated to ensure that they are within an expected range.
+ + Weakness Ordinalities
+ Ordinality                                                                                       Description
+ Primary    (where the weakness exists independent of other weaknesses)
+ + Memberships
+ Section HelpThis MemberOf Relationships table shows additional CWE Categories and Views that reference this weakness as a member. This information is often useful in understanding where a weakness
+ fits within the context of external information sources.
+     Nature                                                       Type                                                     ID                                   Name
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 970     SFP Secondary Cluster: Faulty Buffer Access
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 1399    Comprehensive Categorization: Memory Safety
+ + Vulnerability Mapping Notes
+ Usage: ALLOWED
+
+ (this CWE ID could be used to map to real-world vulnerabilities)
+ Reason: Acceptable-Use
+
+ Rationale:
+
+ This CWE entry is at the Base level of abstraction, which is a preferred level of abstraction for mapping to the root causes of vulnerabilities.
+ Comments:
+
+ Carefully read both the name and description to ensure that this mapping is an appropriate fit. Do not try to 'force' a mapping to a lower-level Base/Variant simply to comply with this preferred
+ level of abstraction.
+ + Notes
+ 
+ Relationship
+
+ This could be resultant from several errors, including a bad offset or an array index that decrements before the beginning of the buffer (see CWE-129).
+ + Taxonomy Mappings
+       Mapped Taxonomy Name          Node ID       Fit                                                                 Mapped Node Name
+ PLOVER                                                   UNDER - Boundary beginning violation ('buffer underflow'?)
+ CLASP                                                    Buffer underwrite
+ Software Fault Patterns          SFP8                    Faulty Buffer Access
+ + References
+ [REF-90] "Buffer UNDERFLOWS: What do you know about it?". Vuln-Dev Mailing List. 2004-01-10. <https://seclists.org/vuln-dev/2004/Jan/22>. URL validated: 2023-04-07.
+ [REF-44] Michael Howard, David LeBlanc and John Viega. "24 Deadly Sins of Software Security". "Sin 5: Buffer Overruns." Page 89. McGraw-Hill. 2010.
+ + Content History
+                                                                                           + Submissions
+       Submission Date                                                Submitter                                                                         Organization
+ 2006-07-19                  PLOVER
+ (CWE Draft 3, 2006-07-19)
+
+                                                                                          + Contributions
+      Contribution Date                                              Contributor                                                                        Organization
+ 2023-02-06                  Muchen Xu                                                                                   Naive Systems
+                             Pointed out that the demonstrative example #2 was incorrect and instead demonstrated a Buffer Under-read.
+                                                                                          + Modifications
+      Modification Date                                               Modifier                                                                          Organization
+ 2008-07-01                  Eric Dalci                                                                                  Cigital
+                             updated Time_of_Introduction
+ 2008-09-08                  CWE Content Team                                                                            MITRE
+                             updated Alternate_Terms, Applicable_Platforms, Common_Consequences, Description, Relationships, Relationship_Notes, Taxonomy_Mappings, Weakness_Ordinalities
+ 2009-01-12                  CWE Content Team                                                                            MITRE
+                             updated Common_Consequences
+ 2009-10-29                  CWE Content Team                                                                            MITRE
+                             updated Description, Name, Relationships
+ 2011-03-29                  CWE Content Team                                                                            MITRE
+                             updated Demonstrative_Examples, Relationships
+ 2011-06-01                  CWE Content Team                                                                            MITRE
+                             updated Common_Consequences
+ 2012-05-11                  CWE Content Team                                                                            MITRE
+                             updated Demonstrative_Examples, References, Relationships
+ 2014-07-30                  CWE Content Team                                                                            MITRE
+                             updated Relationships, Taxonomy_Mappings
+ 2017-11-08                  CWE Content Team                                                                            MITRE
+                             updated Causal_Nature, Demonstrative_Examples, References
+ 2020-02-24                  CWE Content Team                                                                            MITRE
+                             updated Relationships
+ 2021-03-15                  CWE Content Team                                                                            MITRE
+                             updated Potential_Mitigations
+ 2021-10-28                  CWE Content Team                                                                            MITRE
+                             updated Observed_Examples
+ 2022-04-28                  CWE Content Team                                                                            MITRE
+                             updated Research_Gaps
+ 2023-01-31                  CWE Content Team                                                                            MITRE
+                             updated Description
+ 2023-04-27                  CWE Content Team                                                                            MITRE
+                             updated References, Relationships, Time_of_Introduction
+ 2023-06-29                  CWE Content Team                                                                            MITRE
+                             updated Mapping_Notes
+ 2024-02-29                  CWE Content Team                                                                            MITRE
+ (CWE 4.14, 2024-02-29)      updated Demonstrative_Examples
+                                                                                       + Previous Entry Names
+         Change Date                                                                                   Previous Entry Name
+ 2009-10-29                  Boundary Beginning Violation ('Buffer Underwrite')
+ More information is available — Please edit the custom filter or select a different filter.
+Page Last Updated: February 29, 2024
+ 
+      Site Map | Terms of Use | Manage Cookies | Cookie Notice | Privacy Policy | Contact Us | CWE X-Twitter CWE Mastodon CWE on LinkedIn CWE YouTube channel CWE Out-of-Bounds-Read Podcast CWE
+      Blog on Medium blog
+
+MITRE Use of the Common Weakness Enumeration (CWE™) and the associated references from this website are subject to the Terms of Use. CWE is sponsored by the U.S. Department of Homeland         HSSEDI
+      Security (DHS) Cybersecurity and Infrastructure Security Agency (CISA) and managed by the Homeland Security Systems Engineering and Development Institute (HSSEDI) which is operated by
+      The MITRE Corporation (MITRE). Copyright © 2006–2024, The MITRE Corporation. CWE, CWSS, CWRAF, and the CWE logo are trademarks of The MITRE Corporation.
+

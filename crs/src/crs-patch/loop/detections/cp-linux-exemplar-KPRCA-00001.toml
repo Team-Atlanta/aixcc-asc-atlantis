@@ -1,0 +1,6 @@
+cp_name = "linux kernel"
+blob_file = "./exemplar_only/blobs/KPRCA-00001_solve.bin"
+harness_id = "id_14"
+sanitizer_id = "id_2"
+bug_introduce_commit = "4e5fb29e3f4e349c3a4adec5cf7d2206846ef508"
+src_dir = "./src/linux_kernel"

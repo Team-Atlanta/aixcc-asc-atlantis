@@ -1,0 +1,6 @@
+The git commit hash you returned, [INSERT SUGGESTED GIT COMMIT HASH HERE], is not among the git commit hashes I provided: [INSERT GIT COMMIT HASH LIST HERE].
+
+Please choose a git commit hash from the provided list that the test harness is designed to test.
+Please enclose the chosen git commit hash between <commit_hash> and </commit_hash>
+
+IMPORTANT: After selecting the commit hash that the test harness targets, fetch the git diff information for the chosen commit and verify the diff to ensure you have selected the intended commit.

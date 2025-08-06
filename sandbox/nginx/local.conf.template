@@ -1,0 +1,18 @@
+server {
+    listen 8080;
+    resolver 127.0.0.11;
+
+    access_log /dev/stdout;
+    error_log stderr;
+
+    location / {
+        set $app ${CAPI_UPSTREAM_HOST};
+        proxy_pass $app;
+
+        proxy_set_header Authorization "${CAPI_AUTH_HEADER}";
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+
+        client_max_body_size 10M;
+    }
+}

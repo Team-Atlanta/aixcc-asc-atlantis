@@ -1,0 +1,53 @@
+syz_harness$cve_2022_0185_cmd0(buf ptr[in, harness_cve_2022_0185_cmd0], len bytesize[buf])
+syz_harness$cve_2022_0185_cmd1(buf ptr[in, harness_cve_2022_0185_cmd1], len bytesize[buf])
+syz_harness$cve_2022_0185_cmd2(buf ptr[in, harness_cve_2022_0185_cmd2], len bytesize[buf])
+syz_harness$cve_2022_0185_cmd3(buf ptr[in, harness_cve_2022_0185_cmd3], len bytesize[buf])
+syz_harness$cve_2022_0185_cmd4(buf ptr[in, harness_cve_2022_0185_cmd4], len bytesize[buf])
+syz_harness$cve_2022_0185_cmd5(buf ptr[in, harness_cve_2022_0185_cmd5], len bytesize[buf])
+syz_harness$cve_2022_0185_cmd6(buf ptr[in, harness_cve_2022_0185_cmd6], len bytesize[buf])
+
+harness_cve_2022_0185_cmd0 {
+	cmd	int32[0]
+	size	len[flag, int32]
+	flag	string[fsconfig_flag_params]
+} [packed]
+
+harness_cve_2022_0185_cmd1 {
+	cmd		int32[1]
+	key_size	len[key, int32]
+	key		string
+	value_size	len[value, int32]
+	value		string
+} [packed]
+
+harness_cve_2022_0185_cmd2 {
+	cmd		int32[2]
+	key_size	len[key, int32]
+	key		string
+	value_size	len[value, int32]
+	value		array[int8]
+} [packed]
+
+harness_cve_2022_0185_cmd3 {
+	cmd		int32[3]
+	key_size	len[key, int32]
+	key		string
+	value_size	len[value, int32]
+	value		filename
+} [packed]
+
+harness_cve_2022_0185_cmd4 {
+	cmd		int32[4]
+	key_size	len[key, int32]
+	key		string
+	value_size	len[value, int32]
+	value		filename
+} [packed]
+
+harness_cve_2022_0185_cmd5 {
+	cmd	int32[5]
+} [packed]
+
+harness_cve_2022_0185_cmd6 {
+	cmd	int32[6]
+} [packed]

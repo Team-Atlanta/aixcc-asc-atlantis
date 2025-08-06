@@ -1,0 +1,230 @@
+CWE
+
+Common Weakness Enumeration
+
+A community-developed list of SW & HW weaknesses that can become vulnerabilities
+
+New to CWE? click here!
+CWE Most Important Hardware Weaknesses
+CWE Top 25 Most Dangerous Weaknesses
+Home > CWE List > CWE- Individual Dictionary Definition (4.14)                                                                                                   ID Lookup: [                    ] [Go]
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  • Home
+  • About ▼
+    About New to CWE User Stories History Documents FAQs Glossary Compatibility
+  • CWE List ▼
+    Latest Version Downloads Reports Visualizations Archive
+  • Mapping ▼
+    Root Cause Mapping Guidance Root Cause Mapping Quick Tips Root Cause Mapping Examples
+  • Top-N Lists ▼
+    Top 25 Software Top Hardware Top 10 KEV Weaknesses
+  • Community ▼
+    Community Working Groups & Special Interest Groups Board Board Meeting Minutes CWE Discussion List CWE Discussion Archives Contribute Weakness Content to CWE
+  • News ▼
+    Current News X-Twitter ● Mastodon ● LinkedIn ● YouTube YouTube Podcast Out of Bounds Read Podcast Medium Medium News Archive
+  • Search
+
+ 
+ CWE Glossary Definition                  x
+ 
+ 
+ CWE-823: Use of Out-of-range Pointer Offset
+ 
+ Weakness ID: 823
+ Vulnerability Mapping: ALLOWEDThis CWE ID may be used to map to real-world vulnerabilities
+ Abstraction: BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level
+ weaknesses typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.
+ View customized information:
+ Conceptual For users who are interested in more notional aspects of a weakness. Example: educators, technical writers, and project/program managers. Operational For users who are concerned with the
+ practical application and details about the nature of a weakness and how to prevent it from happening. Example: tool developers, security researchers, pen-testers, incident response analysts. Mapping
+ Friendly For users who are mapping an issue to CWE/CAPEC IDs, i.e., finding the most appropriate CWE for a specific issue (e.g., a CVE record). Example: tool developers, security researchers. 
+ Complete For users who wish to see all available information for the CWE/CAPEC entry. Custom For users who want to customize what details are displayed.
+ ×
+
+ Edit Custom Filter
+
+ Conceptual Operational Mapping Friendly Select All
+ 
+ Reset Clear Submit Cancel
+ + Description
+ The product performs pointer arithmetic on a valid pointer, but it uses an offset that can point outside of the intended range of valid memory locations for the resulting pointer.
+ + Extended Description
+ 
+ While a pointer can contain a reference to any arbitrary memory location, a program typically only intends to use the pointer to access limited portions of memory, such as contiguous memory used to
+ access an individual array.
+
+ Programs may use offsets in order to access fields or sub-elements stored within structured data. The offset might be out-of-range if it comes from an untrusted source, is the result of an incorrect
+ calculation, or occurs because of another error.
+
+ If an attacker can control or influence the offset so that it points outside of the intended boundaries of the structure, then the attacker may be able to read or write to memory locations that are
+ used elsewhere in the product. As a result, the attack might change the state of the product as accessed through program variables, cause a crash or instable behavior, and possibly lead to code
+ execution.
+
+ + Alternate Terms
+ Untrusted pointer offset: This term is narrower than the concept of "out-of-range" offset, since the offset might be the result of a calculation or other error that does not depend on any
+                           externally-supplied values.
+ + Relationships
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Research Concepts" (CWE-1000)
+     Nature                                                                                                                                                                             Type                                                                                                                                                                           ID        Name
+ ChildOf                                                                               ClassClass - a weakness that is described in a very abstract fashion, typically independent of any specific language or technology. More specific than a Pillar Weakness, but more general than a Base                                                                        119     Improper
+                                                                                                                    Weakness. Class level weaknesses typically describe issues in terms of 1 or 2 of the following dimensions: behavior, property, and resource.                                                                                                             Restriction
+                                                                                                                                                                                                                                                                                                                                                                             of Operations
+                                                                                                                                                                                                                                                                                                                                                                             within the
+                                                                                                                                                                                                                                                                                                                                                                             Bounds of a
+                                                                                                                                                                                                                                                                                                                                                                             Memory Buffer
+ CanFollow                                                                             VariantVariant - a weakness that is linked to a certain type of product, typically involving a specific language or technology. More specific than a Base weakness. Variant level weaknesses typically                                                                        129     Improper
+                                                                                                                               describe issues in terms of 3 to 5 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                       Validation of
+                                                                                                                                                                                                                                                                                                                                                                             Array Index
+ CanPrecede                                                                                BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level weaknesses                                                                           125     Out-of-bounds
+                                                                                                                          typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                  Read
+ CanPrecede                                                                                BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level weaknesses                                                                           787     Out-of-bounds
+                                                                                                                          typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                  Write
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Software Development" (CWE-699)
+     Nature                                                       Type                                                     ID                                   Name
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 465     Pointer Issues
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "CISQ Quality Measures (2020)" (CWE-1305)
+     Nature                                                                                                                                                                             Type                                                                                                                                                                           ID       Name
+ ChildOf                                                                               ClassClass - a weakness that is described in a very abstract fashion, typically independent of any specific language or technology. More specific than a Pillar Weakness, but more general than a Base                                                                        119     Improper
+                                                                                                                    Weakness. Class level weaknesses typically describe issues in terms of 1 or 2 of the following dimensions: behavior, property, and resource.                                                                                                             Restriction
+                                                                                                                                                                                                                                                                                                                                                                             of
+                                                                                                                                                                                                                                                                                                                                                                             Operations
+                                                                                                                                                                                                                                                                                                                                                                             within the
+                                                                                                                                                                                                                                                                                                                                                                             Bounds of a
+                                                                                                                                                                                                                                                                                                                                                                             Memory
+                                                                                                                                                                                                                                                                                                                                                                             Buffer
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "CISQ Data Protection Measures" (CWE-1340)
+     Nature                                                                                                                                                                             Type                                                                                                                                                                           ID       Name
+ ChildOf                                                                               ClassClass - a weakness that is described in a very abstract fashion, typically independent of any specific language or technology. More specific than a Pillar Weakness, but more general than a Base                                                                        119     Improper
+                                                                                                                    Weakness. Class level weaknesses typically describe issues in terms of 1 or 2 of the following dimensions: behavior, property, and resource.                                                                                                             Restriction
+                                                                                                                                                                                                                                                                                                                                                                             of
+                                                                                                                                                                                                                                                                                                                                                                             Operations
+                                                                                                                                                                                                                                                                                                                                                                             within the
+                                                                                                                                                                                                                                                                                                                                                                             Bounds of a
+                                                                                                                                                                                                                                                                                                                                                                             Memory
+                                                                                                                                                                                                                                                                                                                                                                             Buffer
+ + Common Consequences
+ Section HelpThis table specifies different individual consequences associated with the weakness. The Scope identifies the application security area that is violated, while the Impact describes the
+ negative technical impact that arises if an adversary succeeds in exploiting this weakness. The Likelihood provides information about how likely the specific consequence is expected to be seen
+ relative to the other consequences in the list. For example, there may be high likelihood that a weakness will be exploited to achieve a certain impact, but a low likelihood that it will be exploited
+ to achieve a different impact.
+       Scope                                                                                     Impact                                                                                 Likelihood
+                    Technical Impact: Read Memory
+ Confidentiality
+                    If the untrusted pointer is used in a read operation, an attacker might be able to read sensitive portions of memory.
+                    Technical Impact: DoS: Crash, Exit, or Restart
+ Availability
+                    If the untrusted pointer references a memory location that is not accessible to the program, or points to a location that is "malformed" or larger than expected
+                    by a read or write operation, the application may terminate unexpectedly.
+ Integrity          Technical Impact: Execute Unauthorized Code or Commands; Modify Memory
+ Confidentiality
+ Availability       If the untrusted pointer is used in a function call, or points to unexpected data in a write operation, then code execution may be possible.
+ + Observed Examples
+        Reference                                                                                        Description
+ CVE-2010-2160           Invalid offset in undocumented opcode leads to memory corruption.
+ CVE-2010-1281           Multimedia player uses untrusted value from a file when using file-pointer calculations.
+ CVE-2009-3129           Spreadsheet program processes a record with an invalid size field, which is later used as an offset.
+ CVE-2009-2694           Instant messaging library does not validate an offset value specified in a packet.
+ CVE-2009-2687           Language interpreter does not properly handle invalid offsets in JPEG image, leading to out-of-bounds memory access and crash.
+ CVE-2009-0690           negative offset leads to out-of-bounds read
+ CVE-2008-4114           untrusted offset in kernel
+ CVE-2010-2873           "blind trust" of an offset value while writing heap memory allows corruption of function pointer,leading to code execution
+ CVE-2010-2866           negative value (signed) causes pointer miscalculation
+ CVE-2010-2872           signed values cause incorrect pointer calculation
+ CVE-2007-5657           values used as pointer offsets
+ CVE-2010-2867           a return value from a function is sign-extended if the value is signed, then used as an offset for pointer arithmetic
+ CVE-2009-1097           portions of a GIF image used as offsets, causing corruption of an object pointer.
+ CVE-2008-1807           invalid numeric field leads to a free of arbitrary memory locations, then code execution.
+ CVE-2007-2500           large number of elements leads to a free of an arbitrary address
+ CVE-2008-1686           array index issue (CWE-129) with negative offset, used to dereference a function pointer
+ CVE-2010-2878           "buffer seek" value - basically an offset?
+ + Detection Methods
+ Automated Static Analysis
+
+ Automated static analysis, commonly referred to as Static Application Security Testing (SAST), can find some instances of this weakness by analyzing source code (or binary/compiled code) without
+ having to execute it. Typically, this is done by building a model of data flow and control flow, then searching for potentially-vulnerable patterns that connect "sources" (origins of input) with
+ "sinks" (destinations where the data interacts with external components, a lower layer such as the OS, etc.)
+
+ Effectiveness: High
+
+ + Memberships
+ Section HelpThis MemberOf Relationships table shows additional CWE Categories and Views that reference this weakness as a member. This information is often useful in understanding where a weakness
+ fits within the context of external information sources.
+     Nature                                                       Type                                                     ID                                   Name
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 1399    Comprehensive Categorization: Memory Safety
+ + Vulnerability Mapping Notes
+ Usage: ALLOWED
+
+ (this CWE ID could be used to map to real-world vulnerabilities)
+ Reason: Acceptable-Use
+
+ Rationale:
+
+ This CWE entry is at the Base level of abstraction, which is a preferred level of abstraction for mapping to the root causes of vulnerabilities.
+ Comments:
+
+ Carefully read both the name and description to ensure that this mapping is an appropriate fit. Do not try to 'force' a mapping to a lower-level Base/Variant simply to comply with this preferred
+ level of abstraction.
+ + Notes
+ 
+ Terminology
+
+ Many weaknesses related to pointer dereferences fall under the general term of "memory corruption" or "memory safety." As of September 2010, there is no commonly-used terminology that covers the
+ lower-level variants.
+
+ Maintenance
+
+ There are close relationships between incorrect pointer dereferences and other weaknesses related to buffer operations. There may not be sufficient community agreement regarding these relationships.
+ Further study is needed to determine when these relationships are chains, composites, perspective/layering, or other types of relationships. As of September 2010, most of the relationships are being
+ captured as chains.
+ + Related Attack Patterns
+    CAPEC-ID                                                                                     Attack Pattern Name
+ CAPEC-129       Pointer Manipulation
+ + References
+ [REF-62] Mark Dowd, John McDonald and Justin Schuh. "The Art of Software Security Assessment". Chapter 6, "Pointer Arithmetic", Page 277. 1st Edition. Addison Wesley. 2006.
+ + Content History
+                                                                                            + Submissions
+                            Submission Date                                                            Submitter                                                    Organization
+ 2010-09-22                                                             CWE Content Team                                                        MITRE
+ (CWE 1.10, 2010-09-27)
+
+                                                                                           + Modifications
+                           Modification Date                                                           Modifier                                                     Organization
+ 2011-06-01                                                             CWE Content Team                                                        MITRE
+                                                                        updated Common_Consequences
+ 2012-05-11                                                             CWE Content Team                                                        MITRE
+                                                                        updated References
+ 2019-06-20                                                             CWE Content Team                                                        MITRE
+                                                                        updated Related_Attack_Patterns
+ 2020-02-24                                                             CWE Content Team                                                        MITRE
+                                                                        updated Relationships
+ 2020-08-20                                                             CWE Content Team                                                        MITRE
+                                                                        updated Relationships
+ 2020-12-10                                                             CWE Content Team                                                        MITRE
+                                                                        updated Relationships
+ 2022-04-28                                                             CWE Content Team                                                        MITRE
+                                                                        updated Research_Gaps
+ 2023-01-31                                                             CWE Content Team                                                        MITRE
+                                                                        updated Description
+ 2023-04-27                                                             CWE Content Team                                                        MITRE
+                                                                        updated Detection_Factors, Relationships
+ 2023-06-29                                                             CWE Content Team                                                        MITRE
+                                                                        updated Mapping_Notes
+ More information is available — Please edit the custom filter or select a different filter.
+Page Last Updated: February 29, 2024
+ 
+      Site Map | Terms of Use | Manage Cookies | Cookie Notice | Privacy Policy | Contact Us | CWE X-Twitter CWE Mastodon CWE on LinkedIn CWE YouTube channel CWE Out-of-Bounds-Read Podcast CWE
+      Blog on Medium blog
+
+MITRE Use of the Common Weakness Enumeration (CWE™) and the associated references from this website are subject to the Terms of Use. CWE is sponsored by the U.S. Department of Homeland         HSSEDI
+      Security (DHS) Cybersecurity and Infrastructure Security Agency (CISA) and managed by the Homeland Security Systems Engineering and Development Institute (HSSEDI) which is operated by
+      The MITRE Corporation (MITRE). Copyright © 2006–2024, The MITRE Corporation. CWE, CWSS, CWRAF, and the CWE logo are trademarks of The MITRE Corporation.
+

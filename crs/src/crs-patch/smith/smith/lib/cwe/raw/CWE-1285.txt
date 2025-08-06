@@ -1,0 +1,320 @@
+CWE
+
+Common Weakness Enumeration
+
+A community-developed list of SW & HW weaknesses that can become vulnerabilities
+
+New to CWE? click here!
+CWE Most Important Hardware Weaknesses
+CWE Top 25 Most Dangerous Weaknesses
+Home > CWE List > CWE- Individual Dictionary Definition (4.14)                                                                                                   ID Lookup: [                    ] [Go]
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  • Home
+  • About ▼
+    About New to CWE User Stories History Documents FAQs Glossary Compatibility
+  • CWE List ▼
+    Latest Version Downloads Reports Visualizations Archive
+  • Mapping ▼
+    Root Cause Mapping Guidance Root Cause Mapping Quick Tips Root Cause Mapping Examples
+  • Top-N Lists ▼
+    Top 25 Software Top Hardware Top 10 KEV Weaknesses
+  • Community ▼
+    Community Working Groups & Special Interest Groups Board Board Meeting Minutes CWE Discussion List CWE Discussion Archives Contribute Weakness Content to CWE
+  • News ▼
+    Current News X-Twitter ● Mastodon ● LinkedIn ● YouTube YouTube Podcast Out of Bounds Read Podcast Medium Medium News Archive
+  • Search
+
+ 
+ CWE Glossary Definition                  x
+ 
+ 
+ CWE-1285: Improper Validation of Specified Index, Position, or Offset in Input
+ 
+ Weakness ID: 1285
+ Vulnerability Mapping: ALLOWEDThis CWE ID may be used to map to real-world vulnerabilities
+ Abstraction: BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level
+ weaknesses typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.
+ View customized information:
+ Conceptual For users who are interested in more notional aspects of a weakness. Example: educators, technical writers, and project/program managers. Operational For users who are concerned with the
+ practical application and details about the nature of a weakness and how to prevent it from happening. Example: tool developers, security researchers, pen-testers, incident response analysts. Mapping
+ Friendly For users who are mapping an issue to CWE/CAPEC IDs, i.e., finding the most appropriate CWE for a specific issue (e.g., a CVE record). Example: tool developers, security researchers. 
+ Complete For users who wish to see all available information for the CWE/CAPEC entry. Custom For users who want to customize what details are displayed.
+ ×
+
+ Edit Custom Filter
+
+ Conceptual Operational Mapping Friendly Select All
+ 
+ Reset Clear Submit Cancel
+ + Description
+ The product receives input that is expected to specify an index, position, or offset into an indexable resource such as a buffer or file, but it does not validate or incorrectly validates that the
+ specified index/position/offset has the required properties.
+ + Extended Description
+ 
+ Often, indexable resources such as memory buffers or files can be accessed using a specific position, index, or offset, such as an index for an array or a position for a file. When untrusted input is
+ not properly validated before it is used as an index, attackers could access (or attempt to access) unauthorized portions of these resources. This could be used to cause buffer overflows, excessive
+ resource allocation, or trigger unexpected failures.
+
+ + Relationships
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Research Concepts" (CWE-1000)
+     Nature                                                                                                                                                                             Type                                                                                                                                                                           ID         Name
+ ChildOf                                                                               ClassClass - a weakness that is described in a very abstract fashion, typically independent of any specific language or technology. More specific than a Pillar Weakness, but more general than a Base                                                                        20      Improper Input
+                                                                                                                    Weakness. Class level weaknesses typically describe issues in terms of 1 or 2 of the following dimensions: behavior, property, and resource.                                                                                                             Validation
+ ParentOf                                                                              VariantVariant - a weakness that is linked to a certain type of product, typically involving a specific language or technology. More specific than a Base weakness. Variant level weaknesses typically                                                                        129     Improper
+                                                                                                                               describe issues in terms of 3 to 5 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                       Validation of
+                                                                                                                                                                                                                                                                                                                                                                             Array Index
+ ParentOf                                                                              VariantVariant - a weakness that is linked to a certain type of product, typically involving a specific language or technology. More specific than a Base weakness. Variant level weaknesses typically                                                                        781     Improper
+                                                                                                                               describe issues in terms of 3 to 5 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                       Address
+                                                                                                                                                                                                                                                                                                                                                                             Validation in
+                                                                                                                                                                                                                                                                                                                                                                             IOCTL with
+                                                                                                                                                                                                                                                                                                                                                                             METHOD_NEITHER
+                                                                                                                                                                                                                                                                                                                                                                             I/O Control
+                                                                                                                                                                                                                                                                                                                                                                             Code
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Software Development" (CWE-699)
+     Nature                                                       Type                                                     ID                                   Name
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 1215    Data Validation Issues
+ + Modes Of Introduction
+ Section HelpThe different Modes of Introduction provide information about how and when this weakness may be introduced. The Phase identifies a point in the life cycle at which introduction may occur,
+ while the Note provides a typical scenario related to introduction during the given phase.
+     Phase                                                                                              Note
+ Implementation
+ + Applicable Platforms
+ Section HelpThis listing shows possible areas for which the given weakness could appear. These may be for specific named Languages, Operating Systems, Architectures, Paradigms, Technologies, or a
+ class of such platforms. The platform is listed along with how frequently the given weakness appears for that instance.
+
+ Languages
+
+ Class: Not Language-Specific (Often Prevalent)
+
+ + Common Consequences
+ Section HelpThis table specifies different individual consequences associated with the weakness. The Scope identifies the application security area that is violated, while the Impact describes the
+ negative technical impact that arises if an adversary succeeds in exploiting this weakness. The Likelihood provides information about how likely the specific consequence is expected to be seen
+ relative to the other consequences in the list. For example, there may be high likelihood that a weakness will be exploited to achieve a certain impact, but a low likelihood that it will be exploited
+ to achieve a different impact.
+       Scope                                                                                     Impact                                                                                 Likelihood
+ Other              Technical Impact: Varies by Context
+
+ + Demonstrative Examples
+ 
+ Example 1
+
+ The following example retrieves the sizes of messages for a pop3 mail server. The message sizes are retrieved from a socket that returns in a buffer the message number and the message size, the
+ message number (num) and size (size) are extracted from the buffer and the message size is placed into an array using the message number for the array index.
+
+ (bad code)
+ Example Language: C 
+
+ /* capture the sizes of all messages */
+ int getsizes(int sock, int count, int *sizes) {
+ ...
+ char buf[BUFFER_SIZE];
+ int ok;
+ int num, size;
+
+ // read values from socket and added to sizes array
+ while ((ok = gen_recv(sock, buf, sizeof(buf))) == 0)
+ {
+
+ // continue read from socket until buf only contains '.'
+ if (DOTLINE(buf))
+ break;
+
+ else if (sscanf(buf, "%d %d", &num, &size) == 2)
+ sizes[num - 1] = size;
+ }
+ ...
+ }
+
+ In this example the message number retrieved from the buffer could be a value that is outside the allowable range of indices for the array and could possibly be a negative number. Without proper
+ validation of the value to be used for the array index an array overflow could occur and could potentially lead to unauthorized access to memory addresses and system crashes. The value of the array
+ index should be validated to ensure that it is within the allowable range of indices for the array as in the following code.
+
+ (good code)
+ Example Language: C 
+
+ /* capture the sizes of all messages */
+ int getsizes(int sock, int count, int *sizes) {
+ ...
+ char buf[BUFFER_SIZE];
+ int ok;
+ int num, size;
+
+ // read values from socket and added to sizes array
+ while ((ok = gen_recv(sock, buf, sizeof(buf))) == 0)
+ {
+
+ // continue read from socket until buf only contains '.'
+ if (DOTLINE(buf))
+ break;
+
+ else if (sscanf(buf, "%d %d", &num, &size) == 2) {
+ if (num > 0 && num <= (unsigned)count)
+ sizes[num - 1] = size;
+
+ else
+
+ /* warn about possible attempt to induce buffer overflow */
+ report(stderr, "Warning: ignoring bogus data for message sizes returned by server.\n");
+ }
+ }
+ ...
+ }
+
+ Example 2
+
+ In the following example the method displayProductSummary is called from a Web service servlet to retrieve product summary information for display to the user. The servlet obtains the integer value
+ of the product number from the user and passes it to the displayProductSummary method. The displayProductSummary method passes the integer value of the product number to the getProductSummary method
+ which obtains the product summary from the array object containing the project summaries using the integer value of the product number as the array index.
+
+ (bad code)
+ Example Language: Java 
+
+ // Method called from servlet to obtain product information
+ public String displayProductSummary(int index) {
+ String productSummary = new String("");
+
+ try {
+ String productSummary = getProductSummary(index);
+
+
+ } catch (Exception ex) {...}
+
+ return productSummary;
+ }
+
+ public String getProductSummary(int index) {
+ return products[index];
+ }
+
+ In this example the integer value used as the array index that is provided by the user may be outside the allowable range of indices for the array which may provide unexpected results or cause the
+ application to fail. The integer value used for the array index should be validated to ensure that it is within the allowable range of indices for the array as in the following code.
+
+ (good code)
+ Example Language: Java 
+
+ // Method called from servlet to obtain product information
+ public String displayProductSummary(int index) {
+ String productSummary = new String("");
+
+ try {
+ String productSummary = getProductSummary(index);
+
+
+ } catch (Exception ex) {...}
+
+ return productSummary;
+ }
+
+ public String getProductSummary(int index) {
+ String productSummary = "";
+
+ if ((index >= 0) && (index < MAX_PRODUCTS)) {
+ productSummary = products[index];
+ }
+ else {
+ System.err.println("index is out of bounds");
+ throw new IndexOutOfBoundsException();
+ }
+
+ return productSummary;
+ }
+
+ An alternative in Java would be to use one of the collection objects such as ArrayList that will automatically generate an exception if an attempt is made to access an array index that is out of
+ bounds.
+
+ (good code)
+ Example Language: Java 
+ ArrayList productArray = new ArrayList(MAX_PRODUCTS);
+ ...
+ try {
+ productSummary = (String) productArray.get(index);
+ } catch (IndexOutOfBoundsException ex) {...}
+
+ Example 3
+
+ The following example asks a user for an offset into an array to select an item.
+
+ (bad code)
+ Example Language: C 
+
+ int main (int argc, char **argv) {
+ char *items[] = {"boat", "car", "truck", "train"};
+ int index = GetUntrustedOffset();
+ printf("User selected %s\n", items[index-1]);
+ }
+
+ The programmer allows the user to specify which element in the list to select, however an attacker can provide an out-of-bounds offset, resulting in a buffer over-read (CWE-126).
+
+ + Observed Examples
+        Reference                                                                                        Description
+ CVE-2005-0369           large ID in packet used as array index
+ CVE-2001-1009           negative array index as argument to POP LIST command
+ + Potential Mitigations
+ Phase: Implementation
+
+ Strategy: Input Validation
+
+ Assume all input is malicious. Use an "accept known good" input validation strategy, i.e., use a list of acceptable inputs that strictly conform to specifications. Reject any input that does not
+ strictly conform to specifications, or transform it into something that does.
+
+ When performing input validation, consider all potentially relevant properties, including length, type of input, the full range of acceptable values, missing or extra inputs, syntax, consistency
+ across related fields, and conformance to business rules. As an example of business rule logic, "boat" may be syntactically valid because it only contains alphanumeric characters, but it is not
+ valid if the input is only expected to contain colors such as "red" or "blue."
+
+ Do not rely exclusively on looking for malicious or malformed inputs. This is likely to miss at least one undesirable input, especially if the code's environment changes. This can give attackers
+ enough room to bypass the intended validation. However, denylists can be useful for detecting potential attacks or determining which inputs are so malformed that they should be rejected outright.
+
+ Effectiveness: High
+
+ + Memberships
+ Section HelpThis MemberOf Relationships table shows additional CWE Categories and Views that reference this weakness as a member. This information is often useful in understanding where a weakness
+ fits within the context of external information sources.
+     Nature                                                       Type                                                     ID                                   Name
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 1406    Comprehensive Categorization: Improper Input Validation
+ + Vulnerability Mapping Notes
+ Usage: ALLOWED
+
+ (this CWE ID could be used to map to real-world vulnerabilities)
+ Reason: Acceptable-Use
+
+ Rationale:
+
+ This CWE entry is at the Base level of abstraction, which is a preferred level of abstraction for mapping to the root causes of vulnerabilities.
+ Comments:
+
+ Carefully read both the name and description to ensure that this mapping is an appropriate fit. Do not try to 'force' a mapping to a lower-level Base/Variant simply to comply with this preferred
+ level of abstraction.
+ + Notes
+ 
+ Maintenance
+
+ This entry is still under development and will continue to see updates and content improvements.
+ + Content History
+                                                                                            + Submissions
+                                  Submission Date                                                             Submitter                                               Organization
+ 2020-06-24                                                                        CWE Content Team                                                 MITRE
+ (CWE 4.1, 2020-02-24)
+
+                                                                                           + Modifications
+                                 Modification Date                                                             Modifier                                               Organization
+ 2021-03-15                                                                        CWE Content Team                                                 MITRE
+                                                                                   updated Demonstrative_Examples
+ 2023-04-27                                                                        CWE Content Team                                                 MITRE
+                                                                                   updated Relationships
+ 2023-06-29                                                                        CWE Content Team                                                 MITRE
+                                                                                   updated Mapping_Notes
+ More information is available — Please edit the custom filter or select a different filter.
+Page Last Updated: February 29, 2024
+ 
+      Site Map | Terms of Use | Manage Cookies | Cookie Notice | Privacy Policy | Contact Us | CWE X-Twitter CWE Mastodon CWE on LinkedIn CWE YouTube channel CWE Out-of-Bounds-Read Podcast CWE
+      Blog on Medium blog
+
+MITRE Use of the Common Weakness Enumeration (CWE™) and the associated references from this website are subject to the Terms of Use. CWE is sponsored by the U.S. Department of Homeland         HSSEDI
+      Security (DHS) Cybersecurity and Infrastructure Security Agency (CISA) and managed by the Homeland Security Systems Engineering and Development Institute (HSSEDI) which is operated by
+      The MITRE Corporation (MITRE). Copyright © 2006–2024, The MITRE Corporation. CWE, CWSS, CWRAF, and the CWE logo are trademarks of The MITRE Corporation.
+

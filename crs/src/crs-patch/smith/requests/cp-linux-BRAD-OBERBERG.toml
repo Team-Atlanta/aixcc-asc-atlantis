@@ -1,0 +1,6 @@
+cp_name = "linux kernel"
+blob_file = "./exemplar_only/blobs/BRAD-OBERBERG_solve.bin"
+harness_id = "id_18"
+sanitizer_id = "id_6"
+bug_introduce_commit = "8dfc3c9576595b052c692a1df10772bd6aa4495a"
+src_dir = "./src/linux_kernel"

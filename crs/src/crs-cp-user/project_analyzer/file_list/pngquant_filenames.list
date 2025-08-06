@@ -1,0 +1,7 @@
+pngquant_opts.h
+rwpng.c
+pngquant_opts.c
+pngquant.c
+rwpng.h
+fuzzer.c
+test.c

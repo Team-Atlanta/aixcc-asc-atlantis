@@ -1,0 +1,165 @@
+name: Create PR to merge from upstream Template
+
+on:
+  repository_dispatch:
+    types: [trigger-template-sync]
+  # manual trigger
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    outputs:
+      is_template_repo: ${{ steps.check-repo.outputs.is_template_repo }}
+    steps:
+        - name: Check if this is the source (template) repository
+          id: check-repo
+          run: |
+            if [ "${{ github.repository }}" == "aixcc-sc/crs-sandbox" ]; then
+              echo "This repo is the template repo..."
+              echo "is_template_repo=true" >> "$GITHUB_OUTPUT"
+              exit 0
+            fi
+            echo "is_template_repo=false" >> "$GITHUB_OUTPUT"
+
+  repo-sync:
+    needs: check
+    runs-on: ubuntu-latest
+    if: ${{ needs.check.outputs.is_template_repo == 'false' }}
+    permissions:
+      contents: write
+      pull-requests: write
+      repository-projects: read
+
+    steps:
+      - name: Wait for random time to avoid PR request rate limiting with a lot of repos
+        uses: 1itachi/sleep-random@v1.0.0
+        with:
+          minutes: '5'
+          random: 'true'
+      - name: Generate token to read from source repo # see: https://github.com/tibdex/github-app-token
+        id: generate_token
+        # https://github.com/tibdex/github-app-token
+        uses: tibdex/github-app-token@v2
+        with:
+          app_id: ${{ secrets.ROBO_APP_ID }}
+          private_key: ${{ secrets.ROBO_APP_KEY }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: npm install @octokit/action @actions/core
+      - run: |
+          cat <<- EOF > action.mjs
+          import { Octokit } from "@octokit/action";
+          import * as core from '@actions/core';
+
+          const octokit = new Octokit();
+
+          const [owner, repo] = process.env.GITHUB_REPOSITORY.split("/");
+          const specificTitle = "upstream merge template repository";
+
+          async function getPullRequestsByTitle(owner, repo, title) {
+            try {
+              const { data: pullRequests } = await octokit.rest.pulls.list({
+                owner,
+                repo,
+                state: "closed",
+              });
+
+              const matchingPRs = pullRequests.filter(
+                (pr) =>
+                  pr.merged_at &&
+                  (pr.user.login === "robothing[bot]" ||
+                    pr.user.login === "auth0-66229d6de354a375d9a2f156_aixcc")
+              );
+              matchingPRs.sort((a, b) => new Date(b.merged_at) - new Date(a.merged_at));
+              return matchingPRs;
+            } catch (error) {
+              console.error("Error fetching pull requests:", error);
+            }
+          }
+
+          let merged_upstream_prs = await getPullRequestsByTitle(
+            owner,
+            repo,
+            specificTitle
+          );
+          if (merged_upstream_prs.length > 0) {
+            const commit_body = merged_upstream_prs[0].body;
+            console.log("Most recent upstream merged PR:", commit_body);
+            const parts = commit_body.split(" ");
+            core.setOutput("latestMergedUpstream", parts[parts.length - 1]);
+            console.log(parts[parts.length - 1]);
+          } else {
+            console.log("No matching PRs found, using base");
+            core.setOutput("latestMergedUpstream", "v2.2.0");
+          }
+
+          EOF
+      - name: Run Get Merged Upstream PRs
+        id: get_latest_merged_upstream_pr
+        run: node action.mjs
+        env:
+          GITHUB_TOKEN: ${{ steps.generate_token.outputs.token }}
+      - name: Checkout
+        # https://github.com/actions/checkout#usage
+        uses: actions/checkout@v4
+        with:
+          token: ${{ steps.generate_token.outputs.token }}
+          fetch-depth: 0
+
+      - name: actions-template-sync
+        uses: AndreasAugustin/actions-template-sync@f8342aa8ac0268b511227d38a3c13dcc1f1b3c5e
+        with:
+          github_token: ${{ steps.generate_token.outputs.token }}
+          source_repo_path: ${{ secrets.SOURCE_REPO_PATH }}
+          source_repo_ssh_private_key: ${{ secrets.CRS_EVALUATOR_EXEMPLAR_CLONE_SSH_KEY }}
+          upstream_branch: main
+          is_pr_cleanup: true
+          is_keep_branch_on_pr_cleanup: true
+          is_force_push_pr: false
+          is_git_lfs: true
+          steps: "prechecks"
+          pr_branch_name_prefix: chore/template_sync
+
+      - name: Establish base commit and build mergeable history
+        run: |
+            # Set up checkout vars
+            export SRC_SSH_PRIVATEKEY_ABS_PATH="/tmp/.ssh/id_rsa_template_sync"
+            mkdir -p "/tmp/.ssh"
+            cat <<< "${{ secrets.CRS_EVALUATOR_EXEMPLAR_CLONE_SSH_KEY }}" | sed 's/\\n/\n/g' > "${SRC_SSH_PRIVATEKEY_ABS_PATH}"
+            chmod 600 "${SRC_SSH_PRIVATEKEY_ABS_PATH}"
+            export GIT_SSH_COMMAND="ssh -i ${SRC_SSH_PRIVATEKEY_ABS_PATH}"
+
+            # Generate PR branch name
+            PR_BRANCH_NAME_PREFIX=chore/template_sync
+            TEMPLATE_REMOTE_GIT_HASH=$(git ls-remote "git@github.com:aixcc-sc/crs-sandbox.git" HEAD | awk '{print $1}')
+            SHORT_TEMPLATE_GIT_HASH=$(git rev-parse --short "${TEMPLATE_REMOTE_GIT_HASH}")
+            export PR_BRANCH="${PR_BRANCH_NAME_PREFIX}_${SHORT_TEMPLATE_GIT_HASH}"
+
+            upstream=$UPSTREAM_MERGED
+            git fetch git@github.com:aixcc-sc/crs-sandbox.git main:upstream_merge
+            git checkout upstream_merge
+            # convenience to squash to make cherry-pick easier
+            git reset --soft "$upstream"
+            git commit -m "upstream merge"
+            merged_template_change_sha=$(git rev-parse HEAD)
+            git checkout main -b "${PR_BRANCH}"
+            git cherry-pick --no-commit -X ours "$merged_template_change_sha" || true
+            git branch -D upstream_merge
+        env:
+          UPSTREAM_MERGED: ${{ steps.get_latest_merged_upstream_pr.outputs.latestMergedUpstream }}
+
+      - name: actions-template-sync
+        uses: AndreasAugustin/actions-template-sync@f8342aa8ac0268b511227d38a3c13dcc1f1b3c5e
+        with:
+          github_token: ${{ steps.generate_token.outputs.token }}
+          source_repo_path: ${{ secrets.SOURCE_REPO_PATH }}
+          source_repo_ssh_private_key: ${{ secrets.CRS_EVALUATOR_EXEMPLAR_CLONE_SSH_KEY }}
+          upstream_branch: main
+          is_pr_cleanup: true
+          is_keep_branch_on_pr_cleanup: true
+          is_force_push_pr: false
+          is_git_lfs: true
+          steps: "commit,push,pr"
+          pr_branch_name_prefix: chore/template_sync

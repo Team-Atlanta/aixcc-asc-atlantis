@@ -1,0 +1,50 @@
+---
+name: Create and publish a Docker image for the CP Docker Image Loader
+permissions: read-all
+on:
+  push:
+    branches: ["main"]
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    outputs:
+      is_template_repo: ${{ steps.check-repo.outputs.is_template_repo }}
+    steps:
+        - name: Check if this is the source (template) repository
+          id: check-repo
+          run: |
+            if [ "${{ github.repository }}" == "aixcc-sc/crs-sandbox" ]; then
+              echo "This repo is the template repo..."
+              echo "is_template_repo=true" >> "$GITHUB_OUTPUT"
+              exit 0
+            fi
+            echo "is_template_repo=false" >> "$GITHUB_OUTPUT"
+
+  build-and-push-image:
+    needs: check
+    runs-on:
+      group: large-runners
+    if: ${{ needs.check.outputs.is_template_repo == 'true' }}
+    permissions:
+      contents: write
+      packages: write
+      id-token: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Log in to the Container registry
+        uses: docker/login-action@65b78e6e13532edd9afa3aa52ac7964289d1a9c1
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ github.token }}
+      - name: Build and push Docker image
+        uses: docker/build-push-action@f2a1d5e99d037542a71f64918e516c093c6f3fc4
+        with:
+          context: ./sandbox/load_cp_images
+          file: ./sandbox/load_cp_images/Dockerfile
+          push: true
+          tags: ghcr.io/aixcc-sc/load-cp-images:v0.0.11

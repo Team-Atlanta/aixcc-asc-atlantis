@@ -1,0 +1,5 @@
+GLOBALS ::= SIZE { size: 8, type: string }
+
+INPUT ::= NOTE_SIZE { size: 4 }
+          NOTE { size: NOTE_SIZE, terminator: 0 }
+

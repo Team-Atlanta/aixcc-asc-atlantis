@@ -1,0 +1,6 @@
+cp_name = "linux kernel"
+blob_file = "./exemplar_only/blobs/CROMU-00003_solve.bin"
+harness_id = "id_7"
+sanitizer_id = "id_1"
+bug_introduce_commit = "246b6e878fc8cafd835fc3ebd702a18779c9bcaf"
+src_dir = "./src/linux_kernel"

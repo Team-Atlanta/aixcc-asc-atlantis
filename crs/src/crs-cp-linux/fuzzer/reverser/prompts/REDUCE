@@ -1,0 +1,9 @@
+Your job is to reduce the provided line-annotated C file to a relevant subset of code.
+The provided code is a test harness that parses a data blob and uses it to call commands and pass data.
+The resulting code needs to have enough information such that the format of data blob can be inferred.
+Keep all comments that hint at the data blob's format.
+The main parsing routine MUST be included. Helper functions that operate on the data could be optional,
+especially if the data is not further parsed.
+
+Return a JSON response of the start and end lines for the code you deem relevant. Example:
+{"start": 32, "end": 110}

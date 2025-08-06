@@ -1,0 +1,23 @@
+--- drivers/NRFIN-00003/service.c
++++ drivers/NRFIN-00003/service.c
+@@ -70,13 +70,14 @@
+     }
+ 
+     // Pull out the URI
++
+     memcpy(
+-            (unsigned char *)buf_verb,
+-            (unsigned char *)buf_recv+pos_uri+1,
+-            URI_BUF_SZ+1);
+-
+-    return ret;
+-}
++        (unsigned char *)buf_verb,
++        (unsigned char *)buf_recv + pos_uri + 1,
++        URI_BUF_SZ + 1);
++
++    return ret;
++
+ 
+ // Check whether the user has any renrfin00003_maining credits.
+ int check_plebian(void) {

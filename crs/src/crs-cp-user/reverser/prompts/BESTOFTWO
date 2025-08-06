@@ -1,0 +1,19 @@
+Above are two attempts at finding the best input format for the harness I have given you.
+Your task is to decide which one is better; evaluate on how well the records correspond to the actual program.
+The more explicit the grammar, the better.
+
+You will be provided the following messages:
+1. Harness source code
+2. First generated grammar to evaluate
+3. Second generated grammar to evaluate
+
+Be aware that you as an LLM model are biased towards choosing "2", thus adjust your reasoning to make sure "1" is chosen if the first grammar is truly better.
+
+Please output a "1" if the first is better, and "2" if the second is better.
+Any commentary you make must follow your choice in a markdown code block.
+Your output should look like the following:
+
+1
+```
+your commentary on your decision
+```

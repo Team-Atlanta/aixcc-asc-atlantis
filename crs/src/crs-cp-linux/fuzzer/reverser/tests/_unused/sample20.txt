@@ -1,0 +1,5 @@
+
+INPUT ::= SIZE { size: 4 }
+          COMMAND
+
+COMMAND ::= DATA { size: SIZE }

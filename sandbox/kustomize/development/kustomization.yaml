@@ -1,0 +1,40 @@
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+metadata:
+  name: crs
+resources:
+  - ../base
+  - service-account.yaml
+  - service-cluster-role-binding.yaml
+  - service-cluster-role.yaml
+  - service-role-binding.yaml
+  - service-role.yaml
+
+patches:
+  - path: crs-scratch-pvc.yaml
+  - path: cp-root-pvc.yaml
+  - target:
+      kind: Deployment
+      name: capi
+    patch: |-
+      - op: add
+        path: /spec/template/spec/imagePullSecrets
+        value:
+          - name: regcred
+  - target:
+      kind: Pod
+      name: crs
+    patch: |-
+      - op: add
+        path: /spec/imagePullSecrets
+        value:
+          - name: regcred
+  - target:
+      kind: Pod
+      name: load-cp-images
+    patch: |-
+      - op: add
+        path: /spec/imagePullSecrets
+        value:
+          - name: regcred

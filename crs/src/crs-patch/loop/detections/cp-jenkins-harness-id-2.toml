@@ -1,0 +1,6 @@
+cp_name = "jenkins"
+blob_file = "./exemplar_only/cpv_exemplar/blobs/id_2.bin"
+harness_id = "id_2"
+sanitizer_id = "id_2"
+bug_introduce_commit = "2f0296ee933b2feea4a61e93fac43e96ca7e8876"
+src_dir = "./src/plugins/build-failure-analyzer-plugin"

@@ -1,0 +1,133 @@
+When a portion of data is used as a null-terminated character array, we can annotate the field in the grammar with 'type: string'.
+For example, if a helper function uses both the character array and size, it may be that the data is not null-terminated since the function explicitly wants the size of the array.
+Most of the time, variable sized data will not be null-terminated, in this case, give 'type: data'.
+Use 'type: data' as the default, and only give 'type: string' if you are certain the variable is null-terminated.
+For example, if a variable is used in the read system call, which also takes a size, it would be the data type.
+If a variable is used with the strcpy function, it is a string.
+
+Test harness:
+<harness>
+int harness( uint8_t *blob, uint32_t blob_size)
+{
+  int index = 0;
+  uint32_t command, command_count = 0;
+  uint32_t size = 0;
+
+  char* name = NULL;
+  char* data = NULL;
+  uint8_t* bytes = NULL;
+
+  if ( blob == NULL ) {
+    return -1;
+  }
+  if ( blob_size < 4 ) {
+    return -1;
+  }
+
+  memcpy(&command_count, blob, 4);
+  index += 4;
+
+  for ( uint32_t i = 0; i < command_count; i++) {
+    if ( blob_size - index < 4 ) {
+      printf("[ERROR] ran out of commands\n");
+      return -1;
+    }
+
+    memcpy(&command, blob + index, 4);
+    index += 4;
+
+    switch ( command ) {
+      case 0:
+        if ( blob_size - index < 4 ) {
+          return -1;
+        }
+        memcpy(&size, blob + index, 4);
+        index += 4;
+        if ( blob_size - index < size ) {
+          return -1;
+        }
+        name = blob + index;
+        index += size;
+        if ( blob_size - index < 4 ) {
+          return -1;
+        }
+        // use name without needing to pass in size
+        if (update_name(name) < 0) {
+          return -1;
+        }
+        break;
+      case 1:
+        if ( blob_size - index < 4 ) {
+          return -1;
+        }
+        memcpy(&size, blob + index, 4);
+        index += 4;
+        if ( blob_size - index < size ) {
+          return -1;
+        }
+        data = blob + index;
+        index += size;
+        if ( blob_size - index < 4 ) {
+          return -1;
+        }
+        // use data and pass in size
+        if (process_data(data, size) < 0) {
+          return -1;
+        }
+        break;
+      case 2:
+        if ( blob_size - index < 4 ) {
+          return -1;
+        }
+        memcpy(&size, blob + index, 4);
+        index += 4;
+        if ( blob_size - index < size ) {
+          return -1;
+        }
+        bytes = blob + index;
+        index += size;
+        if ( blob_size - index < 4 ) {
+          return -1;
+        }
+        // use bytes and pass in size
+        if (write_bytes(bytes, size) < 0) {
+          return -1;
+        }
+        break;
+      default:
+        return -1;
+    }
+  }
+  return 0;
+}
+</harness>
+
+<chain-of-thought>
+Four bytes are taken out for a command count, and then a loop starts, so this is likely the number of commands and then a list of commands.
+There are three cases in the switch statement, so there are likely three possible commands, each stating with some opcode.
+In the first command, there is size of four bytes, and is taken a name.
+In the second command, there is a size of four bytes, and then a data range of that size.
+In the third command, there is a size of four bytes, and then a data range of that size.
+</chain-of-thought>
+
+Test language:
+<testlang>
+INPUT ::= COMMAND_CNT { size: 4 }
+          COMMAND[COMMAND_CNT]
+
+COMMAND ::= UPDATE_NAME
+          | PROCESS_DATA
+          | WRITE_BYTES
+
+UPDATE_NAME ::= OPCODE { size: 4, value: 0 }
+                SIZE { size: 4 }
+                NAME { size: SIZE, type: string }
+
+PROCESS_DATA ::= OPCODE { size: 4, value: 1 }
+                 SIZE { size: 4 }
+                 DATA { size: SIZE, type: data }
+
+WRITE_BYTES ::= OPCODE { size: 4, value: 2 }
+                SIZE { size: 4 }
+                BYTES { size: SIZE, type: data }
+</testlang>

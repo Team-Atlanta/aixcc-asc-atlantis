@@ -1,0 +1,79 @@
+INPUT ::= COMMAND_CNT { size: 4 }
+          COMMAND[COMMAND_CNT]
+
+COMMAND ::= YOLO_ADD
+          | YOLO_DEL
+          | YOLO_EDIT
+          | YOLO_SHOW
+          | YOLO_SHOW_Q
+          | YOLO_SHOW_D
+          | YOLO_SHOW_E
+          | YOLO_SHOW_N
+          | YOLO_SHOW_P
+          | YOLO_LIST
+          | YOLO_SORT
+          | YOLO_EXIT
+
+YOLO_ADD ::= OPCODE { size: 4, value: 64 }
+             FIRST_NAME_SIZE { size: 4 }
+             FIRST_NAME { size: FIRST_NAME_SIZE }
+             LAST_NAME_SIZE { size: 4 }
+             LAST_NAME { size: LAST_NAME_SIZE }
+             PHONE_SIZE { size: 4 }
+             PHONE { size: PHONE_SIZE }
+             OFFICE { size: 2 }
+             GENDER { size: 1 }
+             HACKER_BOOL { size: 1 }
+
+YOLO_DEL ::= OPCODE { size: 4, value: 65 }
+             FIRST_NAME_SIZE { size: 4 }
+             FIRST_NAME { size: FIRST_NAME_SIZE }
+             LAST_NAME_SIZE { size: 4 }
+             LAST_NAME { size: LAST_NAME_SIZE }
+
+YOLO_EDIT ::= OPCODE { size: 4, value: 66 }
+              OLD_FIRST_NAME_SIZE { size: 4 }
+              OLD_FIRST_NAME { size: OLD_FIRST_NAME_SIZE }
+              OLD_LAST_NAME_SIZE { size: 4 }
+              OLD_LAST_NAME { size: OLD_LAST_NAME_SIZE }
+              FIRST_NAME_SIZE { size: 4 }
+              FIRST_NAME { size: FIRST_NAME_SIZE }
+              LAST_NAME_SIZE { size: 4 }
+              LAST_NAME { size: LAST_NAME_SIZE }
+              PHONE_SIZE { size: 4 }
+              PHONE { size: PHONE_SIZE }
+              OFFICE { size: 2 }
+              GENDER { size: 1 }
+              HACKER_BOOL { size: 1 }
+              
+
+YOLO_SHOW ::= OPCODE { size: 4, value: 67 }
+              FIRST_NAME_SIZE { size: 4 }
+              FIRST_NAME { size: FIRST_NAME_SIZE }
+              LAST_NAME_SIZE { size: 4 }
+              LAST_NAME { size: LAST_NAME_SIZE }
+
+YOLO_SHOW_Q ::= OPCODE { size: 4, value: 81 }
+
+YOLO_SHOW_D ::= OPCODE { size: 4, value: 82 }
+
+YOLO_SHOW_E ::= OPCODE { size: 4, value: 83 }
+                FIRST_NAME_SIZE { size: 4 }
+                FIRST_NAME { size: FIRST_NAME_SIZE }
+                LAST_NAME_SIZE { size: 4 }
+                LAST_NAME { size: LAST_NAME_SIZE }
+                PHONE_SIZE { size: 4 }
+                PHONE { size: PHONE_SIZE }
+                OFFICE { size: 2 }
+                GENDER { size: 1 }
+                HACKER_BOOL { size: 1 }
+
+YOLO_SHOW_N ::= OPCODE { size: 4, value: 84 }
+
+YOLO_SHOW_P ::= OPCODE { size: 4, value: 85 }
+
+YOLO_LIST ::= OPCODE { size: 4, value: 68 }
+
+YOLO_SORT ::= OPCODE { size: 4, value: 69 }
+
+YOLO_EXIT ::= OPCODE { size: 4, value: 70 }

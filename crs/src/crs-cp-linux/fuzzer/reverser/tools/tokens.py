@@ -1,0 +1,12 @@
+ASSIGN = "::="
+OR = "|"
+NAME_ALLOWED = "_"
+CNT = "cnt"
+SIZE = "size"
+VALUE = "value"
+TYPE = "type"
+INPUT = "INPUT"
+NORMAL_ATTRS = [SIZE, VALUE, TYPE]
+NORMAL_DATA_ATTRS = [SIZE, VALUE]
+NORMAL_ANNOTATION_ATTRS = [TYPE]
+ALLOWED_TYPES = ["string"]

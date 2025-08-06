@@ -1,0 +1,58 @@
+/out/
+/work/
+/src/
+!out/README
+!work/README
+!src/README
+.aider*
+__pycache__
+
+## Localized environment variables
+**/.env
+**/env
+
+## venv
+**/.venv
+
+## Generated Kubernetes Resources
+.k8s
+
+## Cloned exemplar repositories
+cp_root/*
+
+## CRS scratch space
+crs_scratch/*
+
+## DIND cache space
+dind_cache/
+
+## CAPI Audit logs
+capi_logs/
+
+## Charts
+charts/*
+
+## LLM creds
+**/vertex_key.json
+
+arvo/
+arvo2exemplar/
+
+.gdb_history
+
+target
+
+.vscode/
+
+*.log
+
+forkserver_test
+*.lafl_lock
+*.metadata
+
+# my default build dir
+crs-cp-user/
+
+.cur_input*
+
+harness_0/

@@ -1,0 +1,15 @@
+Above are two attempts at finding the best input format for the harness I have given you.
+Your task is to decide which one is better; evaluate on the following metrics in the following order.
+
+1. How much the records correspond to the actual program.
+2. How fine grained the records are.
+3. The quality and descriptiveness of the comments.
+
+Please output a "1" if the first is better, and "2" if the second is better.
+Follow this by your attempt to combine the two, so your output should look like the following.
+Do not provide ANY commentary. Just give which one you think is better, and your combination.
+
+1
+```
+your combination of the input formats
+```

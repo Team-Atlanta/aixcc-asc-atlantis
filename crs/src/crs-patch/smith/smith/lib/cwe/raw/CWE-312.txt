@@ -1,0 +1,493 @@
+CWE
+
+Common Weakness Enumeration
+
+A community-developed list of SW & HW weaknesses that can become vulnerabilities
+
+New to CWE? click here!
+CWE Most Important Hardware Weaknesses
+CWE Top 25 Most Dangerous Weaknesses
+Home > CWE List > CWE- Individual Dictionary Definition (4.14)                                                                                                   ID Lookup: [                    ] [Go]
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  • Home
+  • About ▼
+    About New to CWE User Stories History Documents FAQs Glossary Compatibility
+  • CWE List ▼
+    Latest Version Downloads Reports Visualizations Archive
+  • Mapping ▼
+    Root Cause Mapping Guidance Root Cause Mapping Quick Tips Root Cause Mapping Examples
+  • Top-N Lists ▼
+    Top 25 Software Top Hardware Top 10 KEV Weaknesses
+  • Community ▼
+    Community Working Groups & Special Interest Groups Board Board Meeting Minutes CWE Discussion List CWE Discussion Archives Contribute Weakness Content to CWE
+  • News ▼
+    Current News X-Twitter ● Mastodon ● LinkedIn ● YouTube YouTube Podcast Out of Bounds Read Podcast Medium Medium News Archive
+  • Search
+
+ 
+ CWE Glossary Definition                  x
+ 
+ 
+ CWE-312: Cleartext Storage of Sensitive Information
+ 
+ Weakness ID: 312
+ Vulnerability Mapping: ALLOWEDThis CWE ID may be used to map to real-world vulnerabilities
+ Abstraction: BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level
+ weaknesses typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.
+ View customized information:
+ Conceptual For users who are interested in more notional aspects of a weakness. Example: educators, technical writers, and project/program managers. Operational For users who are concerned with the
+ practical application and details about the nature of a weakness and how to prevent it from happening. Example: tool developers, security researchers, pen-testers, incident response analysts. Mapping
+ Friendly For users who are mapping an issue to CWE/CAPEC IDs, i.e., finding the most appropriate CWE for a specific issue (e.g., a CVE record). Example: tool developers, security researchers. 
+ Complete For users who wish to see all available information for the CWE/CAPEC entry. Custom For users who want to customize what details are displayed.
+ ×
+
+ Edit Custom Filter
+
+ Conceptual Operational Mapping Friendly Select All
+ 
+ Reset Clear Submit Cancel
+ + Description
+ The product stores sensitive information in cleartext within a resource that might be accessible to another control sphere.
+ + Extended Description
+ 
+ Because the information is stored in cleartext (i.e., unencrypted), attackers could potentially read it. Even if the information is encoded in a way that is not human-readable, certain techniques
+ could determine which encoding is being used, then decode the information.
+
+ When organizations adopt cloud services, it can be easier for attackers to access the data from anywhere on the Internet.
+
+ In some systems/environments such as cloud, the use of "double encryption" (at both the software and hardware layer) might be required, and the developer might be solely responsible for both layers,
+ instead of shared responsibility with the administrator of the broader system/environment.
+
+ + Relationships
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Research Concepts" (CWE-1000)
+     Nature                                                                                                                                                                             Type                                                                                                                                                                           ID       Name
+ ChildOf                                                                               ClassClass - a weakness that is described in a very abstract fashion, typically independent of any specific language or technology. More specific than a Pillar Weakness, but more general than a Base                                                                        922     Insecure
+                                                                                                                    Weakness. Class level weaknesses typically describe issues in terms of 1 or 2 of the following dimensions: behavior, property, and resource.                                                                                                             Storage of
+                                                                                                                                                                                                                                                                                                                                                                             Sensitive
+                                                                                                                                                                                                                                                                                                                                                                             Information
+ ChildOf                                                                               ClassClass - a weakness that is described in a very abstract fashion, typically independent of any specific language or technology. More specific than a Pillar Weakness, but more general than a Base                                                                        311     Missing
+                                                                                                                    Weakness. Class level weaknesses typically describe issues in terms of 1 or 2 of the following dimensions: behavior, property, and resource.                                                                                                             Encryption
+                                                                                                                                                                                                                                                                                                                                                                             of
+                                                                                                                                                                                                                                                                                                                                                                             Sensitive
+                                                                                                                                                                                                                                                                                                                                                                             Data
+ ParentOf                                                                              VariantVariant - a weakness that is linked to a certain type of product, typically involving a specific language or technology. More specific than a Base weakness. Variant level weaknesses typically                                                                        313     Cleartext
+                                                                                                                               describe issues in terms of 3 to 5 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                       Storage in
+                                                                                                                                                                                                                                                                                                                                                                             a File or
+                                                                                                                                                                                                                                                                                                                                                                             on Disk
+ ParentOf                                                                              VariantVariant - a weakness that is linked to a certain type of product, typically involving a specific language or technology. More specific than a Base weakness. Variant level weaknesses typically                                                                        314     Cleartext
+                                                                                                                               describe issues in terms of 3 to 5 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                       Storage in
+                                                                                                                                                                                                                                                                                                                                                                             the
+                                                                                                                                                                                                                                                                                                                                                                             Registry
+ ParentOf                                                                              VariantVariant - a weakness that is linked to a certain type of product, typically involving a specific language or technology. More specific than a Base weakness. Variant level weaknesses typically                                                                        315     Cleartext
+                                                                                                                               describe issues in terms of 3 to 5 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                       Storage of
+                                                                                                                                                                                                                                                                                                                                                                             Sensitive
+                                                                                                                                                                                                                                                                                                                                                                             Information
+                                                                                                                                                                                                                                                                                                                                                                             in a Cookie
+ ParentOf                                                                              VariantVariant - a weakness that is linked to a certain type of product, typically involving a specific language or technology. More specific than a Base weakness. Variant level weaknesses typically                                                                        316     Cleartext
+                                                                                                                               describe issues in terms of 3 to 5 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                       Storage of
+                                                                                                                                                                                                                                                                                                                                                                             Sensitive
+                                                                                                                                                                                                                                                                                                                                                                             Information
+                                                                                                                                                                                                                                                                                                                                                                             in Memory
+ ParentOf                                                                              VariantVariant - a weakness that is linked to a certain type of product, typically involving a specific language or technology. More specific than a Base weakness. Variant level weaknesses typically                                                                        317     Cleartext
+                                                                                                                               describe issues in terms of 3 to 5 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                       Storage of
+                                                                                                                                                                                                                                                                                                                                                                             Sensitive
+                                                                                                                                                                                                                                                                                                                                                                             Information
+                                                                                                                                                                                                                                                                                                                                                                             in GUI
+ ParentOf                                                                              VariantVariant - a weakness that is linked to a certain type of product, typically involving a specific language or technology. More specific than a Base weakness. Variant level weaknesses typically                                                                        318     Cleartext
+                                                                                                                               describe issues in terms of 3 to 5 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                       Storage of
+                                                                                                                                                                                                                                                                                                                                                                             Sensitive
+                                                                                                                                                                                                                                                                                                                                                                             Information
+                                                                                                                                                                                                                                                                                                                                                                             in
+                                                                                                                                                                                                                                                                                                                                                                             Executable
+ ParentOf                                                                              VariantVariant - a weakness that is linked to a certain type of product, typically involving a specific language or technology. More specific than a Base weakness. Variant level weaknesses typically                                                                        526     Cleartext
+                                                                                                                               describe issues in terms of 3 to 5 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                       Storage of
+                                                                                                                                                                                                                                                                                                                                                                             Sensitive
+                                                                                                                                                                                                                                                                                                                                                                             Information
+                                                                                                                                                                                                                                                                                                                                                                             in an
+                                                                                                                                                                                                                                                                                                                                                                             Environment
+                                                                                                                                                                                                                                                                                                                                                                             Variable
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Software Development" (CWE-699)
+     Nature                                                       Type                                                     ID                                   Name
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 199     Information Management Errors
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Weaknesses for Simplified Mapping of Published Vulnerabilities" (CWE-1003)
+     Nature                                                                                                                                                                             Type                                                                                                                                                                           ID       Name
+ ChildOf                                                                               ClassClass - a weakness that is described in a very abstract fashion, typically independent of any specific language or technology. More specific than a Pillar Weakness, but more general than a Base                                                                        311     Missing
+                                                                                                                    Weakness. Class level weaknesses typically describe issues in terms of 1 or 2 of the following dimensions: behavior, property, and resource.                                                                                                             Encryption
+                                                                                                                                                                                                                                                                                                                                                                             of
+                                                                                                                                                                                                                                                                                                                                                                             Sensitive
+                                                                                                                                                                                                                                                                                                                                                                             Data
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Architectural Concepts" (CWE-1008)
+     Nature                                                       Type                                                     ID                                   Name
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 1013    Encrypt Data
+ + Modes Of Introduction
+ Section HelpThe different Modes of Introduction provide information about how and when this weakness may be introduced. The Phase identifies a point in the life cycle at which introduction may occur,
+ while the Note provides a typical scenario related to introduction during the given phase.
+          Phase                                                                                             Note
+ Architecture and Design OMISSION: This weakness is caused by missing a security tactic during the architecture and design phase.
+ + Applicable Platforms
+ Section HelpThis listing shows possible areas for which the given weakness could appear. These may be for specific named Languages, Operating Systems, Architectures, Paradigms, Technologies, or a
+ class of such platforms. The platform is listed along with how frequently the given weakness appears for that instance.
+
+ Languages
+
+ Class: Not Language-Specific (Undetermined Prevalence)
+
+ Technologies
+
+ Class: Cloud Computing (Undetermined Prevalence)
+
+ Class: ICS/OT (Undetermined Prevalence)
+
+ Class: Mobile (Undetermined Prevalence)
+
+ + Common Consequences
+ Section HelpThis table specifies different individual consequences associated with the weakness. The Scope identifies the application security area that is violated, while the Impact describes the
+ negative technical impact that arises if an adversary succeeds in exploiting this weakness. The Likelihood provides information about how likely the specific consequence is expected to be seen
+ relative to the other consequences in the list. For example, there may be high likelihood that a weakness will be exploited to achieve a certain impact, but a low likelihood that it will be exploited
+ to achieve a different impact.
+       Scope                                                                                     Impact                                                                                 Likelihood
+                    Technical Impact: Read Application Data
+ Confidentiality
+                    An attacker with access to the system could read sensitive information stored in cleartext.
+ + Demonstrative Examples
+ 
+ Example 1
+
+ The following code excerpt stores a plaintext user account ID in a browser cookie.
+
+ (bad code)
+ Example Language: Java 
+ response.addCookie( new Cookie("userAccountID", acctID);
+
+ Because the account ID is in plaintext, the user's account information is exposed if their computer is compromised by an attacker.
+
+ Example 2
+
+ This code writes a user's login information to a cookie so the user does not have to login again later.
+
+ (bad code)
+ Example Language: PHP 
+ function persistLogin($username, $password){
+ $data = array("username" => $username, "password"=> $password);
+ setcookie ("userdata", $data);
+ }
+
+ The code stores the user's username and password in plaintext in a cookie on the user's machine. This exposes the user's login information if their computer is compromised by an attacker. Even if the
+ user's machine is not compromised, this weakness combined with cross-site scripting (CWE-79) could allow an attacker to remotely copy the cookie.
+
+ Also note this example code also exhibits Plaintext Storage in a Cookie (CWE-315).
+
+ Example 3
+
+ The following code attempts to establish a connection, read in a password, then store it to a buffer.
+
+ (bad code)
+ Example Language: C 
+ server.sin_family = AF_INET; hp = gethostbyname(argv[1]);
+ if (hp==NULL) error("Unknown host");
+ memcpy( (char *)&server.sin_addr,(char *)hp->h_addr,hp->h_length);
+ if (argc < 3) port = 80;
+ else port = (unsigned short)atoi(argv[3]);
+ server.sin_port = htons(port);
+ if (connect(sock, (struct sockaddr *)&server, sizeof server) < 0) error("Connecting");
+ ...
+ while ((n=read(sock,buffer,BUFSIZE-1))!=-1) {
+
+ write(dfd,password_buffer,n);
+ ...
+
+ While successful, the program does not encrypt the data before writing it to a buffer, possibly exposing it to unauthorized actors.
+
+ Example 4
+
+ The following examples show a portion of properties and configuration files for Java and ASP.NET applications. The files include username and password information but they are stored in cleartext.
+
+ This Java example shows a properties file with a cleartext username / password pair.
+
+ (bad code)
+ Example Language: Java 
+
+ # Java Web App ResourceBundle properties file
+ ...
+ webapp.ldap.username=secretUsername
+ webapp.ldap.password=secretPassword
+ ...
+
+ The following example shows a portion of a configuration file for an ASP.Net application. This configuration file includes username and password information for a connection to a database but the
+ pair is stored in cleartext.
+
+ (bad code)
+ Example Language: ASP.NET 
+ ...
+ <connectionStrings>
+ <add name="ud_DEV" connectionString="connectDB=uDB; uid=db2admin; pwd=password; dbalias=uDB;" providerName="System.Data.Odbc" />
+ </connectionStrings>
+ ...
+
+ Username and password information should not be included in a configuration file or a properties file in cleartext as this will allow anyone who can read the file access to the resource. If possible,
+ encrypt this information.
+
+ Example 5
+
+ In 2022, the OT:ICEFALL study examined products by 10 different Operational Technology (OT) vendors. The researchers reported 56 vulnerabilities and said that the products were "insecure by design" [
+ REF-1283]. If exploited, these vulnerabilities often allowed adversaries to change how the products operated, ranging from denial of service to changing the code that the products executed. Since
+ these products were often used in industries such as power, electrical, water, and others, there could even be safety implications.
+
+ At least one OT product stored a password in plaintext.
+
+ Example 6
+
+ In 2021, a web site operated by PeopleGIS stored data of US municipalities in Amazon Web Service (AWS) Simple Storage Service (S3) buckets.
+
+ (bad code)
+ Example Language: Other 
+ A security researcher found 86 S3 buckets that could be accessed without authentication (CWE-306) and stored data unencrypted (CWE-312). These buckets exposed over 1000 GB of data and 1.6 million
+ files including physical addresses, phone numbers, tax documents, pictures of driver's license IDs, etc. [REF-1296] [REF-1295]
+
+ While it was not publicly disclosed how the data was protected after discovery, multiple options could have been considered.
+
+ (good code)
+ Example Language: Other 
+ The sensitive information could have been protected by ensuring that the buckets did not have public read access, e.g., by enabling the s3-account-level-public-access-blocks-periodic rule to Block
+ Public Access. In addition, the data could have been encrypted at rest using the appropriate S3 settings, e.g., by enabling server-side encryption using the s3-bucket-server-side-encryption-enabled
+ setting. Other settings are available to further prevent bucket data from being leaked. [REF-1297]
+
+ Example 7
+
+ Consider the following PowerShell command examples for encryption scopes of Azure storage objects. In the first example, an encryption scope is set for the storage account.
+
+ (bad code)
+ Example Language: Shell 
+ New-AzStorageEncryptionScope -ResourceGroupName "MyResourceGroup" -AccountName "MyStorageAccount" -EncryptionScopeName testscope -StorageEncryption
+
+ The result (edited and formatted for readability) might be:
+
+ (bad code)
+ Example Language: Other 
+ ResourceGroupName: MyResourceGroup, StorageAccountName: MyStorageAccount
+
+   Name     State       Source       RequireInfrastructureEncryption
+ testscope Enabled Microsoft.Storage
+
+ However, the empty string under RequireInfrastructureEncryption indicates this service was not enabled at the time of creation, because the -RequireInfrastructureEncryption argument was not specified
+ in the command.
+
+ Including the -RequireInfrastructureEncryption argument addresses the issue:
+
+ (good code)
+ Example Language: Shell 
+ New-AzStorageEncryptionScope -ResourceGroupName "MyResourceGroup" -AccountName "MyStorageAccount" -EncryptionScopeName testscope -StorageEncryption -RequireInfrastructureEncryption
+
+ This produces the report:
+
+ (result)
+ Example Language: Other 
+ ResourceGroupName: MyResourceGroup, StorageAccountName: MyStorageAccount
+
+   Name     State        Source       RequireInfrastructureEncryption
+ testscope Enabled Microsoft.Keyvault True
+
+ In a scenario where both software and hardware layer encryption is required ("double encryption"), Azure's infrastructure encryption setting can be enabled via the CLI or Portal. An important note is
+ that infrastructure hardware encryption cannot be enabled or disabled after a blob is created. Furthermore, the default value for infrastructure encryption is disabled in blob creations.
+
+ + Observed Examples
+        Reference                                                                                        Description
+ CVE-2022-30275          Remote Terminal Unit (RTU) uses a driver that relies on a password stored in plaintext.
+ CVE-2009-2272           password and username stored in cleartext in a cookie
+ CVE-2009-1466           password stored in cleartext in a file with insecure permissions
+ CVE-2009-0152           chat program disables SSL in some circumstances even when the user says to use SSL.
+ CVE-2009-1603           Chain: product uses an incorrect public exponent when generating an RSA key, which effectively disables the encryption
+ CVE-2009-0964           storage of unencrypted passwords in a database
+ CVE-2008-6157           storage of unencrypted passwords in a database
+ CVE-2008-6828           product stores a password in cleartext in memory
+ CVE-2008-1567           storage of a secret key in cleartext in a temporary file
+ CVE-2008-0174           SCADA product uses HTTP Basic Authentication, which is not encrypted
+ CVE-2007-5778           login credentials stored unencrypted in a registry key
+ CVE-2001-1481           Plaintext credentials in world-readable file.
+ CVE-2005-1828           Password in cleartext in config file.
+ CVE-2005-2209           Password in cleartext in config file.
+ CVE-2002-1696           Decrypted copy of a message written to disk given a combination of options and when user replies to an encrypted message.
+ CVE-2004-2397           Plaintext storage of private key and passphrase in log file when user imports the key.
+ CVE-2002-1800           Admin password in plaintext in a cookie.
+ CVE-2001-1537           Default configuration has cleartext usernames/passwords in cookie.
+ CVE-2001-1536           Usernames/passwords in cleartext in cookies.
+ CVE-2005-2160           Authentication information stored in cleartext in a cookie.
+ + Potential Mitigations
+ Phases: Implementation; System Configuration; Operation
+
+ When storing data in the cloud (e.g., S3 buckets, Azure blobs, Google Cloud Storage, etc.), use the provider's controls to encrypt the data at rest. [REF-1297] [REF-1299] [REF-1301]
+ + Detection Methods
+ Automated Static Analysis
+
+ Automated static analysis, commonly referred to as Static Application Security Testing (SAST), can find some instances of this weakness by analyzing source code (or binary/compiled code) without
+ having to execute it. Typically, this is done by building a model of data flow and control flow, then searching for potentially-vulnerable patterns that connect "sources" (origins of input) with
+ "sinks" (destinations where the data interacts with external components, a lower layer such as the OS, etc.)
+
+ Effectiveness: High
+
+ + Memberships
+ Section HelpThis MemberOf Relationships table shows additional CWE Categories and Views that reference this weakness as a member. This information is often useful in understanding where a weakness
+ fits within the context of external information sources.
+     Nature                                                                                                  Type                                                                                               ID         Name
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            816     OWASP Top Ten
+                                                                                                                                                                                                                      2010 Category
+                                                                                                                                                                                                                      A7 - Insecure
+                                                                                                                                                                                                                      Cryptographic
+                                                                                                                                                                                                                      Storage
+ MemberOf        ViewView - a subset of CWE entries that provides a way of examining CWE content. The two main view structures are Slices (flat lists) and Graphs (containing relationships between entries). 884     CWE
+                                                                                                                                                                                                                      Cross-section
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            934     OWASP Top Ten
+                                                                                                                                                                                                                      2013 Category
+                                                                                                                                                                                                                      A6 - Sensitive
+                                                                                                                                                                                                                      Data Exposure
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            963     SFP Secondary
+                                                                                                                                                                                                                      Cluster:
+                                                                                                                                                                                                                      Exposed Data
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            1029    OWASP Top Ten
+                                                                                                                                                                                                                      2017 Category
+                                                                                                                                                                                                                      A3 - Sensitive
+                                                                                                                                                                                                                      Data Exposure
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            1348    OWASP Top Ten
+                                                                                                                                                                                                                      2021 Category
+                                                                                                                                                                                                                      A04:2021 -
+                                                                                                                                                                                                                      Insecure Design
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            1366    ICS
+                                                                                                                                                                                                                      Communications:
+                                                                                                                                                                                                                      Frail Security
+                                                                                                                                                                                                                      in Protocols
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            1368    ICS
+                                                                                                                                                                                                                      Dependencies (&
+                                                                                                                                                                                                                      Architecture):
+                                                                                                                                                                                                                      External
+                                                                                                                                                                                                                      Digital Systems
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            1402    Comprehensive
+                                                                                                                                                                                                                      Categorization:
+                                                                                                                                                                                                                      Encryption
+ + Vulnerability Mapping Notes
+ Usage: ALLOWED
+
+ (this CWE ID could be used to map to real-world vulnerabilities)
+ Reason: Acceptable-Use
+
+ Rationale:
+
+ This CWE entry is at the Base level of abstraction, which is a preferred level of abstraction for mapping to the root causes of vulnerabilities.
+ Comments:
+
+ Carefully read both the name and description to ensure that this mapping is an appropriate fit. Do not try to 'force' a mapping to a lower-level Base/Variant simply to comply with this preferred
+ level of abstraction.
+ + Notes
+ 
+ Terminology
+
+ Different people use "cleartext" and "plaintext" to mean the same thing: the lack of encryption. However, within cryptography, these have more precise meanings. Plaintext is the information just
+ before it is fed into a cryptographic algorithm, including already-encrypted text. Cleartext is any information that is unencrypted, although it might be in an encoded form that is not easily
+ human-readable (such as base64 encoding).
+ + Taxonomy Mappings
+       Mapped Taxonomy Name          Node ID         Fit                                                                Mapped Node Name
+ PLOVER                                                      Plaintext Storage of Sensitive Information
+ Software Fault Patterns          SFP23                      Exposed Data
+ ISA/IEC 62443                    Part 4-2                   Req CR 4.1 a)
+ ISA/IEC 62443                    Part 3-3                   Req SR 4.1
+ + Related Attack Patterns
+    CAPEC-ID                                                                                     Attack Pattern Name
+ CAPEC-37        Retrieve Embedded Sensitive Data
+ + References
+ [REF-7] Michael Howard and David LeBlanc. "Writing Secure Code". Chapter 9, "Protecting Secret Data" Page 299. 2nd Edition. Microsoft Press. 2002-12-04. <https://www.microsoftpressstore.com/store
+ /writing-secure-code-9780735617223>.
+ [REF-62] Mark Dowd, John McDonald and Justin Schuh. "The Art of Software Security Assessment". Chapter 2, "Common Vulnerabilities of Encryption", Page 43. 1st Edition. Addison Wesley. 2006.
+ [REF-172] Chris Wysopal. "Mobile App Top 10 List". 2010-12-13. <https://www.veracode.com/blog/2010/12/mobile-app-top-10-list>. URL validated: 2023-04-07.
+ [REF-1283] Forescout Vedere Labs. "OT:ICEFALL: The legacy of "insecure by design" and its implications for certifications and risk management". 2022-06-20. <https://www.forescout.com/resources/
+ ot-icefall-report/>.
+ [REF-1295] WizCase. "Over 80 US Municipalities' Sensitive Information, Including Resident's Personal Data, Left Vulnerable in Massive Data Breach". 2021-07-20. <https://www.wizcase.com/blog/
+ us-municipality-breach-report/>.
+ [REF-1296] Jonathan Greig. "1,000 GB of local government data exposed by Massachusetts software company". 2021-07-22. <https://www.zdnet.com/article/
+ 1000-gb-of-local-government-data-exposed-by-massachusetts-software-company/>.
+ [REF-1297] Amazon. "AWS Foundational Security Best Practices controls". 2022. <https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-controls-reference.html>. URL validated:
+ 2023-04-07.
+ [REF-1299] Microsoft. "Azure encryption overview". 2022-08-18. <https://learn.microsoft.com/en-us/azure/security/fundamentals/encryption-overview>. URL validated: 2022-10-11.
+ [REF-1301] Google Cloud. "Default encryption at rest". 2022-10-11. <https://cloud.google.com/docs/security/encryption/default-encryption>. URL validated: 2022-10-11.
+ [REF-1307] Center for Internet Security. "CIS Microsoft Azure Foundations Benchmark version 1.5.0". Section 3.2. 2022-08-16. <https://www.cisecurity.org/benchmark/azure>. URL validated:
+ 2023-01-19.
+ [REF-1310] Microsoft. "Enable infrastructure encryption for double encryption of data". 2022-07-14. <https://learn.microsoft.com/en-us/azure/storage/common/infrastructure-encryption-enable>. URL
+ validated: 2023-01-24.
+ + Content History
+                                                                                           + Submissions
+          Submission Date                                                          Submitter                                                                      Organization
+ 2006-07-19                        PLOVER
+ (CWE Draft 3, 2006-07-19)
+
+                                                                                          + Contributions
+         Contribution Date                                                        Contributor                                                                     Organization
+ 2023-04-25                        "Mapping CWE to 62443" Sub-Working Group                                                                   CWE-CAPEC ICS/OT SIG
+                                   Suggested mappings to ISA/IEC 62443.
+                                                                                          + Modifications
+         Modification Date                                                          Modifier                                                                      Organization
+ 2008-07-01                        Eric Dalci                                                                                                 Cigital
+                                   updated Time_of_Introduction
+ 2008-09-08                        CWE Content Team                                                                                           MITRE
+                                   updated Relationships, Taxonomy_Mappings
+ 2009-01-12                        CWE Content Team                                                                                           MITRE
+                                   updated Description, Name
+ 2010-02-16                        CWE Content Team                                                                                           MITRE
+                                   updated References
+ 2010-06-21                        CWE Content Team                                                                                           MITRE
+                                   updated Relationships
+ 2011-06-01                        CWE Content Team                                                                                           MITRE
+                                   updated Common_Consequences
+ 2012-05-11                        CWE Content Team                                                                                           MITRE
+                                   updated Common_Consequences, Demonstrative_Examples, Observed_Examples, References, Related_Attack_Patterns, Relationships
+ 2013-02-21                        CWE Content Team                                                                                           MITRE
+                                   updated Applicable_Platforms, References
+ 2013-07-17                        CWE Content Team                                                                                           MITRE
+                                   updated Description, Relationships, Terminology_Notes
+ 2014-07-30                        CWE Content Team                                                                                           MITRE
+                                   updated Demonstrative_Examples, Relationships, Taxonomy_Mappings
+ 2017-05-03                        CWE Content Team                                                                                           MITRE
+                                   updated Related_Attack_Patterns
+ 2017-11-08                        CWE Content Team                                                                                           MITRE
+                                   updated Modes_of_Introduction, References, Relationships
+ 2018-01-23                        CWE Content Team                                                                                           MITRE
+                                   updated Abstraction, Relationships
+ 2018-03-27                        CWE Content Team                                                                                           MITRE
+                                   updated References, Relationships, Type
+ 2019-06-20                        CWE Content Team                                                                                           MITRE
+                                   updated Relationships, Type
+ 2020-02-24                        CWE Content Team                                                                                           MITRE
+                                   updated Applicable_Platforms, Relationships
+ 2021-03-15                        CWE Content Team                                                                                           MITRE
+                                   updated Demonstrative_Examples
+ 2021-10-28                        CWE Content Team                                                                                           MITRE
+                                   updated Relationships
+ 2022-10-13                        CWE Content Team                                                                                           MITRE
+                                   updated Applicable_Platforms, Demonstrative_Examples, Description, Observed_Examples, Potential_Mitigations, References
+ 2023-01-31                        CWE Content Team                                                                                           MITRE
+                                   updated Applicable_Platforms, Demonstrative_Examples, Description, References, Relationships
+ 2023-04-27                        CWE Content Team                                                                                           MITRE
+                                   updated Detection_Factors, References, Relationships, Taxonomy_Mappings
+ 2023-06-29                        CWE Content Team                                                                                           MITRE
+                                   updated Mapping_Notes, Relationships
+ 2024-02-29                        CWE Content Team                                                                                           MITRE
+ (CWE 4.14, 2024-02-29)            updated Taxonomy_Mappings
+                                                                                       + Previous Entry Names
+            Change Date                                                                                   Previous Entry Name
+ 2009-01-12                        Plaintext Storage of Sensitive Information
+ More information is available — Please edit the custom filter or select a different filter.
+Page Last Updated: February 29, 2024
+ 
+      Site Map | Terms of Use | Manage Cookies | Cookie Notice | Privacy Policy | Contact Us | CWE X-Twitter CWE Mastodon CWE on LinkedIn CWE YouTube channel CWE Out-of-Bounds-Read Podcast CWE
+      Blog on Medium blog
+
+MITRE Use of the Common Weakness Enumeration (CWE™) and the associated references from this website are subject to the Terms of Use. CWE is sponsored by the U.S. Department of Homeland         HSSEDI
+      Security (DHS) Cybersecurity and Infrastructure Security Agency (CISA) and managed by the Homeland Security Systems Engineering and Development Institute (HSSEDI) which is operated by
+      The MITRE Corporation (MITRE). Copyright © 2006–2024, The MITRE Corporation. CWE, CWSS, CWRAF, and the CWE logo are trademarks of The MITRE Corporation.
+

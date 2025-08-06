@@ -1,0 +1,17 @@
+usbredirect.c
+filter.c
+serializer.c
+usbredirparserfuzz.cc
+usbredirfilterfuzz.cc
+standalone.c
+usbredirproto.h
+usbredirfilter.h
+strtok_r.c
+strtok_r.h
+usbredirparser.c
+usbredirparser.h
+usbredirfilter.c
+usbredirproto-compat.h
+usbredirtestclient.c
+usbredirhost.c
+usbredirhost.h

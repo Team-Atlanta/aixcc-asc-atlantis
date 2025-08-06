@@ -1,0 +1,357 @@
+CWE
+
+Common Weakness Enumeration
+
+A community-developed list of SW & HW weaknesses that can become vulnerabilities
+
+New to CWE? click here!
+CWE Most Important Hardware Weaknesses
+CWE Top 25 Most Dangerous Weaknesses
+Home > CWE List > CWE- Individual Dictionary Definition (4.14)                                                                                                   ID Lookup: [                    ] [Go]
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  • Home
+  • About ▼
+    About New to CWE User Stories History Documents FAQs Glossary Compatibility
+  • CWE List ▼
+    Latest Version Downloads Reports Visualizations Archive
+  • Mapping ▼
+    Root Cause Mapping Guidance Root Cause Mapping Quick Tips Root Cause Mapping Examples
+  • Top-N Lists ▼
+    Top 25 Software Top Hardware Top 10 KEV Weaknesses
+  • Community ▼
+    Community Working Groups & Special Interest Groups Board Board Meeting Minutes CWE Discussion List CWE Discussion Archives Contribute Weakness Content to CWE
+  • News ▼
+    Current News X-Twitter ● Mastodon ● LinkedIn ● YouTube YouTube Podcast Out of Bounds Read Podcast Medium Medium News Archive
+  • Search
+
+ 
+ CWE Glossary Definition                  x
+ 
+ 
+ CWE-413: Improper Resource Locking
+ 
+ Weakness ID: 413
+ Vulnerability Mapping: ALLOWEDThis CWE ID may be used to map to real-world vulnerabilities
+ Abstraction: BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level
+ weaknesses typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.
+ View customized information:
+ Conceptual For users who are interested in more notional aspects of a weakness. Example: educators, technical writers, and project/program managers. Operational For users who are concerned with the
+ practical application and details about the nature of a weakness and how to prevent it from happening. Example: tool developers, security researchers, pen-testers, incident response analysts. Mapping
+ Friendly For users who are mapping an issue to CWE/CAPEC IDs, i.e., finding the most appropriate CWE for a specific issue (e.g., a CVE record). Example: tool developers, security researchers. 
+ Complete For users who wish to see all available information for the CWE/CAPEC entry. Custom For users who want to customize what details are displayed.
+ ×
+
+ Edit Custom Filter
+
+ Conceptual Operational Mapping Friendly Select All
+ 
+ Reset Clear Submit Cancel
+ + Description
+ The product does not lock or does not correctly lock a resource when the product must have exclusive access to the resource.
+ + Extended Description
+ When a resource is not properly locked, an attacker could modify the resource while it is being operated on by the product. This might violate the product's assumption that the resource will not
+ change, potentially leading to unexpected behaviors.
+ + Relationships
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Research Concepts" (CWE-1000)
+     Nature                                                                                                                                                                             Type                                                                                                                                                                           ID       Name
+ ChildOf                                                                               ClassClass - a weakness that is described in a very abstract fashion, typically independent of any specific language or technology. More specific than a Pillar Weakness, but more general than a Base                                                                        667     Improper
+                                                                                                                    Weakness. Class level weaknesses typically describe issues in terms of 1 or 2 of the following dimensions: behavior, property, and resource.                                                                                                             Locking
+ ParentOf                                                                              VariantVariant - a weakness that is linked to a certain type of product, typically involving a specific language or technology. More specific than a Base weakness. Variant level weaknesses typically                                                                        591     Sensitive
+                                                                                                                               describe issues in terms of 3 to 5 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                       Data
+                                                                                                                                                                                                                                                                                                                                                                             Storage in
+                                                                                                                                                                                                                                                                                                                                                                             Improperly
+                                                                                                                                                                                                                                                                                                                                                                             Locked
+                                                                                                                                                                                                                                                                                                                                                                             Memory
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Software Development" (CWE-699)
+     Nature                                                       Type                                                     ID                                   Name
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 411     Resource Locking Problems
+ + Modes Of Introduction
+ Section HelpThe different Modes of Introduction provide information about how and when this weakness may be introduced. The Phase identifies a point in the life cycle at which introduction may occur,
+ while the Note provides a typical scenario related to introduction during the given phase.
+          Phase                                                                                             Note
+ Architecture and Design
+ Implementation
+ + Applicable Platforms
+ Section HelpThis listing shows possible areas for which the given weakness could appear. These may be for specific named Languages, Operating Systems, Architectures, Paradigms, Technologies, or a
+ class of such platforms. The platform is listed along with how frequently the given weakness appears for that instance.
+
+ Languages
+
+ Class: Not Language-Specific (Undetermined Prevalence)
+
+ + Common Consequences
+ Section HelpThis table specifies different individual consequences associated with the weakness. The Scope identifies the application security area that is violated, while the Impact describes the
+ negative technical impact that arises if an adversary succeeds in exploiting this weakness. The Likelihood provides information about how likely the specific consequence is expected to be seen
+ relative to the other consequences in the list. For example, there may be high likelihood that a weakness will be exploited to achieve a certain impact, but a low likelihood that it will be exploited
+ to achieve a different impact.
+       Scope                                                                                     Impact                                                                                 Likelihood
+ Integrity          Technical Impact: Modify Application Data; DoS: Instability; DoS: Crash, Exit, or Restart
+ Availability
+ + Demonstrative Examples
+ 
+ Example 1
+
+ The following function attempts to acquire a lock in order to perform operations on a shared resource.
+
+ (bad code)
+ Example Language: C 
+ void f(pthread_mutex_t *mutex) {
+ pthread_mutex_lock(mutex);
+
+ /* access shared resource */
+
+
+ pthread_mutex_unlock(mutex);
+ }
+
+ However, the code does not check the value returned by pthread_mutex_lock() for errors. If pthread_mutex_lock() cannot acquire the mutex for any reason, the function may introduce a race condition
+ into the program and result in undefined behavior.
+
+ In order to avoid data races, correctly written programs must check the result of thread synchronization functions and appropriately handle all errors, either by attempting to recover from them or
+ reporting them to higher levels.
+
+ (good code)
+ Example Language: C 
+ int f(pthread_mutex_t *mutex) {
+ int result;
+
+ result = pthread_mutex_lock(mutex);
+ if (0 != result)
+ return result;
+
+
+ /* access shared resource */
+
+
+ return pthread_mutex_unlock(mutex);
+ }
+
+ Example 2
+
+ This Java example shows a simple BankAccount class with deposit and withdraw methods.
+
+ (bad code)
+ Example Language: Java 
+ public class BankAccount {
+
+ // variable for bank account balance
+ private double accountBalance;
+
+ // constructor for BankAccount
+ public BankAccount() {
+ accountBalance = 0;
+ }
+
+ // method to deposit amount into BankAccount
+ public void deposit(double depositAmount) {
+
+ double newBalance = accountBalance + depositAmount;
+ accountBalance = newBalance;
+ }
+
+ // method to withdraw amount from BankAccount
+ public void withdraw(double withdrawAmount) {
+
+ double newBalance = accountBalance - withdrawAmount;
+ accountBalance = newBalance;
+ }
+
+ // other methods for accessing the BankAccount object
+ ...
+ }
+
+ However, the deposit and withdraw methods have shared access to the account balance private class variable. This can result in a race condition if multiple threads attempt to call the deposit and
+ withdraw methods simultaneously where the account balance is modified by one thread before another thread has completed modifying the account balance. For example, if a thread attempts to withdraw
+ funds using the withdraw method before another thread that is depositing funds using the deposit method completes the deposit then there may not be sufficient funds for the withdraw transaction.
+
+ To prevent multiple threads from having simultaneous access to the account balance variable the deposit and withdraw methods should be synchronized using the synchronized modifier.
+
+ (good code)
+ Example Language: Java 
+ public class BankAccount {
+ ...
+ // synchronized method to deposit amount into BankAccount
+ public synchronized void deposit(double depositAmount) {
+ ...
+ }
+
+ // synchronized method to withdraw amount from BankAccount
+ public synchronized void withdraw(double withdrawAmount) {
+ ...
+ }
+
+ ...
+ }
+
+ An alternative solution is to use a lock object to ensure exclusive access to the bank account balance variable. As shown below, the deposit and withdraw methods use the lock object to set a lock to
+ block access to the BankAccount object from other threads until the method has completed updating the bank account balance variable.
+
+ (good code)
+ Example Language: Java 
+ public class BankAccount {
+ ...
+ // lock object for thread access to methods
+ private ReentrantLock balanceChangeLock;
+
+ // condition object to temporarily release lock to other threads
+ private Condition sufficientFundsCondition;
+
+ // method to deposit amount into BankAccount
+ public void deposit(double amount) {
+
+ // set lock to block access to BankAccount from other threads
+ balanceChangeLock.lock();
+ try {
+ double newBalance = balance + amount;
+ balance = newBalance;
+
+ // inform other threads that funds are available
+ sufficientFundsCondition.signalAll();
+ } catch (Exception e) {...}
+ finally {
+ // unlock lock object
+ balanceChangeLock.unlock();
+ }
+ }
+
+ // method to withdraw amount from bank account
+ public void withdraw(double amount) {
+
+ // set lock to block access to BankAccount from other threads
+ balanceChangeLock.lock();
+ try {
+ while (balance < amount) {
+
+ // temporarily unblock access
+
+ // until sufficient funds are available
+ sufficientFundsCondition.await();
+ }
+ double newBalance = balance - amount;
+ balance = newBalance;
+ } catch (Exception e) {...}
+ finally {
+ // unlock lock object
+ balanceChangeLock.unlock();
+ }
+ }
+ ...
+ }
+ + Observed Examples
+        Reference                                                                                        Description
+ CVE-2022-20141          Chain: an operating system kernel has insufficent resource locking (CWE-413) leading to a use after free (CWE-416).
+ + Potential Mitigations
+ Phase: Architecture and Design
+
+ Use a non-conflicting privilege scheme.
+ Phases: Architecture and Design; Implementation
+
+ Use synchronization when locking a resource.
+ + Detection Methods
+ Automated Static Analysis
+
+ Automated static analysis, commonly referred to as Static Application Security Testing (SAST), can find some instances of this weakness by analyzing source code (or binary/compiled code) without
+ having to execute it. Typically, this is done by building a model of data flow and control flow, then searching for potentially-vulnerable patterns that connect "sources" (origins of input) with
+ "sinks" (destinations where the data interacts with external components, a lower layer such as the OS, etc.)
+
+ Effectiveness: High
+
+ + Memberships
+ Section HelpThis MemberOf Relationships table shows additional CWE Categories and Views that reference this weakness as a member. This information is often useful in understanding where a weakness
+ fits within the context of external information sources.
+     Nature                                                       Type                                                     ID                                   Name
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 852     The CERT Oracle Secure Coding Standard for Java (2011) Chapter 9 -
+                                                                                                                                 Visibility and Atomicity (VNA)
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 853     The CERT Oracle Secure Coding Standard for Java (2011) Chapter 10 -
+                                                                                                                                 Locking (LCK)
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 986     SFP Secondary Cluster: Missing Lock
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 1142    SEI CERT Oracle Secure Coding Standard for Java - Guidelines 08.
+                                                                                                                                 Visibility and Atomicity (VNA)
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 1401    Comprehensive Categorization: Concurrency
+ + Vulnerability Mapping Notes
+ Usage: ALLOWED
+
+ (this CWE ID could be used to map to real-world vulnerabilities)
+ Reason: Acceptable-Use
+
+ Rationale:
+
+ This CWE entry is at the Base level of abstraction, which is a preferred level of abstraction for mapping to the root causes of vulnerabilities.
+ Comments:
+
+ Carefully read both the name and description to ensure that this mapping is an appropriate fit. Do not try to 'force' a mapping to a lower-level Base/Variant simply to comply with this preferred
+ level of abstraction.
+ + Taxonomy Mappings
+       Mapped Taxonomy Name          Node ID       Fit                                                                Mapped Node Name
+ PLOVER                                                  Insufficient Resource Locking
+ The CERT Oracle Secure Coding    VNA00-J                Ensure visibility when accessing shared primitive variables
+ Standard for Java (2011)
+ The CERT Oracle Secure Coding    VNA02-J                Ensure that compound operations on shared variables are atomic
+ Standard for Java (2011)
+ The CERT Oracle Secure Coding    LCK00-J                Use private final lock objects to synchronize classes that may interact with untrusted code
+ Standard for Java (2011)
+ Software Fault Patterns          SFP19                  Missing Lock
+ + Content History
+                                                                                           + Submissions
+                     Submission Date                                                Submitter                                                           Organization
+ 2006-07-19                                               PLOVER
+ (CWE Draft 3, 2006-07-19)
+
+                                                                                          + Contributions
+                    Contribution Date                                              Contributor                                                          Organization
+ 2010-04-30                                               Martin Sebor                                                   Cisco Systems, Inc.
+                                                          Provided Demonstrative Example
+                                                                                          + Modifications
+                    Modification Date                                                Modifier                                                           Organization
+ 2008-07-01                                               Eric Dalci                                                     Cigital
+                                                          updated Potential_Mitigations, Time_of_Introduction
+ 2008-09-08                                               CWE Content Team                                               MITRE
+                                                          updated Relationships, Taxonomy_Mappings
+ 2010-06-21                                               CWE Content Team                                               MITRE
+                                                          updated Demonstrative_Examples
+ 2010-09-27                                               CWE Content Team                                               MITRE
+                                                          updated Description, Name
+ 2010-12-13                                               CWE Content Team                                               MITRE
+                                                          updated Demonstrative_Examples
+ 2011-06-01                                               CWE Content Team                                               MITRE
+                                                          updated Common_Consequences, Relationships, Taxonomy_Mappings
+ 2012-05-11                                               CWE Content Team                                               MITRE
+                                                          updated Demonstrative_Examples, Relationships
+ 2012-10-30                                               CWE Content Team                                               MITRE
+                                                          updated Potential_Mitigations
+ 2014-07-30                                               CWE Content Team                                               MITRE
+                                                          updated Relationships, Taxonomy_Mappings
+ 2017-11-08                                               CWE Content Team                                               MITRE
+                                                          updated Applicable_Platforms
+ 2019-01-03                                               CWE Content Team                                               MITRE
+                                                          updated Relationships, Taxonomy_Mappings
+ 2020-02-24                                               CWE Content Team                                               MITRE
+                                                          updated Relationships
+ 2021-03-15                                               CWE Content Team                                               MITRE
+                                                          updated Demonstrative_Examples
+ 2023-01-31                                               CWE Content Team                                               MITRE
+                                                          updated Description
+ 2023-04-27                                               CWE Content Team                                               MITRE
+                                                          updated Detection_Factors, Relationships
+ 2023-06-29                                               CWE Content Team                                               MITRE
+                                                          updated Mapping_Notes
+ 2023-10-26                                               CWE Content Team                                               MITRE
+                                                          updated Observed_Examples
+                                                                                       + Previous Entry Names
+                       Change Date                                                                                   Previous Entry Name
+ 2010-09-27                                               Insufficient Resource Locking
+ More information is available — Please edit the custom filter or select a different filter.
+Page Last Updated: February 29, 2024
+ 
+      Site Map | Terms of Use | Manage Cookies | Cookie Notice | Privacy Policy | Contact Us | CWE X-Twitter CWE Mastodon CWE on LinkedIn CWE YouTube channel CWE Out-of-Bounds-Read Podcast CWE
+      Blog on Medium blog
+
+MITRE Use of the Common Weakness Enumeration (CWE™) and the associated references from this website are subject to the Terms of Use. CWE is sponsored by the U.S. Department of Homeland         HSSEDI
+      Security (DHS) Cybersecurity and Infrastructure Security Agency (CISA) and managed by the Homeland Security Systems Engineering and Development Institute (HSSEDI) which is operated by
+      The MITRE Corporation (MITRE). Copyright © 2006–2024, The MITRE Corporation. CWE, CWSS, CWRAF, and the CWE logo are trademarks of The MITRE Corporation.
+

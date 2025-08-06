@@ -1,0 +1,44 @@
+INPUT ::= COMMAND_CNT { size: 4 }
+          COMMAND[COMMAND_CNT]
+
+COMMAND ::= DO_TIP
+          | DO_GIMME
+          | DO_SMORE
+          | DO_MOOCH
+          | DO_AUTH
+          | DO_STATUS
+          | DO_LIST
+          | DO_YOUUP
+          | DO_SUP
+          | DO_QUIT
+
+// base is 3735928559
+DO_TIP ::= OPCODE { size: 4, value: 3735928560 }
+           BUF_LEN { size: 4 }
+           BUF { size: BUF_LEN }
+
+DO_STATUS ::= OPCODE { size: 4, value: 3735928561 }
+
+DO_GIMME ::= OPCODE { size: 4, value: 3735928562 }
+             BUF_LEN { size: 4 }
+             BUF { size: BUF_LEN }
+
+DO_LIST ::= OPCODE { size: 4, value: 3735928563 }
+
+DO_SMORE ::= OPCODE { size: 4, value: 3735928564 }
+             BUF_LEN { size: 4 }
+             BUF { size: BUF_LEN }
+
+DO_YOUUP ::= OPCODE { size: 4, value: 3735928565 }
+
+DO_MOOCH ::= OPCODE { size: 4, value: 3735928566 }
+             BUF_LEN { size: 4 }
+             BUF { size: BUF_LEN }
+
+DO_SUP ::= OPCODE { size: 4, value: 3735928567 }
+
+DO_AUTH ::= OPCODE { size: 4, value: 3735928568 }
+            BUF_LEN { size: 4 }
+            BUF { size: BUF_LEN }
+
+DO_QUIT ::= OPCODE { size: 4, value: 3735928569 }

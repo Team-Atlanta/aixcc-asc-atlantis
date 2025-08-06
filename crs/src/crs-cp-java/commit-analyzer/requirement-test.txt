@@ -1,0 +1,6 @@
+# Theses requirments are for development and testing only, not for production.
+pytest
+pytest-cov
+pytest-mock
+ruff
+clang==14.0.0

@@ -1,0 +1,21 @@
+INPUT   ::= COMMAND_CNT { size: 4 }
+            COMMAND[COMMAND_CNT]
+
+COMMAND ::= CREATE
+          | READ
+          | WRITE
+          | DELETE
+
+CREATE  ::= OPCODE { size: 4, value: 0 }
+            PAD { size: 1, value: 0 }
+            NAME { size: 11, type: string }
+
+READ    ::= OPCODE { size: 4, value: 1 }
+            INDEX { size: 1 }
+
+WRITE   ::= OPCODE { size: 4, value: 2 }
+            INDEX { size: 1 }
+            DATA { size: 11, type: string }
+
+DELETE  ::= OPCODE { size: 4, value: 3 }
+            INDEX { size: 1 }

@@ -1,0 +1,13 @@
+syz_harness$cve_2022_0995_cmd0(buf ptr[in, harness_cve_2022_0995_cmd0], len bytesize[buf])
+syz_harness$cve_2022_0995_cmd1(buf ptr[in, harness_cve_2022_0995_cmd1], len bytesize[buf])
+
+harness_cve_2022_0995_cmd0 {
+	opcode	int32[0]
+	size	flags[watch_queue_size, int32]
+} [packed]
+
+harness_cve_2022_0995_cmd1 {
+	opcode	int32[1]
+	size	bytesize[data, int32]
+	data	watch_notification_filter
+} [packed]

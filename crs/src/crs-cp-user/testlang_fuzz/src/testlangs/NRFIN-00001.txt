@@ -1,0 +1,25 @@
+INPUT ::= COMMAND_CNT { size: 4 }
+          COMMAND[COMMAND_CNT]
+
+COMMAND ::= DO_LIST
+          | DO_ADD
+          | DO_COUNT
+          | DO_SHOW
+          | DO_HELP
+          | DO_QUIT
+
+DO_LIST ::= OPCODE { size: 4, value: 3735928560 }
+
+DO_ADD ::= OPCODE { size: 4, value: 3735928561 }
+           SIZE { size: 4 }
+           BUF { size: SIZE }
+
+DO_COUNT ::= OPCODE { size: 4, value: 3735928562 }
+
+DO_SHOW ::= OPCODE { size: 4, value: 3735928563 }
+            SIZE { size: 4 }
+            BUF { size: SIZE }
+
+DO_HELP ::= OPCODE { size: 4, value: 3735928564 }
+
+DO_QUIT ::= OPCODE { size: 4, value: 3735928565 }

@@ -1,0 +1,9 @@
+---
+# kustomize/competition/cp-root-pvc.yaml
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: cp-root
+spec:
+  accessModes:
+    - ReadWriteMany

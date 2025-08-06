@@ -1,0 +1,10 @@
+fuzz-mdhtml.c
+entity.c
+md4c-html.h
+md4c.h
+md4c-html.c
+entity.h
+md4c.c
+cmdline.c
+cmdline.h
+md2html.c

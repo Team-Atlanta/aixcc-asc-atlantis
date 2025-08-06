@@ -1,0 +1,237 @@
+CWE
+
+Common Weakness Enumeration
+
+A community-developed list of SW & HW weaknesses that can become vulnerabilities
+
+New to CWE? click here!
+CWE Most Important Hardware Weaknesses
+CWE Top 25 Most Dangerous Weaknesses
+Home > CWE List > CWE- Individual Dictionary Definition (4.14)                                                                                                   ID Lookup: [                    ] [Go]
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  • Home
+  • About ▼
+    About New to CWE User Stories History Documents FAQs Glossary Compatibility
+  • CWE List ▼
+    Latest Version Downloads Reports Visualizations Archive
+  • Mapping ▼
+    Root Cause Mapping Guidance Root Cause Mapping Quick Tips Root Cause Mapping Examples
+  • Top-N Lists ▼
+    Top 25 Software Top Hardware Top 10 KEV Weaknesses
+  • Community ▼
+    Community Working Groups & Special Interest Groups Board Board Meeting Minutes CWE Discussion List CWE Discussion Archives Contribute Weakness Content to CWE
+  • News ▼
+    Current News X-Twitter ● Mastodon ● LinkedIn ● YouTube YouTube Podcast Out of Bounds Read Podcast Medium Medium News Archive
+  • Search
+
+ 
+ CWE Glossary Definition                  x
+ 
+ 
+ CWE-182: Collapse of Data into Unsafe Value
+ 
+ Weakness ID: 182
+ Vulnerability Mapping: ALLOWEDThis CWE ID may be used to map to real-world vulnerabilities
+ Abstraction: BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level
+ weaknesses typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.
+ View customized information:
+ Conceptual For users who are interested in more notional aspects of a weakness. Example: educators, technical writers, and project/program managers. Operational For users who are concerned with the
+ practical application and details about the nature of a weakness and how to prevent it from happening. Example: tool developers, security researchers, pen-testers, incident response analysts. Mapping
+ Friendly For users who are mapping an issue to CWE/CAPEC IDs, i.e., finding the most appropriate CWE for a specific issue (e.g., a CVE record). Example: tool developers, security researchers. 
+ Complete For users who wish to see all available information for the CWE/CAPEC entry. Custom For users who want to customize what details are displayed.
+ ×
+
+ Edit Custom Filter
+
+ Conceptual Operational Mapping Friendly Select All
+ 
+ Reset Clear Submit Cancel
+ + Description
+ The product filters data in a way that causes it to be reduced or "collapsed" into an unsafe value that violates an expected security property.
+ + Relationships
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Research Concepts" (CWE-1000)
+     Nature                                                                                                                                                                               Type                                                                                                                                                                            ID       Name
+ ChildOf                                                                                 PillarPillar - a weakness that is the most abstract type of weakness and represents a theme for all class/base/variant weaknesses related to it. A Pillar is different from a Category as a Pillar is                                                                          693     Protection
+                                                                                                                    still technically a type of weakness that describes a mistake, while a Category represents a common characteristic used to group related things.                                                                                                            Mechanism
+                                                                                                                                                                                                                                                                                                                                                                                Failure
+ CanFollow                                                                               ClassClass - a weakness that is described in a very abstract fashion, typically independent of any specific language or technology. More specific than a Pillar Weakness, but more general than a Base                                                                         185     Incorrect
+                                                                                                                      Weakness. Class level weaknesses typically describe issues in terms of 1 or 2 of the following dimensions: behavior, property, and resource.                                                                                                              Regular
+                                                                                                                                                                                                                                                                                                                                                                                Expression
+ CanPrecede                                                                              VariantVariant - a weakness that is linked to a certain type of product, typically involving a specific language or technology. More specific than a Base weakness. Variant level weaknesses typically                                                                         33      Path
+                                                                                                                                describe issues in terms of 3 to 5 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                         Traversal:
+                                                                                                                                                                                                                                                                                                                                                                                '....'
+                                                                                                                                                                                                                                                                                                                                                                                (Multiple
+                                                                                                                                                                                                                                                                                                                                                                                Dot)
+ CanPrecede                                                                              VariantVariant - a weakness that is linked to a certain type of product, typically involving a specific language or technology. More specific than a Base weakness. Variant level weaknesses typically                                                                         34      Path
+                                                                                                                                describe issues in terms of 3 to 5 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                         Traversal:
+                                                                                                                                                                                                                                                                                                                                                                                '....//'
+ CanPrecede                                                                              VariantVariant - a weakness that is linked to a certain type of product, typically involving a specific language or technology. More specific than a Base weakness. Variant level weaknesses typically                                                                         35      Path
+                                                                                                                                describe issues in terms of 3 to 5 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                         Traversal:
+                                                                                                                                                                                                                                                                                                                                                                                '.../...//
+                                                                                                                                                                                                                                                                                                                                                                                '
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Software Development" (CWE-699)
+     Nature                                                       Type                                                     ID                                   Name
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 19      Data Processing Errors
+ + Modes Of Introduction
+ Section HelpThe different Modes of Introduction provide information about how and when this weakness may be introduced. The Phase identifies a point in the life cycle at which introduction may occur,
+ while the Note provides a typical scenario related to introduction during the given phase.
+     Phase                                                                                              Note
+ Implementation
+ + Applicable Platforms
+ Section HelpThis listing shows possible areas for which the given weakness could appear. These may be for specific named Languages, Operating Systems, Architectures, Paradigms, Technologies, or a
+ class of such platforms. The platform is listed along with how frequently the given weakness appears for that instance.
+
+ Languages
+
+ Class: Not Language-Specific (Undetermined Prevalence)
+
+ + Common Consequences
+ Section HelpThis table specifies different individual consequences associated with the weakness. The Scope identifies the application security area that is violated, while the Impact describes the
+ negative technical impact that arises if an adversary succeeds in exploiting this weakness. The Likelihood provides information about how likely the specific consequence is expected to be seen
+ relative to the other consequences in the list. For example, there may be high likelihood that a weakness will be exploited to achieve a certain impact, but a low likelihood that it will be exploited
+ to achieve a different impact.
+       Scope                                                                                     Impact                                                                                 Likelihood
+ Access Control     Technical Impact: Bypass Protection Mechanism
+
+ + Observed Examples
+        Reference                                                                                        Description
+ CVE-2004-0815           "/.////" in pathname collapses to absolute path.
+ CVE-2005-3123           "/.//..//////././" is collapsed into "/.././" after ".." and "//" sequences are removed.
+ CVE-2002-0325           ".../...//" collapsed to "..." due to removal of "./" in web server.
+ CVE-2002-0784           chain: HTTP server protects against ".." but allows "." variants such as "////./../.../". If the server removes "/.." sequences, the result would collapse into an unsafe
+                         value "////../" (CWE-182).
+ CVE-2005-2169           MFV. Regular expression intended to protect against directory traversal reduces ".../...//" to "../".
+ CVE-2001-1157           XSS protection mechanism strips a <script> sequence that is nested in another <script> sequence.
+ + Potential Mitigations
+ Phase: Architecture and Design
+
+ Strategy: Input Validation
+
+ Avoid making decisions based on names of resources (e.g. files) if those resources can have alternate names.
+ Phase: Implementation
+
+ Strategy: Input Validation
+
+ Assume all input is malicious. Use an "accept known good" input validation strategy, i.e., use a list of acceptable inputs that strictly conform to specifications. Reject any input that does not
+ strictly conform to specifications, or transform it into something that does.
+
+ When performing input validation, consider all potentially relevant properties, including length, type of input, the full range of acceptable values, missing or extra inputs, syntax, consistency
+ across related fields, and conformance to business rules. As an example of business rule logic, "boat" may be syntactically valid because it only contains alphanumeric characters, but it is not
+ valid if the input is only expected to contain colors such as "red" or "blue."
+
+ Do not rely exclusively on looking for malicious or malformed inputs. This is likely to miss at least one undesirable input, especially if the code's environment changes. This can give attackers
+ enough room to bypass the intended validation. However, denylists can be useful for detecting potential attacks or determining which inputs are so malformed that they should be rejected outright.
+
+ Phase: Implementation
+
+ Strategy: Input Validation
+
+ Inputs should be decoded and canonicalized to the application's current internal representation before being validated (CWE-180). Make sure that the application does not decode the same input
+ twice (CWE-174). Such errors could be used to bypass allowlist validation schemes by introducing dangerous inputs after they have been checked.
+ Canonicalize the name to match that of the file system's representation of the name. This can sometimes be achieved with an available API (e.g. in Win32 the GetFullPathName function).
+ + Detection Methods
+ Automated Static Analysis
+
+ Automated static analysis, commonly referred to as Static Application Security Testing (SAST), can find some instances of this weakness by analyzing source code (or binary/compiled code) without
+ having to execute it. Typically, this is done by building a model of data flow and control flow, then searching for potentially-vulnerable patterns that connect "sources" (origins of input) with
+ "sinks" (destinations where the data interacts with external components, a lower layer such as the OS, etc.)
+
+ Effectiveness: High
+
+ + Memberships
+ Section HelpThis MemberOf Relationships table shows additional CWE Categories and Views that reference this weakness as a member. This information is often useful in understanding where a weakness
+ fits within the context of external information sources.
+     Nature                                                       Type                                                     ID                                   Name
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 722     OWASP Top Ten 2004 Category A1 - Unvalidated Input
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 845     The CERT Oracle Secure Coding Standard for Java (2011) Chapter 2 -
+                                                                                                                                 Input Validation and Data Sanitization (IDS)
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 992     SFP Secondary Cluster: Faulty Input Transformation
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 1134    SEI CERT Oracle Secure Coding Standard for Java - Guidelines 00.
+                                                                                                                                 Input Validation and Data Sanitization (IDS)
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 1413    Comprehensive Categorization: Protection Mechanism Failure
+ + Vulnerability Mapping Notes
+ Usage: ALLOWED
+
+ (this CWE ID could be used to map to real-world vulnerabilities)
+ Reason: Acceptable-Use
+
+ Rationale:
+
+ This CWE entry is at the Base level of abstraction, which is a preferred level of abstraction for mapping to the root causes of vulnerabilities.
+ Comments:
+
+ Carefully read both the name and description to ensure that this mapping is an appropriate fit. Do not try to 'force' a mapping to a lower-level Base/Variant simply to comply with this preferred
+ level of abstraction.
+ + Notes
+ 
+ Relationship
+
+ Overlaps regular expressions, although an implementation might not necessarily use regexp's.
+ + Taxonomy Mappings
+       Mapped Taxonomy Name          Node ID         Fit                                                                 Mapped Node Name
+ PLOVER                                                       Collapse of Data into Unsafe Value
+ The CERT Oracle Secure Coding    IDS11-J                     Eliminate noncharacter code points before validation
+ Standard for Java (2011)
+ + References
+ [REF-62] Mark Dowd, John McDonald and Justin Schuh. "The Art of Software Security Assessment". Chapter 8, "Character Stripping Vulnerabilities", Page 437. 1st Edition. Addison Wesley. 2006.
+ + Content History
+                                                                                            + Submissions
+              Submission Date                                                     Submitter                                                                   Organization
+ 2006-07-19                                PLOVER
+ (CWE Draft 3, 2006-07-19)
+
+                                                                                           + Modifications
+             Modification Date                                                     Modifier                                                                   Organization
+ 2008-07-01                                Eric Dalci                                                                               Cigital
+                                           updated Potential_Mitigations, Time_of_Introduction
+ 2008-09-08                                CWE Content Team                                                                         MITRE
+                                           updated Description, Relationships, Relationship_Notes, Relevant_Properties, Taxonomy_Mappings
+ 2008-11-24                                CWE Content Team                                                                         MITRE
+                                           updated Observed_Examples
+ 2009-03-10                                CWE Content Team                                                                         MITRE
+                                           updated Relationships
+ 2009-07-27                                CWE Content Team                                                                         MITRE
+                                           updated Potential_Mitigations
+ 2010-06-21                                CWE Content Team                                                                         MITRE
+                                           updated Description, Observed_Examples
+ 2010-12-13                                CWE Content Team                                                                         MITRE
+                                           updated Relationships
+ 2011-03-29                                CWE Content Team                                                                         MITRE
+                                           updated Potential_Mitigations
+ 2011-06-01                                CWE Content Team                                                                         MITRE
+                                           updated Common_Consequences, Relationships, Taxonomy_Mappings
+ 2012-05-11                                CWE Content Team                                                                         MITRE
+                                           updated References, Relationships, Taxonomy_Mappings
+ 2012-10-30                                CWE Content Team                                                                         MITRE
+                                           updated Potential_Mitigations
+ 2014-07-30                                CWE Content Team                                                                         MITRE
+                                           updated Relationships
+ 2017-11-08                                CWE Content Team                                                                         MITRE
+                                           updated Applicable_Platforms, Relevant_Properties
+ 2019-01-03                                CWE Content Team                                                                         MITRE
+                                           updated Relationships, Taxonomy_Mappings
+ 2020-02-24                                CWE Content Team                                                                         MITRE
+                                           updated Potential_Mitigations, Relationships
+ 2020-06-25                                CWE Content Team                                                                         MITRE
+                                           updated Potential_Mitigations
+ 2023-01-31                                CWE Content Team                                                                         MITRE
+                                           updated Description
+ 2023-04-27                                CWE Content Team                                                                         MITRE
+                                           updated Detection_Factors, Relationships
+ 2023-06-29                                CWE Content Team                                                                         MITRE
+                                           updated Mapping_Notes
+ More information is available — Please edit the custom filter or select a different filter.
+Page Last Updated: February 29, 2024
+ 
+      Site Map | Terms of Use | Manage Cookies | Cookie Notice | Privacy Policy | Contact Us | CWE X-Twitter CWE Mastodon CWE on LinkedIn CWE YouTube channel CWE Out-of-Bounds-Read Podcast CWE
+      Blog on Medium blog
+
+MITRE Use of the Common Weakness Enumeration (CWE™) and the associated references from this website are subject to the Terms of Use. CWE is sponsored by the U.S. Department of Homeland         HSSEDI
+      Security (DHS) Cybersecurity and Infrastructure Security Agency (CISA) and managed by the Homeland Security Systems Engineering and Development Institute (HSSEDI) which is operated by
+      The MITRE Corporation (MITRE). Copyright © 2006–2024, The MITRE Corporation. CWE, CWSS, CWRAF, and the CWE logo are trademarks of The MITRE Corporation.
+

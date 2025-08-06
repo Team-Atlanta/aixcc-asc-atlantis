@@ -1,0 +1,220 @@
+CWE
+
+Common Weakness Enumeration
+
+A community-developed list of SW & HW weaknesses that can become vulnerabilities
+
+New to CWE? click here!
+CWE Most Important Hardware Weaknesses
+CWE Top 25 Most Dangerous Weaknesses
+Home > CWE List > CWE- Individual Dictionary Definition (4.14)                                                                                                   ID Lookup: [                    ] [Go]
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  • Home
+  • About ▼
+    About New to CWE User Stories History Documents FAQs Glossary Compatibility
+  • CWE List ▼
+    Latest Version Downloads Reports Visualizations Archive
+  • Mapping ▼
+    Root Cause Mapping Guidance Root Cause Mapping Quick Tips Root Cause Mapping Examples
+  • Top-N Lists ▼
+    Top 25 Software Top Hardware Top 10 KEV Weaknesses
+  • Community ▼
+    Community Working Groups & Special Interest Groups Board Board Meeting Minutes CWE Discussion List CWE Discussion Archives Contribute Weakness Content to CWE
+  • News ▼
+    Current News X-Twitter ● Mastodon ● LinkedIn ● YouTube YouTube Podcast Out of Bounds Read Podcast Medium Medium News Archive
+  • Search
+
+ 
+ CWE Glossary Definition                  x
+ 
+ 
+ CWE-587: Assignment of a Fixed Address to a Pointer
+ 
+ Weakness ID: 587
+ Vulnerability Mapping: ALLOWEDThis CWE ID may be used to map to real-world vulnerabilities
+ Abstraction: VariantVariant - a weakness that is linked to a certain type of product, typically involving a specific language or technology. More specific than a Base weakness. Variant level
+ weaknesses typically describe issues in terms of 3 to 5 of the following dimensions: behavior, property, technology, language, and resource.
+ View customized information:
+ Conceptual For users who are interested in more notional aspects of a weakness. Example: educators, technical writers, and project/program managers. Operational For users who are concerned with the
+ practical application and details about the nature of a weakness and how to prevent it from happening. Example: tool developers, security researchers, pen-testers, incident response analysts. Mapping
+ Friendly For users who are mapping an issue to CWE/CAPEC IDs, i.e., finding the most appropriate CWE for a specific issue (e.g., a CVE record). Example: tool developers, security researchers. 
+ Complete For users who wish to see all available information for the CWE/CAPEC entry. Custom For users who want to customize what details are displayed.
+ ×
+
+ Edit Custom Filter
+
+ Conceptual Operational Mapping Friendly Select All
+ 
+ Reset Clear Submit Cancel
+ + Description
+ The product sets a pointer to a specific address other than NULL or 0.
+ + Extended Description
+ Using a fixed address is not portable, because that address will probably not be valid in all environments or platforms.
+ + Relationships
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Research Concepts" (CWE-1000)
+     Nature                                                                                                                                                                             Type                                                                                                                                                                           ID             Name
+ ChildOf                                                                                   BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level weaknesses                                                                           344     Use of Invariant Value
+                                                                                                                          typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                  in Dynamically
+                                                                                                                                                                                                                                                                                                                                                                             Changing Context
+ ChildOf                                                                               ClassClass - a weakness that is described in a very abstract fashion, typically independent of any specific language or technology. More specific than a Pillar Weakness, but more general than a Base                                                                        758     Reliance on Undefined,
+                                                                                                                    Weakness. Class level weaknesses typically describe issues in terms of 1 or 2 of the following dimensions: behavior, property, and resource.                                                                                                             Unspecified, or
+                                                                                                                                                                                                                                                                                                                                                                             Implementation-Defined
+                                                                                                                                                                                                                                                                                                                                                                             Behavior
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Software Development" (CWE-699)
+     Nature                                                       Type                                                     ID                                   Name
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 465     Pointer Issues
+ + Modes Of Introduction
+ Section HelpThe different Modes of Introduction provide information about how and when this weakness may be introduced. The Phase identifies a point in the life cycle at which introduction may occur,
+ while the Note provides a typical scenario related to introduction during the given phase.
+     Phase                                                                                              Note
+ Implementation
+ + Applicable Platforms
+ Section HelpThis listing shows possible areas for which the given weakness could appear. These may be for specific named Languages, Operating Systems, Architectures, Paradigms, Technologies, or a
+ class of such platforms. The platform is listed along with how frequently the given weakness appears for that instance.
+
+ Languages
+
+ C (Undetermined Prevalence)
+
+ C++ (Undetermined Prevalence)
+
+ C# (Undetermined Prevalence)
+
+ Class: Assembly (Undetermined Prevalence)
+
+ + Common Consequences
+ Section HelpThis table specifies different individual consequences associated with the weakness. The Scope identifies the application security area that is violated, while the Impact describes the
+ negative technical impact that arises if an adversary succeeds in exploiting this weakness. The Likelihood provides information about how likely the specific consequence is expected to be seen
+ relative to the other consequences in the list. For example, there may be high likelihood that a weakness will be exploited to achieve a certain impact, but a low likelihood that it will be exploited
+ to achieve a different impact.
+       Scope                                                                                     Impact                                                                                 Likelihood
+ Integrity          Technical Impact: Execute Unauthorized Code or Commands
+ Confidentiality
+ Availability       If one executes code at a known location, an attacker might be able to inject code there beforehand.
+                    Technical Impact: DoS: Crash, Exit, or Restart; Reduce Maintainability; Reduce Reliability
+ Availability
+                    If the code is ported to another platform or environment, the pointer is likely to be invalid and cause a crash.
+ Confidentiality    Technical Impact: Read Memory; Modify Memory
+ Integrity
+                    The data at a known pointer location can be easily read or influenced by an attacker.
+ + Demonstrative Examples
+ 
+ Example 1
+
+ This code assumes a particular function will always be found at a particular address. It assigns a pointer to that address and calls the function.
+
+ (bad code)
+ Example Language: C 
+ int (*pt2Function) (float, char, char)=0x08040000;
+ int result2 = (*pt2Function) (12, 'a', 'b');
+ // Here we can inject code to execute.
+
+ The same function may not always be found at the same memory address. This could lead to a crash, or an attacker may alter the memory at the expected address, leading to arbitrary code execution.
+
+ + Potential Mitigations
+ Phase: Implementation
+
+ Never set a pointer to a fixed address.
+ + Weakness Ordinalities
+ Ordinality                                                                                       Description
+ Indirect   (where the weakness is a quality issue that might indirectly make it easier to introduce security-relevant weaknesses or make them more difficult to detect)
+ + Memberships
+ Section HelpThis MemberOf Relationships table shows additional CWE Categories and Views that reference this weakness as a member. This information is often useful in understanding where a weakness
+ fits within the context of external information sources.
+     Nature                                                                                                  Type                                                                                               ID         Name
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            738     CERT C Secure
+                                                                                                                                                                                                                      Coding Standard
+                                                                                                                                                                                                                      (2008) Chapter
+                                                                                                                                                                                                                      5 - Integers
+                                                                                                                                                                                                                      (INT)
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            872     CERT C++ Secure
+                                                                                                                                                                                                                      Coding Section
+                                                                                                                                                                                                                      04 - Integers
+                                                                                                                                                                                                                      (INT)
+ MemberOf        ViewView - a subset of CWE entries that provides a way of examining CWE content. The two main view structures are Slices (flat lists) and Graphs (containing relationships between entries). 884     CWE
+                                                                                                                                                                                                                      Cross-section
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            998     SFP Secondary
+                                                                                                                                                                                                                      Cluster: Glitch
+                                                                                                                                                                                                                      in Computation
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            1158    SEI CERT C
+                                                                                                                                                                                                                      Coding Standard
+                                                                                                                                                                                                                      - Guidelines
+                                                                                                                                                                                                                      04. Integers
+                                                                                                                                                                                                                      (INT)
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            1399    Comprehensive
+                                                                                                                                                                                                                      Categorization:
+                                                                                                                                                                                                                      Memory Safety
+ + Vulnerability Mapping Notes
+ Usage: ALLOWED
+
+ (this CWE ID could be used to map to real-world vulnerabilities)
+ Reason: Acceptable-Use
+
+ Rationale:
+
+ This CWE entry is at the Variant level of abstraction, which is a preferred level of abstraction for mapping to the root causes of vulnerabilities.
+ Comments:
+
+ Carefully read both the name and description to ensure that this mapping is an appropriate fit. Do not try to 'force' a mapping to a lower-level Base/Variant simply to comply with this preferred
+ level of abstraction.
+ + Taxonomy Mappings
+       Mapped Taxonomy Name          Node ID              Fit                                                                Mapped Node Name
+ CERT C Secure Coding             INT36-C        Imprecise             Converting a pointer to integer or integer to pointer
+ Software Fault Patterns          SFP1                                 Glitch in computation
+ + Content History
+                                                                                            + Submissions
+              Submission Date                                                    Submitter                                                                  Organization
+ 2006-12-15                                 CWE Content Team                                                                     MITRE
+ (CWE Draft 5, 2006-12-15)
+
+                                                                                           + Modifications
+             Modification Date                                                    Modifier                                                                  Organization
+ 2008-07-01                                 Eric Dalci                                                                           Cigital
+                                            updated Time_of_Introduction
+ 2008-08-01                                                                                                                      KDM Analytics
+                                            added/updated white box definitions
+ 2008-09-08                                 CWE Content Team                                                                     MITRE
+                                            updated Applicable_Platforms, Description, Relationships, Other_Notes, Weakness_Ordinalities
+ 2008-11-24                                 CWE Content Team                                                                     MITRE
+                                            updated Relationships, Taxonomy_Mappings
+ 2009-03-10                                 CWE Content Team                                                                     MITRE
+                                            updated Relationships
+ 2009-07-27                                 CWE Content Team                                                                     MITRE
+                                            updated Common_Consequences, Description, Other_Notes
+ 2011-06-01                                 CWE Content Team                                                                     MITRE
+                                            updated Common_Consequences
+ 2011-09-13                                 CWE Content Team                                                                     MITRE
+                                            updated Relationships, Taxonomy_Mappings
+ 2012-05-11                                 CWE Content Team                                                                     MITRE
+                                            updated Demonstrative_Examples, Relationships
+ 2014-07-30                                 CWE Content Team                                                                     MITRE
+                                            updated Relationships, Taxonomy_Mappings
+ 2017-11-08                                 CWE Content Team                                                                     MITRE
+                                            updated Applicable_Platforms, Taxonomy_Mappings, White_Box_Definitions
+ 2019-01-03                                 CWE Content Team                                                                     MITRE
+                                            updated Relationships
+ 2021-03-15                                 CWE Content Team                                                                     MITRE
+                                            updated Common_Consequences, Weakness_Ordinalities
+ 2023-01-31                                 CWE Content Team                                                                     MITRE
+                                            updated Description
+ 2023-04-27                                 CWE Content Team                                                                     MITRE
+                                            updated Relationships, Time_of_Introduction, Type
+ 2023-06-29                                 CWE Content Team                                                                     MITRE
+                                            updated Mapping_Notes
+ 2024-02-29                                 CWE Content Team                                                                     MITRE
+ (CWE 4.14, 2024-02-29)                     updated Demonstrative_Examples
+ More information is available — Please edit the custom filter or select a different filter.
+Page Last Updated: February 29, 2024
+ 
+      Site Map | Terms of Use | Manage Cookies | Cookie Notice | Privacy Policy | Contact Us | CWE X-Twitter CWE Mastodon CWE on LinkedIn CWE YouTube channel CWE Out-of-Bounds-Read Podcast CWE
+      Blog on Medium blog
+
+MITRE Use of the Common Weakness Enumeration (CWE™) and the associated references from this website are subject to the Terms of Use. CWE is sponsored by the U.S. Department of Homeland         HSSEDI
+      Security (DHS) Cybersecurity and Infrastructure Security Agency (CISA) and managed by the Homeland Security Systems Engineering and Development Institute (HSSEDI) which is operated by
+      The MITRE Corporation (MITRE). Copyright © 2006–2024, The MITRE Corporation. CWE, CWSS, CWRAF, and the CWE logo are trademarks of The MITRE Corporation.
+

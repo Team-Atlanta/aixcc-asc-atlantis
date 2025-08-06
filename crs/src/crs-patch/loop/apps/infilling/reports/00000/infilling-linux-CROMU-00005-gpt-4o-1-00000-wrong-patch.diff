@@ -1,0 +1,89 @@
+--- drivers/CROMU-00005/service.c
++++ drivers/CROMU-00005/service.c
+@@ -342,12 +342,16 @@
+     if (getColor(piece) == WHITE_PIECE)
+     {
+       return 0; // trying to move a white piece during black's turn
+-    }
++
++    }
++  }
++
++  // Make sure they're moving within the bounds of the board
++  if (dst.x >= WIDTH || dst.x < 0 || dst.y >= HEIGHT || dst.y < 0) {
++    return 0;
+   }
+ 
+   if (piece == KNIGHT_WHITE)
+-  {
+-    if (dst.x == src.x + 2 || dst.x == src.x - 2)
+     {
+       if (dst.y == src.y + 1 || dst.y == src.y - 1)
+       {
+@@ -371,9 +375,6 @@
+     }
+     return 0;
+   }
+-
+-  if (dst.x > WIDTH - 1 || dst.x < 0 || dst.y > HEIGHT - 1 || dst.y < 0)
+-    return 0;
+ 
+   if (piece == EMPTY)
+     return 0;
+@@ -738,7 +739,6 @@
+ 
+ err:
+   kfree(receive_buffer);
+-  receive_buffer = NULL;
+   mutex_unlock(&locked_ioctl);
+   return result;
+ }
+
+
+--- drivers/CROMU-00005/service.c
++++ drivers/CROMU-00005/service.c
+@@ -345,6 +345,10 @@
+     }
+   }
+ 
++  // make sure they're moving within the bounds of the board
++  if (dst.x > WIDTH - 1 || dst.x < 0 || dst.y > HEIGHT - 1 || dst.y < 0)
++    return 0;
++
+   if (piece == KNIGHT_WHITE)
+   {
+     if (dst.x == src.x + 2 || dst.x == src.x - 2)
+@@ -369,15 +373,17 @@
+         }
+       }
+     }
+-    return 0;
+-  }
+-
++
++  if (piece == QUEEN_WHITE || piece == QUEEN_BLACK)
++  {
++    return 0;
++  }
+   if (dst.x > WIDTH - 1 || dst.x < 0 || dst.y > HEIGHT - 1 || dst.y < 0)
+-    return 0;
+-
+-  if (piece == EMPTY)
+-    return 0;
+-
++  {
++    return 0;
++  }
++  return 0;
++}
+   if (piece == PAWN_WHITE)
+   {
+     if (dst.x == src.x && dst.y == (src.y + 1))
+@@ -738,7 +744,6 @@
+ 
+ err:
+   kfree(receive_buffer);
+-  receive_buffer = NULL;
+   mutex_unlock(&locked_ioctl);
+   return result;
+ }

@@ -1,0 +1,16 @@
+define CROMU00001_MESSAGE_LENGTH	0x20
+define CROMU00001_USERNAME_LENGTH	0x10
+define CROMU00001_MAX_STDOUT	1024
+
+resource fd_cromu00001[int32]: -1
+
+open$cromu00001(file ptr[in, string["/dev/CROMU-00001"]], flags flags[open_flags], mode flags[open_mode]) fd_cromu00001
+ioctl$cromu00001(fd fd_cromu00001, cmd int32, arg ptr[inout, cromu00001_arg_struct])
+
+cromu00001_arg_struct {
+	choice		int32
+	username	array[int8, CROMU00001_USERNAME_LENGTH]
+	message		array[int8, CROMU00001_MESSAGE_LENGTH]
+	message_id	int32
+	stdout		array[int8, CROMU00001_MAX_STDOUT]
+}

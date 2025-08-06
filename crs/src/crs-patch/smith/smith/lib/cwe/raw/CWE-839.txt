@@ -1,0 +1,385 @@
+CWE
+
+Common Weakness Enumeration
+
+A community-developed list of SW & HW weaknesses that can become vulnerabilities
+
+New to CWE? click here!
+CWE Most Important Hardware Weaknesses
+CWE Top 25 Most Dangerous Weaknesses
+Home > CWE List > CWE- Individual Dictionary Definition (4.14)                                                                                                   ID Lookup: [                    ] [Go]
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  • Home
+  • About ▼
+    About New to CWE User Stories History Documents FAQs Glossary Compatibility
+  • CWE List ▼
+    Latest Version Downloads Reports Visualizations Archive
+  • Mapping ▼
+    Root Cause Mapping Guidance Root Cause Mapping Quick Tips Root Cause Mapping Examples
+  • Top-N Lists ▼
+    Top 25 Software Top Hardware Top 10 KEV Weaknesses
+  • Community ▼
+    Community Working Groups & Special Interest Groups Board Board Meeting Minutes CWE Discussion List CWE Discussion Archives Contribute Weakness Content to CWE
+  • News ▼
+    Current News X-Twitter ● Mastodon ● LinkedIn ● YouTube YouTube Podcast Out of Bounds Read Podcast Medium Medium News Archive
+  • Search
+
+ 
+ CWE Glossary Definition                  x
+ 
+ 
+ CWE-839: Numeric Range Comparison Without Minimum Check
+ 
+ Weakness ID: 839
+ Vulnerability Mapping: ALLOWEDThis CWE ID may be used to map to real-world vulnerabilities
+ Abstraction: BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level
+ weaknesses typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.
+ View customized information:
+ Conceptual For users who are interested in more notional aspects of a weakness. Example: educators, technical writers, and project/program managers. Operational For users who are concerned with the
+ practical application and details about the nature of a weakness and how to prevent it from happening. Example: tool developers, security researchers, pen-testers, incident response analysts. Mapping
+ Friendly For users who are mapping an issue to CWE/CAPEC IDs, i.e., finding the most appropriate CWE for a specific issue (e.g., a CVE record). Example: tool developers, security researchers. 
+ Complete For users who wish to see all available information for the CWE/CAPEC entry. Custom For users who want to customize what details are displayed.
+ ×
+
+ Edit Custom Filter
+
+ Conceptual Operational Mapping Friendly Select All
+ 
+ Reset Clear Submit Cancel
+ + Description
+ The product checks a value to ensure that it is less than or equal to a maximum, but it does not also verify that the value is greater than or equal to the minimum.
+ + Extended Description
+ 
+ Some products use signed integers or floats even when their values are only expected to be positive or 0. An input validation check might assume that the value is positive, and only check for the
+ maximum value. If the value is negative, but the code assumes that the value is positive, this can produce an error. The error may have security consequences if the negative value is used for memory
+ allocation, array access, buffer access, etc. Ultimately, the error could lead to a buffer overflow or other type of memory corruption.
+
+ The use of a negative number in a positive-only context could have security implications for other types of resources. For example, a shopping cart might check that the user is not requesting more
+ than 10 items, but a request for -3 items could cause the application to calculate a negative price and credit the attacker's account.
+
+ + Alternate Terms
+ Signed comparison: The "signed comparison" term is often used to describe when the product uses a signed variable and checks it to ensure that it is less than a maximum value (typically a maximum
+                    buffer size), but does not verify that it is greater than 0.
+ + Relationships
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Research Concepts" (CWE-1000)
+     Nature                                                                                                                                                                               Type                                                                                                                                                                            ID       Name
+ ChildOf                                                                                 ClassClass - a weakness that is described in a very abstract fashion, typically independent of any specific language or technology. More specific than a Pillar Weakness, but more general than a Base                                                                         1023    Incomplete
+                                                                                                                      Weakness. Class level weaknesses typically describe issues in terms of 1 or 2 of the following dimensions: behavior, property, and resource.                                                                                                              Comparison
+                                                                                                                                                                                                                                                                                                                                                                                with
+                                                                                                                                                                                                                                                                                                                                                                                Missing
+                                                                                                                                                                                                                                                                                                                                                                                Factors
+ CanPrecede                                                                              ClassClass - a weakness that is described in a very abstract fashion, typically independent of any specific language or technology. More specific than a Pillar Weakness, but more general than a Base                                                                         119     Improper
+                                                                                                                      Weakness. Class level weaknesses typically describe issues in terms of 1 or 2 of the following dimensions: behavior, property, and resource.                                                                                                              Restriction
+                                                                                                                                                                                                                                                                                                                                                                                of
+                                                                                                                                                                                                                                                                                                                                                                                Operations
+                                                                                                                                                                                                                                                                                                                                                                                within the
+                                                                                                                                                                                                                                                                                                                                                                                Bounds of a
+                                                                                                                                                                                                                                                                                                                                                                                Memory
+                                                                                                                                                                                                                                                                                                                                                                                Buffer
+ CanPrecede                                                                                 BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level weaknesses                                                                             124     Buffer
+                                                                                                                           typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                    Underwrite
+                                                                                                                                                                                                                                                                                                                                                                                ('Buffer
+                                                                                                                                                                                                                                                                                                                                                                                Underflow')
+ CanPrecede                                                                              VariantVariant - a weakness that is linked to a certain type of product, typically involving a specific language or technology. More specific than a Base weakness. Variant level weaknesses typically                                                                         195     Signed to
+                                                                                                                                describe issues in terms of 3 to 5 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                         Unsigned
+                                                                                                                                                                                                                                                                                                                                                                                Conversion
+                                                                                                                                                                                                                                                                                                                                                                                Error
+ CanPrecede                                                                              PillarPillar - a weakness that is the most abstract type of weakness and represents a theme for all class/base/variant weaknesses related to it. A Pillar is different from a Category as a Pillar is                                                                          682     Incorrect
+                                                                                                                    still technically a type of weakness that describes a mistake, while a Category represents a common characteristic used to group related things.                                                                                                            Calculation
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Software Development" (CWE-699)
+     Nature                                                       Type                                                     ID                                   Name
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 189     Numeric Errors
+ + Applicable Platforms
+ Section HelpThis listing shows possible areas for which the given weakness could appear. These may be for specific named Languages, Operating Systems, Architectures, Paradigms, Technologies, or a
+ class of such platforms. The platform is listed along with how frequently the given weakness appears for that instance.
+
+ Languages
+
+ C (Often Prevalent)
+
+ C++ (Often Prevalent)
+
+ + Common Consequences
+ Section HelpThis table specifies different individual consequences associated with the weakness. The Scope identifies the application security area that is violated, while the Impact describes the
+ negative technical impact that arises if an adversary succeeds in exploiting this weakness. The Likelihood provides information about how likely the specific consequence is expected to be seen
+ relative to the other consequences in the list. For example, there may be high likelihood that a weakness will be exploited to achieve a certain impact, but a low likelihood that it will be exploited
+ to achieve a different impact.
+       Scope                                                                                     Impact                                                                                 Likelihood
+ Integrity          Technical Impact: Modify Application Data; Execute Unauthorized Code or Commands
+ Confidentiality
+ Availability       An attacker could modify the structure of the message or data being sent to the downstream component, possibly injecting commands.
+                    Technical Impact: DoS: Resource Consumption (Other)
+ Availability
+                    in some contexts, a negative value could lead to resource consumption.
+ Confidentiality    Technical Impact: Modify Memory; Read Memory
+ Integrity
+                    If a negative value is used to access memory, buffers, or other indexable structures, it could access memory outside the bounds of the buffer.
+ + Demonstrative Examples
+ 
+ Example 1
+
+ The following code is intended to read an incoming packet from a socket and extract one or more headers.
+
+ (bad code)
+ Example Language: C 
+ DataPacket *packet;
+ int numHeaders;
+ PacketHeader *headers;
+
+ sock=AcceptSocketConnection();
+ ReadPacket(packet, sock);
+ numHeaders =packet->headers;
+
+ if (numHeaders > 100) {
+ ExitError("too many headers!");
+ }
+ headers = malloc(numHeaders * sizeof(PacketHeader);
+ ParsePacketHeaders(packet, headers);
+
+ The code performs a check to make sure that the packet does not contain too many headers. However, numHeaders is defined as a signed int, so it could be negative. If the incoming packet specifies a
+ value such as -3, then the malloc calculation will generate a negative number (say, -300 if each header can be a maximum of 100 bytes). When this result is provided to malloc(), it is first converted
+ to a size_t type. This conversion then produces a large value such as 4294966996, which may cause malloc() to fail or to allocate an extremely large amount of memory (CWE-195). With the appropriate
+ negative numbers, an attacker could trick malloc() into using a very small positive number, which then allocates a buffer that is much smaller than expected, potentially leading to a buffer overflow.
+
+ Example 2
+
+ The following code reads a maximum size and performs a sanity check on that size. It then performs a strncpy, assuming it will not exceed the boundaries of the array. While the use of "short s" is
+ forced in this particular example, short int's are frequently used within real-world code, such as code that processes structured data.
+
+ (bad code)
+ Example Language: C 
+ int GetUntrustedInt () {
+ return(0x0000FFFF);
+ }
+
+ void main (int argc, char **argv) {
+ char path[256];
+ char *input;
+ int i;
+ short s;
+ unsigned int sz;
+
+ i = GetUntrustedInt();
+ s = i;
+ /* s is -1 so it passes the safety check - CWE-697 */
+ if (s > 256) {
+ DiePainfully("go away!\n");
+ }
+
+ /* s is sign-extended and saved in sz */
+ sz = s;
+
+ /* output: i=65535, s=-1, sz=4294967295 - your mileage may vary */
+ printf("i=%d, s=%d, sz=%u\n", i, s, sz);
+
+ input = GetUserInput("Enter pathname:");
+
+ /* strncpy interprets s as unsigned int, so it's treated as MAX_INT
+ (CWE-195), enabling buffer overflow (CWE-119) */
+ strncpy(path, input, s);
+ path[255] = '\0'; /* don't want CWE-170 */
+ printf("Path is: %s\n", path);
+ }
+
+ This code first exhibits an example of CWE-839, allowing "s" to be a negative number. When the negative short "s" is converted to an unsigned integer, it becomes an extremely large positive integer.
+ When this converted integer is used by strncpy() it will lead to a buffer overflow (CWE-119).
+
+ Example 3
+
+ In the following code, the method retrieves a value from an array at a specific array index location that is given as an input parameter to the method
+
+ (bad code)
+ Example Language: C 
+ int getValueFromArray(int *array, int len, int index) {
+
+ int value;
+
+ // check that the array index is less than the maximum
+
+ // length of the array
+ if (index < len) {
+
+ // get the value at the specified index of the array
+ value = array[index];
+ }
+ // if array index is invalid then output error message
+
+ // and return value indicating error
+ else {
+ printf("Value is: %d\n", array[index]);
+ value = -1;
+ }
+
+ return value;
+ }
+
+ However, this method only verifies that the given array index is less than the maximum length of the array but does not check for the minimum value (CWE-839). This will allow a negative value to be
+ accepted as the input array index, which will result in a out of bounds read (CWE-125) and may allow access to sensitive memory. The input array index should be checked to verify that is within the
+ maximum and minimum range required for the array (CWE-129). In this example the if statement should be modified to include a minimum range check, as shown below.
+
+ (good code)
+ Example Language: C 
+
+ ...
+
+ // check that the array index is within the correct
+
+ // range of values for the array
+ if (index >= 0 && index < len) {
+
+ ...
+
+ Example 4
+
+ The following code shows a simple BankAccount class with deposit and withdraw methods.
+
+ (bad code)
+ Example Language: Java 
+ public class BankAccount {
+
+ public final int MAXIMUM_WITHDRAWAL_LIMIT = 350;
+
+ // variable for bank account balance
+ private double accountBalance;
+
+ // constructor for BankAccount
+ public BankAccount() {
+ accountBalance = 0;
+ }
+
+ // method to deposit amount into BankAccount
+ public void deposit(double depositAmount) {...}
+
+ // method to withdraw amount from BankAccount
+ public void withdraw(double withdrawAmount) {
+
+ if (withdrawAmount < MAXIMUM_WITHDRAWAL_LIMIT) {
+
+ double newBalance = accountBalance - withdrawAmount;
+ accountBalance = newBalance;
+ }
+ else {
+ System.err.println("Withdrawal amount exceeds the maximum limit allowed, please try again...");
+ ...
+ }
+ }
+
+ // other methods for accessing the BankAccount object
+ ...
+ }
+
+ The withdraw method includes a check to ensure that the withdrawal amount does not exceed the maximum limit allowed, however the method does not check to ensure that the withdrawal amount is greater
+ than a minimum value (CWE-129). Performing a range check on a value that does not include a minimum check can have significant security implications, in this case not including a minimum range check
+ can allow a negative value to be used which would cause the financial application using this class to deposit money into the user account rather than withdrawing. In this example the if statement
+ should the modified to include a minimum range check, as shown below.
+
+ (good code)
+ Example Language: Java 
+ public class BankAccount {
+
+ public final int MINIMUM_WITHDRAWAL_LIMIT = 0;
+ public final int MAXIMUM_WITHDRAWAL_LIMIT = 350;
+
+ ...
+
+ // method to withdraw amount from BankAccount
+ public void withdraw(double withdrawAmount) {
+
+ if (withdrawAmount < MAXIMUM_WITHDRAWAL_LIMIT &&
+ withdrawAmount > MINIMUM_WITHDRAWAL_LIMIT) {
+
+ ...
+
+ Note that this example does not protect against concurrent access to the BankAccount balance variable, see CWE-413 and CWE-362.
+
+ While it is out of scope for this example, note that the use of doubles or floats in financial calculations may be subject to certain kinds of attacks where attackers use rounding errors to steal
+ money.
+
+ + Observed Examples
+        Reference                                                                                        Description
+ CVE-2010-1866           Chain: integer overflow (CWE-190) causes a negative signed value, which later bypasses a maximum-only check (CWE-839), leading to heap-based buffer overflow (CWE-122).
+ CVE-2009-1099           Chain: 16-bit counter can be interpreted as a negative value, compared to a 32-bit maximum value, leading to buffer under-write.
+ CVE-2011-0521           Chain: kernel's lack of a check for a negative value leads to memory corruption.
+ CVE-2010-3704           Chain: parser uses atoi() but does not check for a negative value, which can happen on some platforms, leading to buffer under-write.
+ CVE-2010-2530           Chain: Negative value stored in an int bypasses a size check and causes allocation of large amounts of memory.
+ CVE-2009-3080           Chain: negative offset value to IOCTL bypasses check for maximum index, then used as an array index for buffer under-read.
+ CVE-2008-6393           chain: file transfer client performs signed comparison, leading to integer overflow and heap-based buffer overflow.
+ CVE-2008-4558           chain: negative ID in media player bypasses check for maximum index, then used as an array index for buffer under-read.
+ + Potential Mitigations
+ Phase: Implementation
+
+ Strategy: Enforcement by Conversion
+
+ If the number to be used is always expected to be positive, change the variable type from signed to unsigned or size_t.
+ Phase: Implementation
+
+ Strategy: Input Validation
+
+ If the number to be used could have a negative value based on the specification (thus requiring a signed value), but the number should only be positive to preserve code correctness, then include
+ a check to ensure that the value is positive.
+ + Memberships
+ Section HelpThis MemberOf Relationships table shows additional CWE Categories and Views that reference this weakness as a member. This information is often useful in understanding where a weakness
+ fits within the context of external information sources.
+     Nature                                                                                                  Type                                                                                               ID         Name
+ MemberOf        ViewView - a subset of CWE entries that provides a way of examining CWE content. The two main view structures are Slices (flat lists) and Graphs (containing relationships between entries). 884     CWE
+                                                                                                                                                                                                                      Cross-section
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            1397    Comprehensive
+                                                                                                                                                                                                                      Categorization:
+                                                                                                                                                                                                                      Comparison
+ + Vulnerability Mapping Notes
+ Usage: ALLOWED
+
+ (this CWE ID could be used to map to real-world vulnerabilities)
+ Reason: Acceptable-Use
+
+ Rationale:
+
+ This CWE entry is at the Base level of abstraction, which is a preferred level of abstraction for mapping to the root causes of vulnerabilities.
+ Comments:
+
+ Carefully read both the name and description to ensure that this mapping is an appropriate fit. Do not try to 'force' a mapping to a lower-level Base/Variant simply to comply with this preferred
+ level of abstraction.
+ + References
+ [REF-62] Mark Dowd, John McDonald and Justin Schuh. "The Art of Software Security Assessment". Chapter 6, "Type Conversion Vulnerabilities" Page 246. 1st Edition. Addison Wesley. 2006.
+ [REF-62] Mark Dowd, John McDonald and Justin Schuh. "The Art of Software Security Assessment". Chapter 6, "Comparisons", Page 265. 1st Edition. Addison Wesley. 2006.
+ + Content History
+                                                                                            + Submissions
+                    Submission Date                                                       Submitter                                                            Organization
+ 2011-03-24                                             CWE Content Team                                                               MITRE
+ (CWE 1.12, 2011-03-30)
+
+                                                                                           + Modifications
+                   Modification Date                                                       Modifier                                                            Organization
+ 2011-06-01                                             CWE Content Team                                                               MITRE
+                                                        updated Common_Consequences
+ 2012-05-11                                             CWE Content Team                                                               MITRE
+                                                        updated Demonstrative_Examples, References, Relationships
+ 2014-02-18                                             CWE Content Team                                                               MITRE
+                                                        updated Relationships
+ 2018-03-27                                             CWE Content Team                                                               MITRE
+                                                        updated Description
+ 2019-01-03                                             CWE Content Team                                                               MITRE
+                                                        updated Relationships
+ 2023-01-31                                             CWE Content Team                                                               MITRE
+                                                        updated Alternate_Terms, Description
+ 2023-04-27                                             CWE Content Team                                                               MITRE
+                                                        updated Relationships
+ 2023-06-29                                             CWE Content Team                                                               MITRE
+                                                        updated Mapping_Notes
+ 2023-10-26                                             CWE Content Team                                                               MITRE
+                                                        updated Observed_Examples
+ More information is available — Please edit the custom filter or select a different filter.
+Page Last Updated: February 29, 2024
+ 
+      Site Map | Terms of Use | Manage Cookies | Cookie Notice | Privacy Policy | Contact Us | CWE X-Twitter CWE Mastodon CWE on LinkedIn CWE YouTube channel CWE Out-of-Bounds-Read Podcast CWE
+      Blog on Medium blog
+
+MITRE Use of the Common Weakness Enumeration (CWE™) and the associated references from this website are subject to the Terms of Use. CWE is sponsored by the U.S. Department of Homeland         HSSEDI
+      Security (DHS) Cybersecurity and Infrastructure Security Agency (CISA) and managed by the Homeland Security Systems Engineering and Development Institute (HSSEDI) which is operated by
+      The MITRE Corporation (MITRE). Copyright © 2006–2024, The MITRE Corporation. CWE, CWSS, CWRAF, and the CWE logo are trademarks of The MITRE Corporation.
+

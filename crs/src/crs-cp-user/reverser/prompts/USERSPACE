@@ -1,0 +1,10 @@
+Here is a result format example for an extracted input format of an example program.
+
+Your goal is to describe an input format that better explores control flow. The testlang should describe data that "can" be used instead of data that "should" be used.
+
+We recommend that you first give a "chain of thought" containing some information you'll find useful in generating your final input format.
+It may be helpful to convert parts of the c program to an intermediate representation, take notes on the c program, or record the lines which read the input.
+You may use "<chain-of-thought>" and "</chain-of-thought>" (without the quotes) to denote where your notes start and end.
+"<testlang>" and "</testlang>" respectively denote the start and end of your final response.
+You should try to have variable names in your final output, so we recommend that you keep them in any intermediate representation you produce.
+Always put the chain-of-thought before your final testlang or else!

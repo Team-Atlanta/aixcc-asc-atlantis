@@ -1,0 +1,32 @@
+[
+  {
+    "pass": false,
+    "name": "KPRCA-00001",
+    "groundTruth": "INPUT ::= COMMAND_CNT { size: 4 }\n          COMMAND[COMMAND_CNT]\n\nCOMMAND ::= INIT_STDIN\n          | GET_STDOUT\n          | WORK_WITH_DATA\n\nINIT_STDIN ::= OPCODE { size: 4, value: 0x40 }\n\nGET_STDOUT ::= OPCODE { size: 4, value: 0x41 }\n\nWORK_WITH_DATA ::= OPCODE { size: 4, value: 0x50 }\n                   BUF_LEN { size: 4 }\n                   BUF { size: BUF_LEN }\n",
+    "generated": "// INPUT is the start of the input format.\n// INPUT will be [CMD_CNT (4byte) ][ CMD_CNT chunks of CMD]\nINPUT ::= CMD_CNT { size: 4 }\n          CMD[CMD_CNT]\n\n// CMD will be one of the three types of commands: CMD_INIT_STDIN, CMD_GET_STDOUT, CMD_WORK_WITH_DATA\nCMD   ::= CMD_INIT_STDIN\n        | CMD_GET_STDOUT\n        | CMD_WORK_WITH_DATA\n\n// CMD_INIT_STDIN corresponds to IOCTL_INIT_STDIN operation\nCMD_INIT_STDIN ::= OPCODE { size: 4, value: IOCTL_INIT_STDIN (0x40) }\n\n// CMD_GET_STDOUT corresponds to IOCTL_GET_STDOUT operation\nCMD_GET_STDOUT ::= OPCODE { size: 4, value: IOCTL_GET_STDOUT (0x41) }\n\n// CMD_WORK_WITH_DATA corresponds to WORK_WITH_DATA operation and will always have subsequent fields: BUF_LEN and BUF\nCMD_WORK_WITH_DATA ::= OPCODE { size: 4, value: WORK_WITH_DATA (0x50) }\n                       BUF_LEN { size: 4 }                      \n                       BUF { size: BUF_LEN }\n"
+  },
+  {
+    "pass": false,
+    "name": "NRFIN-00001",
+    "groundTruth": "INPUT ::= COMMAND_CNT { size: 4 }\n          COMMAND[COMMAND_CNT]\n\nCOMMAND ::= DO_LIST\n          | DO_ADD\n          | DO_COUNT\n          | DO_SHOW\n          | DO_HELP\n          | DO_QUIT\n\nDO_LIST ::= OPCODE { size: 4, value: 0xdeadbef0 }\n\nDO_ADD ::= OPCODE { size: 4, value: 0xdeadbef1 }\n           SIZE { size: 4 }\n           BUF { size: SIZE }\n\nDO_COUNT ::= OPCODE { size: 4, value: 0xdeadbef2 }\n\nDO_SHOW ::= OPCODE { size: 4, value: 0xdeadbef3 }\n            SIZE { size: 4 }\n            BUF { size: 4 }\n\nDO_HELP ::= OPCODE { size: 4, value: 0xdeadbef4 }\n\nDO_QUIT ::= OPCODE { size: 4, value: 0xdeadbef5 }\n",
+    "generated": "// INPUT is the start of the input format.\n// INPUT will be [CMD_CNT (4byte) ][ CMD_CNT chunks of CMD].\nINPUT ::= CMD_CNT { size: 4 }\n          CMD[CMD_CNT]\n\n// CMD will be one of the six commands (CMD1, CMD2, CMD3, CMD4, CMD5, CMD6).\nCMD   ::= CMD1 \n        | CMD2\n        | CMD3 \n        | CMD4\n        | CMD5\n        | CMD6        \n\nCMD1  ::= OPCODE { size: 4, value: IOCTL_ONE } // OPCODE value IOCTL_ONE comes from the first case\n\nCMD2  ::= OPCODE { size: 4, value: IOCTL_TWO } // OPCODE value IOCTL_TWO comes from the second case\n          BUF_LEN { size: 4}\n          BUF { size: BUF_LEN }\n\nCMD3  ::= OPCODE { size: 4, value: IOCTL_THREE } // OPCODE value IOCTL_THREE comes from the third case\n\nCMD4  ::= OPCODE { size: 4, value: IOCTL_FOUR } // OPCODE value IOCTL_FOUR comes from the fourth case\n          BUF_LEN { size: 4}\n          BUF { size: BUF_LEN }\n\nCMD5  ::= OPCODE { size: 4, value: IOCTL_FIVE } // OPCODE value IOCTL_FIVE comes from the fifth case\n\nCMD6  ::= OPCODE { size: 4, value: IOCTL_SIX } // OPCODE value IOCTL_SIX comes from the last case"
+  },
+  {
+    "pass": true,
+    "name": "CADET-00001-2",
+    "groundTruth": "INPUT ::= DEVICE_SIZE { size: 4 }\n          DEVICE { size: DEVICE_SIZE }\n          FLAGS { size: 4 }\n          DATA_SIZE { size: 4 }\n          DATA { size: DATA_SIZE }\n",
+    "generated": "// INPUT is the start of the input format.\n// INPUT will be [DEVICE_NAME_SIZE (4byte) ][ DEVICE_NAME ][ OPEN_FLAGS (4byte) ][ SIZE of DATA (4byte) ][ DATA ]\nINPUT ::= DEVICE_NAME_SIZE { size: 4 }\n          DEVICE_NAME { size: DEVICE_NAME_SIZE }\n          OPEN_FLAGS { size: 4 }\n          DATA_SIZE { size: 4 }\n          DATA { size: DATA_SIZE }"
+  },
+  {
+    "pass": true,
+    "name": "CVE-2022-0995-2",
+    "groundTruth": "INPUT ::= PIPE_FLAGS { size: 4 }\n          NR_FILTERS { size: 4 }\n          RESERVED { size: 4 }\n          TYPE { size: 4 }\n",
+    "generated": "// INPUT is the start of the input format.\n// INPUT will be [PIPE_FLAGS (4byte) ][ NR_FILTERS (4byte) ][ RESERVED (4byte) ][ TYPE (4byte)]\nINPUT ::= PIPE_FLAGS { size: 4 }\n          NR_FILTERS { size: 4 }\n          RESERVED { size: 4 }\n          TYPE { size: 4 }\n\nPIPE_FLAGS   ::= INT { size: 4 }       // It is used for the pipe2 function\nNR_FILTERS   ::= INT { size: 4 }       // It is a number of filters\nRESERVED     ::= INT { size: 4 }       // It should be 0, according to the given struct watch_notification_filter\nTYPE          ::= INT { size: 4 }       // It is a type to apply filter to"
+  },
+  {
+    "pass": false,
+    "name": "CVE-2022-32250-2",
+    "groundTruth": "INPUT ::= SIZE { size: 4 }\n          TABLE { size: SIZE }\n          LOOP\n\nLOOP ::= LOOP_BODY\n         LOOP_BODY\n\nLOOP_BODY ::= TABLE_SIZE { size: 4 }\n              TABLE { size: TABLE_SIZE }\n              SET_SIZE { size: 4 }\n              SET { size: SET_SIZE }\n",
+    "generated": "// INPUT is the start of the input format.\n// INPUT will be:\n// [Size of Table Name (4 bytes)]\n// [Table Name (Size of Table Name bytes)]\n// A sequence of two set-expression pairs \n\nINPUT ::= TABLE_NAME_SIZE { size: 4 }\n          TABLE_NAME { size: TABLE_NAME_SIZE }\n          SEQUENCE[2] { EXPR_SET_PAIR }\n\n// A set-expression pairconsists of:\n// [Size of Table Name (4 bytes)]\n// [Table Name Soze of Table Name bytes)]\n// [Size of Set Name (4 bytes)]\n// [Set Name (Size of Set Name bytes)]\nEXPR_SET_PAIR ::= TABLE_NAME_SIZE { size: 4 }\n                  TABLE_NAME { size: TABLE_NAME_SIZE }\n                  SET_NAME_SIZE { size: 4 }\n                  SET_NAME { size: SET_NAME_SIZE } "
+  }
+]

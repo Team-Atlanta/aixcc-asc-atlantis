@@ -1,0 +1,430 @@
+CWE
+
+Common Weakness Enumeration
+
+A community-developed list of SW & HW weaknesses that can become vulnerabilities
+
+New to CWE? click here!
+CWE Most Important Hardware Weaknesses
+CWE Top 25 Most Dangerous Weaknesses
+Home > CWE List > CWE- Individual Dictionary Definition (4.14)                                                                                                   ID Lookup: [                    ] [Go]
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  • Home
+  • About ▼
+    About New to CWE User Stories History Documents FAQs Glossary Compatibility
+  • CWE List ▼
+    Latest Version Downloads Reports Visualizations Archive
+  • Mapping ▼
+    Root Cause Mapping Guidance Root Cause Mapping Quick Tips Root Cause Mapping Examples
+  • Top-N Lists ▼
+    Top 25 Software Top Hardware Top 10 KEV Weaknesses
+  • Community ▼
+    Community Working Groups & Special Interest Groups Board Board Meeting Minutes CWE Discussion List CWE Discussion Archives Contribute Weakness Content to CWE
+  • News ▼
+    Current News X-Twitter ● Mastodon ● LinkedIn ● YouTube YouTube Podcast Out of Bounds Read Podcast Medium Medium News Archive
+  • Search
+
+ 
+ CWE Glossary Definition                  x
+ 
+ 
+ CWE-502: Deserialization of Untrusted Data
+ 
+ Weakness ID: 502
+ Vulnerability Mapping: ALLOWEDThis CWE ID may be used to map to real-world vulnerabilities
+ Abstraction: BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level
+ weaknesses typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.
+ View customized information:
+ Conceptual For users who are interested in more notional aspects of a weakness. Example: educators, technical writers, and project/program managers. Operational For users who are concerned with the
+ practical application and details about the nature of a weakness and how to prevent it from happening. Example: tool developers, security researchers, pen-testers, incident response analysts. Mapping
+ Friendly For users who are mapping an issue to CWE/CAPEC IDs, i.e., finding the most appropriate CWE for a specific issue (e.g., a CVE record). Example: tool developers, security researchers. 
+ Complete For users who wish to see all available information for the CWE/CAPEC entry. Custom For users who want to customize what details are displayed.
+ ×
+
+ Edit Custom Filter
+
+ Conceptual Operational Mapping Friendly Select All
+ 
+ Reset Clear Submit Cancel
+ + Description
+ The product deserializes untrusted data without sufficiently verifying that the resulting data will be valid.
+ + Extended Description
+ 
+ It is often convenient to serialize objects for communication or to save them for later use. However, deserialized data or code can often be modified without using the provided accessor functions if
+ it does not use cryptography to protect itself. Furthermore, any cryptography would still be client-side security -- which is a dangerous security assumption.
+
+ Data that is untrusted can not be trusted to be well-formed.
+
+ When developers place no restrictions on "gadget chains," or series of instances and method invocations that can self-execute during the deserialization process (i.e., before the object is returned
+ to the caller), it is sometimes possible for attackers to leverage them to perform unauthorized actions, like generating a shell.
+
+ + Alternate Terms
+ Marshaling, Unmarshaling: Marshaling and unmarshaling are effectively synonyms for serialization and deserialization, respectively.
+   Pickling, Unpickling:   In Python, the "pickle" functionality is used to perform serialization and deserialization.
+   PHP Object Injection:   Some PHP application researchers use this term when attacking unsafe use of the unserialize() function; but it is also used for CWE-915.
+ + Relationships
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Research Concepts" (CWE-1000)
+     Nature                                                                                                                                                                             Type                                                                                                                                                                           ID             Name
+ ChildOf                                                                               ClassClass - a weakness that is described in a very abstract fashion, typically independent of any specific language or technology. More specific than a Pillar Weakness, but more general than a Base                                                                        913     Improper Control of
+                                                                                                                    Weakness. Class level weaknesses typically describe issues in terms of 1 or 2 of the following dimensions: behavior, property, and resource.                                                                                                             Dynamically-Managed
+                                                                                                                                                                                                                                                                                                                                                                             Code Resources
+ PeerOf                                                                                    BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level weaknesses                                                                           915     Improperly Controlled
+                                                                                                                          typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                  Modification of
+                                                                                                                                                                                                                                                                                                                                                                             Dynamically-Determined
+                                                                                                                                                                                                                                                                                                                                                                             Object Attributes
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Software Development" (CWE-699)
+     Nature                                                       Type                                                     ID                                   Name
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 399     Resource Management Errors
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Weaknesses for Simplified Mapping of Published Vulnerabilities" (CWE-1003)
+     Nature                                                                                                                                                                             Type                                                                                                                                                                           ID           Name
+ ChildOf                                                                               ClassClass - a weakness that is described in a very abstract fashion, typically independent of any specific language or technology. More specific than a Pillar Weakness, but more general than a Base                                                                        913     Improper Control of
+                                                                                                                    Weakness. Class level weaknesses typically describe issues in terms of 1 or 2 of the following dimensions: behavior, property, and resource.                                                                                                             Dynamically-Managed
+                                                                                                                                                                                                                                                                                                                                                                             Code Resources
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Architectural Concepts" (CWE-1008)
+     Nature                                                       Type                                                     ID                                   Name
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 1019    Validate Inputs
+ + Background Details
+ Serialization and deserialization refer to the process of taking program-internal object-related data, packaging it in a way that allows the data to be externally stored or transferred
+ ("serialization"), then extracting the serialized data to reconstruct the original object ("deserialization").
+ + Modes Of Introduction
+ Section HelpThe different Modes of Introduction provide information about how and when this weakness may be introduced. The Phase identifies a point in the life cycle at which introduction may occur,
+ while the Note provides a typical scenario related to introduction during the given phase.
+          Phase                                                                                             Note
+ Architecture and Design OMISSION: This weakness is caused by missing a security tactic during the architecture and design phase.
+ Implementation
+ + Applicable Platforms
+ Section HelpThis listing shows possible areas for which the given weakness could appear. These may be for specific named Languages, Operating Systems, Architectures, Paradigms, Technologies, or a
+ class of such platforms. The platform is listed along with how frequently the given weakness appears for that instance.
+
+ Languages
+
+ Java (Undetermined Prevalence)
+
+ Ruby (Undetermined Prevalence)
+
+ PHP (Undetermined Prevalence)
+
+ Python (Undetermined Prevalence)
+
+ JavaScript (Undetermined Prevalence)
+
+ Technologies
+
+ Class: ICS/OT (Often Prevalent)
+
+ + Common Consequences
+ Section HelpThis table specifies different individual consequences associated with the weakness. The Scope identifies the application security area that is violated, while the Impact describes the
+ negative technical impact that arises if an adversary succeeds in exploiting this weakness. The Likelihood provides information about how likely the specific consequence is expected to be seen
+ relative to the other consequences in the list. For example, there may be high likelihood that a weakness will be exploited to achieve a certain impact, but a low likelihood that it will be exploited
+ to achieve a different impact.
+       Scope                                                                                     Impact                                                                                 Likelihood
+                    Technical Impact: Modify Application Data; Unexpected State
+ Integrity
+                    Attackers can modify unexpected objects or data that was assumed to be safe from modification.
+                    Technical Impact: DoS: Resource Consumption (CPU)
+ Availability
+                    If a function is making an assumption on when to terminate, based on a sentry in a string, it could easily never terminate.
+                    Technical Impact: Varies by Context
+ Other
+                    The consequences can vary widely, because it depends on which objects or methods are being deserialized, and how they are used. Making an assumption that the
+                    code in the deserialized object is valid is dangerous and can enable exploitation.
+ + Likelihood Of Exploit
+ Medium
+ + Demonstrative Examples
+ 
+ Example 1
+
+ This code snippet deserializes an object from a file and uses it as a UI button:
+
+ (bad code)
+ Example Language: Java 
+ try {
+ File file = new File("object.obj");
+ ObjectInputStream in = new ObjectInputStream(new FileInputStream(file));
+ javax.swing.JButton button = (javax.swing.JButton) in.readObject();
+ in.close();
+ }
+
+ This code does not attempt to verify the source or contents of the file before deserializing it. An attacker may be able to replace the intended file with a file that contains arbitrary malicious
+ code which will be executed when the button is pressed.
+
+ To mitigate this, explicitly define final readObject() to prevent deserialization. An example of this is:
+
+ (good code)
+ Example Language: Java 
+ private final void readObject(ObjectInputStream in) throws java.io.IOException {
+ throw new java.io.IOException("Cannot be deserialized"); }
+
+ Example 2
+
+ In Python, the Pickle library handles the serialization and deserialization processes. In this example derived from [REF-467], the code receives and parses data, and afterwards tries to authenticate
+ a user based on validating a token.
+
+ (bad code)
+ Example Language: Python 
+ try {
+ class ExampleProtocol(protocol.Protocol):
+ def dataReceived(self, data):
+
+ # Code that would be here would parse the incoming data
+ # After receiving headers, call confirmAuth() to authenticate
+
+ def confirmAuth(self, headers):
+ try:
+ token = cPickle.loads(base64.b64decode(headers['AuthToken']))
+ if not check_hmac(token['signature'], token['data'], getSecretKey()):
+ raise AuthFail
+ self.secure_data = token['data']
+ except:
+ raise AuthFail
+ }
+
+ Unfortunately, the code does not verify that the incoming data is legitimate. An attacker can construct a illegitimate, serialized object "AuthToken" that instantiates one of Python's subprocesses to
+ execute arbitrary commands. For instance,the attacker could construct a pickle that leverages Python's subprocess module, which spawns new processes and includes a number of arguments for various
+ uses. Since Pickle allows objects to define the process for how they should be unpickled, the attacker can direct the unpickle process to call Popen in the subprocess module and execute /bin/sh.
+
+ + Observed Examples
+        Reference                                                                                        Description
+ CVE-2019-12799          chain: bypass of untrusted deserialization issue (CWE-502) by using an assumed-trusted class (CWE-183)
+ CVE-2015-8103           Deserialization issue in commonly-used Java library allows remote execution.
+ CVE-2015-4852           Deserialization issue in commonly-used Java library allows remote execution.
+ CVE-2013-1465           Use of PHP unserialize function on untrusted input allows attacker to modify application configuration.
+ CVE-2012-3527           Use of PHP unserialize function on untrusted input in content management system might allow code execution.
+ CVE-2012-0911           Use of PHP unserialize function on untrusted input in content management system allows code execution using a crafted cookie value.
+ CVE-2012-0911           Content management system written in PHP allows unserialize of arbitrary objects, possibly allowing code execution.
+ CVE-2011-2520           Python script allows local users to execute code via pickled data.
+ CVE-2012-4406           Unsafe deserialization using pickle in a Python script.
+ CVE-2003-0791           Web browser allows execution of native methods via a crafted string to a JavaScript function that deserializes the string.
+ + Potential Mitigations
+ Phases: Architecture and Design; Implementation
+
+ If available, use the signing/sealing features of the programming language to assure that deserialized data has not been tainted. For example, a hash-based message authentication code (HMAC)
+ could be used to ensure that data has not been modified.
+ Phase: Implementation
+
+ When deserializing data, populate a new object rather than just deserializing. The result is that the data flows through safe input validation and that the functions are safe.
+ Phase: Implementation
+
+ Explicitly define a final object() to prevent deserialization.
+ Phases: Architecture and Design; Implementation
+
+ Make fields transient to protect them from deserialization.
+
+ An attempt to serialize and then deserialize a class containing transient fields will result in NULLs where the transient data should be. This is an excellent way to prevent time,
+ environment-based, or sensitive variables from being carried over and used improperly.
+
+ Phase: Implementation
+
+ Avoid having unnecessary types or gadgets available that can be leveraged for malicious ends. This limits the potential for unintended or unauthorized types and gadgets to be leveraged by the
+ attacker. Add only acceptable classes to an allowlist. Note: new gadgets are constantly being discovered, so this alone is not a sufficient mitigation.
+ + Detection Methods
+ Automated Static Analysis
+
+ Automated static analysis, commonly referred to as Static Application Security Testing (SAST), can find some instances of this weakness by analyzing source code (or binary/compiled code) without
+ having to execute it. Typically, this is done by building a model of data flow and control flow, then searching for potentially-vulnerable patterns that connect "sources" (origins of input) with
+ "sinks" (destinations where the data interacts with external components, a lower layer such as the OS, etc.)
+
+ Effectiveness: High
+
+ + Memberships
+ Section HelpThis MemberOf Relationships table shows additional CWE Categories and Views that reference this weakness as a member. This information is often useful in understanding where a weakness
+ fits within the context of external information sources.
+     Nature                                                                                                  Type                                                                                               ID         Name
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            858     The CERT Oracle
+                                                                                                                                                                                                                      Secure Coding
+                                                                                                                                                                                                                      Standard for
+                                                                                                                                                                                                                      Java (2011)
+                                                                                                                                                                                                                      Chapter 15 -
+                                                                                                                                                                                                                      Serialization
+                                                                                                                                                                                                                      (SER)
+ MemberOf        ViewView - a subset of CWE entries that provides a way of examining CWE content. The two main view structures are Slices (flat lists) and Graphs (containing relationships between entries). 884     CWE
+                                                                                                                                                                                                                      Cross-section
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            994     SFP Secondary
+                                                                                                                                                                                                                      Cluster:
+                                                                                                                                                                                                                      Tainted Input
+                                                                                                                                                                                                                      to Variable
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            1034    OWASP Top Ten
+                                                                                                                                                                                                                      2017 Category
+                                                                                                                                                                                                                      A8 - Insecure
+                                                                                                                                                                                                                      Deserialization
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            1148    SEI CERT Oracle
+                                                                                                                                                                                                                      Secure Coding
+                                                                                                                                                                                                                      Standard for
+                                                                                                                                                                                                                      Java -
+                                                                                                                                                                                                                      Guidelines 14.
+                                                                                                                                                                                                                      Serialization
+                                                                                                                                                                                                                      (SER)
+ MemberOf        ViewView - a subset of CWE entries that provides a way of examining CWE content. The two main view structures are Slices (flat lists) and Graphs (containing relationships between entries). 1200    Weaknesses in
+                                                                                                                                                                                                                      the 2019 CWE
+                                                                                                                                                                                                                      Top 25 Most
+                                                                                                                                                                                                                      Dangerous
+                                                                                                                                                                                                                      Software Errors
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            1308    CISQ Quality
+                                                                                                                                                                                                                      Measures -
+                                                                                                                                                                                                                      Security
+ MemberOf        ViewView - a subset of CWE entries that provides a way of examining CWE content. The two main view structures are Slices (flat lists) and Graphs (containing relationships between entries). 1337    Weaknesses in
+                                                                                                                                                                                                                      the 2021 CWE
+                                                                                                                                                                                                                      Top 25 Most
+                                                                                                                                                                                                                      Dangerous
+                                                                                                                                                                                                                      Software
+                                                                                                                                                                                                                      Weaknesses
+ MemberOf        ViewView - a subset of CWE entries that provides a way of examining CWE content. The two main view structures are Slices (flat lists) and Graphs (containing relationships between entries). 1340    CISQ Data
+                                                                                                                                                                                                                      Protection
+                                                                                                                                                                                                                      Measures
+ MemberOf        ViewView - a subset of CWE entries that provides a way of examining CWE content. The two main view structures are Slices (flat lists) and Graphs (containing relationships between entries). 1350    Weaknesses in
+                                                                                                                                                                                                                      the 2020 CWE
+                                                                                                                                                                                                                      Top 25 Most
+                                                                                                                                                                                                                      Dangerous
+                                                                                                                                                                                                                      Software
+                                                                                                                                                                                                                      Weaknesses
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            1354    OWASP Top Ten
+                                                                                                                                                                                                                      2021 Category
+                                                                                                                                                                                                                      A08:2021 -
+                                                                                                                                                                                                                      Software and
+                                                                                                                                                                                                                      Data Integrity
+                                                                                                                                                                                                                      Failures
+ MemberOf        ViewView - a subset of CWE entries that provides a way of examining CWE content. The two main view structures are Slices (flat lists) and Graphs (containing relationships between entries). 1387    Weaknesses in
+                                                                                                                                                                                                                      the 2022 CWE
+                                                                                                                                                                                                                      Top 25 Most
+                                                                                                                                                                                                                      Dangerous
+                                                                                                                                                                                                                      Software
+                                                                                                                                                                                                                      Weaknesses
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            1415    Comprehensive
+                                                                                                                                                                                                                      Categorization:
+                                                                                                                                                                                                                      Resource
+                                                                                                                                                                                                                      Control
+ MemberOf        ViewView - a subset of CWE entries that provides a way of examining CWE content. The two main view structures are Slices (flat lists) and Graphs (containing relationships between entries). 1425    Weaknesses in
+                                                                                                                                                                                                                      the 2023 CWE
+                                                                                                                                                                                                                      Top 25 Most
+                                                                                                                                                                                                                      Dangerous
+                                                                                                                                                                                                                      Software
+                                                                                                                                                                                                                      Weaknesses
+ + Vulnerability Mapping Notes
+ Usage: ALLOWED
+
+ (this CWE ID could be used to map to real-world vulnerabilities)
+ Reason: Acceptable-Use
+
+ Rationale:
+
+ This CWE entry is at the Base level of abstraction, which is a preferred level of abstraction for mapping to the root causes of vulnerabilities.
+ Comments:
+
+ Carefully read both the name and description to ensure that this mapping is an appropriate fit. Do not try to 'force' a mapping to a lower-level Base/Variant simply to comply with this preferred
+ level of abstraction.
+ + Notes
+ 
+ Maintenance
+
+ The relationships between CWE-502 and CWE-915 need further exploration. CWE-915 is more narrowly scoped to object modification, and is not necessarily used for deserialization.
+ + Taxonomy Mappings
+       Mapped Taxonomy Name          Node ID       Fit                                                                 Mapped Node Name
+ CLASP                                                    Deserialization of untrusted data
+ The CERT Oracle Secure Coding    SER01-J                 Do not deviate from the proper signatures of serialization methods
+ Standard for Java (2011)
+ The CERT Oracle Secure Coding    SER03-J                 Do not serialize unencrypted, sensitive data
+ Standard for Java (2011)
+ The CERT Oracle Secure Coding    SER06-J                 Make defensive copies of private mutable components during deserialization
+ Standard for Java (2011)
+ The CERT Oracle Secure Coding    SER08-J                 Do not use the default serialized form for implementation defined invariants
+ Standard for Java (2011)
+ Software Fault Patterns          SFP25                   Tainted input to variable
+ + Related Attack Patterns
+    CAPEC-ID                                                                                     Attack Pattern Name
+ CAPEC-586       Object Injection
+ + References
+ [REF-18] Secure Software, Inc.. "The CLASP Application Security Process". 2005. <https://cwe.mitre.org/documents/sources/TheCLASPApplicationSecurityProcess.pdf>.
+ [REF-461] Matthias Kaiser. "Exploiting Deserialization Vulnerabilities in Java". 2015-10-28. <https://www.slideshare.net/codewhitesec/exploiting-deserialization-vulnerabilities-in-java-54707478>.
+ URL validated: 2023-04-07.
+ [REF-462] Sam Thomas. "PHP unserialization vulnerabilities: What are we missing?". 2015-08-27. <https://www.slideshare.net/_s_n_t/php-unserialization-vulnerabilities-what-are-we-missing>. URL
+ validated: 2023-04-07.
+ [REF-463] Gabriel Lawrence and Chris Frohoff. "Marshalling Pickles: How deserializing objects can ruin your day". 2015-01-28. <https://www.slideshare.net/frohoff1/
+ appseccali-2015-marshalling-pickles>. URL validated: 2023-04-07.
+ [REF-464] Heine Deelstra. "Unserializing user-supplied data, a bad idea". 2010-08-25. <https://drupalsun.com/heine/2010/08/25/unserializing-user-supplied-data-bad-idea>. URL validated: 2023-04-07
+ .
+ [REF-465] Manish S. Saindane. "Black Hat EU 2010 - Attacking Java Serialized Communication". 2010-04-26. <https://www.slideshare.net/msaindane/
+ black-hat-eu-2010-attacking-java-serialized-communication>. URL validated: 2023-04-07.
+ [REF-466] Nadia Alramli. "Why Python Pickle is Insecure". 2009-09-09. <http://michael-rushanan.blogspot.com/2012/10/why-python-pickle-is-insecure.html>. URL validated: 2023-04-07.
+ [REF-467] Nelson Elhage. "Exploiting misuse of Python's "pickle"". 2011-03-20. <https://blog.nelhage.com/2011/03/exploiting-pickle/>.
+ [REF-468] Chris Frohoff. "Deserialize My Shorts: Or How I Learned to Start Worrying and Hate Java Object Deserialization". 2016-03-21. <https://speakerdeck.com/frohoff/
+ owasp-sd-deserialize-my-shorts-or-how-i-learned-to-start-worrying-and-hate-java-object-deserialization>. URL validated: 2023-04-07.
+ + Content History
+                                                                                            + Submissions
+      Submission Date                                                 Submitter                                                                           Organization
+ 2006-07-19                CLASP
+ (CWE Draft 3, 2006-07-19)
+
+                                                                                           + Modifications
+     Modification Date                                                 Modifier                                                                           Organization
+ 2008-07-01                Eric Dalci                                                                                       Cigital
+                           updated Time_of_Introduction
+ 2008-09-08                CWE Content Team                                                                                 MITRE
+                           updated Common_Consequences, Description, Relationships, Other_Notes, Taxonomy_Mappings
+ 2009-10-29                CWE Content Team                                                                                 MITRE
+                           updated Description, Other_Notes, Potential_Mitigations
+ 2011-06-01                CWE Content Team                                                                                 MITRE
+                           updated Common_Consequences, Relationships, Taxonomy_Mappings
+ 2012-05-11                CWE Content Team                                                                                 MITRE
+                           updated Relationships, Taxonomy_Mappings
+ 2012-10-30                CWE Content Team                                                                                 MITRE
+                           updated Demonstrative_Examples
+ 2013-02-21                CWE Content Team                                                                                 MITRE
+                           updated Alternate_Terms, Applicable_Platforms, Background_Details, Common_Consequences, Maintenance_Notes, Observed_Examples, Potential_Mitigations, References,
+                           Relationships
+ 2014-07-30                CWE Content Team                                                                                 MITRE
+                           updated Relationships, Taxonomy_Mappings
+ 2015-12-07                CWE Content Team                                                                                 MITRE
+                           updated Observed_Examples, References, Relationships
+ 2017-05-03                CWE Content Team                                                                                 MITRE
+                           updated Applicable_Platforms, Demonstrative_Examples, Description, Potential_Mitigations, References
+ 2017-11-08                CWE Content Team                                                                                 MITRE
+                           updated Applicable_Platforms, Common_Consequences, Demonstrative_Examples, Modes_of_Introduction, Potential_Mitigations, References, Relationships
+ 2018-03-27                CWE Content Team                                                                                 MITRE
+                           updated Relationships
+ 2019-01-03                CWE Content Team                                                                                 MITRE
+                           updated Related_Attack_Patterns, Relationships, Taxonomy_Mappings
+ 2019-06-20                CWE Content Team                                                                                 MITRE
+                           updated Type
+ 2019-09-19                CWE Content Team                                                                                 MITRE
+                           updated Relationships
+ 2020-02-24                CWE Content Team                                                                                 MITRE
+                           updated Observed_Examples, References, Relationships
+ 2020-06-25                CWE Content Team                                                                                 MITRE
+                           updated Alternate_Terms, Potential_Mitigations
+ 2020-08-20                CWE Content Team                                                                                 MITRE
+                           updated Relationships
+ 2020-12-10                CWE Content Team                                                                                 MITRE
+                           updated Relationships
+ 2021-07-20                CWE Content Team                                                                                 MITRE
+                           updated Relationships
+ 2021-10-28                CWE Content Team                                                                                 MITRE
+                           updated Relationships
+ 2022-06-28                CWE Content Team                                                                                 MITRE
+                           updated Relationships
+ 2022-10-13                CWE Content Team                                                                                 MITRE
+                           updated Applicable_Platforms
+ 2023-01-31                CWE Content Team                                                                                 MITRE
+                           updated Description
+ 2023-04-27                CWE Content Team                                                                                 MITRE
+                           updated Detection_Factors, References, Relationships
+ 2023-06-29                CWE Content Team                                                                                 MITRE
+                           updated Mapping_Notes, Relationships
+ More information is available — Please edit the custom filter or select a different filter.
+Page Last Updated: February 29, 2024
+ 
+      Site Map | Terms of Use | Manage Cookies | Cookie Notice | Privacy Policy | Contact Us | CWE X-Twitter CWE Mastodon CWE on LinkedIn CWE YouTube channel CWE Out-of-Bounds-Read Podcast CWE
+      Blog on Medium blog
+
+MITRE Use of the Common Weakness Enumeration (CWE™) and the associated references from this website are subject to the Terms of Use. CWE is sponsored by the U.S. Department of Homeland         HSSEDI
+      Security (DHS) Cybersecurity and Infrastructure Security Agency (CISA) and managed by the Homeland Security Systems Engineering and Development Institute (HSSEDI) which is operated by
+      The MITRE Corporation (MITRE). Copyright © 2006–2024, The MITRE Corporation. CWE, CWSS, CWRAF, and the CWE logo are trademarks of The MITRE Corporation.
+

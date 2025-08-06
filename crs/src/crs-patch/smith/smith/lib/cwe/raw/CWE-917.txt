@@ -1,0 +1,248 @@
+CWE
+
+Common Weakness Enumeration
+
+A community-developed list of SW & HW weaknesses that can become vulnerabilities
+
+New to CWE? click here!
+CWE Most Important Hardware Weaknesses
+CWE Top 25 Most Dangerous Weaknesses
+Home > CWE List > CWE- Individual Dictionary Definition (4.14)                                                                                                   ID Lookup: [                    ] [Go]
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  • Home
+  • About ▼
+    About New to CWE User Stories History Documents FAQs Glossary Compatibility
+  • CWE List ▼
+    Latest Version Downloads Reports Visualizations Archive
+  • Mapping ▼
+    Root Cause Mapping Guidance Root Cause Mapping Quick Tips Root Cause Mapping Examples
+  • Top-N Lists ▼
+    Top 25 Software Top Hardware Top 10 KEV Weaknesses
+  • Community ▼
+    Community Working Groups & Special Interest Groups Board Board Meeting Minutes CWE Discussion List CWE Discussion Archives Contribute Weakness Content to CWE
+  • News ▼
+    Current News X-Twitter ● Mastodon ● LinkedIn ● YouTube YouTube Podcast Out of Bounds Read Podcast Medium Medium News Archive
+  • Search
+
+ 
+ CWE Glossary Definition                  x
+ 
+ 
+ CWE-917: Improper Neutralization of Special Elements used in an Expression Language Statement ('Expression Language Injection')
+ 
+ Weakness ID: 917
+ Vulnerability Mapping: ALLOWEDThis CWE ID may be used to map to real-world vulnerabilities
+ Abstraction: BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level
+ weaknesses typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.
+ View customized information:
+ Conceptual For users who are interested in more notional aspects of a weakness. Example: educators, technical writers, and project/program managers. Operational For users who are concerned with the
+ practical application and details about the nature of a weakness and how to prevent it from happening. Example: tool developers, security researchers, pen-testers, incident response analysts. Mapping
+ Friendly For users who are mapping an issue to CWE/CAPEC IDs, i.e., finding the most appropriate CWE for a specific issue (e.g., a CVE record). Example: tool developers, security researchers. 
+ Complete For users who wish to see all available information for the CWE/CAPEC entry. Custom For users who want to customize what details are displayed.
+ ×
+
+ Edit Custom Filter
+
+ Conceptual Operational Mapping Friendly Select All
+ 
+ Reset Clear Submit Cancel
+ + Description
+ The product constructs all or part of an expression language (EL) statement in a framework such as a Java Server Page (JSP) using externally-influenced input from an upstream component, but it does
+ not neutralize or incorrectly neutralizes special elements that could modify the intended EL statement before it is executed.
+ + Extended Description
+ Frameworks such as Java Server Page (JSP) allow a developer to insert executable expressions within otherwise-static content. When the developer is not aware of the executable nature of these
+ expressions and/or does not disable them, then if an attacker can inject expressions, this could lead to code execution or other unexpected behaviors.
+ + Alternate Terms
+ EL Injection
+ + Relationships
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Research Concepts" (CWE-1000)
+     Nature                                                                                                                                                                             Type                                                                                                                                                                           ID         Name
+ ChildOf                                                                               ClassClass - a weakness that is described in a very abstract fashion, typically independent of any specific language or technology. More specific than a Pillar Weakness, but more general than a Base                                                                        77      Improper
+                                                                                                                    Weakness. Class level weaknesses typically describe issues in terms of 1 or 2 of the following dimensions: behavior, property, and resource.                                                                                                             Neutralization
+                                                                                                                                                                                                                                                                                                                                                                             of Special
+                                                                                                                                                                                                                                                                                                                                                                             Elements used
+                                                                                                                                                                                                                                                                                                                                                                             in a Command
+                                                                                                                                                                                                                                                                                                                                                                             ('Command
+                                                                                                                                                                                                                                                                                                                                                                             Injection')
+ PeerOf                                                                                    BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level weaknesses                                                                           1336    Improper
+                                                                                                                          typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                  Neutralization
+                                                                                                                                                                                                                                                                                                                                                                             of Special
+                                                                                                                                                                                                                                                                                                                                                                             Elements Used
+                                                                                                                                                                                                                                                                                                                                                                             in a Template
+                                                                                                                                                                                                                                                                                                                                                                             Engine
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Software Development" (CWE-699)
+     Nature                                                       Type                                                     ID                                   Name
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 137     Data Neutralization Issues
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Weaknesses for Simplified Mapping of Published Vulnerabilities" (CWE-1003)
+     Nature                                                                                                                                                                             Type                                                                                                                                                                           ID         Name
+ ChildOf                                                                               ClassClass - a weakness that is described in a very abstract fashion, typically independent of any specific language or technology. More specific than a Pillar Weakness, but more general than a Base                                                                        74      Improper
+                                                                                                                    Weakness. Class level weaknesses typically describe issues in terms of 1 or 2 of the following dimensions: behavior, property, and resource.                                                                                                             Neutralization
+                                                                                                                                                                                                                                                                                                                                                                             of Special
+                                                                                                                                                                                                                                                                                                                                                                             Elements in
+                                                                                                                                                                                                                                                                                                                                                                             Output Used by
+                                                                                                                                                                                                                                                                                                                                                                             a Downstream
+                                                                                                                                                                                                                                                                                                                                                                             Component
+                                                                                                                                                                                                                                                                                                                                                                             ('Injection')
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "CISQ Quality Measures (2020)" (CWE-1305)
+     Nature                                                                                                                                                                             Type                                                                                                                                                                           ID         Name
+ ChildOf                                                                               ClassClass - a weakness that is described in a very abstract fashion, typically independent of any specific language or technology. More specific than a Pillar Weakness, but more general than a Base                                                                        77      Improper
+                                                                                                                    Weakness. Class level weaknesses typically describe issues in terms of 1 or 2 of the following dimensions: behavior, property, and resource.                                                                                                             Neutralization
+                                                                                                                                                                                                                                                                                                                                                                             of Special
+                                                                                                                                                                                                                                                                                                                                                                             Elements used
+                                                                                                                                                                                                                                                                                                                                                                             in a Command
+                                                                                                                                                                                                                                                                                                                                                                             ('Command
+                                                                                                                                                                                                                                                                                                                                                                             Injection')
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "CISQ Data Protection Measures" (CWE-1340)
+     Nature                                                                                                                                                                             Type                                                                                                                                                                           ID         Name
+ ChildOf                                                                               ClassClass - a weakness that is described in a very abstract fashion, typically independent of any specific language or technology. More specific than a Pillar Weakness, but more general than a Base                                                                        77      Improper
+                                                                                                                    Weakness. Class level weaknesses typically describe issues in terms of 1 or 2 of the following dimensions: behavior, property, and resource.                                                                                                             Neutralization
+                                                                                                                                                                                                                                                                                                                                                                             of Special
+                                                                                                                                                                                                                                                                                                                                                                             Elements used
+                                                                                                                                                                                                                                                                                                                                                                             in a Command
+                                                                                                                                                                                                                                                                                                                                                                             ('Command
+                                                                                                                                                                                                                                                                                                                                                                             Injection')
+ + Modes Of Introduction
+ Section HelpThe different Modes of Introduction provide information about how and when this weakness may be introduced. The Phase identifies a point in the life cycle at which introduction may occur,
+ while the Note provides a typical scenario related to introduction during the given phase.
+          Phase                                                                                             Note
+ Architecture and Design
+ Implementation
+ + Applicable Platforms
+ Section HelpThis listing shows possible areas for which the given weakness could appear. These may be for specific named Languages, Operating Systems, Architectures, Paradigms, Technologies, or a
+ class of such platforms. The platform is listed along with how frequently the given weakness appears for that instance.
+
+ Languages
+
+ Java (Undetermined Prevalence)
+
+ + Common Consequences
+ Section HelpThis table specifies different individual consequences associated with the weakness. The Scope identifies the application security area that is violated, while the Impact describes the
+ negative technical impact that arises if an adversary succeeds in exploiting this weakness. The Likelihood provides information about how likely the specific consequence is expected to be seen
+ relative to the other consequences in the list. For example, there may be high likelihood that a weakness will be exploited to achieve a certain impact, but a low likelihood that it will be exploited
+ to achieve a different impact.
+       Scope                                                                                     Impact                                                                                 Likelihood
+ Confidentiality    Technical Impact: Read Application Data
+
+ Integrity          Technical Impact: Execute Unauthorized Code or Commands
+
+ + Observed Examples
+        Reference                                                                                        Description
+ CVE-2021-44228          Product does not neutralize ${xyz} style expressions, allowing remote code execution. (log4shell vulnerability in log4j)
+ + Potential Mitigations
+ Phase: Architecture and Design
+
+ Avoid adding user-controlled data into an expression interpreter when possible.
+ Phase: Implementation
+
+ If user-controlled data must be added to an expression interpreter, one or more of the following should be performed:
+
+   • Validate that the user input will not evaluate as an expression
+   • Encode the user input in a way that ensures it is not evaluated as an expression
+
+ Phases: System Configuration; Operation
+
+ The framework or tooling might allow the developer to disable or deactivate the processing of EL expressions, such as setting the isELIgnored attribute for a JSP page to "true".
+ + Weakness Ordinalities
+ Ordinality                                                                                       Description
+ Primary    (where the weakness exists independent of other weaknesses)
+ + Detection Methods
+ Automated Static Analysis
+
+ Automated static analysis, commonly referred to as Static Application Security Testing (SAST), can find some instances of this weakness by analyzing source code (or binary/compiled code) without
+ having to execute it. Typically, this is done by building a model of data flow and control flow, then searching for potentially-vulnerable patterns that connect "sources" (origins of input) with
+ "sinks" (destinations where the data interacts with external components, a lower layer such as the OS, etc.)
+
+ Effectiveness: High
+
+ + Memberships
+ Section HelpThis MemberOf Relationships table shows additional CWE Categories and Views that reference this weakness as a member. This information is often useful in understanding where a weakness
+ fits within the context of external information sources.
+     Nature                                                       Type                                                     ID                                   Name
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 1027    OWASP Top Ten 2017 Category A1 - Injection
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 1347    OWASP Top Ten 2021 Category A03:2021 - Injection
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 1409    Comprehensive Categorization: Injection
+ + Vulnerability Mapping Notes
+ Usage: ALLOWED
+
+ (this CWE ID could be used to map to real-world vulnerabilities)
+ Reason: Acceptable-Use
+
+ Rationale:
+
+ This CWE entry is at the Base level of abstraction, which is a preferred level of abstraction for mapping to the root causes of vulnerabilities.
+ Comments:
+
+ Carefully read both the name and description to ensure that this mapping is an appropriate fit. Do not try to 'force' a mapping to a lower-level Base/Variant simply to comply with this preferred
+ level of abstraction.
+ + Notes
+ 
+ Relationship
+
+ In certain versions of Spring 3.0.5 and earlier, there was a vulnerability (CVE-2011-2730) in which Expression Language tags would be evaluated twice, which effectively exposed any application to EL
+ injection. However, even for later versions, this weakness is still possible depending on configuration.
+
+ Maintenance
+
+ The interrelationships and differences between CWE-917 and CWE-1336 need to be further clarified.
+ + References
+ [REF-911] Stefano Di Paola and Arshan Dabirsiaghi. "Expression Language Injection". 2011-09-12. <https://mindedsecurity.com/wp-content/uploads/2020/10/ExpressionLanguageInjection.pdf>. URL
+ validated: 2023-04-07.
+ [REF-912] Dan Amodio. "Remote Code with Expression Language Injection". 2012-12-14. <http://danamodio.com/appsec/research/spring-remote-code-with-expression-language-injection/>. URL validated:
+ 2023-04-07.
+ [REF-1279] CWE/CAPEC. "Neutralizing Your Inputs: A Log4Shell Weakness Story". <https://medium.com/@CWE_CAPEC/neutralizing-your-inputs-a-log4shell-weakness-story-89954c8b25c9>.
+ [REF-1280] OWASP. "Expression Language Injection". <https://owasp.org/www-community/vulnerabilities/Expression_Language_Injection>.
+ + Content History
+                                                                                            + Submissions
+         Submission Date                                                       Submitter                                                                       Organization
+ 2013-02-15                       CWE Content Team                                                                                     MITRE
+ (CWE 2.4, 2013-02-21)
+
+                                                                                           + Contributions
+        Contribution Date                                                     Contributor                                                                      Organization
+ 2013-02-15                       Dan Amodio, Dave Wichers                                                                             Aspect Security
+                                  Suggested adding this weakness and provided references.
+                                                                                           + Modifications
+        Modification Date                                                       Modifier                                                                       Organization
+ 2017-11-08                       CWE Content Team                                                                                     MITRE
+                                  updated References
+ 2018-03-27                       CWE Content Team                                                                                     MITRE
+                                  updated Relationships
+ 2020-02-24                       CWE Content Team                                                                                     MITRE
+                                  updated Relationships
+ 2020-08-20                       CWE Content Team                                                                                     MITRE
+                                  updated Relationships
+ 2020-12-10                       CWE Content Team                                                                                     MITRE
+                                  updated Relationships
+ 2021-07-20                       CWE Content Team                                                                                     MITRE
+                                  updated References
+ 2021-10-28                       CWE Content Team                                                                                     MITRE
+                                  updated Relationships
+ 2022-06-28                       CWE Content Team                                                                                     MITRE
+                                  updated Description, Maintenance_Notes, Observed_Examples, Potential_Mitigations, References, Relationships
+ 2023-01-31                       CWE Content Team                                                                                     MITRE
+                                  updated Description
+ 2023-04-27                       CWE Content Team                                                                                     MITRE
+                                  updated Detection_Factors, References, Relationships
+ 2023-06-29                       CWE Content Team                                                                                     MITRE
+                                  updated Mapping_Notes
+ More information is available — Please edit the custom filter or select a different filter.
+Page Last Updated: February 29, 2024
+ 
+      Site Map | Terms of Use | Manage Cookies | Cookie Notice | Privacy Policy | Contact Us | CWE X-Twitter CWE Mastodon CWE on LinkedIn CWE YouTube channel CWE Out-of-Bounds-Read Podcast CWE
+      Blog on Medium blog
+
+MITRE Use of the Common Weakness Enumeration (CWE™) and the associated references from this website are subject to the Terms of Use. CWE is sponsored by the U.S. Department of Homeland         HSSEDI
+      Security (DHS) Cybersecurity and Infrastructure Security Agency (CISA) and managed by the Homeland Security Systems Engineering and Development Institute (HSSEDI) which is operated by
+      The MITRE Corporation (MITRE). Copyright © 2006–2024, The MITRE Corporation. CWE, CWSS, CWRAF, and the CWE logo are trademarks of The MITRE Corporation.
+

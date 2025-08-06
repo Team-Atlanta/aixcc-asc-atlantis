@@ -1,0 +1,207 @@
+CWE
+
+Common Weakness Enumeration
+
+A community-developed list of SW & HW weaknesses that can become vulnerabilities
+
+New to CWE? click here!
+CWE Most Important Hardware Weaknesses
+CWE Top 25 Most Dangerous Weaknesses
+Home > CWE List > CWE- Individual Dictionary Definition (4.14)                                                                                                   ID Lookup: [                    ] [Go]
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  • Home
+  • About ▼
+    About New to CWE User Stories History Documents FAQs Glossary Compatibility
+  • CWE List ▼
+    Latest Version Downloads Reports Visualizations Archive
+  • Mapping ▼
+    Root Cause Mapping Guidance Root Cause Mapping Quick Tips Root Cause Mapping Examples
+  • Top-N Lists ▼
+    Top 25 Software Top Hardware Top 10 KEV Weaknesses
+  • Community ▼
+    Community Working Groups & Special Interest Groups Board Board Meeting Minutes CWE Discussion List CWE Discussion Archives Contribute Weakness Content to CWE
+  • News ▼
+    Current News X-Twitter ● Mastodon ● LinkedIn ● YouTube YouTube Podcast Out of Bounds Read Podcast Medium Medium News Archive
+  • Search
+
+ 
+ CWE Glossary Definition                  x
+ 
+ 
+ CWE-733: Compiler Optimization Removal or Modification of Security-critical Code
+ 
+ Weakness ID: 733
+ Vulnerability Mapping: ALLOWEDThis CWE ID may be used to map to real-world vulnerabilities
+ Abstraction: BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level
+ weaknesses typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.
+ View customized information:
+ Conceptual For users who are interested in more notional aspects of a weakness. Example: educators, technical writers, and project/program managers. Operational For users who are concerned with the
+ practical application and details about the nature of a weakness and how to prevent it from happening. Example: tool developers, security researchers, pen-testers, incident response analysts. Mapping
+ Friendly For users who are mapping an issue to CWE/CAPEC IDs, i.e., finding the most appropriate CWE for a specific issue (e.g., a CVE record). Example: tool developers, security researchers. 
+ Complete For users who wish to see all available information for the CWE/CAPEC entry. Custom For users who want to customize what details are displayed.
+ ×
+
+ Edit Custom Filter
+
+ Conceptual Operational Mapping Friendly Select All
+ 
+ Reset Clear Submit Cancel
+ + Description
+ The developer builds a security-critical protection mechanism into the software, but the compiler optimizes the program such that the mechanism is removed or modified.
+ + Relationships
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Research Concepts" (CWE-1000)
+     Nature                                                                                                                                                                             Type                                                                                                                                                                           ID        Name
+ ChildOf                                                                               ClassClass - a weakness that is described in a very abstract fashion, typically independent of any specific language or technology. More specific than a Pillar Weakness, but more general than a Base                                                                        1038    Insecure
+                                                                                                                    Weakness. Class level weaknesses typically describe issues in terms of 1 or 2 of the following dimensions: behavior, property, and resource.                                                                                                             Automated
+                                                                                                                                                                                                                                                                                                                                                                             Optimizations
+ ParentOf                                                                              VariantVariant - a weakness that is linked to a certain type of product, typically involving a specific language or technology. More specific than a Base weakness. Variant level weaknesses typically                                                                        14      Compiler
+                                                                                                                               describe issues in terms of 3 to 5 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                       Removal of
+                                                                                                                                                                                                                                                                                                                                                                             Code to Clear
+                                                                                                                                                                                                                                                                                                                                                                             Buffers
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Software Development" (CWE-699)
+     Nature                                                       Type                                                     ID                                   Name
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 438     Behavioral Problems
+ + Applicable Platforms
+ Section HelpThis listing shows possible areas for which the given weakness could appear. These may be for specific named Languages, Operating Systems, Architectures, Paradigms, Technologies, or a
+ class of such platforms. The platform is listed along with how frequently the given weakness appears for that instance.
+
+ Languages
+
+ C (Often Prevalent)
+
+ C++ (Often Prevalent)
+
+ Class: Compiled (Undetermined Prevalence)
+
+ + Common Consequences
+ Section HelpThis table specifies different individual consequences associated with the weakness. The Scope identifies the application security area that is violated, while the Impact describes the
+ negative technical impact that arises if an adversary succeeds in exploiting this weakness. The Likelihood provides information about how likely the specific consequence is expected to be seen
+ relative to the other consequences in the list. For example, there may be high likelihood that a weakness will be exploited to achieve a certain impact, but a low likelihood that it will be exploited
+ to achieve a different impact.
+       Scope                                                                                     Impact                                                                                 Likelihood
+ Access Control     Technical Impact: Bypass Protection Mechanism; Other
+ Other
+ + Demonstrative Examples
+ 
+ Example 1
+
+ The following code reads a password from the user, uses the password to connect to a back-end mainframe and then attempts to scrub the password from memory using memset().
+
+ (bad code)
+ Example Language: C 
+ void GetData(char *MFAddr) {
+ char pwd[64];
+ if (GetPasswordFromUser(pwd, sizeof(pwd))) {
+
+ if (ConnectToMainframe(MFAddr, pwd)) {
+
+ // Interaction with mainframe
+ }
+ }
+ memset(pwd, 0, sizeof(pwd));
+ }
+
+ The code in the example will behave correctly if it is executed verbatim, but if the code is compiled using an optimizing compiler, such as Microsoft Visual C++ .NET or GCC 3.x, then the call to
+ memset() will be removed as a dead store because the buffer pwd is not used after its value is overwritten [18]. Because the buffer pwd contains a sensitive value, the application may be vulnerable
+ to attack if the data are left memory resident. If attackers are able to access the correct region of memory, they may use the recovered password to gain control of the system.
+
+ It is common practice to overwrite sensitive data manipulated in memory, such as passwords or cryptographic keys, in order to prevent attackers from learning system secrets. However, with the advent
+ of optimizing compilers, programs do not always behave as their source code alone would suggest. In the example, the compiler interprets the call to memset() as dead code because the memory being
+ written to is not subsequently used, despite the fact that there is clearly a security motivation for the operation to occur. The problem here is that many compilers, and in fact many programming
+ languages, do not take this and other security concerns into consideration in their efforts to improve efficiency.
+
+ Attackers typically exploit this type of vulnerability by using a core dump or runtime mechanism to access the memory used by a particular application and recover the secret information. Once an
+ attacker has access to the secret information, it is relatively straightforward to further exploit the system and possibly compromise other resources with which the application interacts.
+
+ + Observed Examples
+        Reference                                                                                        Description
+ CVE-2008-1685           C compiler optimization, as allowed by specifications, removes code that is used to perform checks to detect integer overflows.
+ CVE-2019-1010006        Chain: compiler optimization (CWE-733) removes or modifies code used to detect integer overflow (CWE-190), allowing out-of-bounds write (CWE-787).
+ + Detection Methods
+ Black Box
+
+ This specific weakness is impossible to detect using black box methods. While an analyst could examine memory to see that it has not been scrubbed, an analysis of the executable would not be
+ successful. This is because the compiler has already removed the relevant code. Only the source code shows whether the programmer intended to clear the memory or not, so this weakness is
+ indistinguishable from others.
+ White Box
+
+ This weakness is only detectable using white box methods (see black box detection factor). Careful analysis is required to determine if the code is likely to be removed by the compiler.
+ + Memberships
+ Section HelpThis MemberOf Relationships table shows additional CWE Categories and Views that reference this weakness as a member. This information is often useful in understanding where a weakness
+ fits within the context of external information sources.
+     Nature                                                       Type                                                     ID                                   Name
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 976     SFP Secondary Cluster: Compiler
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 1398    Comprehensive Categorization: Component Interaction
+ + Vulnerability Mapping Notes
+ Usage: ALLOWED
+
+ (this CWE ID could be used to map to real-world vulnerabilities)
+ Reason: Acceptable-Use
+
+ Rationale:
+
+ This CWE entry is at the Base level of abstraction, which is a preferred level of abstraction for mapping to the root causes of vulnerabilities.
+ Comments:
+
+ Carefully read both the name and description to ensure that this mapping is an appropriate fit. Do not try to 'force' a mapping to a lower-level Base/Variant simply to comply with this preferred
+ level of abstraction.
+ + Related Attack Patterns
+    CAPEC-ID                                                                                     Attack Pattern Name
+ CAPEC-10        Buffer Overflow via Environment Variables
+ CAPEC-24        Filter Failure through Buffer Overflow
+ CAPEC-46        Overflow Variables and Tags
+ CAPEC-8         Buffer Overflow in an API Call
+ CAPEC-9         Buffer Overflow in Local Command-Line Utilities
+ + References
+ [REF-7] Michael Howard and David LeBlanc. "Writing Secure Code". Chapter 9, "A Compiler Optimization Caveat" Page 322. 2nd Edition. Microsoft Press. 2002-12-04. <https://
+ www.microsoftpressstore.com/store/writing-secure-code-9780735617223>.
+ + Content History
+                                                                                            + Submissions
+              Submission Date                                                     Submitter                                                                   Organization
+ 2008-10-01                                CWE Content Team                                                                         MITRE
+ (CWE 1.0.1, 2008-10-14)                   new weakness-focused entry for Research view closes the gap between 14 and 435.
+                                                                                           + Modifications
+             Modification Date                                                     Modifier                                                                   Organization
+ 2008-11-24                                CWE Content Team                                                                         MITRE
+                                           updated Detection_Factors
+ 2009-03-10                                CWE Content Team                                                                         MITRE
+                                           updated Applicable_Platforms, Observed_Examples, Related_Attack_Patterns, Relationships
+ 2010-02-16                                CWE Content Team                                                                         MITRE
+                                           updated References
+ 2011-06-01                                CWE Content Team                                                                         MITRE
+                                           updated Common_Consequences
+ 2012-05-11                                CWE Content Team                                                                         MITRE
+                                           updated Relationships
+ 2014-07-30                                CWE Content Team                                                                         MITRE
+                                           updated Relationships
+ 2017-01-19                                CWE Content Team                                                                         MITRE
+                                           updated Relationships
+ 2017-11-08                                CWE Content Team                                                                         MITRE
+                                           updated References, Relationships
+ 2018-03-27                                CWE Content Team                                                                         MITRE
+                                           updated References, Relationships
+ 2020-02-24                                CWE Content Team                                                                         MITRE
+                                           updated Relationships
+ 2020-06-25                                CWE Content Team                                                                         MITRE
+                                           updated Observed_Examples
+ 2023-04-27                                CWE Content Team                                                                         MITRE
+                                           updated Relationships
+ 2023-06-29                                CWE Content Team                                                                         MITRE
+                                           updated Mapping_Notes
+ 2024-02-29                                CWE Content Team                                                                         MITRE
+ (CWE 4.14, 2024-02-29)                    updated Demonstrative_Examples
+ More information is available — Please edit the custom filter or select a different filter.
+Page Last Updated: February 29, 2024
+ 
+      Site Map | Terms of Use | Manage Cookies | Cookie Notice | Privacy Policy | Contact Us | CWE X-Twitter CWE Mastodon CWE on LinkedIn CWE YouTube channel CWE Out-of-Bounds-Read Podcast CWE
+      Blog on Medium blog
+
+MITRE Use of the Common Weakness Enumeration (CWE™) and the associated references from this website are subject to the Terms of Use. CWE is sponsored by the U.S. Department of Homeland         HSSEDI
+      Security (DHS) Cybersecurity and Infrastructure Security Agency (CISA) and managed by the Homeland Security Systems Engineering and Development Institute (HSSEDI) which is operated by
+      The MITRE Corporation (MITRE). Copyright © 2006–2024, The MITRE Corporation. CWE, CWSS, CWRAF, and the CWE logo are trademarks of The MITRE Corporation.
+

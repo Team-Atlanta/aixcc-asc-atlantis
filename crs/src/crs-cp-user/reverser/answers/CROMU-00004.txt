@@ -1,0 +1,8 @@
+INPUT ::= COMMAND_CNT { size: 4 }
+          COMMAND[COMMAND_CNT]
+
+COMMAND ::= DECODE_WAV
+
+DECODE_WAV ::= OPCODE { size: 4, value: 0 }
+               SIZE { size: 4 }
+               WAV_DATA { size: SIZE }

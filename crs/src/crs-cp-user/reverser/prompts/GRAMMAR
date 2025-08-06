@@ -1,0 +1,115 @@
+# Testlang Syntax
+The syntax of testlang is defined by the following lark (extended Backus-Naur form) grammar:
+<lark>
+start: globals_? (record "\n"*)*
+
+globals_: "GLOBALS" "::=" global_+
+
+global_: CNAME "{" [ value_attribute | size_attribute ]+ "}" "\n"
+
+record: CNAME "::=" field+                -> seq
+      | CNAME "::=" field ("|" field)*    -> union
+
+field: normal
+     | CNAME "[" literal "]" "\n"         -> array
+     | CNAME "\n"                         -> reference
+
+normal: CNAME "{" attribute_list "}" "\n"
+
+attribute_list: [attribute ("," attribute)*]
+attribute: size_attribute
+         | value_attribute
+         | type_attribute
+         | terminator_attribute
+size_attribute: /size/ ":" literal
+value_attribute: /value/ ":" literal
+type_attribute: /type/ ":" /string/
+terminator_attribute: /terminator/ ":" number
+
+literal: number | CNAME
+number: ( ( "0x" (HEXDIGIT)+ ) | ( ["+" | "-"] (DIGIT)+ ) )
+
+%import common.CNAME
+%import common.HEXDIGIT
+%import common.DIGIT
+%ignore " "
+</lark>
+
+Testlang MUST be a tree! No cyclic or self-referential constructions, and all fields must be newline separated.
+
+The start of the data blob format is the INPUT record. INPUT is mandatory!
+
+# Common patterns
+If and only if the length of a variable data field is encoded in the input, then specify the length as a field and reference
+that length field in the variable data field. Example:
+<testlang>
+INPUT ::= DATA_SIZE { size: 4 }    // 4 bytes integer, encoded in data
+          DATA { size: DATA_SIZE } // field of length DATA_SIZE bytes
+</testlang>
+If the length is not encoded in the data blob, then use the GLOBALS record to create a field that can be referenced. Example:
+<testlang>
+GLOBALS ::= DATA_SIZE { size: 4 }  // 4 bytes integer, not encoded in data
+
+INPUT ::= DATA { size: DATA_SIZE } // field of length DATA_SIZE bytes
+</testlang>
+
+# Arrays
+A common error is to combine normal attributes with arrays. When describing an array of a data field, create a new
+record for that data field.
+
+Instead of:
+<testlang>
+INPUT ::= ITEMS_SIZE { size: 4 }
+          ITEMS[ITEMS_SIZE] { size: 4 }
+</testlang>
+Do this:
+<testlang>
+INPUT ::= ITEMS_SIZE { size: 4 }
+          ITEMS[ITEMS_SIZE]
+
+ITEMS ::= ITEM { size: 4 }
+</testlang>
+
+# Globals
+All attribute values (e.g. size) must either be a literal or reference a field.
+This property becomes an issue when a reference (e.g. value of `size`) is not encoded
+within the data blob itself.
+We introduce the special record "GLOBALS", whose fields are able to be referenced by
+any attribute and whose fields are invisible to the data blob. The sole purpose of
+"GLOBALS" is to provide fields that can be referenced by the data blob internals.
+
+Here is the difference between an attribute referencing a fields encoded in the data blob
+vs. referencing a field that isn't encoded in the data.
+
+Referencing something encoded in data:
+<testlang>
+INPUT ::= NAME_SIZE { size: 4 }
+          NAME_DATA { size: NAME_SIZE }
+</testlang>
+Data blob format in more human understanding:
+DATA = [ NAME_SIZE, 4 bytes ] [ NAME_DATA, NAME_SIZE bytes ]
+
+<testlang>
+GLOBALS ::= NAME_SIZE { size: 4 }
+
+INPUT ::= NAME_DATA { size: NAME_SIZE }
+</testlang>
+Data blob format in more human understanding:
+DATA = [ NAME_DATA, arbitrary bytes ]
+
+# Attributes
+The size attribute is mandatory UNLESS the terminator attribute is present.
+
+The value attribute is used when the field has a fixed value.
+
+The terminator attribute denotes the value of the last byte of the field. Reference the
+ASCII table provided below. USE THE DECIMAL REPRESENTATION.
+Common terminators/delimiters include:
+- 0: null byte (\0)
+- 10: newline (\n)
+- 32: space
+
+# Usage
+DO NOT deviate from the syntax provided above! The goal is to provide a data format that
+lets the fuzzer more efficiently explore code, but should not restrict the fuzzer's
+ability to trigger memory bugs.

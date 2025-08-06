@@ -1,0 +1,109 @@
+# This file is used just for exposing host ports for local Docker Compose development
+# Competitors: You may modify this file to make local development easier.
+# This file will not impact services at competition, only local development.
+
+# We recommend you only bind ports to 127.0.0.1 in this file & have a GitHub action checking this.
+# If you need to bind to other interfaces, putting a comment in this file containing only "exposed-port-check: disable" will turn off that check.
+
+---
+services:
+
+  iapi:
+    ports:
+      - '127.0.0.1:8080:8080'
+    configs:
+      - source: nginx_local_config
+        target: /etc/nginx/templates/default.conf.template
+    depends_on:
+      capi:
+        condition: service_healthy
+
+  dind:
+    # deploy:
+    #   resources:
+    #     limits:
+    #       cpus: '8'
+    #       memory: 8GB
+    #     reservations:
+    #       cpus: '1'
+    #       memory: 256M
+    volumes:
+      - type: bind
+        source: ${PWD}/dind_cache
+        target: /var/lib/docker
+        bind:
+          propagation: rprivate
+  capi:
+    # ports:
+    #   - "127.0.0.1:8082:8080"
+    volumes:
+      - type: bind
+        source: ${PWD}/capi_logs
+        target: /var/log/capi
+        bind:
+          propagation: rshared
+      - type: bind
+        source: ${PWD}/cp_root
+        target: /cp_root
+        bind:
+          propagation: rshared
+  # db:
+  #   ports:
+  #     - "127.0.0.1:5432:5432"
+  litellm:
+    ports:
+      - '127.0.0.1:8081:80'
+
+  vapi:
+    volumes:
+      - type: bind
+        source: ${PWD}/crs_scratch
+        target: /crs_scratch
+        bind:
+          propagation: rshared
+      - ./cp_root:/cp_root
+
+  crs-patch:
+    volumes:
+      - type: bind
+        source: ${PWD}/crs_scratch
+        target: /crs_scratch
+        bind:
+          propagation: rshared
+      - ./cp_root:/cp_root
+
+  crs-cp-user:
+    volumes:
+      - type: bind
+        source: ${PWD}/crs_scratch
+        target: /crs_scratch
+        bind:
+          propagation: rshared
+      - ./cp_root:/cp_root
+
+  crs-cp-user-worker:
+    volumes:
+      - type: bind
+        source: ${PWD}/crs_scratch
+        target: /crs_scratch
+        bind:
+          propagation: rshared
+      - ./cp_root:/cp_root
+  
+  crs-cp-linux:
+    volumes:
+      - type: bind
+        source: ${PWD}/crs_scratch
+        target: /crs_scratch
+        bind:
+          propagation: rshared
+      - ./cp_root:/cp_root
+  
+  crs-cp-java:
+    volumes:
+      - type: bind
+        source: ${PWD}/crs_scratch
+        target: /crs_scratch
+        bind:
+          propagation: rshared
+      - ./cp_root:/cp_root

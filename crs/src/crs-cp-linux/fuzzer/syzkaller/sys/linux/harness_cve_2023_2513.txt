@@ -1,0 +1,44 @@
+syz_harness$cve_2023_2513_cmd0(buf ptr[in, harness_cve_2023_2513_cmd0], len bytesize[buf])
+syz_harness$cve_2023_2513_cmd1(buf ptr[in, harness_cve_2023_2513_cmd1], len bytesize[buf])
+syz_harness$cve_2023_2513_cmd2(buf ptr[in, harness_cve_2023_2513_cmd2], len bytesize[buf])
+syz_harness$cve_2023_2513_cmd3(buf ptr[in, harness_cve_2023_2513_cmd3], len bytesize[buf])
+syz_harness$cve_2023_2513_cmd4(buf ptr[in, harness_cve_2023_2513_cmd4], len bytesize[buf])
+
+harness_cve_2023_2513_cmd0 {
+	cmd		int32[0]
+	path_len	len[path, int32]
+	path		cve_2023_2513_filename
+} [packed]
+
+harness_cve_2023_2513_cmd1 {
+	cmd		int32[1]
+	flag		flags[mount_flags, int32]
+	data_len	len[data, int32]
+	data		fs_options[ext4_options]
+} [packed]
+
+harness_cve_2023_2513_cmd2 {
+	cmd	int32[2]
+} [packed]
+
+harness_cve_2023_2513_cmd3 {
+	cmd		int32[3]
+	file_len	len[file, int32]
+	file		cve_2023_2513_filename
+} [packed]
+
+harness_cve_2023_2513_cmd4 {
+	cmd		int32[4]
+	file_len	len[file, int32]
+	file		cve_2023_2513_filename
+	name_len	len[name, int32]
+	name		xattr_name
+	val_len		len[val, int32]
+	val		string
+	flag		flags[setxattr_flags, int32]
+} [packed]
+
+cve_2023_2513_filename {
+	dir_path	stringnoz["/tmp/ext4/"]
+	file		filename
+} [packed]

@@ -1,0 +1,9 @@
+syz_harness$type2_cadet_00001_cmd0(a0 ptr[in, type2_cadet_00001_cmd0], a1 bytesize[a0])
+
+type2_cadet_00001_cmd0 {
+	device_name_len	len[device_name, int32]
+	device_name	string["/dev/CADET-00001"]
+	flags		flags[open_flags, int32]
+	buf_len		len[buf, int32]
+	buf		array[int8]
+} [packed]

@@ -1,0 +1,19 @@
+CROMU_00005_POS = "0", "1", "2", "3", "4", "5", "6", "7", "8", "9"
+
+syz_harness$cromu_00005_cmd0(a0 ptr[in, cromu_00005_cmd0], a1 bytesize[a0])
+
+cromu_00005_cmd0_data {
+	pos_x1	stringnoz[CROMU_00005_POS]
+	comma1	stringnoz[","]
+	pos_y1	stringnoz[CROMU_00005_POS]
+	space	stringnoz[" "]
+	pos_x2	stringnoz[CROMU_00005_POS]
+	comma2	stringnoz[","]
+	pos_y2	stringnoz[CROMU_00005_POS]
+} [packed]
+
+cromu_00005_cmd0 {
+	cmd		int32[0]
+	data_len	len[data, int32]
+	data		cromu_00005_cmd0_data
+} [packed]

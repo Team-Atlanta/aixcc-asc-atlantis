@@ -1,0 +1,251 @@
+CWE
+
+Common Weakness Enumeration
+
+A community-developed list of SW & HW weaknesses that can become vulnerabilities
+
+New to CWE? click here!
+CWE Most Important Hardware Weaknesses
+CWE Top 25 Most Dangerous Weaknesses
+Home > CWE List > CWE- Individual Dictionary Definition (4.14)                                                                                                   ID Lookup: [                    ] [Go]
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  • Home
+  • About ▼
+    About New to CWE User Stories History Documents FAQs Glossary Compatibility
+  • CWE List ▼
+    Latest Version Downloads Reports Visualizations Archive
+  • Mapping ▼
+    Root Cause Mapping Guidance Root Cause Mapping Quick Tips Root Cause Mapping Examples
+  • Top-N Lists ▼
+    Top 25 Software Top Hardware Top 10 KEV Weaknesses
+  • Community ▼
+    Community Working Groups & Special Interest Groups Board Board Meeting Minutes CWE Discussion List CWE Discussion Archives Contribute Weakness Content to CWE
+  • News ▼
+    Current News X-Twitter ● Mastodon ● LinkedIn ● YouTube YouTube Podcast Out of Bounds Read Podcast Medium Medium News Archive
+  • Search
+
+ 
+ CWE Glossary Definition                  x
+ 
+ 
+ CWE-640: Weak Password Recovery Mechanism for Forgotten Password
+ 
+ Weakness ID: 640
+ Vulnerability Mapping: ALLOWEDThis CWE ID could be used to map to real-world vulnerabilities in limited situations requiring careful review (with careful review of mapping notes)
+ Abstraction: BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level
+ weaknesses typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.
+ View customized information:
+ Conceptual For users who are interested in more notional aspects of a weakness. Example: educators, technical writers, and project/program managers. Operational For users who are concerned with the
+ practical application and details about the nature of a weakness and how to prevent it from happening. Example: tool developers, security researchers, pen-testers, incident response analysts. Mapping
+ Friendly For users who are mapping an issue to CWE/CAPEC IDs, i.e., finding the most appropriate CWE for a specific issue (e.g., a CVE record). Example: tool developers, security researchers. 
+ Complete For users who wish to see all available information for the CWE/CAPEC entry. Custom For users who want to customize what details are displayed.
+ ×
+
+ Edit Custom Filter
+
+ Conceptual Operational Mapping Friendly Select All
+ 
+ Reset Clear Submit Cancel
+ + Description
+ The product contains a mechanism for users to recover or change their passwords without knowing the original password, but the mechanism is weak.
+ + Extended Description
+ 
+ It is common for an application to have a mechanism that provides a means for a user to gain access to their account in the event they forget their password. Very often the password recovery
+ mechanism is weak, which has the effect of making it more likely that it would be possible for a person other than the legitimate system user to gain access to that user's account. Weak password
+ recovery schemes completely undermine a strong password authentication scheme.
+
+ This weakness may be that the security question is too easy to guess or find an answer to (e.g. because the question is too common, or the answers can be found using social media). Or there might be
+ an implementation weakness in the password recovery mechanism code that may for instance trick the system into e-mailing the new password to an e-mail account other than that of the user. There might
+ be no throttling done on the rate of password resets so that a legitimate user can be denied service by an attacker if an attacker tries to recover their password in a rapid succession. The system
+ may send the original password to the user rather than generating a new temporary password. In summary, password recovery functionality, if not carefully designed and implemented can often become the
+ system's weakest link that can be misused in a way that would allow an attacker to gain unauthorized access to the system.
+
+ + Relationships
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Research Concepts" (CWE-1000)
+     Nature                                                                                                                                                                             Type                                                                                                                                                                           ID         Name
+ ChildOf                                                                               ClassClass - a weakness that is described in a very abstract fashion, typically independent of any specific language or technology. More specific than a Pillar Weakness, but more general than a Base                                                                        1390    Weak
+                                                                                                                    Weakness. Class level weaknesses typically describe issues in terms of 1 or 2 of the following dimensions: behavior, property, and resource.                                                                                                             Authentication
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Software Development" (CWE-699)
+     Nature                                                       Type                                                     ID                                   Name
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 255     Credentials Management Errors
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 840     Business Logic Errors
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Weaknesses for Simplified Mapping of Published Vulnerabilities" (CWE-1003)
+     Nature                                                                                                                                                                             Type                                                                                                                                                                           ID         Name
+ ChildOf                                                                               ClassClass - a weakness that is described in a very abstract fashion, typically independent of any specific language or technology. More specific than a Pillar Weakness, but more general than a Base                                                                        287     Improper
+                                                                                                                    Weakness. Class level weaknesses typically describe issues in terms of 1 or 2 of the following dimensions: behavior, property, and resource.                                                                                                             Authentication
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Architectural Concepts" (CWE-1008)
+     Nature                                                       Type                                                     ID                                   Name
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 1010    Authenticate Actors
+ + Modes Of Introduction
+ Section HelpThe different Modes of Introduction provide information about how and when this weakness may be introduced. The Phase identifies a point in the life cycle at which introduction may occur,
+ while the Note provides a typical scenario related to introduction during the given phase.
+          Phase                                                                                             Note
+ Architecture and Design COMMISSION: This weakness refers to an incorrect design related to an architectural security tactic.
+ Implementation
+ + Applicable Platforms
+ Section HelpThis listing shows possible areas for which the given weakness could appear. These may be for specific named Languages, Operating Systems, Architectures, Paradigms, Technologies, or a
+ class of such platforms. The platform is listed along with how frequently the given weakness appears for that instance.
+
+ Languages
+
+ Class: Not Language-Specific (Undetermined Prevalence)
+
+ + Common Consequences
+ Section HelpThis table specifies different individual consequences associated with the weakness. The Scope identifies the application security area that is violated, while the Impact describes the
+ negative technical impact that arises if an adversary succeeds in exploiting this weakness. The Likelihood provides information about how likely the specific consequence is expected to be seen
+ relative to the other consequences in the list. For example, there may be high likelihood that a weakness will be exploited to achieve a certain impact, but a low likelihood that it will be exploited
+ to achieve a different impact.
+       Scope                                                                                     Impact                                                                                 Likelihood
+                    Technical Impact: Gain Privileges or Assume Identity
+ Access Control
+                    An attacker could gain unauthorized access to the system by retrieving legitimate user's authentication credentials.
+                    Technical Impact: DoS: Resource Consumption (Other)
+ Availability
+                    An attacker could deny service to legitimate system users by launching a brute force attack on the password recovery mechanism using user ids of legitimate
+                    users.
+ Integrity          Technical Impact: Other
+ Other
+                    The system's security functionality is turned against the system by the attacker.
+ + Likelihood Of Exploit
+ High
+ + Demonstrative Examples
+ 
+ Example 1
+
+ A famous example of this type of weakness being exploited is the eBay attack. eBay always displays the user id of the highest bidder. In the final minutes of the auction, one of the bidders could try
+ to log in as the highest bidder three times. After three incorrect log in attempts, eBay password throttling would kick in and lock out the highest bidder's account for some time. An attacker could
+ then make their own bid and their victim would not have a chance to place the counter bid because they would be locked out. Thus an attacker could win the auction.
+
+ + Potential Mitigations
+ Phase: Architecture and Design
+
+ Make sure that all input supplied by the user to the password recovery mechanism is thoroughly filtered and validated.
+ Phase: Architecture and Design
+
+ Do not use standard weak security questions and use several security questions.
+ Phase: Architecture and Design
+
+ Make sure that there is throttling on the number of incorrect answers to a security question. Disable the password recovery functionality after a certain (small) number of incorrect guesses.
+ Phase: Architecture and Design
+
+ Require that the user properly answers the security question prior to resetting their password and sending the new password to the e-mail address of record.
+ Phase: Architecture and Design
+
+ Never allow the user to control what e-mail address the new password will be sent to in the password recovery mechanism.
+ Phase: Architecture and Design
+
+ Assign a new temporary password rather than revealing the original password.
+ + Memberships
+ Section HelpThis MemberOf Relationships table shows additional CWE Categories and Views that reference this weakness as a member. This information is often useful in understanding where a weakness
+ fits within the context of external information sources.
+     Nature                                                       Type                                                     ID                                   Name
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 724     OWASP Top Ten 2004 Category A3 - Broken Authentication and Session
+                                                                                                                                 Management
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 930     OWASP Top Ten 2013 Category A2 - Broken Authentication and Session
+                                                                                                                                 Management
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 959     SFP Secondary Cluster: Weak Cryptography
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 1028    OWASP Top Ten 2017 Category A2 - Broken Authentication
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 1353    OWASP Top Ten 2021 Category A07:2021 - Identification and
+                                                                                                                                 Authentication Failures
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 1396    Comprehensive Categorization: Access Control
+ + Vulnerability Mapping Notes
+ Usage: ALLOWED-WITH-REVIEW
+
+ (this CWE ID could be used to map to real-world vulnerabilities in limited situations requiring careful review)
+ Reason: Frequent Misuse
+
+ Rationale:
+
+ This entry appears to be frequently misused for any weakness related to password changes, even though the name focuses on "Password Recovery" for a "forgotten" password.
+ Comments:
+
+ CWE-640 should only be used when there is a "password recovery" mechanism for forgotten passwords. Consider password-related entries under CWE-1390: Weak Authentication.
+ + Notes
+ 
+ Maintenance
+
+ This entry might be reclassified as a category or "loose composite," since it lists multiple specific errors that can make the mechanism weak. However, under view 1000, it could be a weakness under
+ protection mechanism failure, although it is different from most PMF issues since it is related to a feature that is designed to bypass a protection mechanism (specifically, the lack of knowledge of
+ a password).
+
+ Maintenance
+
+ This entry probably needs to be split; see extended description.
+ + Taxonomy Mappings
+       Mapped Taxonomy Name          Node ID           Fit                                                                Mapped Node Name
+ WASC                             49                             Insufficient Password Recovery
+ + Related Attack Patterns
+    CAPEC-ID                                                                                     Attack Pattern Name
+ CAPEC-50        Password Recovery Exploitation
+ + References
+ [REF-44] Michael Howard, David LeBlanc and John Viega. "24 Deadly Sins of Software Security". "Sin 19: Use of Weak Password-Based Systems." Page 279. McGraw-Hill. 2010.
+ + Content History
+                                                                                           + Submissions
+       Submission Date                                                  Submitter                                                                         Organization
+ 2008-01-30                  Evgeny Lebanidze                                                                                Cigital
+ (CWE Draft 8, 2008-01-30)
+
+                                                                                          + Modifications
+      Modification Date                                                 Modifier                                                                          Organization
+ 2008-09-08                  CWE Content Team                                                                                MITRE
+                             updated Common_Consequences, Description, Maintenance_Notes, Name, Relationships
+ 2009-03-10                  CWE Content Team                                                                                MITRE
+                             updated Relationships
+ 2009-05-27                  CWE Content Team                                                                                MITRE
+                             updated Related_Attack_Patterns
+ 2010-02-16                  CWE Content Team                                                                                MITRE
+                             updated Taxonomy_Mappings
+ 2010-12-13                  CWE Content Team                                                                                MITRE
+                             updated Common_Consequences
+ 2011-03-29                  CWE Content Team                                                                                MITRE
+                             updated Relationships
+ 2011-06-01                  CWE Content Team                                                                                MITRE
+                             updated Common_Consequences
+ 2012-05-11                  CWE Content Team                                                                                MITRE
+                             updated References, Relationships
+ 2012-10-30                  CWE Content Team                                                                                MITRE
+                             updated Potential_Mitigations
+ 2014-06-23                  CWE Content Team                                                                                MITRE
+                             updated Relationships
+ 2014-07-30                  CWE Content Team                                                                                MITRE
+                             updated Relationships
+ 2015-12-07                  CWE Content Team                                                                                MITRE
+                             updated Relationships
+ 2017-11-08                  CWE Content Team                                                                                MITRE
+                             updated Applicable_Platforms, Demonstrative_Examples, Description, Enabling_Factors_for_Exploitation, Modes_of_Introduction, Observed_Examples, Relationships
+ 2018-03-27                  CWE Content Team                                                                                MITRE
+                             updated Relationships
+ 2019-06-20                  CWE Content Team                                                                                MITRE
+                             updated Relationships
+ 2021-10-28                  CWE Content Team                                                                                MITRE
+                             updated Relationships
+ 2022-10-13                  CWE Content Team                                                                                MITRE
+                             updated Relationships
+ 2023-01-31                  CWE Content Team                                                                                MITRE
+                             updated Description
+ 2023-04-27                  CWE Content Team                                                                                MITRE
+                             updated Relationships
+ 2023-06-29                  CWE Content Team                                                                                MITRE
+                             updated Mapping_Notes
+                                                                                       + Previous Entry Names
+         Change Date                                                                                   Previous Entry Name
+ 2008-09-09                  Weak Password Recovery Mechanism
+ More information is available — Please edit the custom filter or select a different filter.
+Page Last Updated: February 29, 2024
+ 
+      Site Map | Terms of Use | Manage Cookies | Cookie Notice | Privacy Policy | Contact Us | CWE X-Twitter CWE Mastodon CWE on LinkedIn CWE YouTube channel CWE Out-of-Bounds-Read Podcast CWE
+      Blog on Medium blog
+
+MITRE Use of the Common Weakness Enumeration (CWE™) and the associated references from this website are subject to the Terms of Use. CWE is sponsored by the U.S. Department of Homeland         HSSEDI
+      Security (DHS) Cybersecurity and Infrastructure Security Agency (CISA) and managed by the Homeland Security Systems Engineering and Development Institute (HSSEDI) which is operated by
+      The MITRE Corporation (MITRE). Copyright © 2006–2024, The MITRE Corporation. CWE, CWSS, CWRAF, and the CWE logo are trademarks of The MITRE Corporation.
+

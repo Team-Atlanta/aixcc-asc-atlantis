@@ -1,0 +1,12 @@
+define CADET00001_MAX_STDOUT	1024
+
+resource fd_cadet00001[int32]: -1
+
+open$cadet00001(file ptr[in, string["/dev/CADET-00001"]], flags flags[open_flags], mode flags[open_mode]) fd_cadet00001
+ioctl$cadet00001(fd fd_cadet00001, cmd int32, arg ptr[inout, cadet00001_arg_struct])
+
+cadet00001_arg_struct {
+	buf	ptr[in, array[int8]]
+	len	len[buf, int8]
+	stdout	array[int8, CADET00001_MAX_STDOUT]
+}

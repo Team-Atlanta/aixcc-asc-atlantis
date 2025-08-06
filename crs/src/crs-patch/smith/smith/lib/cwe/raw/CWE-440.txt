@@ -1,0 +1,258 @@
+CWE
+
+Common Weakness Enumeration
+
+A community-developed list of SW & HW weaknesses that can become vulnerabilities
+
+New to CWE? click here!
+CWE Most Important Hardware Weaknesses
+CWE Top 25 Most Dangerous Weaknesses
+Home > CWE List > CWE- Individual Dictionary Definition (4.14)                                                                                                   ID Lookup: [                    ] [Go]
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  • Home
+  • About ▼
+    About New to CWE User Stories History Documents FAQs Glossary Compatibility
+  • CWE List ▼
+    Latest Version Downloads Reports Visualizations Archive
+  • Mapping ▼
+    Root Cause Mapping Guidance Root Cause Mapping Quick Tips Root Cause Mapping Examples
+  • Top-N Lists ▼
+    Top 25 Software Top Hardware Top 10 KEV Weaknesses
+  • Community ▼
+    Community Working Groups & Special Interest Groups Board Board Meeting Minutes CWE Discussion List CWE Discussion Archives Contribute Weakness Content to CWE
+  • News ▼
+    Current News X-Twitter ● Mastodon ● LinkedIn ● YouTube YouTube Podcast Out of Bounds Read Podcast Medium Medium News Archive
+  • Search
+
+ 
+ CWE Glossary Definition                  x
+ 
+ 
+ CWE-440: Expected Behavior Violation
+ 
+ Weakness ID: 440
+ Vulnerability Mapping: ALLOWEDThis CWE ID may be used to map to real-world vulnerabilities
+ Abstraction: BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level
+ weaknesses typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.
+ View customized information:
+ Conceptual For users who are interested in more notional aspects of a weakness. Example: educators, technical writers, and project/program managers. Operational For users who are concerned with the
+ practical application and details about the nature of a weakness and how to prevent it from happening. Example: tool developers, security researchers, pen-testers, incident response analysts. Mapping
+ Friendly For users who are mapping an issue to CWE/CAPEC IDs, i.e., finding the most appropriate CWE for a specific issue (e.g., a CVE record). Example: tool developers, security researchers. 
+ Complete For users who wish to see all available information for the CWE/CAPEC entry. Custom For users who want to customize what details are displayed.
+ ×
+
+ Edit Custom Filter
+
+ Conceptual Operational Mapping Friendly Select All
+ 
+ Reset Clear Submit Cancel
+ + Description
+ A feature, API, or function does not perform according to its specification.
+ + Relationships
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Research Concepts" (CWE-1000)
+     Nature                                                                                                                                                                             Type                                                                                                                                                                           ID        Name
+ ChildOf                                                                               ClassClass - a weakness that is described in a very abstract fashion, typically independent of any specific language or technology. More specific than a Pillar Weakness, but more general than a Base                                                                        684     Incorrect
+                                                                                                                    Weakness. Class level weaknesses typically describe issues in terms of 1 or 2 of the following dimensions: behavior, property, and resource.                                                                                                             Provision of
+                                                                                                                                                                                                                                                                                                                                                                             Specified
+                                                                                                                                                                                                                                                                                                                                                                             Functionality
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Software Development" (CWE-699)
+     Nature                                                       Type                                                     ID                                   Name
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 438     Behavioral Problems
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Hardware Design" (CWE-1194)
+     Nature                                                       Type                                                     ID                                   Name
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 1208    Cross-Cutting Problems
+ + Modes Of Introduction
+ Section HelpThe different Modes of Introduction provide information about how and when this weakness may be introduced. The Phase identifies a point in the life cycle at which introduction may occur,
+ while the Note provides a typical scenario related to introduction during the given phase.
+          Phase                                                                                             Note
+ Architecture and Design
+ Implementation
+ Operation
+ + Applicable Platforms
+ Section HelpThis listing shows possible areas for which the given weakness could appear. These may be for specific named Languages, Operating Systems, Architectures, Paradigms, Technologies, or a
+ class of such platforms. The platform is listed along with how frequently the given weakness appears for that instance.
+
+ Languages
+
+ Class: Not Language-Specific (Undetermined Prevalence)
+
+ Technologies
+
+ Class: ICS/OT (Undetermined Prevalence)
+
+ + Common Consequences
+ Section HelpThis table specifies different individual consequences associated with the weakness. The Scope identifies the application security area that is violated, while the Impact describes the
+ negative technical impact that arises if an adversary succeeds in exploiting this weakness. The Likelihood provides information about how likely the specific consequence is expected to be seen
+ relative to the other consequences in the list. For example, there may be high likelihood that a weakness will be exploited to achieve a certain impact, but a low likelihood that it will be exploited
+ to achieve a different impact.
+       Scope                                                                                     Impact                                                                                 Likelihood
+ Other              Technical Impact: Quality Degradation; Varies by Context
+
+ + Demonstrative Examples
+ 
+ Example 1
+
+ The provided code is extracted from the Control and Status Register (CSR), csr_regfile, module within the Hack@DAC'21 OpenPiton System-on-Chip (SoC). This module is designed to implement CSR
+ registers in accordance with the RISC-V specification. The mie (machine interrupt enable) register is a 64-bit register [REF-1384], where bits correspond to different interrupt sources. As the name
+ suggests, mie is a machine-level register that determines which interrupts are enabled. Note that in the example below the mie_q and mie_d registers represent the conceptual mie reigster in the
+ RISC-V specification. The mie_d register is the value to be stored in the mie register while the mie_q register holds the current value of the mie register [REF-1385].
+
+ The mideleg (machine interrupt delegation) register, also 64-bit wide, enables the delegation of specific interrupt sources from machine privilege mode to lower privilege levels. By setting specific
+ bits in the mideleg register, the handling of certain interrupts can be delegated to lower privilege levels without engaging the machine-level privilege mode. For example, in supervisor mode, the mie
+ register is limited to a specific register called the sie (supervisor interrupt enable) register. If delegated, an interrupt becomes visible in the sip (supervisor interrupt pending) register and can
+ be enabled or blocked using the sie register. If no delegation occurs, the related bits in sip and sie are set to zero.
+
+ The sie register value is computed based on the current value of mie register, i.e., mie_q, and the mideleg register.
+
+ (bad code)
+ Example Language: Verilog 
+ module csr_regfile #(...)(...);
+ ...
+ // ---------------------------
+ // CSR Write and update logic
+ // ---------------------------
+ ...
+ if (csr_we) begin
+ unique case (csr_addr.address)
+ ...
+ riscv::CSR_SIE: begin
+ // the mideleg makes sure only delegate-able register
+ //(and therefore also only implemented registers) are written
+ mie_d = (mie_q & ~mideleg_q) | (csr_wdata & mideleg_q) | utval_q;
+ end
+ ...
+ endcase
+ end
+ endmodule
+
+ The above code snippet illustrates an instance of a vulnerable implementation of the sie register update logic, where users can tamper with the mie_d register value through the utval (user trap
+ value) register. This behavior violates the RISC-V specification.
+
+ The code shows that the value of utval, among other signals, is used in updating the mie_d value within the sie update logic. While utval is a register accessible to users, it should not influence or
+ compromise the integrity of sie. Through manipulation of the utval register, it becomes feasible to manipulate the sie register's value. This opens the door for potential attacks, as an adversary can
+ gain control over or corrupt the sie value. Consequently, such manipulation empowers an attacker to enable or disable critical supervisor-level interrupts, resulting in various security risks such as
+ privilege escalation or denial-of-service attacks.
+
+ A fix to this issue is to remove the utval from the right-hand side of the assignment. That is the value of the mie_d should be updated as shown in the good code example [REF-1386].
+
+ (good code)
+ Example Language: Verilog 
+ module csr_regfile #(...)(...);
+ ...
+ // ---------------------------
+ // CSR Write and update logic
+ // ---------------------------
+ ...
+ if (csr_we) begin
+ unique case (csr_addr.address)
+ ...
+ riscv::CSR_SIE: begin
+ // the mideleg makes sure only delegate-able register
+ //(and therefore also only implemented registers) are written
+ mie_d = (mie_q & ~mideleg_q) | (csr_wdata & mideleg_q);
+ end
+ ...
+ endcase
+ end
+ endmodule
+ + Observed Examples
+        Reference                                                                                        Description
+ CVE-2003-0187           Program uses large timeouts on unconfirmed connections resulting from inconsistency in linked lists implementations.
+ CVE-2003-0465           "strncpy" in Linux kernel acts different than libc on x86, leading to expected behavior difference - sort of a multiple interpretation error?
+ CVE-2005-3265           Buffer overflow in product stems the use of a third party library function that is expected to have internal protection against overflows, but doesn't.
+ + Memberships
+ Section HelpThis MemberOf Relationships table shows additional CWE Categories and Views that reference this weakness as a member. This information is often useful in understanding where a weakness
+ fits within the context of external information sources.
+     Nature                                                       Type                                                     ID                                   Name
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 1001    SFP Secondary Cluster: Use of an Improper API
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 1368    ICS Dependencies (& Architecture): External Digital Systems
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 1412    Comprehensive Categorization: Poor Coding Practices
+ + Vulnerability Mapping Notes
+ Usage: ALLOWED
+
+ (this CWE ID could be used to map to real-world vulnerabilities)
+ Reason: Acceptable-Use
+
+ Rationale:
+
+ This CWE entry is at the Base level of abstraction, which is a preferred level of abstraction for mapping to the root causes of vulnerabilities.
+ Comments:
+
+ Carefully read both the name and description to ensure that this mapping is an appropriate fit. Do not try to 'force' a mapping to a lower-level Base/Variant simply to comply with this preferred
+ level of abstraction.
+ + Notes
+ 
+ Theoretical
+
+ The behavior of an application that is not consistent with the expectations of the developer may lead to incorrect use of the software.
+ + Taxonomy Mappings
+       Mapped Taxonomy Name          Node ID            Fit                                                                Mapped Node Name
+ PLOVER                                                            Expected behavior violation
+ + References
+ [REF-1384] "The RISC-V Instruction Set Manual Volume II: Privileged Architecture page 28". 2021. <https://riscv.org/wp-content/uploads/2017/05/riscv-privileged-v1.10.pdf>. URL validated:
+ 2024-01-16.
+ [REF-1385] "csr_regfile.sv". 2021. <https://github.com/HACK-EVENT/hackatdac21/blob/b9ecdf6068445d76d6bee692d163fededf7a9d9b/piton/design/chip/tile/ariane/src/csr_regfile.sv>. URL validated:
+ 2024-01-16.
+ [REF-1386] "Fix for csr_regfile.sv". 2021. <https://github.com/HACK-EVENT/hackatdac21/blob/2341c625a28d2fb87d370e32c45b68bd711cc43b/piton/design/chip/tile/ariane/src/csr_regfile.sv#L519C4-L522C20
+ >. URL validated: 2024-01-16.
+ + Content History
+                                                                                            + Submissions
+               Submission Date                                                         Submitter                                                                  Organization
+ 2006-07-19                                  PLOVER
+ (CWE Draft 3, 2006-07-19)
+
+                                                                                           + Contributions
+              Contribution Date                                                       Contributor                                                                 Organization
+ 2023-06-21                                  Chen Chen, Rahul Kande, Jeyavijayan Rajendran                                                  Texas A&M University
+                                             suggested demonstrative example
+ 2023-06-21                                  Shaza Zeitouni, Mohamadreza Rostami, Ahmad-Reza Sadeghi                                        Technical University of Darmstadt
+                                             suggested demonstrative example
+                                                                                           + Modifications
+              Modification Date                                                         Modifier                                                                  Organization
+ 2008-07-01                                  Eric Dalci                                                                                     Cigital
+                                             updated Time_of_Introduction
+ 2008-09-08                                  CWE Content Team                                                                               MITRE
+                                             updated Relationships, Other_Notes, Taxonomy_Mappings
+ 2009-10-29                                  CWE Content Team                                                                               MITRE
+                                             updated Other_Notes, Relevant_Properties, Theoretical_Notes
+ 2011-06-01                                  CWE Content Team                                                                               MITRE
+                                             updated Common_Consequences
+ 2011-06-27                                  CWE Content Team                                                                               MITRE
+                                             updated Common_Consequences
+ 2012-05-11                                  CWE Content Team                                                                               MITRE
+                                             updated Relationships
+ 2014-07-30                                  CWE Content Team                                                                               MITRE
+                                             updated Relationships
+ 2017-11-08                                  CWE Content Team                                                                               MITRE
+                                             updated Applicable_Platforms, Relevant_Properties
+ 2020-02-24                                  CWE Content Team                                                                               MITRE
+                                             updated Relationships
+ 2020-08-20                                  CWE Content Team                                                                               MITRE
+                                             updated Description, Observed_Examples, Theoretical_Notes
+ 2023-01-31                                  CWE Content Team                                                                               MITRE
+                                             updated Applicable_Platforms, Relationships
+ 2023-04-27                                  CWE Content Team                                                                               MITRE
+                                             updated Relationships
+ 2023-06-29                                  CWE Content Team                                                                               MITRE
+                                             updated Mapping_Notes
+ 2023-10-26                                  CWE Content Team                                                                               MITRE
+                                             updated Observed_Examples
+ 2024-02-29                                  CWE Content Team                                                                               MITRE
+ (CWE 4.14, 2024-02-29)                      updated Demonstrative_Examples, References
+ More information is available — Please edit the custom filter or select a different filter.
+Page Last Updated: February 29, 2024
+ 
+      Site Map | Terms of Use | Manage Cookies | Cookie Notice | Privacy Policy | Contact Us | CWE X-Twitter CWE Mastodon CWE on LinkedIn CWE YouTube channel CWE Out-of-Bounds-Read Podcast CWE
+      Blog on Medium blog
+
+MITRE Use of the Common Weakness Enumeration (CWE™) and the associated references from this website are subject to the Terms of Use. CWE is sponsored by the U.S. Department of Homeland         HSSEDI
+      Security (DHS) Cybersecurity and Infrastructure Security Agency (CISA) and managed by the Homeland Security Systems Engineering and Development Institute (HSSEDI) which is operated by
+      The MITRE Corporation (MITRE). Copyright © 2006–2024, The MITRE Corporation. CWE, CWSS, CWRAF, and the CWE logo are trademarks of The MITRE Corporation.
+

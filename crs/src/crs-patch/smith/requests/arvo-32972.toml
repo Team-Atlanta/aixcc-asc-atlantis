@@ -1,0 +1,6 @@
+cp_name = "userland_c"
+blob_file = "./exemplar_only/cpv_1/blobs/sample_solve.bin"
+harness_id = "id_1"
+sanitizer_id = "id_1"
+bug_introduce_commit = "d2d4465548902cebba3384480f19578059767d59"  # Fuzzing harness was created
+src_dir = "./src/samples"

@@ -1,0 +1,221 @@
+CWE
+
+Common Weakness Enumeration
+
+A community-developed list of SW & HW weaknesses that can become vulnerabilities
+
+New to CWE? click here!
+CWE Most Important Hardware Weaknesses
+CWE Top 25 Most Dangerous Weaknesses
+Home > CWE List > CWE- Individual Dictionary Definition (4.14)                                                                                                   ID Lookup: [                    ] [Go]
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  • Home
+  • About ▼
+    About New to CWE User Stories History Documents FAQs Glossary Compatibility
+  • CWE List ▼
+    Latest Version Downloads Reports Visualizations Archive
+  • Mapping ▼
+    Root Cause Mapping Guidance Root Cause Mapping Quick Tips Root Cause Mapping Examples
+  • Top-N Lists ▼
+    Top 25 Software Top Hardware Top 10 KEV Weaknesses
+  • Community ▼
+    Community Working Groups & Special Interest Groups Board Board Meeting Minutes CWE Discussion List CWE Discussion Archives Contribute Weakness Content to CWE
+  • News ▼
+    Current News X-Twitter ● Mastodon ● LinkedIn ● YouTube YouTube Podcast Out of Bounds Read Podcast Medium Medium News Archive
+  • Search
+
+ 
+ CWE Glossary Definition                  x
+ 
+ 
+ CWE-378: Creation of Temporary File With Insecure Permissions
+ 
+ Weakness ID: 378
+ Vulnerability Mapping: ALLOWEDThis CWE ID may be used to map to real-world vulnerabilities
+ Abstraction: BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level
+ weaknesses typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.
+ View customized information:
+ Conceptual For users who are interested in more notional aspects of a weakness. Example: educators, technical writers, and project/program managers. Operational For users who are concerned with the
+ practical application and details about the nature of a weakness and how to prevent it from happening. Example: tool developers, security researchers, pen-testers, incident response analysts. Mapping
+ Friendly For users who are mapping an issue to CWE/CAPEC IDs, i.e., finding the most appropriate CWE for a specific issue (e.g., a CVE record). Example: tool developers, security researchers. 
+ Complete For users who wish to see all available information for the CWE/CAPEC entry. Custom For users who want to customize what details are displayed.
+ ×
+
+ Edit Custom Filter
+
+ Conceptual Operational Mapping Friendly Select All
+ 
+ Reset Clear Submit Cancel
+ + Description
+ Opening temporary files without appropriate measures or controls can leave the file, its contents and any function that it impacts vulnerable to attack.
+ + Relationships
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Research Concepts" (CWE-1000)
+     Nature                                                                                                                                                                             Type                                                                                                                                                                           ID      Name
+ ChildOf                                                                               ClassClass - a weakness that is described in a very abstract fashion, typically independent of any specific language or technology. More specific than a Pillar Weakness, but more general than a Base                                                                        377     Insecure
+                                                                                                                    Weakness. Class level weaknesses typically describe issues in terms of 1 or 2 of the following dimensions: behavior, property, and resource.                                                                                                             Temporary
+                                                                                                                                                                                                                                                                                                                                                                             File
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Software Development" (CWE-699)
+     Nature                                                       Type                                                     ID                                   Name
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 1219    File Handling Issues
+ + Modes Of Introduction
+ Section HelpThe different Modes of Introduction provide information about how and when this weakness may be introduced. The Phase identifies a point in the life cycle at which introduction may occur,
+ while the Note provides a typical scenario related to introduction during the given phase.
+     Phase                                                                                              Note
+ Implementation
+ + Applicable Platforms
+ Section HelpThis listing shows possible areas for which the given weakness could appear. These may be for specific named Languages, Operating Systems, Architectures, Paradigms, Technologies, or a
+ class of such platforms. The platform is listed along with how frequently the given weakness appears for that instance.
+
+ Languages
+
+ Class: Not Language-Specific (Undetermined Prevalence)
+
+ + Common Consequences
+ Section HelpThis table specifies different individual consequences associated with the weakness. The Scope identifies the application security area that is violated, while the Impact describes the
+ negative technical impact that arises if an adversary succeeds in exploiting this weakness. The Likelihood provides information about how likely the specific consequence is expected to be seen
+ relative to the other consequences in the list. For example, there may be high likelihood that a weakness will be exploited to achieve a certain impact, but a low likelihood that it will be exploited
+ to achieve a different impact.
+       Scope                                                                                     Impact                                                                                 Likelihood
+                    Technical Impact: Read Application Data
+ Confidentiality
+                    If the temporary file can be read by the attacker, sensitive information may be in that file which could be revealed.
+                    Technical Impact: Other
+ Authorization
+ Other              If that file can be written to by the attacker, the file might be moved into a place to which the attacker does not have access. This will allow the attacker to
+                    gain selective resource access-control privileges.
+                    Technical Impact: Other
+ Integrity
+ Other              Depending on the data stored in the temporary file, there is the potential for an attacker to gain an additional input vector which is trusted as non-malicious.
+                    It may be possible to make arbitrary changes to data structures, user information, or even process ownership.
+ + Likelihood Of Exploit
+ High
+ + Demonstrative Examples
+ 
+ Example 1
+
+ In the following code examples a temporary file is created and written to. After using the temporary file, the file is closed and deleted from the file system.
+
+ (bad code)
+ Example Language: C 
+ FILE *stream;
+ if( (stream = tmpfile()) == NULL ) {
+
+ perror("Could not open new temporary file\n");
+ return (-1);
+ }
+ // write data to tmp file
+ ...
+ // remove tmp file
+ rmtmp();
+
+ However, within this C/C++ code the method tmpfile() is used to create and open the temp file. The tmpfile() method works the same way as the fopen() method would with read/write permission, allowing
+ attackers to read potentially sensitive information contained in the temp file or modify the contents of the file.
+
+ (bad code)
+ Example Language: Java 
+ try {
+ File temp = File.createTempFile("pattern", ".suffix");
+ temp.deleteOnExit();
+ BufferedWriter out = new BufferedWriter(new FileWriter(temp));
+ out.write("aString");
+ out.close();
+ }
+ catch (IOException e) {
+ }
+
+ Similarly, the createTempFile() method used in the Java code creates a temp file that may be readable and writable to all users.
+
+ Additionally both methods used above place the file into a default directory. On UNIX systems the default directory is usually "/tmp" or "/var/tmp" and on Windows systems the default directory is
+ usually "C:\\Windows\\Temp", which may be easily accessible to attackers, possibly enabling them to read and modify the contents of the temp file.
+
+ + Observed Examples
+        Reference                                                                                        Description
+ CVE-2022-24823          A network application framework uses the Java function createTempFile(), which will create a file that is readable by other local users of the system
+ + Potential Mitigations
+ Phase: Requirements
+
+ Many contemporary languages have functions which properly handle this condition. Older C temp file functions are especially susceptible.
+ Phase: Implementation
+
+ Ensure that you use proper file permissions. This can be achieved by using a safe temp file function. Temporary files should be writable and readable only by the process that owns the file.
+ Phase: Implementation
+
+ Randomize temporary file names. This can also be achieved by using a safe temp-file function. This will ensure that temporary files will not be created in predictable places.
+ + Memberships
+ Section HelpThis MemberOf Relationships table shows additional CWE Categories and Views that reference this weakness as a member. This information is often useful in understanding where a weakness
+ fits within the context of external information sources.
+     Nature                                                       Type                                                     ID                                   Name
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 964     SFP Secondary Cluster: Exposure Temporary File
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 1403    Comprehensive Categorization: Exposed Resource
+ + Vulnerability Mapping Notes
+ Usage: ALLOWED
+
+ (this CWE ID could be used to map to real-world vulnerabilities)
+ Reason: Acceptable-Use
+
+ Rationale:
+
+ This CWE entry is at the Base level of abstraction, which is a preferred level of abstraction for mapping to the root causes of vulnerabilities.
+ Comments:
+
+ Carefully read both the name and description to ensure that this mapping is an appropriate fit. Do not try to 'force' a mapping to a lower-level Base/Variant simply to comply with this preferred
+ level of abstraction.
+ + Taxonomy Mappings
+       Mapped Taxonomy Name          Node ID            Fit                                                                 Mapped Node Name
+ CLASP                                                              Improper temp file opening
+ + References
+ [REF-18] Secure Software, Inc.. "The CLASP Application Security Process". 2005. <https://cwe.mitre.org/documents/sources/TheCLASPApplicationSecurityProcess.pdf>.
+ + Content History
+                                                                                           + Submissions
+                  Submission Date                                                      Submitter                                                              Organization
+ 2006-07-19                                        CLASP
+ (CWE Draft 3, 2006-07-19)
+
+                                                                                          + Modifications
+                 Modification Date                                                     Modifier                                                               Organization
+ 2008-07-01                                        Eric Dalci                                                                        Cigital
+                                                   updated Time_of_Introduction
+ 2008-09-08                                        CWE Content Team                                                                  MITRE
+                                                   updated Common_Consequences, Relationships, Other_Notes, Taxonomy_Mappings
+ 2009-10-29                                        CWE Content Team                                                                  MITRE
+                                                   updated Common_Consequences, Other_Notes
+ 2011-06-01                                        CWE Content Team                                                                  MITRE
+                                                   updated Common_Consequences
+ 2012-05-11                                        CWE Content Team                                                                  MITRE
+                                                   updated Relationships
+ 2012-10-30                                        CWE Content Team                                                                  MITRE
+                                                   updated Demonstrative_Examples, Potential_Mitigations
+ 2014-06-23                                        CWE Content Team                                                                  MITRE
+                                                   updated Potential_Mitigations
+ 2014-07-30                                        CWE Content Team                                                                  MITRE
+                                                   updated Relationships
+ 2017-11-08                                        CWE Content Team                                                                  MITRE
+                                                   updated Applicable_Platforms, Demonstrative_Examples
+ 2020-02-24                                        CWE Content Team                                                                  MITRE
+                                                   updated References, Relationships
+ 2021-03-15                                        CWE Content Team                                                                  MITRE
+                                                   updated Demonstrative_Examples
+ 2023-04-27                                        CWE Content Team                                                                  MITRE
+                                                   updated Relationships, Time_of_Introduction
+ 2023-06-29                                        CWE Content Team                                                                  MITRE
+                                                   updated Mapping_Notes
+ 2023-10-26                                        CWE Content Team                                                                  MITRE
+                                                   updated Observed_Examples
+                                                                                       + Previous Entry Names
+                    Change Date                                                                                   Previous Entry Name
+ 2008-04-11                                        Improper Temporary File Opening
+ More information is available — Please edit the custom filter or select a different filter.
+Page Last Updated: February 29, 2024
+ 
+      Site Map | Terms of Use | Manage Cookies | Cookie Notice | Privacy Policy | Contact Us | CWE X-Twitter CWE Mastodon CWE on LinkedIn CWE YouTube channel CWE Out-of-Bounds-Read Podcast CWE
+      Blog on Medium blog
+
+MITRE Use of the Common Weakness Enumeration (CWE™) and the associated references from this website are subject to the Terms of Use. CWE is sponsored by the U.S. Department of Homeland         HSSEDI
+      Security (DHS) Cybersecurity and Infrastructure Security Agency (CISA) and managed by the Homeland Security Systems Engineering and Development Institute (HSSEDI) which is operated by
+      The MITRE Corporation (MITRE). Copyright © 2006–2024, The MITRE Corporation. CWE, CWSS, CWRAF, and the CWE logo are trademarks of The MITRE Corporation.
+

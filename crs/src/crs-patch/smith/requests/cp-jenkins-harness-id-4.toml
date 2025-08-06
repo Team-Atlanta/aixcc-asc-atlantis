@@ -1,0 +1,6 @@
+cp_name = "jenkins"
+blob_file = "./exemplar_only/cpv_exemplar/blobs/id_4.bin"
+harness_id = "id_4"
+sanitizer_id = "id_4"
+bug_introduce_commit = "f8f67cc33b991e148c250c20d0bac16c2ce49a0f"
+src_dir = "./src/plugins/code-coverage-api-plugin"

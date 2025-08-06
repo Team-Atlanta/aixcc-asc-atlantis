@@ -1,0 +1,12 @@
+
+INPUT ::= SIZE { size: 4 }
+          TABLE { size: SIZE }
+          LOOP
+
+LOOP ::= LOOP_BODY
+         LOOP_BODY
+
+LOOP_BODY ::= TABLE_SIZE { size: 4 }
+              TABLE { size: TABLE_SIZE }
+              SET_SIZE { size: 4 }
+              SET { size: SET_SIZE }

@@ -1,0 +1,5 @@
+cp_name = "linux"
+blob_file = "./exemplar_only/blobs/CROMU-00001_solve.bin"
+harness_id = "CROMU-00001"
+sanitizer_id = "id_1"
+bug_introduce_commit = "d2631c93220258ad4844679b2b1a149b7679ad90"

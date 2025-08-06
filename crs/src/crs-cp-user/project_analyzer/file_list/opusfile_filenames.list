@@ -1,0 +1,13 @@
+winerrno.h
+opusfile.c
+http.c
+wincerts.c
+stream.c
+info.c
+internal.h
+internal.c
+opusfile_example.c
+win32utf8.h
+win32utf8.c
+seeking_example.c
+opusfile.h

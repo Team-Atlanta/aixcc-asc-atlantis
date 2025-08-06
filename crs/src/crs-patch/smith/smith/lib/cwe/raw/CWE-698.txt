@@ -1,0 +1,193 @@
+CWE
+
+Common Weakness Enumeration
+
+A community-developed list of SW & HW weaknesses that can become vulnerabilities
+
+New to CWE? click here!
+CWE Most Important Hardware Weaknesses
+CWE Top 25 Most Dangerous Weaknesses
+Home > CWE List > CWE- Individual Dictionary Definition (4.14)                                                                                                   ID Lookup: [                    ] [Go]
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  • Home
+  • About ▼
+    About New to CWE User Stories History Documents FAQs Glossary Compatibility
+  • CWE List ▼
+    Latest Version Downloads Reports Visualizations Archive
+  • Mapping ▼
+    Root Cause Mapping Guidance Root Cause Mapping Quick Tips Root Cause Mapping Examples
+  • Top-N Lists ▼
+    Top 25 Software Top Hardware Top 10 KEV Weaknesses
+  • Community ▼
+    Community Working Groups & Special Interest Groups Board Board Meeting Minutes CWE Discussion List CWE Discussion Archives Contribute Weakness Content to CWE
+  • News ▼
+    Current News X-Twitter ● Mastodon ● LinkedIn ● YouTube YouTube Podcast Out of Bounds Read Podcast Medium Medium News Archive
+  • Search
+
+ 
+ CWE Glossary Definition                  x
+ 
+ 
+ CWE-698: Execution After Redirect (EAR)
+ 
+ Weakness ID: 698
+ Vulnerability Mapping: ALLOWEDThis CWE ID may be used to map to real-world vulnerabilities
+ Abstraction: BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level
+ weaknesses typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.
+ View customized information:
+ Conceptual For users who are interested in more notional aspects of a weakness. Example: educators, technical writers, and project/program managers. Operational For users who are concerned with the
+ practical application and details about the nature of a weakness and how to prevent it from happening. Example: tool developers, security researchers, pen-testers, incident response analysts. Mapping
+ Friendly For users who are mapping an issue to CWE/CAPEC IDs, i.e., finding the most appropriate CWE for a specific issue (e.g., a CVE record). Example: tool developers, security researchers. 
+ Complete For users who wish to see all available information for the CWE/CAPEC entry. Custom For users who want to customize what details are displayed.
+ ×
+
+ Edit Custom Filter
+
+ Conceptual Operational Mapping Friendly Select All
+ 
+ Reset Clear Submit Cancel
+ + Description
+ The web application sends a redirect to another location, but instead of exiting, it executes additional code.
+ + Alternate Terms
+ Redirect Without Exit
+ + Relationships
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Research Concepts" (CWE-1000)
+     Nature                                                                                                                                                                             Type                                                                                                                                                                           ID          Name
+ ChildOf                                                                               ClassClass - a weakness that is described in a very abstract fashion, typically independent of any specific language or technology. More specific than a Pillar Weakness, but more general than a Base                                                                        670     Always-Incorrect
+                                                                                                                    Weakness. Class level weaknesses typically describe issues in terms of 1 or 2 of the following dimensions: behavior, property, and resource.                                                                                                             Control Flow
+                                                                                                                                                                                                                                                                                                                                                                             Implementation
+ ChildOf                                                                               ClassClass - a weakness that is described in a very abstract fashion, typically independent of any specific language or technology. More specific than a Pillar Weakness, but more general than a Base                                                                        705     Incorrect
+                                                                                                                    Weakness. Class level weaknesses typically describe issues in terms of 1 or 2 of the following dimensions: behavior, property, and resource.                                                                                                             Control Flow
+                                                                                                                                                                                                                                                                                                                                                                             Scoping
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Software Development" (CWE-699)
+     Nature                                                       Type                                                     ID                                   Name
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 438     Behavioral Problems
+ + Modes Of Introduction
+ Section HelpThe different Modes of Introduction provide information about how and when this weakness may be introduced. The Phase identifies a point in the life cycle at which introduction may occur,
+ while the Note provides a typical scenario related to introduction during the given phase.
+     Phase                                                                                              Note
+ Implementation
+ + Common Consequences
+ Section HelpThis table specifies different individual consequences associated with the weakness. The Scope identifies the application security area that is violated, while the Impact describes the
+ negative technical impact that arises if an adversary succeeds in exploiting this weakness. The Likelihood provides information about how likely the specific consequence is expected to be seen
+ relative to the other consequences in the list. For example, there may be high likelihood that a weakness will be exploited to achieve a certain impact, but a low likelihood that it will be exploited
+ to achieve a different impact.
+       Scope                                                                                     Impact                                                                                 Likelihood
+ Other              Technical Impact: Alter Execution Logic; Execute Unauthorized Code or Commands
+ Confidentiality
+ Integrity          This weakness could affect the control flow of the application and allow execution of untrusted code.
+ Availability
+ + Demonstrative Examples
+ 
+ Example 1
+
+ This code queries a server and displays its status when a request comes from an authorized IP address.
+
+ (bad code)
+ Example Language: PHP 
+ $requestingIP = $_SERVER['REMOTE_ADDR'];
+ if(!in_array($requestingIP,$ipAllowList)){
+ echo "You are not authorized to view this page";
+ http_redirect($errorPageURL);
+ }
+ $status = getServerStatus();
+ echo $status;
+ ...
+
+ This code redirects unauthorized users, but continues to execute code after calling http_redirect(). This means even unauthorized users may be able to access the contents of the page or perform a DoS
+ attack on the server being queried. Also, note that this code is vulnerable to an IP address spoofing attack (CWE-212).
+
+ + Observed Examples
+        Reference                                                                                        Description
+ CVE-2013-1402           Execution-after-redirect allows access to application configuration details.
+ CVE-2009-1936           chain: library file sends a redirect if it is directly requested but continues to execute, allowing remote file inclusion and path traversal.
+ CVE-2007-2713           Remote attackers can obtain access to administrator functionality through EAR.
+ CVE-2007-4932           Remote attackers can obtain access to administrator functionality through EAR.
+ CVE-2007-5578           Bypass of authentication step through EAR.
+ CVE-2007-2713           Chain: Execution after redirect triggers eval injection.
+ CVE-2007-6652           chain: execution after redirect allows non-administrator to perform static code injection.
+ + Weakness Ordinalities
+ Ordinality                                                                                       Description
+ Primary    (where the weakness exists independent of other weaknesses)
+ + Detection Methods
+ Black Box
+
+ This issue might not be detected if testing is performed using a web browser, because the browser might obey the redirect and move the user to a different page before the application has produced
+ outputs that indicate something is amiss.
+ + Memberships
+ Section HelpThis MemberOf Relationships table shows additional CWE Categories and Views that reference this weakness as a member. This information is often useful in understanding where a weakness
+ fits within the context of external information sources.
+     Nature                                                                                                  Type                                                                                               ID         Name
+ MemberOf        ViewView - a subset of CWE entries that provides a way of examining CWE content. The two main view structures are Slices (flat lists) and Graphs (containing relationships between entries). 884     CWE
+                                                                                                                                                                                                                      Cross-section
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            977     SFP Secondary
+                                                                                                                                                                                                                      Cluster: Design
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            1410    Comprehensive
+                                                                                                                                                                                                                      Categorization:
+                                                                                                                                                                                                                      Insufficient
+                                                                                                                                                                                                                      Control Flow
+                                                                                                                                                                                                                      Management
+ + Vulnerability Mapping Notes
+ Usage: ALLOWED
+
+ (this CWE ID could be used to map to real-world vulnerabilities)
+ Reason: Acceptable-Use
+
+ Rationale:
+
+ This CWE entry is at the Base level of abstraction, which is a preferred level of abstraction for mapping to the root causes of vulnerabilities.
+ Comments:
+
+ Carefully read both the name and description to ensure that this mapping is an appropriate fit. Do not try to 'force' a mapping to a lower-level Base/Variant simply to comply with this preferred
+ level of abstraction.
+ + References
+ [REF-565] Adam Doupé, Bryce Boe, Christopher Kruegel and Giovanni Vigna. "Fear the EAR: Discovering and Mitigating Execution After Redirect Vulnerabilities". <http://cs.ucsb.edu/~bboe/public/pubs
+ /fear-the-ear-ccs2011.pdf>.
+ + Content History
+                                                                                           + Submissions
+                 Submission Date                                                      Submitter                                                               Organization
+ 2008-09-09                                      CWE Content Team                                                                     MITRE
+ (CWE 1.0, 2008-09-09)
+
+                                                                                          + Modifications
+                Modification Date                                                      Modifier                                                               Organization
+ 2011-06-01                                      CWE Content Team                                                                     MITRE
+                                                 updated Common_Consequences
+ 2012-05-11                                      CWE Content Team                                                                     MITRE
+                                                 updated Common_Consequences, Demonstrative_Examples, Relationships
+ 2012-10-30                                      CWE Content Team                                                                     MITRE
+                                                 updated Demonstrative_Examples
+ 2013-02-21                                      CWE Content Team                                                                     MITRE
+                                                 updated Alternate_Terms, Name, Observed_Examples, References
+ 2014-07-30                                      CWE Content Team                                                                     MITRE
+                                                 updated Relationships
+ 2020-02-24                                      CWE Content Team                                                                     MITRE
+                                                 updated Relationships
+ 2020-06-25                                      CWE Content Team                                                                     MITRE
+                                                 updated Demonstrative_Examples
+ 2022-10-13                                      CWE Content Team                                                                     MITRE
+                                                 updated References
+ 2023-04-27                                      CWE Content Team                                                                     MITRE
+                                                 updated Relationships
+ 2023-06-29                                      CWE Content Team                                                                     MITRE
+                                                 updated Mapping_Notes
+ 2023-10-26                                      CWE Content Team                                                                     MITRE
+                                                 updated Demonstrative_Examples
+                                                                                       + Previous Entry Names
+                   Change Date                                                                                   Previous Entry Name
+ 2013-02-21                                      Redirect Without Exit
+ More information is available — Please edit the custom filter or select a different filter.
+Page Last Updated: February 29, 2024
+ 
+      Site Map | Terms of Use | Manage Cookies | Cookie Notice | Privacy Policy | Contact Us | CWE X-Twitter CWE Mastodon CWE on LinkedIn CWE YouTube channel CWE Out-of-Bounds-Read Podcast CWE
+      Blog on Medium blog
+
+MITRE Use of the Common Weakness Enumeration (CWE™) and the associated references from this website are subject to the Terms of Use. CWE is sponsored by the U.S. Department of Homeland         HSSEDI
+      Security (DHS) Cybersecurity and Infrastructure Security Agency (CISA) and managed by the Homeland Security Systems Engineering and Development Institute (HSSEDI) which is operated by
+      The MITRE Corporation (MITRE). Copyright © 2006–2024, The MITRE Corporation. CWE, CWSS, CWRAF, and the CWE logo are trademarks of The MITRE Corporation.
+

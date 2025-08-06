@@ -1,0 +1,281 @@
+CWE
+
+Common Weakness Enumeration
+
+A community-developed list of SW & HW weaknesses that can become vulnerabilities
+
+New to CWE? click here!
+CWE Most Important Hardware Weaknesses
+CWE Top 25 Most Dangerous Weaknesses
+Home > CWE List > CWE- Individual Dictionary Definition (4.14)                                                                                                   ID Lookup: [                    ] [Go]
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  • Home
+  • About ▼
+    About New to CWE User Stories History Documents FAQs Glossary Compatibility
+  • CWE List ▼
+    Latest Version Downloads Reports Visualizations Archive
+  • Mapping ▼
+    Root Cause Mapping Guidance Root Cause Mapping Quick Tips Root Cause Mapping Examples
+  • Top-N Lists ▼
+    Top 25 Software Top Hardware Top 10 KEV Weaknesses
+  • Community ▼
+    Community Working Groups & Special Interest Groups Board Board Meeting Minutes CWE Discussion List CWE Discussion Archives Contribute Weakness Content to CWE
+  • News ▼
+    Current News X-Twitter ● Mastodon ● LinkedIn ● YouTube YouTube Podcast Out of Bounds Read Podcast Medium Medium News Archive
+  • Search
+
+ 
+ CWE Glossary Definition                  x
+ 
+ 
+ CWE-766: Critical Data Element Declared Public
+ 
+ Weakness ID: 766
+ Vulnerability Mapping: ALLOWEDThis CWE ID may be used to map to real-world vulnerabilities
+ Abstraction: BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level
+ weaknesses typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.
+ View customized information:
+ Conceptual For users who are interested in more notional aspects of a weakness. Example: educators, technical writers, and project/program managers. Operational For users who are concerned with the
+ practical application and details about the nature of a weakness and how to prevent it from happening. Example: tool developers, security researchers, pen-testers, incident response analysts. Mapping
+ Friendly For users who are mapping an issue to CWE/CAPEC IDs, i.e., finding the most appropriate CWE for a specific issue (e.g., a CVE record). Example: tool developers, security researchers. 
+ Complete For users who wish to see all available information for the CWE/CAPEC entry. Custom For users who want to customize what details are displayed.
+ ×
+
+ Edit Custom Filter
+
+ Conceptual Operational Mapping Friendly Select All
+ 
+ Reset Clear Submit Cancel
+ + Description
+ The product declares a critical variable, field, or member to be public when intended security policy requires it to be private.
+ + Extended Description
+ 
+ This issue makes it more difficult to maintain the product, which indirectly affects security by making it more difficult or time-consuming to find and/or fix vulnerabilities. It also might make it
+ easier to introduce vulnerabilities.
+
+ + Relationships
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Research Concepts" (CWE-1000)
+     Nature                                                                                                                                                                             Type                                                                                                                                                                           ID        Name
+ ChildOf                                                                               ClassClass - a weakness that is described in a very abstract fashion, typically independent of any specific language or technology. More specific than a Pillar Weakness, but more general than a Base                                                                        1061    Insufficient
+                                                                                                                    Weakness. Class level weaknesses typically describe issues in terms of 1 or 2 of the following dimensions: behavior, property, and resource.                                                                                                             Encapsulation
+ ChildOf                                                                               ClassClass - a weakness that is described in a very abstract fashion, typically independent of any specific language or technology. More specific than a Pillar Weakness, but more general than a Base                                                                        732     Incorrect
+                                                                                                                    Weakness. Class level weaknesses typically describe issues in terms of 1 or 2 of the following dimensions: behavior, property, and resource.                                                                                                             Permission
+                                                                                                                                                                                                                                                                                                                                                                             Assignment
+                                                                                                                                                                                                                                                                                                                                                                             for Critical
+                                                                                                                                                                                                                                                                                                                                                                             Resource
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Software Development" (CWE-699)
+     Nature                                                       Type                                                     ID                                   Name
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 275     Permission Issues
+ + Modes Of Introduction
+ Section HelpThe different Modes of Introduction provide information about how and when this weakness may be introduced. The Phase identifies a point in the life cycle at which introduction may occur,
+ while the Note provides a typical scenario related to introduction during the given phase.
+     Phase                                                                                              Note
+ Implementation
+ + Applicable Platforms
+ Section HelpThis listing shows possible areas for which the given weakness could appear. These may be for specific named Languages, Operating Systems, Architectures, Paradigms, Technologies, or a
+ class of such platforms. The platform is listed along with how frequently the given weakness appears for that instance.
+
+ Languages
+
+ C++ (Undetermined Prevalence)
+
+ C# (Undetermined Prevalence)
+
+ Java (Undetermined Prevalence)
+
+ + Common Consequences
+ Section HelpThis table specifies different individual consequences associated with the weakness. The Scope identifies the application security area that is violated, while the Impact describes the
+ negative technical impact that arises if an adversary succeeds in exploiting this weakness. The Likelihood provides information about how likely the specific consequence is expected to be seen
+ relative to the other consequences in the list. For example, there may be high likelihood that a weakness will be exploited to achieve a certain impact, but a low likelihood that it will be exploited
+ to achieve a different impact.
+       Scope                                                                                     Impact                                                                                 Likelihood
+ Integrity          Technical Impact: Read Application Data; Modify Application Data
+ Confidentiality
+                    Making a critical variable public allows anyone with access to the object in which the variable is contained to alter or read the value.
+ Other              Technical Impact: Reduce Maintainability
+
+ + Demonstrative Examples
+ 
+ Example 1
+
+ The following example declares a critical variable public, making it accessible to anyone with access to the object in which it is contained.
+
+ (bad code)
+ Example Language: C++ 
+ public: char* password;
+
+ Instead, the critical data should be declared private.
+
+ (good code)
+ Example Language: C++ 
+ private: char* password;
+
+ Even though this example declares the password to be private, there are other possible issues with this implementation, such as the possibility of recovering the password from process memory (CWE-257
+ ).
+
+ Example 2
+
+ The following example shows a basic user account class that includes member variables for the username and password as well as a public constructor for the class and a public method to authorize
+ access to the user account.
+
+ (bad code)
+ Example Language: C++ 
+ #define MAX_PASSWORD_LENGTH 15
+ #define MAX_USERNAME_LENGTH 15
+
+ class UserAccount
+ {
+ public:
+ UserAccount(char *username, char *password)
+ {
+ if ((strlen(username) > MAX_USERNAME_LENGTH) ||
+ (strlen(password) > MAX_PASSWORD_LENGTH)) {
+ ExitError("Invalid username or password");
+ }
+ strcpy(this->username, username);
+ strcpy(this->password, password);
+ }
+
+
+ int authorizeAccess(char *username, char *password)
+ {
+ if ((strlen(username) > MAX_USERNAME_LENGTH) ||
+ (strlen(password) > MAX_PASSWORD_LENGTH)) {
+ ExitError("Invalid username or password");
+ }
+ // if the username and password in the input parameters are equal to
+
+ // the username and password of this account class then authorize access
+ if (strcmp(this->username, username) ||
+ strcmp(this->password, password))
+ return 0;
+
+ // otherwise do not authorize access
+ else
+ return 1;
+ }
+
+ char username[MAX_USERNAME_LENGTH+1];
+ char password[MAX_PASSWORD_LENGTH+1];
+ };
+
+ However, the member variables username and password are declared public and therefore will allow access and changes to the member variables to anyone with access to the object. These member variables
+ should be declared private as shown below to prevent unauthorized access and changes.
+
+ (good code)
+ Example Language: C++ 
+ class UserAccount
+ {
+ public:
+ ...
+
+
+ private:
+ char username[MAX_USERNAME_LENGTH+1];
+ char password[MAX_PASSWORD_LENGTH+1];
+ };
+ + Observed Examples
+        Reference                                                                                        Description
+ CVE-2010-3860           variables declared public allow remote read of system properties such as user name and home directory.
+ + Potential Mitigations
+ Phase: Implementation
+
+ Data should be private, static, and final whenever possible. This will assure that your code is protected by instantiating early, preventing access, and preventing tampering.
+ + Weakness Ordinalities
+ Ordinality                                                                                       Description
+ Primary    (where the weakness exists independent of other weaknesses)
+ Indirect   (where the weakness is a quality issue that might indirectly make it easier to introduce security-relevant weaknesses or make them more difficult to detect)
+ + Detection Methods
+ Automated Static Analysis
+
+ Automated static analysis, commonly referred to as Static Application Security Testing (SAST), can find some instances of this weakness by analyzing source code (or binary/compiled code) without
+ having to execute it. Typically, this is done by building a model of data flow and control flow, then searching for potentially-vulnerable patterns that connect "sources" (origins of input) with
+ "sinks" (destinations where the data interacts with external components, a lower layer such as the OS, etc.)
+
+ Effectiveness: High
+
+ + Memberships
+ Section HelpThis MemberOf Relationships table shows additional CWE Categories and Views that reference this weakness as a member. This information is often useful in understanding where a weakness
+ fits within the context of external information sources.
+     Nature                                                       Type                                                     ID                                   Name
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 849     The CERT Oracle Secure Coding Standard for Java (2011) Chapter 6 -
+                                                                                                                                 Object Orientation (OBJ)
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 1002    SFP Secondary Cluster: Unexpected Entry Points
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 1130    CISQ Quality Measures (2016) - Maintainability
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 1139    SEI CERT Oracle Secure Coding Standard for Java - Guidelines 05.
+                                                                                                                                 Object Orientation (OBJ)
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 1412    Comprehensive Categorization: Poor Coding Practices
+ + Vulnerability Mapping Notes
+ Usage: ALLOWED
+
+ (this CWE ID could be used to map to real-world vulnerabilities)
+ Reason: Acceptable-Use
+
+ Rationale:
+
+ This CWE entry is at the Base level of abstraction, which is a preferred level of abstraction for mapping to the root causes of vulnerabilities.
+ Comments:
+
+ Carefully read both the name and description to ensure that this mapping is an appropriate fit. Do not try to 'force' a mapping to a lower-level Base/Variant simply to comply with this preferred
+ level of abstraction.
+ + Taxonomy Mappings
+       Mapped Taxonomy Name          Node ID        Fit                                                                 Mapped Node Name
+ CLASP                                                      Failure to protect stored data from modification
+ The CERT Oracle Secure Coding    OBJ01-J                   Declare data members as private and provide accessible wrapper methods
+ Standard for Java (2011)
+ Software Fault Patterns          SFP28                     Unexpected access points
+ OMG ASCMM                        ASCMM-MNT-15
+ + References
+ [REF-960] Object Management Group (OMG). "Automated Source Code Maintainability Measure (ASCMM)". ASCMM-MNT-15. 2016-01. <https://www.omg.org/spec/ASCMM/>. URL validated: 2023-04-07.
+ + Content History
+                                                                                           + Submissions
+         Submission Date                                                   Submitter                                                                       Organization
+ 2009-03-03                      CWE Content Team                                                                              MITRE
+ (CWE 1.4, 2009-05-27)
+
+                                                                                          + Modifications
+        Modification Date                                                  Modifier                                                                        Organization
+ 2009-12-28                      CWE Content Team                                                                              MITRE
+                                 updated Demonstrative_Examples
+ 2010-12-13                      CWE Content Team                                                                              MITRE
+                                 updated Observed_Examples
+ 2011-06-01                      CWE Content Team                                                                              MITRE
+                                 updated Common_Consequences, Relationships, Taxonomy_Mappings
+ 2012-05-11                      CWE Content Team                                                                              MITRE
+                                 updated Relationships
+ 2014-07-30                      CWE Content Team                                                                              MITRE
+                                 updated Relationships, Taxonomy_Mappings
+ 2017-11-08                      CWE Content Team                                                                              MITRE
+                                 updated Likelihood_of_Exploit, Relationships
+ 2019-01-03                      CWE Content Team                                                                              MITRE
+                                 updated Common_Consequences, Description, Name, References, Relationships, Taxonomy_Mappings, Weakness_Ordinalities
+ 2020-02-24                      CWE Content Team                                                                              MITRE
+                                 updated Relationships
+ 2023-01-31                      CWE Content Team                                                                              MITRE
+                                 updated Description
+ 2023-04-27                      CWE Content Team                                                                              MITRE
+                                 updated Detection_Factors, References, Relationships, Time_of_Introduction, Type
+ 2023-06-29                      CWE Content Team                                                                              MITRE
+                                 updated Mapping_Notes, Relationships
+ 2023-10-26                      CWE Content Team                                                                              MITRE
+                                 updated Observed_Examples
+ 2024-02-29                      CWE Content Team                                                                              MITRE
+ (CWE 4.14, 2024-02-29)          updated Demonstrative_Examples
+                                                                                       + Previous Entry Names
+           Change Date                                                                                   Previous Entry Name
+ 2019-01-03                      Critical Variable Declared Public
+ More information is available — Please edit the custom filter or select a different filter.
+Page Last Updated: February 29, 2024
+ 
+      Site Map | Terms of Use | Manage Cookies | Cookie Notice | Privacy Policy | Contact Us | CWE X-Twitter CWE Mastodon CWE on LinkedIn CWE YouTube channel CWE Out-of-Bounds-Read Podcast CWE
+      Blog on Medium blog
+
+MITRE Use of the Common Weakness Enumeration (CWE™) and the associated references from this website are subject to the Terms of Use. CWE is sponsored by the U.S. Department of Homeland         HSSEDI
+      Security (DHS) Cybersecurity and Infrastructure Security Agency (CISA) and managed by the Homeland Security Systems Engineering and Development Institute (HSSEDI) which is operated by
+      The MITRE Corporation (MITRE). Copyright © 2006–2024, The MITRE Corporation. CWE, CWSS, CWRAF, and the CWE logo are trademarks of The MITRE Corporation.
+

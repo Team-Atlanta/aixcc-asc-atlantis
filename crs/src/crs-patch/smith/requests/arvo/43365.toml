@@ -1,0 +1,6 @@
+cp_name = "ARVO"
+blob_file = "./exemplar_only/cpv_1/blobs/sample_solve.bin"
+harness_id = "id_1"
+sanitizer_id = "id_1"
+bug_introduce_commit = "2fabd370bb6077aa2751d485b3fc36a269dd62df~1"
+src_dir = "./src/zstd"

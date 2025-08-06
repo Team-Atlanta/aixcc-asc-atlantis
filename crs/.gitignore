@@ -1,0 +1,8 @@
+.git
+.github
+.gitmodules
+mock-vd
+src/*/commit-analyzer/data/
+src/crs-patch/smith/tests
+src/crs-patch/loop/apps/redia_baseline/reports
+src/crs-cp-linux/crs-linux.config

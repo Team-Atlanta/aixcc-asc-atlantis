@@ -1,0 +1,39 @@
+name: If Sandbox repo create PR to downstream CRS repos on Release
+permissions: read-all
+# Configures this workflow to run every time a release is published
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    outputs:
+      is_template_repo: ${{ steps.check-repo.outputs.is_template_repo }}
+    steps:
+        - name: Check if this is the source (template) repository
+          id: check-repo
+          run: |
+            if [ "${{ github.repository }}" == "aixcc-sc/crs-sandbox" ]; then
+              echo "This repo is the template repo..."
+              echo "is_template_repo=true" >> "$GITHUB_OUTPUT"
+              exit 0
+            fi
+            echo "is_template_repo=false" >> "$GITHUB_OUTPUT"
+
+  trigger_downstream_sync:
+    needs: check
+    runs-on: ubuntu-latest
+    if: ${{ needs.check.outputs.is_template_repo == 'true' && !github.event.release.prerelease }}
+    steps:
+        # Check out code using git
+      - uses: actions/checkout@v4
+      # Install Node 20
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: npm install @octokit/action
+      - run: node .github/actions/trigger-downstream-sync.mjs
+        env:
+          GITHUB_TOKEN: ${{ secrets.SANDBOX_ACTION_GITHUB_TOKEN }}

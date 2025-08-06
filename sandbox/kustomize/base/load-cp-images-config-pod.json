@@ -1,0 +1,27 @@
+[
+    {
+        "op": "add",
+        "path": "/spec/containers/0/volumeMounts/-",
+        "value": {
+            "mountPath": "/cp_config.yaml",
+            "name": "cp-config",
+            "subPath": "cp_config.yaml"
+        }
+    },
+    {
+        "op": "add",
+        "path": "/spec/volumes/-",
+        "value": {
+            "configMap": {
+                "items": [
+                    {
+                        "key": "cp_config.yaml",
+                        "path": "cp_config.yaml"
+                    }
+                ],
+                "name": "cp-config"
+            },
+            "name": "cp-config"
+        }
+    }
+]

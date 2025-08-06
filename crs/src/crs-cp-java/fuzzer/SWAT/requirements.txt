@@ -1,0 +1,5 @@
+fastapi==0.103.2
+mutf8==1.0.6
+uvicorn==0.29.0
+z3-solver==4.13.0.0
+watchdog==4.0.1

@@ -1,0 +1,6 @@
+cp_name = "jenkins"
+blob_file = "./exemplar_only/cpv_exemplar/blobs/id_8.bin"
+harness_id = "id_8"
+sanitizer_id = "id_7"
+bug_introduce_commit = "b49e7dbb448c2f649e5a5fe6050e73f5c36a6e72"
+src_dir = "./src/plugins/toy-plugin"

@@ -1,0 +1,48 @@
+---
+services:
+  dind:
+    image: docker:24-dind
+    command: ["dockerd", "-H", "tcp://0.0.0.0:12375", "--tls=false", "--storage-driver=overlay2"]
+    restart: always
+    privileged: true
+    expose:
+      - "12375"
+    volumes:
+      - "shared-tmp:/tmp"
+      - "./crs_scratch:/crs_scratch"
+    environment:
+      - DOCKER_TLS_CERTDIR # intentionally blank to optimize runtime
+  vapi:
+    build:
+      context: .
+    tty: true
+    restart: always
+    ports:
+      - "18080:18080"
+    volumes:
+      - "shared-tmp:/tmp"
+      - "./capi_logs:/var/log/capi"
+      - "./cp_root:/cp_root"
+      - "./crs_scratch:/crs_scratch"
+    environment:
+      # These values will be modified automatically at competition time
+      - DOCKER_HOST=tcp://dind:12375
+      - AIXCC_API_HOSTNAME=$AIXCC_API_HOSTNAME
+      - AIXCC_CP_ROOT=/cp_root
+      - AIXCC_CRS_SCRATCH_SPACE=/crs_scratch
+      # These will not
+      - VAPI_DOCKER_IMAGE_USAGE=pull
+      - VAPI_DOCKER_VOL_ARGS_BEHAVIOR=none
+      - VAPI_TEAM_ATLANTA_JENKINS_FORK=true
+      - WEB_CONCURRENCY=$WEB_CONCURRENCY
+      - VAPI_TEST_GPS_BUILD=true
+      - VAPI_TEST_GPS_WITH_POV=true
+      - VAPI_TEST_GPS_FUNCTIONAL=true
+    env_file:
+      - path: ./env
+        required: false  # only necessary for AIXCC_DOCKER_IMAGE_USAGE=pull
+volumes:
+  shared-tmp:
+configs:
+  capi:
+    file: ./standard_config.yaml

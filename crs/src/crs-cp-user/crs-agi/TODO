@@ -1,0 +1,15 @@
+- testing w/ gemini 1m tokens
+- include the summary of LLVMFuzzerTestOneInput in the prompt context
+
+- tools
+  get_src_summary(file)
+    - list of functions
+    - dependencies
+
+  get_src_function_summary(file, function)
+  get_src_function(file, function)
+
+- recovery after token maxout
+- handling timeout from remote llm servers 
+- actors for various agents
+- add channels among agnets

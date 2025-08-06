@@ -1,0 +1,16 @@
+Please upgrade the Python code that generates the data blob and saves it as 'blob.bin' using the following git commit diff info.
+Provide the entire code in a single, continuous block enclosed within unique markers `#START_CODE` and `#END_CODE` (as comments in the code) to ensure there are no multiple pieces.
+Ensure `#START_CODE` and `#END_CODE` appear only once in the entire response, the python code in the response will be parsed using markers `#START_CODE` and `#END_CODE`.
+Ensure the code is well-formatted and easily parsable.
+
+```
+[INSERT GIT DIFF HERE]
+```
+
+-Fetch the entire code of the file from the relative path specified in the git diff.
+-Analyze the entire file.
+-List the contents of the directory (relative to the file's path) to check for any additional source files. Fetch and analyze these files if they exist.
+-Check for any parent or child directories and analyze their contents as necessary.
+-Identify the vulnerability introduced by the commit.
+-Create a testblob that triggers the vulnerability when passed to the test harness.
+-Explain how the testblob exploits the vulnerability in the code.

@@ -1,0 +1,10 @@
+Unfortunately the testlang does not exist.
+You do not need tp provide any test blob generation code at this step.
+
+Next, I will ask you to upgrade code using the test harness.
+As you did not generate any code in this step due to the absence of testlang, you must first create an initial version of the blob generation code and then upgrade it using the test harness.
+
+Follow these instructions to create the initial version of the blob generation code using the test harness:
+1. The test harness reads the test blob and uses its values to determine the number of syscalls/commands/functions to call, their order, and the values of their arguments.
+2. Carefully analyze how the test harness reads and uses test blobs.
+3. Generate Python code that produces comprehensive test blobs for use by the test harness. Ensure that each field in the test blob is selected from all possible values.

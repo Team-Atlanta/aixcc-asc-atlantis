@@ -1,0 +1,255 @@
+CWE
+
+Common Weakness Enumeration
+
+A community-developed list of SW & HW weaknesses that can become vulnerabilities
+
+New to CWE? click here!
+CWE Most Important Hardware Weaknesses
+CWE Top 25 Most Dangerous Weaknesses
+Home > CWE List > CWE- Individual Dictionary Definition (4.14)                                                                                                   ID Lookup: [                    ] [Go]
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  • Home
+  • About ▼
+    About New to CWE User Stories History Documents FAQs Glossary Compatibility
+  • CWE List ▼
+    Latest Version Downloads Reports Visualizations Archive
+  • Mapping ▼
+    Root Cause Mapping Guidance Root Cause Mapping Quick Tips Root Cause Mapping Examples
+  • Top-N Lists ▼
+    Top 25 Software Top Hardware Top 10 KEV Weaknesses
+  • Community ▼
+    Community Working Groups & Special Interest Groups Board Board Meeting Minutes CWE Discussion List CWE Discussion Archives Contribute Weakness Content to CWE
+  • News ▼
+    Current News X-Twitter ● Mastodon ● LinkedIn ● YouTube YouTube Podcast Out of Bounds Read Podcast Medium Medium News Archive
+  • Search
+
+ 
+ CWE Glossary Definition                  x
+ 
+ 
+ CWE-1265: Unintended Reentrant Invocation of Non-reentrant Code Via Nested Calls
+ 
+ Weakness ID: 1265
+ Vulnerability Mapping: ALLOWEDThis CWE ID may be used to map to real-world vulnerabilities
+ Abstraction: BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level
+ weaknesses typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.
+ View customized information:
+ Conceptual For users who are interested in more notional aspects of a weakness. Example: educators, technical writers, and project/program managers. Operational For users who are concerned with the
+ practical application and details about the nature of a weakness and how to prevent it from happening. Example: tool developers, security researchers, pen-testers, incident response analysts. Mapping
+ Friendly For users who are mapping an issue to CWE/CAPEC IDs, i.e., finding the most appropriate CWE for a specific issue (e.g., a CVE record). Example: tool developers, security researchers. 
+ Complete For users who wish to see all available information for the CWE/CAPEC entry. Custom For users who want to customize what details are displayed.
+ ×
+
+ Edit Custom Filter
+
+ Conceptual Operational Mapping Friendly Select All
+ 
+ Reset Clear Submit Cancel
+ + Description
+ During execution of non-reentrant code, the product performs a call that unintentionally produces a nested invocation of the non-reentrant code.
+ + Extended Description
+ In a complex product, a single function call may lead to many different possible code paths, some of which may involve deeply nested calls. It may be difficult to foresee all possible code paths that
+ could emanate from a given function call. In some systems, an external actor can manipulate inputs to the system and thereby achieve a wide range of possible control flows. This is frequently a
+ concern in products that execute scripts from untrusted sources. Examples of such products are web browsers and PDF readers. A weakness is present when one of the possible code paths resulting from a
+ function call alters program state that the original caller assumes to be unchanged during the call.
+ + Relationships
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Research Concepts" (CWE-1000)
+     Nature                                                                                                                                                                               Type                                                                                                                                                                            ID        Name
+ ChildOf                                                                                 PillarPillar - a weakness that is the most abstract type of weakness and represents a theme for all class/base/variant weaknesses related to it. A Pillar is different from a Category as a Pillar is                                                                          691     Insufficient
+                                                                                                                    still technically a type of weakness that describes a mistake, while a Category represents a common characteristic used to group related things.                                                                                                            Control Flow
+                                                                                                                                                                                                                                                                                                                                                                                Management
+ PeerOf                                                                                     BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level weaknesses                                                                             663     Use of a
+                                                                                                                           typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                    Non-reentrant
+                                                                                                                                                                                                                                                                                                                                                                                Function in a
+                                                                                                                                                                                                                                                                                                                                                                                Concurrent
+                                                                                                                                                                                                                                                                                                                                                                                Context
+ CanPrecede                                                                              VariantVariant - a weakness that is linked to a certain type of product, typically involving a specific language or technology. More specific than a Base weakness. Variant level weaknesses typically                                                                         416     Use After
+                                                                                                                                describe issues in terms of 3 to 5 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                         Free
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Software Development" (CWE-699)
+     Nature                                                       Type                                                     ID                                   Name
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 371     State Issues
+ + Applicable Platforms
+ Section HelpThis listing shows possible areas for which the given weakness could appear. These may be for specific named Languages, Operating Systems, Architectures, Paradigms, Technologies, or a
+ class of such platforms. The platform is listed along with how frequently the given weakness appears for that instance.
+
+ Languages
+
+ Class: Not Language-Specific (Undetermined Prevalence)
+
+ + Common Consequences
+ Section HelpThis table specifies different individual consequences associated with the weakness. The Scope identifies the application security area that is violated, while the Impact describes the
+ negative technical impact that arises if an adversary succeeds in exploiting this weakness. The Likelihood provides information about how likely the specific consequence is expected to be seen
+ relative to the other consequences in the list. For example, there may be high likelihood that a weakness will be exploited to achieve a certain impact, but a low likelihood that it will be exploited
+ to achieve a different impact.
+       Scope                                                                                     Impact                                                                                 Likelihood
+                    Technical Impact: Unexpected State
+ Integrity                                                                                                                                                                            Unknown
+                    Exploitation of this weakness can leave the application in an unexpected state and cause variables to be reassigned before the first invocation has completed.
+                    This may eventually result in memory corruption or unexpected code execution.
+ + Demonstrative Examples
+ 
+ Example 1
+
+ The implementation of the Widget class in the following C++ code is an example of code that is not designed to be reentrant. If an invocation of a method of Widget inadvertently produces a second
+ nested invocation of a method of Widget, then data member backgroundImage may unexpectedly change during execution of the outer call.
+
+ (bad code)
+ Example Language: C++ 
+ class Widget
+ {
+ private:
+ Image* backgroundImage;
+
+ public:
+ void click()
+ {
+ if (backgroundImage)
+ {
+ backgroundImage->click();
+ }
+ }
+
+ void changeBackgroundImage(Image* newImage)
+ {
+ if (backgroundImage)
+ {
+ delete backgroundImage;
+ }
+ backgroundImage = newImage;
+ }
+ }
+
+ class Image
+ {
+ public:
+ void click()
+ {
+ scriptEngine->fireOnImageClick();
+ /* perform some operations using "this" pointer */
+ }
+ }
+
+ Looking closer at this example, Widget::click() calls backgroundImage->click(), which in turn calls scriptEngine->fireOnImageClick(). The code within fireOnImageClick() invokes the appropriate script
+ handler routine as defined by the document being rendered. In this scenario this script routine is supplied by an adversary and this malicious script makes a call to Widget::changeBackgroundImage(),
+ deleting the Image object pointed to by backgroundImage. When control returns to Image::click, the function's backgroundImage "this" pointer (which is the former value of backgroundImage) is a
+ dangling pointer. The root of this weakness is that while one operation on Widget (click) is in the midst of executing, a second operation on the Widget object may be invoked (in this case, the
+ second invocation is a call to different method, namely changeBackgroundImage) that modifies the non-local variable.
+
+ Example 2
+
+ This is another example of C++ code that is not designed to be reentrant.
+
+ (bad code)
+ Example Language: C++ 
+ class Request
+ {
+ private:
+ std::string uri;
+ /* ... */
+
+ public:
+ void setup(ScriptObject* _uri)
+ {
+ this->uri = scriptEngine->coerceToString(_uri);
+ /* ... */
+ }
+
+ void send(ScriptObject* _data)
+ {
+ Credentials credentials = GetCredentials(uri);
+ std::string data = scriptEngine->coerceToString(_data);
+ doSend(uri, credentials, data);
+ }
+ }
+
+ The expected order of operations is a call to Request::setup(), followed by a call to Request::send(). Request::send() calls scriptEngine->coerceToString(_data) to coerce a script-provided parameter
+ into a string. This operation may produce script execution. For example, if the script language is ECMAScript, arbitrary script execution may result if _data is an adversary-supplied ECMAScript
+ object having a custom toString method. If the adversary's script makes a new call to Request::setup, then when control returns to Request::send, the field uri and the local variable credentials will
+ no longer be consistent with one another. As a result, credentials for one resource will be shared improperly with a different resource. The root of this weakness is that while one operation on
+ Request (send) is in the midst of executing, a second operation may be invoked (setup).
+
+ + Observed Examples
+        Reference                                                                                        Description
+ CVE-2014-1772           In this vulnerability, by registering a malicious onerror handler, an adversary can produce unexpected re-entrance of a CDOMRange object. [REF-1098]
+ CVE-2018-8174           This CVE covers several vulnerable scenarios enabled by abuse of the Class_Terminate feature in Microsoft VBScript. In one scenario, Class_Terminate is used to produce an
+                         undesirable re-entrance of ScriptingDictionary during execution of that object's destructor. In another scenario, a vulnerable condition results from a recursive entrance
+                         of a property setter method. This recursive invocation produces a second, spurious call to the Release method of a reference-counted object, causing a UAF when that object
+                         is freed prematurely. This vulnerability pattern has been popularized as "Double Kill". [REF-1099]
+ + Potential Mitigations
+ Phase: Architecture and Design
+
+ When architecting a system that will execute untrusted code in response to events, consider executing the untrusted event handlers asynchronously (asynchronous message passing) as opposed to
+ executing them synchronously at the time each event fires. The untrusted code should execute at the start of the next iteration of the thread's message loop. In this way, calls into non-reentrant
+ code are strictly serialized, so that each operation completes fully before the next operation begins. Special attention must be paid to all places where type coercion may result in script
+ execution. Performing all needed coercions at the very beginning of an operation can help reduce the chance of operations executing at unexpected junctures.
+
+ Effectiveness: High
+
+ Phase: Implementation
+
+ Make sure the code (e.g., function or class) in question is reentrant by not leveraging non-local data, not modifying its own code, and not calling other non-reentrant code.
+
+ Effectiveness: High
+
+ + Weakness Ordinalities
+ Ordinality                                                                                       Description
+ Primary    (where the weakness exists independent of other weaknesses)
+ + Memberships
+ Section HelpThis MemberOf Relationships table shows additional CWE Categories and Views that reference this weakness as a member. This information is often useful in understanding where a weakness
+ fits within the context of external information sources.
+     Nature                                                       Type                                                     ID                                   Name
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 1410    Comprehensive Categorization: Insufficient Control Flow Management
+ + Vulnerability Mapping Notes
+ Usage: ALLOWED
+
+ (this CWE ID could be used to map to real-world vulnerabilities)
+ Reason: Acceptable-Use
+
+ Rationale:
+
+ This CWE entry is at the Base level of abstraction, which is a preferred level of abstraction for mapping to the root causes of vulnerabilities.
+ Comments:
+
+ Carefully read both the name and description to ensure that this mapping is an appropriate fit. Do not try to 'force' a mapping to a lower-level Base/Variant simply to comply with this preferred
+ level of abstraction.
+ + Related Attack Patterns
+    CAPEC-ID                                                                                     Attack Pattern Name
+ CAPEC-74        Manipulating State
+ + References
+ [REF-1098] Jack Tang. "Root Cause Analysis of CVE-2014-1772 - An Internet Explorer Use After Free Vulnerability". 2014-11-05. <https://www.trendmicro.com/en_us/research.html>. URL validated:
+ 2023-04-07.
+ [REF-1099] Simon Zuckerbraun. "It's Time To Terminate The Terminator". 2018-05-15. <https://www.zerodayinitiative.com/blog/2018/5/15/its-time-to-terminate-the-terminator>.
+ + Content History
+                                                                                            + Submissions
+                    Submission Date                                                         Submitter                                                            Organization
+ 2018-12-20                                             Simon Zuckerbraun                                                                 Trend Micro
+ (CWE 4.1, 2020-02-24)
+
+                                                                                           + Modifications
+                   Modification Date                                                        Modifier                                                             Organization
+ 2020-08-20                                             CWE Content Team                                                                  MITRE
+                                                        updated Demonstrative_Examples, Related_Attack_Patterns
+ 2022-10-13                                             CWE Content Team                                                                  MITRE
+                                                        updated References
+ 2023-01-31                                             CWE Content Team                                                                  MITRE
+                                                        updated Description
+ 2023-04-27                                             CWE Content Team                                                                  MITRE
+                                                        updated References, Relationships
+ 2023-06-29                                             CWE Content Team                                                                  MITRE
+                                                        updated Mapping_Notes
+ More information is available — Please edit the custom filter or select a different filter.
+Page Last Updated: February 29, 2024
+ 
+      Site Map | Terms of Use | Manage Cookies | Cookie Notice | Privacy Policy | Contact Us | CWE X-Twitter CWE Mastodon CWE on LinkedIn CWE YouTube channel CWE Out-of-Bounds-Read Podcast CWE
+      Blog on Medium blog
+
+MITRE Use of the Common Weakness Enumeration (CWE™) and the associated references from this website are subject to the Terms of Use. CWE is sponsored by the U.S. Department of Homeland         HSSEDI
+      Security (DHS) Cybersecurity and Infrastructure Security Agency (CISA) and managed by the Homeland Security Systems Engineering and Development Institute (HSSEDI) which is operated by
+      The MITRE Corporation (MITRE). Copyright © 2006–2024, The MITRE Corporation. CWE, CWSS, CWRAF, and the CWE logo are trademarks of The MITRE Corporation.
+

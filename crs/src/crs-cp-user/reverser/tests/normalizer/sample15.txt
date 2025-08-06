@@ -1,0 +1,17 @@
+
+    INPUT ::= CMD_CNTR { size: 4 }
+              CMDI[CMD_CNTR]
+
+    CMDI   ::= CMD0
+             | CMD1
+
+    CMD0  ::= OPCODE { size: 4, value: 1}
+              FLAGG { size: 4}
+
+    CMD1  ::= OPCODE { size: 4, value: 0 } // OPCODE is 4 byte and its value is 0.
+              FLAGG { size: 4 }
+              DATA0_SIZE { size: 4 }
+              DATA0 { size: DATA0_SIZE }     // the size of DATA1 is DATA_SIZE
+              DATA1_SIZE { size: 4 }
+              DATA1 { size: DATA1_SIZE }
+    

@@ -1,0 +1,307 @@
+CWE
+
+Common Weakness Enumeration
+
+A community-developed list of SW & HW weaknesses that can become vulnerabilities
+
+New to CWE? click here!
+CWE Most Important Hardware Weaknesses
+CWE Top 25 Most Dangerous Weaknesses
+Home > CWE List > CWE- Individual Dictionary Definition (4.14)                                                                                                   ID Lookup: [                    ] [Go]
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  • Home
+  • About ▼
+    About New to CWE User Stories History Documents FAQs Glossary Compatibility
+  • CWE List ▼
+    Latest Version Downloads Reports Visualizations Archive
+  • Mapping ▼
+    Root Cause Mapping Guidance Root Cause Mapping Quick Tips Root Cause Mapping Examples
+  • Top-N Lists ▼
+    Top 25 Software Top Hardware Top 10 KEV Weaknesses
+  • Community ▼
+    Community Working Groups & Special Interest Groups Board Board Meeting Minutes CWE Discussion List CWE Discussion Archives Contribute Weakness Content to CWE
+  • News ▼
+    Current News X-Twitter ● Mastodon ● LinkedIn ● YouTube YouTube Podcast Out of Bounds Read Podcast Medium Medium News Archive
+  • Search
+
+ 
+ CWE Glossary Definition                  x
+ 
+ 
+ CWE-1341: Multiple Releases of Same Resource or Handle
+ 
+ Weakness ID: 1341
+ Vulnerability Mapping: ALLOWEDThis CWE ID may be used to map to real-world vulnerabilities
+ Abstraction: BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level
+ weaknesses typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.
+ View customized information:
+ Conceptual For users who are interested in more notional aspects of a weakness. Example: educators, technical writers, and project/program managers. Operational For users who are concerned with the
+ practical application and details about the nature of a weakness and how to prevent it from happening. Example: tool developers, security researchers, pen-testers, incident response analysts. Mapping
+ Friendly For users who are mapping an issue to CWE/CAPEC IDs, i.e., finding the most appropriate CWE for a specific issue (e.g., a CVE record). Example: tool developers, security researchers. 
+ Complete For users who wish to see all available information for the CWE/CAPEC entry. Custom For users who want to customize what details are displayed.
+ ×
+
+ Edit Custom Filter
+
+ Conceptual Operational Mapping Friendly Select All
+ 
+ Reset Clear Submit Cancel
+ + Description
+ The product attempts to close or release a resource or handle more than once, without any successful open between the close operations.
+ + Extended Description
+ 
+ Code typically requires "opening" handles or references to resources such as memory, files, devices, socket connections, services, etc. When the code is finished with using the resource, it is
+ typically expected to "close" or "release" the resource, which indicates to the environment (such as the OS) that the resource can be re-assigned or reused by unrelated processes or actors - or in
+ some cases, within the same process. API functions or other abstractions are often used to perform this release, such as free() or delete() within C/C++, or file-handle close() operations that are
+ used in many languages.
+
+ Unfortunately, the implementation or design of such APIs might expect the developer to be responsible for ensuring that such APIs are only called once per release of the resource. If the developer
+ attempts to release the same resource/handle more than once, then the API's expectations are not met, resulting in undefined and/or insecure behavior. This could lead to consequences such as memory
+ corruption, data corruption, execution path corruption, or other consequences.
+
+ Note that while the implementation for most (if not all) resource reservation allocations involve a unique identifier/pointer/symbolic reference, then if this identifier is reused, checking the
+ identifier for resource closure may result in a false state of openness and closing of the wrong resource. For this reason, reuse of identifiers is discouraged.
+
+ + Relationships
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Research Concepts" (CWE-1000)
+     Nature                                                                                                                                                                             Type                                                                                                                                                                           ID          Name
+ ChildOf                                                                               ClassClass - a weakness that is described in a very abstract fashion, typically independent of any specific language or technology. More specific than a Pillar Weakness, but more general than a Base                                                                        675     Multiple
+                                                                                                                    Weakness. Class level weaknesses typically describe issues in terms of 1 or 2 of the following dimensions: behavior, property, and resource.                                                                                                             Operations on
+                                                                                                                                                                                                                                                                                                                                                                             Resource in
+                                                                                                                                                                                                                                                                                                                                                                             Single-Operation
+                                                                                                                                                                                                                                                                                                                                                                             Context
+ ParentOf                                                                              VariantVariant - a weakness that is linked to a certain type of product, typically involving a specific language or technology. More specific than a Base weakness. Variant level weaknesses typically                                                                        415     Double Free
+                                                                                                                               describe issues in terms of 3 to 5 of the following dimensions: behavior, property, technology, language, and resource.
+ CanPrecede                                                                            ClassClass - a weakness that is described in a very abstract fashion, typically independent of any specific language or technology. More specific than a Pillar Weakness, but more general than a Base                                                                        672     Operation on a
+                                                                                                                    Weakness. Class level weaknesses typically describe issues in terms of 1 or 2 of the following dimensions: behavior, property, and resource.                                                                                                             Resource after
+                                                                                                                                                                                                                                                                                                                                                                             Expiration or
+                                                                                                                                                                                                                                                                                                                                                                             Release
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Software Development" (CWE-699)
+     Nature                                                       Type                                                     ID                                   Name
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 399     Resource Management Errors
+ + Modes Of Introduction
+ Section HelpThe different Modes of Introduction provide information about how and when this weakness may be introduced. The Phase identifies a point in the life cycle at which introduction may occur,
+ while the Note provides a typical scenario related to introduction during the given phase.
+     Phase                                                                                              Note
+ Implementation
+ + Applicable Platforms
+ Section HelpThis listing shows possible areas for which the given weakness could appear. These may be for specific named Languages, Operating Systems, Architectures, Paradigms, Technologies, or a
+ class of such platforms. The platform is listed along with how frequently the given weakness appears for that instance.
+
+ Languages
+
+ Java (Undetermined Prevalence)
+
+ Rust (Undetermined Prevalence)
+
+ Class: Not Language-Specific (Undetermined Prevalence)
+
+ C (Undetermined Prevalence)
+
+ C++ (Undetermined Prevalence)
+
+ Operating Systems
+
+ Class: Not OS-Specific (Undetermined Prevalence)
+
+ Architectures
+
+ Class: Not Architecture-Specific (Undetermined Prevalence)
+
+ Technologies
+
+ Class: Not Technology-Specific (Undetermined Prevalence)
+
+ + Common Consequences
+ Section HelpThis table specifies different individual consequences associated with the weakness. The Scope identifies the application security area that is violated, while the Impact describes the
+ negative technical impact that arises if an adversary succeeds in exploiting this weakness. The Likelihood provides information about how likely the specific consequence is expected to be seen
+ relative to the other consequences in the list. For example, there may be high likelihood that a weakness will be exploited to achieve a certain impact, but a low likelihood that it will be exploited
+ to achieve a different impact.
+       Scope                                                                                     Impact                                                                                 Likelihood
+ Availability       Technical Impact: DoS: Crash, Exit, or Restart                                                                                                                    Medium
+ Integrity
+ + Demonstrative Examples
+ 
+ Example 1
+
+ This example attempts to close a file twice. In some cases, the C library fclose() function will catch the error and return an error code. In other implementations, a double-free (CWE-415) occurs,
+ causing the program to fault. Note that the examples presented here are simplistic, and double fclose() calls will frequently be spread around a program, making them more difficult to find during
+ code reviews.
+
+ (bad code)
+ Example Language: C 
+ char b[2000];
+ FILE *f = fopen("dbl_cls.c", "r");
+ if (f)
+ {
+ b[0] = 0;
+ fread(b, 1, sizeof(b) - 1, f);
+ printf("%s\n'", b);
+ int r1 = fclose(f);
+ printf("\n-----------------\n1 close done '%d'\n", r1);
+
+ int r2 = fclose(f); // Double close
+ printf("2 close done '%d'\n", r2);
+ }
+
+ There are multiple possible fixes. This fix only has one call to fclose(), which is typically the preferred handling of this problem - but this simplistic method is not always possible.
+
+ (good code)
+ Example Language: C 
+ char b[2000];
+ FILE *f = fopen("dbl_cls.c", "r");
+ if (f)
+ {
+ b[0] = 0;
+ fread(b, 1, sizeof(b) - 1, f);
+ printf("%s\n'", b);
+ int r = fclose(f);
+ printf("\n-----------------\n1 close done '%d'\n", r);
+ }
+
+ This fix uses a flag to call fclose() only once. Note that this flag is explicit. The variable "f" could also have been used as it will be either NULL if the file is not able to be opened or a valid
+ pointer if the file was successfully opened. If "f" is replacing "f_flg" then "f" would need to be set to NULL after the first fclose() call so the second fclose call would never be executed.
+
+ (good code)
+ Example Language: C 
+ char b[2000];
+ int f_flg = 0;
+ FILE *f = fopen("dbl_cls.c", "r");
+ if (f)
+ {
+ f_flg = 1;
+ b[0] = 0;
+ fread(b, 1, sizeof(b) - 1, f);
+ printf("%s\n'", b);
+ if (f_flg)
+ {
+ int r1 = fclose(f);
+ f_flg = 0;
+ printf("\n-----------------\n1 close done '%d'\n", r1);
+
+ }
+
+ if (f_flg)
+ {
+ int r2 = fclose(f); // Double close
+ f_flg = 0;
+ printf("2 close done '%d'\n", r2);
+
+ }
+
+ }
+
+ Example 2
+
+ The following code shows a simple example of a double free vulnerability.
+
+ (bad code)
+ Example Language: C 
+ char* ptr = (char*)malloc (SIZE);
+ ...
+ if (abrt) {
+ free(ptr);
+ }
+ ...
+ free(ptr);
+
+ Double free vulnerabilities have two common (and sometimes overlapping) causes:
+
+   • Error conditions and other exceptional circumstances
+   • Confusion over which part of the program is responsible for freeing the memory
+
+ Although some double free vulnerabilities are not much more complicated than this example, most are spread out across hundreds of lines of code or even different files. Programmers seem particularly
+ susceptible to freeing global variables more than once.
+
+ + Observed Examples
+        Reference                                                                                        Description
+ CVE-2019-13351          file descriptor double close can cause the wrong file to be associated with a file descriptor.
+ CVE-2006-5051           Chain: Signal handler contains too much functionality (CWE-828), introducing a race condition that leads to a double free (CWE-415).
+ CVE-2004-0772           Double free resultant from certain error conditions.
+ + Potential Mitigations
+ Phase: Implementation
+
+ Change the code's logic so that the resource is only closed once. This might require simplifying or refactoring. This fix can be simple to do in small code blocks, but more difficult when
+ multiple closes are buried within complex conditionals.
+ Phase: Implementation
+
+ Strategy: Refactoring
+
+ It can be effective to implement a flag that is (1) set when the resource is opened, (2) cleared when it is closed, and (3) checked before closing. This approach can be useful when there are
+ disparate cases in which closes must be performed. However, flag-tracking can increase code complexity and requires diligent compliance by the programmer.
+ Phase: Implementation
+
+ Strategy: Refactoring
+
+ When closing a resource, set the resource's associated variable to NULL or equivalent value for the given language. Some APIs will ignore this null value without causing errors. For other APIs,
+ this can lead to application crashes or exceptions, which may still be preferable to corrupting an unintended resource such as memory or data.
+
+ Effectiveness: Defense in Depth
+
+ + Detection Methods
+ Automated Static Analysis
+
+ For commonly-used APIs and resource types, automated tools often have signatures that can spot this issue.
+ Automated Dynamic Analysis
+
+ Some compiler instrumentation tools such as AddressSanitizer (ASan) can indirectly detect some instances of this weakness.
+ + Memberships
+ Section HelpThis MemberOf Relationships table shows additional CWE Categories and Views that reference this weakness as a member. This information is often useful in understanding where a weakness
+ fits within the context of external information sources.
+     Nature                                                       Type                                                     ID                                   Name
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 1412    Comprehensive Categorization: Poor Coding Practices
+ + Vulnerability Mapping Notes
+ Usage: ALLOWED
+
+ (this CWE ID could be used to map to real-world vulnerabilities)
+ Reason: Acceptable-Use
+
+ Rationale:
+
+ This CWE entry is at the Base level of abstraction, which is a preferred level of abstraction for mapping to the root causes of vulnerabilities.
+ Comments:
+
+ Carefully read both the name and description to ensure that this mapping is an appropriate fit. Do not try to 'force' a mapping to a lower-level Base/Variant simply to comply with this preferred
+ level of abstraction.
+ + Notes
+ 
+ Terminology
+
+ The terms related to "release" may vary depending on the type of resource, programming language, specification, or framework. "Close" has been used synonymously for the release of resources like file
+ descriptors and file handles. "Return" is sometimes used instead of Release. "Free" is typically used when releasing memory or buffers back into the system for reuse.
+ + References
+ [REF-1198] "close - Perldoc Browser". <https://perldoc.perl.org/functions/close>.
+ [REF-1199] "io - Core tools for working with streams — Python 3.9.7 documentation". 2021-09-02. <https://docs.python.org/3.9/library/io.html#io.IOBase.close>.
+ [REF-1200] "FileOutputStream (Java Platform SE 7 )". 2020. <https://docs.oracle.com/javase/7/docs/api/java/io/FileOutputStream.html>.
+ [REF-1201] "FileOutputStream (Java SE 11 & JDK 11 )". 2021. <https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/FileOutputStream.html>.
+ + Content History
+                                                                                            + Submissions
+                 Submission Date                                                      Submitter                                                                Organization
+ 2021-09-07                                      CWE Content Team                                                                     MITRE
+ (CWE 4.6, 2021-10-28)
+
+                                                                                           + Modifications
+                Modification Date                                                      Modifier                                                                Organization
+ 2022-04-28                                      CWE Content Team                                                                     MITRE
+                                                 updated Demonstrative_Examples, Description, Potential_Mitigations
+ 2022-10-13                                      CWE Content Team                                                                     MITRE
+                                                 updated References
+ 2023-04-27                                      CWE Content Team                                                                     MITRE
+                                                 updated Relationships
+ 2023-06-29                                      CWE Content Team                                                                     MITRE
+                                                 updated Mapping_Notes
+ More information is available — Please edit the custom filter or select a different filter.
+Page Last Updated: February 29, 2024
+ 
+      Site Map | Terms of Use | Manage Cookies | Cookie Notice | Privacy Policy | Contact Us | CWE X-Twitter CWE Mastodon CWE on LinkedIn CWE YouTube channel CWE Out-of-Bounds-Read Podcast CWE
+      Blog on Medium blog
+
+MITRE Use of the Common Weakness Enumeration (CWE™) and the associated references from this website are subject to the Terms of Use. CWE is sponsored by the U.S. Department of Homeland         HSSEDI
+      Security (DHS) Cybersecurity and Infrastructure Security Agency (CISA) and managed by the Homeland Security Systems Engineering and Development Institute (HSSEDI) which is operated by
+      The MITRE Corporation (MITRE). Copyright © 2006–2024, The MITRE Corporation. CWE, CWSS, CWRAF, and the CWE logo are trademarks of The MITRE Corporation.
+

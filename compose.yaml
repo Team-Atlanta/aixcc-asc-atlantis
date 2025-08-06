@@ -1,0 +1,288 @@
+---
+######################################################################################################
+# DO NOT MODIFY THIS FILE ANYWHERE OTHER THAN WITHIN THE CUSTOMIZE BLOCKS
+#
+#
+# New services are acceptable
+#
+# Profiles
+# We use the profiles "development" and "competition"
+# All containers added by competitors must include the appropriate profiles
+# At competition time only the `--profile competition` will be used
+# This will cause the LiteLLM proxy to disappear.
+# Competitors should be using the AIXCC_LITELLM_HOSTNAME environment variable
+# for accessing LiteLLM, so we can swap the URL at competition time.
+#
+######################################################################################################
+
+include:
+  - path:
+      - sandbox/compose.yaml
+
+services:
+#############
+### CUSTOMIZE
+#############
+  vapi:
+    networks:
+      - crs-internal
+    profiles:
+      - development
+      - competition
+    # TODO: image
+    image: ghcr.io/aixcc-sc/asc-crs-team-atlanta/vapi:${RELEASE_TAG-v7.7.0}
+    build:
+      context: crs/src/vapi
+      cache_from:
+        - ghcr.io/aixcc-sc/asc-crs-team-atlanta/vapi:cache
+    tty: true
+    restart: on-failure
+    ports:
+      - "18080:18080"
+    environment:
+      # These values will be modified automatically at competition time
+      - DOCKER_HOST=tcp://dind:2375
+      - AIXCC_LITELLM_HOSTNAME=http://litellm
+      - AIXCC_API_HOSTNAME=http://iapi:8080
+      - AIXCC_CP_ROOT=/cp_root
+      - AIXCC_CRS_SCRATCH_SPACE=/crs_scratch
+      - LITELLM_KEY=sk-1234
+      # TODO: !!! SHOULD REVISIT THESE ONES BEFORE COMPETITION TIME
+      - VAPI_DOCKER_IMAGE_USAGE=none
+      - VAPI_DOCKER_VOL_ARGS_BEHAVIOR=none
+      - WEB_CONCURRENCY=8
+    healthcheck:
+      test: ["CMD-SHELL", "curl --fail http://127.0.0.1:18080/health/ || exit 1"]
+      interval: 5s
+      retries: 5
+      start_period: 15s
+      timeout: 5s
+    depends_on:
+      iapi:
+        condition: service_healthy
+
+  crs-patch:
+    profiles:
+      - development
+      - competition
+    networks:
+      - crs-internal
+    # TODO: image
+    # Competitors: You MUST change to your repos image name and be versioned pinned to the release intended for competition.
+    image: ghcr.io/aixcc-sc/asc-crs-team-atlanta/crs-patch:${RELEASE_TAG-v7.7.0}
+    restart: on-failure
+    build:
+      context: crs/src/crs-patch  # Note that this uses the base folder for context, you may not need this for your CRS
+      # Competitors: You MUST change to your Dockerfile location for your CRS.
+      # This points to the mock_crs by default.
+      dockerfile: Dockerfile
+      cache_from:
+        - ghcr.io/aixcc-sc/asc-crs-team-atlanta/crs-patch:cache
+    privileged: true
+    environment:
+      # These values will be modified automatically at competition time
+      - DOCKER_HOST=tcp://dind:2375
+      - AIXCC_LITELLM_HOSTNAME=http://litellm
+      - AIXCC_API_HOSTNAME=http://iapi:8080
+      - AIXCC_CP_ROOT=/cp_root
+      - AIXCC_CRS_SCRATCH_SPACE=/crs_scratch
+      - LITELLM_KEY=sk-1234
+      # These will not
+      - IN_DOCKER_CONTAINER=1
+      - VAPI_HOSTNAME=http://vapi:18080
+    depends_on:
+      vapi:
+        condition: service_healthy
+      iapi:
+        condition: service_healthy
+  
+  crs-cp-user:
+    profiles:
+      - development
+      - competition
+    networks:
+      - crs-internal
+    image: ghcr.io/aixcc-sc/asc-crs-team-atlanta/crs-cp-user:${RELEASE_TAG-v7.7.0}
+    build:
+      context: crs/src/crs-cp-user  # Note that this uses the base folder for context, you may not need this for your CRS
+      dockerfile: Dockerfile
+      cache_from:
+        - ghcr.io/aixcc-sc/asc-crs-team-atlanta/crs-cp-user:cache
+    privileged: true
+    tty: true # enables tty
+    restart: on-failure
+    environment:
+      # These values will be modified automatically at competition time
+      - DOCKER_HOST=tcp://dind:2375
+      - AIXCC_LITELLM_HOSTNAME=http://litellm
+      - AIXCC_API_HOSTNAME=http://iapi:8080
+      - AIXCC_CP_ROOT=/cp_root
+      - AIXCC_CRS_SCRATCH_SPACE=/crs_scratch
+      - LITELLM_KEY=sk-1234
+      # These will not
+      - IN_DOCKER_CONTAINER=1
+      - VAPI_HOSTNAME=http://vapi:18080
+      - CRS_USER_NODE=0
+      - CRS_USER_CNT=2
+    command: ./run.py --cp aixcc_omni_cp
+    depends_on:
+      vapi:
+        condition: service_healthy
+      iapi:
+        condition: service_healthy
+  
+  crs-cp-user-worker:
+    profiles:
+      - development
+      - competition
+    networks:
+      - crs-internal
+    image: ghcr.io/aixcc-sc/asc-crs-team-atlanta/crs-cp-user:${RELEASE_TAG-v7.7.0}
+    links:
+      - crs-cp-user
+    privileged: true
+    tty: true # enables tty
+    restart: on-failure
+    environment:
+      # These values will be modified automatically at competition time
+      - DOCKER_HOST=tcp://dind:2375
+      - AIXCC_LITELLM_HOSTNAME=http://litellm
+      - AIXCC_API_HOSTNAME=http://iapi:8080
+      - AIXCC_CP_ROOT=/cp_root
+      - AIXCC_CRS_SCRATCH_SPACE=/crs_scratch
+      - LITELLM_KEY=sk-1234
+      # These will not
+      - IN_DOCKER_CONTAINER=1
+      - VAPI_HOSTNAME=http://vapi:18080
+      - CRS_USER_NODE=1
+      - CRS_USER_CNT=2
+    command: ./run.py --cp aixcc_omni_cp
+    depends_on:
+      vapi:
+        condition: service_healthy
+      iapi:
+        condition: service_healthy
+  
+  crs-cp-linux:
+    profiles:
+      - development
+      - competition
+    networks:
+      - crs-internal
+    restart: on-failure
+    image: ghcr.io/aixcc-sc/asc-crs-team-atlanta/crs-cp-linux:${RELEASE_TAG-v7.7.0}
+    build:
+      context: crs/src/crs-cp-linux
+      dockerfile: Dockerfile
+      cache_from:
+        - ghcr.io/aixcc-sc/asc-crs-team-atlanta/crs-cp-linux:cache
+    privileged: true
+    devices:
+      - "/dev/kvm:/dev/kvm"
+    environment:
+      # These values will be modified automatically at competition time
+      - DOCKER_HOST=tcp://dind:2375
+      - AIXCC_LITELLM_HOSTNAME=http://litellm
+      - AIXCC_API_HOSTNAME=http://iapi:8080
+      - AIXCC_CP_ROOT=/cp_root
+      - AIXCC_CRS_SCRATCH_SPACE=/crs_scratch
+      - LITELLM_KEY=sk-1234
+      # These will not
+      - VAPI_HOSTNAME=http://vapi:18080
+      - CP_LINUX_CRS_TYPE=MAIN
+      - CP_LINUX_CRS_CNT=2
+    depends_on:
+      vapi:
+        condition: service_healthy
+      iapi:
+        condition: service_healthy
+  
+  crs-cp-linux-worker:
+    profiles:
+      - development
+      - competition
+    networks:
+      - crs-internal
+    restart: on-failure
+    image: ghcr.io/aixcc-sc/asc-crs-team-atlanta/crs-cp-linux:${RELEASE_TAG-v7.7.0}
+    links:
+      - crs-cp-linux
+    privileged: true
+    devices:
+      - "/dev/kvm:/dev/kvm"
+    environment:
+      # These values will be modified automatically at competition time
+      - DOCKER_HOST=tcp://dind:2375
+      - AIXCC_LITELLM_HOSTNAME=http://litellm
+      - AIXCC_API_HOSTNAME=http://iapi:8080
+      - AIXCC_CP_ROOT=/cp_root
+      - AIXCC_CRS_SCRATCH_SPACE=/crs_scratch
+      - LITELLM_KEY=sk-1234
+      # These will not
+      - VAPI_HOSTNAME=http://vapi:18080
+      - CP_LINUX_CRS_TYPE=WORKER_1
+      - CP_LINUX_CRS_CNT=2
+    depends_on:
+      vapi:
+        condition: service_healthy
+      iapi:
+        condition: service_healthy
+  
+  crs-cp-java:
+    networks:
+      - crs-internal
+    profiles:
+      - development
+      - competition
+    restart: on-failure
+    image: ghcr.io/aixcc-sc/asc-crs-team-atlanta/crs-cp-java:${RELEASE_TAG-v7.7.0}
+    build:
+      context: crs/src/crs-cp-java
+      dockerfile: Dockerfile.java
+      cache_from:
+        - ghcr.io/aixcc-sc/asc-crs-team-atlanta/crs-cp-java:cache
+    environment:
+      # These values will be modified automatically at competition time
+      - DOCKER_HOST=tcp://dind:2375
+      - AIXCC_LITELLM_HOSTNAME=http://litellm
+      - AIXCC_API_HOSTNAME=http://iapi:8080
+      - AIXCC_CP_ROOT=/cp_root
+      - AIXCC_CRS_SCRATCH_SPACE=/crs_scratch
+      - LITELLM_KEY=sk-1234
+      # These will not
+      - VAPI_HOSTNAME=http://vapi:18080
+      - CP_JAVA_CRS_TYPE=MAIN
+      - CP_JAVA_CRS_CNT=2
+    depends_on:
+      vapi:
+        condition: service_healthy
+      iapi:
+        condition: service_healthy
+  
+  crs-cp-java-worker:
+    networks:
+      - crs-internal
+    profiles:
+      - development
+      - competition
+    restart: on-failure
+    image: ghcr.io/aixcc-sc/asc-crs-team-atlanta/crs-cp-java:${RELEASE_TAG-v7.7.0}
+    links:
+      - crs-cp-java
+    environment:
+      # These values will be modified automatically at competition time
+      - DOCKER_HOST=tcp://dind:2375
+      - AIXCC_LITELLM_HOSTNAME=http://litellm
+      - AIXCC_API_HOSTNAME=http://iapi:8080
+      - AIXCC_CP_ROOT=/cp_root
+      - AIXCC_CRS_SCRATCH_SPACE=/crs_scratch
+      - LITELLM_KEY=sk-1234
+      # These will not
+      - VAPI_HOSTNAME=http://vapi:18080
+      - CP_JAVA_CRS_TYPE=WORKER_1
+      - CP_JAVA_CRS_CNT=2
+    depends_on:
+      vapi:
+        condition: service_healthy
+      iapi:
+        condition: service_healthy

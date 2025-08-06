@@ -1,0 +1,258 @@
+CWE
+
+Common Weakness Enumeration
+
+A community-developed list of SW & HW weaknesses that can become vulnerabilities
+
+New to CWE? click here!
+CWE Most Important Hardware Weaknesses
+CWE Top 25 Most Dangerous Weaknesses
+Home > CWE List > CWE- Individual Dictionary Definition (4.14)                                                                                                   ID Lookup: [                    ] [Go]
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  • Home
+  • About ▼
+    About New to CWE User Stories History Documents FAQs Glossary Compatibility
+  • CWE List ▼
+    Latest Version Downloads Reports Visualizations Archive
+  • Mapping ▼
+    Root Cause Mapping Guidance Root Cause Mapping Quick Tips Root Cause Mapping Examples
+  • Top-N Lists ▼
+    Top 25 Software Top Hardware Top 10 KEV Weaknesses
+  • Community ▼
+    Community Working Groups & Special Interest Groups Board Board Meeting Minutes CWE Discussion List CWE Discussion Archives Contribute Weakness Content to CWE
+  • News ▼
+    Current News X-Twitter ● Mastodon ● LinkedIn ● YouTube YouTube Podcast Out of Bounds Read Podcast Medium Medium News Archive
+  • Search
+
+ 
+ CWE Glossary Definition                  x
+ 
+ 
+ CWE-459: Incomplete Cleanup
+ 
+ Weakness ID: 459
+ Vulnerability Mapping: ALLOWEDThis CWE ID may be used to map to real-world vulnerabilities
+ Abstraction: BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level
+ weaknesses typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.
+ View customized information:
+ Conceptual For users who are interested in more notional aspects of a weakness. Example: educators, technical writers, and project/program managers. Operational For users who are concerned with the
+ practical application and details about the nature of a weakness and how to prevent it from happening. Example: tool developers, security researchers, pen-testers, incident response analysts. Mapping
+ Friendly For users who are mapping an issue to CWE/CAPEC IDs, i.e., finding the most appropriate CWE for a specific issue (e.g., a CVE record). Example: tool developers, security researchers. 
+ Complete For users who wish to see all available information for the CWE/CAPEC entry. Custom For users who want to customize what details are displayed.
+ ×
+
+ Edit Custom Filter
+
+ Conceptual Operational Mapping Friendly Select All
+ 
+ Reset Clear Submit Cancel
+ + Description
+ The product does not properly "clean up" and remove temporary or supporting resources after they have been used.
+ + Alternate Terms
+ Insufficient Cleanup
+ + Relationships
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Research Concepts" (CWE-1000)
+     Nature                                                                                                                                                                             Type                                                                                                                                                                           ID         Name
+ ChildOf                                                                               ClassClass - a weakness that is described in a very abstract fashion, typically independent of any specific language or technology. More specific than a Pillar Weakness, but more general than a Base                                                                        404     Improper
+                                                                                                                    Weakness. Class level weaknesses typically describe issues in terms of 1 or 2 of the following dimensions: behavior, property, and resource.                                                                                                             Resource
+                                                                                                                                                                                                                                                                                                                                                                             Shutdown or
+                                                                                                                                                                                                                                                                                                                                                                             Release
+ ParentOf                                                                                  BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level weaknesses                                                                           226     Sensitive
+                                                                                                                          typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                  Information in
+                                                                                                                                                                                                                                                                                                                                                                             Resource Not
+                                                                                                                                                                                                                                                                                                                                                                             Removed Before
+                                                                                                                                                                                                                                                                                                                                                                             Reuse
+ ParentOf                                                                                  BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level weaknesses                                                                           460     Improper
+                                                                                                                          typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                  Cleanup on
+                                                                                                                                                                                                                                                                                                                                                                             Thrown
+                                                                                                                                                                                                                                                                                                                                                                             Exception
+ ParentOf                                                                              VariantVariant - a weakness that is linked to a certain type of product, typically involving a specific language or technology. More specific than a Base weakness. Variant level weaknesses typically                                                                        568     finalize()
+                                                                                                                               describe issues in terms of 3 to 5 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                       Method Without
+                                                                                                                                                                                                                                                                                                                                                                             super.finalize
+                                                                                                                                                                                                                                                                                                                                                                             ()
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Software Development" (CWE-699)
+     Nature                                                       Type                                                     ID                                   Name
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 452     Initialization and Cleanup Errors
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Weaknesses for Simplified Mapping of Published Vulnerabilities" (CWE-1003)
+     Nature                                                                                                                                                                             Type                                                                                                                                                                           ID      Name
+ ChildOf                                                                               ClassClass - a weakness that is described in a very abstract fashion, typically independent of any specific language or technology. More specific than a Pillar Weakness, but more general than a Base                                                                        404     Improper
+                                                                                                                    Weakness. Class level weaknesses typically describe issues in terms of 1 or 2 of the following dimensions: behavior, property, and resource.                                                                                                             Resource
+                                                                                                                                                                                                                                                                                                                                                                             Shutdown
+                                                                                                                                                                                                                                                                                                                                                                             or
+                                                                                                                                                                                                                                                                                                                                                                             Release
+ + Modes Of Introduction
+ Section HelpThe different Modes of Introduction provide information about how and when this weakness may be introduced. The Phase identifies a point in the life cycle at which introduction may occur,
+ while the Note provides a typical scenario related to introduction during the given phase.
+     Phase                                                                                              Note
+ Implementation
+ + Applicable Platforms
+ Section HelpThis listing shows possible areas for which the given weakness could appear. These may be for specific named Languages, Operating Systems, Architectures, Paradigms, Technologies, or a
+ class of such platforms. The platform is listed along with how frequently the given weakness appears for that instance.
+
+ Languages
+
+ Class: Not Language-Specific (Undetermined Prevalence)
+
+ + Common Consequences
+ Section HelpThis table specifies different individual consequences associated with the weakness. The Scope identifies the application security area that is violated, while the Impact describes the
+ negative technical impact that arises if an adversary succeeds in exploiting this weakness. The Likelihood provides information about how likely the specific consequence is expected to be seen
+ relative to the other consequences in the list. For example, there may be high likelihood that a weakness will be exploited to achieve a certain impact, but a low likelihood that it will be exploited
+ to achieve a different impact.
+       Scope                                                                                     Impact                                                                                 Likelihood
+ Other              Technical Impact: Other; Read Application Data; Modify Application Data; DoS: Resource Consumption (Other)
+ Confidentiality
+ Integrity          It is possible to overflow the number of temporary files because directories typically have limits on the number of files allowed. This could create a denial of
+                    service problem.
+ + Demonstrative Examples
+ 
+ Example 1
+
+ Stream resources in a Java application should be released in a finally block, otherwise an exception thrown before the call to close() would result in an unreleased I/O resource. In the example
+ below, the close() method is called in the try block (incorrect).
+
+ (bad code)
+ Example Language: Java 
+ try {
+ InputStream is = new FileInputStream(path);
+ byte b[] = new byte[is.available()];
+ is.read(b);
+ is.close();
+ } catch (Throwable t) {
+ log.error("Something bad happened: " + t.getMessage());
+ }
+ + Observed Examples
+        Reference                                                                                        Description
+ CVE-2000-0552           World-readable temporary file not deleted after use.
+ CVE-2005-2293           Temporary file not deleted after use, leaking database usernames and passwords.
+ CVE-2002-0788           Interaction error creates a temporary file that can not be deleted due to strong permissions.
+ CVE-2002-2066           Alternate data streams for NTFS files are not cleared when files are wiped (alternate channel / infoleak).
+ CVE-2002-2067           Alternate data streams for NTFS files are not cleared when files are wiped (alternate channel / infoleak).
+ CVE-2002-2068           Alternate data streams for NTFS files are not cleared when files are wiped (alternate channel / infoleak).
+ CVE-2002-2069           Alternate data streams for NTFS files are not cleared when files are wiped (alternate channel / infoleak).
+ CVE-2002-2070           Alternate data streams for NTFS files are not cleared when files are wiped (alternate channel / infoleak).
+ CVE-2005-1744           Users not logged out when application is restarted after security-relevant changes were made.
+ + Potential Mitigations
+ Phases: Architecture and Design; Implementation
+
+ Temporary files and other supporting resources should be deleted/released immediately after they are no longer needed.
+ + Detection Methods
+ Automated Static Analysis
+
+ Automated static analysis, commonly referred to as Static Application Security Testing (SAST), can find some instances of this weakness by analyzing source code (or binary/compiled code) without
+ having to execute it. Typically, this is done by building a model of data flow and control flow, then searching for potentially-vulnerable patterns that connect "sources" (origins of input) with
+ "sinks" (destinations where the data interacts with external components, a lower layer such as the OS, etc.)
+
+ Effectiveness: High
+
+ + Functional Areas
+ 
+   • File Processing
+
+ + Memberships
+ Section HelpThis MemberOf Relationships table shows additional CWE Categories and Views that reference this weakness as a member. This information is often useful in understanding where a weakness
+ fits within the context of external information sources.
+     Nature                                                       Type                                                     ID                                   Name
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 731     OWASP Top Ten 2004 Category A10 - Insecure Configuration Management
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 857     The CERT Oracle Secure Coding Standard for Java (2011) Chapter 14 -
+                                                                                                                                 Input Output (FIO)
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 982     SFP Secondary Cluster: Failure to Release Resource
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 1141    SEI CERT Oracle Secure Coding Standard for Java - Guidelines 07.
+                                                                                                                                 Exceptional Behavior (ERR)
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 1147    SEI CERT Oracle Secure Coding Standard for Java - Guidelines 13.
+                                                                                                                                 Input Output (FIO)
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 1162    SEI CERT C Coding Standard - Guidelines 08. Memory Management (MEM)
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 1163    SEI CERT C Coding Standard - Guidelines 09. Input Output (FIO)
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 1306    CISQ Quality Measures - Reliability
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 1416    Comprehensive Categorization: Resource Lifecycle Management
+ + Vulnerability Mapping Notes
+ Usage: ALLOWED
+
+ (this CWE ID could be used to map to real-world vulnerabilities)
+ Reason: Acceptable-Use
+
+ Rationale:
+
+ This CWE entry is at the Base level of abstraction, which is a preferred level of abstraction for mapping to the root causes of vulnerabilities.
+ Comments:
+
+ Carefully read both the name and description to ensure that this mapping is an appropriate fit. Do not try to 'force' a mapping to a lower-level Base/Variant simply to comply with this preferred
+ level of abstraction.
+ + Notes
+ 
+ Relationship
+
+ CWE-459 is a child of CWE-404 because, while CWE-404 covers any type of improper shutdown or release of a resource, CWE-459 deals specifically with a multi-step shutdown process in which a crucial
+ step for "proper" cleanup is omitted or impossible. That is, CWE-459 deals specifically with a cleanup or shutdown process that does not successfully remove all potentially sensitive data.
+
+ Relationship
+
+ Overlaps other categories such as permissions and containment. Concept needs further development. This could be primary (e.g. leading to infoleak) or resultant (e.g. resulting from unhandled error
+ conditions or early termination).
+ + Taxonomy Mappings
+       Mapped Taxonomy Name          Node ID                     Fit                                                                Mapped Node Name
+ PLOVER                                                                              Incomplete Cleanup
+ OWASP Top Ten 2004               A10            CWE More Specific                   Insecure Configuration Management
+ CERT C Secure Coding             FIO42-C        CWE More Abstract                   Close files when they are no longer needed
+ CERT C Secure Coding             MEM31-C        CWE More Abstract                   Free dynamically allocated memory when no longer needed
+ The CERT Oracle Secure Coding    FIO04-J                                            Release resources when they are no longer needed
+ Standard for Java (2011)
+ The CERT Oracle Secure Coding    FIO00-J                                            Do not operate on files in shared directories
+ Standard for Java (2011)
+ Software Fault Patterns          SFP14                                              Failure to release resource
+ + Content History
+                                                                                            + Submissions
+                     Submission Date                                                        Submitter                                                           Organization
+ 2006-07-19                                               PLOVER
+ (CWE Draft 3, 2006-07-19)
+
+                                                                                           + Modifications
+                    Modification Date                                                        Modifier                                                           Organization
+ 2008-07-01                                               Sean Eidemiller                                                                Cigital
+                                                          added/updated demonstrative examples
+ 2008-07-01                                               Eric Dalci                                                                     Cigital
+                                                          updated Time_of_Introduction
+ 2008-09-08                                               CWE Content Team                                                               MITRE
+                                                          updated Relationships, Other_Notes, Taxonomy_Mappings
+ 2009-05-27                                               CWE Content Team                                                               MITRE
+                                                          updated Relationship_Notes, Relationships
+ 2011-06-01                                               CWE Content Team                                                               MITRE
+                                                          updated Common_Consequences, Relationships, Taxonomy_Mappings
+ 2012-05-11                                               CWE Content Team                                                               MITRE
+                                                          updated Relationships, Taxonomy_Mappings
+ 2012-10-30                                               CWE Content Team                                                               MITRE
+                                                          updated Potential_Mitigations
+ 2014-06-23                                               CWE Content Team                                                               MITRE
+                                                          updated Common_Consequences, Other_Notes, Relationship_Notes
+ 2014-07-30                                               CWE Content Team                                                               MITRE
+                                                          updated Relationships, Taxonomy_Mappings
+ 2017-11-08                                               CWE Content Team                                                               MITRE
+                                                          updated Applicable_Platforms, Taxonomy_Mappings
+ 2019-01-03                                               CWE Content Team                                                               MITRE
+                                                          updated Relationships, Taxonomy_Mappings
+ 2019-06-20                                               CWE Content Team                                                               MITRE
+                                                          updated Relationships
+ 2020-08-20                                               CWE Content Team                                                               MITRE
+                                                          updated Relationships
+ 2023-01-31                                               CWE Content Team                                                               MITRE
+                                                          updated Description
+ 2023-04-27                                               CWE Content Team                                                               MITRE
+                                                          updated Detection_Factors, Relationships, Time_of_Introduction
+ 2023-06-29                                               CWE Content Team                                                               MITRE
+                                                          updated Mapping_Notes
+ More information is available — Please edit the custom filter or select a different filter.
+Page Last Updated: February 29, 2024
+ 
+      Site Map | Terms of Use | Manage Cookies | Cookie Notice | Privacy Policy | Contact Us | CWE X-Twitter CWE Mastodon CWE on LinkedIn CWE YouTube channel CWE Out-of-Bounds-Read Podcast CWE
+      Blog on Medium blog
+
+MITRE Use of the Common Weakness Enumeration (CWE™) and the associated references from this website are subject to the Terms of Use. CWE is sponsored by the U.S. Department of Homeland         HSSEDI
+      Security (DHS) Cybersecurity and Infrastructure Security Agency (CISA) and managed by the Homeland Security Systems Engineering and Development Institute (HSSEDI) which is operated by
+      The MITRE Corporation (MITRE). Copyright © 2006–2024, The MITRE Corporation. CWE, CWSS, CWRAF, and the CWE logo are trademarks of The MITRE Corporation.
+

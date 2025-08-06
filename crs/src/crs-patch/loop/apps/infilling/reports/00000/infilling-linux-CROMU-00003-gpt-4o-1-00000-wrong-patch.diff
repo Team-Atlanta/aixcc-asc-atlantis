@@ -1,0 +1,109 @@
+--- drivers/CROMU-00003/service.c
++++ drivers/CROMU-00003/service.c
+@@ -412,12 +412,19 @@
+   char *data;
+   char number[8];
+   if(ptr != NULL) {
++
+     puts("Updating fields.  Send just a newline to keep old data.");
+     put("New first name: ");
+     data = req->new_first;
+-    if(data[0] && validateName(data) == 0){
+-      puts("Not a legal first name.  Stopping edit.");
+-      return;
++    if (strnlen(data, 32) == 32) {
++        puts("First name is too long. Stopping edit.");
++        return;
++    }
++    if (data[0] && validateName(data) == 0) {
++        puts("Not a legal first name. Stopping edit.");
++        return;
++    }
++
+     }
+     if(data[0] != 0) {
+       memset(ptr->first, 0, 32);
+@@ -425,6 +432,7 @@
+     }
+     put("New last name: ");
+     data = req->new_last;
++    data[31] = 0;
+ 
+     if(data[0] && validateName(data) == 0) {
+       puts("Not a legal last name.  Stopping edit.");
+@@ -436,6 +444,7 @@
+     }
+     put("New phone number: ");
+     data = req->new_phone;
++    data[13] = 0;
+     if(data[0] && validatePhone(data) == 0) {
+       puts("Not a legal phone number.  Stopping edit.");
+       return;
+
+
+--- drivers/CROMU-00003/service.c
++++ drivers/CROMU-00003/service.c
+@@ -415,6 +415,7 @@
+     puts("Updating fields.  Send just a newline to keep old data.");
+     put("New first name: ");
+     data = req->new_first;
++    data[31] = 0;
+     if(data[0] && validateName(data) == 0){
+       puts("Not a legal first name.  Stopping edit.");
+       return;
+@@ -422,12 +423,11 @@
+     if(data[0] != 0) {
+       memset(ptr->first, 0, 32);
+       memcpy(ptr->first, data, strlen(data));
+-    }
++
+     put("New last name: ");
+     data = req->new_last;
+-
+-    if(data[0] && validateName(data) == 0) {
+-      puts("Not a legal last name.  Stopping edit.");
++    data[31] = 0; // Ensure the last character is null-terminated to avoid overflow
++
+       return;
+     }
+     if(data[0] != 0){
+@@ -436,6 +436,7 @@
+     }
+     put("New phone number: ");
+     data = req->new_phone;
++    data[13] = 0;
+     if(data[0] && validatePhone(data) == 0) {
+       puts("Not a legal phone number.  Stopping edit.");
+       return;
+
+
+--- drivers/CROMU-00003/service.c
++++ drivers/CROMU-00003/service.c
+@@ -415,6 +415,7 @@
+     puts("Updating fields.  Send just a newline to keep old data.");
+     put("New first name: ");
+     data = req->new_first;
++    data[31] = 0;
+     if(data[0] && validateName(data) == 0){
+       puts("Not a legal first name.  Stopping edit.");
+       return;
+@@ -425,6 +426,7 @@
+     }
+     put("New last name: ");
+     data = req->new_last;
++    data[31] = 0;
+ 
+     if(data[0] && validateName(data) == 0) {
+       puts("Not a legal last name.  Stopping edit.");
+@@ -433,9 +435,11 @@
+     if(data[0] != 0){
+       memset(ptr->last, 0, 32);
+       memcpy(ptr->last, data, strlen(data));
++
+     }
+     put("New phone number: ");
+     data = req->new_phone;
++    data[13] = 0;
+     if(data[0] && validatePhone(data) == 0) {
+       puts("Not a legal phone number.  Stopping edit.");
+       return;

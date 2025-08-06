@@ -1,0 +1,12 @@
+fuzz_test.go
+lex_test.go
+lex.go
+optimize.go
+parser_test.go
+optimize_test.go
+rule.go
+rule_test.go
+linters_test.go
+parser.go
+fuzz.go
+linters.go

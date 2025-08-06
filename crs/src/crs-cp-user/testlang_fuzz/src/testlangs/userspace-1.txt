@@ -1,0 +1,7 @@
+GLOBALS ::= NUM_ITEMS { size: 4, value: 3 }
+            ITEM_SIZE { size: 4, value: 10 }
+
+INPUT ::= ITEMS[NUM_ITEMS]
+          INDEX { size: 4 }
+
+ITEMS ::= ITEM { size: ITEM_SIZE, terminator: 10 }

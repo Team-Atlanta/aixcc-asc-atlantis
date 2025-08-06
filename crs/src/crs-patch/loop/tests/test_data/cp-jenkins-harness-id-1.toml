@@ -1,0 +1,6 @@
+cp_name = "jenkins"
+blob_file = "./exemplar_only/blobs/id_1.bin"
+harness_id = "id_1"
+sanitizer_id = "id_1"
+bug_introduce_commit = "71488bc3336bf0383501594dbf1bb20ad6737e39"
+src_dir = "./src/plugins/pipeline-util-plugin"

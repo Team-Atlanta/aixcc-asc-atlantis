@@ -1,0 +1,10 @@
+---
+# kustomize/development/crs-scratch-pvc.yaml
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: crs-scratch
+spec:
+  storageClassName: "longhorn"
+  accessModes:
+    - ReadWriteMany

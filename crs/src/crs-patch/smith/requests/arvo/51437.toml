@@ -1,0 +1,6 @@
+cp_name = "ARVO"
+blob_file = "./exemplar_only/cpv_1/blobs/sample_solve.bin"
+harness_id = "id_1"
+sanitizer_id = "id_1"
+bug_introduce_commit = "6291cac8fb85a96f7e6d5a35f1912365f3b17ae9~5"
+src_dir = "./src/hunspell"

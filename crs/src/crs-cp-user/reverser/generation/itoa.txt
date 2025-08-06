@@ -1,0 +1,9 @@
+GLOBALS ::= MODE_SIZE { value: 19 }
+            S_SIZE { value: 31 }
+
+INPUT ::= MODE { size: MODE_SIZE, terminator: 0 }
+          SPACE1 { size: 1, value: 32 }
+          I { size: 4 }
+          SPACE2 { size: 1, value: 32 }
+          S { size: S_SIZE, terminator: 0 }
+

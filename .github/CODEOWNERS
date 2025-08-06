@@ -1,0 +1,9 @@
+# Only AIxCC Administrators may modify this CODEOWNERS file itself.
+# Competitors should NOT be submitting any PRs which modify this file.
+# If you feel that a change should be made, please submit a GitHub Issue to the CRS Sandbox
+# https://github.com/aixcc-sc/crs-sandbox/issues/new/choose
+
+.github/CODEOWNERS @auth0-66044111301e3ed49d10f2a9_aixcc @auth0-6604c4a7b0d7774ffc1d2cd0_aixcc @auth0-660d8cbfd778f7cf81c2c8eb_aixcc
+
+# AIxCC Things
+proprietary/* @aixcc-sc/things

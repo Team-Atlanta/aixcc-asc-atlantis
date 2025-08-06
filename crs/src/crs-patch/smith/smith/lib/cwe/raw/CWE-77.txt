@@ -1,0 +1,589 @@
+CWE
+
+Common Weakness Enumeration
+
+A community-developed list of SW & HW weaknesses that can become vulnerabilities
+
+New to CWE? click here!
+CWE Most Important Hardware Weaknesses
+CWE Top 25 Most Dangerous Weaknesses
+Home > CWE List > CWE- Individual Dictionary Definition (4.14)                                                                                                   ID Lookup: [                    ] [Go]
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  • Home
+  • About ▼
+    About New to CWE User Stories History Documents FAQs Glossary Compatibility
+  • CWE List ▼
+    Latest Version Downloads Reports Visualizations Archive
+  • Mapping ▼
+    Root Cause Mapping Guidance Root Cause Mapping Quick Tips Root Cause Mapping Examples
+  • Top-N Lists ▼
+    Top 25 Software Top Hardware Top 10 KEV Weaknesses
+  • Community ▼
+    Community Working Groups & Special Interest Groups Board Board Meeting Minutes CWE Discussion List CWE Discussion Archives Contribute Weakness Content to CWE
+  • News ▼
+    Current News X-Twitter ● Mastodon ● LinkedIn ● YouTube YouTube Podcast Out of Bounds Read Podcast Medium Medium News Archive
+  • Search
+
+ 
+ CWE Glossary Definition                  x
+ 
+ 
+ CWE-77: Improper Neutralization of Special Elements used in a Command ('Command Injection')
+ 
+ Weakness ID: 77
+ Vulnerability Mapping: ALLOWEDThis CWE ID could be used to map to real-world vulnerabilities in limited situations requiring careful review (with careful review of mapping notes)
+ Abstraction: ClassClass - a weakness that is described in a very abstract fashion, typically independent of any specific language or technology. More specific than a Pillar Weakness, but more general
+ than a Base Weakness. Class level weaknesses typically describe issues in terms of 1 or 2 of the following dimensions: behavior, property, and resource.
+ View customized information:
+ Conceptual For users who are interested in more notional aspects of a weakness. Example: educators, technical writers, and project/program managers. Operational For users who are concerned with the
+ practical application and details about the nature of a weakness and how to prevent it from happening. Example: tool developers, security researchers, pen-testers, incident response analysts. Mapping
+ Friendly For users who are mapping an issue to CWE/CAPEC IDs, i.e., finding the most appropriate CWE for a specific issue (e.g., a CVE record). Example: tool developers, security researchers. 
+ Complete For users who wish to see all available information for the CWE/CAPEC entry. Custom For users who want to customize what details are displayed.
+ ×
+
+ Edit Custom Filter
+
+ Conceptual Operational Mapping Friendly Select All
+ 
+ Reset Clear Submit Cancel
+ + Description
+ The product constructs all or part of a command using externally-influenced input from an upstream component, but it does not neutralize or incorrectly neutralizes special elements that could modify
+ the intended command when it is sent to a downstream component.
+ + Extended Description
+ 
+ Command injection vulnerabilities typically occur when:
+
+ 1. Data enters the application from an untrusted source.
+ 2. The data is part of a string that is executed as a command by the application.
+ 3. By executing the command, the application gives an attacker a privilege or capability that the attacker would not otherwise have.
+
+ Many protocols and products have their own custom command language. While OS or shell command strings are frequently discovered and targeted, developers may not realize that these other command
+ languages might also be vulnerable to attacks.
+
+ Command injection is a common problem with wrapper programs.
+
+ + Relationships
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Research Concepts" (CWE-1000)
+     Nature                                                                                                                                                                             Type                                                                                                                                                                           ID         Name
+ ChildOf                                                                               ClassClass - a weakness that is described in a very abstract fashion, typically independent of any specific language or technology. More specific than a Pillar Weakness, but more general than a Base                                                                        74      Improper
+                                                                                                                    Weakness. Class level weaknesses typically describe issues in terms of 1 or 2 of the following dimensions: behavior, property, and resource.                                                                                                             Neutralization
+                                                                                                                                                                                                                                                                                                                                                                             of Special
+                                                                                                                                                                                                                                                                                                                                                                             Elements in
+                                                                                                                                                                                                                                                                                                                                                                             Output Used by
+                                                                                                                                                                                                                                                                                                                                                                             a Downstream
+                                                                                                                                                                                                                                                                                                                                                                             Component
+                                                                                                                                                                                                                                                                                                                                                                             ('Injection')
+ ParentOf                                                                                  BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level weaknesses                                                                           78      Improper
+                                                                                                                          typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                  Neutralization
+                                                                                                                                                                                                                                                                                                                                                                             of Special
+                                                                                                                                                                                                                                                                                                                                                                             Elements used
+                                                                                                                                                                                                                                                                                                                                                                             in an OS
+                                                                                                                                                                                                                                                                                                                                                                             Command ('OS
+                                                                                                                                                                                                                                                                                                                                                                             Command
+                                                                                                                                                                                                                                                                                                                                                                             Injection')
+ ParentOf                                                                                  BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level weaknesses                                                                           88      Improper
+                                                                                                                          typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                  Neutralization
+                                                                                                                                                                                                                                                                                                                                                                             of Argument
+                                                                                                                                                                                                                                                                                                                                                                             Delimiters in
+                                                                                                                                                                                                                                                                                                                                                                             a Command
+                                                                                                                                                                                                                                                                                                                                                                             ('Argument
+                                                                                                                                                                                                                                                                                                                                                                             Injection')
+ ParentOf                                                                                  BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level weaknesses                                                                           624     Executable
+                                                                                                                          typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                  Regular
+                                                                                                                                                                                                                                                                                                                                                                             Expression
+                                                                                                                                                                                                                                                                                                                                                                             Error
+ ParentOf                                                                                  BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level weaknesses                                                                           917     Improper
+                                                                                                                          typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                  Neutralization
+                                                                                                                                                                                                                                                                                                                                                                             of Special
+                                                                                                                                                                                                                                                                                                                                                                             Elements used
+                                                                                                                                                                                                                                                                                                                                                                             in an
+                                                                                                                                                                                                                                                                                                                                                                             Expression
+                                                                                                                                                                                                                                                                                                                                                                             Language
+                                                                                                                                                                                                                                                                                                                                                                             Statement
+                                                                                                                                                                                                                                                                                                                                                                             ('Expression
+                                                                                                                                                                                                                                                                                                                                                                             Language
+                                                                                                                                                                                                                                                                                                                                                                             Injection')
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Weaknesses for Simplified Mapping of Published Vulnerabilities" (CWE-1003)
+     Nature                                                                                                                                                                             Type                                                                                                                                                                           ID         Name
+ ChildOf                                                                               ClassClass - a weakness that is described in a very abstract fashion, typically independent of any specific language or technology. More specific than a Pillar Weakness, but more general than a Base                                                                        74      Improper
+                                                                                                                    Weakness. Class level weaknesses typically describe issues in terms of 1 or 2 of the following dimensions: behavior, property, and resource.                                                                                                             Neutralization
+                                                                                                                                                                                                                                                                                                                                                                             of Special
+                                                                                                                                                                                                                                                                                                                                                                             Elements in
+                                                                                                                                                                                                                                                                                                                                                                             Output Used by
+                                                                                                                                                                                                                                                                                                                                                                             a Downstream
+                                                                                                                                                                                                                                                                                                                                                                             Component
+                                                                                                                                                                                                                                                                                                                                                                             ('Injection')
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Architectural Concepts" (CWE-1008)
+     Nature                                                       Type                                                     ID                                   Name
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 1019    Validate Inputs
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "CISQ Quality Measures (2020)" (CWE-1305)
+     Nature                                                                                                                                                                    Type                                                                                                                                                                  ID         Name
+ ParentOf                                                                         BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level weaknesses                                                                  78      Improper
+                                                                                                                 typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                         Neutralization
+                                                                                                                                                                                                                                                                                                                                                           of Special
+                                                                                                                                                                                                                                                                                                                                                           Elements used
+                                                                                                                                                                                                                                                                                                                                                           in an OS
+                                                                                                                                                                                                                                                                                                                                                           Command ('OS
+                                                                                                                                                                                                                                                                                                                                                           Command
+                                                                                                                                                                                                                                                                                                                                                           Injection')
+ ParentOf                                                                         BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level weaknesses                                                                  88      Improper
+                                                                                                                 typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                         Neutralization
+                                                                                                                                                                                                                                                                                                                                                           of Argument
+                                                                                                                                                                                                                                                                                                                                                           Delimiters in
+                                                                                                                                                                                                                                                                                                                                                           a Command
+                                                                                                                                                                                                                                                                                                                                                           ('Argument
+                                                                                                                                                                                                                                                                                                                                                           Injection')
+ ParentOf                                                                         BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level weaknesses                                                                  624     Executable
+                                                                                                                 typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                         Regular
+                                                                                                                                                                                                                                                                                                                                                           Expression
+                                                                                                                                                                                                                                                                                                                                                           Error
+ ParentOf                                                                         BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level weaknesses                                                                  917     Improper
+                                                                                                                 typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                         Neutralization
+                                                                                                                                                                                                                                                                                                                                                           of Special
+                                                                                                                                                                                                                                                                                                                                                           Elements used
+                                                                                                                                                                                                                                                                                                                                                           in an
+                                                                                                                                                                                                                                                                                                                                                           Expression
+                                                                                                                                                                                                                                                                                                                                                           Language
+                                                                                                                                                                                                                                                                                                                                                           Statement
+                                                                                                                                                                                                                                                                                                                                                           ('Expression
+                                                                                                                                                                                                                                                                                                                                                           Language
+                                                                                                                                                                                                                                                                                                                                                           Injection')
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "CISQ Data Protection Measures" (CWE-1340)
+     Nature                                                                                                                                                                    Type                                                                                                                                                                  ID         Name
+ ParentOf                                                                         BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level weaknesses                                                                  78      Improper
+                                                                                                                 typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                         Neutralization
+                                                                                                                                                                                                                                                                                                                                                           of Special
+                                                                                                                                                                                                                                                                                                                                                           Elements used
+                                                                                                                                                                                                                                                                                                                                                           in an OS
+                                                                                                                                                                                                                                                                                                                                                           Command ('OS
+                                                                                                                                                                                                                                                                                                                                                           Command
+                                                                                                                                                                                                                                                                                                                                                           Injection')
+ ParentOf                                                                         BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level weaknesses                                                                  88      Improper
+                                                                                                                 typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                         Neutralization
+                                                                                                                                                                                                                                                                                                                                                           of Argument
+                                                                                                                                                                                                                                                                                                                                                           Delimiters in
+                                                                                                                                                                                                                                                                                                                                                           a Command
+                                                                                                                                                                                                                                                                                                                                                           ('Argument
+                                                                                                                                                                                                                                                                                                                                                           Injection')
+ ParentOf                                                                         BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level weaknesses                                                                  624     Executable
+                                                                                                                 typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                         Regular
+                                                                                                                                                                                                                                                                                                                                                           Expression
+                                                                                                                                                                                                                                                                                                                                                           Error
+ ParentOf                                                                         BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level weaknesses                                                                  917     Improper
+                                                                                                                 typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                         Neutralization
+                                                                                                                                                                                                                                                                                                                                                           of Special
+                                                                                                                                                                                                                                                                                                                                                           Elements used
+                                                                                                                                                                                                                                                                                                                                                           in an
+                                                                                                                                                                                                                                                                                                                                                           Expression
+                                                                                                                                                                                                                                                                                                                                                           Language
+                                                                                                                                                                                                                                                                                                                                                           Statement
+                                                                                                                                                                                                                                                                                                                                                           ('Expression
+                                                                                                                                                                                                                                                                                                                                                           Language
+                                                                                                                                                                                                                                                                                                                                                           Injection')
+ + Modes Of Introduction
+ Section HelpThe different Modes of Introduction provide information about how and when this weakness may be introduced. The Phase identifies a point in the life cycle at which introduction may occur,
+ while the Note provides a typical scenario related to introduction during the given phase.
+     Phase                                                                                              Note
+ Implementation REALIZATION: This weakness is caused during implementation of an architectural security tactic.
+ + Applicable Platforms
+ Section HelpThis listing shows possible areas for which the given weakness could appear. These may be for specific named Languages, Operating Systems, Architectures, Paradigms, Technologies, or a
+ class of such platforms. The platform is listed along with how frequently the given weakness appears for that instance.
+
+ Languages
+
+ Class: Not Language-Specific (Undetermined Prevalence)
+
+ + Common Consequences
+ Section HelpThis table specifies different individual consequences associated with the weakness. The Scope identifies the application security area that is violated, while the Impact describes the
+ negative technical impact that arises if an adversary succeeds in exploiting this weakness. The Likelihood provides information about how likely the specific consequence is expected to be seen
+ relative to the other consequences in the list. For example, there may be high likelihood that a weakness will be exploited to achieve a certain impact, but a low likelihood that it will be exploited
+ to achieve a different impact.
+       Scope                                                                                     Impact                                                                                 Likelihood
+ Integrity          Technical Impact: Execute Unauthorized Code or Commands
+ Confidentiality
+ Availability       If a malicious user injects a character (such as a semi-colon) that delimits the end of one command and the beginning of another, it may be possible to then
+                    insert an entirely new and unrelated command that was not intended to be executed.
+ + Likelihood Of Exploit
+ High
+ + Demonstrative Examples
+ 
+ Example 1
+
+ The following simple program accepts a filename as a command line argument and displays the contents of the file back to the user. The program is installed setuid root because it is intended for use
+ as a learning tool to allow system administrators in-training to inspect privileged system files without giving them the ability to modify them or damage the system.
+
+ (bad code)
+ Example Language: C 
+ int main(int argc, char** argv) {
+ char cmd[CMD_MAX] = "/usr/bin/cat ";
+ strcat(cmd, argv[1]);
+ system(cmd);
+ }
+
+ Because the program runs with root privileges, the call to system() also executes with root privileges. If a user specifies a standard filename, the call works as expected. However, if an attacker
+ passes a string of the form ";rm -rf /", then the call to system() fails to execute cat due to a lack of arguments and then plows on to recursively delete the contents of the root partition.
+
+ Note that if argv[1] is a very long argument, then this issue might also be subject to a buffer overflow (CWE-120).
+
+ Example 2
+
+ The following code is from an administrative web application designed to allow users to kick off a backup of an Oracle database using a batch-file wrapper around the rman utility and then run a
+ cleanup.bat script to delete some temporary files. The script rmanDB.bat accepts a single command line parameter, which specifies what type of backup to perform. Because access to the database is
+ restricted, the application runs the backup as a privileged user.
+
+ (bad code)
+ Example Language: Java 
+ ...
+ String btype = request.getParameter("backuptype");
+ String cmd = new String("cmd.exe /K \"
+ c:\\util\\rmanDB.bat "
+ +btype+
+ "&&c:\\utl\\cleanup.bat\"")
+
+ System.Runtime.getRuntime().exec(cmd);
+ ...
+
+ The problem here is that the program does not do any validation on the backuptype parameter read from the user. Typically the Runtime.exec() function will not execute multiple commands, but in this
+ case the program first runs the cmd.exe shell in order to run multiple commands with a single call to Runtime.exec(). Once the shell is invoked, it will happily execute multiple commands separated by
+ two ampersands. If an attacker passes a string of the form "& del c:\\dbms\\*.*", then the application will execute this command along with the others specified by the program. Because of the nature
+ of the application, it runs with the privileges necessary to interact with the database, which means whatever command the attacker injects will run with those privileges as well.
+
+ Example 3
+
+ The following code from a system utility uses the system property APPHOME to determine the directory in which it is installed and then executes an initialization script based on a relative path from
+ the specified directory.
+
+ (bad code)
+ Example Language: Java 
+ ...
+ String home = System.getProperty("APPHOME");
+ String cmd = home + INITCMD;
+ java.lang.Runtime.getRuntime().exec(cmd);
+ ...
+
+ The code above allows an attacker to execute arbitrary commands with the elevated privilege of the application by modifying the system property APPHOME to point to a different path containing a
+ malicious version of INITCMD. Because the program does not validate the value read from the environment, if an attacker can control the value of the system property APPHOME, then they can fool the
+ application into running malicious code and take control of the system.
+
+ Example 4
+
+ The following code is a wrapper around the UNIX command cat which prints the contents of a file to standard out. It is also injectable:
+
+ (bad code)
+ Example Language: C 
+ #include <stdio.h>
+ #include <unistd.h>
+
+ int main(int argc, char **argv) {
+
+ char cat[] = "cat ";
+ char *command;
+ size_t commandLength;
+
+ commandLength = strlen(cat) + strlen(argv[1]) + 1;
+ command = (char *) malloc(commandLength);
+ strncpy(command, cat, commandLength);
+ strncat(command, argv[1], (commandLength - strlen(cat)) );
+
+ system(command);
+ return (0);
+ }
+
+ Used normally, the output is simply the contents of the file requested:
+
+ (informative)
+  
+ $ ./catWrapper Story.txt
+ When last we left our heroes...
+
+ However, if we add a semicolon and another command to the end of this line, the command is executed by catWrapper with no complaint:
+
+ (attack code)
+  
+ $ ./catWrapper Story.txt; ls
+ When last we left our heroes...
+ Story.txt
+ SensitiveFile.txt
+ PrivateData.db
+ a.out*
+
+ If catWrapper had been set to have a higher privilege level than the standard user, arbitrary commands could be executed with that higher privilege.
+
+ + Observed Examples
+        Reference                                                                                        Description
+ CVE-2022-36069          Python-based dependency management tool avoids OS command injection when generating Git commands but allows injection of optional arguments with input beginning with a
+                         dash, potentially allowing for code execution.
+ CVE-1999-0067           Canonical example of OS command injection. CGI program does not neutralize "|" metacharacter when invoking a phonebook program.
+ CVE-2020-9054           Chain: improper input validation (CWE-20) in username parameter, leading to OS command injection (CWE-78), as exploited in the wild per CISA KEV.
+ CVE-2022-1509           injection of sed script syntax ("sed injection")
+ CVE-2021-41282          injection of sed script syntax ("sed injection")
+ CVE-2019-13398          injection of sed script syntax ("sed injection")
+ CVE-2019-12921          image program allows injection of commands in "Magick Vector Graphics (MVG)" language.
+ CVE-2020-11698          anti-spam product allows injection of SNMP commands into confiuration file
+ + Potential Mitigations
+ Phase: Architecture and Design
+
+ If at all possible, use library calls rather than external processes to recreate the desired functionality.
+ Phase: Implementation
+
+ If possible, ensure that all external commands called from the program are statically created.
+ Phase: Implementation
+
+ Strategy: Input Validation
+
+ Assume all input is malicious. Use an "accept known good" input validation strategy, i.e., use a list of acceptable inputs that strictly conform to specifications. Reject any input that does not
+ strictly conform to specifications, or transform it into something that does.
+
+ When performing input validation, consider all potentially relevant properties, including length, type of input, the full range of acceptable values, missing or extra inputs, syntax, consistency
+ across related fields, and conformance to business rules. As an example of business rule logic, "boat" may be syntactically valid because it only contains alphanumeric characters, but it is not
+ valid if the input is only expected to contain colors such as "red" or "blue."
+
+ Do not rely exclusively on looking for malicious or malformed inputs. This is likely to miss at least one undesirable input, especially if the code's environment changes. This can give attackers
+ enough room to bypass the intended validation. However, denylists can be useful for detecting potential attacks or determining which inputs are so malformed that they should be rejected outright.
+
+ Phase: Operation
+
+ Run time: Run time policy enforcement may be used in an allowlist fashion to prevent use of any non-sanctioned commands.
+ Phase: System Configuration
+
+ Assign permissions that prevent the user from accessing/opening privileged files.
+ + Weakness Ordinalities
+ Ordinality                                                                                       Description
+ Primary    (where the weakness exists independent of other weaknesses)
+ + Detection Methods
+ Automated Static Analysis
+
+ Automated static analysis, commonly referred to as Static Application Security Testing (SAST), can find some instances of this weakness by analyzing source code (or binary/compiled code) without
+ having to execute it. Typically, this is done by building a model of data flow and control flow, then searching for potentially-vulnerable patterns that connect "sources" (origins of input) with
+ "sinks" (destinations where the data interacts with external components, a lower layer such as the OS, etc.)
+
+ Effectiveness: High
+
+ + Memberships
+ Section HelpThis MemberOf Relationships table shows additional CWE Categories and Views that reference this weakness as a member. This information is often useful in understanding where a weakness
+ fits within the context of external information sources.
+     Nature                                                                                                  Type                                                                                               ID         Name
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            713     OWASP Top Ten
+                                                                                                                                                                                                                      2007 Category
+                                                                                                                                                                                                                      A2 - Injection
+                                                                                                                                                                                                                      Flaws
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            722     OWASP Top Ten
+                                                                                                                                                                                                                      2004 Category
+                                                                                                                                                                                                                      A1 -
+                                                                                                                                                                                                                      Unvalidated
+                                                                                                                                                                                                                      Input
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            727     OWASP Top Ten
+                                                                                                                                                                                                                      2004 Category
+                                                                                                                                                                                                                      A6 - Injection
+                                                                                                                                                                                                                      Flaws
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            929     OWASP Top Ten
+                                                                                                                                                                                                                      2013 Category
+                                                                                                                                                                                                                      A1 - Injection
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            990     SFP Secondary
+                                                                                                                                                                                                                      Cluster:
+                                                                                                                                                                                                                      Tainted Input
+                                                                                                                                                                                                                      to Command
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            1005    7PK - Input
+                                                                                                                                                                                                                      Validation and
+                                                                                                                                                                                                                      Representation
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            1027    OWASP Top Ten
+                                                                                                                                                                                                                      2017 Category
+                                                                                                                                                                                                                      A1 - Injection
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            1179    SEI CERT Perl
+                                                                                                                                                                                                                      Coding Standard
+                                                                                                                                                                                                                      - Guidelines
+                                                                                                                                                                                                                      01. Input
+                                                                                                                                                                                                                      Validation and
+                                                                                                                                                                                                                      Data
+                                                                                                                                                                                                                      Sanitization
+                                                                                                                                                                                                                      (IDS)
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            1308    CISQ Quality
+                                                                                                                                                                                                                      Measures -
+                                                                                                                                                                                                                      Security
+ MemberOf        ViewView - a subset of CWE entries that provides a way of examining CWE content. The two main view structures are Slices (flat lists) and Graphs (containing relationships between entries). 1337    Weaknesses in
+                                                                                                                                                                                                                      the 2021 CWE
+                                                                                                                                                                                                                      Top 25 Most
+                                                                                                                                                                                                                      Dangerous
+                                                                                                                                                                                                                      Software
+                                                                                                                                                                                                                      Weaknesses
+ MemberOf        ViewView - a subset of CWE entries that provides a way of examining CWE content. The two main view structures are Slices (flat lists) and Graphs (containing relationships between entries). 1340    CISQ Data
+                                                                                                                                                                                                                      Protection
+                                                                                                                                                                                                                      Measures
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            1347    OWASP Top Ten
+                                                                                                                                                                                                                      2021 Category
+                                                                                                                                                                                                                      A03:2021 -
+                                                                                                                                                                                                                      Injection
+ MemberOf        ViewView - a subset of CWE entries that provides a way of examining CWE content. The two main view structures are Slices (flat lists) and Graphs (containing relationships between entries). 1387    Weaknesses in
+                                                                                                                                                                                                                      the 2022 CWE
+                                                                                                                                                                                                                      Top 25 Most
+                                                                                                                                                                                                                      Dangerous
+                                                                                                                                                                                                                      Software
+                                                                                                                                                                                                                      Weaknesses
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            1409    Comprehensive
+                                                                                                                                                                                                                      Categorization:
+                                                                                                                                                                                                                      Injection
+ MemberOf        ViewView - a subset of CWE entries that provides a way of examining CWE content. The two main view structures are Slices (flat lists) and Graphs (containing relationships between entries). 1425    Weaknesses in
+                                                                                                                                                                                                                      the 2023 CWE
+                                                                                                                                                                                                                      Top 25 Most
+                                                                                                                                                                                                                      Dangerous
+                                                                                                                                                                                                                      Software
+                                                                                                                                                                                                                      Weaknesses
+ + Vulnerability Mapping Notes
+ Usage: ALLOWED-WITH-REVIEW
+
+ (this CWE ID could be used to map to real-world vulnerabilities in limited situations requiring careful review)
+ Reason: Frequent Misuse
+
+ Rationale:
+
+ CWE-77 is often misused when OS command injection (CWE-78) was intended instead [REF-1287].
+ Comments:
+
+ If the weakness involves a command language besides OS shell invocation, then CWE-77 could be used.
+ + Notes
+ 
+ Terminology
+
+ The "command injection" phrase carries different meanings to different people. For some people, it refers to any type of attack that can allow the attacker to execute commands of their own choosing,
+ regardless of how those commands are inserted. The command injection could thus be resultant from another weakness. This usage also includes cases in which the functionality allows the user to
+ specify an entire command, which is then executed; within CWE, this situation might be better regarded as an authorization problem (since an attacker should not be able to specify arbitrary
+ commands.)
+
+ Another common usage, which includes CWE-77 and its descendants, involves cases in which the attacker injects separators into the command being constructed.
+
+ + Taxonomy Mappings
+       Mapped Taxonomy Name          Node ID                   Fit                                                                Mapped Node Name
+ 7 Pernicious Kingdoms                                                           Command Injection
+ CLASP                                                                           Command injection
+ OWASP Top Ten 2007               A2             CWE More Specific               Injection Flaws
+ OWASP Top Ten 2004               A1             CWE More Specific               Unvalidated Input
+ OWASP Top Ten 2004               A6             CWE More Specific               Injection Flaws
+ Software Fault Patterns          SFP24                                          Tainted input to command
+ SEI CERT Perl Coding Standard    IDS34-PL       CWE More Specific               Do not pass untrusted, unsanitized data to a command interpreter
+ + Related Attack Patterns
+    CAPEC-ID                                                                                     Attack Pattern Name
+ CAPEC-136       LDAP Injection
+ CAPEC-15        Command Delimiters
+ CAPEC-183       IMAP/SMTP Command Injection
+ CAPEC-248       Command Injection
+ CAPEC-40        Manipulating Writeable Terminal Devices
+ CAPEC-43        Exploiting Multiple Input Interpretation Layers
+ CAPEC-75        Manipulating Writeable Configuration Files
+ CAPEC-76        Manipulating Web Input to File System Calls
+ + References
+ [REF-6] Katrina Tsipenyuk, Brian Chess and Gary McGraw. "Seven Pernicious Kingdoms: A Taxonomy of Software Security Errors". NIST Workshop on Software Security Assurance Tools Techniques and
+ Metrics. NIST. 2005-11-07. <https://samate.nist.gov/SSATTM_Content/papers/Seven%20Pernicious%20Kingdoms%20-%20Taxonomy%20of%20Sw%20Security%20Errors%20-%20Tsipenyuk%20-%20Chess%20-%20McGraw.pdf>.
+ [REF-140] Greg Hoglund and Gary McGraw. "Exploiting Software: How to Break Code". Addison-Wesley. 2004-02-27. <https://www.amazon.com/Exploiting-Software-How-Break-Code/dp/0201786958>. URL
+ validated: 2023-04-07.
+ [REF-44] Michael Howard, David LeBlanc and John Viega. "24 Deadly Sins of Software Security". "Sin 10: Command Injection." Page 171. McGraw-Hill. 2010.
+ [REF-1287] MITRE. "Supplemental Details - 2022 CWE Top 25". Details of Problematic Mappings. 2022-06-28. <https://cwe.mitre.org/top25/archive/2022/2022_cwe_top25_supplemental.html#
+ problematicMappingDetails>.
+ + Content History
+                                                                                           + Submissions
+           Submission Date                                                              Submitter                                                                     Organization
+ 2006-07-19                          7 Pernicious Kingdoms
+ (CWE Draft 3, 2006-07-19)
+
+                                                                                          + Contributions
+          Contribution Date                                                            Contributor                                                                    Organization
+ 2022-05-20                          Anonymous External Contributor
+                                     reported typo in Terminology note
+                                                                                          + Modifications
+          Modification Date                                                              Modifier                                                                     Organization
+ 2008-07-01                          Eric Dalci                                                                                                       Cigital
+                                     updated Time_of_Introduction
+ 2008-08-15                                                                                                                                           Veracode
+                                     Suggested OWASP Top Ten 2004 mapping
+ 2008-09-08                          CWE Content Team                                                                                                 MITRE
+                                     updated Common_Consequences, Relationships, Other_Notes, Taxonomy_Mappings, Weakness_Ordinalities
+ 2009-05-27                          CWE Content Team                                                                                                 MITRE
+                                     updated Demonstrative_Examples, Name
+ 2009-07-27                          CWE Content Team                                                                                                 MITRE
+                                     updated Demonstrative_Examples, Description, Name
+ 2009-10-29                          CWE Content Team                                                                                                 MITRE
+                                     updated Common_Consequences, Description, Other_Notes, Potential_Mitigations
+ 2010-02-16                          CWE Content Team                                                                                                 MITRE
+                                     updated Potential_Mitigations, Relationships
+ 2010-06-21                          CWE Content Team                                                                                                 MITRE
+                                     updated Description, Name
+ 2011-03-29                          CWE Content Team                                                                                                 MITRE
+                                     updated Demonstrative_Examples
+ 2011-06-01                          CWE Content Team                                                                                                 MITRE
+                                     updated Common_Consequences
+ 2012-05-11                          CWE Content Team                                                                                                 MITRE
+                                     updated Common_Consequences, Demonstrative_Examples, References, Related_Attack_Patterns, Relationships
+ 2012-10-30                          CWE Content Team                                                                                                 MITRE
+                                     updated Potential_Mitigations
+ 2013-02-21                          CWE Content Team                                                                                                 MITRE
+                                     updated Relationships
+ 2013-07-17                          CWE Content Team                                                                                                 MITRE
+                                     updated Relationships
+ 2014-02-18                          CWE Content Team                                                                                                 MITRE
+                                     updated Applicable_Platforms, Demonstrative_Examples, Description, Other_Notes, Terminology_Notes
+ 2014-06-23                          CWE Content Team                                                                                                 MITRE
+                                     updated Relationships
+ 2014-07-30                          CWE Content Team                                                                                                 MITRE
+                                     updated Relationships, Taxonomy_Mappings
+ 2015-12-07                          CWE Content Team                                                                                                 MITRE
+                                     updated Demonstrative_Examples, Relationships
+ 2017-05-03                          CWE Content Team                                                                                                 MITRE
+                                     updated Potential_Mitigations, Related_Attack_Patterns, Relationships
+ 2017-11-08                          CWE Content Team                                                                                                 MITRE
+                                     updated Causal_Nature, Likelihood_of_Exploit, Modes_of_Introduction, References, Relationships, Taxonomy_Mappings
+ 2018-03-27                          CWE Content Team                                                                                                 MITRE
+                                     updated Relationships
+ 2019-01-03                          CWE Content Team                                                                                                 MITRE
+                                     updated Taxonomy_Mappings
+ 2019-06-20                          CWE Content Team                                                                                                 MITRE
+                                     updated Related_Attack_Patterns, Relationships
+ 2020-02-24                          CWE Content Team                                                                                                 MITRE
+                                     updated Potential_Mitigations, References, Relationships
+ 2020-06-25                          CWE Content Team                                                                                                 MITRE
+                                     updated Potential_Mitigations
+ 2020-08-20                          CWE Content Team                                                                                                 MITRE
+                                     updated Relationships
+ 2020-12-10                          CWE Content Team                                                                                                 MITRE
+                                     updated Relationships
+ 2021-03-15                          CWE Content Team                                                                                                 MITRE
+                                     updated Relationships
+ 2021-07-20                          CWE Content Team                                                                                                 MITRE
+                                     updated Description, Observed_Examples, Relationships
+ 2021-10-28                          CWE Content Team                                                                                                 MITRE
+                                     updated Relationships
+ 2022-06-28                          CWE Content Team                                                                                                 MITRE
+                                     updated Observed_Examples, Relationships
+ 2022-10-13                          CWE Content Team                                                                                                 MITRE
+                                     updated Observed_Examples, References, Terminology_Notes
+ 2023-01-31                          CWE Content Team                                                                                                 MITRE
+                                     updated Description, Potential_Mitigations
+ 2023-04-27                          CWE Content Team                                                                                                 MITRE
+                                     updated Detection_Factors, Relationships, Time_of_Introduction
+ 2023-06-29                          CWE Content Team                                                                                                 MITRE
+                                     updated Mapping_Notes, Relationships
+                                                                                       + Previous Entry Names
+             Change Date                                                                                   Previous Entry Name
+ 2008-04-11                          Command Injection
+ 2009-05-27                          Failure to Sanitize Data into a Control Plane (aka 'Command Injection')
+ 2009-07-27                          Failure to Sanitize Data into a Control Plane ('Command Injection')
+ 2010-06-21                          Improper Sanitization of Special Elements used in a Command ('Command Injection')
+ More information is available — Please edit the custom filter or select a different filter.
+Page Last Updated: February 29, 2024
+ 
+      Site Map | Terms of Use | Manage Cookies | Cookie Notice | Privacy Policy | Contact Us | CWE X-Twitter CWE Mastodon CWE on LinkedIn CWE YouTube channel CWE Out-of-Bounds-Read Podcast CWE
+      Blog on Medium blog
+
+MITRE Use of the Common Weakness Enumeration (CWE™) and the associated references from this website are subject to the Terms of Use. CWE is sponsored by the U.S. Department of Homeland         HSSEDI
+      Security (DHS) Cybersecurity and Infrastructure Security Agency (CISA) and managed by the Homeland Security Systems Engineering and Development Institute (HSSEDI) which is operated by
+      The MITRE Corporation (MITRE). Copyright © 2006–2024, The MITRE Corporation. CWE, CWSS, CWRAF, and the CWE logo are trademarks of The MITRE Corporation.
+

@@ -1,0 +1,7 @@
+syz_harness$dummy(a0 ptr[in, dummy_cmd0], a1 bytesize[a0])
+syz_harness_type1$dummy(a0 ptr[in, dummy_cmd0], a1 bytesize[a0])
+syz_harness_type2$dummy(a0 ptr[in, dummy_cmd0], a1 bytesize[a0])
+
+dummy_cmd0 {
+	data	array[int8]
+} [packed]

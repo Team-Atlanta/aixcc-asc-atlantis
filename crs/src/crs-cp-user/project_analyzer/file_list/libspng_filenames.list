@@ -1,0 +1,13 @@
+test.cpp
+spng_read_fuzzer.c
+test_png.h
+framac_stubs.h
+testsuite.c
+target_clones.c
+test_spng.h
+spng_write_fuzzer.c
+spngt_common.h
+fuzz_main.c
+spng.h
+spng.c
+example.c

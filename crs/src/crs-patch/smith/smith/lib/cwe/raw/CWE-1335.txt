@@ -1,0 +1,220 @@
+CWE
+
+Common Weakness Enumeration
+
+A community-developed list of SW & HW weaknesses that can become vulnerabilities
+
+New to CWE? click here!
+CWE Most Important Hardware Weaknesses
+CWE Top 25 Most Dangerous Weaknesses
+Home > CWE List > CWE- Individual Dictionary Definition (4.14)                                                                                                   ID Lookup: [                    ] [Go]
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  • Home
+  • About ▼
+    About New to CWE User Stories History Documents FAQs Glossary Compatibility
+  • CWE List ▼
+    Latest Version Downloads Reports Visualizations Archive
+  • Mapping ▼
+    Root Cause Mapping Guidance Root Cause Mapping Quick Tips Root Cause Mapping Examples
+  • Top-N Lists ▼
+    Top 25 Software Top Hardware Top 10 KEV Weaknesses
+  • Community ▼
+    Community Working Groups & Special Interest Groups Board Board Meeting Minutes CWE Discussion List CWE Discussion Archives Contribute Weakness Content to CWE
+  • News ▼
+    Current News X-Twitter ● Mastodon ● LinkedIn ● YouTube YouTube Podcast Out of Bounds Read Podcast Medium Medium News Archive
+  • Search
+
+ 
+ CWE Glossary Definition                  x
+ 
+ 
+ CWE-1335: Incorrect Bitwise Shift of Integer
+ 
+ Weakness ID: 1335
+ Vulnerability Mapping: ALLOWEDThis CWE ID may be used to map to real-world vulnerabilities
+ Abstraction: BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level
+ weaknesses typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.
+ View customized information:
+ Conceptual For users who are interested in more notional aspects of a weakness. Example: educators, technical writers, and project/program managers. Operational For users who are concerned with the
+ practical application and details about the nature of a weakness and how to prevent it from happening. Example: tool developers, security researchers, pen-testers, incident response analysts. Mapping
+ Friendly For users who are mapping an issue to CWE/CAPEC IDs, i.e., finding the most appropriate CWE for a specific issue (e.g., a CVE record). Example: tool developers, security researchers. 
+ Complete For users who wish to see all available information for the CWE/CAPEC entry. Custom For users who want to customize what details are displayed.
+ ×
+
+ Edit Custom Filter
+
+ Conceptual Operational Mapping Friendly Select All
+ 
+ Reset Clear Submit Cancel
+ + Description
+ An integer value is specified to be shifted by a negative amount or an amount greater than or equal to the number of bits contained in the value causing an unexpected or indeterminate result.
+ + Extended Description
+ 
+ Specifying a value to be shifted by a negative amount is undefined in various languages. Various computer architectures implement this action in different ways. The compilers and interpreters when
+ generating code to accomplish a shift generally do not do a check for this issue.
+
+ Specifying an over-shift, a shift greater than or equal to the number of bits contained in a value to be shifted, produces a result which varies by architecture and compiler. In some languages, this
+ action is specifically listed as producing an undefined result.
+
+ + Relationships
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Research Concepts" (CWE-1000)
+     Nature                                                                                                                                                                               Type                                                                                                                                                                            ID       Name
+ ChildOf                                                                                 PillarPillar - a weakness that is the most abstract type of weakness and represents a theme for all class/base/variant weaknesses related to it. A Pillar is different from a Category as a Pillar is                                                                          682     Incorrect
+                                                                                                                    still technically a type of weakness that describes a mistake, while a Category represents a common characteristic used to group related things.                                                                                                            Calculation
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Software Development" (CWE-699)
+     Nature                                                       Type                                                     ID                                   Name
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 189     Numeric Errors
+ + Modes Of Introduction
+ Section HelpThe different Modes of Introduction provide information about how and when this weakness may be introduced. The Phase identifies a point in the life cycle at which introduction may occur,
+ while the Note provides a typical scenario related to introduction during the given phase.
+     Phase                                                                                              Note
+ Implementation Adding shifts without properly verifying the size and sign of the shift amount.
+ + Applicable Platforms
+ Section HelpThis listing shows possible areas for which the given weakness could appear. These may be for specific named Languages, Operating Systems, Architectures, Paradigms, Technologies, or a
+ class of such platforms. The platform is listed along with how frequently the given weakness appears for that instance.
+
+ Languages
+
+ C (Undetermined Prevalence)
+
+ C++ (Undetermined Prevalence)
+
+ C# (Undetermined Prevalence)
+
+ Java (Undetermined Prevalence)
+
+ JavaScript (Undetermined Prevalence)
+
+ Operating Systems
+
+ Class: Not OS-Specific (Undetermined Prevalence)
+
+ Technologies
+
+ Class: Not Technology-Specific (Undetermined Prevalence)
+
+ + Common Consequences
+ Section HelpThis table specifies different individual consequences associated with the weakness. The Scope identifies the application security area that is violated, while the Impact describes the
+ negative technical impact that arises if an adversary succeeds in exploiting this weakness. The Likelihood provides information about how likely the specific consequence is expected to be seen
+ relative to the other consequences in the list. For example, there may be high likelihood that a weakness will be exploited to achieve a certain impact, but a low likelihood that it will be exploited
+ to achieve a different impact.
+       Scope                                                                                     Impact                                                                                 Likelihood
+ Integrity          Technical Impact: DoS: Crash, Exit, or Restart
+
+ + Demonstrative Examples
+ 
+ Example 1
+
+ A negative shift amount for an x86 or x86_64 shift instruction will produce the number of bits to be shifted by taking a 2's-complement of the shift amount and effectively masking that amount to the
+ lowest 6 bits for a 64 bit shift instruction.
+
+ (bad code)
+ Example Language: C 
+ unsigned int r = 1 << -5;
+
+ The example above ends up with a shift amount of -5. The hexadecimal value is FFFFFFFFFFFFFFFD which, when bits above the 6th bit are masked off, the shift amount becomes a binary shift value of
+ 111101 which is 61 decimal. A shift of 61 produces a very different result than -5. The previous example is a very simple version of the following code which is probably more realistic of what
+ happens in a real system.
+
+ (bad code)
+ Example Language: C 
+ int choose_bit(int reg_bit, int bit_number_from_elsewhere)
+ {
+ if (NEED_TO_SHIFT)
+ {
+ reg_bit -= bit_number_from_elsewhere;
+ }
+ return reg_bit;
+ }
+ unsigned int handle_io_register(unsigned int *r)
+ {
+ unsigned int the_bit = 1 << choose_bit(5, 10);
+ *r |= the_bit;
+ return the_bit;
+ }
+ (good code)
+ Example Language: C 
+ int choose_bit(int reg_bit, int bit_number_from_elsewhere)
+ {
+ if (NEED_TO_SHIFT)
+ {
+ reg_bit -= bit_number_from_elsewhere;
+ }
+ return reg_bit;
+ }
+
+ unsigned int handle_io_register(unsigned int *r)
+ {
+ int the_bit_number = choose_bit(5, 10);
+ if ((the_bit_number > 0) && (the_bit_number < 63))
+ {
+ unsigned int the_bit = 1 << the_bit_number;
+ *r |= the_bit;
+ }
+ return the_bit;
+ }
+
+ Note that the good example not only checks for negative shifts and disallows them, but it also checks for over-shifts. No bit operation is done if the shift is out of bounds. Depending on the
+ program, perhaps an error message should be logged.
+
+ + Observed Examples
+        Reference                                                                                        Description
+ CVE-2009-4307           An unexpected large value in the ext4 filesystem causes an overshift condition resulting in a divide by zero.
+ CVE-2012-2100           An unexpected large value in the ext4 filesystem causes an overshift condition resulting in a divide by zero - fix of CVE-2009-4307.
+ CVE-2020-8835           An overshift in a kernel allowed out of bounds reads and writes resulting in a root takeover.
+ CVE-2015-1607           Program is not properly handling signed bitwise left-shifts causing an overlapping memcpy memory range error.
+ CVE-2016-9842           Compression function improperly executes a signed left shift of a negative integer.
+ CVE-2018-18445          Some kernels improperly handle right shifts of 32 bit numbers in a 64 bit register.
+ CVE-2013-4206           Putty has an incorrectly sized shift value resulting in an overshift.
+ CVE-2018-20788          LED driver overshifts under certain conditions resulting in a DoS.
+ + Potential Mitigations
+ Phase: Implementation
+
+ Implicitly or explicitly add checks and mitigation for negative or over-shift values.
+ + Memberships
+ Section HelpThis MemberOf Relationships table shows additional CWE Categories and Views that reference this weakness as a member. This information is often useful in understanding where a weakness
+ fits within the context of external information sources.
+     Nature                                                       Type                                                     ID                                   Name
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 1408    Comprehensive Categorization: Incorrect Calculation
+ + Vulnerability Mapping Notes
+ Usage: ALLOWED
+
+ (this CWE ID could be used to map to real-world vulnerabilities)
+ Reason: Acceptable-Use
+
+ Rationale:
+
+ This CWE entry is at the Base level of abstraction, which is a preferred level of abstraction for mapping to the root causes of vulnerabilities.
+ Comments:
+
+ Carefully read both the name and description to ensure that this mapping is an appropriate fit. Do not try to 'force' a mapping to a lower-level Base/Variant simply to comply with this preferred
+ level of abstraction.
+ + Content History
+                                                                                            + Submissions
+                       Submission Date                                                         Submitter                                                         Organization
+ 2021-03-29                                                  CWE Content Team                                                              MITRE
+ (CWE 4.5, 2021-07-20)
+
+                                                                                           + Modifications
+                      Modification Date                                                        Modifier                                                          Organization
+ 2022-10-13                                                  CWE Content Team                                                              MITRE
+                                                             updated Demonstrative_Examples, Observed_Examples
+ 2023-04-27                                                  CWE Content Team                                                              MITRE
+                                                             updated Relationships
+ 2023-06-29                                                  CWE Content Team                                                              MITRE
+                                                             updated Mapping_Notes
+ More information is available — Please edit the custom filter or select a different filter.
+Page Last Updated: February 29, 2024
+ 
+      Site Map | Terms of Use | Manage Cookies | Cookie Notice | Privacy Policy | Contact Us | CWE X-Twitter CWE Mastodon CWE on LinkedIn CWE YouTube channel CWE Out-of-Bounds-Read Podcast CWE
+      Blog on Medium blog
+
+MITRE Use of the Common Weakness Enumeration (CWE™) and the associated references from this website are subject to the Terms of Use. CWE is sponsored by the U.S. Department of Homeland         HSSEDI
+      Security (DHS) Cybersecurity and Infrastructure Security Agency (CISA) and managed by the Homeland Security Systems Engineering and Development Institute (HSSEDI) which is operated by
+      The MITRE Corporation (MITRE). Copyright © 2006–2024, The MITRE Corporation. CWE, CWSS, CWRAF, and the CWE logo are trademarks of The MITRE Corporation.
+

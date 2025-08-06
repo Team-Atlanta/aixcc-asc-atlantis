@@ -1,0 +1,36 @@
+Your job is to create a dictionary for fuzzing -- libafl, libfuzzer and AFL,
+following the dictionary format described above. Avoid putting the
+function names or keywords in the code to the dictionary. Focus on strings
+or useful magic values or tokens useful for fuzzing.
+
+You have access to various tools to navigate the repositories and samples of
+fuzzing dictionaries prepared.
+
+```
+get_file(<path>)
+get_dict(<name>)
+save_dict(<content>)
+```
+
+These are the samples of dictionaries you can request via `get_dict()`:
+
+```
+${dictionaries}
+```
+
+Here are summaries of some files present in the git repository, which you can
+request to browse its content.
+
+```
+${repomap}
+```
+
+% if readme:
+```
+README
+${readme}
+```
+% endif
+
+Once you are done generating a new fuzzing dictionary, informs me via `save_dict()`.
+

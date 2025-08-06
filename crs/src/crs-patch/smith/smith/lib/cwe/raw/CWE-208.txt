@@ -1,0 +1,285 @@
+CWE
+
+Common Weakness Enumeration
+
+A community-developed list of SW & HW weaknesses that can become vulnerabilities
+
+New to CWE? click here!
+CWE Most Important Hardware Weaknesses
+CWE Top 25 Most Dangerous Weaknesses
+Home > CWE List > CWE- Individual Dictionary Definition (4.14)                                                                                                   ID Lookup: [                    ] [Go]
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  • Home
+  • About ▼
+    About New to CWE User Stories History Documents FAQs Glossary Compatibility
+  • CWE List ▼
+    Latest Version Downloads Reports Visualizations Archive
+  • Mapping ▼
+    Root Cause Mapping Guidance Root Cause Mapping Quick Tips Root Cause Mapping Examples
+  • Top-N Lists ▼
+    Top 25 Software Top Hardware Top 10 KEV Weaknesses
+  • Community ▼
+    Community Working Groups & Special Interest Groups Board Board Meeting Minutes CWE Discussion List CWE Discussion Archives Contribute Weakness Content to CWE
+  • News ▼
+    Current News X-Twitter ● Mastodon ● LinkedIn ● YouTube YouTube Podcast Out of Bounds Read Podcast Medium Medium News Archive
+  • Search
+
+ 
+ CWE Glossary Definition                  x
+ 
+ 
+ CWE-208: Observable Timing Discrepancy
+ 
+ Weakness ID: 208
+ Vulnerability Mapping: ALLOWEDThis CWE ID may be used to map to real-world vulnerabilities
+ Abstraction: BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level
+ weaknesses typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.
+ View customized information:
+ Conceptual For users who are interested in more notional aspects of a weakness. Example: educators, technical writers, and project/program managers. Operational For users who are concerned with the
+ practical application and details about the nature of a weakness and how to prevent it from happening. Example: tool developers, security researchers, pen-testers, incident response analysts. Mapping
+ Friendly For users who are mapping an issue to CWE/CAPEC IDs, i.e., finding the most appropriate CWE for a specific issue (e.g., a CVE record). Example: tool developers, security researchers. 
+ Complete For users who wish to see all available information for the CWE/CAPEC entry. Custom For users who want to customize what details are displayed.
+ ×
+
+ Edit Custom Filter
+
+ Conceptual Operational Mapping Friendly Select All
+ 
+ Reset Clear Submit Cancel
+ + Description
+ Two separate operations in a product require different amounts of time to complete, in a way that is observable to an actor and reveals security-relevant information about the state of the product,
+ such as whether a particular operation was successful or not.
+ + Extended Description
+ In security-relevant contexts, even small variations in timing can be exploited by attackers to indirectly infer certain details about the product's internal operations. For example, in some
+ cryptographic algorithms, attackers can use timing differences to infer certain properties about a private key, making the key easier to guess. Timing discrepancies effectively form a timing side
+ channel.
+ + Relationships
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Research Concepts" (CWE-1000)
+     Nature                                                                                                                                                                             Type                                                                                                                                                                           ID        Name
+ ChildOf                                                                                   BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level weaknesses                                                                           203     Observable
+                                                                                                                          typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                  Discrepancy
+ ParentOf                                                                                  BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level weaknesses                                                                           1254    Incorrect
+                                                                                                                          typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                  Comparison
+                                                                                                                                                                                                                                                                                                                                                                             Logic
+                                                                                                                                                                                                                                                                                                                                                                             Granularity
+ CanPrecede                                                                            ClassClass - a weakness that is described in a very abstract fashion, typically independent of any specific language or technology. More specific than a Pillar Weakness, but more general than a Base                                                                        327     Use of a
+                                                                                                                    Weakness. Class level weaknesses typically describe issues in terms of 1 or 2 of the following dimensions: behavior, property, and resource.                                                                                                             Broken or
+                                                                                                                                                                                                                                                                                                                                                                             Risky
+                                                                                                                                                                                                                                                                                                                                                                             Cryptographic
+                                                                                                                                                                                                                                                                                                                                                                             Algorithm
+ CanPrecede                                                                                BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level weaknesses                                                                           385     Covert Timing
+                                                                                                                          typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                  Channel
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Software Development" (CWE-699)
+     Nature                                                       Type                                                     ID                                   Name
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 199     Information Management Errors
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Architectural Concepts" (CWE-1008)
+     Nature                                                       Type                                                     ID                                   Name
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 1012    Cross Cutting
+ + Modes Of Introduction
+ Section HelpThe different Modes of Introduction provide information about how and when this weakness may be introduced. The Phase identifies a point in the life cycle at which introduction may occur,
+ while the Note provides a typical scenario related to introduction during the given phase.
+          Phase                                                                                             Note
+ Architecture and Design COMMISSION: This weakness refers to an incorrect design related to an architectural security tactic.
+ Implementation
+ Operation
+ + Applicable Platforms
+ Section HelpThis listing shows possible areas for which the given weakness could appear. These may be for specific named Languages, Operating Systems, Architectures, Paradigms, Technologies, or a
+ class of such platforms. The platform is listed along with how frequently the given weakness appears for that instance.
+
+ Languages
+
+ Class: Not Language-Specific (Undetermined Prevalence)
+
+ + Common Consequences
+ Section HelpThis table specifies different individual consequences associated with the weakness. The Scope identifies the application security area that is violated, while the Impact describes the
+ negative technical impact that arises if an adversary succeeds in exploiting this weakness. The Likelihood provides information about how likely the specific consequence is expected to be seen
+ relative to the other consequences in the list. For example, there may be high likelihood that a weakness will be exploited to achieve a certain impact, but a low likelihood that it will be exploited
+ to achieve a different impact.
+       Scope                                                                                     Impact                                                                                 Likelihood
+ Confidentiality    Technical Impact: Read Application Data; Bypass Protection Mechanism
+ Access Control
+ + Demonstrative Examples
+ 
+ Example 1
+
+ Consider an example hardware module that checks a user-provided password to grant access to a user. The user-provided password is compared against a golden value in a byte-by-byte manner.
+
+ (bad code)
+ Example Language: Verilog 
+ always_comb @ (posedge clk)
+
+ begin
+ assign check_pass[3:0] = 4'b0;
+ for (i = 0; i < 4; i++) begin
+ if (entered_pass[(i*8 - 1) : i] eq golden_pass([i*8 - 1) : i])
+ assign check_pass[i] = 1;
+ continue;
+ else
+ assign check_pass[i] = 0;
+ break;
+ end
+ assign grant_access = (check_pass == 4'b1111) ? 1'b1: 1'b0;
+ end
+
+ Since the code breaks on an incorrect entry of password, an attacker can guess the correct password for that byte-check iteration with few repeat attempts.
+
+ To fix this weakness, either the comparison of the entire string should be done all at once, or the attacker is not given an indication whether pass or fail happened by allowing the comparison to run
+ through all bits before the grant_access signal is set.
+
+ (good code)
+  
+ always_comb @ (posedge clk)
+ begin
+ assign check_pass[3:0] = 4'b0;
+ for (i = 0; i < 4; i++) begin
+ if (entered_pass[(i*8 - 1) : i] eq golden_pass([i*8 -1) : i])
+ assign check_pass[i] = 1;
+ continue;
+ else
+ assign check_pass[i] = 0;
+ continue;
+ end
+ assign grant_access = (check_pass == 4'b1111) ? 1'b1: 1'b0;
+ end
+
+ Example 2
+
+ In this example, the attacker observes how long an authentication takes when the user types in the correct password.
+
+ When the attacker tries their own values, they can first try strings of various length. When they find a string of the right length, the computation will take a bit longer, because the for loop will
+ run at least once. Additionally, with this code, the attacker can possibly learn one character of the password at a time, because when they guess the first character right, the computation will take
+ longer than a wrong guesses. Such an attack can break even the most sophisticated password with a few hundred guesses.
+
+ (bad code)
+ Example Language: Python 
+ def validate_password(actual_pw, typed_pw):
+ if len(actual_pw) <> len(typed_pw):
+ return 0
+
+ for i in len(actual_pw):
+ if actual_pw[i] <> typed_pw[i]:
+ return 0
+
+ return 1
+
+ Note that in this example, the actual password must be handled in constant time as far as the attacker is concerned, even if the actual password is of an unusual length. This is one reason why it is
+ good to use an algorithm that, among other things, stores a seeded cryptographic one-way hash of the password, then compare the hashes, which will always be of the same length.
+
+ + Observed Examples
+        Reference                                                                                        Description
+ CVE-2019-10071          Java-oriented framework compares HMAC signatures using String.equals() instead of a constant-time algorithm, causing timing discrepancies
+ CVE-2019-10482          Smartphone OS uses comparison functions that are not in constant time, allowing side channels
+ CVE-2014-0984           Password-checking function in router terminates validation of a password entry when it encounters the first incorrect character, which allows remote attackers to obtain
+                         passwords via a brute-force attack that relies on timing differences in responses to incorrect password guesses, aka a timing side-channel attack.
+ CVE-2003-0078           SSL implementation does not perform a MAC computation if an incorrect block cipher padding is used, which causes an information leak (timing discrepancy) that may make it
+                         easier to launch cryptographic attacks that rely on distinguishing between padding and MAC verification errors, possibly leading to extraction of the original plaintext,
+                         aka the "Vaudenay timing attack."
+ CVE-2000-1117           Virtual machine allows malicious web site operators to determine the existence of files on the client by measuring delays in the execution of the getSystemResource method.
+ CVE-2003-0637           Product uses a shorter timeout for a non-existent user than a valid user, which makes it easier for remote attackers to guess usernames and conduct brute force password
+                         guessing.
+ CVE-2003-0190           Product immediately sends an error message when a user does not exist, which allows remote attackers to determine valid usernames via a timing attack.
+ CVE-2004-1602           FTP server responds in a different amount of time when a given username exists, which allows remote attackers to identify valid usernames by timing the server response.
+ CVE-2005-0918           Browser allows remote attackers to determine the existence of arbitrary files by setting the src property to the target filename and using Javascript to determine if the
+                         web page immediately stops loading, which indicates whether the file exists or not.
+ + Functional Areas
+ 
+   • Cryptography
+   • Authentication
+
+ + Memberships
+ Section HelpThis MemberOf Relationships table shows additional CWE Categories and Views that reference this weakness as a member. This information is often useful in understanding where a weakness
+ fits within the context of external information sources.
+     Nature                                                       Type                                                     ID                                   Name
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 967     SFP Secondary Cluster: State Disclosure
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 1417    Comprehensive Categorization: Sensitive Information Exposure
+ + Vulnerability Mapping Notes
+ Usage: ALLOWED
+
+ (this CWE ID could be used to map to real-world vulnerabilities)
+ Reason: Acceptable-Use
+
+ Rationale:
+
+ This CWE entry is at the Base level of abstraction, which is a preferred level of abstraction for mapping to the root causes of vulnerabilities.
+ Comments:
+
+ Carefully read both the name and description to ensure that this mapping is an appropriate fit. Do not try to 'force' a mapping to a lower-level Base/Variant simply to comply with this preferred
+ level of abstraction.
+ + Notes
+ 
+ Relationship
+
+ Often primary in cryptographic applications and algorithms.
+ + Taxonomy Mappings
+       Mapped Taxonomy Name          Node ID            Fit                                                                Mapped Node Name
+ PLOVER                                                            Timing discrepancy infoleak
+ + Related Attack Patterns
+    CAPEC-ID                                                                                     Attack Pattern Name
+ CAPEC-462       Cross-Domain Search Timing
+ CAPEC-541       Application Fingerprinting
+ CAPEC-580       System Footprinting
+ + Content History
+                                                                                           + Submissions
+                  Submission Date                                                       Submitter                                                              Organization
+ 2006-07-19                                         PLOVER
+ (CWE Draft 3, 2006-07-19)
+
+                                                                                          + Modifications
+                 Modification Date                                                       Modifier                                                              Organization
+ 2008-07-01                                         Eric Dalci                                                                         Cigital
+                                                    updated Time_of_Introduction
+ 2008-09-08                                         CWE Content Team                                                                   MITRE
+                                                    updated Relationships, Other_Notes, Relationship_Notes, Taxonomy_Mappings
+ 2008-10-14                                         CWE Content Team                                                                   MITRE
+                                                    updated Description
+ 2010-09-27                                         CWE Content Team                                                                   MITRE
+                                                    updated Relationships
+ 2011-03-29                                         CWE Content Team                                                                   MITRE
+                                                    updated Name
+ 2011-06-01                                         CWE Content Team                                                                   MITRE
+                                                    updated Common_Consequences
+ 2012-05-11                                         CWE Content Team                                                                   MITRE
+                                                    updated Observed_Examples, Relationships
+ 2014-06-23                                         CWE Content Team                                                                   MITRE
+                                                    updated Other_Notes, Related_Attack_Patterns
+ 2014-07-30                                         CWE Content Team                                                                   MITRE
+                                                    updated Relationships
+ 2017-05-03                                         CWE Content Team                                                                   MITRE
+                                                    updated Related_Attack_Patterns
+ 2017-11-08                                         CWE Content Team                                                                   MITRE
+                                                    updated Applicable_Platforms, Modes_of_Introduction, Relationships
+ 2020-02-24                                         CWE Content Team                                                                   MITRE
+                                                    updated Description, Name, Relationships
+ 2020-06-25                                         CWE Content Team                                                                   MITRE
+                                                    updated Relationships
+ 2023-01-31                                         CWE Content Team                                                                   MITRE
+                                                    updated Related_Attack_Patterns
+ 2023-04-27                                         CWE Content Team                                                                   MITRE
+                                                    updated Observed_Examples, Relationships
+ 2023-06-29                                         CWE Content Team                                                                   MITRE
+                                                    updated Mapping_Notes
+ 2023-10-26                                         CWE Content Team                                                                   MITRE
+                                                    updated Demonstrative_Examples, Observed_Examples
+ 2024-02-29                                         CWE Content Team                                                                   MITRE
+ (CWE 4.14, 2024-02-29)                             updated Demonstrative_Examples
+                                                                                       + Previous Entry Names
+                    Change Date                                                                                   Previous Entry Name
+ 2011-03-29                                         Timing Discrepancy Information Leak
+ 2020-02-24                                         Information Exposure Through Timing Discrepancy
+ More information is available — Please edit the custom filter or select a different filter.
+Page Last Updated: February 29, 2024
+ 
+      Site Map | Terms of Use | Manage Cookies | Cookie Notice | Privacy Policy | Contact Us | CWE X-Twitter CWE Mastodon CWE on LinkedIn CWE YouTube channel CWE Out-of-Bounds-Read Podcast CWE
+      Blog on Medium blog
+
+MITRE Use of the Common Weakness Enumeration (CWE™) and the associated references from this website are subject to the Terms of Use. CWE is sponsored by the U.S. Department of Homeland         HSSEDI
+      Security (DHS) Cybersecurity and Infrastructure Security Agency (CISA) and managed by the Homeland Security Systems Engineering and Development Institute (HSSEDI) which is operated by
+      The MITRE Corporation (MITRE). Copyright © 2006–2024, The MITRE Corporation. CWE, CWSS, CWRAF, and the CWE logo are trademarks of The MITRE Corporation.
+

@@ -1,0 +1,103 @@
+---
+name: Check network port bindings
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  get-inputs:
+    runs-on: ubuntu-latest
+    outputs:
+      optout: ${{ steps.optout.outputs.OPT_OUT }}
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+        with:
+          lfs: true
+
+      - name: Check for opt-out
+        id: optout
+        run: |
+          printf "OPT_OUT=%s" "$(grep -c -E '^# exposed-port-check: disable$' compose_local_overrides.yaml)" >> "$GITHUB_OUTPUT"
+
+  run-exposed-port-check:
+    runs-on:
+      group: large-runners
+    needs: get-inputs
+    if: ${{ needs.get-inputs.outputs.optout == 0 }}
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+        with:
+          lfs: true
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo curl -L "https://github.com/docker/compose/releases/download/v2.26.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+          sudo chmod +x /usr/local/bin/docker-compose
+          sudo bash -c 'echo -e "* soft nofile 65536\n* hard nofile 65536" >> /etc/security/limits.conf && echo "fs.file-max = 65536" >> /etc/sysctl.conf && sysctl -p && echo "DefaultLimitNOFILE=65536" >> /etc/systemd/system.conf && echo "DefaultLimitNOFILE=65536" >> /etc/systemd/user.conf && systemctl daemon-reload && echo "Global open file limits updated system-wide."'
+          sudo apt-get install -y open-iscsi nfs-common
+          curl -sfL https://get.k3s.io | sh -
+          mkdir -p ~/.kube
+          sudo cp /etc/rancher/k3s/k3s.yaml ~/.kube/config
+          sudo chown "$USER" ~/.kube/config
+          kubectl get nodes
+          curl https://mise.jdx.dev/install.sh | sh
+          echo "$HOME/.local/share/mise/bin" >> "$GITHUB_PATH"
+          echo "$HOME/.local/share/mise/shims" >> "$GITHUB_PATH"
+          mise install
+
+      - name: Check required files
+        run: |
+          if [ ! -f "${{ github.workspace }}/cp_config/cp_config.yaml" ]; then
+            echo "Required file not found: cp_config/cp_config.yaml"
+            exit 1
+          fi
+
+      - name: Move sandbox/example.env to sandbox/env
+        run: mv sandbox/example.env sandbox/env
+
+      - name: Set up GHCR auth tokens
+        run: |
+          sed -i '/GITHUB_TOKEN=*/d' sandbox/env
+          sed -i '/GITHUB_USER=*/d' sandbox/env
+          echo "GITHUB_TOKEN=${{ github.token }}" >> sandbox/env
+          echo "GITHUB_USER=gha" >> sandbox/env
+
+      - name: Add SSH key
+        env:
+          SSH_AUTH_SOCK: /tmp/ssh_agent.sock
+        run: |
+          mkdir -p /home/runner/.ssh
+          ssh-keyscan github.com >> /home/runner/.ssh/known_hosts
+          echo "${{ secrets.CRS_EVALUATOR_EXEMPLAR_CLONE_SSH_KEY }}" > /home/runner/.ssh/github_actions
+          chmod 600 /home/runner/.ssh/github_actions
+          ssh-agent -a "$SSH_AUTH_SOCK" > /dev/null
+          ssh-add /home/runner/.ssh/github_actions
+
+      - name: Docker Registry Login
+        uses: docker/login-action@v1
+        with:
+          registry: ghcr.io
+          username: gha
+          password: ${{ github.token }}
+
+      - name: Run Docker Compose
+        env:
+          SSH_AUTH_SOCK: /tmp/ssh_agent.sock
+        run: |
+          make up
+
+      - name: Check for any exposed ports
+        run: |
+          # 22, 8084, and 68 are bound by the workflow / runner somewhere, so we except them from our check
+          EXPOSED_PORTS=$(sudo netstat -tulpn | tail -n +3 | awk '{print $4}' | grep -v -E '(:22|:8084|:68|:111|:6443|:8472)' | grep -v -E '(127.0.0|::1)' || true)
+          if [ -n "${EXPOSED_PORTS}" ]; then
+              echo "The following ports are exposed on interfaces other than localhost:"
+              echo "${EXPOSED_PORTS}"
+          fi
+          exit "$(printf '%s' "$EXPOSED_PORTS" | wc -l)"

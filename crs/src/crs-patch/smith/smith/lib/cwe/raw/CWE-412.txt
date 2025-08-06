@@ -1,0 +1,250 @@
+CWE
+
+Common Weakness Enumeration
+
+A community-developed list of SW & HW weaknesses that can become vulnerabilities
+
+New to CWE? click here!
+CWE Most Important Hardware Weaknesses
+CWE Top 25 Most Dangerous Weaknesses
+Home > CWE List > CWE- Individual Dictionary Definition (4.14)                                                                                                   ID Lookup: [                    ] [Go]
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  • Home
+  • About ▼
+    About New to CWE User Stories History Documents FAQs Glossary Compatibility
+  • CWE List ▼
+    Latest Version Downloads Reports Visualizations Archive
+  • Mapping ▼
+    Root Cause Mapping Guidance Root Cause Mapping Quick Tips Root Cause Mapping Examples
+  • Top-N Lists ▼
+    Top 25 Software Top Hardware Top 10 KEV Weaknesses
+  • Community ▼
+    Community Working Groups & Special Interest Groups Board Board Meeting Minutes CWE Discussion List CWE Discussion Archives Contribute Weakness Content to CWE
+  • News ▼
+    Current News X-Twitter ● Mastodon ● LinkedIn ● YouTube YouTube Podcast Out of Bounds Read Podcast Medium Medium News Archive
+  • Search
+
+ 
+ CWE Glossary Definition                  x
+ 
+ 
+ CWE-412: Unrestricted Externally Accessible Lock
+ 
+ Weakness ID: 412
+ Vulnerability Mapping: ALLOWEDThis CWE ID may be used to map to real-world vulnerabilities
+ Abstraction: BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level
+ weaknesses typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.
+ View customized information:
+ Conceptual For users who are interested in more notional aspects of a weakness. Example: educators, technical writers, and project/program managers. Operational For users who are concerned with the
+ practical application and details about the nature of a weakness and how to prevent it from happening. Example: tool developers, security researchers, pen-testers, incident response analysts. Mapping
+ Friendly For users who are mapping an issue to CWE/CAPEC IDs, i.e., finding the most appropriate CWE for a specific issue (e.g., a CVE record). Example: tool developers, security researchers. 
+ Complete For users who wish to see all available information for the CWE/CAPEC entry. Custom For users who want to customize what details are displayed.
+ ×
+
+ Edit Custom Filter
+
+ Conceptual Operational Mapping Friendly Select All
+ 
+ Reset Clear Submit Cancel
+ + Description
+ The product properly checks for the existence of a lock, but the lock can be externally controlled or influenced by an actor that is outside of the intended sphere of control.
+ + Extended Description
+ This prevents the product from acting on associated resources or performing other behaviors that are controlled by the presence of the lock. Relevant locks might include an exclusive lock or mutex,
+ or modifying a shared resource that is treated as a lock. If the lock can be held for an indefinite period of time, then the denial of service could be permanent.
+ + Relationships
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Research Concepts" (CWE-1000)
+     Nature                                                                                                                                                                             Type                                                                                                                                                                           ID        Name
+ ChildOf                                                                               ClassClass - a weakness that is described in a very abstract fashion, typically independent of any specific language or technology. More specific than a Pillar Weakness, but more general than a Base                                                                        667     Improper
+                                                                                                                    Weakness. Class level weaknesses typically describe issues in terms of 1 or 2 of the following dimensions: behavior, property, and resource.                                                                                                             Locking
+ CanAlsoBe                                                                                 BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level weaknesses                                                                           410     Insufficient
+                                                                                                                          typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                  Resource
+                                                                                                                                                                                                                                                                                                                                                                             Pool
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Software Development" (CWE-699)
+     Nature                                                       Type                                                     ID                                   Name
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 411     Resource Locking Problems
+ + Modes Of Introduction
+ Section HelpThe different Modes of Introduction provide information about how and when this weakness may be introduced. The Phase identifies a point in the life cycle at which introduction may occur,
+ while the Note provides a typical scenario related to introduction during the given phase.
+          Phase                                                                                             Note
+ Architecture and Design
+ Implementation
+ + Applicable Platforms
+ Section HelpThis listing shows possible areas for which the given weakness could appear. These may be for specific named Languages, Operating Systems, Architectures, Paradigms, Technologies, or a
+ class of such platforms. The platform is listed along with how frequently the given weakness appears for that instance.
+
+ Languages
+
+ Class: Not Language-Specific (Undetermined Prevalence)
+
+ + Common Consequences
+ Section HelpThis table specifies different individual consequences associated with the weakness. The Scope identifies the application security area that is violated, while the Impact describes the
+ negative technical impact that arises if an adversary succeeds in exploiting this weakness. The Likelihood provides information about how likely the specific consequence is expected to be seen
+ relative to the other consequences in the list. For example, there may be high likelihood that a weakness will be exploited to achieve a certain impact, but a low likelihood that it will be exploited
+ to achieve a different impact.
+       Scope                                                                                     Impact                                                                                 Likelihood
+                    Technical Impact: DoS: Resource Consumption (Other)
+ Availability
+                    When an attacker can control a lock, the program may wait indefinitely until the attacker releases the lock, causing a denial of service to other users of the
+                    program. This is especially problematic if there is a blocking operation on the lock.
+ + Demonstrative Examples
+ 
+ Example 1
+
+ This code tries to obtain a lock for a file, then writes to it.
+
+ (bad code)
+ Example Language: PHP 
+ function writeToLog($message){
+ $logfile = fopen("logFile.log", "a");
+ //attempt to get logfile lock
+ if (flock($logfile, LOCK_EX)) {
+ fwrite($logfile,$message);
+ // unlock logfile
+ flock($logfile, LOCK_UN);
+ }
+ else {
+ print "Could not obtain lock on logFile.log, message not recorded\n";
+ }
+ }
+ fclose($logFile);
+
+ PHP by default will wait indefinitely until a file lock is released. If an attacker is able to obtain the file lock, this code will pause execution, possibly leading to denial of service for other
+ users. Note that in this case, if an attacker can perform an flock() on the file, they may already have privileges to destroy the log file. However, this still impacts the execution of other programs
+ that depend on flock().
+
+ + Observed Examples
+        Reference                                                                                        Description
+ CVE-2001-0682           Program can not execute when attacker obtains a mutex.
+ CVE-2002-1914           Program can not execute when attacker obtains a lock on a critical output file.
+ CVE-2002-1915           Program can not execute when attacker obtains a lock on a critical output file.
+ CVE-2002-0051           Critical file can be opened with exclusive read access by user, preventing application of security policy. Possibly related to improper permissions, large-window race
+                         condition.
+ CVE-2000-0338           Chain: predictable file names used for locking, allowing attacker to create the lock beforehand. Resultant from permissions and randomness.
+ CVE-2000-1198           Chain: Lock files with predictable names. Resultant from randomness.
+ CVE-2002-1869           Product does not check if it can write to a log file, allowing attackers to avoid logging by accessing the file using an exclusive lock. Overlaps unchecked error
+                         condition. This is not quite CWE-412, but close.
+ + Potential Mitigations
+ Phases: Architecture and Design; Implementation
+
+ Use any access control that is offered by the functionality that is offering the lock.
+ Phases: Architecture and Design; Implementation
+
+ Use unpredictable names or identifiers for the locks. This might not always be possible or feasible.
+ Phase: Architecture and Design
+
+ Consider modifying your code to use non-blocking synchronization methods.
+ + Detection Methods
+ White Box
+
+ Automated code analysis techniques might not be able to reliably detect this weakness, since the application's behavior and general security model dictate which resource locks are critical.
+ Interpretation of the weakness might require knowledge of the environment, e.g. if the existence of a file is used as a lock, but the file is created in a world-writable directory.
+ + Memberships
+ Section HelpThis MemberOf Relationships table shows additional CWE Categories and Views that reference this weakness as a member. This information is often useful in understanding where a weakness
+ fits within the context of external information sources.
+     Nature                                                       Type                                                     ID                                   Name
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 361     7PK - Time and State
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 730     OWASP Top Ten 2004 Category A9 - Denial of Service
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 853     The CERT Oracle Secure Coding Standard for Java (2011) Chapter 10 -
+                                                                                                                                 Locking (LCK)
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 989     SFP Secondary Cluster: Unrestricted Lock
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 1143    SEI CERT Oracle Secure Coding Standard for Java - Guidelines 09.
+                                                                                                                                 Locking (LCK)
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 1401    Comprehensive Categorization: Concurrency
+ + Vulnerability Mapping Notes
+ Usage: ALLOWED
+
+ (this CWE ID could be used to map to real-world vulnerabilities)
+ Reason: Acceptable-Use
+
+ Rationale:
+
+ This CWE entry is at the Base level of abstraction, which is a preferred level of abstraction for mapping to the root causes of vulnerabilities.
+ Comments:
+
+ Carefully read both the name and description to ensure that this mapping is an appropriate fit. Do not try to 'force' a mapping to a lower-level Base/Variant simply to comply with this preferred
+ level of abstraction.
+ + Notes
+ 
+ Relationship
+
+ This overlaps Insufficient Resource Pool when the "pool" is of size 1. It can also be resultant from race conditions, although the timing window could be quite large in some cases.
+ + Taxonomy Mappings
+       Mapped Taxonomy Name          Node ID               Fit                                                                Mapped Node Name
+ PLOVER                                                                  Unrestricted Critical Resource Lock
+ 7 Pernicious Kingdoms                                                   Deadlock
+ OWASP Top Ten 2004               A9             CWE More Specific       Denial of Service
+ The CERT Oracle Secure Coding    LCK00-J                                Use private final lock objects to synchronize classes that may interact with untrusted code
+ Standard for Java (2011)
+ The CERT Oracle Secure Coding    LCK07-J                                Avoid deadlock by requesting and releasing locks in the same order
+ Standard for Java (2011)
+ Software Fault Patterns          SFP22                                  Unrestricted lock
+ + Related Attack Patterns
+    CAPEC-ID                                                                                     Attack Pattern Name
+ CAPEC-25        Forced Deadlock
+ + Content History
+                                                                                           + Submissions
+         Submission Date                                                 Submitter                                                                       Organization
+ 2006-07-19                      PLOVER
+ (CWE Draft 3, 2006-07-19)
+
+                                                                                          + Contributions
+        Contribution Date                                               Contributor                                                                      Organization
+ 2008-08-29                                                                                                                KDM Analytics
+                                 suggested clarification of description and observed examples, which were vague and inconsistent.
+                                                                                          + Modifications
+        Modification Date                                                Modifier                                                                        Organization
+ 2008-07-01                      Eric Dalci                                                                                Cigital
+                                 updated Potential_Mitigations, Time_of_Introduction
+ 2008-08-01                                                                                                                KDM Analytics
+                                 added/updated white box definitions
+ 2008-08-15                                                                                                                Veracode
+                                 Suggested OWASP Top Ten 2004 mapping
+ 2008-09-08                      CWE Content Team                                                                          MITRE
+                                 updated Common_Consequences, Description, Detection_Factors, Relationships, Observed_Example, Relationship_Notes, Taxonomy_Mappings
+ 2008-10-14                      CWE Content Team                                                                          MITRE
+                                 updated Description
+ 2009-07-17                      KDM Analytics
+                                 Suggested a better name and the minimal relationship with resources regardless of their criticality.
+ 2009-07-17                      KDM Analytics
+                                 Added a White_Box_Definition and clarified the consequences.
+ 2009-07-27                      CWE Content Team                                                                          MITRE
+                                 updated Common_Consequences, Description, Name, Potential_Mitigations, White_Box_Definitions
+ 2011-03-29                      CWE Content Team                                                                          MITRE
+                                 updated Demonstrative_Examples
+ 2011-06-01                      CWE Content Team                                                                          MITRE
+                                 updated Common_Consequences, Relationships, Taxonomy_Mappings
+ 2012-05-11                      CWE Content Team                                                                          MITRE
+                                 updated Demonstrative_Examples, Relationships
+ 2014-07-30                      CWE Content Team                                                                          MITRE
+                                 updated Relationships, Taxonomy_Mappings
+ 2017-11-08                      CWE Content Team                                                                          MITRE
+                                 updated Applicable_Platforms, Relationships, White_Box_Definitions
+ 2019-01-03                      CWE Content Team                                                                          MITRE
+                                 updated Relationships, Taxonomy_Mappings
+ 2020-02-24                      CWE Content Team                                                                          MITRE
+                                 updated Relationships
+ 2023-01-31                      CWE Content Team                                                                          MITRE
+                                 updated Description
+ 2023-04-27                      CWE Content Team                                                                          MITRE
+                                 updated Relationships
+ 2023-06-29                      CWE Content Team                                                                          MITRE
+                                 updated Mapping_Notes
+                                                                                       + Previous Entry Names
+           Change Date                                                                                   Previous Entry Name
+ 2008-04-11                      Unrestricted Critical Resource Lock
+ 2009-07-27                      Unrestricted Lock on Critical Resource
+ More information is available — Please edit the custom filter or select a different filter.
+Page Last Updated: February 29, 2024
+ 
+      Site Map | Terms of Use | Manage Cookies | Cookie Notice | Privacy Policy | Contact Us | CWE X-Twitter CWE Mastodon CWE on LinkedIn CWE YouTube channel CWE Out-of-Bounds-Read Podcast CWE
+      Blog on Medium blog
+
+MITRE Use of the Common Weakness Enumeration (CWE™) and the associated references from this website are subject to the Terms of Use. CWE is sponsored by the U.S. Department of Homeland         HSSEDI
+      Security (DHS) Cybersecurity and Infrastructure Security Agency (CISA) and managed by the Homeland Security Systems Engineering and Development Institute (HSSEDI) which is operated by
+      The MITRE Corporation (MITRE). Copyright © 2006–2024, The MITRE Corporation. CWE, CWSS, CWRAF, and the CWE logo are trademarks of The MITRE Corporation.
+

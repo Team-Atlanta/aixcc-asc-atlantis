@@ -1,0 +1,14 @@
+java_library(
+    name = "introspector",
+    srcs = glob(["*.java"]),
+    visibility = [
+        "//src/main/java/com/code_intelligence/jazzer/driver:__pkg__",
+        "//src/test:__subpackages__",
+    ],
+    deps = [
+	"//src/main/java/com/code_intelligence/jazzer/runtime",
+	"//src/main/java/com/code_intelligence/jazzer/runtime:coverage_map",
+	"@com_google_gson_gson//jar",
+	"@soot_soot//jar",
+    ],
+)

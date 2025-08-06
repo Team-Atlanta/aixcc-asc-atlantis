@@ -1,0 +1,11 @@
+---
+extends: default
+ignore: |
+  generated/
+  .github/workflows/
+
+
+rules:
+  line-length:
+    max: 200
+    level: warning

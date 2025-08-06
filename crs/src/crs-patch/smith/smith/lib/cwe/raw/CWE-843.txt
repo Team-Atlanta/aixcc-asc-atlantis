@@ -1,0 +1,320 @@
+CWE
+
+Common Weakness Enumeration
+
+A community-developed list of SW & HW weaknesses that can become vulnerabilities
+
+New to CWE? click here!
+CWE Most Important Hardware Weaknesses
+CWE Top 25 Most Dangerous Weaknesses
+Home > CWE List > CWE- Individual Dictionary Definition (4.14)                                                                                                   ID Lookup: [                    ] [Go]
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  • Home
+  • About ▼
+    About New to CWE User Stories History Documents FAQs Glossary Compatibility
+  • CWE List ▼
+    Latest Version Downloads Reports Visualizations Archive
+  • Mapping ▼
+    Root Cause Mapping Guidance Root Cause Mapping Quick Tips Root Cause Mapping Examples
+  • Top-N Lists ▼
+    Top 25 Software Top Hardware Top 10 KEV Weaknesses
+  • Community ▼
+    Community Working Groups & Special Interest Groups Board Board Meeting Minutes CWE Discussion List CWE Discussion Archives Contribute Weakness Content to CWE
+  • News ▼
+    Current News X-Twitter ● Mastodon ● LinkedIn ● YouTube YouTube Podcast Out of Bounds Read Podcast Medium Medium News Archive
+  • Search
+
+ 
+ CWE Glossary Definition                  x
+ 
+ 
+ CWE-843: Access of Resource Using Incompatible Type ('Type Confusion')
+ 
+ Weakness ID: 843
+ Vulnerability Mapping: ALLOWEDThis CWE ID may be used to map to real-world vulnerabilities
+ Abstraction: BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level
+ weaknesses typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.
+ View customized information:
+ Conceptual For users who are interested in more notional aspects of a weakness. Example: educators, technical writers, and project/program managers. Operational For users who are concerned with the
+ practical application and details about the nature of a weakness and how to prevent it from happening. Example: tool developers, security researchers, pen-testers, incident response analysts. Mapping
+ Friendly For users who are mapping an issue to CWE/CAPEC IDs, i.e., finding the most appropriate CWE for a specific issue (e.g., a CVE record). Example: tool developers, security researchers. 
+ Complete For users who wish to see all available information for the CWE/CAPEC entry. Custom For users who want to customize what details are displayed.
+ ×
+
+ Edit Custom Filter
+
+ Conceptual Operational Mapping Friendly Select All
+ 
+ Reset Clear Submit Cancel
+ + Description
+ The product allocates or initializes a resource such as a pointer, object, or variable using one type, but it later accesses that resource using a type that is incompatible with the original type.
+ + Extended Description
+ 
+ When the product accesses the resource using an incompatible type, this could trigger logical errors because the resource does not have expected properties. In languages without memory safety, such
+ as C and C++, type confusion can lead to out-of-bounds memory access.
+
+ While this weakness is frequently associated with unions when parsing data with many different embedded object types in C, it can be present in any application that can interpret the same variable or
+ memory location in multiple ways.
+
+ This weakness is not unique to C and C++. For example, errors in PHP applications can be triggered by providing array parameters when scalars are expected, or vice versa. Languages such as Perl,
+ which perform automatic conversion of a variable of one type when it is accessed as if it were another type, can also contain these issues.
+
+ + Alternate Terms
+ Object Type Confusion
+ + Relationships
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Research Concepts" (CWE-1000)
+     Nature                                                                                                                                                                             Type                                                                                                                                                                           ID       Name
+ ChildOf                                                                               ClassClass - a weakness that is described in a very abstract fashion, typically independent of any specific language or technology. More specific than a Pillar Weakness, but more general than a Base                                                                        704     Incorrect
+                                                                                                                    Weakness. Class level weaknesses typically describe issues in terms of 1 or 2 of the following dimensions: behavior, property, and resource.                                                                                                             Type
+                                                                                                                                                                                                                                                                                                                                                                             Conversion
+                                                                                                                                                                                                                                                                                                                                                                             or Cast
+ PeerOf                                                                                    BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level weaknesses                                                                           1287    Improper
+                                                                                                                          typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                  Validation
+                                                                                                                                                                                                                                                                                                                                                                             of
+                                                                                                                                                                                                                                                                                                                                                                             Specified
+                                                                                                                                                                                                                                                                                                                                                                             Type of
+                                                                                                                                                                                                                                                                                                                                                                             Input
+ CanPrecede                                                                            ClassClass - a weakness that is described in a very abstract fashion, typically independent of any specific language or technology. More specific than a Pillar Weakness, but more general than a Base                                                                        119     Improper
+                                                                                                                    Weakness. Class level weaknesses typically describe issues in terms of 1 or 2 of the following dimensions: behavior, property, and resource.                                                                                                             Restriction
+                                                                                                                                                                                                                                                                                                                                                                             of
+                                                                                                                                                                                                                                                                                                                                                                             Operations
+                                                                                                                                                                                                                                                                                                                                                                             within the
+                                                                                                                                                                                                                                                                                                                                                                             Bounds of a
+                                                                                                                                                                                                                                                                                                                                                                             Memory
+                                                                                                                                                                                                                                                                                                                                                                             Buffer
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Software Development" (CWE-699)
+     Nature                                                       Type                                                     ID                                   Name
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 136     Type Errors
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Weaknesses for Simplified Mapping of Published Vulnerabilities" (CWE-1003)
+     Nature                                                                                                                                                                             Type                                                                                                                                                                           ID       Name
+ ChildOf                                                                               ClassClass - a weakness that is described in a very abstract fashion, typically independent of any specific language or technology. More specific than a Pillar Weakness, but more general than a Base                                                                        704     Incorrect
+                                                                                                                    Weakness. Class level weaknesses typically describe issues in terms of 1 or 2 of the following dimensions: behavior, property, and resource.                                                                                                             Type
+                                                                                                                                                                                                                                                                                                                                                                             Conversion
+                                                                                                                                                                                                                                                                                                                                                                             or Cast
+ + Modes Of Introduction
+ Section HelpThe different Modes of Introduction provide information about how and when this weakness may be introduced. The Phase identifies a point in the life cycle at which introduction may occur,
+ while the Note provides a typical scenario related to introduction during the given phase.
+     Phase                                                                                              Note
+ Implementation
+ + Applicable Platforms
+ Section HelpThis listing shows possible areas for which the given weakness could appear. These may be for specific named Languages, Operating Systems, Architectures, Paradigms, Technologies, or a
+ class of such platforms. The platform is listed along with how frequently the given weakness appears for that instance.
+
+ Languages
+
+ C (Undetermined Prevalence)
+
+ C++ (Undetermined Prevalence)
+
+ + Common Consequences
+ Section HelpThis table specifies different individual consequences associated with the weakness. The Scope identifies the application security area that is violated, while the Impact describes the
+ negative technical impact that arises if an adversary succeeds in exploiting this weakness. The Likelihood provides information about how likely the specific consequence is expected to be seen
+ relative to the other consequences in the list. For example, there may be high likelihood that a weakness will be exploited to achieve a certain impact, but a low likelihood that it will be exploited
+ to achieve a different impact.
+       Scope                                                                                     Impact                                                                                 Likelihood
+ Availability       Technical Impact: Read Memory; Modify Memory; Execute Unauthorized Code or Commands; DoS: Crash, Exit, or Restart
+ Integrity
+ Confidentiality    When a memory buffer is accessed using the wrong type, it could read or write memory out of the bounds of the buffer, if the allocated buffer is smaller than the
+                    type that the code is attempting to access, leading to a crash and possibly code execution.
+ + Demonstrative Examples
+ 
+ Example 1
+
+ The following code uses a union to support the representation of different types of messages. It formats messages differently, depending on their type.
+
+ (bad code)
+ Example Language: C 
+ #define NAME_TYPE 1
+ #define ID_TYPE 2
+
+ struct MessageBuffer
+ {
+ int msgType;
+ union {
+ char *name;
+ int nameID;
+ };
+ };
+
+
+ int main (int argc, char **argv) {
+ struct MessageBuffer buf;
+ char *defaultMessage = "Hello World";
+
+ buf.msgType = NAME_TYPE;
+ buf.name = defaultMessage;
+ printf("Pointer of buf.name is %p\n", buf.name);
+ /* This particular value for nameID is used to make the code architecture-independent. If coming from untrusted input, it could be any value. */
+
+ buf.nameID = (int)(defaultMessage + 1);
+ printf("Pointer of buf.name is now %p\n", buf.name);
+ if (buf.msgType == NAME_TYPE) {
+ printf("Message: %s\n", buf.name);
+ }
+ else {
+ printf("Message: Use ID %d\n", buf.nameID);
+ }
+ }
+
+ The code intends to process the message as a NAME_TYPE, and sets the default message to "Hello World." However, since both buf.name and buf.nameID are part of the same union, they can act as aliases
+ for the same memory location, depending on memory layout after compilation.
+
+ As a result, modification of buf.nameID - an int - can effectively modify the pointer that is stored in buf.name - a string.
+
+ Execution of the program might generate output such as:
+
+ Pointer of name is 10830
+ Pointer of name is now 10831
+ Message: ello World
+
+ Notice how the pointer for buf.name was changed, even though buf.name was not explicitly modified.
+
+ In this case, the first "H" character of the message is omitted. However, if an attacker is able to fully control the value of buf.nameID, then buf.name could contain an arbitrary pointer, leading to
+ out-of-bounds reads or writes.
+
+ Example 2
+
+ The following PHP code accepts a value, adds 5, and prints the sum.
+
+ (bad code)
+ Example Language: PHP 
+ $value = $_GET['value'];
+ $sum = $value + 5;
+ echo "value parameter is '$value'<p>";
+ echo "SUM is $sum";
+
+ When called with the following query string:
+
+ value=123
+
+ the program calculates the sum and prints out:
+
+ SUM is 128
+
+ However, the attacker could supply a query string such as:
+
+ value[]=123
+
+ The "[]" array syntax causes $value to be treated as an array type, which then generates a fatal error when calculating $sum:
+
+ Fatal error: Unsupported operand types in program.php on line 2
+
+ Example 3
+
+ The following Perl code is intended to look up the privileges for user ID's between 0 and 3, by performing an access of the $UserPrivilegeArray reference. It is expected that only userID 3 is an
+ admin (since this is listed in the third element of the array).
+
+ (bad code)
+ Example Language: Perl 
+ my $UserPrivilegeArray = ["user", "user", "admin", "user"];
+
+ my $userID = get_current_user_ID();
+
+ if ($UserPrivilegeArray eq "user") {
+ print "Regular user!\n";
+ }
+ else {
+ print "Admin!\n";
+ }
+
+ print "\$UserPrivilegeArray = $UserPrivilegeArray\n";
+
+ In this case, the programmer intended to use "$UserPrivilegeArray->{$userID}" to access the proper position in the array. But because the subscript was omitted, the "user" string was compared to the
+ scalar representation of the $UserPrivilegeArray reference, which might be of the form "ARRAY(0x229e8)" or similar.
+
+ Since the logic also "fails open" (CWE-636), the result of this bug is that all users are assigned administrator privileges.
+
+ While this is a forced example, it demonstrates how type confusion can have security consequences, even in memory-safe languages.
+
+ + Observed Examples
+        Reference                                                                                        Description
+ CVE-2010-4577           Type confusion in CSS sequence leads to out-of-bounds read.
+ CVE-2011-0611           Size inconsistency allows code execution, first discovered when it was actively exploited in-the-wild.
+ CVE-2010-0258           Improperly-parsed file containing records of different types leads to code execution when a memory location is interpreted as a different object than intended.
+ + Memberships
+ Section HelpThis MemberOf Relationships table shows additional CWE Categories and Views that reference this weakness as a member. This information is often useful in understanding where a weakness
+ fits within the context of external information sources.
+     Nature                                                       Type                                                     ID                                   Name
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 1157    SEI CERT C Coding Standard - Guidelines 03. Expressions (EXP)
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 1416    Comprehensive Categorization: Resource Lifecycle Management
+ + Vulnerability Mapping Notes
+ Usage: ALLOWED
+
+ (this CWE ID could be used to map to real-world vulnerabilities)
+ Reason: Acceptable-Use
+
+ Rationale:
+
+ This CWE entry is at the Base level of abstraction, which is a preferred level of abstraction for mapping to the root causes of vulnerabilities.
+ Comments:
+
+ Carefully read both the name and description to ensure that this mapping is an appropriate fit. Do not try to 'force' a mapping to a lower-level Base/Variant simply to comply with this preferred
+ level of abstraction.
+ + Notes
+ 
+ Applicable Platform
+
+ This weakness is possible in any type-unsafe programming language.
+
+ Research Gap
+
+ Type confusion weaknesses have received some attention by applied researchers and major software vendors for C and C++ code. Some publicly-reported vulnerabilities probably have type confusion as a
+ root-cause weakness, but these may be described as "memory corruption" instead.
+
+ For other languages, there are very few public reports of type confusion weaknesses. These are probably under-studied. Since many programs rely directly or indirectly on loose typing, a potential
+ "type confusion" behavior might be intentional, possibly requiring more manual analysis.
+
+ + Taxonomy Mappings
+       Mapped Taxonomy Name          Node ID        Fit                                                                 Mapped Node Name
+ CERT C Secure Coding             EXP39-C        Exact      Do not access a variable through a pointer of an incompatible type
+ + References
+ [REF-811] Mark Dowd, Ryan Smith and David Dewey. "Attacking Interoperability". "Type Confusion Vulnerabilities," page 59. 2009. <http://hustlelabs.com/stuff/bh2009_dowd_smith_dewey.pdf>. URL
+ validated: 2023-04-07.
+ [REF-62] Mark Dowd, John McDonald and Justin Schuh. "The Art of Software Security Assessment". Chapter 7, "Type Confusion", Page 319. 1st Edition. Addison Wesley. 2006.
+ + Content History
+                                                                                            + Submissions
+                         Submission Date                                                          Submitter                                                       Organization
+ 2011-05-15                                                      CWE Content Team                                                            MITRE
+ (CWE 1.13, 2011-06-01)
+
+                                                                                           + Modifications
+                        Modification Date                                                         Modifier                                                        Organization
+ 2012-05-11                                                      CWE Content Team                                                            MITRE
+                                                                 updated References
+ 2017-11-08                                                      CWE Content Team                                                            MITRE
+                                                                 updated Applicable_Platforms, Taxonomy_Mappings
+ 2019-01-03                                                      CWE Content Team                                                            MITRE
+                                                                 updated Relationships
+ 2019-06-20                                                      CWE Content Team                                                            MITRE
+                                                                 updated Relationships
+ 2020-02-24                                                      CWE Content Team                                                            MITRE
+                                                                 updated Relationships
+ 2020-06-25                                                      CWE Content Team                                                            MITRE
+                                                                 updated Common_Consequences, Relationships
+ 2022-04-28                                                      CWE Content Team                                                            MITRE
+                                                                 updated Research_Gaps
+ 2023-01-31                                                      CWE Content Team                                                            MITRE
+                                                                 updated Description
+ 2023-04-27                                                      CWE Content Team                                                            MITRE
+                                                                 updated References, Relationships
+ 2023-06-29                                                      CWE Content Team                                                            MITRE
+                                                                 updated Mapping_Notes
+ 2023-10-26                                                      CWE Content Team                                                            MITRE
+                                                                 updated Demonstrative_Examples
+ More information is available — Please edit the custom filter or select a different filter.
+Page Last Updated: February 29, 2024
+ 
+      Site Map | Terms of Use | Manage Cookies | Cookie Notice | Privacy Policy | Contact Us | CWE X-Twitter CWE Mastodon CWE on LinkedIn CWE YouTube channel CWE Out-of-Bounds-Read Podcast CWE
+      Blog on Medium blog
+
+MITRE Use of the Common Weakness Enumeration (CWE™) and the associated references from this website are subject to the Terms of Use. CWE is sponsored by the U.S. Department of Homeland         HSSEDI
+      Security (DHS) Cybersecurity and Infrastructure Security Agency (CISA) and managed by the Homeland Security Systems Engineering and Development Institute (HSSEDI) which is operated by
+      The MITRE Corporation (MITRE). Copyright © 2006–2024, The MITRE Corporation. CWE, CWSS, CWRAF, and the CWE logo are trademarks of The MITRE Corporation.
+

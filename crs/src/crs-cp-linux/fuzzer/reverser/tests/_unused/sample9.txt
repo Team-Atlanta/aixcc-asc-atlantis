@@ -1,0 +1,10 @@
+
+INPUT ::= SIZE { size: 4 }
+          TABLE { size: SIZE }
+          TABLE_SIZE { size: 4 }
+          TABLE { size: TABLE_SIZE }
+          SET_SIZE { size: 4 }
+          SET { size: SET_SIZE }
+          TABLE { size: TABLE_SIZE }
+          SET_SIZE { size: 4 }
+          SET { size: SET_SIZE }

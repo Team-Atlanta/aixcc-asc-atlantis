@@ -1,0 +1,7 @@
+kompose 1.33.0
+yq      4.43.1
+kubectl 1.29.2
+python  3.10.11
+helm    3.14.4
+kind    0.22.0
+kustomize 5.4.2

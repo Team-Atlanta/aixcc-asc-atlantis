@@ -1,0 +1,300 @@
+CWE
+
+Common Weakness Enumeration
+
+A community-developed list of SW & HW weaknesses that can become vulnerabilities
+
+New to CWE? click here!
+CWE Most Important Hardware Weaknesses
+CWE Top 25 Most Dangerous Weaknesses
+Home > CWE List > CWE- Individual Dictionary Definition (4.14)                                                                                                   ID Lookup: [                    ] [Go]
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  • Home
+  • About ▼
+    About New to CWE User Stories History Documents FAQs Glossary Compatibility
+  • CWE List ▼
+    Latest Version Downloads Reports Visualizations Archive
+  • Mapping ▼
+    Root Cause Mapping Guidance Root Cause Mapping Quick Tips Root Cause Mapping Examples
+  • Top-N Lists ▼
+    Top 25 Software Top Hardware Top 10 KEV Weaknesses
+  • Community ▼
+    Community Working Groups & Special Interest Groups Board Board Meeting Minutes CWE Discussion List CWE Discussion Archives Contribute Weakness Content to CWE
+  • News ▼
+    Current News X-Twitter ● Mastodon ● LinkedIn ● YouTube YouTube Podcast Out of Bounds Read Podcast Medium Medium News Archive
+  • Search
+
+ 
+ CWE Glossary Definition                  x
+ 
+ 
+ CWE-184: Incomplete List of Disallowed Inputs
+ 
+ Weakness ID: 184
+ Vulnerability Mapping: ALLOWEDThis CWE ID may be used to map to real-world vulnerabilities
+ Abstraction: BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level
+ weaknesses typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.
+ View customized information:
+ Conceptual For users who are interested in more notional aspects of a weakness. Example: educators, technical writers, and project/program managers. Operational For users who are concerned with the
+ practical application and details about the nature of a weakness and how to prevent it from happening. Example: tool developers, security researchers, pen-testers, incident response analysts. Mapping
+ Friendly For users who are mapping an issue to CWE/CAPEC IDs, i.e., finding the most appropriate CWE for a specific issue (e.g., a CVE record). Example: tool developers, security researchers. 
+ Complete For users who wish to see all available information for the CWE/CAPEC entry. Custom For users who want to customize what details are displayed.
+ ×
+
+ Edit Custom Filter
+
+ Conceptual Operational Mapping Friendly Select All
+ 
+ Reset Clear Submit Cancel
+ + Description
+ The product implements a protection mechanism that relies on a list of inputs (or properties of inputs) that are not allowed by policy or otherwise require other action to neutralize before
+ additional processing takes place, but the list is incomplete, leading to resultant weaknesses.
+ + Extended Description
+ Developers often try to protect their products against malicious input by performing tests against inputs that are known to be bad, such as special characters that can invoke new commands. However,
+ such lists often only account for the most well-known bad inputs. Attackers may be able to find other malicious inputs that were not expected by the developer, allowing them to bypass the intended
+ protection mechanism.
+ + Alternate Terms
+  Denylist / Deny List:  This is used by CWE and CAPEC instead of other commonly-used terms. Its counterpart is allowlist.
+ Blocklist / Block List: This is often used by security tools such as firewalls, email or web gateways, proxies, etc.
+ Blacklist / Black List: This term is frequently used, but usage has been declining as organizations have started to adopt other terms.
+ + Relationships
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Research Concepts" (CWE-1000)
+     Nature                                                                                                                                                                                                                                         Type                                                                                                                                                                                                                                      ID         Name
+ ChildOf                                                                                                                                           ClassClass - a weakness that is described in a very abstract fashion, typically independent of any specific language or technology. More specific than a Pillar Weakness, but more general than a Base                                                                                                                                   1023    Incomplete
+                                                                                                                                                                                Weakness. Class level weaknesses typically describe issues in terms of 1 or 2 of the following dimensions: behavior, property, and resource.                                                                                                                                                                        Comparison
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    with Missing
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    Factors
+ ChildOf                                                                                                                                           PillarPillar - a weakness that is the most abstract type of weakness and represents a theme for all class/base/variant weaknesses related to it. A Pillar is different from a Category as a Pillar is                                                                                                                                    693     Protection
+                                                                                                                                                                              still technically a type of weakness that describes a mistake, while a Category represents a common characteristic used to group related things.                                                                                                                                                                      Mechanism
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    Failure
+ ParentOf                                                                                                                                         ChainChain - a Compound Element that is a sequence of two or more separate weaknesses that can be closely linked together within software. One weakness, X, can directly create the conditions that are                                                                                                                                   692     Incomplete
+                                                                                                                                                        necessary to cause another weakness, Y, to enter a vulnerable condition. When this happens, CWE refers to X as "primary" to Y, and Y is "resultant" from X. Chains can involve more than two                                                                                                                                                Denylist to
+                                                                                                                                                                                                                   weaknesses, and in some cases, they might have a tree-like structure.                                                                                                                                                                                                            Cross-Site
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    Scripting
+ PeerOf                                                                                                                                            VariantVariant - a weakness that is linked to a certain type of product, typically involving a specific language or technology. More specific than a Base weakness. Variant level weaknesses typically                                                                                                                                   86      Improper
+                                                                                                                                                                                          describe issues in terms of 3 to 5 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                                                                                   Neutralization
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    of Invalid
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    Characters in
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    Identifiers in
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    Web Pages
+ PeerOf                                                                                                                                               BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level weaknesses                                                                                                                                       625     Permissive
+                                                                                                                                                                                     typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                                                                              Regular
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    Expression
+ CanPrecede                                                                                                                                           BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level weaknesses                                                                                                                                       78      Improper
+                                                                                                                                                                                     typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                                                                              Neutralization
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    of Special
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    Elements used
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    in an OS
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    Command ('OS
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    Command
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    Injection')
+ CanPrecede                                                                                                                                           BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level weaknesses                                                                                                                                       79      Improper
+                                                                                                                                                                                     typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                                                                              Neutralization
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    of Input
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    During Web
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    Page
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    Generation
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    ('Cross-site
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    Scripting')
+ CanPrecede                                                                                                                                        VariantVariant - a weakness that is linked to a certain type of product, typically involving a specific language or technology. More specific than a Base weakness. Variant level weaknesses typically                                                                                                                                   98      Improper
+                                                                                                                                                                                          describe issues in terms of 3 to 5 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                                                                                   Control of
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    Filename for
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    Include/
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    Require
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    Statement in
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    PHP Program
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    ('PHP Remote
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    File
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    Inclusion')
+ CanPrecede                                                                                                                                           BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level weaknesses                                                                                                                                       434     Unrestricted
+                                                                                                                                                                                     typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                                                                              Upload of File
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    with Dangerous
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    Type
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Software Development" (CWE-699)
+     Nature                                                       Type                                                     ID                                   Name
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 1215    Data Validation Issues
+ + Modes Of Introduction
+ Section HelpThe different Modes of Introduction provide information about how and when this weakness may be introduced. The Phase identifies a point in the life cycle at which introduction may occur,
+ while the Note provides a typical scenario related to introduction during the given phase.
+          Phase                                                                                             Note
+ Implementation          Developers might begin to develop a list of bad inputs as a fast way to fix a particular weakness, instead of fixing the root cause. See [REF-141].
+ Architecture and Design The design might rely solely on detection of malicious inputs as a protection mechanism.
+ + Applicable Platforms
+ Section HelpThis listing shows possible areas for which the given weakness could appear. These may be for specific named Languages, Operating Systems, Architectures, Paradigms, Technologies, or a
+ class of such platforms. The platform is listed along with how frequently the given weakness appears for that instance.
+
+ Languages
+
+ Class: Not Language-Specific (Undetermined Prevalence)
+
+ + Common Consequences
+ Section HelpThis table specifies different individual consequences associated with the weakness. The Scope identifies the application security area that is violated, while the Impact describes the
+ negative technical impact that arises if an adversary succeeds in exploiting this weakness. The Likelihood provides information about how likely the specific consequence is expected to be seen
+ relative to the other consequences in the list. For example, there may be high likelihood that a weakness will be exploited to achieve a certain impact, but a low likelihood that it will be exploited
+ to achieve a different impact.
+       Scope                                                                                     Impact                                                                                 Likelihood
+ Access Control     Technical Impact: Bypass Protection Mechanism
+
+ + Demonstrative Examples
+ 
+ Example 1
+
+ The following code attempts to stop XSS attacks by removing all occurences of "script" in an input string.
+
+ (bad code)
+ Example Language: Java 
+ public String removeScriptTags(String input, String mask) {
+ return input.replaceAll("script", mask);
+ }
+
+ Because the code only checks for the lower-case "script" string, it can be easily defeated with upper-case script tags.
+
+ + Observed Examples
+        Reference                                                                                        Description
+ CVE-2008-2309           product uses a denylist to identify potentially dangerous content, allowing attacker to bypass a warning
+ CVE-2005-2782           PHP remote file inclusion in web application that filters "http" and "https" URLs, but not "ftp".
+ CVE-2004-0542           Programming language does not filter certain shell metacharacters in Windows environment.
+ CVE-2004-0595           XSS filter doesn't filter null characters before looking for dangerous tags, which are ignored by web browsers. MIE and validate-before-cleanse.
+ CVE-2005-3287           Web-based mail product doesn't restrict dangerous extensions such as ASPX on a web server, even though others are prohibited.
+ CVE-2004-2351           Resultant XSS when only <script> and <style> are checked.
+ CVE-2005-2959           Privileged program does not clear sensitive environment variables that are used by bash. Overlaps multiple interpretation error.
+ CVE-2005-1824           SQL injection protection scheme does not quote the "\" special character.
+ CVE-2005-2184           Detection of risky filename extensions prevents users from automatically executing .EXE files, but .LNK is accepted, allowing resultant Windows symbolic link.
+ CVE-2007-1343           Product uses list of protected variables, but accidentally omits one dangerous variable, allowing external modification
+ CVE-2007-5727           Chain: product only removes SCRIPT tags (CWE-184), enabling XSS (CWE-79)
+ CVE-2006-4308           Chain: product only checks for use of "javascript:" tag (CWE-184), allowing XSS (CWE-79) using other tags
+ CVE-2007-3572           Chain: OS command injection (CWE-78) enabled by using an unexpected character that is not explicitly disallowed (CWE-184)
+ CVE-2002-0661           "\" not in list of disallowed values for web server, allowing path traversal attacks when the server is run on Windows and other OSes.
+ + Potential Mitigations
+ Phase: Implementation
+
+ Strategy: Input Validation
+
+ Do not rely exclusively on detecting disallowed inputs. There are too many variants to encode a character, especially when different environments are used, so there is a high likelihood of
+ missing some variants. Only use detection of disallowed inputs as a mechanism for detecting suspicious activity. Ensure that you are using other protection mechanisms that only identify "good"
+ input - such as lists of allowed inputs - and ensure that you are properly encoding your outputs.
+ + Weakness Ordinalities
+ Ordinality                                                                                       Description
+ Primary    (where the weakness exists independent of other weaknesses)
+ + Detection Methods
+ Black Box
+
+ Exploitation of a vulnerability with commonly-used manipulations might fail, but minor variations might succeed.
+ + Memberships
+ Section HelpThis MemberOf Relationships table shows additional CWE Categories and Views that reference this weakness as a member. This information is often useful in understanding where a weakness
+ fits within the context of external information sources.
+     Nature                                                       Type                                                     ID                                   Name
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 990     SFP Secondary Cluster: Tainted Input to Command
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 1347    OWASP Top Ten 2021 Category A03:2021 - Injection
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 1413    Comprehensive Categorization: Protection Mechanism Failure
+ + Vulnerability Mapping Notes
+ Usage: ALLOWED
+
+ (this CWE ID could be used to map to real-world vulnerabilities)
+ Reason: Acceptable-Use
+
+ Rationale:
+
+ This CWE entry is at the Base level of abstraction, which is a preferred level of abstraction for mapping to the root causes of vulnerabilities.
+ Comments:
+
+ Carefully read both the name and description to ensure that this mapping is an appropriate fit. Do not try to 'force' a mapping to a lower-level Base/Variant simply to comply with this preferred
+ level of abstraction.
+ + Notes
+ 
+ Relationship
+
+ Multiple interpretation errors can indirectly introduce inputs that should be disallowed. For example, a list of dangerous shell metacharacters might not include a metacharacter that only has meaning
+ in one particular shell, not all of them; or a check for XSS manipulations might ignore an unusual construct that is supported by one web browser, but not others.
+
+ + Taxonomy Mappings
+       Mapped Taxonomy Name          Node ID              Fit                                                                 Mapped Node Name
+ PLOVER                                                                 Incomplete Blacklist
+ + Related Attack Patterns
+    CAPEC-ID                                                                                     Attack Pattern Name
+ CAPEC-120       Double Encoding
+ CAPEC-15        Command Delimiters
+ CAPEC-182       Flash Injection
+ CAPEC-3         Using Leading 'Ghost' Character Sequences to Bypass Input Filters
+ CAPEC-43        Exploiting Multiple Input Interpretation Layers
+ CAPEC-6         Argument Injection
+ CAPEC-71        Using Unicode Encoding to Bypass Validation Logic
+ CAPEC-73        User-Controlled Filename
+ CAPEC-85        AJAX Footprinting
+ + References
+ [REF-140] Greg Hoglund and Gary McGraw. "Exploiting Software: How to Break Code". Addison-Wesley. 2004-02-27. <https://www.amazon.com/Exploiting-Software-How-Break-Code/dp/0201786958>. URL
+ validated: 2023-04-07.
+ [REF-141] Steve Christey. "Blacklist defenses as a breeding ground for vulnerability variants". 2006-02-03. <https://seclists.org/fulldisclosure/2006/Feb/40>. URL validated: 2023-04-07.
+ [REF-62] Mark Dowd, John McDonald and Justin Schuh. "The Art of Software Security Assessment". Chapter 8, "Eliminating Metacharacters", Page 435. 1st Edition. Addison Wesley. 2006.
+ + Content History
+                                                                                           + Submissions
+      Submission Date                                                  Submitter                                                                         Organization
+ 2006-07-19                 PLOVER
+ (CWE Draft 3, 2006-07-19)
+
+                                                                                          + Modifications
+     Modification Date                                                 Modifier                                                                          Organization
+ 2008-07-01                 Sean Eidemiller                                                                                 Cigital
+                            added/updated demonstrative examples
+ 2008-07-01                 Eric Dalci                                                                                      Cigital
+                            updated Potential_Mitigations, Time_of_Introduction
+ 2008-09-08                 CWE Content Team                                                                                MITRE
+                            updated Detection_Factors, Relationships, Other_Notes, Relationship_Notes, Taxonomy_Mappings, Weakness_Ordinalities
+ 2008-11-24                 CWE Content Team                                                                                MITRE
+                            updated Observed_Examples
+ 2009-05-27                 CWE Content Team                                                                                MITRE
+                            updated Description, Other_Notes, Relationship_Notes, Time_of_Introduction
+ 2010-02-16                 CWE Content Team                                                                                MITRE
+                            updated Relationships
+ 2010-04-05                 CWE Content Team                                                                                MITRE
+                            updated Related_Attack_Patterns
+ 2010-06-21                 CWE Content Team                                                                                MITRE
+                            updated Demonstrative_Examples
+ 2011-06-01                 CWE Content Team                                                                                MITRE
+                            updated Common_Consequences
+ 2012-05-11                 CWE Content Team                                                                                MITRE
+                            updated References, Related_Attack_Patterns, Relationships
+ 2013-02-21                 CWE Content Team                                                                                MITRE
+                            updated Potential_Mitigations
+ 2014-07-30                 CWE Content Team                                                                                MITRE
+                            updated Demonstrative_Examples, Relationships
+ 2015-12-07                 CWE Content Team                                                                                MITRE
+                            updated Relationships
+ 2017-05-03                 CWE Content Team                                                                                MITRE
+                            updated Potential_Mitigations, Related_Attack_Patterns
+ 2017-11-08                 CWE Content Team                                                                                MITRE
+                            updated Applicable_Platforms, References
+ 2018-03-27                 CWE Content Team                                                                                MITRE
+                            updated Observed_Examples, Relationships
+ 2019-01-03                 CWE Content Team                                                                                MITRE
+                            updated Related_Attack_Patterns
+ 2019-06-20                 CWE Content Team                                                                                MITRE
+                            updated Related_Attack_Patterns, Relationships
+ 2020-02-24                 CWE Content Team                                                                                MITRE
+                            updated Alternate_Terms, Description, Detection_Factors, Modes_of_Introduction, Name, Observed_Examples, Potential_Mitigations, Relationship_Notes, Relationships
+ 2020-06-25                 CWE Content Team                                                                                MITRE
+                            updated Alternate_Terms, Observed_Examples
+ 2021-10-28                 CWE Content Team                                                                                MITRE
+                            updated Relationships
+ 2023-04-27                 CWE Content Team                                                                                MITRE
+                            updated References, Relationships
+ 2023-06-29                 CWE Content Team                                                                                MITRE
+                            updated Mapping_Notes, Relationships
+                                                                                       + Previous Entry Names
+        Change Date                                                                                   Previous Entry Name
+ 2020-02-24                 Incomplete Blacklist
+ More information is available — Please edit the custom filter or select a different filter.
+Page Last Updated: February 29, 2024
+ 
+      Site Map | Terms of Use | Manage Cookies | Cookie Notice | Privacy Policy | Contact Us | CWE X-Twitter CWE Mastodon CWE on LinkedIn CWE YouTube channel CWE Out-of-Bounds-Read Podcast CWE
+      Blog on Medium blog
+
+MITRE Use of the Common Weakness Enumeration (CWE™) and the associated references from this website are subject to the Terms of Use. CWE is sponsored by the U.S. Department of Homeland         HSSEDI
+      Security (DHS) Cybersecurity and Infrastructure Security Agency (CISA) and managed by the Homeland Security Systems Engineering and Development Institute (HSSEDI) which is operated by
+      The MITRE Corporation (MITRE). Copyright © 2006–2024, The MITRE Corporation. CWE, CWSS, CWRAF, and the CWE logo are trademarks of The MITRE Corporation.
+

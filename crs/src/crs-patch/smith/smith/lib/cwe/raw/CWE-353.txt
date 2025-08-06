@@ -1,0 +1,246 @@
+CWE
+
+Common Weakness Enumeration
+
+A community-developed list of SW & HW weaknesses that can become vulnerabilities
+
+New to CWE? click here!
+CWE Most Important Hardware Weaknesses
+CWE Top 25 Most Dangerous Weaknesses
+Home > CWE List > CWE- Individual Dictionary Definition (4.14)                                                                                                   ID Lookup: [                    ] [Go]
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  • Home
+  • About ▼
+    About New to CWE User Stories History Documents FAQs Glossary Compatibility
+  • CWE List ▼
+    Latest Version Downloads Reports Visualizations Archive
+  • Mapping ▼
+    Root Cause Mapping Guidance Root Cause Mapping Quick Tips Root Cause Mapping Examples
+  • Top-N Lists ▼
+    Top 25 Software Top Hardware Top 10 KEV Weaknesses
+  • Community ▼
+    Community Working Groups & Special Interest Groups Board Board Meeting Minutes CWE Discussion List CWE Discussion Archives Contribute Weakness Content to CWE
+  • News ▼
+    Current News X-Twitter ● Mastodon ● LinkedIn ● YouTube YouTube Podcast Out of Bounds Read Podcast Medium Medium News Archive
+  • Search
+
+ 
+ CWE Glossary Definition                  x
+ 
+ 
+ CWE-353: Missing Support for Integrity Check
+ 
+ Weakness ID: 353
+ Vulnerability Mapping: ALLOWEDThis CWE ID may be used to map to real-world vulnerabilities
+ Abstraction: BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level
+ weaknesses typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.
+ View customized information:
+ Conceptual For users who are interested in more notional aspects of a weakness. Example: educators, technical writers, and project/program managers. Operational For users who are concerned with the
+ practical application and details about the nature of a weakness and how to prevent it from happening. Example: tool developers, security researchers, pen-testers, incident response analysts. Mapping
+ Friendly For users who are mapping an issue to CWE/CAPEC IDs, i.e., finding the most appropriate CWE for a specific issue (e.g., a CVE record). Example: tool developers, security researchers. 
+ Complete For users who wish to see all available information for the CWE/CAPEC entry. Custom For users who want to customize what details are displayed.
+ ×
+
+ Edit Custom Filter
+
+ Conceptual Operational Mapping Friendly Select All
+ 
+ Reset Clear Submit Cancel
+ + Description
+ The product uses a transmission protocol that does not include a mechanism for verifying the integrity of the data during transmission, such as a checksum.
+ + Extended Description
+ If integrity check values or "checksums" are omitted from a protocol, there is no way of determining if data has been corrupted in transmission. The lack of checksum functionality in a protocol
+ removes the first application-level check of data that can be used. The end-to-end philosophy of checks states that integrity checks should be performed at the lowest level that they can be
+ completely implemented. Excluding further sanity checks and input validation performed by applications, the protocol's checksum is the most important level of checksum, since it can be performed more
+ completely than at any previous level and takes into account entire messages, as opposed to single packets.
+ + Relationships
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Research Concepts" (CWE-1000)
+     Nature                                                                                                                                                                             Type                                                                                                                                                                           ID        Name
+ ChildOf                                                                               ClassClass - a weakness that is described in a very abstract fashion, typically independent of any specific language or technology. More specific than a Pillar Weakness, but more general than a Base                                                                        345     Insufficient
+                                                                                                                    Weakness. Class level weaknesses typically describe issues in terms of 1 or 2 of the following dimensions: behavior, property, and resource.                                                                                                             Verification
+                                                                                                                                                                                                                                                                                                                                                                             of Data
+                                                                                                                                                                                                                                                                                                                                                                             Authenticity
+ PeerOf                                                                                    BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level weaknesses                                                                           354     Improper
+                                                                                                                          typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                  Validation
+                                                                                                                                                                                                                                                                                                                                                                             of Integrity
+                                                                                                                                                                                                                                                                                                                                                                             Check Value
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Software Development" (CWE-699)
+     Nature                                                       Type                                                     ID                                   Name
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 1214    Data Integrity Issues
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Architectural Concepts" (CWE-1008)
+     Nature                                                       Type                                                     ID                                   Name
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 1020    Verify Message Integrity
+ + Modes Of Introduction
+ Section HelpThe different Modes of Introduction provide information about how and when this weakness may be introduced. The Phase identifies a point in the life cycle at which introduction may occur,
+ while the Note provides a typical scenario related to introduction during the given phase.
+          Phase                                                                                             Note
+ Architecture and Design OMISSION: This weakness is caused by missing a security tactic during the architecture and design phase.
+ Implementation
+ + Applicable Platforms
+ Section HelpThis listing shows possible areas for which the given weakness could appear. These may be for specific named Languages, Operating Systems, Architectures, Paradigms, Technologies, or a
+ class of such platforms. The platform is listed along with how frequently the given weakness appears for that instance.
+
+ Languages
+
+ Class: Not Language-Specific (Undetermined Prevalence)
+
+ + Common Consequences
+ Section HelpThis table specifies different individual consequences associated with the weakness. The Scope identifies the application security area that is violated, while the Impact describes the
+ negative technical impact that arises if an adversary succeeds in exploiting this weakness. The Likelihood provides information about how likely the specific consequence is expected to be seen
+ relative to the other consequences in the list. For example, there may be high likelihood that a weakness will be exploited to achieve a certain impact, but a low likelihood that it will be exploited
+ to achieve a different impact.
+       Scope                                                                                     Impact                                                                                 Likelihood
+ Integrity          Technical Impact: Other
+ Other
+                    Data that is parsed and used may be corrupted.
+ Non-Repudiation    Technical Impact: Hide Activities; Other
+ Other
+                    Without a checksum it is impossible to determine if any changes have been made to the data after it was sent.
+ + Likelihood Of Exploit
+ Medium
+ + Demonstrative Examples
+ 
+ Example 1
+
+ In this example, a request packet is received, and privileged information is sent to the requester:
+
+ (bad code)
+ Example Language: Java 
+ while(true) {
+ DatagramPacket rp = new DatagramPacket(rData,rData.length);
+ outSock.receive(rp);
+ InetAddress IPAddress = rp.getAddress();
+ int port = rp.getPort();
+ out = secret.getBytes();
+ DatagramPacket sp =new DatagramPacket(out, out.length, IPAddress, port);
+ outSock.send(sp);
+ }
+
+ The response containing secret data has no integrity check associated with it, allowing an attacker to alter the message without detection.
+
+ + Potential Mitigations
+ Phase: Architecture and Design
+
+ Add an appropriately sized checksum to the protocol, ensuring that data received may be simply validated before it is parsed and used.
+ Phase: Implementation
+
+ Ensure that the checksums present in the protocol design are properly implemented and added to each message before it is sent.
+ + Memberships
+ Section HelpThis MemberOf Relationships table shows additional CWE Categories and Views that reference this weakness as a member. This information is often useful in understanding where a weakness
+ fits within the context of external information sources.
+     Nature                                                                                                  Type                                                                                               ID         Name
+ MemberOf        ViewView - a subset of CWE entries that provides a way of examining CWE content. The two main view structures are Slices (flat lists) and Graphs (containing relationships between entries). 884     CWE
+                                                                                                                                                                                                                      Cross-section
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            957     SFP Secondary
+                                                                                                                                                                                                                      Cluster:
+                                                                                                                                                                                                                      Protocol Error
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            1354    OWASP Top Ten
+                                                                                                                                                                                                                      2021 Category
+                                                                                                                                                                                                                      A08:2021 -
+                                                                                                                                                                                                                      Software and
+                                                                                                                                                                                                                      Data Integrity
+                                                                                                                                                                                                                      Failures
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            1411    Comprehensive
+                                                                                                                                                                                                                      Categorization:
+                                                                                                                                                                                                                      Insufficient
+                                                                                                                                                                                                                      Verification of
+                                                                                                                                                                                                                      Data
+                                                                                                                                                                                                                      Authenticity
+ + Vulnerability Mapping Notes
+ Usage: ALLOWED
+
+ (this CWE ID could be used to map to real-world vulnerabilities)
+ Reason: Acceptable-Use
+
+ Rationale:
+
+ This CWE entry is at the Base level of abstraction, which is a preferred level of abstraction for mapping to the root causes of vulnerabilities.
+ Comments:
+
+ Carefully read both the name and description to ensure that this mapping is an appropriate fit. Do not try to 'force' a mapping to a lower-level Base/Variant simply to comply with this preferred
+ level of abstraction.
+ + Taxonomy Mappings
+       Mapped Taxonomy Name          Node ID          Fit                                                                Mapped Node Name
+ CLASP                                                         Failure to add integrity check value
+ ISA/IEC 62443                    Part 2-4                     Req SP.03.03 RE(1)
+ ISA/IEC 62443                    Part 2-4                     Req SP.04.02 RE(1)
+ ISA/IEC 62443                    Part 2-4                     Req SP.11.06 RE(2)
+ ISA/IEC 62443                    Part 3-3                     Req SR 3.1
+ ISA/IEC 62443                    Part 4-1                     Req SD-1
+ ISA/IEC 62443                    Part 4-2                     Req CR 3.1
+ + Related Attack Patterns
+    CAPEC-ID                                                                                     Attack Pattern Name
+ CAPEC-13        Subverting Environment Variable Values
+ CAPEC-14        Client-side Injection-induced Buffer Overflow
+ CAPEC-389       Content Spoofing Via Application API Manipulation
+ CAPEC-39        Manipulating Opaque Client-based Data Tokens
+ CAPEC-665       Exploitation of Thunderbolt Protection Flaws
+ CAPEC-74        Manipulating State
+ CAPEC-75        Manipulating Writeable Configuration Files
+ + References
+ [REF-18] Secure Software, Inc.. "The CLASP Application Security Process". 2005. <https://cwe.mitre.org/documents/sources/TheCLASPApplicationSecurityProcess.pdf>.
+ [REF-44] Michael Howard, David LeBlanc and John Viega. "24 Deadly Sins of Software Security". "Sin 15: Not Updating Easily." Page 231. McGraw-Hill. 2010.
+ + Content History
+                                                                                           + Submissions
+                  Submission Date                                                             Submitter                                                              Organization
+ 2006-07-19                                        CLASP
+ (CWE Draft 3, 2006-07-19)
+
+                                                                                          + Contributions
+                 Contribution Date                                                           Contributor                                                             Organization
+ 2023-04-25                                        "Mapping CWE to 62443" Sub-Working Group                                                        CWE-CAPEC ICS/OT SIG
+                                                   Suggested mappings to ISA/IEC 62443.
+                                                                                          + Modifications
+                 Modification Date                                                            Modifier                                                               Organization
+ 2008-07-01                                        Eric Dalci                                                                                      Cigital
+                                                   updated Time_of_Introduction
+ 2008-09-08                                        CWE Content Team                                                                                MITRE
+                                                   updated Common_Consequences, Relationships, Other_Notes, Taxonomy_Mappings
+ 2009-10-29                                        CWE Content Team                                                                                MITRE
+                                                   updated Description, Other_Notes
+ 2010-12-13                                        CWE Content Team                                                                                MITRE
+                                                   updated Description, Name
+ 2011-06-01                                        CWE Content Team                                                                                MITRE
+                                                   updated Common_Consequences, Demonstrative_Examples
+ 2012-05-11                                        CWE Content Team                                                                                MITRE
+                                                   updated References, Relationships
+ 2012-10-30                                        CWE Content Team                                                                                MITRE
+                                                   updated Demonstrative_Examples
+ 2014-07-30                                        CWE Content Team                                                                                MITRE
+                                                   updated Relationships
+ 2017-11-08                                        CWE Content Team                                                                                MITRE
+                                                   updated Applicable_Platforms, Modes_of_Introduction, Relationships
+ 2019-06-20                                        CWE Content Team                                                                                MITRE
+                                                   updated Related_Attack_Patterns
+ 2020-02-24                                        CWE Content Team                                                                                MITRE
+                                                   updated References, Relationships
+ 2021-07-20                                        CWE Content Team                                                                                MITRE
+                                                   updated Related_Attack_Patterns
+ 2021-10-28                                        CWE Content Team                                                                                MITRE
+                                                   updated Relationships
+ 2023-01-31                                        CWE Content Team                                                                                MITRE
+                                                   updated Description
+ 2023-04-27                                        CWE Content Team                                                                                MITRE
+                                                   updated Relationships, Taxonomy_Mappings
+ 2023-06-29                                        CWE Content Team                                                                                MITRE
+                                                   updated Mapping_Notes
+                                                                                       + Previous Entry Names
+                    Change Date                                                                                   Previous Entry Name
+ 2010-12-13                                        Failure to Add Integrity Check Value
+ More information is available — Please edit the custom filter or select a different filter.
+Page Last Updated: February 29, 2024
+ 
+      Site Map | Terms of Use | Manage Cookies | Cookie Notice | Privacy Policy | Contact Us | CWE X-Twitter CWE Mastodon CWE on LinkedIn CWE YouTube channel CWE Out-of-Bounds-Read Podcast CWE
+      Blog on Medium blog
+
+MITRE Use of the Common Weakness Enumeration (CWE™) and the associated references from this website are subject to the Terms of Use. CWE is sponsored by the U.S. Department of Homeland         HSSEDI
+      Security (DHS) Cybersecurity and Infrastructure Security Agency (CISA) and managed by the Homeland Security Systems Engineering and Development Institute (HSSEDI) which is operated by
+      The MITRE Corporation (MITRE). Copyright © 2006–2024, The MITRE Corporation. CWE, CWSS, CWRAF, and the CWE logo are trademarks of The MITRE Corporation.
+

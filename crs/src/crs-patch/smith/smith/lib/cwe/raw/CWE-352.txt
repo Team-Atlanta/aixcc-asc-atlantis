@@ -1,0 +1,597 @@
+CWE
+
+Common Weakness Enumeration
+
+A community-developed list of SW & HW weaknesses that can become vulnerabilities
+
+New to CWE? click here!
+CWE Most Important Hardware Weaknesses
+CWE Top 25 Most Dangerous Weaknesses
+Home > CWE List > CWE- Individual Dictionary Definition (4.14)                                                                                                   ID Lookup: [                    ] [Go]
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  • Home
+  • About ▼
+    About New to CWE User Stories History Documents FAQs Glossary Compatibility
+  • CWE List ▼
+    Latest Version Downloads Reports Visualizations Archive
+  • Mapping ▼
+    Root Cause Mapping Guidance Root Cause Mapping Quick Tips Root Cause Mapping Examples
+  • Top-N Lists ▼
+    Top 25 Software Top Hardware Top 10 KEV Weaknesses
+  • Community ▼
+    Community Working Groups & Special Interest Groups Board Board Meeting Minutes CWE Discussion List CWE Discussion Archives Contribute Weakness Content to CWE
+  • News ▼
+    Current News X-Twitter ● Mastodon ● LinkedIn ● YouTube YouTube Podcast Out of Bounds Read Podcast Medium Medium News Archive
+  • Search
+
+ 
+ CWE Glossary Definition                  x
+ 
+ 
+ CWE-352: Cross-Site Request Forgery (CSRF)
+ 
+ Weakness ID: 352 (Structure: Composite)Composite - a Compound Element that consists of two or more distinct weaknesses, in which all weaknesses must be present at the same time in order for a
+ potential vulnerability to arise. Removing any of the weaknesses eliminates or sharply reduces the risk. One weakness, X, can be "broken down" into component weaknesses Y and Z. There can be cases in
+ which one weakness might not be essential to a composite, but changes the nature of the composite when it becomes a vulnerability.
+ Vulnerability Mapping: ALLOWEDThis CWE ID may be used to map to real-world vulnerabilities
+ View customized information:
+ Conceptual For users who are interested in more notional aspects of a weakness. Example: educators, technical writers, and project/program managers. Operational For users who are concerned with the
+ practical application and details about the nature of a weakness and how to prevent it from happening. Example: tool developers, security researchers, pen-testers, incident response analysts. Mapping
+ Friendly For users who are mapping an issue to CWE/CAPEC IDs, i.e., finding the most appropriate CWE for a specific issue (e.g., a CVE record). Example: tool developers, security researchers. 
+ Complete For users who wish to see all available information for the CWE/CAPEC entry. Custom For users who want to customize what details are displayed.
+ ×
+
+ Edit Custom Filter
+
+ Conceptual Operational Mapping Friendly Select All
+ 
+ Reset Clear Submit Cancel
+ + Description
+ The web application does not, or can not, sufficiently verify whether a well-formed, valid, consistent request was intentionally provided by the user who submitted the request.
+ + Composite Components
+     Nature                                                                                                                                                                             Type                                                                                                                                                                           ID        Name
+ Requires                                                                              ClassClass - a weakness that is described in a very abstract fashion, typically independent of any specific language or technology. More specific than a Pillar Weakness, but more general than a Base                                                                        346     Origin
+                                                                                                                    Weakness. Class level weaknesses typically describe issues in terms of 1 or 2 of the following dimensions: behavior, property, and resource.                                                                                                             Validation
+                                                                                                                                                                                                                                                                                                                                                                             Error
+ Requires                                                                              ClassClass - a weakness that is described in a very abstract fashion, typically independent of any specific language or technology. More specific than a Pillar Weakness, but more general than a Base                                                                        441     Unintended
+                                                                                                                    Weakness. Class level weaknesses typically describe issues in terms of 1 or 2 of the following dimensions: behavior, property, and resource.                                                                                                             Proxy or
+                                                                                                                                                                                                                                                                                                                                                                             Intermediary
+                                                                                                                                                                                                                                                                                                                                                                             ('Confused
+                                                                                                                                                                                                                                                                                                                                                                             Deputy')
+ Requires                                                                              ClassClass - a weakness that is described in a very abstract fashion, typically independent of any specific language or technology. More specific than a Pillar Weakness, but more general than a Base                                                                        642     External
+                                                                                                                    Weakness. Class level weaknesses typically describe issues in terms of 1 or 2 of the following dimensions: behavior, property, and resource.                                                                                                             Control of
+                                                                                                                                                                                                                                                                                                                                                                             Critical
+                                                                                                                                                                                                                                                                                                                                                                             State Data
+ Requires                                                                                  BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level weaknesses                                                                           613     Insufficient
+                                                                                                                          typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                  Session
+                                                                                                                                                                                                                                                                                                                                                                             Expiration
+ + Extended Description
+ When a web server is designed to receive a request from a client without any mechanism for verifying that it was intentionally sent, then it might be possible for an attacker to trick a client into
+ making an unintentional request to the web server which will be treated as an authentic request. This can be done via a URL, image load, XMLHttpRequest, etc. and can result in exposure of data or
+ unintended code execution.
+ + Alternate Terms
+        Session Riding
+ Cross Site Reference Forgery
+             XSRF
+ + Relationships
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Research Concepts" (CWE-1000)
+     Nature                                                                                                                                                                             Type                                                                                                                                                                           ID         Name
+ ChildOf                                                                               ClassClass - a weakness that is described in a very abstract fashion, typically independent of any specific language or technology. More specific than a Pillar Weakness, but more general than a Base                                                                        345     Insufficient
+                                                                                                                    Weakness. Class level weaknesses typically describe issues in terms of 1 or 2 of the following dimensions: behavior, property, and resource.                                                                                                             Verification
+                                                                                                                                                                                                                                                                                                                                                                             of Data
+                                                                                                                                                                                                                                                                                                                                                                             Authenticity
+ PeerOf                                                                                    BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level weaknesses                                                                           79      Improper
+                                                                                                                          typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                  Neutralization
+                                                                                                                                                                                                                                                                                                                                                                             of Input
+                                                                                                                                                                                                                                                                                                                                                                             During Web
+                                                                                                                                                                                                                                                                                                                                                                             Page
+                                                                                                                                                                                                                                                                                                                                                                             Generation
+                                                                                                                                                                                                                                                                                                                                                                             ('Cross-site
+                                                                                                                                                                                                                                                                                                                                                                             Scripting')
+ CanFollow                                                                             VariantVariant - a weakness that is linked to a certain type of product, typically involving a specific language or technology. More specific than a Base weakness. Variant level weaknesses typically                                                                        1275    Sensitive
+                                                                                                                               describe issues in terms of 3 to 5 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                       Cookie with
+                                                                                                                                                                                                                                                                                                                                                                             Improper
+                                                                                                                                                                                                                                                                                                                                                                             SameSite
+                                                                                                                                                                                                                                                                                                                                                                             Attribute
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Weaknesses for Simplified Mapping of Published Vulnerabilities" (CWE-1003)
+     Nature                                                                                                                                                                             Type                                                                                                                                                                           ID        Name
+ ChildOf                                                                               ClassClass - a weakness that is described in a very abstract fashion, typically independent of any specific language or technology. More specific than a Pillar Weakness, but more general than a Base                                                                        345     Insufficient
+                                                                                                                    Weakness. Class level weaknesses typically describe issues in terms of 1 or 2 of the following dimensions: behavior, property, and resource.                                                                                                             Verification
+                                                                                                                                                                                                                                                                                                                                                                             of Data
+                                                                                                                                                                                                                                                                                                                                                                             Authenticity
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Architectural Concepts" (CWE-1008)
+     Nature                                                       Type                                                     ID                                   Name
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 1019    Validate Inputs
+ + Modes Of Introduction
+ Section HelpThe different Modes of Introduction provide information about how and when this weakness may be introduced. The Phase identifies a point in the life cycle at which introduction may occur,
+ while the Note provides a typical scenario related to introduction during the given phase.
+          Phase                                                                                             Note
+ Architecture and Design REALIZATION: This weakness is caused during implementation of an architectural security tactic.
+ + Applicable Platforms
+ Section HelpThis listing shows possible areas for which the given weakness could appear. These may be for specific named Languages, Operating Systems, Architectures, Paradigms, Technologies, or a
+ class of such platforms. The platform is listed along with how frequently the given weakness appears for that instance.
+
+ Languages
+
+ Class: Not Language-Specific (Undetermined Prevalence)
+
+ Technologies
+
+ Web Server (Undetermined Prevalence)
+
+ + Common Consequences
+ Section HelpThis table specifies different individual consequences associated with the weakness. The Scope identifies the application security area that is violated, while the Impact describes the
+ negative technical impact that arises if an adversary succeeds in exploiting this weakness. The Likelihood provides information about how likely the specific consequence is expected to be seen
+ relative to the other consequences in the list. For example, there may be high likelihood that a weakness will be exploited to achieve a certain impact, but a low likelihood that it will be exploited
+ to achieve a different impact.
+       Scope                                                                                     Impact                                                                                 Likelihood
+ Confidentiality    Technical Impact: Gain Privileges or Assume Identity; Bypass Protection Mechanism; Read Application Data; Modify Application Data; DoS: Crash, Exit, or Restart
+ Integrity
+ Availability       The consequences will vary depending on the nature of the functionality that is vulnerable to CSRF. An attacker could effectively perform any operations as the
+ Non-Repudiation    victim. If the victim is an administrator or privileged user, the consequences may include obtaining complete control over the web application - deleting or
+ Access Control     stealing data, uninstalling the product, or using it to launch other attacks against all of the product's users. Because the attacker has the identity of the
+                    victim, the scope of CSRF is limited only by the victim's privileges.
+ + Likelihood Of Exploit
+ Medium
+ + Demonstrative Examples
+ 
+ Example 1
+
+ This example PHP code attempts to secure the form submission process by validating that the user submitting the form has a valid session. A CSRF attack would not be prevented by this countermeasure
+ because the attacker forges a request through the user's web browser in which a valid session already exists.
+
+ The following HTML is intended to allow a user to update a profile.
+
+ (bad code)
+ Example Language: HTML 
+ <form action="/url/profile.php" method="post">
+ <input type="text" name="firstname"/>
+ <input type="text" name="lastname"/>
+ <br/>
+ <input type="text" name="email"/>
+ <input type="submit" name="submit" value="Update"/>
+ </form>
+
+ profile.php contains the following code.
+
+ (bad code)
+ Example Language: PHP 
+ // initiate the session in order to validate sessions
+
+ session_start();
+
+ //if the session is registered to a valid user then allow update
+
+ if (! session_is_registered("username")) {
+
+ echo "invalid session detected!";
+
+ // Redirect user to login page
+ [...]
+
+ exit;
+ }
+
+ // The user session is valid, so process the request
+
+ // and update the information
+
+ update_profile();
+
+ function update_profile {
+
+ // read in the data from $POST and send an update
+
+ // to the database
+ SendUpdateToDatabase($_SESSION['username'], $_POST['email']);
+ [...]
+ echo "Your profile has been successfully updated.";
+ }
+
+ This code may look protected since it checks for a valid session. However, CSRF attacks can be staged from virtually any tag or HTML construct, including image tags, links, embed or object tags, or
+ other attributes that load background images.
+
+ The attacker can then host code that will silently change the username and email address of any user that visits the page while remaining logged in to the target web application. The code might be an
+ innocent-looking web page such as:
+
+ (attack code)
+ Example Language: HTML 
+ <SCRIPT>
+ function SendAttack () {
+ form.email = "attacker@example.com";
+ // send to profile.php
+ form.submit();
+ }
+ </SCRIPT>
+
+ <BODY onload="javascript:SendAttack();">
+
+ <form action="http://victim.example.com/profile.php" id="form" method="post">
+ <input type="hidden" name="firstname" value="Funny">
+ <input type="hidden" name="lastname" value="Joke">
+ <br/>
+ <input type="hidden" name="email">
+ </form>
+
+ Notice how the form contains hidden fields, so when it is loaded into the browser, the user will not notice it. Because SendAttack() is defined in the body's onload attribute, it will be
+ automatically called when the victim loads the web page.
+
+ Assuming that the user is already logged in to victim.example.com, profile.php will see that a valid user session has been established, then update the email address to the attacker's own address. At
+ this stage, the user's identity has been compromised, and messages sent through this profile could be sent to the attacker's address.
+
+ + Observed Examples
+        Reference                                                                                        Description
+ CVE-2004-1703           Add user accounts via a URL in an img tag
+ CVE-2004-1995           Add user accounts via a URL in an img tag
+ CVE-2004-1967           Arbitrary code execution by specifying the code in a crafted img tag or URL
+ CVE-2004-1842           Gain administrative privileges via a URL in an img tag
+ CVE-2005-1947           Delete a victim's information via a URL or an img tag
+ CVE-2005-2059           Change another user's settings via a URL or an img tag
+ CVE-2005-1674           Perform actions as administrator via a URL or an img tag
+ CVE-2009-3520           modify password for the administrator
+ CVE-2009-3022           CMS allows modification of configuration via CSRF attack against the administrator
+ CVE-2009-3759           web interface allows password changes or stopping a virtual machine via CSRF
+ + Potential Mitigations
+ Phase: Architecture and Design
+
+ Strategy: Libraries or Frameworks
+
+ Use a vetted library or framework that does not allow this weakness to occur or provides constructs that make this weakness easier to avoid.
+
+ For example, use anti-CSRF packages such as the OWASP CSRFGuard. [REF-330]
+
+ Another example is the ESAPI Session Management control, which includes a component for CSRF. [REF-45]
+
+ Phase: Implementation
+
+ Ensure that the application is free of cross-site scripting issues (CWE-79), because most CSRF defenses can be bypassed using attacker-controlled script.
+ Phase: Architecture and Design
+
+ Generate a unique nonce for each form, place the nonce into the form, and verify the nonce upon receipt of the form. Be sure that the nonce is not predictable (CWE-330). [REF-332]
+ Note: Note that this can be bypassed using XSS (CWE-79).
+ Phase: Architecture and Design
+
+ Identify especially dangerous operations. When the user performs a dangerous operation, send a separate confirmation request to ensure that the user intended to perform that operation.
+ Note: Note that this can be bypassed using XSS (CWE-79).
+ Phase: Architecture and Design
+
+ Use the "double-submitted cookie" method as described by Felten and Zeller:
+
+ When a user visits a site, the site should generate a pseudorandom value and set it as a cookie on the user's machine. The site should require every form submission to include this value as a
+ form value and also as a cookie value. When a POST request is sent to the site, the request should only be considered valid if the form value and the cookie value are the same.
+
+ Because of the same-origin policy, an attacker cannot read or modify the value stored in the cookie. To successfully submit a form on behalf of the user, the attacker would have to correctly
+ guess the pseudorandom value. If the pseudorandom value is cryptographically strong, this will be prohibitively difficult.
+
+ This technique requires Javascript, so it may not work for browsers that have Javascript disabled. [REF-331]
+
+ Note: Note that this can probably be bypassed using XSS (CWE-79), or when using web technologies that enable the attacker to read raw headers from HTTP requests.
+ Phase: Architecture and Design
+
+ Do not use the GET method for any request that triggers a state change.
+ Phase: Implementation
+
+ Check the HTTP Referer header to see if the request originated from an expected page. This could break legitimate functionality, because users or proxies may have disabled sending the Referer for
+ privacy reasons.
+ Note: Note that this can be bypassed using XSS (CWE-79). An attacker could use XSS to generate a spoofed Referer, or to generate a malicious request from a page whose Referer would be allowed.
+ + Detection Methods
+ Manual Analysis
+
+ This weakness can be detected using tools and techniques that require manual (human) analysis, such as penetration testing, threat modeling, and interactive tools that allow the tester to record
+ and modify an active session.
+
+ Specifically, manual analysis can be useful for finding this weakness, and for minimizing false positives assuming an understanding of business logic. However, it might not achieve desired code
+ coverage within limited time constraints. For black-box analysis, if credentials are not known for privileged accounts, then the most security-critical portions of the application may not receive
+ sufficient attention.
+
+ Consider using OWASP CSRFTester to identify potential issues and aid in manual analysis.
+
+ Effectiveness: High
+
+ Note: These may be more effective than strictly automated techniques. This is especially the case with weaknesses that are related to design and business rules.
+ Automated Static Analysis
+
+ CSRF is currently difficult to detect reliably using automated techniques. This is because each application has its own implicit security policy that dictates which requests can be influenced by
+ an outsider and automatically performed on behalf of a user, versus which requests require strong confidence that the user intends to make the request. For example, a keyword search of the public
+ portion of a web site is typically expected to be encoded within a link that can be launched automatically when the user clicks on the link.
+
+ Effectiveness: Limited
+
+ Automated Static Analysis - Binary or Bytecode
+
+ According to SOAR, the following detection techniques may be useful:
+
+ Cost effective for partial coverage:
+
+   • Bytecode Weakness Analysis - including disassembler + source code weakness analysis
+   • Binary Weakness Analysis - including disassembler + source code weakness analysis
+
+ Effectiveness: SOAR Partial
+
+ Manual Static Analysis - Binary or Bytecode
+
+ According to SOAR, the following detection techniques may be useful:
+
+ Cost effective for partial coverage:
+
+   • Binary / Bytecode disassembler - then use manual analysis for vulnerabilities & anomalies
+
+ Effectiveness: SOAR Partial
+
+ Dynamic Analysis with Automated Results Interpretation
+
+ According to SOAR, the following detection techniques may be useful:
+
+ Highly cost effective:
+
+   • Web Application Scanner
+
+ Effectiveness: High
+
+ Dynamic Analysis with Manual Results Interpretation
+
+ According to SOAR, the following detection techniques may be useful:
+
+ Highly cost effective:
+
+   • Fuzz Tester
+   • Framework-based Fuzzer
+
+ Effectiveness: High
+
+ Manual Static Analysis - Source Code
+
+ According to SOAR, the following detection techniques may be useful:
+
+ Cost effective for partial coverage:
+
+   • Focused Manual Spotcheck - Focused manual analysis of source
+   • Manual Source Code Review (not inspections)
+
+ Effectiveness: SOAR Partial
+
+ Automated Static Analysis - Source Code
+
+ According to SOAR, the following detection techniques may be useful:
+
+ Cost effective for partial coverage:
+
+   • Source code Weakness Analyzer
+   • Context-configured Source Code Weakness Analyzer
+
+ Effectiveness: SOAR Partial
+
+ Architecture or Design Review
+
+ According to SOAR, the following detection techniques may be useful:
+
+ Cost effective for partial coverage:
+
+   • Inspection (IEEE 1028 standard) (can apply to requirements, design, source code, etc.)
+   • Formal Methods / Correct-By-Construction
+
+ Effectiveness: SOAR Partial
+
+ + Memberships
+ Section HelpThis MemberOf Relationships table shows additional CWE Categories and Views that reference this weakness as a member. This information is often useful in understanding where a weakness
+ fits within the context of external information sources.
+     Nature                                                                                                  Type                                                                                               ID         Name
+ MemberOf        ViewView - a subset of CWE entries that provides a way of examining CWE content. The two main view structures are Slices (flat lists) and Graphs (containing relationships between entries). 635     Weaknesses
+                                                                                                                                                                                                                      Originally Used
+                                                                                                                                                                                                                      by NVD from
+                                                                                                                                                                                                                      2008 to 2016
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            716     OWASP Top Ten
+                                                                                                                                                                                                                      2007 Category
+                                                                                                                                                                                                                      A5 - Cross Site
+                                                                                                                                                                                                                      Request Forgery
+                                                                                                                                                                                                                      (CSRF)
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            751     2009 Top 25 -
+                                                                                                                                                                                                                      Insecure
+                                                                                                                                                                                                                      Interaction
+                                                                                                                                                                                                                      Between
+                                                                                                                                                                                                                      Components
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            801     2010 Top 25 -
+                                                                                                                                                                                                                      Insecure
+                                                                                                                                                                                                                      Interaction
+                                                                                                                                                                                                                      Between
+                                                                                                                                                                                                                      Components
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            814     OWASP Top Ten
+                                                                                                                                                                                                                      2010 Category
+                                                                                                                                                                                                                      A5 - Cross-Site
+                                                                                                                                                                                                                      Request Forgery
+                                                                                                                                                                                                                      (CSRF)
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            864     2011 Top 25 -
+                                                                                                                                                                                                                      Insecure
+                                                                                                                                                                                                                      Interaction
+                                                                                                                                                                                                                      Between
+                                                                                                                                                                                                                      Components
+ MemberOf        ViewView - a subset of CWE entries that provides a way of examining CWE content. The two main view structures are Slices (flat lists) and Graphs (containing relationships between entries). 884     CWE
+                                                                                                                                                                                                                      Cross-section
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            936     OWASP Top Ten
+                                                                                                                                                                                                                      2013 Category
+                                                                                                                                                                                                                      A8 - Cross-Site
+                                                                                                                                                                                                                      Request Forgery
+                                                                                                                                                                                                                      (CSRF)
+ MemberOf        ViewView - a subset of CWE entries that provides a way of examining CWE content. The two main view structures are Slices (flat lists) and Graphs (containing relationships between entries). 1200    Weaknesses in
+                                                                                                                                                                                                                      the 2019 CWE
+                                                                                                                                                                                                                      Top 25 Most
+                                                                                                                                                                                                                      Dangerous
+                                                                                                                                                                                                                      Software Errors
+ MemberOf        ViewView - a subset of CWE entries that provides a way of examining CWE content. The two main view structures are Slices (flat lists) and Graphs (containing relationships between entries). 1337    Weaknesses in
+                                                                                                                                                                                                                      the 2021 CWE
+                                                                                                                                                                                                                      Top 25 Most
+                                                                                                                                                                                                                      Dangerous
+                                                                                                                                                                                                                      Software
+                                                                                                                                                                                                                      Weaknesses
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            1345    OWASP Top Ten
+                                                                                                                                                                                                                      2021 Category
+                                                                                                                                                                                                                      A01:2021 -
+                                                                                                                                                                                                                      Broken Access
+                                                                                                                                                                                                                      Control
+ MemberOf        ViewView - a subset of CWE entries that provides a way of examining CWE content. The two main view structures are Slices (flat lists) and Graphs (containing relationships between entries). 1350    Weaknesses in
+                                                                                                                                                                                                                      the 2020 CWE
+                                                                                                                                                                                                                      Top 25 Most
+                                                                                                                                                                                                                      Dangerous
+                                                                                                                                                                                                                      Software
+                                                                                                                                                                                                                      Weaknesses
+ MemberOf        ViewView - a subset of CWE entries that provides a way of examining CWE content. The two main view structures are Slices (flat lists) and Graphs (containing relationships between entries). 1387    Weaknesses in
+                                                                                                                                                                                                                      the 2022 CWE
+                                                                                                                                                                                                                      Top 25 Most
+                                                                                                                                                                                                                      Dangerous
+                                                                                                                                                                                                                      Software
+                                                                                                                                                                                                                      Weaknesses
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            1411    Comprehensive
+                                                                                                                                                                                                                      Categorization:
+                                                                                                                                                                                                                      Insufficient
+                                                                                                                                                                                                                      Verification of
+                                                                                                                                                                                                                      Data
+                                                                                                                                                                                                                      Authenticity
+ MemberOf        ViewView - a subset of CWE entries that provides a way of examining CWE content. The two main view structures are Slices (flat lists) and Graphs (containing relationships between entries). 1425    Weaknesses in
+                                                                                                                                                                                                                      the 2023 CWE
+                                                                                                                                                                                                                      Top 25 Most
+                                                                                                                                                                                                                      Dangerous
+                                                                                                                                                                                                                      Software
+                                                                                                                                                                                                                      Weaknesses
+ + Vulnerability Mapping Notes
+ Usage: ALLOWED
+
+ (this CWE ID could be used to map to real-world vulnerabilities)
+ Reason: Other
+
+ Rationale:
+
+ This is a well-known Composite of multiple weaknesses that must all occur simultaneously, although it is attack-oriented in nature.
+ Comments:
+
+ While attack-oriented composites are supported in CWE, they have not been a focus of research. There is a chance that future research or CWE scope clarifications will change or deprecate them.
+ Perform root-cause analysis to determine if other weaknesses allow CSRF attacks to occur, and map to those weaknesses. For example, predictable CSRF tokens might allow bypass of CSRF protection
+ mechanisms; if this occurs, they might be better characterized as randomness/predictability weaknesses.
+ + Notes
+ 
+ Relationship
+
+ There can be a close relationship between XSS and CSRF (CWE-352). An attacker might use CSRF in order to trick the victim into submitting requests to the server in which the requests contain an XSS
+ payload. A well-known example of this was the Samy worm on MySpace [REF-956]. The worm used XSS to insert malicious HTML sequences into a user's profile and add the attacker as a MySpace friend.
+ MySpace friends of that victim would then execute the payload to modify their own profiles, causing the worm to propagate exponentially. Since the victims did not intentionally insert the malicious
+ script themselves, CSRF was a root cause.
+
+ Theoretical
+
+ The CSRF topology is multi-channel:
+
+   • Attacker (as outsider) to intermediary (as user). The interaction point is either an external or internal channel.
+   • Intermediary (as user) to server (as victim). The activation point is an internal channel.
+
+ + Taxonomy Mappings
+       Mapped Taxonomy Name          Node ID             Fit                                                                 Mapped Node Name
+ PLOVER                                                               Cross-Site Request Forgery (CSRF)
+ OWASP Top Ten 2007               A5             Exact                Cross Site Request Forgery (CSRF)
+ WASC                             9                                   Cross-site Request Forgery
+ + Related Attack Patterns
+    CAPEC-ID                                                                                     Attack Pattern Name
+ CAPEC-111       JSON Hijacking (aka JavaScript Hijacking)
+ CAPEC-462       Cross-Domain Search Timing
+ CAPEC-467       Cross Site Identification
+ CAPEC-62        Cross Site Request Forgery
+ + References
+ [REF-44] Michael Howard, David LeBlanc and John Viega. "24 Deadly Sins of Software Security". "Sin 2: Web-Server Related Vulnerabilities (XSS, XSRF, and Response Splitting)." Page 37.
+ McGraw-Hill. 2010.
+ [REF-329] Peter W. "Cross-Site Request Forgeries (Re: The Dangers of Allowing Users to Post Images)". Bugtraq. <http://marc.info/?l=bugtraq&m=99263135911884&w=2>.
+ [REF-330] OWASP. "Cross-Site Request Forgery (CSRF) Prevention Cheat Sheet". <http://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)_Prevention_Cheat_Sheet>.
+ [REF-331] Edward W. Felten and William Zeller. "Cross-Site Request Forgeries: Exploitation and Prevention". 2008-10-18. <https://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.147.1445>. URL
+ validated: 2023-04-07.
+ [REF-332] Robert Auger. "CSRF - The Cross-Site Request Forgery (CSRF/XSRF) FAQ". <https://www.cgisecurity.com/csrf-faq.html>. URL validated: 2023-04-07.
+ [REF-333] "Cross-site request forgery". Wikipedia. 2008-12-22. <https://en.wikipedia.org/wiki/Cross-site_request_forgery>. URL validated: 2023-04-07.
+ [REF-334] Jason Lam. "Top 25 Series - Rank 4 - Cross Site Request Forgery". SANS Software Security Institute. 2010-03-03. <http://software-security.sans.org/blog/2010/03/03/
+ top-25-series-rank-4-cross-site-request-forgery>.
+ [REF-335] Jeff Atwood. "Preventing CSRF and XSRF Attacks". 2008-10-14. <https://blog.codinghorror.com/preventing-csrf-and-xsrf-attacks/>. URL validated: 2023-04-07.
+ [REF-45] OWASP. "OWASP Enterprise Security API (ESAPI) Project". <http://www.owasp.org/index.php/ESAPI>.
+ [REF-956] Wikipedia. "Samy (computer worm)". <https://en.wikipedia.org/wiki/Samy_(computer_worm)>. URL validated: 2018-01-16.
+ + Content History
+                                                                                            + Submissions
+      Submission Date                                                 Submitter                                                                           Organization
+ 2006-07-19                PLOVER
+ (CWE Draft 3, 2006-07-19)
+
+                                                                                           + Modifications
+     Modification Date                                                 Modifier                                                                           Organization
+ 2008-07-01                Eric Dalci                                                                                       Cigital
+                           updated Time_of_Introduction
+ 2008-09-08                CWE Content Team                                                                                 MITRE
+                           updated Alternate_Terms, Description, Relationships, Other_Notes, Relationship_Notes, Taxonomy_Mappings
+ 2009-01-12                CWE Content Team                                                                                 MITRE
+                           updated Applicable_Platforms, Description, Likelihood_of_Exploit, Observed_Examples, Other_Notes, Potential_Mitigations, References, Relationship_Notes, Relationships,
+                           Research_Gaps, Theoretical_Notes
+ 2009-03-10                CWE Content Team                                                                                 MITRE
+                           updated Potential_Mitigations
+ 2009-05-20                Tom Stracener
+                           Added demonstrative example for profile.
+ 2009-05-27                CWE Content Team                                                                                 MITRE
+                           updated Demonstrative_Examples, Related_Attack_Patterns
+ 2009-12-28                CWE Content Team                                                                                 MITRE
+                           updated Common_Consequences, Demonstrative_Examples, Detection_Factors, Likelihood_of_Exploit, Observed_Examples, Potential_Mitigations, Time_of_Introduction
+ 2010-02-16                CWE Content Team                                                                                 MITRE
+                           updated Applicable_Platforms, Detection_Factors, References, Relationships, Taxonomy_Mappings
+ 2010-06-21                CWE Content Team                                                                                 MITRE
+                           updated Common_Consequences, Detection_Factors, Potential_Mitigations, References, Relationships
+ 2010-09-27                CWE Content Team                                                                                 MITRE
+                           updated Potential_Mitigations
+ 2011-03-29                CWE Content Team                                                                                 MITRE
+                           updated Description
+ 2011-06-01                CWE Content Team                                                                                 MITRE
+                           updated Common_Consequences
+ 2011-06-27                CWE Content Team                                                                                 MITRE
+                           updated Relationships
+ 2011-09-13                CWE Content Team                                                                                 MITRE
+                           updated Potential_Mitigations, References
+ 2012-05-11                CWE Content Team                                                                                 MITRE
+                           updated Related_Attack_Patterns, Relationships
+ 2012-10-30                CWE Content Team                                                                                 MITRE
+                           updated Potential_Mitigations
+ 2013-02-21                CWE Content Team                                                                                 MITRE
+                           updated Relationships
+ 2013-07-17                CWE Content Team                                                                                 MITRE
+                           updated References, Relationships
+ 2014-07-30                CWE Content Team                                                                                 MITRE
+                           updated Detection_Factors
+ 2015-12-07                CWE Content Team                                                                                 MITRE
+                           updated Relationships
+ 2017-11-08                CWE Content Team                                                                                 MITRE
+                           updated Applicable_Platforms, Likelihood_of_Exploit, Modes_of_Introduction, References, Relationships
+ 2018-03-27                CWE Content Team                                                                                 MITRE
+                           updated References, Relationship_Notes, Research_Gaps
+ 2019-09-19                CWE Content Team                                                                                 MITRE
+                           updated Relationships
+ 2020-02-24                CWE Content Team                                                                                 MITRE
+                           updated Relationships
+ 2020-06-25                CWE Content Team                                                                                 MITRE
+                           updated Relationships, Theoretical_Notes
+ 2020-08-20                CWE Content Team                                                                                 MITRE
+                           updated Relationships
+ 2021-07-20                CWE Content Team                                                                                 MITRE
+                           updated Relationships
+ 2021-10-28                CWE Content Team                                                                                 MITRE
+                           updated Relationships
+ 2022-06-28                CWE Content Team                                                                                 MITRE
+                           updated Relationships
+ 2023-04-27                CWE Content Team                                                                                 MITRE
+                           updated References, Relationships
+ 2023-06-29                CWE Content Team                                                                                 MITRE
+                           updated Mapping_Notes, Relationships
+ More information is available — Please edit the custom filter or select a different filter.
+Page Last Updated: February 29, 2024
+ 
+      Site Map | Terms of Use | Manage Cookies | Cookie Notice | Privacy Policy | Contact Us | CWE X-Twitter CWE Mastodon CWE on LinkedIn CWE YouTube channel CWE Out-of-Bounds-Read Podcast CWE
+      Blog on Medium blog
+
+MITRE Use of the Common Weakness Enumeration (CWE™) and the associated references from this website are subject to the Terms of Use. CWE is sponsored by the U.S. Department of Homeland         HSSEDI
+      Security (DHS) Cybersecurity and Infrastructure Security Agency (CISA) and managed by the Homeland Security Systems Engineering and Development Institute (HSSEDI) which is operated by
+      The MITRE Corporation (MITRE). Copyright © 2006–2024, The MITRE Corporation. CWE, CWSS, CWRAF, and the CWE logo are trademarks of The MITRE Corporation.
+

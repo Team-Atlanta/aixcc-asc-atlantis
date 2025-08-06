@@ -1,0 +1,43 @@
+[tool.poetry]
+name = "loop"
+version = "0.1.0"
+description = ""
+authors = ["Minjae Gwon <beta.underalpha@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+tree-sitter-c = "^0.21.0"
+tree-sitter = "^0.21.3"
+litellm = "^1.35.32"
+rusty-results = "^1.1.1"
+pydantic = "^2.7.1"
+backoff = "^2.2.1"
+grep-ast = "^0.2.4"
+pygments = "^2.18.0"
+networkx = "^3.3"
+numpy = "^1.26.4"
+scipy = "^1.13.0"
+rich = "^13.7.1"
+multiprocess = "^0.70.16"
+redia = { path = "dependencies/redia", develop = true }
+pytest = "^8.2.2"
+pygit2 = "^1.15.0"
+click = "^8.1.7"
+
+[tool.poetry.group.dev.dependencies]
+black = "^24.4.0"
+isort = "^5.13.2"
+pyright = "^1.1.359"
+pytest = "^8.1.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.pyright]
+reportMissingTypeStubs = false
+exclude = ["**/node_modules", "**/__pycache__", "**/.*", "dependencies/**"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

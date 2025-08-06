@@ -1,0 +1,210 @@
+CWE
+
+Common Weakness Enumeration
+
+A community-developed list of SW & HW weaknesses that can become vulnerabilities
+
+New to CWE? click here!
+CWE Most Important Hardware Weaknesses
+CWE Top 25 Most Dangerous Weaknesses
+Home > CWE List > CWE- Individual Dictionary Definition (4.14)                                                                                                   ID Lookup: [                    ] [Go]
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  • Home
+  • About ▼
+    About New to CWE User Stories History Documents FAQs Glossary Compatibility
+  • CWE List ▼
+    Latest Version Downloads Reports Visualizations Archive
+  • Mapping ▼
+    Root Cause Mapping Guidance Root Cause Mapping Quick Tips Root Cause Mapping Examples
+  • Top-N Lists ▼
+    Top 25 Software Top Hardware Top 10 KEV Weaknesses
+  • Community ▼
+    Community Working Groups & Special Interest Groups Board Board Meeting Minutes CWE Discussion List CWE Discussion Archives Contribute Weakness Content to CWE
+  • News ▼
+    Current News X-Twitter ● Mastodon ● LinkedIn ● YouTube YouTube Podcast Out of Bounds Read Podcast Medium Medium News Archive
+  • Search
+
+ 
+ CWE Glossary Definition                  x
+ 
+ 
+ CWE-609: Double-Checked Locking
+ 
+ Weakness ID: 609
+ Vulnerability Mapping: ALLOWEDThis CWE ID may be used to map to real-world vulnerabilities
+ Abstraction: BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level
+ weaknesses typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.
+ View customized information:
+ Conceptual For users who are interested in more notional aspects of a weakness. Example: educators, technical writers, and project/program managers. Operational For users who are concerned with the
+ practical application and details about the nature of a weakness and how to prevent it from happening. Example: tool developers, security researchers, pen-testers, incident response analysts. Mapping
+ Friendly For users who are mapping an issue to CWE/CAPEC IDs, i.e., finding the most appropriate CWE for a specific issue (e.g., a CVE record). Example: tool developers, security researchers. 
+ Complete For users who wish to see all available information for the CWE/CAPEC entry. Custom For users who want to customize what details are displayed.
+ ×
+
+ Edit Custom Filter
+
+ Conceptual Operational Mapping Friendly Select All
+ 
+ Reset Clear Submit Cancel
+ + Description
+ The product uses double-checked locking to access a resource without the overhead of explicit synchronization, but the locking is insufficient.
+ + Extended Description
+ Double-checked locking refers to the situation where a programmer checks to see if a resource has been initialized, grabs a lock, checks again to see if the resource has been initialized, and then
+ performs the initialization if it has not occurred yet. This should not be done, as it is not guaranteed to work in all languages and on all architectures. In summary, other threads may not be
+ operating inside the synchronous block and are not guaranteed to see the operations execute in the same order as they would appear inside the synchronous block.
+ + Relationships
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Research Concepts" (CWE-1000)
+     Nature                                                                                                                                                                             Type                                                                                                                                                                           ID        Name
+ ChildOf                                                                               ClassClass - a weakness that is described in a very abstract fashion, typically independent of any specific language or technology. More specific than a Pillar Weakness, but more general than a Base                                                                        667     Improper
+                                                                                                                    Weakness. Class level weaknesses typically describe issues in terms of 1 or 2 of the following dimensions: behavior, property, and resource.                                                                                                             Locking
+ CanPrecede                                                                                BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level weaknesses                                                                           367     Time-of-check
+                                                                                                                          typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                  Time-of-use
+                                                                                                                                                                                                                                                                                                                                                                             (TOCTOU) Race
+                                                                                                                                                                                                                                                                                                                                                                             Condition
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Software Development" (CWE-699)
+     Nature                                                       Type                                                     ID                                   Name
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 411     Resource Locking Problems
+ + Modes Of Introduction
+ Section HelpThe different Modes of Introduction provide information about how and when this weakness may be introduced. The Phase identifies a point in the life cycle at which introduction may occur,
+ while the Note provides a typical scenario related to introduction during the given phase.
+     Phase                                                                                              Note
+ Implementation
+ + Applicable Platforms
+ Section HelpThis listing shows possible areas for which the given weakness could appear. These may be for specific named Languages, Operating Systems, Architectures, Paradigms, Technologies, or a
+ class of such platforms. The platform is listed along with how frequently the given weakness appears for that instance.
+
+ Languages
+
+ Java (Undetermined Prevalence)
+
+ + Common Consequences
+ Section HelpThis table specifies different individual consequences associated with the weakness. The Scope identifies the application security area that is violated, while the Impact describes the
+ negative technical impact that arises if an adversary succeeds in exploiting this weakness. The Likelihood provides information about how likely the specific consequence is expected to be seen
+ relative to the other consequences in the list. For example, there may be high likelihood that a weakness will be exploited to achieve a certain impact, but a low likelihood that it will be exploited
+ to achieve a different impact.
+       Scope                                                                                     Impact                                                                                 Likelihood
+ Integrity          Technical Impact: Modify Application Data; Alter Execution Logic
+ Other
+ + Demonstrative Examples
+ 
+ Example 1
+
+ It may seem that the following bit of code achieves thread safety while avoiding unnecessary synchronization...
+
+ (bad code)
+ Example Language: Java 
+ if (helper == null) {
+ synchronized (this) {
+ if (helper == null) {
+ helper = new Helper();
+ }
+ }
+ }
+ return helper;
+
+ The programmer wants to guarantee that only one Helper() object is ever allocated, but does not want to pay the cost of synchronization every time this code is called.
+
+ Suppose that helper is not initialized. Then, thread A sees that helper==null and enters the synchronized block and begins to execute:
+
+ (bad code)
+  
+ helper = new Helper();
+
+ If a second thread, thread B, takes over in the middle of this call and helper has not finished running the constructor, then thread B may make calls on helper while its fields hold incorrect values.
+
+ + Potential Mitigations
+ Phase: Implementation
+
+ While double-checked locking can be achieved in some languages, it is inherently flawed in Java before 1.5, and cannot be achieved without compromising platform independence. Before Java 1.5,
+ only use of the synchronized keyword is known to work. Beginning in Java 1.5, use of the "volatile" keyword allows double-checked locking to work successfully, although there is some debate as to
+ whether it achieves sufficient performance gains. See references.
+ + Memberships
+ Section HelpThis MemberOf Relationships table shows additional CWE Categories and Views that reference this weakness as a member. This information is often useful in understanding where a weakness
+ fits within the context of external information sources.
+     Nature                                                       Type                                                     ID                                   Name
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 853     The CERT Oracle Secure Coding Standard for Java (2011) Chapter 10 -
+                                                                                                                                 Locking (LCK)
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 986     SFP Secondary Cluster: Missing Lock
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 1143    SEI CERT Oracle Secure Coding Standard for Java - Guidelines 09.
+                                                                                                                                 Locking (LCK)
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 1401    Comprehensive Categorization: Concurrency
+ + Vulnerability Mapping Notes
+ Usage: ALLOWED
+
+ (this CWE ID could be used to map to real-world vulnerabilities)
+ Reason: Acceptable-Use
+
+ Rationale:
+
+ This CWE entry is at the Base level of abstraction, which is a preferred level of abstraction for mapping to the root causes of vulnerabilities.
+ Comments:
+
+ Carefully read both the name and description to ensure that this mapping is an appropriate fit. Do not try to 'force' a mapping to a lower-level Base/Variant simply to comply with this preferred
+ level of abstraction.
+ + Taxonomy Mappings
+       Mapped Taxonomy Name          Node ID        Fit                                                                 Mapped Node Name
+ The CERT Oracle Secure Coding    LCK10-J                   Do not use incorrect forms of the double-checked locking idiom
+ Standard for Java (2011)
+ Software Fault Patterns          SFP19                     Missing Lock
+ + References
+ [REF-490] David Bacon et al. "The "Double-Checked Locking is Broken" Declaration". <http://www.cs.umd.edu/~pugh/java/memoryModel/DoubleCheckedLocking.html>.
+ [REF-491] Jeremy Manson and Brian Goetz. "JSR 133 (Java Memory Model) FAQ". <http://www.cs.umd.edu/~pugh/java/memoryModel/jsr-133-faq.html#dcl>.
+ [REF-62] Mark Dowd, John McDonald and Justin Schuh. "The Art of Software Security Assessment". Chapter 13, "Threading Vulnerabilities", Page 815. 1st Edition. Addison Wesley. 2006.
+ + Content History
+                                                                                           + Submissions
+                     Submission Date                                                                   Submitter                                                          Organization
+ 2007-05-07                                               Anonymous Tool Vendor (under NDA)
+ (CWE Draft 6, 2007-05-07)
+
+                                                                                          + Modifications
+                    Modification Date                                                                  Modifier                                                           Organization
+ 2008-07-01                                               Eric Dalci                                                                                          Cigital
+                                                          updated Context_Notes
+ 2008-09-08                                               CWE Content Team                                                                                    MITRE
+                                                          updated Description, Relationships, Taxonomy_Mappings
+ 2008-11-24                                               CWE Content Team                                                                                    MITRE
+                                                          updated Demonstrative_Examples
+ 2009-01-12                                               CWE Content Team                                                                                    MITRE
+                                                          updated Relationships
+ 2009-05-27                                               CWE Content Team                                                                                    MITRE
+                                                          updated Relationships
+ 2009-10-29                                               CWE Content Team                                                                                    MITRE
+                                                          updated Taxonomy_Mappings
+ 2010-12-13                                               CWE Content Team                                                                                    MITRE
+                                                          updated Relationships
+ 2011-06-01                                               CWE Content Team                                                                                    MITRE
+                                                          updated Common_Consequences, Relationships, Taxonomy_Mappings
+ 2012-05-11                                               CWE Content Team                                                                                    MITRE
+                                                          updated Demonstrative_Examples, References, Relationships
+ 2012-10-30                                               CWE Content Team                                                                                    MITRE
+                                                          updated Potential_Mitigations
+ 2014-07-30                                               CWE Content Team                                                                                    MITRE
+                                                          updated Relationships, Taxonomy_Mappings
+ 2019-01-03                                               CWE Content Team                                                                                    MITRE
+                                                          updated Relationships, Taxonomy_Mappings
+ 2020-02-24                                               CWE Content Team                                                                                    MITRE
+                                                          updated Relationships
+ 2023-01-31                                               CWE Content Team                                                                                    MITRE
+                                                          updated Description
+ 2023-04-27                                               CWE Content Team                                                                                    MITRE
+                                                          updated Relationships
+ 2023-06-29                                               CWE Content Team                                                                                    MITRE
+                                                          updated Mapping_Notes
+                                                                                       + Previous Entry Names
+                       Change Date                                                                                   Previous Entry Name
+ 2008-04-11                                               Double Checked Locking
+ More information is available — Please edit the custom filter or select a different filter.
+Page Last Updated: February 29, 2024
+ 
+      Site Map | Terms of Use | Manage Cookies | Cookie Notice | Privacy Policy | Contact Us | CWE X-Twitter CWE Mastodon CWE on LinkedIn CWE YouTube channel CWE Out-of-Bounds-Read Podcast CWE
+      Blog on Medium blog
+
+MITRE Use of the Common Weakness Enumeration (CWE™) and the associated references from this website are subject to the Terms of Use. CWE is sponsored by the U.S. Department of Homeland         HSSEDI
+      Security (DHS) Cybersecurity and Infrastructure Security Agency (CISA) and managed by the Homeland Security Systems Engineering and Development Institute (HSSEDI) which is operated by
+      The MITRE Corporation (MITRE). Copyright © 2006–2024, The MITRE Corporation. CWE, CWSS, CWRAF, and the CWE logo are trademarks of The MITRE Corporation.
+

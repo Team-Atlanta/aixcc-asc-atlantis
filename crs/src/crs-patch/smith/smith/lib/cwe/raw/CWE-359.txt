@@ -1,0 +1,372 @@
+CWE
+
+Common Weakness Enumeration
+
+A community-developed list of SW & HW weaknesses that can become vulnerabilities
+
+New to CWE? click here!
+CWE Most Important Hardware Weaknesses
+CWE Top 25 Most Dangerous Weaknesses
+Home > CWE List > CWE- Individual Dictionary Definition (4.14)                                                                                                   ID Lookup: [                    ] [Go]
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  • Home
+  • About ▼
+    About New to CWE User Stories History Documents FAQs Glossary Compatibility
+  • CWE List ▼
+    Latest Version Downloads Reports Visualizations Archive
+  • Mapping ▼
+    Root Cause Mapping Guidance Root Cause Mapping Quick Tips Root Cause Mapping Examples
+  • Top-N Lists ▼
+    Top 25 Software Top Hardware Top 10 KEV Weaknesses
+  • Community ▼
+    Community Working Groups & Special Interest Groups Board Board Meeting Minutes CWE Discussion List CWE Discussion Archives Contribute Weakness Content to CWE
+  • News ▼
+    Current News X-Twitter ● Mastodon ● LinkedIn ● YouTube YouTube Podcast Out of Bounds Read Podcast Medium Medium News Archive
+  • Search
+
+ 
+ CWE Glossary Definition                  x
+ 
+ 
+ CWE-359: Exposure of Private Personal Information to an Unauthorized Actor
+ 
+ Weakness ID: 359
+ Vulnerability Mapping: ALLOWEDThis CWE ID may be used to map to real-world vulnerabilities
+ Abstraction: BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level
+ weaknesses typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.
+ View customized information:
+ Conceptual For users who are interested in more notional aspects of a weakness. Example: educators, technical writers, and project/program managers. Operational For users who are concerned with the
+ practical application and details about the nature of a weakness and how to prevent it from happening. Example: tool developers, security researchers, pen-testers, incident response analysts. Mapping
+ Friendly For users who are mapping an issue to CWE/CAPEC IDs, i.e., finding the most appropriate CWE for a specific issue (e.g., a CVE record). Example: tool developers, security researchers. 
+ Complete For users who wish to see all available information for the CWE/CAPEC entry. Custom For users who want to customize what details are displayed.
+ ×
+
+ Edit Custom Filter
+
+ Conceptual Operational Mapping Friendly Select All
+ 
+ Reset Clear Submit Cancel
+ + Description
+ The product does not properly prevent a person's private, personal information from being accessed by actors who either (1) are not explicitly authorized to access the information or (2) do not have
+ the implicit consent of the person about whom the information is collected.
+ + Extended Description
+ 
+ There are many types of sensitive information that products must protect from attackers, including system data, communications, configuration, business secrets, intellectual property, and an
+ individual's personal (private) information. Private personal information may include a password, phone number, geographic location, personal messages, credit card number, etc. Private information is
+ important to consider whether the person is a user of the product, or part of a data set that is processed by the product. An exposure of private information does not necessarily prevent the product
+ from working properly, and in fact the exposure might be intended by the developer, e.g. as part of data sharing with other organizations. However, the exposure of personal private information can
+ still be undesirable or explicitly prohibited by law or regulation.
+
+ Some types of private information include:
+
+   • Government identifiers, such as Social Security Numbers
+   • Contact information, such as home addresses and telephone numbers
+   • Geographic location - where the user is (or was)
+   • Employment history
+   • Financial data - such as credit card numbers, salary, bank accounts, and debts
+   • Pictures, video, or audio
+   • Behavioral patterns - such as web surfing history, when certain activities are performed, etc.
+   • Relationships (and types of relationships) with others - family, friends, contacts, etc.
+   • Communications - e-mail addresses, private messages, text messages, chat logs, etc.
+   • Health - medical conditions, insurance status, prescription records
+   • Account passwords and other credentials
+
+ Some of this information may be characterized as PII (Personally Identifiable Information), Protected Health Information (PHI), etc. Categories of private information may overlap or vary based on the
+ intended usage or the policies and practices of a particular industry.
+
+ Sometimes data that is not labeled as private can have a privacy implication in a different context. For example, student identification numbers are usually not considered private because there is no
+ explicit and publicly-available mapping to an individual student's personal information. However, if a school generates identification numbers based on student social security numbers, then the
+ identification numbers should be considered private.
+
+ + Alternate Terms
+ Privacy violation
+   Privacy leak
+  Privacy leakage
+ + Relationships
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Research Concepts" (CWE-1000)
+     Nature                                                                                                                                                                             Type                                                                                                                                                                           ID        Name
+ ChildOf                                                                               ClassClass - a weakness that is described in a very abstract fashion, typically independent of any specific language or technology. More specific than a Pillar Weakness, but more general than a Base                                                                        200     Exposure of
+                                                                                                                    Weakness. Class level weaknesses typically describe issues in terms of 1 or 2 of the following dimensions: behavior, property, and resource.                                                                                                             Sensitive
+                                                                                                                                                                                                                                                                                                                                                                             Information
+                                                                                                                                                                                                                                                                                                                                                                             to an
+                                                                                                                                                                                                                                                                                                                                                                             Unauthorized
+                                                                                                                                                                                                                                                                                                                                                                             Actor
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Software Development" (CWE-699)
+     Nature                                                       Type                                                     ID                                   Name
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 199     Information Management Errors
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Architectural Concepts" (CWE-1008)
+     Nature                                                       Type                                                     ID                                   Name
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 1011    Authorize Actors
+ + Modes Of Introduction
+ Section HelpThe different Modes of Introduction provide information about how and when this weakness may be introduced. The Phase identifies a point in the life cycle at which introduction may occur,
+ while the Note provides a typical scenario related to introduction during the given phase.
+          Phase                                                                                             Note
+ Architecture and Design OMISSION: This weakness is caused by missing a security tactic during the architecture and design phase.
+ Implementation
+ Operation
+ + Applicable Platforms
+ Section HelpThis listing shows possible areas for which the given weakness could appear. These may be for specific named Languages, Operating Systems, Architectures, Paradigms, Technologies, or a
+ class of such platforms. The platform is listed along with how frequently the given weakness appears for that instance.
+
+ Languages
+
+ Class: Not Language-Specific (Undetermined Prevalence)
+
+ Technologies
+
+ Class: Mobile (Undetermined Prevalence)
+
+ + Common Consequences
+ Section HelpThis table specifies different individual consequences associated with the weakness. The Scope identifies the application security area that is violated, while the Impact describes the
+ negative technical impact that arises if an adversary succeeds in exploiting this weakness. The Likelihood provides information about how likely the specific consequence is expected to be seen
+ relative to the other consequences in the list. For example, there may be high likelihood that a weakness will be exploited to achieve a certain impact, but a low likelihood that it will be exploited
+ to achieve a different impact.
+       Scope                                                                                     Impact                                                                                 Likelihood
+ Confidentiality    Technical Impact: Read Application Data
+
+ + Demonstrative Examples
+ 
+ Example 1
+
+ The following code contains a logging statement that tracks the contents of records added to a database by storing them in a log file. Among other values that are stored, the getPassword() function
+ returns the user-supplied plaintext password associated with the account.
+
+ (bad code)
+ Example Language: C# 
+ pass = GetPassword();
+ ...
+ dbmsLog.WriteLine(id + ":" + pass + ":" + type + ":" + tstamp);
+
+ The code in the example above logs a plaintext password to the filesystem. Although many developers trust the filesystem as a safe storage location for data, it should not be trusted implicitly,
+ particularly when privacy is a concern.
+
+ Example 2
+
+ This code uses location to determine the user's current US State location.
+
+ First the application must declare that it requires the ACCESS_FINE_LOCATION permission in the application's manifest.xml:
+
+ (bad code)
+ Example Language: XML 
+ <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+
+ During execution, a call to getLastLocation() will return a location based on the application's location permissions. In this case the application has permission for the most accurate location
+ possible:
+
+ (bad code)
+ Example Language: Java 
+ locationClient = new LocationClient(this, this, this);
+ locationClient.connect();
+ Location userCurrLocation;
+ userCurrLocation = locationClient.getLastLocation();
+ deriveStateFromCoords(userCurrLocation);
+
+ While the application needs this information, it does not need to use the ACCESS_FINE_LOCATION permission, as the ACCESS_COARSE_LOCATION permission will be sufficient to identify which US state the
+ user is in.
+
+ Example 3
+
+ In 2004, an employee at AOL sold approximately 92 million private customer e-mail addresses to a spammer marketing an offshore gambling web site [REF-338]. In response to such high-profile exploits,
+ the collection and management of private data is becoming increasingly regulated.
+
+ + Potential Mitigations
+ Phase: Requirements
+
+ Identify and consult all relevant regulations for personal privacy. An organization may be required to comply with certain federal and state regulations, depending on its location, the type of
+ business it conducts, and the nature of any private data it handles. Regulations may include Safe Harbor Privacy Framework [REF-340], Gramm-Leach Bliley Act (GLBA) [REF-341], Health Insurance
+ Portability and Accountability Act (HIPAA) [REF-342], General Data Protection Regulation (GDPR) [REF-1047], California Consumer Privacy Act (CCPA) [REF-1048], and others.
+
+ Phase: Architecture and Design
+
+ Carefully evaluate how secure design may interfere with privacy, and vice versa. Security and privacy concerns often seem to compete with each other. From a security perspective, all important
+ operations should be recorded so that any anomalous activity can later be identified. However, when private data is involved, this practice can in fact create risk. Although there are many ways
+ in which private data can be handled unsafely, a common risk stems from misplaced trust. Programmers often trust the operating environment in which a program runs, and therefore believe that it
+ is acceptable store private information on the file system, in the registry, or in other locally-controlled resources. However, even if access to certain resources is restricted, this does not
+ guarantee that the individuals who do have access can be trusted.
+
+ + Detection Methods
+ Architecture or Design Review
+
+ Private personal data can enter a program in a variety of ways:
+
+   • Directly from the user in the form of a password or personal information
+   • Accessed from a database or other data store by the application
+   • Indirectly from a partner or other third party
+
+ If the data is written to an external location - such as the console, file system, or network - a privacy violation may occur.
+
+ Effectiveness: High
+
+ Automated Static Analysis
+
+ Automated static analysis, commonly referred to as Static Application Security Testing (SAST), can find some instances of this weakness by analyzing source code (or binary/compiled code) without
+ having to execute it. Typically, this is done by building a model of data flow and control flow, then searching for potentially-vulnerable patterns that connect "sources" (origins of input) with
+ "sinks" (destinations where the data interacts with external components, a lower layer such as the OS, etc.)
+
+ Effectiveness: High
+
+ + Memberships
+ Section HelpThis MemberOf Relationships table shows additional CWE Categories and Views that reference this weakness as a member. This information is often useful in understanding where a weakness
+ fits within the context of external information sources.
+     Nature                                                                                                  Type                                                                                               ID         Name
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            254     7PK - Security
+                                                                                                                                                                                                                      Features
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            857     The CERT Oracle
+                                                                                                                                                                                                                      Secure Coding
+                                                                                                                                                                                                                      Standard for
+                                                                                                                                                                                                                      Java (2011)
+                                                                                                                                                                                                                      Chapter 14 -
+                                                                                                                                                                                                                      Input Output
+                                                                                                                                                                                                                      (FIO)
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            975     SFP Secondary
+                                                                                                                                                                                                                      Cluster:
+                                                                                                                                                                                                                      Architecture
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            1029    OWASP Top Ten
+                                                                                                                                                                                                                      2017 Category
+                                                                                                                                                                                                                      A3 - Sensitive
+                                                                                                                                                                                                                      Data Exposure
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            1147    SEI CERT Oracle
+                                                                                                                                                                                                                      Secure Coding
+                                                                                                                                                                                                                      Standard for
+                                                                                                                                                                                                                      Java -
+                                                                                                                                                                                                                      Guidelines 13.
+                                                                                                                                                                                                                      Input Output
+                                                                                                                                                                                                                      (FIO)
+ MemberOf        ViewView - a subset of CWE entries that provides a way of examining CWE content. The two main view structures are Slices (flat lists) and Graphs (containing relationships between entries). 1340    CISQ Data
+                                                                                                                                                                                                                      Protection
+                                                                                                                                                                                                                      Measures
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            1345    OWASP Top Ten
+                                                                                                                                                                                                                      2021 Category
+                                                                                                                                                                                                                      A01:2021 -
+                                                                                                                                                                                                                      Broken Access
+                                                                                                                                                                                                                      Control
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            1417    Comprehensive
+                                                                                                                                                                                                                      Categorization:
+                                                                                                                                                                                                                      Sensitive
+                                                                                                                                                                                                                      Information
+                                                                                                                                                                                                                      Exposure
+ + Vulnerability Mapping Notes
+ Usage: ALLOWED
+
+ (this CWE ID could be used to map to real-world vulnerabilities)
+ Reason: Acceptable-Use
+
+ Rationale:
+
+ This CWE entry is at the Base level of abstraction, which is a preferred level of abstraction for mapping to the root causes of vulnerabilities.
+ Comments:
+
+ Carefully read both the name and description to ensure that this mapping is an appropriate fit. Do not try to 'force' a mapping to a lower-level Base/Variant simply to comply with this preferred
+ level of abstraction.
+ + Notes
+ 
+ Maintenance
+
+ This entry overlaps many other entries that are not organized around the kind of sensitive information that is exposed. However, because privacy is treated with such importance due to regulations and
+ other factors, and it may be useful for weakness-finding tools to highlight capabilities that detect personal private information instead of system information, it is not clear whether - and how -
+ this entry should be deprecated.
+ + Taxonomy Mappings
+       Mapped Taxonomy Name          Node ID         Fit                                                                Mapped Node Name
+ 7 Pernicious Kingdoms                                       Privacy Violation
+ The CERT Oracle Secure Coding    FIO13-J                    Do not log sensitive information outside a trust boundary
+ Standard for Java (2011)
+ + Related Attack Patterns
+    CAPEC-ID                                                                                     Attack Pattern Name
+ CAPEC-464       Evercookie
+ CAPEC-467       Cross Site Identification
+ CAPEC-498       Probe iOS Screenshots
+ CAPEC-508       Shoulder Surfing
+ + References
+ [REF-6] Katrina Tsipenyuk, Brian Chess and Gary McGraw. "Seven Pernicious Kingdoms: A Taxonomy of Software Security Errors". NIST Workshop on Software Security Assurance Tools Techniques and
+ Metrics. NIST. 2005-11-07. <https://samate.nist.gov/SSATTM_Content/papers/Seven%20Pernicious%20Kingdoms%20-%20Taxonomy%20of%20Sw%20Security%20Errors%20-%20Tsipenyuk%20-%20Chess%20-%20McGraw.pdf>.
+ [REF-338] J. Oates. "AOL man pleads guilty to selling 92m email addies". The Register. 2005. <https://www.theregister.com/2005/02/07/aol_email_theft/>. URL validated: 2023-04-07.
+ [REF-339] NIST. "Guide to Protecting the Confidentiality of Personally Identifiable Information (SP 800-122)". 2010-04. <https://nvlpubs.nist.gov/nistpubs/Legacy/SP/
+ nistspecialpublication800-122.pdf>. URL validated: 2023-04-07.
+ [REF-340] U.S. Department of Commerce. "Safe Harbor Privacy Framework". <https://web.archive.org/web/20010223203241/http://www.export.gov/safeharbor/>. URL validated: 2023-04-07.
+ [REF-341] Federal Trade Commission. "Financial Privacy: The Gramm-Leach Bliley Act (GLBA)". <https://www.ftc.gov/business-guidance/privacy-security/gramm-leach-bliley-act>. URL validated:
+ 2023-04-07.
+ [REF-342] U.S. Department of Human Services. "Health Insurance Portability and Accountability Act (HIPAA)". <https://www.hhs.gov/hipaa/index.html>. URL validated: 2023-04-07.
+ [REF-343] Government of the State of California. "California SB-1386". 2002. <http://info.sen.ca.gov/pub/01-02/bill/sen/sb_1351-1400/sb_1386_bill_20020926_chaptered.html>.
+ [REF-267] Information Technology Laboratory, National Institute of Standards and Technology. "SECURITY REQUIREMENTS FOR CRYPTOGRAPHIC MODULES". 2001-05-25. <https://csrc.nist.gov/csrc/media/
+ publications/fips/140/2/final/documents/fips1402.pdf>. URL validated: 2023-04-07.
+ [REF-172] Chris Wysopal. "Mobile App Top 10 List". 2010-12-13. <https://www.veracode.com/blog/2010/12/mobile-app-top-10-list>. URL validated: 2023-04-07.
+ [REF-1047] Wikipedia. "General Data Protection Regulation". <https://en.wikipedia.org/wiki/General_Data_Protection_Regulation>.
+ [REF-1048] State of California Department of Justice, Office of the Attorney General. "California Consumer Privacy Act (CCPA)". <https://oag.ca.gov/privacy/ccpa>.
+ + Content History
+                                                                                           + Submissions
+      Submission Date                                                      Submitter                                                                          Organization
+ 2006-07-19                7 Pernicious Kingdoms
+ (CWE Draft 3, 2006-07-19)
+
+                                                                                          + Modifications
+     Modification Date                                                      Modifier                                                                          Organization
+ 2008-07-01                Eric Dalci                                                                                                 Cigital
+                           updated Time_of_Introduction
+ 2008-09-08                CWE Content Team                                                                                           MITRE
+                           updated Relationships, Other_Notes, Taxonomy_Mappings
+ 2009-03-10                CWE Content Team                                                                                           MITRE
+                           updated Other_Notes
+ 2009-07-27                CWE Content Team                                                                                           MITRE
+                           updated Demonstrative_Examples
+ 2009-12-28                CWE Content Team                                                                                           MITRE
+                           updated Other_Notes, References
+ 2010-02-16                CWE Content Team                                                                                           MITRE
+                           updated Other_Notes, References
+ 2011-03-29                CWE Content Team                                                                                           MITRE
+                           updated Other_Notes
+ 2011-06-01                CWE Content Team                                                                                           MITRE
+                           updated Common_Consequences, Relationships, Taxonomy_Mappings
+ 2011-09-13                CWE Content Team                                                                                           MITRE
+                           updated Other_Notes, References
+ 2012-05-11                CWE Content Team                                                                                           MITRE
+                           updated Related_Attack_Patterns, Relationships, Taxonomy_Mappings
+ 2013-02-21                CWE Content Team                                                                                           MITRE
+                           updated Applicable_Platforms, References
+ 2014-02-18                CWE Content Team                                                                                           MITRE
+                           updated Alternate_Terms, Demonstrative_Examples, Description, Name, Other_Notes, References
+ 2014-07-30                CWE Content Team                                                                                           MITRE
+                           updated Relationships
+ 2017-11-08                CWE Content Team                                                                                           MITRE
+                           updated Modes_of_Introduction, References, Relationships
+ 2018-03-27                CWE Content Team                                                                                           MITRE
+                           updated Relationships
+ 2019-01-03                CWE Content Team                                                                                           MITRE
+                           updated Relationships, Taxonomy_Mappings
+ 2020-02-24                CWE Content Team                                                                                           MITRE
+                           updated Alternate_Terms, Applicable_Platforms, Demonstrative_Examples, Description, Detection_Factors, Maintenance_Notes, Name, Potential_Mitigations, References,
+                           Relationships, Type
+ 2020-08-20                CWE Content Team                                                                                           MITRE
+                           updated Related_Attack_Patterns
+ 2020-12-10                CWE Content Team                                                                                           MITRE
+                           updated Relationships
+ 2021-03-15                CWE Content Team                                                                                           MITRE
+                           updated References
+ 2021-10-28                CWE Content Team                                                                                           MITRE
+                           updated Relationships
+ 2023-01-31                CWE Content Team                                                                                           MITRE
+                           updated Related_Attack_Patterns
+ 2023-04-27                CWE Content Team                                                                                           MITRE
+                           updated Detection_Factors, References, Relationships
+ 2023-06-29                CWE Content Team                                                                                           MITRE
+                           updated Mapping_Notes
+                                                                                       + Previous Entry Names
+        Change Date                                                                                   Previous Entry Name
+ 2014-02-18                Privacy Violation
+ 2020-02-24                Exposure of Private Information ('Privacy Violation')
+ More information is available — Please edit the custom filter or select a different filter.
+Page Last Updated: February 29, 2024
+ 
+      Site Map | Terms of Use | Manage Cookies | Cookie Notice | Privacy Policy | Contact Us | CWE X-Twitter CWE Mastodon CWE on LinkedIn CWE YouTube channel CWE Out-of-Bounds-Read Podcast CWE
+      Blog on Medium blog
+
+MITRE Use of the Common Weakness Enumeration (CWE™) and the associated references from this website are subject to the Terms of Use. CWE is sponsored by the U.S. Department of Homeland         HSSEDI
+      Security (DHS) Cybersecurity and Infrastructure Security Agency (CISA) and managed by the Homeland Security Systems Engineering and Development Institute (HSSEDI) which is operated by
+      The MITRE Corporation (MITRE). Copyright © 2006–2024, The MITRE Corporation. CWE, CWSS, CWRAF, and the CWE logo are trademarks of The MITRE Corporation.
+

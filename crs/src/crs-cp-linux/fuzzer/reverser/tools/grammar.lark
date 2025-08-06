@@ -1,0 +1,18 @@
+start: (record "\n"*)*
+
+record: CNAME "::=" field+                -> seq
+      | CNAME "::=" field ("|" field)*    -> union
+
+field: CNAME "{" attribute_list "}" "\n"  -> normal
+     | CNAME "[" literal "]" "\n"         -> array
+     | CNAME "\n"                         -> record
+
+attribute_list: [attribute ("," attribute)*]
+attribute: CNAME ":" literal
+
+literal: number | CNAME
+number: ["+" | "-"] ["0x"] (HEXDIGIT)+
+
+%import common.CNAME
+%import common.HEXDIGIT
+%ignore " "

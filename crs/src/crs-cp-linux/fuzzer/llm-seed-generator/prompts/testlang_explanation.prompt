@@ -1,0 +1,28 @@
+Testlang is a domain-specific language designed to define the structure of binary data blobs.
+It allows users to specify complex data formats with various command types, each having distinct structures.
+The primary components of testlang include definitions of the input data format, commands, and the fields within those commands.
+
+Key Components
+INPUT:
+The INPUT keyword defines the overall structure of the data blob.
+
+Grammar of Testlang
+1. ::= Operator:
+The ::= operator is used to define that the structure on the left-hand side will appear as specified on the right-hand side.
+For example, INPUT ::= COMMAND_CNT { size: 4 } COMMAND[COMMAND_CNT] means that INPUT is defined by COMMAND_CNT followed by an array of COMMAND of length COMMAND_CNT.
+
+2. Unknown Keywords:
+Any unknown keyword will be defined later or is followed by a size specification in the format { size: number }.
+This size specification indicates the number of bytes the field occupies.
+It is also possible to have a size specification with a fixed value in the format { size: number, value: number }.
+For example, OPCODE { size: 4, value: 0 } indicates that the field is 4 bytes and has a fixed value of 0.
+
+3. Alternative Definitions:
+The | symbol is used to indicate that a field can be one of multiple alternatives.
+For example, COMMAND ::= CMD1 | CMD2 means that COMMAND can be either CMD1 or CMD2.
+
+4. Array Notation:
+The [] notation is used to define arrays, where the length of the array is specified in terms of the number of elements, not bytes.
+For example, COMMAND[COMMAND_CNT] indicates an array of COMMAND with a length specified by COMMAND_CNT.
+
+Acknowledge this information and keep the response brief.

@@ -1,0 +1,19 @@
+Please upgrade the Python code that generates the data blob and saves it as 'blob.bin' using the following git commit diff info.
+Provide the entire code in a single, continuous block enclosed within unique markers `#START_CODE` and `#END_CODE` (as comments in the code) to ensure there are no multiple pieces.
+Ensure `#START_CODE` and `#END_CODE` appear only once in the entire response, the python code in the response will be parsed using markers `#START_CODE` and `#END_CODE`.
+Ensure the code is well-formatted and easily parsable.
+
+```
+[INSERT GIT DIFF HERE]
+```
+
+Upgrade the test blob by:
+1. Analyze the entire file and identify the vulnerability introduced by the commit.
+2. Fetch the entire code of the file from the relative path specified in the git diff. Check how the vulnerability introduced by the commit affects the current version. You need to target the vulnerability(introduced by the commit) in the current version.
+3. Create a test blob that triggers the vulnerability when passed to the test harness. To do this you to find out how the test harness uses test blob. (Steps 4-8)
+4. Examine the test harness code to determine how it uses the blob.
+5. Identifying functions from the userland C source called by the test harness.
+6. Reviewing files in the userland C repository, starting from listing the root directory (relative path "."). Carefully examine the output to understand the structure and contents.If you see a directory you want to explore further, list that directory. If you see a file you want to read, read that file.
+7. Finding definitions of functions called by the test harness and recursively identifying functions called by those functions to understand the fuzz binary thoroughly.
+8. Determining how input affects the code flow.
+9. Explain how the test blob exploits the vulnerability in the code.

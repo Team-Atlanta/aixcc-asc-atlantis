@@ -1,0 +1,37 @@
+# Copyright 2017 syzkaller project authors. All rights reserved.
+# Use of this source code is governed by Apache 2 LICENSE that can be found in the LICENSE file.
+
+runtime: go121
+app_engine_apis: true
+
+# With the f2 setting, the app episodically crashes with:
+# Exceeded soft memory limit of 256 MB with 264 MB after servicing X requests total.
+# See https://cloud.google.com/appengine/docs/standard/go/config/appref#instance_class
+instance_class: f4
+
+inbound_services:
+- mail
+- mail_bounce
+
+handlers:
+- url: /favicon.ico
+  static_files: dashboard/app/static/favicon.ico
+  upload: dashboard/app/static/favicon.ico
+  secure: always
+- url: /robots.txt
+  static_files: dashboard/app/static/robots.txt
+  upload: dashboard/app/static/robots.txt
+  secure: always
+- url: /static
+  static_dir: dashboard/app/static
+  secure: always
+- url: /(admin|cron/.*)
+  script: auto
+  login: admin
+  secure: always
+- url: /_ah/(mail/.+|bounce)
+  script: auto
+  login: admin
+- url: /(|api|bug|text|x/.+|.*)
+  script: auto
+  secure: always

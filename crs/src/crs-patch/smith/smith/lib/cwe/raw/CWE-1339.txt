@@ -1,0 +1,275 @@
+CWE
+
+Common Weakness Enumeration
+
+A community-developed list of SW & HW weaknesses that can become vulnerabilities
+
+New to CWE? click here!
+CWE Most Important Hardware Weaknesses
+CWE Top 25 Most Dangerous Weaknesses
+Home > CWE List > CWE- Individual Dictionary Definition (4.14)                                                                                                   ID Lookup: [                    ] [Go]
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  • Home
+  • About ▼
+    About New to CWE User Stories History Documents FAQs Glossary Compatibility
+  • CWE List ▼
+    Latest Version Downloads Reports Visualizations Archive
+  • Mapping ▼
+    Root Cause Mapping Guidance Root Cause Mapping Quick Tips Root Cause Mapping Examples
+  • Top-N Lists ▼
+    Top 25 Software Top Hardware Top 10 KEV Weaknesses
+  • Community ▼
+    Community Working Groups & Special Interest Groups Board Board Meeting Minutes CWE Discussion List CWE Discussion Archives Contribute Weakness Content to CWE
+  • News ▼
+    Current News X-Twitter ● Mastodon ● LinkedIn ● YouTube YouTube Podcast Out of Bounds Read Podcast Medium Medium News Archive
+  • Search
+
+ 
+ CWE Glossary Definition                  x
+ 
+ 
+ CWE-1339: Insufficient Precision or Accuracy of a Real Number
+ 
+ Weakness ID: 1339
+ Vulnerability Mapping: ALLOWEDThis CWE ID may be used to map to real-world vulnerabilities
+ Abstraction: BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level
+ weaknesses typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.
+ View customized information:
+ Conceptual For users who are interested in more notional aspects of a weakness. Example: educators, technical writers, and project/program managers. Operational For users who are concerned with the
+ practical application and details about the nature of a weakness and how to prevent it from happening. Example: tool developers, security researchers, pen-testers, incident response analysts. Mapping
+ Friendly For users who are mapping an issue to CWE/CAPEC IDs, i.e., finding the most appropriate CWE for a specific issue (e.g., a CVE record). Example: tool developers, security researchers. 
+ Complete For users who wish to see all available information for the CWE/CAPEC entry. Custom For users who want to customize what details are displayed.
+ ×
+
+ Edit Custom Filter
+
+ Conceptual Operational Mapping Friendly Select All
+ 
+ Reset Clear Submit Cancel
+ + Description
+ The product processes a real number with an implementation in which the number's representation does not preserve required accuracy and precision in its fractional part, causing an incorrect result.
+ + Extended Description
+ 
+ When a security decision or calculation requires highly precise, accurate numbers such as financial calculations or prices, then small variations in the number could be exploited by an attacker.
+
+ There are multiple ways to store the fractional part of a real number in a computer. In all of these cases, there is a limit to the accuracy of recording a fraction. If the fraction can be
+ represented in a fixed number of digits (binary or decimal), there might not be enough digits assigned to represent the number. In other cases the number cannot be represented in a fixed number of
+ digits due to repeating in decimal or binary notation (e.g. 0.333333...) or due to a transcendental number such as Π or √2. Rounding of numbers can lead to situations where the computer results do
+ not adequately match the result of sufficiently accurate math.
+
+ + Relationships
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Research Concepts" (CWE-1000)
+     Nature                                                                                                                                                                               Type                                                                                                                                                                            ID       Name
+ ChildOf                                                                                 PillarPillar - a weakness that is the most abstract type of weakness and represents a theme for all class/base/variant weaknesses related to it. A Pillar is different from a Category as a Pillar is                                                                          682     Incorrect
+                                                                                                                    still technically a type of weakness that describes a mistake, while a Category represents a common characteristic used to group related things.                                                                                                            Calculation
+ PeerOf                                                                                     BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level weaknesses                                                                             190     Integer
+                                                                                                                           typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                    Overflow or
+                                                                                                                                                                                                                                                                                                                                                                                Wraparound
+ CanPrecede                                                                              ClassClass - a weakness that is described in a very abstract fashion, typically independent of any specific language or technology. More specific than a Pillar Weakness, but more general than a Base                                                                         119     Improper
+                                                                                                                      Weakness. Class level weaknesses typically describe issues in terms of 1 or 2 of the following dimensions: behavior, property, and resource.                                                                                                              Restriction
+                                                                                                                                                                                                                                                                                                                                                                                of
+                                                                                                                                                                                                                                                                                                                                                                                Operations
+                                                                                                                                                                                                                                                                                                                                                                                within the
+                                                                                                                                                                                                                                                                                                                                                                                Bounds of a
+                                                                                                                                                                                                                                                                                                                                                                                Memory
+                                                                                                                                                                                                                                                                                                                                                                                Buffer
+ CanPrecede                                                                              ClassClass - a weakness that is described in a very abstract fashion, typically independent of any specific language or technology. More specific than a Pillar Weakness, but more general than a Base                                                                         834     Excessive
+                                                                                                                      Weakness. Class level weaknesses typically describe issues in terms of 1 or 2 of the following dimensions: behavior, property, and resource.                                                                                                              Iteration
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Software Development" (CWE-699)
+     Nature                                                       Type                                                     ID                                   Name
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 189     Numeric Errors
+ + Background Details
+ There are three major ways to store real numbers in computers. Each method is described along with the limitations of how they store their numbers.
+
+   • Fixed: Some implementations use a fixed number of binary bits to represent both the integer and the fraction. In the demonstrative example about Muller's Recurrence, the fraction 108.0 -
+     ((815.0 - 1500.0 / z) / y) cannot be represented in 8 binary digits. The numeric accuracy within languages such as PL/1, COBOL and Ada is expressed in decimal digits rather than binary
+     digits. In SQL and most databases, the length of the integer and the fraction are specified by the programmer in decimal. In the language C, fixed reals are implemented according to ISO/IEC
+     TR18037
+   • Floating: The number is stored in a version of scientific notation with a fixed length for the base and the significand. This allows flexibility for more accuracy when the integer portion is
+     smaller. When dealing with large integers, the fractional accuracy is less. Languages such as PL/1, COBOL and Ada set the accuracy by decimal digit representation rather than using binary
+     digits. Python also implements decimal floating-point numbers using the IEEE 754-2008 encoding method.
+   • Ratio: The number is stored as the ratio of two integers. These integers also have their limits. These integers can be stored in a fixed number of bits or in a vector of digits. While the
+     vector of digits method provides for very large integers, they cannot truly represent a repeating or transcendental number as those numbers do not ever have a fixed length.
+
+ + Modes Of Introduction
+ Section HelpThe different Modes of Introduction provide information about how and when this weakness may be introduced. The Phase identifies a point in the life cycle at which introduction may occur,
+ while the Note provides a typical scenario related to introduction during the given phase.
+     Phase                                                                                              Note
+ Implementation This weakness is introduced when the developer picks a method to represent a real number. The weakness may only be visible with very specific numeric inputs.
+ + Applicable Platforms
+ Section HelpThis listing shows possible areas for which the given weakness could appear. These may be for specific named Languages, Operating Systems, Architectures, Paradigms, Technologies, or a
+ class of such platforms. The platform is listed along with how frequently the given weakness appears for that instance.
+
+ Languages
+
+ Class: Not Language-Specific (Undetermined Prevalence)
+
+ Operating Systems
+
+ Class: Not OS-Specific (Undetermined Prevalence)
+
+ Architectures
+
+ Class: Not Architecture-Specific (Undetermined Prevalence)
+
+ Technologies
+
+ Class: Not Technology-Specific (Undetermined Prevalence)
+
+ + Common Consequences
+ Section HelpThis table specifies different individual consequences associated with the weakness. The Scope identifies the application security area that is violated, while the Impact describes the
+ negative technical impact that arises if an adversary succeeds in exploiting this weakness. The Likelihood provides information about how likely the specific consequence is expected to be seen
+ relative to the other consequences in the list. For example, there may be high likelihood that a weakness will be exploited to achieve a certain impact, but a low likelihood that it will be exploited
+ to achieve a different impact.
+       Scope                                                                                     Impact                                                                                 Likelihood
+                    Technical Impact: DoS: Crash, Exit, or Restart
+ Availability
+                    This weakness will generally lead to undefined results and therefore crashes. In some implementations the program will halt if the weakness causes an overflow
+                    during a calculation.
+                    Technical Impact: Execute Unauthorized Code or Commands
+ Integrity
+                    The results of the math are not as expected. This could cause issues where a value would not be properly calculated and provide an incorrect answer.
+ Confidentiality    Technical Impact: Read Application Data; Modify Application Data
+ Availability
+ Access Control     This weakness can sometimes trigger buffer overflows which can be used to execute arbitrary code. This is usually outside the scope of a product's implicit
+                    security policy.
+ + Demonstrative Examples
+ 
+ Example 1
+
+ Muller's Recurrence is a series that is supposed to converge to the number 5. When running this series with the following code, different implementations of real numbers fail at specific iterations:
+
+ (bad code)
+ Example Language: Rust 
+ fn rec_float(y: f64, z: f64) -> f64
+ {
+ 108.0 - ((815.0 - 1500.0 / z) / y);
+ }
+
+ fn float_calc(turns: usize) -> f64
+ {
+ let mut x: Vec<f64> = vec![4.0, 4.25];
+ (2..turns + 1).for_each(|number|
+ {
+ x.push(rec_float(x[number - 1], x[number - 2]));
+ });
+
+ x[turns]
+ }
+
+ The chart below shows values for different data structures in the rust language when Muller's recurrence is executed to 80 iterations. The data structure f64 is a 64 bit float. The data structures I
+ <number>F<number> are fixed representations 128 bits in length that use the first number as the size of the integer and the second size as the size of the fraction (e.g. I16F112 uses 16 bits for the
+ integer and 112 bits for the fraction). The data structure of Ratio comes in three different implementations: i32 uses a ratio of 32 bit signed integers, i64 uses a ratio of 64 bit signed integers
+ and BigInt uses a ratio of signed integer with up to 2^32 digits of base 256. Notice how even with 112 bits of fractions or ratios of 64bit unsigned integers, this math still does not converge to an
+ expected value of 5. Muller's Recurrence
+
+ (good code)
+ Example Language: Rust 
+ Use num_rational::BigRational;
+
+ fn rec_big(y: BigRational, z: BigRational) -> BigRational
+ {
+ BigRational::from_integer(BigInt::from(108))
+ - ((BigRational::from_integer(BigInt::from(815))
+ - BigRational::from_integer(BigInt::from(1500)) / z)
+ / y)
+ }
+
+ fn big_calc(turns: usize) -> BigRational
+ {
+ let mut x: Vec<BigRational> = vec![BigRational::from_float(4.0).unwrap(), BigRational::from_float(4.25).unwrap(),];
+
+ (2..turns + 1).for_each(|number|
+ {
+ x.push(rec_big(x[number - 1].clone(), x[number - 2].clone()));
+ });
+ x[turns].clone()
+ }
+
+ Example 2
+
+ On February 25, 1991, during the eve of the Iraqi invasion of Saudi Arabia, a Scud missile fired from Iraqi positions hit a US Army barracks in Dhahran, Saudi Arabia. It miscalculated time and killed
+ 28 people [REF-1190].
+ 
+ Example 2 References:
+ [REF-1190] "An Improvement To Floating Point Numbers". 2015-10-22. <https://hackaday.com/2015/10/22/an-improvement-to-floating-point-numbers/>.
+
+ Example 3
+
+ Sleipner A, an offshore drilling platform in the North Sea, was incorrectly constructed with an underestimate of 50% of strength in a critical cluster of buoyancy cells needed for construction. This
+ led to a leak in buoyancy cells during lowering, causing a seismic event of 3.0 on the Richter Scale and about $700M loss [REF-1281].
+ 
+ Example 3 References:
+ [REF-1281] Douglas N. Arnold. "The sinking of the Sleipner A offshore platform". <https://www-users.cse.umn.edu/~arnold/disasters/sleipner.html>.
+ + Observed Examples
+        Reference                                                                                        Description
+ CVE-2018-16069          Chain: series of floating-point precision errors (CWE-1339) in a web browser rendering engine causes out-of-bounds read (CWE-125), giving access to cross-origin data
+ CVE-2017-7619           Chain: rounding error in floating-point calculations (CWE-1339) in image processor leads to infinite loop (CWE-835)
+ CVE-2021-29529          Chain: machine-learning product can have a heap-based buffer overflow (CWE-122) when some integer-oriented bounds are calculated by using ceiling() and floor() on floating
+                         point values (CWE-1339)
+ CVE-2008-2108           Chain: insufficient precision (CWE-1339) in random-number generator causes some zero bits to be reliably generated, reducing the amount of entropy (CWE-331)
+ CVE-2006-6499           Chain: web browser crashes due to infinite loop - "bad looping logic [that relies on] floating point math [CWE-1339] to exit the loop [CWE-835]"
+ + Potential Mitigations
+ Phases: Implementation; Patching and Maintenance
+
+ The developer or maintainer can move to a more accurate representation of real numbers. In extreme cases, the programmer can move to representations such as ratios of BigInts which can represent
+ real numbers to extremely fine precision. The programmer can also use the concept of an Unum real. The memory and CPU tradeoffs of this change must be examined. Since floating point reals are
+ used in many products and many locations, they are implemented in hardware and most format changes will cause the calculations to be moved into software resulting in slower products.
+ + Memberships
+ Section HelpThis MemberOf Relationships table shows additional CWE Categories and Views that reference this weakness as a member. This information is often useful in understanding where a weakness
+ fits within the context of external information sources.
+     Nature                                                       Type                                                     ID                                   Name
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 1408    Comprehensive Categorization: Incorrect Calculation
+ + Vulnerability Mapping Notes
+ Usage: ALLOWED
+
+ (this CWE ID could be used to map to real-world vulnerabilities)
+ Reason: Acceptable-Use
+
+ Rationale:
+
+ This CWE entry is at the Base level of abstraction, which is a preferred level of abstraction for mapping to the root causes of vulnerabilities.
+ Comments:
+
+ Carefully read both the name and description to ensure that this mapping is an appropriate fit. Do not try to 'force' a mapping to a lower-level Base/Variant simply to comply with this preferred
+ level of abstraction.
+ + References
+ [REF-1186] "Is COBOL holding you hostage with Math?". 2018-07-28. <https://medium.com/the-technical-archaeologist/is-cobol-holding-you-hostage-with-math-5498c0eb428b>.
+ [REF-1187] "Intermediate results and arithmetic precision". 2021-06-30. <https://www.ibm.com/docs/en/cobol-zos/6.2?topic=appendixes-intermediate-results-arithmetic-precision>.
+ [REF-1188] "8.1.2. Arbitrary Precision Numbers". 2021-06-24. <https://www.postgresql.org/docs/8.3/datatype-numeric.html#DATATYPE-NUMERIC-DECIMAL>.
+ [REF-1189] "Muller's Recurrence". 2017-11-11. <https://scipython.com/blog/mullers-recurrence/>.
+ [REF-1190] "An Improvement To Floating Point Numbers". 2015-10-22. <https://hackaday.com/2015/10/22/an-improvement-to-floating-point-numbers/>.
+ [REF-1191] "HIGH PERFORMANCE COMPUTING: ARE WE JUST GETTING WRONG ANSWERS FASTER?". 1999-06-23. <https://www3.nd.edu/~markst/cast-award-speech.pdf>.
+ + Content History
+                                                                                            + Submissions
+                  Submission Date                                                       Submitter                                                              Organization
+ 2021-07-08                                         CWE Content Team                                                                   MITRE
+ (CWE 4.5, 2021-07-20)
+
+                                                                                           + Modifications
+                 Modification Date                                                       Modifier                                                              Organization
+ 2022-10-13                                         CWE Content Team                                                                   MITRE
+                                                    updated Demonstrative_Examples
+ 2023-01-31                                         CWE Content Team                                                                   MITRE
+                                                    updated Common_Consequences, Description, Potential_Mitigations
+ 2023-04-27                                         CWE Content Team                                                                   MITRE
+                                                    updated References, Relationships
+ 2023-06-29                                         CWE Content Team                                                                   MITRE
+                                                    updated Mapping_Notes
+ 2024-02-29                                         CWE Content Team                                                                   MITRE
+ (CWE 4.14, 2024-02-29)                             updated Demonstrative_Examples
+ More information is available — Please edit the custom filter or select a different filter.
+Page Last Updated: February 29, 2024
+ 
+      Site Map | Terms of Use | Manage Cookies | Cookie Notice | Privacy Policy | Contact Us | CWE X-Twitter CWE Mastodon CWE on LinkedIn CWE YouTube channel CWE Out-of-Bounds-Read Podcast CWE
+      Blog on Medium blog
+
+MITRE Use of the Common Weakness Enumeration (CWE™) and the associated references from this website are subject to the Terms of Use. CWE is sponsored by the U.S. Department of Homeland         HSSEDI
+      Security (DHS) Cybersecurity and Infrastructure Security Agency (CISA) and managed by the Homeland Security Systems Engineering and Development Institute (HSSEDI) which is operated by
+      The MITRE Corporation (MITRE). Copyright © 2006–2024, The MITRE Corporation. CWE, CWSS, CWRAF, and the CWE logo are trademarks of The MITRE Corporation.
+

@@ -1,0 +1,409 @@
+CWE
+
+Common Weakness Enumeration
+
+A community-developed list of SW & HW weaknesses that can become vulnerabilities
+
+New to CWE? click here!
+CWE Most Important Hardware Weaknesses
+CWE Top 25 Most Dangerous Weaknesses
+Home > CWE List > CWE- Individual Dictionary Definition (4.14)                                                                                                   ID Lookup: [                    ] [Go]
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  • Home
+  • About ▼
+    About New to CWE User Stories History Documents FAQs Glossary Compatibility
+  • CWE List ▼
+    Latest Version Downloads Reports Visualizations Archive
+  • Mapping ▼
+    Root Cause Mapping Guidance Root Cause Mapping Quick Tips Root Cause Mapping Examples
+  • Top-N Lists ▼
+    Top 25 Software Top Hardware Top 10 KEV Weaknesses
+  • Community ▼
+    Community Working Groups & Special Interest Groups Board Board Meeting Minutes CWE Discussion List CWE Discussion Archives Contribute Weakness Content to CWE
+  • News ▼
+    Current News X-Twitter ● Mastodon ● LinkedIn ● YouTube YouTube Podcast Out of Bounds Read Podcast Medium Medium News Archive
+  • Search
+
+ 
+ CWE Glossary Definition                  x
+ 
+ 
+ CWE-426: Untrusted Search Path
+ 
+ Weakness ID: 426
+ Vulnerability Mapping: ALLOWEDThis CWE ID may be used to map to real-world vulnerabilities
+ Abstraction: BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level
+ weaknesses typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.
+ View customized information:
+ Conceptual For users who are interested in more notional aspects of a weakness. Example: educators, technical writers, and project/program managers. Operational For users who are concerned with the
+ practical application and details about the nature of a weakness and how to prevent it from happening. Example: tool developers, security researchers, pen-testers, incident response analysts. Mapping
+ Friendly For users who are mapping an issue to CWE/CAPEC IDs, i.e., finding the most appropriate CWE for a specific issue (e.g., a CVE record). Example: tool developers, security researchers. 
+ Complete For users who wish to see all available information for the CWE/CAPEC entry. Custom For users who want to customize what details are displayed.
+ ×
+
+ Edit Custom Filter
+
+ Conceptual Operational Mapping Friendly Select All
+ 
+ Reset Clear Submit Cancel
+ + Description
+ The product searches for critical resources using an externally-supplied search path that can point to resources that are not under the product's direct control.
+ + Extended Description
+ 
+ This might allow attackers to execute their own programs, access unauthorized data files, or modify configuration in unexpected ways. If the product uses a search path to locate critical resources
+ such as programs, then an attacker could modify that search path to point to a malicious program, which the targeted product would then execute. The problem extends to any type of critical resource
+ that the product trusts.
+
+ Some of the most common variants of untrusted search path are:
+
+   • In various UNIX and Linux-based systems, the PATH environment variable may be consulted to locate executable programs, and LD_PRELOAD may be used to locate a separate library.
+   • In various Microsoft-based systems, the PATH environment variable is consulted to locate a DLL, if the DLL is not found in other paths that appear earlier in the search order.
+
+ + Alternate Terms
+ Untrusted Path
+ + Relationships
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Research Concepts" (CWE-1000)
+     Nature                                                                                                                                                                             Type                                                                                                                                                                           ID        Name
+ ChildOf                                                                               ClassClass - a weakness that is described in a very abstract fashion, typically independent of any specific language or technology. More specific than a Pillar Weakness, but more general than a Base                                                                        673     External
+                                                                                                                    Weakness. Class level weaknesses typically describe issues in terms of 1 or 2 of the following dimensions: behavior, property, and resource.                                                                                                             Influence of
+                                                                                                                                                                                                                                                                                                                                                                             Sphere
+                                                                                                                                                                                                                                                                                                                                                                             Definition
+ ChildOf                                                                               ClassClass - a weakness that is described in a very abstract fashion, typically independent of any specific language or technology. More specific than a Pillar Weakness, but more general than a Base                                                                        642     External
+                                                                                                                    Weakness. Class level weaknesses typically describe issues in terms of 1 or 2 of the following dimensions: behavior, property, and resource.                                                                                                             Control of
+                                                                                                                                                                                                                                                                                                                                                                             Critical
+                                                                                                                                                                                                                                                                                                                                                                             State Data
+ PeerOf                                                                                    BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level weaknesses                                                                           427     Uncontrolled
+                                                                                                                          typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                  Search Path
+                                                                                                                                                                                                                                                                                                                                                                             Element
+ PeerOf                                                                                    BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level weaknesses                                                                           428     Unquoted
+                                                                                                                          typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                  Search Path
+                                                                                                                                                                                                                                                                                                                                                                             or Element
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Software Development" (CWE-699)
+     Nature                                                       Type                                                     ID                                   Name
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 1219    File Handling Issues
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Weaknesses for Simplified Mapping of Published Vulnerabilities" (CWE-1003)
+     Nature                                                                                                                                                                             Type                                                                                                                                                                           ID      Name
+ ChildOf                                                                               ClassClass - a weakness that is described in a very abstract fashion, typically independent of any specific language or technology. More specific than a Pillar Weakness, but more general than a Base                                                                        668     Exposure
+                                                                                                                    Weakness. Class level weaknesses typically describe issues in terms of 1 or 2 of the following dimensions: behavior, property, and resource.                                                                                                             of
+                                                                                                                                                                                                                                                                                                                                                                             Resource
+                                                                                                                                                                                                                                                                                                                                                                             to Wrong
+                                                                                                                                                                                                                                                                                                                                                                             Sphere
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Architectural Concepts" (CWE-1008)
+     Nature                                                       Type                                                     ID                                   Name
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 1011    Authorize Actors
+ + Modes Of Introduction
+ Section HelpThe different Modes of Introduction provide information about how and when this weakness may be introduced. The Phase identifies a point in the life cycle at which introduction may occur,
+ while the Note provides a typical scenario related to introduction during the given phase.
+     Phase                                                                                              Note
+ Implementation
+ + Applicable Platforms
+ Section HelpThis listing shows possible areas for which the given weakness could appear. These may be for specific named Languages, Operating Systems, Architectures, Paradigms, Technologies, or a
+ class of such platforms. The platform is listed along with how frequently the given weakness appears for that instance.
+
+ Languages
+
+ Class: Not Language-Specific (Undetermined Prevalence)
+
+ Operating Systems
+
+ Class: Not OS-Specific (Undetermined Prevalence)
+
+ + Common Consequences
+ Section HelpThis table specifies different individual consequences associated with the weakness. The Scope identifies the application security area that is violated, while the Impact describes the
+ negative technical impact that arises if an adversary succeeds in exploiting this weakness. The Likelihood provides information about how likely the specific consequence is expected to be seen
+ relative to the other consequences in the list. For example, there may be high likelihood that a weakness will be exploited to achieve a certain impact, but a low likelihood that it will be exploited
+ to achieve a different impact.
+       Scope                                                                                     Impact                                                                                 Likelihood
+ Integrity          Technical Impact: Gain Privileges or Assume Identity; Execute Unauthorized Code or Commands
+ Confidentiality
+ Availability       There is the potential for arbitrary code execution with privileges of the vulnerable program.
+ Access Control
+                    Technical Impact: DoS: Crash, Exit, or Restart
+ Availability
+                    The program could be redirected to the wrong files, potentially triggering a crash or hang when the targeted file is too large or does not have the expected
+                    format.
+                    Technical Impact: Read Files or Directories
+ Confidentiality
+                    The program could send the output of unauthorized files to the attacker.
+ + Likelihood Of Exploit
+ High
+ + Demonstrative Examples
+ 
+ Example 1
+
+ This program is intended to execute a command that lists the contents of a restricted directory, then performs other actions. Assume that it runs with setuid privileges in order to bypass the
+ permissions check by the operating system.
+
+ (bad code)
+ Example Language: C 
+ #define DIR "/restricted/directory"
+
+ char cmd[500];
+ sprintf(cmd, "ls -l %480s", DIR);
+ /* Raise privileges to those needed for accessing DIR. */
+
+ RaisePrivileges(...);
+ system(cmd);
+ DropPrivileges(...);
+ ...
+
+ This code may look harmless at first, since both the directory and the command are set to fixed values that the attacker can't control. The attacker can only see the contents for DIR, which is the
+ intended program behavior. Finally, the programmer is also careful to limit the code that executes with raised privileges.
+
+ However, because the program does not modify the PATH environment variable, the following attack would work:
+
+ (attack code)
+  
+
+   • The user sets the PATH to reference a directory under the attacker's control, such as "/my/dir/".
+   • The attacker creates a malicious program called "ls", and puts that program in /my/dir
+   • The user executes the program.
+   • When system() is executed, the shell consults the PATH to find the ls program
+   • The program finds the attacker's malicious program, "/my/dir/ls". It doesn't find "/bin/ls" because PATH does not contain "/bin/".
+   • The program executes the attacker's malicious program with the raised privileges.
+
+ Example 2
+
+ This code prints all of the running processes belonging to the current user.
+
+ (bad code)
+ Example Language: PHP 
+
+ //assume getCurrentUser() returns a username that is guaranteed to be alphanumeric (avoiding CWE-78)
+ $userName = getCurrentUser();
+ $command = 'ps aux | grep ' . $userName;
+ system($command);
+
+ If invoked by an unauthorized web user, it is providing a web page of potentially sensitive information on the underlying system, such as command-line arguments (CWE-497). This program is also
+ potentially vulnerable to a PATH based attack (CWE-426), as an attacker may be able to create malicious versions of the ps or grep commands. While the program does not explicitly raise privileges to
+ run the system commands, the PHP interpreter may by default be running with higher privileges than users.
+
+ Example 3
+
+ The following code is from a web application that allows users access to an interface through which they can update their password on the system. In this environment, user passwords can be managed
+ using the Network Information System (NIS), which is commonly used on UNIX systems. When performing NIS updates, part of the process for updating passwords is to run a make command in the /var/yp
+ directory. Performing NIS updates requires extra privileges.
+
+ (bad code)
+ Example Language: Java 
+ ...
+ System.Runtime.getRuntime().exec("make");
+ ...
+
+ The problem here is that the program does not specify an absolute path for make and does not clean its environment prior to executing the call to Runtime.exec(). If an attacker can modify the $PATH
+ variable to point to a malicious binary called make and cause the program to be executed in their environment, then the malicious binary will be loaded instead of the one intended. Because of the
+ nature of the application, it runs with the privileges necessary to perform system operations, which means the attacker's make will now be run with these privileges, possibly giving the attacker
+ complete control of the system.
+
+ + Observed Examples
+        Reference                                                                                        Description
+ CVE-1999-1120           Application relies on its PATH environment variable to find and execute program.
+ CVE-2008-1810           Database application relies on its PATH environment variable to find and execute program.
+ CVE-2007-2027           Chain: untrusted search path enabling resultant format string by loading malicious internationalization messages.
+ CVE-2008-3485           Untrusted search path using malicious .EXE in Windows environment.
+ CVE-2008-2613           setuid program allows compromise using path that finds and loads a malicious library.
+ CVE-2008-1319           Server allows client to specify the search path, which can be modified to point to a program that the client has uploaded.
+ + Potential Mitigations
+ Phases: Architecture and Design; Implementation
+
+ Strategy: Attack Surface Reduction
+
+ Hard-code the search path to a set of known-safe values (such as system directories), or only allow them to be specified by the administrator in a configuration file. Do not allow these settings
+ to be modified by an external party. Be careful to avoid related weaknesses such as CWE-426 and CWE-428.
+ Phase: Implementation
+
+ When invoking other programs, specify those programs using fully-qualified pathnames. While this is an effective approach, code that uses fully-qualified pathnames might not be portable to other
+ systems that do not use the same pathnames. The portability can be improved by locating the full-qualified paths in a centralized, easily-modifiable location within the source code, and having
+ the code refer to these paths.
+ Phase: Implementation
+
+ Remove or restrict all environment settings before invoking other programs. This includes the PATH environment variable, LD_LIBRARY_PATH, and other settings that identify the location of code
+ libraries, and any application-specific search paths.
+ Phase: Implementation
+
+ Check your search path before use and remove any elements that are likely to be unsafe, such as the current working directory or a temporary files directory.
+ Phase: Implementation
+
+ Use other functions that require explicit paths. Making use of any of the other readily available functions that require explicit paths is a safe way to avoid this problem. For example, system()
+ in C does not require a full path since the shell can take care of it, while execl() and execv() require a full path.
+ + Detection Methods
+ Black Box
+
+ Use monitoring tools that examine the software's process as it interacts with the operating system and the network. This technique is useful in cases when source code is unavailable, if the
+ software was not developed by you, or if you want to verify that the build phase did not introduce any new weaknesses. Examples include debuggers that directly attach to the running process;
+ system-call tracing utilities such as truss (Solaris) and strace (Linux); system activity monitors such as FileMon, RegMon, Process Monitor, and other Sysinternals utilities (Windows); and
+ sniffers and protocol analyzers that monitor network traffic.
+
+ Attach the monitor to the process and look for library functions and system calls that suggest when a search path is being used. One pattern is when the program performs multiple accesses of the
+ same file but in different directories, with repeated failures until the proper filename is found. Library calls such as getenv() or their equivalent can be checked to see if any path-related
+ variables are being accessed.
+
+ Automated Static Analysis
+
+ Automated static analysis, commonly referred to as Static Application Security Testing (SAST), can find some instances of this weakness by analyzing source code (or binary/compiled code) without
+ having to execute it. Typically, this is done by building a model of data flow and control flow, then searching for potentially-vulnerable patterns that connect "sources" (origins of input) with
+ "sinks" (destinations where the data interacts with external components, a lower layer such as the OS, etc.)
+
+ Effectiveness: High
+
+ Manual Analysis
+
+ Use tools and techniques that require manual (human) analysis, such as penetration testing, threat modeling, and interactive tools that allow the tester to record and modify an active session.
+ These may be more effective than strictly automated techniques. This is especially the case with weaknesses that are related to design and business rules.
+ + Functional Areas
+ 
+   • Program Invocation
+   • Code Libraries
+
+ + Affected Resources
+ 
+   • System Process
+
+ + Memberships
+ Section HelpThis MemberOf Relationships table shows additional CWE Categories and Views that reference this weakness as a member. This information is often useful in understanding where a weakness
+ fits within the context of external information sources.
+     Nature                                                                                                  Type                                                                                               ID         Name
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            744     CERT C Secure
+                                                                                                                                                                                                                      Coding Standard
+                                                                                                                                                                                                                      (2008) Chapter
+                                                                                                                                                                                                                      11 -
+                                                                                                                                                                                                                      Environment
+                                                                                                                                                                                                                      (ENV)
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            752     2009 Top 25 -
+                                                                                                                                                                                                                      Risky Resource
+                                                                                                                                                                                                                      Management
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            808     2010 Top 25 -
+                                                                                                                                                                                                                      Weaknesses On
+                                                                                                                                                                                                                      the Cusp
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            878     CERT C++ Secure
+                                                                                                                                                                                                                      Coding Section
+                                                                                                                                                                                                                      10 -
+                                                                                                                                                                                                                      Environment
+                                                                                                                                                                                                                      (ENV)
+ MemberOf        ViewView - a subset of CWE entries that provides a way of examining CWE content. The two main view structures are Slices (flat lists) and Graphs (containing relationships between entries). 1200    Weaknesses in
+                                                                                                                                                                                                                      the 2019 CWE
+                                                                                                                                                                                                                      Top 25 Most
+                                                                                                                                                                                                                      Dangerous
+                                                                                                                                                                                                                      Software Errors
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            1354    OWASP Top Ten
+                                                                                                                                                                                                                      2021 Category
+                                                                                                                                                                                                                      A08:2021 -
+                                                                                                                                                                                                                      Software and
+                                                                                                                                                                                                                      Data Integrity
+                                                                                                                                                                                                                      Failures
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            1403    Comprehensive
+                                                                                                                                                                                                                      Categorization:
+                                                                                                                                                                                                                      Exposed
+                                                                                                                                                                                                                      Resource
+ + Vulnerability Mapping Notes
+ Usage: ALLOWED
+
+ (this CWE ID could be used to map to real-world vulnerabilities)
+ Reason: Acceptable-Use
+
+ Rationale:
+
+ This CWE entry is at the Base level of abstraction, which is a preferred level of abstraction for mapping to the root causes of vulnerabilities.
+ Comments:
+
+ Carefully read both the name and description to ensure that this mapping is an appropriate fit. Do not try to 'force' a mapping to a lower-level Base/Variant simply to comply with this preferred
+ level of abstraction.
+ + Taxonomy Mappings
+       Mapped Taxonomy Name          Node ID       Fit                                                                 Mapped Node Name
+ PLOVER                                                   Untrusted Search Path
+ CLASP                                                    Relative path library search
+ CERT C Secure Coding             ENV03-C                 Sanitize the environment when invoking external programs
+ + Related Attack Patterns
+    CAPEC-ID                                                                                     Attack Pattern Name
+ CAPEC-38        Leveraging/Manipulating Configuration File Search Paths
+ + References
+ [REF-18] Secure Software, Inc.. "The CLASP Application Security Process". 2005. <https://cwe.mitre.org/documents/sources/TheCLASPApplicationSecurityProcess.pdf>.
+ [REF-62] Mark Dowd, John McDonald and Justin Schuh. "The Art of Software Security Assessment". Chapter 10, Process Attributes, page 603. 1st Edition. Addison Wesley. 2006.
+ [REF-176] Michael Howard and David LeBlanc. "Writing Secure Code". Chapter 8, "Canonical Representation Issues." Page 229. 1st Edition. Microsoft Press. 2001-11-13.
+ [REF-207] John Viega and Gary McGraw. "Building Secure Software: How to Avoid Security Problems the Right Way". Chapter 12, "Trust Management and Input Validation." Pages 317-320. 1st Edition.
+ Addison-Wesley. 2002.
+ [REF-7] Michael Howard and David LeBlanc. "Writing Secure Code". Chapter 11, "Don't Trust the PATH - Use Full Path Names" Page 385. 2nd Edition. Microsoft Press. 2002-12-04. <https://
+ www.microsoftpressstore.com/store/writing-secure-code-9780735617223>.
+ + Content History
+                                                                                            + Submissions
+      Submission Date                                                 Submitter                                                                           Organization
+ 2006-07-19                PLOVER
+ (CWE Draft 3, 2006-07-19)
+
+                                                                                           + Modifications
+     Modification Date                                                 Modifier                                                                           Organization
+ 2008-07-01                Eric Dalci                                                                                       Cigital
+                           updated Time_of_Introduction
+ 2008-09-08                CWE Content Team                                                                                 MITRE
+                           updated Common_Consequences, Relationships, Taxonomy_Mappings
+ 2008-11-24                CWE Content Team                                                                                 MITRE
+                           updated Relationships, Taxonomy_Mappings
+ 2009-01-12                CWE Content Team                                                                                 MITRE
+                           updated Applicable_Platforms, Common_Consequences, Demonstrative_Examples, Description, Observed_Examples, Potential_Mitigations, Relationships, Time_of_Introduction
+ 2009-03-10                CWE Content Team                                                                                 MITRE
+                           updated Demonstrative_Examples, Potential_Mitigations
+ 2009-12-28                CWE Content Team                                                                                 MITRE
+                           updated References
+ 2010-02-16                CWE Content Team                                                                                 MITRE
+                           updated References, Relationships
+ 2010-04-05                CWE Content Team                                                                                 MITRE
+                           updated Applicable_Platforms
+ 2010-06-21                CWE Content Team                                                                                 MITRE
+                           updated Detection_Factors, Potential_Mitigations
+ 2010-09-27                CWE Content Team                                                                                 MITRE
+                           updated Description, Relationships
+ 2011-03-29                CWE Content Team                                                                                 MITRE
+                           updated Demonstrative_Examples
+ 2011-06-01                CWE Content Team                                                                                 MITRE
+                           updated Common_Consequences
+ 2011-09-13                CWE Content Team                                                                                 MITRE
+                           updated Relationships, Taxonomy_Mappings
+ 2012-05-11                CWE Content Team                                                                                 MITRE
+                           updated Demonstrative_Examples, References
+ 2014-02-18                CWE Content Team                                                                                 MITRE
+                           updated Demonstrative_Examples, Detection_Factors, Potential_Mitigations
+ 2015-12-07                CWE Content Team                                                                                 MITRE
+                           updated Relationships
+ 2017-11-08                CWE Content Team                                                                                 MITRE
+                           updated Demonstrative_Examples, Modes_of_Introduction, References, Relationships, Taxonomy_Mappings
+ 2018-03-27                CWE Content Team                                                                                 MITRE
+                           updated Demonstrative_Examples, References, Relationships, Type
+ 2019-01-03                CWE Content Team                                                                                 MITRE
+                           updated Related_Attack_Patterns
+ 2019-06-20                CWE Content Team                                                                                 MITRE
+                           updated Related_Attack_Patterns, Relationships
+ 2019-09-19                CWE Content Team                                                                                 MITRE
+                           updated Relationships
+ 2020-02-24                CWE Content Team                                                                                 MITRE
+                           updated References, Relationships
+ 2021-03-15                CWE Content Team                                                                                 MITRE
+                           updated Demonstrative_Examples
+ 2021-10-28                CWE Content Team                                                                                 MITRE
+                           updated Relationships
+ 2022-04-28                CWE Content Team                                                                                 MITRE
+                           updated Research_Gaps
+ 2023-01-31                CWE Content Team                                                                                 MITRE
+                           updated Description
+ 2023-04-27                CWE Content Team                                                                                 MITRE
+                           updated Detection_Factors, Relationships, Time_of_Introduction
+ 2023-06-29                CWE Content Team                                                                                 MITRE
+                           updated Mapping_Notes
+ More information is available — Please edit the custom filter or select a different filter.
+Page Last Updated: February 29, 2024
+ 
+      Site Map | Terms of Use | Manage Cookies | Cookie Notice | Privacy Policy | Contact Us | CWE X-Twitter CWE Mastodon CWE on LinkedIn CWE YouTube channel CWE Out-of-Bounds-Read Podcast CWE
+      Blog on Medium blog
+
+MITRE Use of the Common Weakness Enumeration (CWE™) and the associated references from this website are subject to the Terms of Use. CWE is sponsored by the U.S. Department of Homeland         HSSEDI
+      Security (DHS) Cybersecurity and Infrastructure Security Agency (CISA) and managed by the Homeland Security Systems Engineering and Development Institute (HSSEDI) which is operated by
+      The MITRE Corporation (MITRE). Copyright © 2006–2024, The MITRE Corporation. CWE, CWSS, CWRAF, and the CWE logo are trademarks of The MITRE Corporation.
+

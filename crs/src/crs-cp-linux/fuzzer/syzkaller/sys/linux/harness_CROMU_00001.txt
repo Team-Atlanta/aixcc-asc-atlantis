@@ -1,0 +1,59 @@
+define CROMU_00001_IOCTL_CREATE	0xc00010ff
+define CROMU_00001_IOCTL_LOGIN	0x1337beef
+define CROMU_00001_IOCTL_EXIT	0x13370001
+define CROMU_00001_IOCTL_SEND_MSG	0x13370002
+define CROMU_00001_IOCTL_READ_MSG	0x13370003
+define CROMU_00001_IOCTL_LIST_MSG	0x13370004
+define CROMU_00001_IOCTL_DEL_MSG	0x13370005
+define CROMU_00001_IOCTL_LOGOUT	0x13370006
+
+syz_harness$cromu_00001_cmd_create(a0 ptr[in, cromu_00001_cmd_create], a1 bytesize[a0])
+syz_harness$cromu_00001_cmd_login(a0 ptr[in, cromu_00001_cmd_login], a1 bytesize[a0])
+syz_harness$cromu_00001_cmd_exit(a0 ptr[in, cromu_00001_cmd_exit], a1 bytesize[a0])
+syz_harness$cromu_00001_cmd_send_msg(a0 ptr[in, cromu_00001_cmd_send_msg], a1 bytesize[a0])
+syz_harness$cromu_00001_cmd_read_msg(a0 ptr[in, cromu_00001_cmd_read_msg], a1 bytesize[a0])
+syz_harness$cromu_00001_cmd_list_msg(a0 ptr[in, cromu_00001_cmd_list_msg], a1 bytesize[a0])
+syz_harness$cromu_00001_cmd_del_msg(a0 ptr[in, cromu_00001_cmd_del_msg], a1 bytesize[a0])
+syz_harness$cromu_00001_cmd_logout(a0 ptr[in, cromu_00001_cmd_logout], a1 bytesize[a0])
+
+cromu_00001_cmd_create {
+	cmd		int32[CROMU_00001_IOCTL_CREATE]
+	len_username	len[username, int32]
+	username	string
+} [packed]
+
+cromu_00001_cmd_login {
+	cmd		int32[CROMU_00001_IOCTL_LOGIN]
+	len_username	len[username, int32]
+	username	string
+} [packed]
+
+cromu_00001_cmd_exit {
+	cmd	int32[CROMU_00001_IOCTL_EXIT]
+} [packed]
+
+cromu_00001_cmd_send_msg {
+	cmd		int32[CROMU_00001_IOCTL_SEND_MSG]
+	len_username	len[username, int32]
+	username	string
+	len_msg		len[message, int32]
+	message		string
+} [packed]
+
+cromu_00001_cmd_read_msg {
+	cmd	int32[CROMU_00001_IOCTL_READ_MSG]
+	msg_id	int32
+} [packed]
+
+cromu_00001_cmd_list_msg {
+	cmd	int32[CROMU_00001_IOCTL_LIST_MSG]
+} [packed]
+
+cromu_00001_cmd_del_msg {
+	cmd	int32[CROMU_00001_IOCTL_DEL_MSG]
+	msg_id	int32
+} [packed]
+
+cromu_00001_cmd_logout {
+	cmd	int32[CROMU_00001_IOCTL_LOGOUT]
+}

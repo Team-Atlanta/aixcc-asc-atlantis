@@ -1,0 +1,17 @@
+INPUT ::= RENAME0 { size: 4 }
+          RENAME1[RENAME0]
+
+RENAME1 ::= COMMAND
+          | RENAME2
+
+COMMAND ::= OPCODE { size: 4, value: 0 }
+                COMMAND_CNT { size: 4 }
+                FLAGS { size: 4 }
+                PACKET_DATA { size: COMMAND_CNT }
+
+RENAME2 ::= OPCODE { size: 4, value: 1 }
+            MSG_TYPE { size: 4 }
+            MSG_FLAGS { size: 4 }
+            NETLINK_PROTOCOL { size: 4 }
+            COMMAND_CNT { size: 4 }
+            DATA { size: COMMAND_CNT }

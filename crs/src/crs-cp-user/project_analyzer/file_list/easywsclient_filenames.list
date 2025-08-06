@@ -1,0 +1,5 @@
+easywsclient.cpp
+easywsclient.hpp
+example-client.cpp
+example-client-cpp11.cpp
+easywsclient.t.cpp

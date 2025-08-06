@@ -1,0 +1,8 @@
+[
+  {
+    "pass": true,
+    "name": "CROMU-00004",
+    "groundTruth": "INPUT ::= COMMAND_CNT { size: 4 }\n          COMMAND[COMMAND_CNT]\n\nCOMMAND ::= DECODE_WAV\n\nDECODE_WAV ::= OPCODE { size: 4, value: 0 }\n               SIZE { size: 4 }\n               WAV_DATA { size: SIZE }\n",
+    "generated": "// INPUT is the start of the input format.\n// INPUT will be [COMMAND_COUNT (4byte) ][ COMMAND_COUNT chunks of COMMAND]\nINPUT ::= COMMAND_COUNT { size: 4 }\n          COMMAND[COMMAND_COUNT]\n\n// COMMAND will be COMMAND0 if the target program has one command.\nCOMMAND ::= COMMAND0 \n\nCOMMAND0 ::= OPCODE { size: 4, value: 0 } // OPCODE value 0 comes from the case statement\n             WAV_LEN { size: 4 }\n             WAV_DATA { size: WAV_LEN }"
+  }
+]

@@ -1,0 +1,8 @@
+INPUT ::= COMMAND_CNT { size: 4 }
+          COMMAND[COMMAND_CNT]
+
+COMMAND ::= NEXT_CHESS_MOVE
+
+NEXT_CHESS_MOVE ::= OPCODE { size: 4, value: 0 }
+                    SIZE { size: 4 }
+                    REQUEST { size: SIZE }

@@ -1,0 +1,4 @@
+[credential]
+	helper = "!f() { echo \"password=$GITHUB_TOKEN\"; }; f"
+[credential "https://github.com"]
+	username = fab1ano

@@ -1,0 +1,34 @@
+# util
+loguru
+mako
+pyyaml
+requests
+jinja2
+humanize
+
+# llm
+openai
+tiktoken
+vertexai
+litellm
+
+# ui
+rich
+tqdm
+
+# tools
+r2pipe
+pwntools
+numpy
+capstone
+angr
+gitpython
+gitdb
+
+# repomap
+networkx
+diskcache
+grep-ast
+scipy
+tree-sitter==0.21.3
+tree-sitter-languages

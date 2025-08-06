@@ -1,0 +1,6 @@
+cp_name = "linux kernel"
+blob_file = "./exemplar_only/blobs/CADET-00001_solve.bin"
+harness_id = "id_2"
+sanitizer_id = "id_2"
+bug_introduce_commit = "f5ef2080a6316cffbf64ed81c28998d000e23d26"
+src_dir = "./src/linux_kernel"

@@ -1,0 +1,13 @@
+---
+# Applied in vcluster template, not included in competition kustomization. Here for reference
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: crs
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: crs
+subjects:
+  - kind: ServiceAccount
+    name: crs

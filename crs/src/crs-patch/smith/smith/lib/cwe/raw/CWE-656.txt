@@ -1,0 +1,230 @@
+CWE
+
+Common Weakness Enumeration
+
+A community-developed list of SW & HW weaknesses that can become vulnerabilities
+
+New to CWE? click here!
+CWE Most Important Hardware Weaknesses
+CWE Top 25 Most Dangerous Weaknesses
+Home > CWE List > CWE- Individual Dictionary Definition (4.14)                                                                                                   ID Lookup: [                    ] [Go]
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  • Home
+  • About ▼
+    About New to CWE User Stories History Documents FAQs Glossary Compatibility
+  • CWE List ▼
+    Latest Version Downloads Reports Visualizations Archive
+  • Mapping ▼
+    Root Cause Mapping Guidance Root Cause Mapping Quick Tips Root Cause Mapping Examples
+  • Top-N Lists ▼
+    Top 25 Software Top Hardware Top 10 KEV Weaknesses
+  • Community ▼
+    Community Working Groups & Special Interest Groups Board Board Meeting Minutes CWE Discussion List CWE Discussion Archives Contribute Weakness Content to CWE
+  • News ▼
+    Current News X-Twitter ● Mastodon ● LinkedIn ● YouTube YouTube Podcast Out of Bounds Read Podcast Medium Medium News Archive
+  • Search
+
+ 
+ CWE Glossary Definition                  x
+ 
+ 
+ CWE-656: Reliance on Security Through Obscurity
+ 
+ Weakness ID: 656
+ Vulnerability Mapping: ALLOWEDThis CWE ID could be used to map to real-world vulnerabilities in limited situations requiring careful review (with careful review of mapping notes)
+ Abstraction: ClassClass - a weakness that is described in a very abstract fashion, typically independent of any specific language or technology. More specific than a Pillar Weakness, but more general
+ than a Base Weakness. Class level weaknesses typically describe issues in terms of 1 or 2 of the following dimensions: behavior, property, and resource.
+ View customized information:
+ Conceptual For users who are interested in more notional aspects of a weakness. Example: educators, technical writers, and project/program managers. Operational For users who are concerned with the
+ practical application and details about the nature of a weakness and how to prevent it from happening. Example: tool developers, security researchers, pen-testers, incident response analysts. Mapping
+ Friendly For users who are mapping an issue to CWE/CAPEC IDs, i.e., finding the most appropriate CWE for a specific issue (e.g., a CVE record). Example: tool developers, security researchers. 
+ Complete For users who wish to see all available information for the CWE/CAPEC entry. Custom For users who want to customize what details are displayed.
+ ×
+
+ Edit Custom Filter
+
+ Conceptual Operational Mapping Friendly Select All
+ 
+ Reset Clear Submit Cancel
+ + Description
+ The product uses a protection mechanism whose strength depends heavily on its obscurity, such that knowledge of its algorithms or key data is sufficient to defeat the mechanism.
+ + Extended Description
+ This reliance on "security through obscurity" can produce resultant weaknesses if an attacker is able to reverse engineer the inner workings of the mechanism. Note that obscurity can be one small
+ part of defense in depth, since it can create more work for an attacker; however, it is a significant risk if used as the primary means of protection.
+ + Alternate Terms
+ Never Assuming your secrets are safe
+ + Relationships
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Research Concepts" (CWE-1000)
+     Nature                                                                                                                                                                               Type                                                                                                                                                                            ID          Name
+ ChildOf                                                                                 PillarPillar - a weakness that is the most abstract type of weakness and represents a theme for all class/base/variant weaknesses related to it. A Pillar is different from a Category as a Pillar is                                                                          693     Protection
+                                                                                                                    still technically a type of weakness that describes a mistake, while a Category represents a common characteristic used to group related things.                                                                                                            Mechanism Failure
+ ChildOf                                                                                 ClassClass - a weakness that is described in a very abstract fashion, typically independent of any specific language or technology. More specific than a Pillar Weakness, but more general than a Base                                                                         657     Violation of
+                                                                                                                      Weakness. Class level weaknesses typically describe issues in terms of 1 or 2 of the following dimensions: behavior, property, and resource.                                                                                                              Secure Design
+                                                                                                                                                                                                                                                                                                                                                                                Principles
+ PeerOf                                                                                     BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level weaknesses                                                                             603     Use of
+                                                                                                                           typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                    Client-Side
+                                                                                                                                                                                                                                                                                                                                                                                Authentication
+ CanPrecede                                                                              VariantVariant - a weakness that is linked to a certain type of product, typically involving a specific language or technology. More specific than a Base weakness. Variant level weaknesses typically                                                                         259     Use of Hard-coded
+                                                                                                                                describe issues in terms of 3 to 5 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                         Password
+ CanPrecede                                                                              VariantVariant - a weakness that is linked to a certain type of product, typically involving a specific language or technology. More specific than a Base weakness. Variant level weaknesses typically                                                                         321     Use of Hard-coded
+                                                                                                                                describe issues in terms of 3 to 5 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                         Cryptographic Key
+ CanPrecede                                                                                 BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level weaknesses                                                                             472     External Control
+                                                                                                                           typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                    of
+                                                                                                                                                                                                                                                                                                                                                                                Assumed-Immutable
+                                                                                                                                                                                                                                                                                                                                                                                Web Parameter
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Software Development" (CWE-699)
+     Nature                                                       Type                                                     ID                                   Name
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 1006    Bad Coding Practices
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Architectural Concepts" (CWE-1008)
+     Nature                                                       Type                                                     ID                                   Name
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 1011    Authorize Actors
+ + Modes Of Introduction
+ Section HelpThe different Modes of Introduction provide information about how and when this weakness may be introduced. The Phase identifies a point in the life cycle at which introduction may occur,
+ while the Note provides a typical scenario related to introduction during the given phase.
+          Phase                                                                                             Note
+ Architecture and Design
+ Implementation          REALIZATION: This weakness is caused during implementation of an architectural security tactic.
+ + Applicable Platforms
+ Section HelpThis listing shows possible areas for which the given weakness could appear. These may be for specific named Languages, Operating Systems, Architectures, Paradigms, Technologies, or a
+ class of such platforms. The platform is listed along with how frequently the given weakness appears for that instance.
+
+ Languages
+
+ Class: Not Language-Specific (Undetermined Prevalence)
+
+ + Common Consequences
+ Section HelpThis table specifies different individual consequences associated with the weakness. The Scope identifies the application security area that is violated, while the Impact describes the
+ negative technical impact that arises if an adversary succeeds in exploiting this weakness. The Likelihood provides information about how likely the specific consequence is expected to be seen
+ relative to the other consequences in the list. For example, there may be high likelihood that a weakness will be exploited to achieve a certain impact, but a low likelihood that it will be exploited
+ to achieve a different impact.
+       Scope                                                                                     Impact                                                                                 Likelihood
+ Confidentiality    Technical Impact: Other
+ Integrity
+ Availability       The security mechanism can be bypassed easily.
+ Other
+ + Demonstrative Examples
+ 
+ Example 1
+
+ The design of TCP relies on the secrecy of Initial Sequence Numbers (ISNs), as originally covered in CVE-1999-0077 [REF-542]. If ISNs can be guessed (due to predictability, CWE-330) or sniffed (due
+ to lack of encryption during transmission, CWE-312), then an attacker can hijack or spoof connections. Many TCP implementations have had variations of this problem over the years, including
+ CVE-2004-0641, CVE-2002-1463, CVE-2001-0751, CVE-2001-0328, CVE-2001-0288, CVE-2001-0163, CVE-2001-0162, CVE-2000-0916, and CVE-2000-0328.
+ 
+ Example 1 References:
+ [REF-542] Jon Postel, Editor. "RFC: 793, TRANSMISSION CONTROL PROTOCOL". Information Sciences Institute. 1981-09. <https://www.ietf.org/rfc/rfc0793.txt>. URL validated: 2023-04-07.
+ + Observed Examples
+        Reference                                                                                        Description
+ CVE-2006-6588           Reliance on hidden form fields in a web application. Many web application vulnerabilities exist because the developer did not consider that "hidden" form fields can be
+                         processed using a modified client.
+ CVE-2006-7142           Hard-coded cryptographic key stored in executable program.
+ CVE-2005-4002           Hard-coded cryptographic key stored in executable program.
+ CVE-2006-4068           Hard-coded hashed values for username and password contained in client-side script, allowing brute-force offline attacks.
+ + Potential Mitigations
+ Phase: Architecture and Design
+
+ Always consider whether knowledge of your code or design is sufficient to break it. Reverse engineering is a highly successful discipline, and financially feasible for motivated adversaries.
+ Black-box techniques are established for binary analysis of executables that use obfuscation, runtime analysis of proprietary protocols, inferring file formats, and others.
+ Phase: Architecture and Design
+
+ When available, use publicly-vetted algorithms and procedures, as these are more likely to undergo more extensive security analysis and testing. This is especially the case with encryption and
+ authentication.
+ + Weakness Ordinalities
+ Ordinality                                                                                       Description
+ Primary    (where the weakness exists independent of other weaknesses)
+ + Memberships
+ Section HelpThis MemberOf Relationships table shows additional CWE Categories and Views that reference this weakness as a member. This information is often useful in understanding where a weakness
+ fits within the context of external information sources.
+     Nature                                                       Type                                                     ID                                   Name
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 975     SFP Secondary Cluster: Architecture
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 1348    OWASP Top Ten 2021 Category A04:2021 - Insecure Design
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 1418    Comprehensive Categorization: Violation of Secure Design Principles
+ + Vulnerability Mapping Notes
+ Usage: ALLOWED-WITH-REVIEW
+
+ (this CWE ID could be used to map to real-world vulnerabilities in limited situations requiring careful review)
+ Reason: Abstraction
+
+ Rationale:
+
+ This CWE entry is a Class and might have Base-level children that would be more appropriate
+ Comments:
+
+ Examine children of this entry to see if there is a better fit
+ + Notes
+ 
+ Relationship
+
+ Note that there is a close relationship between this weakness and CWE-603 (Use of Client-Side Authentication). If developers do not believe that a user can reverse engineer a client, then they are
+ more likely to choose client-side authentication in the belief that it is safe.
+ + References
+ [REF-196] Jerome H. Saltzer and Michael D. Schroeder. "The Protection of Information in Computer Systems". Proceedings of the IEEE 63. 1975-09. <http://web.mit.edu/Saltzer/www/publications/
+ protection/>.
+ [REF-544] Sean Barnum and Michael Gegick. "Never Assuming that Your Secrets Are Safe". 2005-09-14. <https://web.archive.org/web/20220126060054/https://www.cisa.gov/uscert/bsi/articles/knowledge/
+ principles/never-assuming-that-your-secrets-are-safe>. URL validated: 2023-04-07.
+ [REF-542] Jon Postel, Editor. "RFC: 793, TRANSMISSION CONTROL PROTOCOL". Information Sciences Institute. 1981-09. <https://www.ietf.org/rfc/rfc0793.txt>. URL validated: 2023-04-07.
+ + Content History
+                                                                                           + Submissions
+              Submission Date                                              Submitter                                                                  Organization
+ 2008-01-18                                 Pascal Meunier                                                           Purdue University
+ (CWE Draft 8, 2008-01-30)
+
+                                                                                          + Modifications
+             Modification Date                                              Modifier                                                                  Organization
+ 2008-07-01                                 Eric Dalci                                                               Cigital
+                                            updated Time_of_Introduction
+ 2008-09-08                                 CWE Content Team                                                         MITRE
+                                            updated Common_Consequences, Description, Relationships, Other_Notes, Weakness_Ordinalities
+ 2009-01-12                                 CWE Content Team                                                         MITRE
+                                            updated Description, Name
+ 2010-04-05                                 CWE Content Team                                                         MITRE
+                                            updated Related_Attack_Patterns
+ 2011-06-01                                 CWE Content Team                                                         MITRE
+                                            updated Common_Consequences
+ 2012-05-11                                 CWE Content Team                                                         MITRE
+                                            updated Relationships
+ 2012-10-30                                 CWE Content Team                                                         MITRE
+                                            updated Potential_Mitigations
+ 2014-06-23                                 CWE Content Team                                                         MITRE
+                                            updated Other_Notes, Relationship_Notes
+ 2014-07-30                                 CWE Content Team                                                         MITRE
+                                            updated Relationships
+ 2017-11-08                                 CWE Content Team                                                         MITRE
+                                            updated Applicable_Platforms, Causal_Nature, Modes_of_Introduction, Relationships
+ 2019-06-20                                 CWE Content Team                                                         MITRE
+                                            updated Related_Attack_Patterns
+ 2020-02-24                                 CWE Content Team                                                         MITRE
+                                            updated Relationships, Time_of_Introduction
+ 2021-03-15                                 CWE Content Team                                                         MITRE
+                                            updated Relationships
+ 2021-10-28                                 CWE Content Team                                                         MITRE
+                                            updated Relationships
+ 2022-10-13                                 CWE Content Team                                                         MITRE
+                                            updated Demonstrative_Examples, References
+ 2023-01-31                                 CWE Content Team                                                         MITRE
+                                            updated Description
+ 2023-04-27                                 CWE Content Team                                                         MITRE
+                                            updated Demonstrative_Examples, References, Relationships, Type
+ 2023-06-29                                 CWE Content Team                                                         MITRE
+                                            updated Mapping_Notes
+ 2023-10-26                                 CWE Content Team                                                         MITRE
+                                            updated Demonstrative_Examples
+                                                                                       + Previous Entry Names
+                Change Date                                                                                   Previous Entry Name
+ 2009-01-12                                 Design Principle Violation: Reliance on Security through Obscurity
+ More information is available — Please edit the custom filter or select a different filter.
+Page Last Updated: February 29, 2024
+ 
+      Site Map | Terms of Use | Manage Cookies | Cookie Notice | Privacy Policy | Contact Us | CWE X-Twitter CWE Mastodon CWE on LinkedIn CWE YouTube channel CWE Out-of-Bounds-Read Podcast CWE
+      Blog on Medium blog
+
+MITRE Use of the Common Weakness Enumeration (CWE™) and the associated references from this website are subject to the Terms of Use. CWE is sponsored by the U.S. Department of Homeland         HSSEDI
+      Security (DHS) Cybersecurity and Infrastructure Security Agency (CISA) and managed by the Homeland Security Systems Engineering and Development Institute (HSSEDI) which is operated by
+      The MITRE Corporation (MITRE). Copyright © 2006–2024, The MITRE Corporation. CWE, CWSS, CWRAF, and the CWE logo are trademarks of The MITRE Corporation.
+

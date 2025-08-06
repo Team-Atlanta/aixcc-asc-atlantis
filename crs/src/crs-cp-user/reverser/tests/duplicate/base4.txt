@@ -1,0 +1,18 @@
+INPUT ::= SIZE { size: 4 }
+          CMD
+          CMD
+
+CMD ::= CMD1
+      | CMD2
+
+CMD1 ::= VAL { size: 4, value: 0 }
+         TIME { size: 8 }
+
+CMD2 ::= SIZE1 { size: 4 }
+         SUB[SIZE1]
+         SIZE2 { size: 4 }
+
+SUB ::= NAME_SIZE { size: 4 }
+        NAME { size: NAME_SIZE }
+        DATA_SIZE { size: 4 }
+        DATA { size: DATA_SIZE }

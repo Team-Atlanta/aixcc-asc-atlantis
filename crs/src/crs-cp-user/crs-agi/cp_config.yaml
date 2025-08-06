@@ -1,0 +1,37 @@
+# Each item listed under "cp_targets" is treated as a CP repository
+# to initialize in the target CP volume (e.g., ./cp_root)
+#
+# The "ref" element is optional. It indicates the git repository
+# branch, tag, or commit that should be checked out. If not
+# specified, it will default to checking out the "main" branch
+# of the specified repo from "url".
+
+cp_targets:
+    mock-cp:
+        url: git@github.com:Team-Atlanta/mock-cp.git
+        ref: no-exemplar
+    
+    ARVO-1856:
+        url: git@github.com:Team-Atlanta/cp-harfbuzz-exemplar.git
+
+    ARVO-32972:
+        url: git@github.com:Team-Atlanta/cp-libjpeg-turbo-exemplar.git
+    
+    ARVO-23764:
+        url: git@github.com:Team-Atlanta/cp-hoextdown-exemplar.git
+    
+    ARVO-3522:
+        url: git@github.com:Team-Atlanta/cp-zstd-exemplar.git
+
+    challenge-004-nginx-cp:
+        url: git@github.com:Team-Atlanta/challenge-004-nginx-cp.git
+        ref: no-exemplar
+
+    cp-user-itoa:
+        url: https://github.com/Team-Atlanta/cp-user-itoa
+
+    cp-user-babynote:
+        url: https://github.com/Team-Atlanta/cp-user-babynote
+
+    cp-user-libcue:
+        url: https://github.com/Team-Atlanta/cp-user-libcue

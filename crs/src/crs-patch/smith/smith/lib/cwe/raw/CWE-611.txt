@@ -1,0 +1,320 @@
+CWE
+
+Common Weakness Enumeration
+
+A community-developed list of SW & HW weaknesses that can become vulnerabilities
+
+New to CWE? click here!
+CWE Most Important Hardware Weaknesses
+CWE Top 25 Most Dangerous Weaknesses
+Home > CWE List > CWE- Individual Dictionary Definition (4.14)                                                                                                   ID Lookup: [                    ] [Go]
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  • Home
+  • About ▼
+    About New to CWE User Stories History Documents FAQs Glossary Compatibility
+  • CWE List ▼
+    Latest Version Downloads Reports Visualizations Archive
+  • Mapping ▼
+    Root Cause Mapping Guidance Root Cause Mapping Quick Tips Root Cause Mapping Examples
+  • Top-N Lists ▼
+    Top 25 Software Top Hardware Top 10 KEV Weaknesses
+  • Community ▼
+    Community Working Groups & Special Interest Groups Board Board Meeting Minutes CWE Discussion List CWE Discussion Archives Contribute Weakness Content to CWE
+  • News ▼
+    Current News X-Twitter ● Mastodon ● LinkedIn ● YouTube YouTube Podcast Out of Bounds Read Podcast Medium Medium News Archive
+  • Search
+
+ 
+ CWE Glossary Definition                  x
+ 
+ 
+ CWE-611: Improper Restriction of XML External Entity Reference
+ 
+ Weakness ID: 611
+ Vulnerability Mapping: ALLOWEDThis CWE ID may be used to map to real-world vulnerabilities
+ Abstraction: BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level
+ weaknesses typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.
+ View customized information:
+ Conceptual For users who are interested in more notional aspects of a weakness. Example: educators, technical writers, and project/program managers. Operational For users who are concerned with the
+ practical application and details about the nature of a weakness and how to prevent it from happening. Example: tool developers, security researchers, pen-testers, incident response analysts. Mapping
+ Friendly For users who are mapping an issue to CWE/CAPEC IDs, i.e., finding the most appropriate CWE for a specific issue (e.g., a CVE record). Example: tool developers, security researchers. 
+ Complete For users who wish to see all available information for the CWE/CAPEC entry. Custom For users who want to customize what details are displayed.
+ ×
+
+ Edit Custom Filter
+
+ Conceptual Operational Mapping Friendly Select All
+ 
+ Reset Clear Submit Cancel
+ + Description
+ The product processes an XML document that can contain XML entities with URIs that resolve to documents outside of the intended sphere of control, causing the product to embed incorrect documents
+ into its output.
+ + Extended Description
+ 
+ XML documents optionally contain a Document Type Definition (DTD), which, among other features, enables the definition of XML entities. It is possible to define an entity by providing a substitution
+ string in the form of a URI. The XML parser can access the contents of this URI and embed these contents back into the XML document for further processing.
+
+ By submitting an XML file that defines an external entity with a file:// URI, an attacker can cause the processing application to read the contents of a local file. For example, a URI such as "file:/
+ //c:/winnt/win.ini" designates (in Windows) the file C:\Winnt\win.ini, or file:///etc/passwd designates the password file in Unix-based systems. Using URIs with other schemes such as http://, the
+ attacker can force the application to make outgoing requests to servers that the attacker cannot reach directly, which can be used to bypass firewall restrictions or hide the source of attacks such
+ as port scanning.
+
+ Once the content of the URI is read, it is fed back into the application that is processing the XML. This application may echo back the data (e.g. in an error message), thereby exposing the file
+ contents.
+
+ + Alternate Terms
+ XXE: An acronym used for the term "XML eXternal Entities"
+ + Relationships
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Research Concepts" (CWE-1000)
+     Nature                                                                                                                                                                             Type                                                                                                                                                                           ID        Name
+ ChildOf                                                                               ClassClass - a weakness that is described in a very abstract fashion, typically independent of any specific language or technology. More specific than a Pillar Weakness, but more general than a Base                                                                        610     Externally
+                                                                                                                    Weakness. Class level weaknesses typically describe issues in terms of 1 or 2 of the following dimensions: behavior, property, and resource.                                                                                                             Controlled
+                                                                                                                                                                                                                                                                                                                                                                             Reference to
+                                                                                                                                                                                                                                                                                                                                                                             a Resource
+                                                                                                                                                                                                                                                                                                                                                                             in Another
+                                                                                                                                                                                                                                                                                                                                                                             Sphere
+ PeerOf                                                                                ClassClass - a weakness that is described in a very abstract fashion, typically independent of any specific language or technology. More specific than a Pillar Weakness, but more general than a Base                                                                        441     Unintended
+                                                                                                                    Weakness. Class level weaknesses typically describe issues in terms of 1 or 2 of the following dimensions: behavior, property, and resource.                                                                                                             Proxy or
+                                                                                                                                                                                                                                                                                                                                                                             Intermediary
+                                                                                                                                                                                                                                                                                                                                                                             ('Confused
+                                                                                                                                                                                                                                                                                                                                                                             Deputy')
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Software Development" (CWE-699)
+     Nature                                                       Type                                                     ID                                   Name
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 19      Data Processing Errors
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Weaknesses for Simplified Mapping of Published Vulnerabilities" (CWE-1003)
+     Nature                                                                                                                                                                             Type                                                                                                                                                                           ID       Name
+ ChildOf                                                                               ClassClass - a weakness that is described in a very abstract fashion, typically independent of any specific language or technology. More specific than a Pillar Weakness, but more general than a Base                                                                        610     Externally
+                                                                                                                    Weakness. Class level weaknesses typically describe issues in terms of 1 or 2 of the following dimensions: behavior, property, and resource.                                                                                                             Controlled
+                                                                                                                                                                                                                                                                                                                                                                             Reference
+                                                                                                                                                                                                                                                                                                                                                                             to a
+                                                                                                                                                                                                                                                                                                                                                                             Resource
+                                                                                                                                                                                                                                                                                                                                                                             in Another
+                                                                                                                                                                                                                                                                                                                                                                             Sphere
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Architectural Concepts" (CWE-1008)
+     Nature                                                       Type                                                     ID                                   Name
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 1015    Limit Access
+ + Modes Of Introduction
+ Section HelpThe different Modes of Introduction provide information about how and when this weakness may be introduced. The Phase identifies a point in the life cycle at which introduction may occur,
+ while the Note provides a typical scenario related to introduction during the given phase.
+     Phase                                                                                              Note
+ Implementation REALIZATION: This weakness is caused during implementation of an architectural security tactic.
+ + Applicable Platforms
+ Section HelpThis listing shows possible areas for which the given weakness could appear. These may be for specific named Languages, Operating Systems, Architectures, Paradigms, Technologies, or a
+ class of such platforms. The platform is listed along with how frequently the given weakness appears for that instance.
+
+ Languages
+
+ XML (Undetermined Prevalence)
+
+ Technologies
+
+ Class: Web Based (Undetermined Prevalence)
+
+ + Common Consequences
+ Section HelpThis table specifies different individual consequences associated with the weakness. The Scope identifies the application security area that is violated, while the Impact describes the
+ negative technical impact that arises if an adversary succeeds in exploiting this weakness. The Likelihood provides information about how likely the specific consequence is expected to be seen
+ relative to the other consequences in the list. For example, there may be high likelihood that a weakness will be exploited to achieve a certain impact, but a low likelihood that it will be exploited
+ to achieve a different impact.
+       Scope                                                                                     Impact                                                                                 Likelihood
+                    Technical Impact: Read Application Data; Read Files or Directories
+ Confidentiality
+                    If the attacker is able to include a crafted DTD and a default entity resolver is enabled, the attacker may be able to access arbitrary files on the system.
+                    Technical Impact: Bypass Protection Mechanism
+ Integrity
+                    The DTD may include arbitrary HTTP requests that the server may execute. This could lead to other attacks leveraging the server's trust relationship with other
+                    entities.
+                    Technical Impact: DoS: Resource Consumption (CPU); DoS: Resource Consumption (Memory)
+ Availability
+                    The product could consume excessive CPU cycles or memory using a URI that points to a large file, or a device that always returns data such as /dev/random.
+                    Alternately, the URI could reference a file that contains many nested or recursive entity references to further slow down parsing.
+ + Observed Examples
+        Reference                                                                                        Description
+ CVE-2022-42745          Recruiter software allows reading arbitrary files using XXE
+ CVE-2005-1306           A browser control can allow remote attackers to determine the existence of files via Javascript containing XML script.
+ CVE-2012-5656           XXE during SVG image conversion
+ CVE-2012-2239           XXE in PHP application allows reading the application's configuration file.
+ CVE-2012-3489           XXE in database server
+ CVE-2012-4399           XXE in rapid web application development framework allows reading arbitrary files.
+ CVE-2012-3363           XXE via XML-RPC request.
+ CVE-2012-0037           XXE in office document product using RDF.
+ CVE-2011-4107           XXE in web-based administration tool for database.
+ CVE-2010-3322           XXE in product that performs large-scale data analysis.
+ CVE-2009-1699           XXE in XSL stylesheet functionality in a common library used by some web browsers.
+ + Potential Mitigations
+ Phases: Implementation; System Configuration
+
+ Many XML parsers and validators can be configured to disable external entity expansion.
+ + Detection Methods
+ Automated Static Analysis
+
+ Automated static analysis, commonly referred to as Static Application Security Testing (SAST), can find some instances of this weakness by analyzing source code (or binary/compiled code) without
+ having to execute it. Typically, this is done by building a model of data flow and control flow, then searching for potentially-vulnerable patterns that connect "sources" (origins of input) with
+ "sinks" (destinations where the data interacts with external components, a lower layer such as the OS, etc.)
+
+ Effectiveness: High
+
+ + Memberships
+ Section HelpThis MemberOf Relationships table shows additional CWE Categories and Views that reference this weakness as a member. This information is often useful in understanding where a weakness
+ fits within the context of external information sources.
+     Nature                                                                                                  Type                                                                                               ID          Name
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            990     SFP Secondary
+                                                                                                                                                                                                                      Cluster: Tainted
+                                                                                                                                                                                                                      Input to Command
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            1030    OWASP Top Ten
+                                                                                                                                                                                                                      2017 Category A4
+                                                                                                                                                                                                                      - XML External
+                                                                                                                                                                                                                      Entities (XXE)
+ MemberOf        ViewView - a subset of CWE entries that provides a way of examining CWE content. The two main view structures are Slices (flat lists) and Graphs (containing relationships between entries). 1200    Weaknesses in
+                                                                                                                                                                                                                      the 2019 CWE Top
+                                                                                                                                                                                                                      25 Most
+                                                                                                                                                                                                                      Dangerous
+                                                                                                                                                                                                                      Software Errors
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            1308    CISQ Quality
+                                                                                                                                                                                                                      Measures -
+                                                                                                                                                                                                                      Security
+ MemberOf        ViewView - a subset of CWE entries that provides a way of examining CWE content. The two main view structures are Slices (flat lists) and Graphs (containing relationships between entries). 1337    Weaknesses in
+                                                                                                                                                                                                                      the 2021 CWE Top
+                                                                                                                                                                                                                      25 Most
+                                                                                                                                                                                                                      Dangerous
+                                                                                                                                                                                                                      Software
+                                                                                                                                                                                                                      Weaknesses
+ MemberOf        ViewView - a subset of CWE entries that provides a way of examining CWE content. The two main view structures are Slices (flat lists) and Graphs (containing relationships between entries). 1340    CISQ Data
+                                                                                                                                                                                                                      Protection
+                                                                                                                                                                                                                      Measures
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            1349    OWASP Top Ten
+                                                                                                                                                                                                                      2021 Category
+                                                                                                                                                                                                                      A05:2021 -
+                                                                                                                                                                                                                      Security
+                                                                                                                                                                                                                      Misconfiguration
+ MemberOf        ViewView - a subset of CWE entries that provides a way of examining CWE content. The two main view structures are Slices (flat lists) and Graphs (containing relationships between entries). 1350    Weaknesses in
+                                                                                                                                                                                                                      the 2020 CWE Top
+                                                                                                                                                                                                                      25 Most
+                                                                                                                                                                                                                      Dangerous
+                                                                                                                                                                                                                      Software
+                                                                                                                                                                                                                      Weaknesses
+ MemberOf        ViewView - a subset of CWE entries that provides a way of examining CWE content. The two main view structures are Slices (flat lists) and Graphs (containing relationships between entries). 1387    Weaknesses in
+                                                                                                                                                                                                                      the 2022 CWE Top
+                                                                                                                                                                                                                      25 Most
+                                                                                                                                                                                                                      Dangerous
+                                                                                                                                                                                                                      Software
+                                                                                                                                                                                                                      Weaknesses
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            1396    Comprehensive
+                                                                                                                                                                                                                      Categorization:
+                                                                                                                                                                                                                      Access Control
+ + Vulnerability Mapping Notes
+ Usage: ALLOWED
+
+ (this CWE ID could be used to map to real-world vulnerabilities)
+ Reason: Acceptable-Use
+
+ Rationale:
+
+ This CWE entry is at the Base level of abstraction, which is a preferred level of abstraction for mapping to the root causes of vulnerabilities.
+ Comments:
+
+ Carefully read both the name and description to ensure that this mapping is an appropriate fit. Do not try to 'force' a mapping to a lower-level Base/Variant simply to comply with this preferred
+ level of abstraction.
+ + Notes
+ 
+ Relationship
+
+ CWE-918 (SSRF) and CWE-611 (XXE) are closely related, because they both involve web-related technologies and can launch outbound requests to unexpected destinations. However, XXE can be performed
+ client-side, or in other contexts in which the software is not acting directly as a server, so the "Server" portion of the SSRF acronym does not necessarily apply.
+ + Taxonomy Mappings
+       Mapped Taxonomy Name          Node ID             Fit                                                                 Mapped Node Name
+ WASC                             43                                  XML External Entities
+ Software Fault Patterns          SFP24                               Tainted input to command
+ + Related Attack Patterns
+    CAPEC-ID                                                                                     Attack Pattern Name
+ CAPEC-221       Data Serialization External Entities Blowup
+ + References
+ [REF-496] OWASP. "XML External Entity (XXE) Processing". <https://www.owasp.org/index.php/XML_External_Entity_(XXE)_Processing>.
+ [REF-497] Sascha Herzog. "XML External Entity Attacks (XXE)". 2010-10-20. <https://owasp.org/www-pdf-archive/XML_Exteral_Entity_Attack.pdf>. URL validated: 2023-04-07.
+ [REF-498] Gregory Steuck. "XXE (Xml eXternal Entity) Attack". <https://www.beyondsecurity.com/>. URL validated: 2023-04-07.
+ [REF-499] WASC. "XML External Entities (XXE) Attack". <http://projects.webappsec.org/w/page/13247003/XML%20External%20Entities>.
+ [REF-500] Bryan Sullivan. "XML Denial of Service Attacks and Defenses". 2009-09. <https://learn.microsoft.com/en-us/archive/msdn-magazine/2009/november/xml-denial-of-service-attacks-and-defenses
+ >. URL validated: 2023-04-07.
+ [REF-501] Chris Cornutt. "Preventing XXE in PHP". <https://websec.io/2012/08/27/Preventing-XXE-in-PHP.html>. URL validated: 2023-04-07.
+ + Content History
+                                                                                           + Submissions
+      Submission Date                                                              Submitter                                                                          Organization
+ 2007-05-07                Anonymous Tool Vendor (under NDA)
+ (CWE Draft 6, 2007-05-07)
+
+                                                                                          + Modifications
+     Modification Date                                                              Modifier                                                                          Organization
+ 2008-07-01                Eric Dalci                                                                                                                 Cigital
+                           updated Time_of_Introduction
+ 2008-09-08                CWE Content Team                                                                                                           MITRE
+                           updated Description, Relationships, Observed_Example, Other_Notes, Taxonomy_Mappings
+ 2010-02-16                CWE Content Team                                                                                                           MITRE
+                           updated Taxonomy_Mappings
+ 2010-09-27                CWE Content Team                                                                                                           MITRE
+                           updated Background_Details, Other_Notes
+ 2011-03-29                CWE Content Team                                                                                                           MITRE
+                           updated Name
+ 2011-06-01                CWE Content Team                                                                                                           MITRE
+                           updated Common_Consequences
+ 2012-05-11                CWE Content Team                                                                                                           MITRE
+                           updated Relationships
+ 2013-02-21                CWE Content Team                                                                                                           MITRE
+                           updated Alternate_Terms, Applicable_Platforms, Background_Details, Common_Consequences, Description, Name, Observed_Examples, Potential_Mitigations, References,
+                           Relationship_Notes, Relationships, Taxonomy_Mappings
+ 2014-07-30                CWE Content Team                                                                                                           MITRE
+                           updated Relationships, Taxonomy_Mappings
+ 2015-12-07                CWE Content Team                                                                                                           MITRE
+                           updated Relationships
+ 2017-11-08                CWE Content Team                                                                                                           MITRE
+                           updated Modes_of_Introduction, References, Relationships, Relevant_Properties
+ 2018-03-27                CWE Content Team                                                                                                           MITRE
+                           updated Relationships
+ 2019-01-03                CWE Content Team                                                                                                           MITRE
+                           updated Related_Attack_Patterns
+ 2019-06-20                CWE Content Team                                                                                                           MITRE
+                           updated Name, Type
+ 2019-09-19                CWE Content Team                                                                                                           MITRE
+                           updated Relationships
+ 2020-02-24                CWE Content Team                                                                                                           MITRE
+                           updated Applicable_Platforms, Relationships
+ 2020-08-20                CWE Content Team                                                                                                           MITRE
+                           updated Relationships
+ 2020-12-10                CWE Content Team                                                                                                           MITRE
+                           updated Relationships
+ 2021-07-20                CWE Content Team                                                                                                           MITRE
+                           updated Relationships
+ 2021-10-28                CWE Content Team                                                                                                           MITRE
+                           updated Relationships
+ 2022-06-28                CWE Content Team                                                                                                           MITRE
+                           updated Relationships
+ 2023-01-31                CWE Content Team                                                                                                           MITRE
+                           updated Alternate_Terms, Common_Consequences, Description
+ 2023-04-27                CWE Content Team                                                                                                           MITRE
+                           updated Detection_Factors, References, Relationships
+ 2023-06-29                CWE Content Team                                                                                                           MITRE
+                           updated Mapping_Notes
+ 2023-10-26                CWE Content Team                                                                                                           MITRE
+                           updated Observed_Examples
+                                                                                       + Previous Entry Names
+        Change Date                                                                                   Previous Entry Name
+ 2011-03-29                Information Leak Through XML External Entity File Disclosure
+ 2013-02-21                Information Exposure Through XML External Entity Reference
+ 2019-06-20                Improper Restriction of XML External Entity Reference ('XXE')
+ More information is available — Please edit the custom filter or select a different filter.
+Page Last Updated: February 29, 2024
+ 
+      Site Map | Terms of Use | Manage Cookies | Cookie Notice | Privacy Policy | Contact Us | CWE X-Twitter CWE Mastodon CWE on LinkedIn CWE YouTube channel CWE Out-of-Bounds-Read Podcast CWE
+      Blog on Medium blog
+
+MITRE Use of the Common Weakness Enumeration (CWE™) and the associated references from this website are subject to the Terms of Use. CWE is sponsored by the U.S. Department of Homeland         HSSEDI
+      Security (DHS) Cybersecurity and Infrastructure Security Agency (CISA) and managed by the Homeland Security Systems Engineering and Development Institute (HSSEDI) which is operated by
+      The MITRE Corporation (MITRE). Copyright © 2006–2024, The MITRE Corporation. CWE, CWSS, CWRAF, and the CWE logo are trademarks of The MITRE Corporation.
+

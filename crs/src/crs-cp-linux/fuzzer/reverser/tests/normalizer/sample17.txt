@@ -1,0 +1,11 @@
+
+    INPUT ::= SIZE { size: 4 }
+              CMD1 { size: SIZE }
+              CMD2
+
+    CMD2 ::= SIZE { size: 4 }
+             CMD1 { size: SIZE }
+             CMD3
+
+    CMD3 ::= FLAG { size: 4 }
+    

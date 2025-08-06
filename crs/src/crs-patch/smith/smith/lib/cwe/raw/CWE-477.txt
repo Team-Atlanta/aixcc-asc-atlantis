@@ -1,0 +1,330 @@
+CWE
+
+Common Weakness Enumeration
+
+A community-developed list of SW & HW weaknesses that can become vulnerabilities
+
+New to CWE? click here!
+CWE Most Important Hardware Weaknesses
+CWE Top 25 Most Dangerous Weaknesses
+Home > CWE List > CWE- Individual Dictionary Definition (4.14)                                                                                                   ID Lookup: [                    ] [Go]
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  • Home
+  • About ▼
+    About New to CWE User Stories History Documents FAQs Glossary Compatibility
+  • CWE List ▼
+    Latest Version Downloads Reports Visualizations Archive
+  • Mapping ▼
+    Root Cause Mapping Guidance Root Cause Mapping Quick Tips Root Cause Mapping Examples
+  • Top-N Lists ▼
+    Top 25 Software Top Hardware Top 10 KEV Weaknesses
+  • Community ▼
+    Community Working Groups & Special Interest Groups Board Board Meeting Minutes CWE Discussion List CWE Discussion Archives Contribute Weakness Content to CWE
+  • News ▼
+    Current News X-Twitter ● Mastodon ● LinkedIn ● YouTube YouTube Podcast Out of Bounds Read Podcast Medium Medium News Archive
+  • Search
+
+ 
+ CWE Glossary Definition                  x
+ 
+ 
+ CWE-477: Use of Obsolete Function
+ 
+ Weakness ID: 477
+ Vulnerability Mapping: ALLOWEDThis CWE ID may be used to map to real-world vulnerabilities
+ Abstraction: BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level
+ weaknesses typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.
+ View customized information:
+ Conceptual For users who are interested in more notional aspects of a weakness. Example: educators, technical writers, and project/program managers. Operational For users who are concerned with the
+ practical application and details about the nature of a weakness and how to prevent it from happening. Example: tool developers, security researchers, pen-testers, incident response analysts. Mapping
+ Friendly For users who are mapping an issue to CWE/CAPEC IDs, i.e., finding the most appropriate CWE for a specific issue (e.g., a CVE record). Example: tool developers, security researchers. 
+ Complete For users who wish to see all available information for the CWE/CAPEC entry. Custom For users who want to customize what details are displayed.
+ ×
+
+ Edit Custom Filter
+
+ Conceptual Operational Mapping Friendly Select All
+ 
+ Reset Clear Submit Cancel
+ + Description
+ The code uses deprecated or obsolete functions, which suggests that the code has not been actively reviewed or maintained.
+ + Extended Description
+ 
+ As programming languages evolve, functions occasionally become obsolete due to:
+
+   • Advances in the language
+   • Improved understanding of how operations should be performed effectively and securely
+   • Changes in the conventions that govern certain operations
+
+ Functions that are removed are usually replaced by newer counterparts that perform the same task in some different and hopefully improved way.
+
+ + Relationships
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Research Concepts" (CWE-1000)
+     Nature                                                                                                                                                                               Type                                                                                                                                                                            ID      Name
+ ChildOf                                                                                 PillarPillar - a weakness that is the most abstract type of weakness and represents a theme for all class/base/variant weaknesses related to it. A Pillar is different from a Category as a Pillar is                                                                          710     Improper
+                                                                                                                    still technically a type of weakness that describes a mistake, while a Category represents a common characteristic used to group related things.                                                                                                            Adherence
+                                                                                                                                                                                                                                                                                                                                                                                to Coding
+                                                                                                                                                                                                                                                                                                                                                                                Standards
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Software Development" (CWE-699)
+     Nature                                                       Type                                                     ID                                   Name
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 1228    API / Function Errors
+ + Modes Of Introduction
+ Section HelpThe different Modes of Introduction provide information about how and when this weakness may be introduced. The Phase identifies a point in the life cycle at which introduction may occur,
+ while the Note provides a typical scenario related to introduction during the given phase.
+     Phase                                                                                              Note
+ Implementation
+ + Applicable Platforms
+ Section HelpThis listing shows possible areas for which the given weakness could appear. These may be for specific named Languages, Operating Systems, Architectures, Paradigms, Technologies, or a
+ class of such platforms. The platform is listed along with how frequently the given weakness appears for that instance.
+
+ Languages
+
+ Class: Not Language-Specific (Undetermined Prevalence)
+
+ + Common Consequences
+ Section HelpThis table specifies different individual consequences associated with the weakness. The Scope identifies the application security area that is violated, while the Impact describes the
+ negative technical impact that arises if an adversary succeeds in exploiting this weakness. The Likelihood provides information about how likely the specific consequence is expected to be seen
+ relative to the other consequences in the list. For example, there may be high likelihood that a weakness will be exploited to achieve a certain impact, but a low likelihood that it will be exploited
+ to achieve a different impact.
+       Scope                                                                                     Impact                                                                                 Likelihood
+ Other              Technical Impact: Quality Degradation
+
+ + Demonstrative Examples
+ 
+ Example 1
+
+ The following code uses the deprecated function getpw() to verify that a plaintext password matches a user's encrypted password. If the password is valid, the function sets result to 1; otherwise it
+ is set to 0.
+
+ (bad code)
+ Example Language: C 
+ ...
+ getpw(uid, pwdline);
+ for (i=0; i<3; i++){
+ cryptpw=strtok(pwdline, ":");
+ pwdline=0;
+ }
+ result = strcmp(crypt(plainpw,cryptpw), cryptpw) == 0;
+ ...
+
+ Although the code often behaves correctly, using the getpw() function can be problematic from a security standpoint, because it can overflow the buffer passed to its second parameter. Because of this
+ vulnerability, getpw() has been supplanted by getpwuid(), which performs the same lookup as getpw() but returns a pointer to a statically-allocated structure to mitigate the risk. Not all functions
+ are deprecated or replaced because they pose a security risk. However, the presence of an obsolete function often indicates that the surrounding code has been neglected and may be in a state of
+ disrepair. Software security has not been a priority, or even a consideration, for very long. If the program uses deprecated or obsolete functions, it raises the probability that there are security
+ problems lurking nearby.
+
+ Example 2
+
+ In the following code, the programmer assumes that the system always has a property named "cmd" defined. If an attacker can control the program's environment so that "cmd" is not defined, the program
+ throws a null pointer exception when it attempts to call the "Trim()" method.
+
+ (bad code)
+ Example Language: Java 
+ String cmd = null;
+ ...
+ cmd = Environment.GetEnvironmentVariable("cmd");
+ cmd = cmd.Trim();
+
+ Example 3
+
+ The following code constructs a string object from an array of bytes and a value that specifies the top 8 bits of each 16-bit Unicode character.
+
+ (bad code)
+ Example Language: Java 
+ ...
+ String name = new String(nameBytes, highByte);
+ ...
+
+ In this example, the constructor may not correctly convert bytes to characters depending upon which charset is used to encode the string represented by nameBytes. Due to the evolution of the charsets
+ used to encode strings, this constructor was deprecated and replaced by a constructor that accepts as one of its parameters the name of the charset used to encode the bytes for conversion.
+
+ + Potential Mitigations
+ Phase: Implementation
+
+ Refer to the documentation for the obsolete function in order to determine why it is deprecated or obsolete and to learn about alternative ways to achieve the same functionality.
+ Phase: Requirements
+
+ Consider seriously the security implications of using an obsolete function. Consider using alternate functions.
+ + Weakness Ordinalities
+ Ordinality                                                                                       Description
+ Indirect   (where the weakness is a quality issue that might indirectly make it easier to introduce security-relevant weaknesses or make them more difficult to detect)
+ + Detection Methods
+ Automated Static Analysis - Binary or Bytecode
+
+ According to SOAR, the following detection techniques may be useful:
+
+ Highly cost effective:
+
+   • Binary / Bytecode Quality Analysis
+
+ Cost effective for partial coverage:
+
+   • Bytecode Weakness Analysis - including disassembler + source code weakness analysis
+
+ Effectiveness: High
+
+ Manual Static Analysis - Binary or Bytecode
+
+ According to SOAR, the following detection techniques may be useful:
+
+ Cost effective for partial coverage:
+
+   • Binary / Bytecode disassembler - then use manual analysis for vulnerabilities & anomalies
+
+ Effectiveness: SOAR Partial
+
+ Dynamic Analysis with Manual Results Interpretation
+
+ According to SOAR, the following detection techniques may be useful:
+
+ Highly cost effective:
+
+   • Debugger
+
+ Effectiveness: High
+
+ Manual Static Analysis - Source Code
+
+ According to SOAR, the following detection techniques may be useful:
+
+ Highly cost effective:
+
+   • Manual Source Code Review (not inspections)
+
+ Cost effective for partial coverage:
+
+   • Focused Manual Spotcheck - Focused manual analysis of source
+
+ Effectiveness: High
+
+ Automated Static Analysis - Source Code
+
+ According to SOAR, the following detection techniques may be useful:
+
+ Highly cost effective:
+
+   • Source Code Quality Analyzer
+   • Source code Weakness Analyzer
+   • Context-configured Source Code Weakness Analyzer
+
+ Effectiveness: High
+
+ Automated Static Analysis
+
+ According to SOAR, the following detection techniques may be useful:
+
+ Highly cost effective:
+
+   • Origin Analysis
+
+ Effectiveness: High
+
+ Architecture or Design Review
+
+ According to SOAR, the following detection techniques may be useful:
+
+ Highly cost effective:
+
+   • Formal Methods / Correct-By-Construction
+   • Inspection (IEEE 1028 standard) (can apply to requirements, design, source code, etc.)
+
+ Effectiveness: High
+
+ + Memberships
+ Section HelpThis MemberOf Relationships table shows additional CWE Categories and Views that reference this weakness as a member. This information is often useful in understanding where a weakness
+ fits within the context of external information sources.
+     Nature                                                       Type                                                     ID                                   Name
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 398     7PK - Code Quality
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 1001    SFP Secondary Cluster: Use of an Improper API
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 1180    SEI CERT Perl Coding Standard - Guidelines 02. Declarations and
+                                                                                                                                 Initialization (DCL)
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 1181    SEI CERT Perl Coding Standard - Guidelines 03. Expressions (EXP)
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 1308    CISQ Quality Measures - Security
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 1412    Comprehensive Categorization: Poor Coding Practices
+ + Vulnerability Mapping Notes
+ Usage: ALLOWED
+
+ (this CWE ID could be used to map to real-world vulnerabilities)
+ Reason: Acceptable-Use
+
+ Rationale:
+
+ This CWE entry is at the Base level of abstraction, which is a preferred level of abstraction for mapping to the root causes of vulnerabilities.
+ Comments:
+
+ Carefully read both the name and description to ensure that this mapping is an appropriate fit. Do not try to 'force' a mapping to a lower-level Base/Variant simply to comply with this preferred
+ level of abstraction.
+ + Taxonomy Mappings
+       Mapped Taxonomy Name          Node ID                     Fit                                                                Mapped Node Name
+ 7 Pernicious Kingdoms                                                               Obsolete
+ Software Fault Patterns          SFP3                                               Use of an improper API
+ SEI CERT Perl Coding Standard    DCL30-PL       CWE More Specific                   Do not import deprecated modules
+ SEI CERT Perl Coding Standard    EXP30-PL       CWE More Specific                   Do not use deprecated or obsolete functions or modules
+ + References
+ [REF-6] Katrina Tsipenyuk, Brian Chess and Gary McGraw. "Seven Pernicious Kingdoms: A Taxonomy of Software Security Errors". NIST Workshop on Software Security Assurance Tools Techniques and
+ Metrics. NIST. 2005-11-07. <https://samate.nist.gov/SSATTM_Content/papers/Seven%20Pernicious%20Kingdoms%20-%20Taxonomy%20of%20Sw%20Security%20Errors%20-%20Tsipenyuk%20-%20Chess%20-%20McGraw.pdf>.
+ + Content History
+                                                                                           + Submissions
+                   Submission Date                                                            Submitter                                                            Organization
+ 2006-07-19                                           7 Pernicious Kingdoms
+ (CWE Draft 3, 2006-07-19)
+
+                                                                                          + Modifications
+                  Modification Date                                                           Modifier                                                             Organization
+ 2008-07-01                                           Eric Dalci                                                                                Cigital
+                                                      updated Potential_Mitigations, Time_of_Introduction
+ 2008-09-08                                           CWE Content Team                                                                          MITRE
+                                                      updated Relationships, Other_Notes, Taxonomy_Mappings
+ 2009-03-10                                           CWE Content Team                                                                          MITRE
+                                                      updated Other_Notes
+ 2009-05-27                                           CWE Content Team                                                                          MITRE
+                                                      updated Demonstrative_Examples
+ 2009-07-27                                           CWE Content Team                                                                          MITRE
+                                                      updated Demonstrative_Examples
+ 2011-03-29                                           CWE Content Team                                                                          MITRE
+                                                      updated Demonstrative_Examples
+ 2011-06-01                                           CWE Content Team                                                                          MITRE
+                                                      updated Common_Consequences
+ 2011-06-27                                           CWE Content Team                                                                          MITRE
+                                                      updated Common_Consequences
+ 2012-05-11                                           CWE Content Team                                                                          MITRE
+                                                      updated Relationships
+ 2012-10-30                                           CWE Content Team                                                                          MITRE
+                                                      updated Potential_Mitigations
+ 2014-06-23                                           CWE Content Team                                                                          MITRE
+                                                      updated Description, Other_Notes, Potential_Mitigations
+ 2014-07-30                                           CWE Content Team                                                                          MITRE
+                                                      updated Detection_Factors, Relationships, Taxonomy_Mappings
+ 2017-11-08                                           CWE Content Team                                                                          MITRE
+                                                      updated Applicable_Platforms, Name, Relationships, Taxonomy_Mappings
+ 2019-01-03                                           CWE Content Team                                                                          MITRE
+                                                      updated Taxonomy_Mappings, Weakness_Ordinalities
+ 2020-02-24                                           CWE Content Team                                                                          MITRE
+                                                      updated References, Relationships
+ 2020-08-20                                           CWE Content Team                                                                          MITRE
+                                                      updated Relationships
+ 2021-03-15                                           CWE Content Team                                                                          MITRE
+                                                      updated Relationships
+ 2023-04-27                                           CWE Content Team                                                                          MITRE
+                                                      updated Relationships
+ 2023-06-29                                           CWE Content Team                                                                          MITRE
+                                                      updated Mapping_Notes
+                                                                                       + Previous Entry Names
+                     Change Date                                                                                   Previous Entry Name
+ 2008-01-30                                           Obsolete
+ 2017-11-08                                           Use of Obsolete Functions
+ More information is available — Please edit the custom filter or select a different filter.
+Page Last Updated: February 29, 2024
+ 
+      Site Map | Terms of Use | Manage Cookies | Cookie Notice | Privacy Policy | Contact Us | CWE X-Twitter CWE Mastodon CWE on LinkedIn CWE YouTube channel CWE Out-of-Bounds-Read Podcast CWE
+      Blog on Medium blog
+
+MITRE Use of the Common Weakness Enumeration (CWE™) and the associated references from this website are subject to the Terms of Use. CWE is sponsored by the U.S. Department of Homeland         HSSEDI
+      Security (DHS) Cybersecurity and Infrastructure Security Agency (CISA) and managed by the Homeland Security Systems Engineering and Development Institute (HSSEDI) which is operated by
+      The MITRE Corporation (MITRE). Copyright © 2006–2024, The MITRE Corporation. CWE, CWSS, CWRAF, and the CWE logo are trademarks of The MITRE Corporation.
+

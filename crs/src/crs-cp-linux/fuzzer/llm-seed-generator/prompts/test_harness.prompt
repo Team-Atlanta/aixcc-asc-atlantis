@@ -1,0 +1,27 @@
+Please upgrade the Python code that generates the data blob and saves it as 'blob.bin' using the following test harness.
+Provide the entire code in a single, continuous block enclosed within unique markers `#START_CODE` and `#END_CODE` (as comments in the code) to ensure there are no multiple pieces.
+Ensure `#START_CODE` and `#END_CODE` appear only once in the entire response, the python code in the response will be parsed using markers `#START_CODE` and `#END_CODE`.
+Ensure the code is well-formatted and easily parsable.
+
+
+```
+[INSERT TEST HARNESS HERE]
+```
+
+The test harness uses the test blob to test the Linux kernel. It may use the blob in various ways, such as:
+    - Indicating which functions/commands/syscalls to call and the sequence in which they are called.
+    - Providing the values passed to functions/commands/syscalls.
+Keep in mind that these are not the only ways the blob can be used, so it is crucial to analyze how the harness uses the test blob.
+
+
+The objective is to improve the blob generation Python code. The criteria for improvement are:
+    - Use randomness intelligently
+    - Achieve the highest coverage possible.
+
+Here are some ideas to improve the test blob:
+    - If the sequence of functions/commands/syscalls is determined by the test blob, not only the number and variety of syscalls and arguments are important, but also the sequence. A certain syscall may need to be called before another syscall with certain arguments to achieve new coverage. In other cases, a certain syscall must be called many times to achieve new coverage.
+    - Pass all possible values to syscalls. Use random values if necessary. However, if there are 3 valid values for an argument in a syscall, all other integer values may not be needed, but a single invalid one(preferable edge case) might be.
+    - Use the same values across different syscalls when one syscall relies on the value used by a preceding syscall. For example, the int fd passed to fd affects the fd passed to read. When forming the random pool of fd for read, the valid pool includes all values passed to openat plus some unpassed (invalid) values.
+    - Audit the code line by line. Navigate the source using tools/functions provided by the user.
+
+Please ensure the upgraded Python code meets these criteria.

@@ -1,0 +1,298 @@
+CWE
+
+Common Weakness Enumeration
+
+A community-developed list of SW & HW weaknesses that can become vulnerabilities
+
+New to CWE? click here!
+CWE Most Important Hardware Weaknesses
+CWE Top 25 Most Dangerous Weaknesses
+Home > CWE List > CWE- Individual Dictionary Definition (4.14)                                                                                                   ID Lookup: [                    ] [Go]
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  • Home
+  • About ▼
+    About New to CWE User Stories History Documents FAQs Glossary Compatibility
+  • CWE List ▼
+    Latest Version Downloads Reports Visualizations Archive
+  • Mapping ▼
+    Root Cause Mapping Guidance Root Cause Mapping Quick Tips Root Cause Mapping Examples
+  • Top-N Lists ▼
+    Top 25 Software Top Hardware Top 10 KEV Weaknesses
+  • Community ▼
+    Community Working Groups & Special Interest Groups Board Board Meeting Minutes CWE Discussion List CWE Discussion Archives Contribute Weakness Content to CWE
+  • News ▼
+    Current News X-Twitter ● Mastodon ● LinkedIn ● YouTube YouTube Podcast Out of Bounds Read Podcast Medium Medium News Archive
+  • Search
+
+ 
+ CWE Glossary Definition                  x
+ 
+ 
+ CWE-1220: Insufficient Granularity of Access Control
+ 
+ Weakness ID: 1220
+ Vulnerability Mapping: ALLOWEDThis CWE ID may be used to map to real-world vulnerabilities
+ Abstraction: BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level
+ weaknesses typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.
+ View customized information:
+ Conceptual For users who are interested in more notional aspects of a weakness. Example: educators, technical writers, and project/program managers. Operational For users who are concerned with the
+ practical application and details about the nature of a weakness and how to prevent it from happening. Example: tool developers, security researchers, pen-testers, incident response analysts. Mapping
+ Friendly For users who are mapping an issue to CWE/CAPEC IDs, i.e., finding the most appropriate CWE for a specific issue (e.g., a CVE record). Example: tool developers, security researchers. 
+ Complete For users who wish to see all available information for the CWE/CAPEC entry. Custom For users who want to customize what details are displayed.
+ ×
+
+ Edit Custom Filter
+
+ Conceptual Operational Mapping Friendly Select All
+ 
+ Reset Clear Submit Cancel
+ + Description
+ The product implements access controls via a policy or other feature with the intention to disable or restrict accesses (reads and/or writes) to assets in a system from untrusted agents. However,
+ implemented access controls lack required granularity, which renders the control policy too broad because it allows accesses from unauthorized agents to the security-sensitive assets.
+ + Extended Description
+ 
+ Integrated circuits and hardware engines can expose accesses to assets (device configuration, keys, etc.) to trusted firmware or a software module (commonly set by BIOS/bootloader). This access is
+ typically access-controlled. Upon a power reset, the hardware or system usually starts with default values in registers, and the trusted firmware (Boot firmware) configures the necessary
+ access-control protection.
+
+ A common weakness that can exist in such protection schemes is that access controls or policies are not granular enough. This condition allows agents beyond trusted agents to access assets and could
+ lead to a loss of functionality or the ability to set up the device securely. This further results in security risks from leaked, sensitive, key material to modification of device configuration.
+
+ + Relationships
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Research Concepts" (CWE-1000)
+     Nature                                                                                                                                                                               Type                                                                                                                                                                            ID        Name
+ ChildOf                                                                                 PillarPillar - a weakness that is the most abstract type of weakness and represents a theme for all class/base/variant weaknesses related to it. A Pillar is different from a Category as a Pillar is                                                                          284     Improper
+                                                                                                                    still technically a type of weakness that describes a mistake, while a Category represents a common characteristic used to group related things.                                                                                                            Access
+                                                                                                                                                                                                                                                                                                                                                                                Control
+ ParentOf                                                                                VariantVariant - a weakness that is linked to a certain type of product, typically involving a specific language or technology. More specific than a Base weakness. Variant level weaknesses typically                                                                         1222    Insufficient
+                                                                                                                                describe issues in terms of 3 to 5 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                         Granularity
+                                                                                                                                                                                                                                                                                                                                                                                of Address
+                                                                                                                                                                                                                                                                                                                                                                                Regions
+                                                                                                                                                                                                                                                                                                                                                                                Protected by
+                                                                                                                                                                                                                                                                                                                                                                                Register
+                                                                                                                                                                                                                                                                                                                                                                                Locks
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Software Development" (CWE-699)
+     Nature                                                       Type                                                     ID                                   Name
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 1212    Authorization Errors
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Hardware Design" (CWE-1194)
+     Nature                                                       Type                                                     ID                                   Name
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 1198    Privilege Separation and Access Control Issues
+ + Modes Of Introduction
+ Section HelpThe different Modes of Introduction provide information about how and when this weakness may be introduced. The Phase identifies a point in the life cycle at which introduction may occur,
+ while the Note provides a typical scenario related to introduction during the given phase.
+          Phase                                                                                             Note
+ Architecture and Design Such issues could be introduced during hardware architecture and design and identified later during Testing or System Configuration phases.
+ Implementation          Such issues could be introduced during hardware implementation and identified later during Testing or System Configuration phases.
+ + Applicable Platforms
+ Section HelpThis listing shows possible areas for which the given weakness could appear. These may be for specific named Languages, Operating Systems, Architectures, Paradigms, Technologies, or a
+ class of such platforms. The platform is listed along with how frequently the given weakness appears for that instance.
+
+ Languages
+
+ Class: Not Language-Specific (Undetermined Prevalence)
+
+ Operating Systems
+
+ Class: Not OS-Specific (Undetermined Prevalence)
+
+ Architectures
+
+ Class: Not Architecture-Specific (Undetermined Prevalence)
+
+ Technologies
+
+ Class: Not Technology-Specific (Undetermined Prevalence)
+
+ + Common Consequences
+ Section HelpThis table specifies different individual consequences associated with the weakness. The Scope identifies the application security area that is violated, while the Impact describes the
+ negative technical impact that arises if an adversary succeeds in exploiting this weakness. The Likelihood provides information about how likely the specific consequence is expected to be seen
+ relative to the other consequences in the list. For example, there may be high likelihood that a weakness will be exploited to achieve a certain impact, but a low likelihood that it will be exploited
+ to achieve a different impact.
+       Scope                                                                                     Impact                                                                                 Likelihood
+ Confidentiality
+ Integrity          Technical Impact: Modify Memory; Read Memory; Execute Unauthorized Code or Commands; Gain Privileges or Assume Identity; Bypass Protection Mechanism; Other       High
+ Availability
+ Access Control
+ + Demonstrative Examples
+ 
+ Example 1
+
+ Consider a system with a register for storing AES key for encryption or decryption. The key is 128 bits, implemented as a set of four 32-bit registers. The key registers are assets and registers,
+ AES_KEY_READ_POLICY and AES_KEY_WRITE_POLICY, and are defined to provide necessary access controls.
+
+ The read-policy register defines which agents can read the AES-key registers, and write-policy register defines which agents can program or write to those registers. Each register is a 32-bit
+ register, and it can support access control for a maximum of 32 agents. The number of the bit when set (i.e., "1") allows respective action from an agent whose identity matches the number of the bit
+ and, if "0" (i.e., Clear), disallows the respective action to that corresponding agent.
+
+ (bad code)
+ Example Language: Other 
+
+         Register                                                           Field description
+ AES_ENC_DEC_KEY_0         AES key [0:31] for encryption or decryption
+                           Default 0x00000000
+ AES_ENC_DEC_KEY_1         AES key [32:63] for encryption or decryption
+                           Default 0x00000000
+ AES_ENC_DEC_KEY_2         AES key [64:95] for encryption or decryption
+                           Default 0x00000000
+ AES_ENC_DEC_KEY_4         AES key [96:127] for encryption or decryption
+                           Default 0x00000000
+ AES_KEY_READ_WRITE_POLICY [31:0] Default 0x00000006 - meaning agent with identities "1" and "2" can both read from and write to key registers
+
+ In the above example, there is only one policy register that controls access to both read and write accesses to the AES-key registers, and thus the design is not granular enough to separate read and
+ writes access for different agents. Here, agent with identities "1" and "2" can both read and write.
+
+ A good design should be granular enough to provide separate access controls to separate actions. Access control for reads should be separate from writes. Below is an example of such implementation
+ where two policy registers are defined for each of these actions. The policy is defined such that: the AES-key registers can only be read or used by a crypto agent with identity "1" when bit #1 is
+ set. The AES-key registers can only be programmed by a trusted firmware with identity "2" when bit #2 is set.
+
+ (good code)
+  
+
+ AES_KEY_READ_POLICY  [31:0] Default 0x00000002 - meaning only Crypto engine with identity "1" can read registers: AES_ENC_DEC_KEY_0, AES_ENC_DEC_KEY_1, AES_ENC_DEC_KEY_2, AES_ENC_DEC_KEY_3
+ AES_KEY_WRITE_POLICY [31:0] Default 0x00000004 - meaning only trusted firmware with identity "2" can program registers: AES_ENC_DEC_KEY_0, AES_ENC_DEC_KEY_1, AES_ENC_DEC_KEY_2, AES_ENC_DEC_KEY_3
+
+ Example 2
+
+ Within the AXI node interface wrapper module in the RISC-V AXI module of the HACK@DAC'19 CVA6 SoC [REF-1346], an access control mechanism is employed to regulate the access of different privileged
+ users to peripherals.
+
+ The AXI ensures that only users with appropriate privileges can access specific peripherals. For instance, a ROM module is accessible exclusively with Machine privilege, and AXI enforces that users
+ attempting to read data from the ROM must possess machine privilege; otherwise, access to the ROM is denied. The access control information and configurations are stored in a ROM.
+
+ (bad code)
+ Example Language: Verilog 
+ ...
+ for (i=0; i<NB_SUBORDINATE; i++)
+ begin
+ for (j=0; j<NB_MANAGER; j++)
+ begin
+ assign connectivity_map_o[i][j] = access_ctrl_i[i][j][priv_lvl_i] || ((j==6) && access_ctrl_i[i][7][priv_lvl_i]);
+ end
+ end
+ ...
+
+ However, in the example code above, while assigning distinct privileges to AXI manager and subordinates, both the Platform-Level Interrupt Controller Specification (PLIC) and the Core-local Interrupt
+ Controller (CLINT) (which are peripheral numbers 6 and 7 respectively) utilize the same access control configuration. This common configuration diminishes the granularity of the AXI access control
+ mechanism.
+
+ In certain situations, it might be necessary to grant higher privileges for accessing the PLIC than those required for accessing the CLINT. Unfortunately, this differentiation is overlooked, allowing
+ an attacker to access the PLIC with lower privileges than intended.
+
+ As a consequence, unprivileged code can read and write to the PLIC even when it was not intended to do so. In the worst-case scenario, the attacker could manipulate interrupt priorities, potentially
+ modifying the system's behavior or availability.
+
+ To address the aforementioned vulnerability, developers must enhance the AXI access control granularity by implementing distinct access control entries for the Platform-Level Interrupt Controller
+ (PLIC) and the Core-local Interrupt Controller (CLINT). By doing so, different privilege levels can be defined for accessing PLIC and CLINT, effectively thwarting the potential attacks previously
+ highlighted. This approach ensures a more robust and secure system, safeguarding against unauthorized access and manipulation of interrupt priorities. [REF-1347]
+
+ (good code)
+ Example Language: Verilog 
+ ...
+ for (i=0; i<NB_SUBORDINATE; i++)
+ begin
+ for (j=0; j<NB_MANAGER; j++)
+ begin
+ assign connectivity_map_o[i][j] = access_ctrl_i[i][j][priv_lvl_i];
+ end
+ end
+ ...
+
+ Example 3
+
+ Consider the following SoC design. The sram in HRoT has an address range that is readable and writable by unprivileged software and it has an area that is only readable by unprivileged software. The
+ tbus interconnect enforces access control for subordinates on the bus but uses only one bit to control both read and write access. Address 0xA0000000 - 0xA000FFFF is readable and writable by the
+ untrusted cores core{0-N} and address 0xA0010000 - 0xA001FFFF is only readable by the untrusted cores core{0-N}.
+
+ Hardware Root of Trust
+
+ The security policy access control is not granular enough, as it uses one bit to enable both read and write access. This gives write access to an area that should only be readable by unprivileged
+ agents.
+
+ Access control logic should differentiate between read and write access and to have sufficient address granularity.
+
+ + Observed Examples
+        Reference                                                                                        Description
+ CVE-2022-24985          A form hosting website only checks the session authentication status for a single form, making it possible to bypass authentication when there are multiple forms
+ CVE-2021-36934          An operating system has an overly permission Access Control List onsome system files, including those related to user passwords
+ + Potential Mitigations
+ Phases: Architecture and Design; Implementation; Testing
+
+   • Access-control-policy protections must be reviewed for design inconsistency and common weaknesses.
+   • Access-control-policy definition and programming flow must be tested in pre-silicon, post-silicon testing.
+
+ Effectiveness: High
+
+ + Memberships
+ Section HelpThis MemberOf Relationships table shows additional CWE Categories and Views that reference this weakness as a member. This information is often useful in understanding where a weakness
+ fits within the context of external information sources.
+     Nature                                                       Type                                                     ID                                   Name
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 1396    Comprehensive Categorization: Access Control
+ + Vulnerability Mapping Notes
+ Usage: ALLOWED
+
+ (this CWE ID could be used to map to real-world vulnerabilities)
+ Reason: Acceptable-Use
+
+ Rationale:
+
+ This CWE entry is at the Base level of abstraction, which is a preferred level of abstraction for mapping to the root causes of vulnerabilities.
+ Comments:
+
+ Carefully read both the name and description to ensure that this mapping is an appropriate fit. Do not try to 'force' a mapping to a lower-level Base/Variant simply to comply with this preferred
+ level of abstraction.
+ + Related Attack Patterns
+    CAPEC-ID                                                                                     Attack Pattern Name
+ CAPEC-1         Accessing Functionality Not Properly Constrained by ACLs
+ CAPEC-180       Exploiting Incorrectly Configured Access Control Security Levels
+ + References
+ [REF-1346] "axi_node_intf_wrap.sv". 2019. <https://github.com/HACK-EVENT/hackatdac19/blob/619e9fb0ef32ee1e01ad76b8732a156572c65700/src/axi_node/src/axi_node_intf_wrap.sv#L430>. URL validated:
+ 2023-09-18.
+ [REF-1347] "axi_node_intf_wrap.sv". 2019. <https://github.com/HACK-EVENT/hackatdac19/blob/2078f2552194eda37ba87e54cbfef10f1aa41fa5/src/axi_node/src/axi_node_intf_wrap.sv#L430>. URL validated:
+ 2023-09-18.
+ + Content History
+                                                                                            + Submissions
+        Submission Date                                                              Submitter                                                                        Organization
+ 2020-02-05                     Arun Kanuparthi, Hareesh Khattri, Parbati Kumar Manna, Narasimha Kumar V Mangipudi                                   Intel Corporation
+ (CWE 4.0, 2020-02-24)
+
+                                                                                           + Contributions
+       Contribution Date                                                            Contributor                                                                       Organization
+ 2021-07-16                                                                                                                                          Tortuga Logic
+                                Provided Demonstrative Example for Hardware Root of Trust
+ 2021-07-16                                                                                                                                          Tortuga Logic
+                                Provided Demonstrative Example for Hardware Root of Trust
+ 2023-06-21                     Shaza Zeitouni, Mohamadreza Rostami, Pouya Mahmoody, Ahmad-Reza Sadeghi                                              Technical University of Darmstadt
+                                suggested demonstrative example
+ 2023-06-21                     Rahul Kande, Chen Chen, Jeyavijayan Rajendran                                                                        Texas A&M University
+                                suggested demonstrative example
+                                                                                           + Modifications
+       Modification Date                                                              Modifier                                                                        Organization
+ 2020-06-25                     CWE Content Team                                                                                                     MITRE
+                                updated Demonstrative_Examples
+ 2020-08-20                     CWE Content Team                                                                                                     MITRE
+                                updated Related_Attack_Patterns
+ 2021-07-20                     CWE Content Team                                                                                                     MITRE
+                                updated Demonstrative_Examples
+ 2023-04-27                     CWE Content Team                                                                                                     MITRE
+                                updated Relationships
+ 2023-06-29                     CWE Content Team                                                                                                     MITRE
+                                updated Mapping_Notes
+ 2023-10-26                     CWE Content Team                                                                                                     MITRE
+                                updated Demonstrative_Examples, Observed_Examples, References
+ More information is available — Please edit the custom filter or select a different filter.
+Page Last Updated: February 29, 2024
+ 
+      Site Map | Terms of Use | Manage Cookies | Cookie Notice | Privacy Policy | Contact Us | CWE X-Twitter CWE Mastodon CWE on LinkedIn CWE YouTube channel CWE Out-of-Bounds-Read Podcast CWE
+      Blog on Medium blog
+
+MITRE Use of the Common Weakness Enumeration (CWE™) and the associated references from this website are subject to the Terms of Use. CWE is sponsored by the U.S. Department of Homeland         HSSEDI
+      Security (DHS) Cybersecurity and Infrastructure Security Agency (CISA) and managed by the Homeland Security Systems Engineering and Development Institute (HSSEDI) which is operated by
+      The MITRE Corporation (MITRE). Copyright © 2006–2024, The MITRE Corporation. CWE, CWSS, CWRAF, and the CWE logo are trademarks of The MITRE Corporation.
+

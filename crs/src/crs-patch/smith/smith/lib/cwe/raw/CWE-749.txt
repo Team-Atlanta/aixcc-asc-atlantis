@@ -1,0 +1,377 @@
+CWE
+
+Common Weakness Enumeration
+
+A community-developed list of SW & HW weaknesses that can become vulnerabilities
+
+New to CWE? click here!
+CWE Most Important Hardware Weaknesses
+CWE Top 25 Most Dangerous Weaknesses
+Home > CWE List > CWE- Individual Dictionary Definition (4.14)                                                                                                   ID Lookup: [                    ] [Go]
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  • Home
+  • About ▼
+    About New to CWE User Stories History Documents FAQs Glossary Compatibility
+  • CWE List ▼
+    Latest Version Downloads Reports Visualizations Archive
+  • Mapping ▼
+    Root Cause Mapping Guidance Root Cause Mapping Quick Tips Root Cause Mapping Examples
+  • Top-N Lists ▼
+    Top 25 Software Top Hardware Top 10 KEV Weaknesses
+  • Community ▼
+    Community Working Groups & Special Interest Groups Board Board Meeting Minutes CWE Discussion List CWE Discussion Archives Contribute Weakness Content to CWE
+  • News ▼
+    Current News X-Twitter ● Mastodon ● LinkedIn ● YouTube YouTube Podcast Out of Bounds Read Podcast Medium Medium News Archive
+  • Search
+
+ 
+ CWE Glossary Definition                  x
+ 
+ 
+ CWE-749: Exposed Dangerous Method or Function
+ 
+ Weakness ID: 749
+ Vulnerability Mapping: ALLOWEDThis CWE ID may be used to map to real-world vulnerabilities
+ Abstraction: BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level
+ weaknesses typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.
+ View customized information:
+ Conceptual For users who are interested in more notional aspects of a weakness. Example: educators, technical writers, and project/program managers. Operational For users who are concerned with the
+ practical application and details about the nature of a weakness and how to prevent it from happening. Example: tool developers, security researchers, pen-testers, incident response analysts. Mapping
+ Friendly For users who are mapping an issue to CWE/CAPEC IDs, i.e., finding the most appropriate CWE for a specific issue (e.g., a CVE record). Example: tool developers, security researchers. 
+ Complete For users who wish to see all available information for the CWE/CAPEC entry. Custom For users who want to customize what details are displayed.
+ ×
+
+ Edit Custom Filter
+
+ Conceptual Operational Mapping Friendly Select All
+ 
+ Reset Clear Submit Cancel
+ + Description
+ The product provides an Applications Programming Interface (API) or similar interface for interaction with external actors, but the interface includes a dangerous method or function that is not
+ properly restricted.
+ + Extended Description
+ 
+ This weakness can lead to a wide variety of resultant weaknesses, depending on the behavior of the exposed method. It can apply to any number of technologies and approaches, such as ActiveX controls,
+ Java functions, IOCTLs, and so on.
+
+ The exposure can occur in a few different ways:
+
+   • The function/method was never intended to be exposed to outside actors.
+   • The function/method was only intended to be accessible to a limited set of actors, such as Internet-based access from a single web site.
+
+ + Relationships
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Research Concepts" (CWE-1000)
+     Nature                                                                                                                                                                               Type                                                                                                                                                                            ID        Name
+ ChildOf                                                                                 PillarPillar - a weakness that is the most abstract type of weakness and represents a theme for all class/base/variant weaknesses related to it. A Pillar is different from a Category as a Pillar is                                                                          284     Improper
+                                                                                                                    still technically a type of weakness that describes a mistake, while a Category represents a common characteristic used to group related things.                                                                                                            Access
+                                                                                                                                                                                                                                                                                                                                                                                Control
+ ParentOf                                                                                VariantVariant - a weakness that is linked to a certain type of product, typically involving a specific language or technology. More specific than a Base weakness. Variant level weaknesses typically                                                                         618     Exposed
+                                                                                                                                describe issues in terms of 3 to 5 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                         Unsafe
+                                                                                                                                                                                                                                                                                                                                                                                ActiveX
+                                                                                                                                                                                                                                                                                                                                                                                Method
+ ParentOf                                                                                VariantVariant - a weakness that is linked to a certain type of product, typically involving a specific language or technology. More specific than a Base weakness. Variant level weaknesses typically                                                                         782     Exposed
+                                                                                                                                describe issues in terms of 3 to 5 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                         IOCTL with
+                                                                                                                                                                                                                                                                                                                                                                                Insufficient
+                                                                                                                                                                                                                                                                                                                                                                                Access
+                                                                                                                                                                                                                                                                                                                                                                                Control
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Software Development" (CWE-699)
+     Nature                                                       Type                                                     ID                                   Name
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 1228    API / Function Errors
+ + Modes Of Introduction
+ Section HelpThe different Modes of Introduction provide information about how and when this weakness may be introduced. The Phase identifies a point in the life cycle at which introduction may occur,
+ while the Note provides a typical scenario related to introduction during the given phase.
+          Phase                                                                                             Note
+ Architecture and Design
+ Implementation
+ + Applicable Platforms
+ Section HelpThis listing shows possible areas for which the given weakness could appear. These may be for specific named Languages, Operating Systems, Architectures, Paradigms, Technologies, or a
+ class of such platforms. The platform is listed along with how frequently the given weakness appears for that instance.
+
+ Languages
+
+ Class: Not Language-Specific (Undetermined Prevalence)
+
+ + Common Consequences
+ Section HelpThis table specifies different individual consequences associated with the weakness. The Scope identifies the application security area that is violated, while the Impact describes the
+ negative technical impact that arises if an adversary succeeds in exploiting this weakness. The Likelihood provides information about how likely the specific consequence is expected to be seen
+ relative to the other consequences in the list. For example, there may be high likelihood that a weakness will be exploited to achieve a certain impact, but a low likelihood that it will be exploited
+ to achieve a different impact.
+       Scope                                                                                     Impact                                                                                 Likelihood
+ Integrity          Technical Impact: Gain Privileges or Assume Identity; Read Application Data; Modify Application Data; Execute Unauthorized Code or Commands; Other
+ Confidentiality
+ Availability       Exposing critical functionality essentially provides an attacker with the privilege level of the exposed functionality. This could result in the modification or
+ Access Control     exposure of sensitive data or possibly even execution of arbitrary code.
+ Other
+ + Likelihood Of Exploit
+ Low
+ + Demonstrative Examples
+ 
+ Example 1
+
+ In the following Java example the method removeDatabase will delete the database with the name specified in the input parameter.
+
+ (bad code)
+ Example Language: Java 
+ public void removeDatabase(String databaseName) {
+ try {
+ Statement stmt = conn.createStatement();
+ stmt.execute("DROP DATABASE " + databaseName);
+ } catch (SQLException ex) {...}
+ }
+
+ The method in this example is declared public and therefore is exposed to any class in the application. Deleting a database should be considered a critical operation within an application and access
+ to this potentially dangerous method should be restricted. Within Java this can be accomplished simply by declaring the method private thereby exposing it only to the enclosing class as in the
+ following example.
+
+ (good code)
+ Example Language: Java 
+ private void removeDatabase(String databaseName) {
+ try {
+ Statement stmt = conn.createStatement();
+ stmt.execute("DROP DATABASE " + databaseName);
+ } catch (SQLException ex) {...}
+ }
+
+ Example 2
+
+ These Android and iOS applications intercept URL loading within a WebView and perform special actions if a particular URL scheme is used, thus allowing the Javascript within the WebView to
+ communicate with the application:
+
+ (bad code)
+ Example Language: Java 
+ // Android
+ @Override
+ public boolean shouldOverrideUrlLoading(WebView view, String url){
+ if (url.substring(0,14).equalsIgnoreCase("examplescheme:")){
+ if(url.substring(14,25).equalsIgnoreCase("getUserInfo")){
+ writeDataToView(view, UserData);
+ return false;
+ }
+ else{
+ return true;
+ }
+ }
+ }
+ (bad code)
+ Example Language: Objective-C 
+ // iOS
+ -(BOOL) webView:(UIWebView *)exWebView shouldStartLoadWithRequest:(NSURLRequest *)exRequest navigationType:(UIWebViewNavigationType)exNavigationType
+ {
+ NSURL *URL = [exRequest URL];
+ if ([[URL scheme] isEqualToString:@"exampleScheme"])
+ {
+ NSString *functionString = [URL resourceSpecifier];
+ if ([functionString hasPrefix:@"specialFunction"])
+ {
+
+ // Make data available back in webview.
+ UIWebView *webView = [self writeDataToView:[URL query]];
+ }
+ return NO;
+ }
+ return YES;
+ }
+
+ A call into native code can then be initiated by passing parameters within the URL:
+
+ (attack code)
+ Example Language: JavaScript 
+ window.location = examplescheme://method?parameter=value
+
+ Because the application does not check the source, a malicious website loaded within this WebView has the same access to the API as a trusted site.
+
+ Example 3
+
+ This application uses a WebView to display websites, and creates a Javascript interface to a Java object to allow enhanced functionality on a trusted website:
+
+ (bad code)
+ Example Language: Java 
+ public class WebViewGUI extends Activity {
+ WebView mainWebView;
+
+ public void onCreate(Bundle savedInstanceState) {
+ super.onCreate(savedInstanceState);
+ mainWebView = new WebView(this);
+ mainWebView.getSettings().setJavaScriptEnabled(true);
+ mainWebView.addJavascriptInterface(new JavaScriptInterface(), "userInfoObject");
+ mainWebView.loadUrl("file:///android_asset/www/index.html");
+ setContentView(mainWebView);
+ }
+
+ final class JavaScriptInterface {
+ JavaScriptInterface () {}
+
+ public String getUserInfo() {
+ return currentUser.Info();
+ }
+ }
+ }
+
+ Before Android 4.2 all methods, including inherited ones, are exposed to Javascript when using addJavascriptInterface(). This means that a malicious website loaded within this WebView can use
+ reflection to acquire a reference to arbitrary Java objects. This will allow the website code to perform any action the parent application is authorized to.
+
+ For example, if the application has permission to send text messages:
+
+ (attack code)
+ Example Language: JavaScript 
+ <script>
+ userInfoObject.getClass().forName('android.telephony.SmsManager').getMethod('getDefault',null).sendTextMessage(attackNumber, null, attackMessage, null, null);
+ </script>
+
+ This malicious script can use the userInfoObject object to load the SmsManager object and send arbitrary text messages to any recipient.
+
+ Example 4
+
+ After Android 4.2, only methods annotated with @JavascriptInterface are available in JavaScript, protecting usage of getClass() by default, as in this example:
+
+ (bad code)
+ Example Language: Java 
+ final class JavaScriptInterface {
+ JavaScriptInterface () { }
+
+ @JavascriptInterface
+ public String getUserInfo() {
+ return currentUser.Info();
+ }
+ }
+
+ This code is not vulnerable to the above attack, but still may expose user info to malicious pages loaded in the WebView. Even malicious iframes loaded within a trusted page may access the exposed
+ interface:
+
+ (attack code)
+ Example Language: JavaScript 
+ <script>
+ var info = window.userInfoObject.getUserInfo();
+ sendUserInfo(info);
+ </script>
+
+ This malicious code within an iframe is able to access the interface object and steal the user's data.
+
+ + Observed Examples
+        Reference                                                                                        Description
+ CVE-2007-6382           arbitrary Java code execution via exposed method
+ CVE-2007-1112           security tool ActiveX control allows download or upload of files
+ + Potential Mitigations
+ Phase: Architecture and Design
+
+ If you must expose a method, make sure to perform input validation on all arguments, limit access to authorized parties, and protect against all possible vulnerabilities.
+ Phases: Architecture and Design; Implementation
+
+ Strategy: Attack Surface Reduction
+
+ Identify all exposed functionality. Explicitly list all functionality that must be exposed to some user or set of users. Identify which functionality may be:
+
+   • accessible to all users
+   • restricted to a small set of privileged users
+   • prevented from being directly accessible at all
+
+ Ensure that the implemented code follows these expectations. This includes setting the appropriate access modifiers where applicable (public, private, protected, etc.) or not marking ActiveX
+ controls safe-for-scripting.
+
+ + Weakness Ordinalities
+ Ordinality                                                                                       Description
+ Primary    (where the weakness exists independent of other weaknesses)
+ + Detection Methods
+ Automated Static Analysis
+
+ Automated static analysis, commonly referred to as Static Application Security Testing (SAST), can find some instances of this weakness by analyzing source code (or binary/compiled code) without
+ having to execute it. Typically, this is done by building a model of data flow and control flow, then searching for potentially-vulnerable patterns that connect "sources" (origins of input) with
+ "sinks" (destinations where the data interacts with external components, a lower layer such as the OS, etc.)
+
+ Effectiveness: High
+
+ + Memberships
+ Section HelpThis MemberOf Relationships table shows additional CWE Categories and Views that reference this weakness as a member. This information is often useful in understanding where a weakness
+ fits within the context of external information sources.
+     Nature                                                       Type                                                     ID                                   Name
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 808     2010 Top 25 - Weaknesses On the Cusp
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 975     SFP Secondary Cluster: Architecture
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 1416    Comprehensive Categorization: Resource Lifecycle Management
+ + Vulnerability Mapping Notes
+ Usage: ALLOWED
+
+ (this CWE ID could be used to map to real-world vulnerabilities)
+ Reason: Acceptable-Use
+
+ Rationale:
+
+ This CWE entry is at the Base level of abstraction, which is a preferred level of abstraction for mapping to the root causes of vulnerabilities.
+ Comments:
+
+ Carefully read both the name and description to ensure that this mapping is an appropriate fit. Do not try to 'force' a mapping to a lower-level Base/Variant simply to comply with this preferred
+ level of abstraction.
+ + Notes
+ 
+ Research Gap
+
+ Under-reported and under-studied. This weakness could appear in any technology, language, or framework that allows the programmer to provide a functional interface to external parties, but it is not
+ heavily reported. In 2007, CVE began showing a notable increase in reports of exposed method vulnerabilities in ActiveX applications, as well as IOCTL access to OS-level resources. These weaknesses
+ have been documented for Java applications in various secure programming sources, but there are few reports in CVE, which suggests limited awareness in most parts of the vulnerability research
+ community.
+ + Related Attack Patterns
+    CAPEC-ID                                                                                     Attack Pattern Name
+ CAPEC-500       WebView Injection
+ + References
+ [REF-503] Microsoft. "Developing Secure ActiveX Controls". 2005-04-13. <https://learn.microsoft.com/en-us/previous-versions//ms533046(v=vs.85)?redirectedfrom=MSDN>. URL validated: 2023-04-07.
+ [REF-510] Microsoft. "How to stop an ActiveX control from running in Internet Explorer". <https://support.microsoft.com/en-us/help/240797/
+ how-to-stop-an-activex-control-from-running-in-internet-explorer>. URL validated: 2023-04-07.
+ + Content History
+                                                                                           + Submissions
+       Submission Date                                                  Submitter                                                                         Organization
+ 2008-11-24                   CWE Content Team                                                                               MITRE
+ (CWE 1.1, 2008-11-24)
+
+                                                                                          + Modifications
+      Modification Date                                                  Modifier                                                                         Organization
+ 2009-01-12                   CWE Content Team                                                                               MITRE
+                              updated Name
+ 2009-07-27                   CWE Content Team                                                                               MITRE
+                              updated Relationships
+ 2009-12-28                   CWE Content Team                                                                               MITRE
+                              updated Applicable_Platforms, Likelihood_of_Exploit
+ 2010-02-16                   CWE Content Team                                                                               MITRE
+                              updated Common_Consequences, Demonstrative_Examples, Potential_Mitigations, References, Related_Attack_Patterns, Relationships
+ 2010-04-05                   CWE Content Team                                                                               MITRE
+                              updated Demonstrative_Examples, Related_Attack_Patterns
+ 2010-06-21                   CWE Content Team                                                                               MITRE
+                              updated Common_Consequences
+ 2011-06-01                   CWE Content Team                                                                               MITRE
+                              updated Common_Consequences
+ 2012-05-11                   CWE Content Team                                                                               MITRE
+                              updated Relationships
+ 2014-02-18                   CWE Content Team                                                                               MITRE
+                              updated Demonstrative_Examples
+ 2014-07-30                   CWE Content Team                                                                               MITRE
+                              updated Relationships
+ 2015-12-07                   CWE Content Team                                                                               MITRE
+                              updated Relationships
+ 2017-11-08                   CWE Content Team                                                                               MITRE
+                              updated Likelihood_of_Exploit, References, Relationships
+ 2019-06-20                   CWE Content Team                                                                               MITRE
+                              updated Relationships
+ 2020-02-24                   CWE Content Team                                                                               MITRE
+                              updated Relationships
+ 2023-01-31                   CWE Content Team                                                                               MITRE
+                              updated Description, Related_Attack_Patterns, Relationships
+ 2023-04-27                   CWE Content Team                                                                               MITRE
+                              updated Detection_Factors, References, Relationships
+ 2023-06-29                   CWE Content Team                                                                               MITRE
+                              updated Mapping_Notes
+                                                                                       + Previous Entry Names
+         Change Date                                                                                   Previous Entry Name
+ 2009-01-12                   Exposed Insecure Method or Function
+ More information is available — Please edit the custom filter or select a different filter.
+Page Last Updated: February 29, 2024
+ 
+      Site Map | Terms of Use | Manage Cookies | Cookie Notice | Privacy Policy | Contact Us | CWE X-Twitter CWE Mastodon CWE on LinkedIn CWE YouTube channel CWE Out-of-Bounds-Read Podcast CWE
+      Blog on Medium blog
+
+MITRE Use of the Common Weakness Enumeration (CWE™) and the associated references from this website are subject to the Terms of Use. CWE is sponsored by the U.S. Department of Homeland         HSSEDI
+      Security (DHS) Cybersecurity and Infrastructure Security Agency (CISA) and managed by the Homeland Security Systems Engineering and Development Institute (HSSEDI) which is operated by
+      The MITRE Corporation (MITRE). Copyright © 2006–2024, The MITRE Corporation. CWE, CWSS, CWRAF, and the CWE logo are trademarks of The MITRE Corporation.
+

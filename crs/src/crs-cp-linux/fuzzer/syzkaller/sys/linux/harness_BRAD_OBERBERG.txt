@@ -1,0 +1,37 @@
+define BRAD_OBERBERG_IOCTL_BASE	0x77617363
+define BRAD_OBERBERG_READ_HANDLE	BRAD_OBERBERG_IOCTL_BASE+2
+define BRAD_OBERBERG_WRITE_HANDLE	BRAD_OBERBERG_IOCTL_BASE+3
+define BRAD_OBERBERG_GET_CONSUMER	BRAD_OBERBERG_IOCTL_BASE+4
+define BRAD_OBERBERG_SET_CONSUMER	BRAD_OBERBERG_IOCTL_BASE+5
+define BRAD_OBERBERG_GET_STATS	BRAD_OBERBERG_IOCTL_BASE+7
+
+syz_harness$brad_oberberg_cmd_read(a0 ptr[in, brad_oberberg_cmd_read], a1 bytesize[a0])
+syz_harness$brad_oberberg_cmd_write(a0 ptr[in, brad_oberberg_cmd_write], a1 bytesize[a0])
+syz_harness$brad_oberberg_cmd_get_consumer(a0 ptr[in, brad_oberberg_cmd_get_consumer], a1 bytesize[a0])
+syz_harness$brad_oberberg_cmd_set_consumer(a0 ptr[in, brad_oberberg_cmd_set_consumer], a1 bytesize[a0])
+syz_harness$brad_oberberg_cmd_get_stats(a0 ptr[in, brad_oberberg_cmd_get_stats], a1 bytesize[a0])
+
+brad_oberberg_cmd_read {
+	cmd	int32[BRAD_OBERBERG_READ_HANDLE]
+} [packed]
+
+brad_oberberg_cmd_write {
+	cmd		int32[BRAD_OBERBERG_WRITE_HANDLE]
+	data_len	len[data, int32]
+	data		string
+} [packed]
+
+brad_oberberg_cmd_get_consumer {
+	cmd	int32[BRAD_OBERBERG_GET_CONSUMER]
+	offset	int8
+} [packed]
+
+brad_oberberg_cmd_set_consumer {
+	cmd	int32[BRAD_OBERBERG_SET_CONSUMER]
+	offset	int8
+	pid	int32
+} [packed]
+
+brad_oberberg_cmd_get_stats {
+	cmd	int32[BRAD_OBERBERG_GET_STATS]
+} [packed]

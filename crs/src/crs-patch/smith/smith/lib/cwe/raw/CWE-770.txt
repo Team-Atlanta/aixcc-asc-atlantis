@@ -1,0 +1,648 @@
+CWE
+
+Common Weakness Enumeration
+
+A community-developed list of SW & HW weaknesses that can become vulnerabilities
+
+New to CWE? click here!
+CWE Most Important Hardware Weaknesses
+CWE Top 25 Most Dangerous Weaknesses
+Home > CWE List > CWE- Individual Dictionary Definition (4.14)                                                                                                   ID Lookup: [                    ] [Go]
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  • Home
+  • About ▼
+    About New to CWE User Stories History Documents FAQs Glossary Compatibility
+  • CWE List ▼
+    Latest Version Downloads Reports Visualizations Archive
+  • Mapping ▼
+    Root Cause Mapping Guidance Root Cause Mapping Quick Tips Root Cause Mapping Examples
+  • Top-N Lists ▼
+    Top 25 Software Top Hardware Top 10 KEV Weaknesses
+  • Community ▼
+    Community Working Groups & Special Interest Groups Board Board Meeting Minutes CWE Discussion List CWE Discussion Archives Contribute Weakness Content to CWE
+  • News ▼
+    Current News X-Twitter ● Mastodon ● LinkedIn ● YouTube YouTube Podcast Out of Bounds Read Podcast Medium Medium News Archive
+  • Search
+
+ 
+ CWE Glossary Definition                  x
+ 
+ 
+ CWE-770: Allocation of Resources Without Limits or Throttling
+ 
+ Weakness ID: 770
+ Vulnerability Mapping: ALLOWEDThis CWE ID may be used to map to real-world vulnerabilities
+ Abstraction: BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level
+ weaknesses typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.
+ View customized information:
+ Conceptual For users who are interested in more notional aspects of a weakness. Example: educators, technical writers, and project/program managers. Operational For users who are concerned with the
+ practical application and details about the nature of a weakness and how to prevent it from happening. Example: tool developers, security researchers, pen-testers, incident response analysts. Mapping
+ Friendly For users who are mapping an issue to CWE/CAPEC IDs, i.e., finding the most appropriate CWE for a specific issue (e.g., a CVE record). Example: tool developers, security researchers. 
+ Complete For users who wish to see all available information for the CWE/CAPEC entry. Custom For users who want to customize what details are displayed.
+ ×
+
+ Edit Custom Filter
+
+ Conceptual Operational Mapping Friendly Select All
+ 
+ Reset Clear Submit Cancel
+ + Description
+ The product allocates a reusable resource or group of resources on behalf of an actor without imposing any restrictions on the size or number of resources that can be allocated, in violation of the
+ intended security policy for that actor.
+ + Extended Description
+ 
+ Code frequently has to work with limited resources, so programmers must be careful to ensure that resources are not consumed too quickly, or too easily. Without use of quotas, resource limits, or
+ other protection mechanisms, it can be easy for an attacker to consume many resources by rapidly making many requests, or causing larger resources to be used than is needed. When too many resources
+ are allocated, or if a single resource is too large, then it can prevent the code from working correctly, possibly leading to a denial of service.
+
+ + Relationships
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Research Concepts" (CWE-1000)
+     Nature                                                                                                                                                                             Type                                                                                                                                                                           ID         Name
+ ChildOf                                                                               ClassClass - a weakness that is described in a very abstract fashion, typically independent of any specific language or technology. More specific than a Pillar Weakness, but more general than a Base                                                                        665     Improper
+                                                                                                                    Weakness. Class level weaknesses typically describe issues in terms of 1 or 2 of the following dimensions: behavior, property, and resource.                                                                                                             Initialization
+ ChildOf                                                                               ClassClass - a weakness that is described in a very abstract fashion, typically independent of any specific language or technology. More specific than a Pillar Weakness, but more general than a Base                                                                        400     Uncontrolled
+                                                                                                                    Weakness. Class level weaknesses typically describe issues in terms of 1 or 2 of the following dimensions: behavior, property, and resource.                                                                                                             Resource
+                                                                                                                                                                                                                                                                                                                                                                             Consumption
+ ParentOf                                                                              VariantVariant - a weakness that is linked to a certain type of product, typically involving a specific language or technology. More specific than a Base weakness. Variant level weaknesses typically                                                                        774     Allocation of
+                                                                                                                               describe issues in terms of 3 to 5 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                       File
+                                                                                                                                                                                                                                                                                                                                                                             Descriptors or
+                                                                                                                                                                                                                                                                                                                                                                             Handles
+                                                                                                                                                                                                                                                                                                                                                                             Without Limits
+                                                                                                                                                                                                                                                                                                                                                                             or Throttling
+ ParentOf                                                                              VariantVariant - a weakness that is linked to a certain type of product, typically involving a specific language or technology. More specific than a Base weakness. Variant level weaknesses typically                                                                        789     Memory
+                                                                                                                               describe issues in terms of 3 to 5 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                       Allocation
+                                                                                                                                                                                                                                                                                                                                                                             with Excessive
+                                                                                                                                                                                                                                                                                                                                                                             Size Value
+ ParentOf                                                                                  BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level weaknesses                                                                           1325    Improperly
+                                                                                                                          typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                  Controlled
+                                                                                                                                                                                                                                                                                                                                                                             Sequential
+                                                                                                                                                                                                                                                                                                                                                                             Memory
+                                                                                                                                                                                                                                                                                                                                                                             Allocation
+ CanFollow                                                                             ClassClass - a weakness that is described in a very abstract fashion, typically independent of any specific language or technology. More specific than a Pillar Weakness, but more general than a Base                                                                        20      Improper Input
+                                                                                                                    Weakness. Class level weaknesses typically describe issues in terms of 1 or 2 of the following dimensions: behavior, property, and resource.                                                                                                             Validation
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Software Development" (CWE-699)
+     Nature                                                       Type                                                     ID                                   Name
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 399     Resource Management Errors
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 840     Business Logic Errors
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Weaknesses for Simplified Mapping of Published Vulnerabilities" (CWE-1003)
+     Nature                                                                                                                                                                             Type                                                                                                                                                                           ID        Name
+ ChildOf                                                                               ClassClass - a weakness that is described in a very abstract fashion, typically independent of any specific language or technology. More specific than a Pillar Weakness, but more general than a Base                                                                        400     Uncontrolled
+                                                                                                                    Weakness. Class level weaknesses typically describe issues in terms of 1 or 2 of the following dimensions: behavior, property, and resource.                                                                                                             Resource
+                                                                                                                                                                                                                                                                                                                                                                             Consumption
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Architectural Concepts" (CWE-1008)
+     Nature                                                       Type                                                     ID                                   Name
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 1011    Authorize Actors
+ + Modes Of Introduction
+ Section HelpThe different Modes of Introduction provide information about how and when this weakness may be introduced. The Phase identifies a point in the life cycle at which introduction may occur,
+ while the Note provides a typical scenario related to introduction during the given phase.
+          Phase                                                                                             Note
+ Architecture and Design OMISSION: This weakness is caused by missing a security tactic during the architecture and design phase.
+ Implementation
+ Operation
+ System Configuration
+ + Applicable Platforms
+ Section HelpThis listing shows possible areas for which the given weakness could appear. These may be for specific named Languages, Operating Systems, Architectures, Paradigms, Technologies, or a
+ class of such platforms. The platform is listed along with how frequently the given weakness appears for that instance.
+
+ Languages
+
+ Class: Not Language-Specific (Often Prevalent)
+
+ + Common Consequences
+ Section HelpThis table specifies different individual consequences associated with the weakness. The Scope identifies the application security area that is violated, while the Impact describes the
+ negative technical impact that arises if an adversary succeeds in exploiting this weakness. The Likelihood provides information about how likely the specific consequence is expected to be seen
+ relative to the other consequences in the list. For example, there may be high likelihood that a weakness will be exploited to achieve a certain impact, but a low likelihood that it will be exploited
+ to achieve a different impact.
+       Scope                                                                                     Impact                                                                                 Likelihood
+                    Technical Impact: DoS: Resource Consumption (CPU); DoS: Resource Consumption (Memory); DoS: Resource Consumption (Other)
+ Availability
+                    When allocating resources without limits, an attacker could prevent other systems, applications, or processes from accessing the same type of resource.
+ + Likelihood Of Exploit
+ High
+ + Demonstrative Examples
+ 
+ Example 1
+
+ This code allocates a socket and forks each time it receives a new connection.
+
+ (bad code)
+ Example Language: C 
+ sock=socket(AF_INET, SOCK_STREAM, 0);
+ while (1) {
+ newsock=accept(sock, ...);
+ printf("A connection has been accepted\n");
+ pid = fork();
+ }
+
+ The program does not track how many connections have been made, and it does not limit the number of connections. Because forking is a relatively expensive operation, an attacker would be able to
+ cause the system to run out of CPU, processes, or memory by making a large number of connections. Alternatively, an attacker could consume all available connections, preventing others from accessing
+ the system remotely.
+
+ Example 2
+
+ In the following example a server socket connection is used to accept a request to store data on the local file system using a specified filename. The method openSocketConnection establishes a server
+ socket to accept requests from a client. When a client establishes a connection to this service the getNextMessage method is first used to retrieve from the socket the name of the file to store the
+ data, the openFileToWrite method will validate the filename and open a file to write to on the local file system. The getNextMessage is then used within a while loop to continuously read data from
+ the socket and output the data to the file until there is no longer any data from the socket.
+
+ (bad code)
+ Example Language: C 
+ int writeDataFromSocketToFile(char *host, int port)
+ {
+
+ char filename[FILENAME_SIZE];
+ char buffer[BUFFER_SIZE];
+ int socket = openSocketConnection(host, port);
+
+ if (socket < 0) {
+ printf("Unable to open socket connection");
+ return(FAIL);
+ }
+ if (getNextMessage(socket, filename, FILENAME_SIZE) > 0) {
+ if (openFileToWrite(filename) > 0) {
+ while (getNextMessage(socket, buffer, BUFFER_SIZE) > 0){
+ if (!(writeToFile(buffer) > 0))
+ break;
+ }
+ }
+ closeFile();
+ }
+ closeSocket(socket);
+ }
+
+ This example creates a situation where data can be dumped to a file on the local file system without any limits on the size of the file. This could potentially exhaust file or disk resources and/or
+ limit other clients' ability to access the service.
+
+ Example 3
+
+ In the following example, the processMessage method receives a two dimensional character array containing the message to be processed. The two-dimensional character array contains the length of the
+ message in the first character array and the message body in the second character array. The getMessageLength method retrieves the integer value of the length from the first character array. After
+ validating that the message length is greater than zero, the body character array pointer points to the start of the second character array of the two-dimensional character array and memory is
+ allocated for the new body character array.
+
+ (bad code)
+ Example Language: C 
+
+ /* process message accepts a two-dimensional character array of the form [length][body] containing the message to be processed */
+ int processMessage(char **message)
+ {
+ char *body;
+
+ int length = getMessageLength(message[0]);
+
+ if (length > 0) {
+ body = &message[1][0];
+ processMessageBody(body);
+ return(SUCCESS);
+ }
+ else {
+ printf("Unable to process message; invalid message length");
+ return(FAIL);
+ }
+ }
+
+ This example creates a situation where the length of the body character array can be very large and will consume excessive memory, exhausting system resources. This can be avoided by restricting the
+ length of the second character array with a maximum length check
+
+ Also, consider changing the type from 'int' to 'unsigned int', so that you are always guaranteed that the number is positive. This might not be possible if the protocol specifically requires allowing
+ negative values, or if you cannot control the return value from getMessageLength(), but it could simplify the check to ensure the input is positive, and eliminate other errors such as
+ signed-to-unsigned conversion errors (CWE-195) that may occur elsewhere in the code.
+
+ (good code)
+ Example Language: C 
+ unsigned int length = getMessageLength(message[0]);
+ if ((length > 0) && (length < MAX_LENGTH)) {...}
+
+ Example 4
+
+ In the following example, a server object creates a server socket and accepts client connections to the socket. For every client connection to the socket a separate thread object is generated using
+ the ClientSocketThread class that handles request made by the client through the socket.
+
+ (bad code)
+ Example Language: Java 
+ public void acceptConnections() {
+ try {
+ ServerSocket serverSocket = new ServerSocket(SERVER_PORT);
+ int counter = 0;
+ boolean hasConnections = true;
+ while (hasConnections) {
+ Socket client = serverSocket.accept();
+ Thread t = new Thread(new ClientSocketThread(client));
+ t.setName(client.getInetAddress().getHostName() + ":" + counter++);
+ t.start();
+ }
+ serverSocket.close();
+
+
+ } catch (IOException ex) {...}
+ }
+
+ In this example there is no limit to the number of client connections and client threads that are created. Allowing an unlimited number of client connections and threads could potentially overwhelm
+ the system and system resources.
+
+ The server should limit the number of client connections and the client threads that are created. This can be easily done by creating a thread pool object that limits the number of threads that are
+ generated.
+
+ (good code)
+ Example Language: Java 
+ public static final int SERVER_PORT = 4444;
+ public static final int MAX_CONNECTIONS = 10;
+ ...
+
+ public void acceptConnections() {
+ try {
+ ServerSocket serverSocket = new ServerSocket(SERVER_PORT);
+ int counter = 0;
+ boolean hasConnections = true;
+ while (hasConnections) {
+ hasConnections = checkForMoreConnections();
+ Socket client = serverSocket.accept();
+ Thread t = new Thread(new ClientSocketThread(client));
+ t.setName(client.getInetAddress().getHostName() + ":" + counter++);
+ ExecutorService pool = Executors.newFixedThreadPool(MAX_CONNECTIONS);
+ pool.execute(t);
+ }
+ serverSocket.close();
+
+
+ } catch (IOException ex) {...}
+ }
+
+ Example 5
+
+ An unnamed web site allowed a user to purchase tickets for an event. A menu option allowed the user to purchase up to 10 tickets, but the back end did not restrict the actual number of tickets that
+ could be purchased.
+ 
+ Example 5 References:
+ [REF-667] Rafal Los. "Real-Life Example of a 'Business Logic Defect' (Screen Shots!)". 2011. <http://h30501.www3.hp.com/t5/Following-the-White-Rabbit-A/
+ Real-Life-Example-of-a-Business-Logic-Defect-Screen-Shots/ba-p/22581>.
+
+ Example 6
+
+ Here the problem is that every time a connection is made, more memory is allocated. So if one just opened up more and more connections, eventually the machine would run out of memory.
+
+ (bad code)
+ Example Language: C 
+ bar connection() {
+ foo = malloc(1024);
+ return foo;
+ }
+
+ endConnection(bar foo) {
+ free(foo);
+ }
+
+ int main() {
+ while(1) {
+ foo=connection();
+ }
+
+ endConnection(foo)
+ }
+ + Observed Examples
+        Reference                                                                                        Description
+ CVE-2022-21668          Chain: Python library does not limit the resources used to process images that specify a very large number of bands (CWE-1284), leading to excessive memory consumption (
+                         CWE-789) or an integer overflow (CWE-190).
+ CVE-2009-4017           Language interpreter does not restrict the number of temporary files being created when handling a MIME request with a large number of parts..
+ CVE-2009-2726           Driver does not use a maximum width when invoking sscanf style functions, causing stack consumption.
+ CVE-2009-2540           Large integer value for a length property in an object causes a large amount of memory allocation.
+ CVE-2009-2054           Product allows exhaustion of file descriptors when processing a large number of TCP packets.
+ CVE-2008-5180           Communication product allows memory consumption with a large number of SIP requests, which cause many sessions to be created.
+ CVE-2008-1700           Product allows attackers to cause a denial of service via a large number of directives, each of which opens a separate window.
+ CVE-2005-4650           CMS does not restrict the number of searches that can occur simultaneously, leading to resource exhaustion.
+ CVE-2020-15100          web application scanner attempts to read an excessively large file created by a user, causing process termination
+ CVE-2020-7218           Go-based workload orchestrator does not limit resource usage with unauthenticated connections, allowing a DoS by flooding the service
+ + Potential Mitigations
+ Phase: Requirements
+
+ Clearly specify the minimum and maximum expectations for capabilities, and dictate which behaviors are acceptable when resource allocation reaches limits.
+ Phase: Architecture and Design
+
+ Limit the amount of resources that are accessible to unprivileged users. Set per-user limits for resources. Allow the system administrator to define these limits. Be careful to avoid CWE-410.
+ Phase: Architecture and Design
+
+ Design throttling mechanisms into the system architecture. The best protection is to limit the amount of resources that an unauthorized user can cause to be expended. A strong authentication and
+ access control model will help prevent such attacks from occurring in the first place, and it will help the administrator to identify who is committing the abuse. The login application should be
+ protected against DoS attacks as much as possible. Limiting the database access, perhaps by caching result sets, can help minimize the resources expended. To further limit the potential for a DoS
+ attack, consider tracking the rate of requests received from users and blocking requests that exceed a defined rate threshold.
+ Phase: Implementation
+
+ Strategy: Input Validation
+
+ Assume all input is malicious. Use an "accept known good" input validation strategy, i.e., use a list of acceptable inputs that strictly conform to specifications. Reject any input that does not
+ strictly conform to specifications, or transform it into something that does.
+
+ When performing input validation, consider all potentially relevant properties, including length, type of input, the full range of acceptable values, missing or extra inputs, syntax, consistency
+ across related fields, and conformance to business rules. As an example of business rule logic, "boat" may be syntactically valid because it only contains alphanumeric characters, but it is not
+ valid if the input is only expected to contain colors such as "red" or "blue."
+
+ Do not rely exclusively on looking for malicious or malformed inputs. This is likely to miss at least one undesirable input, especially if the code's environment changes. This can give attackers
+ enough room to bypass the intended validation. However, denylists can be useful for detecting potential attacks or determining which inputs are so malformed that they should be rejected outright.
+
+ Note: This will only be applicable to cases where user input can influence the size or frequency of resource allocations.
+ Phase: Architecture and Design
+
+ For any security checks that are performed on the client side, ensure that these checks are duplicated on the server side, in order to avoid CWE-602. Attackers can bypass the client-side checks
+ by modifying values after the checks have been performed, or by changing the client to remove the client-side checks entirely. Then, these modified values would be submitted to the server.
+ Phase: Architecture and Design
+
+ Mitigation of resource exhaustion attacks requires that the target system either:
+
+   • recognizes the attack and denies that user further access for a given amount of time, typically by using increasing time delays
+   • uniformly throttles all requests in order to make it more difficult to consume resources more quickly than they can again be freed.
+
+ The first of these solutions is an issue in itself though, since it may allow attackers to prevent the use of the system by a particular valid user. If the attacker impersonates the valid user,
+ they may be able to prevent the user from accessing the server in question.
+
+ The second solution can be difficult to effectively institute -- and even when properly done, it does not provide a full solution. It simply requires more resources on the part of the attacker.
+
+ Phase: Architecture and Design
+
+ Ensure that protocols have specific limits of scale placed on them.
+ Phases: Architecture and Design; Implementation
+
+ If the program must fail, ensure that it fails gracefully (fails closed). There may be a temptation to simply let the program fail poorly in cases such as low memory conditions, but an attacker
+ may be able to assert control before the software has fully exited. Alternately, an uncontrolled failure could cause cascading problems with other downstream components; for example, the program
+ could send a signal to a downstream process so the process immediately knows that a problem has occurred and has a better chance of recovery.
+
+ Ensure that all failures in resource allocation place the system into a safe posture.
+
+ Phases: Operation; Architecture and Design
+
+ Strategy: Resource Limitation
+
+ Use resource-limiting settings provided by the operating system or environment. For example, when managing system resources in POSIX, setrlimit() can be used to set limits for certain types of
+ resources, and getrlimit() can determine how many resources are available. However, these functions are not available on all operating systems.
+
+ When the current levels get close to the maximum that is defined for the application (see CWE-770), then limit the allocation of further resources to privileged users; alternately, begin
+ releasing resources for less-privileged users. While this mitigation may protect the system from attack, it will not necessarily stop attackers from adversely impacting other users.
+
+ Ensure that the application performs the appropriate error checks and error handling in case resources become unavailable (CWE-703).
+
+ + Detection Methods
+ Manual Static Analysis
+
+ Manual static analysis can be useful for finding this weakness, but it might not achieve desired code coverage within limited time constraints. If denial-of-service is not considered a
+ significant risk, or if there is strong emphasis on consequences such as code execution, then manual analysis may not focus on this weakness at all.
+ Fuzzing
+
+ While fuzzing is typically geared toward finding low-level implementation bugs, it can inadvertently find uncontrolled resource allocation problems. This can occur when the fuzzer generates a
+ large number of test cases but does not restart the targeted product in between test cases. If an individual test case produces a crash, but it does not do so reliably, then an inability to limit
+ resource allocation may be the cause.
+
+ When the allocation is directly affected by numeric inputs, then fuzzing may produce indications of this weakness.
+
+ Effectiveness: Opportunistic
+
+ Automated Dynamic Analysis
+
+ Certain automated dynamic analysis techniques may be effective in producing side effects of uncontrolled resource allocation problems, especially with resources such as processes, memory, and
+ connections. The technique may involve generating a large number of requests to the product within a short time frame. Manual analysis is likely required to interpret the results.
+ Automated Static Analysis
+
+ Specialized configuration or tuning may be required to train automated tools to recognize this weakness.
+
+ Automated static analysis typically has limited utility in recognizing unlimited allocation problems, except for the missing release of program-independent system resources such as files,
+ sockets, and processes, or unchecked arguments to memory. For system resources, automated static analysis may be able to detect circumstances in which resources are not released after they have
+ expired, or if too much of a resource is requested at once, as can occur with memory. Automated analysis of configuration files may be able to detect settings that do not specify a maximum value.
+
+ Automated static analysis tools will not be appropriate for detecting exhaustion of custom resources, such as an intended security policy in which a bulletin board user is only allowed to make a
+ limited number of posts per day.
+
+ + Memberships
+ Section HelpThis MemberOf Relationships table shows additional CWE Categories and Views that reference this weakness as a member. This information is often useful in understanding where a weakness
+ fits within the context of external information sources.
+     Nature                                                                                                  Type                                                                                               ID         Name
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            802     2010 Top 25 -
+                                                                                                                                                                                                                      Risky Resource
+                                                                                                                                                                                                                      Management
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            857     The CERT Oracle
+                                                                                                                                                                                                                      Secure Coding
+                                                                                                                                                                                                                      Standard for
+                                                                                                                                                                                                                      Java (2011)
+                                                                                                                                                                                                                      Chapter 14 -
+                                                                                                                                                                                                                      Input Output
+                                                                                                                                                                                                                      (FIO)
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            858     The CERT Oracle
+                                                                                                                                                                                                                      Secure Coding
+                                                                                                                                                                                                                      Standard for
+                                                                                                                                                                                                                      Java (2011)
+                                                                                                                                                                                                                      Chapter 15 -
+                                                                                                                                                                                                                      Serialization
+                                                                                                                                                                                                                      (SER)
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            861     The CERT Oracle
+                                                                                                                                                                                                                      Secure Coding
+                                                                                                                                                                                                                      Standard for
+                                                                                                                                                                                                                      Java (2011)
+                                                                                                                                                                                                                      Chapter 18 -
+                                                                                                                                                                                                                      Miscellaneous
+                                                                                                                                                                                                                      (MSC)
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            867     2011 Top 25 -
+                                                                                                                                                                                                                      Weaknesses On
+                                                                                                                                                                                                                      the Cusp
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            876     CERT C++ Secure
+                                                                                                                                                                                                                      Coding Section
+                                                                                                                                                                                                                      08 - Memory
+                                                                                                                                                                                                                      Management
+                                                                                                                                                                                                                      (MEM)
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            877     CERT C++ Secure
+                                                                                                                                                                                                                      Coding Section
+                                                                                                                                                                                                                      09 - Input
+                                                                                                                                                                                                                      Output (FIO)
+ MemberOf        ViewView - a subset of CWE entries that provides a way of examining CWE content. The two main view structures are Slices (flat lists) and Graphs (containing relationships between entries). 884     CWE
+                                                                                                                                                                                                                      Cross-section
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            985     SFP Secondary
+                                                                                                                                                                                                                      Cluster:
+                                                                                                                                                                                                                      Unrestricted
+                                                                                                                                                                                                                      Consumption
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            1147    SEI CERT Oracle
+                                                                                                                                                                                                                      Secure Coding
+                                                                                                                                                                                                                      Standard for
+                                                                                                                                                                                                                      Java -
+                                                                                                                                                                                                                      Guidelines 13.
+                                                                                                                                                                                                                      Input Output
+                                                                                                                                                                                                                      (FIO)
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            1148    SEI CERT Oracle
+                                                                                                                                                                                                                      Secure Coding
+                                                                                                                                                                                                                      Standard for
+                                                                                                                                                                                                                      Java -
+                                                                                                                                                                                                                      Guidelines 14.
+                                                                                                                                                                                                                      Serialization
+                                                                                                                                                                                                                      (SER)
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            1152    SEI CERT Oracle
+                                                                                                                                                                                                                      Secure Coding
+                                                                                                                                                                                                                      Standard for
+                                                                                                                                                                                                                      Java -
+                                                                                                                                                                                                                      Guidelines 49.
+                                                                                                                                                                                                                      Miscellaneous
+                                                                                                                                                                                                                      (MSC)
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            1416    Comprehensive
+                                                                                                                                                                                                                      Categorization:
+                                                                                                                                                                                                                      Resource
+                                                                                                                                                                                                                      Lifecycle
+                                                                                                                                                                                                                      Management
+ + Vulnerability Mapping Notes
+ Usage: ALLOWED
+
+ (this CWE ID could be used to map to real-world vulnerabilities)
+ Reason: Acceptable-Use
+
+ Rationale:
+
+ This CWE entry is at the Base level of abstraction, which is a preferred level of abstraction for mapping to the root causes of vulnerabilities.
+ Comments:
+
+ Carefully read both the name and description to ensure that this mapping is an appropriate fit. Do not try to 'force' a mapping to a lower-level Base/Variant simply to comply with this preferred
+ level of abstraction.
+ + Notes
+ 
+ Relationship
+
+ This entry is different from uncontrolled resource consumption (CWE-400) in that there are other weaknesses that are related to inability to control resource consumption, such as holding on to a
+ resource too long after use, or not correctly keeping track of active resources so that they can be managed and released when they are finished (CWE-771).
+
+ Theoretical
+
+ Vulnerability theory is largely about how behaviors and resources interact. "Resource exhaustion" can be regarded as either a consequence or an attack, depending on the perspective. This entry is an
+ attempt to reflect one of the underlying weaknesses that enable these attacks (or consequences) to take place.
+ + Taxonomy Mappings
+       Mapped Taxonomy Name          Node ID          Fit                                                                Mapped Node Name
+ The CERT Oracle Secure Coding    FIO04-J                      Close resources when they are no longer needed
+ Standard for Java (2011)
+ The CERT Oracle Secure Coding    SER12-J                      Avoid memory and resource leaks during serialization
+ Standard for Java (2011)
+ The CERT Oracle Secure Coding    MSC05-J                      Do not exhaust heap space
+ Standard for Java (2011)
+ ISA/IEC 62443                    Part 4-2                     Req CR 7.2
+ ISA/IEC 62443                    Part 4-2                     Req CR 2.7
+ ISA/IEC 62443                    Part 4-1                     Req SI-1
+ ISA/IEC 62443                    Part 4-1                     Req SI-2
+ ISA/IEC 62443                    Part 3-3                     Req SR 7.2
+ ISA/IEC 62443                    Part 3-3                     Req SR 2.7
+ + Related Attack Patterns
+    CAPEC-ID                                                                                     Attack Pattern Name
+ CAPEC-125       Flooding
+ CAPEC-130       Excessive Allocation
+ CAPEC-147       XML Ping of the Death
+ CAPEC-197       Exponential Data Expansion
+ CAPEC-229       Serialized Data Parameter Blowup
+ CAPEC-230       Serialized Data with Nested Payloads
+ CAPEC-231       Oversized Serialized Data Payloads
+ CAPEC-469       HTTP DoS
+ CAPEC-482       TCP Flood
+ CAPEC-486       UDP Flood
+ CAPEC-487       ICMP Flood
+ CAPEC-488       HTTP Flood
+ CAPEC-489       SSL Flood
+ CAPEC-490       Amplification
+ CAPEC-491       Quadratic Data Expansion
+ CAPEC-493       SOAP Array Blowup
+ CAPEC-494       TCP Fragmentation
+ CAPEC-495       UDP Fragmentation
+ CAPEC-496       ICMP Fragmentation
+ CAPEC-528       XML Flood
+ + References
+ [REF-386] Joao Antunes, Nuno Ferreira Neves and Paulo Verissimo. "Detection and Prediction of Resource-Exhaustion Vulnerabilities". Proceedings of the IEEE International Symposium on Software
+ Reliability Engineering (ISSRE). 2008-11. <http://homepages.di.fc.ul.pt/~nuno/PAPERS/ISSRE08.pdf>.
+ [REF-387] D.J. Bernstein. "Resource exhaustion". <http://cr.yp.to/docs/resources.html>.
+ [REF-388] Pascal Meunier. "Resource exhaustion". Secure Programming Educational Material. 2004. <http://homes.cerias.purdue.edu/~pmeunier/secprog/sanitized/class1/6.resource%20exhaustion.ppt>.
+ [REF-7] Michael Howard and David LeBlanc. "Writing Secure Code". Chapter 17, "Protecting Against Denial of Service Attacks" Page 517. 2nd Edition. Microsoft Press. 2002-12-04. <https://
+ www.microsoftpressstore.com/store/writing-secure-code-9780735617223>.
+ [REF-667] Rafal Los. "Real-Life Example of a 'Business Logic Defect' (Screen Shots!)". 2011. <http://h30501.www3.hp.com/t5/Following-the-White-Rabbit-A/
+ Real-Life-Example-of-a-Business-Logic-Defect-Screen-Shots/ba-p/22581>.
+ [REF-672] Frank Kim. "Top 25 Series - Rank 22 - Allocation of Resources Without Limits or Throttling". SANS Software Security Institute. 2010-03-23. <https://web.archive.org/web/20170113055136/
+ https://software-security.sans.org/blog/2010/03/23/top-25-series-rank-22-allocation-of-resources-without-limits-or-throttling/>. URL validated: 2023-04-07.
+ [REF-62] Mark Dowd, John McDonald and Justin Schuh. "The Art of Software Security Assessment". Chapter 10, "Resource Limits", Page 574. 1st Edition. Addison Wesley. 2006.
+ + Content History
+                                                                                            + Submissions
+      Submission Date                                                                        Submitter                                                                          Organization
+ 2009-05-13                 CWE Content Team                                                                                                                             MITRE
+ (CWE 1.4, 2009-05-27)
+
+                                                                                           + Contributions
+     Contribution Date                                                                      Contributor                                                                         Organization
+ 2023-11-14                 participants in the CWE ICS/OT SIG 62443 Mapping Fall Workshop
+ (CWE 4.14, 2024-02-29)     Contributed or reviewed taxonomy mappings for ISA/IEC 62443
+                                                                                           + Modifications
+     Modification Date                                                                        Modifier                                                                          Organization
+ 2009-07-27                 CWE Content Team                                                                                                                             MITRE
+                            updated Related_Attack_Patterns
+ 2009-10-29                 CWE Content Team                                                                                                                             MITRE
+                            updated Relationships
+ 2009-12-28                 CWE Content Team                                                                                                                             MITRE
+                            updated Applicable_Platforms, Demonstrative_Examples, Detection_Factors, Observed_Examples, References, Time_of_Introduction
+ 2010-02-16                 CWE Content Team                                                                                                                             MITRE
+                            updated Common_Consequences, Detection_Factors, Potential_Mitigations, References, Related_Attack_Patterns, Relationships
+ 2010-04-05                 CWE Content Team                                                                                                                             MITRE
+                            updated Common_Consequences, Demonstrative_Examples, Related_Attack_Patterns
+ 2010-06-21                 CWE Content Team                                                                                                                             MITRE
+                            updated Common_Consequences, Potential_Mitigations, References
+ 2010-09-27                 CWE Content Team                                                                                                                             MITRE
+                            updated Demonstrative_Examples, Potential_Mitigations
+ 2011-03-29                 CWE Content Team                                                                                                                             MITRE
+                            updated Demonstrative_Examples, Detection_Factors, Relationships
+ 2011-06-01                 CWE Content Team                                                                                                                             MITRE
+                            updated Common_Consequences, Relationships, Taxonomy_Mappings
+ 2011-06-27                 CWE Content Team                                                                                                                             MITRE
+                            updated Relationships
+ 2011-09-13                 CWE Content Team                                                                                                                             MITRE
+                            updated Relationships, Taxonomy_Mappings
+ 2012-05-11                 CWE Content Team                                                                                                                             MITRE
+                            updated Demonstrative_Examples, References, Related_Attack_Patterns, Relationships, Taxonomy_Mappings
+ 2012-10-30                 CWE Content Team                                                                                                                             MITRE
+                            updated Potential_Mitigations
+ 2014-02-18                 CWE Content Team                                                                                                                             MITRE
+                            updated Related_Attack_Patterns
+ 2014-06-23                 CWE Content Team                                                                                                                             MITRE
+                            updated Related_Attack_Patterns
+ 2014-07-30                 CWE Content Team                                                                                                                             MITRE
+                            updated Relationships
+ 2015-12-07                 CWE Content Team                                                                                                                             MITRE
+                            updated Related_Attack_Patterns
+ 2017-05-03                 CWE Content Team                                                                                                                             MITRE
+                            updated Related_Attack_Patterns
+ 2017-11-08                 CWE Content Team                                                                                                                             MITRE
+                            updated Demonstrative_Examples, Likelihood_of_Exploit, Modes_of_Introduction, Potential_Mitigations, References, Relationships, Taxonomy_Mappings
+ 2018-03-27                 CWE Content Team                                                                                                                             MITRE
+                            updated References
+ 2019-01-03                 CWE Content Team                                                                                                                             MITRE
+                            updated Demonstrative_Examples, Description, Relationships, Taxonomy_Mappings
+ 2019-06-20                 CWE Content Team                                                                                                                             MITRE
+                            updated Related_Attack_Patterns, Relationships
+ 2020-02-24                 CWE Content Team                                                                                                                             MITRE
+                            updated Potential_Mitigations, Related_Attack_Patterns, Relationships
+ 2020-06-25                 CWE Content Team                                                                                                                             MITRE
+                            updated Applicable_Platforms, Description, Maintenance_Notes, Potential_Mitigations, Relationship_Notes, Relationships
+ 2020-12-10                 CWE Content Team                                                                                                                             MITRE
+                            updated Relationships
+ 2021-07-20                 CWE Content Team                                                                                                                             MITRE
+                            updated Observed_Examples
+ 2022-10-13                 CWE Content Team                                                                                                                             MITRE
+                            updated Observed_Examples, References
+ 2023-01-31                 CWE Content Team                                                                                                                             MITRE
+                            updated Description, Detection_Factors
+ 2023-04-27                 CWE Content Team                                                                                                                             MITRE
+                            updated References, Relationships
+ 2023-06-29                 CWE Content Team                                                                                                                             MITRE
+                            updated Mapping_Notes
+ 2024-02-29                 CWE Content Team                                                                                                                             MITRE
+ (CWE 4.14, 2024-02-29)     updated Taxonomy_Mappings
+ More information is available — Please edit the custom filter or select a different filter.
+Page Last Updated: February 29, 2024
+ 
+      Site Map | Terms of Use | Manage Cookies | Cookie Notice | Privacy Policy | Contact Us | CWE X-Twitter CWE Mastodon CWE on LinkedIn CWE YouTube channel CWE Out-of-Bounds-Read Podcast CWE
+      Blog on Medium blog
+
+MITRE Use of the Common Weakness Enumeration (CWE™) and the associated references from this website are subject to the Terms of Use. CWE is sponsored by the U.S. Department of Homeland         HSSEDI
+      Security (DHS) Cybersecurity and Infrastructure Security Agency (CISA) and managed by the Homeland Security Systems Engineering and Development Institute (HSSEDI) which is operated by
+      The MITRE Corporation (MITRE). Copyright © 2006–2024, The MITRE Corporation. CWE, CWSS, CWRAF, and the CWE logo are trademarks of The MITRE Corporation.
+

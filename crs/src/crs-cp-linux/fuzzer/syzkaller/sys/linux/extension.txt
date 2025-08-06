@@ -1,0 +1,23 @@
+# linux_test_harness
+# https://github.com/Team-Atlanta/challenge-001-linux-cp/blob/edc447778d58f74c6b3fe361701586872a68a770/src/test_harnesses/linux_test_harness.c#L55-L90
+# TODO: Support multiple `nlmsghdr`s (i.e. NLM_F_MULTI)
+sendto$nl_generic(fd sock_nl_generic, buf ptr[in, netlink_msg_t[netlink_random_msg_type, array[int8], void]], len len[buf], f flags[send_flags], addr ptr[in, sockaddr_nl], addrlen len[addr])
+
+# CVE-2022-0995-2
+# https://github.com/Team-Atlanta/challenge-001-linux-cp/blob/c066eaf21a04a64ac77632bbea804f5558160478/src/test_harnesses/CVE-2022-0995-2.c#L88-L96
+ioctl$IOC_WATCH_QUEUE_SET_FILTER_EXT(fd fd_watch_queue, cmd const[IOC_WATCH_QUEUE_SET_FILTER], arg ptr[in, watch_notification_filter_ext])
+
+watch_notification_filter_ext {
+	nr_filters	len[filters, int32]
+	__reserved	const[0, int32]
+	filters		array[watch_notification_type_filter_ext]
+}
+
+watch_notification_type_filter_ext {
+	type		flags[watch_notification_type, int32]
+	info_filter	int32
+	info_mask	int32
+	subtype_filter	array[int32, 8]
+}
+
+watch_notification_type = 0, 1

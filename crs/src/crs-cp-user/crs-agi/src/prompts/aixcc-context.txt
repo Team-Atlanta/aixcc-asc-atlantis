@@ -1,0 +1,6 @@
+# About "${cp}" (CP) you should find bugs from
+
+It contains ${len(sanitizers)} number of bugs, each of them should be triggered by sanitizers:
+% for s in sanitizers:
+ - ${s}
+% endfor

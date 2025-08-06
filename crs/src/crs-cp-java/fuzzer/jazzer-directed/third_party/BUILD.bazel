@@ -1,0 +1,65 @@
+exports_files(["jacoco_internal.jarjar"])
+
+genrule(
+    name = "sootup_jars",
+    srcs = glob(["SootUp/**/*"]),
+    outs = [
+        "sootup.analysis-1.3.1-SNAPSHOT.jar",
+        "sootup.callgraph-1.3.1-SNAPSHOT.jar",
+        "sootup.core-1.3.1-SNAPSHOT.jar",
+        "sootup.examples-1.3.1-SNAPSHOT.jar",
+        "sootup.java.bytecode-1.3.1-SNAPSHOT.jar",
+        "sootup.java.core-1.3.1-SNAPSHOT.jar",
+        "sootup.java.sourcecode-1.3.1-SNAPSHOT.jar",
+        "sootup.jimple.parser-1.3.1-SNAPSHOT.jar",
+        "sootup.qilin-1.3.1-SNAPSHOT.jar",
+        "sootup.report-1.3.1-SNAPSHOT.jar",
+        "sootup.tests-1.3.1-SNAPSHOT.jar",
+    ],
+    cmd = """
+        pom_src=$(location SootUp/pom.xml) && \
+        jar_build_files=$$(dirname $$pom_src)/*/target/*.jar && \
+        (cd $$(dirname $$pom_src) && mvn -DskipTests package -e) && \
+        cp $$jar_build_files $(RULEDIR)
+    """,
+    local = True,
+)
+
+java_library(
+    name = "sootup",
+    srcs = [],
+    resources = [":sootup_jars"],
+    exports = [":sootup_jars"],
+    runtime_deps = [
+        "@maven//:com_google_code_findbugs_jsr305",
+        "@maven//:org_slf4j_slf4j_api",
+        #"@maven//:org_slf4j_slf4j_simple",
+        "@maven//:org_apache_commons_commons_lang3",
+        "@maven//:commons_io_commons_io",
+        "@maven//:com_google_guava_guava",
+
+        # sootup.core
+        "@maven//:org_jgrapht_jgrapht_core",
+
+        # sootup.java.bytecode
+        "@maven//:org_ow2_asm_asm_util",
+        "@maven//:org_ow2_asm_asm_commons",
+        "@maven//:de_femtopedia_dex2jar_dex2jar",
+        "@maven//:de_femtopedia_dex2jar_dex_tools",
+        "@maven//:org_ow2_asm_asm",
+        "@maven//:org_ow2_asm_asm_tree",
+
+        # sootup.jimple.parser
+        #"@maven//:org_antlr_antlr4_runtime",
+
+        # sootup.java.sourcecode
+        "@maven//:com_ibm_wala_com_ibm_wala_core",
+        "@maven//:com_ibm_wala_com_ibm_wala_util",
+        "@maven//:com_ibm_wala_com_ibm_wala_cast",
+        "@maven//:com_ibm_wala_com_ibm_wala_cast_java",
+        "@maven//:com_ibm_wala_com_ibm_wala_cast_java_ecj",
+        "@maven//:com_ibm_wala_com_ibm_wala_shrike",
+        "@maven//:com_ibm_wala_com_ibm_wala_dalvik",
+    ],
+    visibility = ["//visibility:public"],
+)

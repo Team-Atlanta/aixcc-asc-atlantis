@@ -1,0 +1,6 @@
+cp_name = "linux kernel"
+blob_file = "./exemplar_only/blobs/sample_solve.bin"
+harness_id = "id_1"
+sanitizer_id = "id_1"
+bug_introduce_commit = "426d4a428a9c6aa89f366d1867fae55b4ebd6b7f"
+src_dir = "./src/linux_kernel"

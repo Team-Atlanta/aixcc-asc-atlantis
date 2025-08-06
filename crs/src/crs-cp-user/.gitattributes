@@ -1,0 +1,2 @@
+fuzz_corpus1.zip filter=lfs diff=lfs merge=lfs -text
+fuzz_corpus2.zip filter=lfs diff=lfs merge=lfs -text

@@ -1,0 +1,239 @@
+CWE
+
+Common Weakness Enumeration
+
+A community-developed list of SW & HW weaknesses that can become vulnerabilities
+
+New to CWE? click here!
+CWE Most Important Hardware Weaknesses
+CWE Top 25 Most Dangerous Weaknesses
+Home > CWE List > CWE- Individual Dictionary Definition (4.14)                                                                                                   ID Lookup: [                    ] [Go]
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  • Home
+  • About ▼
+    About New to CWE User Stories History Documents FAQs Glossary Compatibility
+  • CWE List ▼
+    Latest Version Downloads Reports Visualizations Archive
+  • Mapping ▼
+    Root Cause Mapping Guidance Root Cause Mapping Quick Tips Root Cause Mapping Examples
+  • Top-N Lists ▼
+    Top 25 Software Top Hardware Top 10 KEV Weaknesses
+  • Community ▼
+    Community Working Groups & Special Interest Groups Board Board Meeting Minutes CWE Discussion List CWE Discussion Archives Contribute Weakness Content to CWE
+  • News ▼
+    Current News X-Twitter ● Mastodon ● LinkedIn ● YouTube YouTube Podcast Out of Bounds Read Podcast Medium Medium News Archive
+  • Search
+
+ 
+ CWE Glossary Definition                  x
+ 
+ 
+ CWE-1007: Insufficient Visual Distinction of Homoglyphs Presented to User
+ 
+ Weakness ID: 1007
+ Vulnerability Mapping: ALLOWEDThis CWE ID may be used to map to real-world vulnerabilities
+ Abstraction: BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level
+ weaknesses typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.
+ View customized information:
+ Conceptual For users who are interested in more notional aspects of a weakness. Example: educators, technical writers, and project/program managers. Operational For users who are concerned with the
+ practical application and details about the nature of a weakness and how to prevent it from happening. Example: tool developers, security researchers, pen-testers, incident response analysts. Mapping
+ Friendly For users who are mapping an issue to CWE/CAPEC IDs, i.e., finding the most appropriate CWE for a specific issue (e.g., a CVE record). Example: tool developers, security researchers. 
+ Complete For users who wish to see all available information for the CWE/CAPEC entry. Custom For users who want to customize what details are displayed.
+ ×
+
+ Edit Custom Filter
+
+ Conceptual Operational Mapping Friendly Select All
+ 
+ Reset Clear Submit Cancel
+ + Description
+ The product displays information or identifiers to a user, but the display mechanism does not make it easy for the user to distinguish between visually similar or identical glyphs (homoglyphs), which
+ may cause the user to misinterpret a glyph and perform an unintended, insecure action.
+ + Extended Description
+ 
+ Some glyphs, pictures, or icons can be semantically distinct to a program, while appearing very similar or identical to a human user. These are referred to as homoglyphs. For example, the lowercase
+ "l" (ell) and uppercase "I" (eye) have different character codes, but these characters can be displayed in exactly the same way to a user, depending on the font. This can also occur between different
+ character sets. For example, the Latin capital letter "A" and the Greek capital letter "Α" (Alpha) are treated as distinct by programs, but may be displayed in exactly the same way to a user. Accent
+ marks may also cause letters to appear very similar, such as the Latin capital letter grave mark "À" and its equivalent "Á" with the acute accent.
+
+ Adversaries can exploit this visual similarity for attacks such as phishing, e.g. by providing a link to an attacker-controlled hostname that looks like a hostname that the victim trusts. In a
+ different use of homoglyphs, an adversary may create a back door username that is visually similar to the username of a regular user, which then makes it more difficult for a system administrator to
+ detect the malicious username while reviewing logs.
+
+ + Alternate Terms
+ Homograph Attack: "Homograph" is often used as a synonym of "homoglyph" by researchers, but according to Wikipedia, a homograph is a word that has multiple, distinct meanings.
+ + Relationships
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Research Concepts" (CWE-1000)
+     Nature                                                                                                                                                                             Type                                                                                                                                                                           ID          Name
+ ChildOf                                                                               ClassClass - a weakness that is described in a very abstract fashion, typically independent of any specific language or technology. More specific than a Pillar Weakness, but more general than a Base                                                                        451     User Interface
+                                                                                                                    Weakness. Class level weaknesses typically describe issues in terms of 1 or 2 of the following dimensions: behavior, property, and resource.                                                                                                             (UI)
+                                                                                                                                                                                                                                                                                                                                                                             Misrepresentation
+                                                                                                                                                                                                                                                                                                                                                                             of Critical
+                                                                                                                                                                                                                                                                                                                                                                             Information
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Software Development" (CWE-699)
+     Nature                                                       Type                                                     ID                                   Name
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 355     User Interface Security Issues
+ + Modes Of Introduction
+ Section HelpThe different Modes of Introduction provide information about how and when this weakness may be introduced. The Phase identifies a point in the life cycle at which introduction may occur,
+ while the Note provides a typical scenario related to introduction during the given phase.
+          Phase                                                                                             Note
+ Architecture and Design This weakness may occur when characters from various character sets are allowed to be interchanged within a URL, username, email address, etc. without any notification to
+                         the user or underlying system being used.
+ Implementation
+ + Applicable Platforms
+ Section HelpThis listing shows possible areas for which the given weakness could appear. These may be for specific named Languages, Operating Systems, Architectures, Paradigms, Technologies, or a
+ class of such platforms. The platform is listed along with how frequently the given weakness appears for that instance.
+
+ Languages
+
+ Class: Not Language-Specific (Undetermined Prevalence)
+
+ Technologies
+
+ Class: Web Based (Sometimes Prevalent)
+
+ + Common Consequences
+ Section HelpThis table specifies different individual consequences associated with the weakness. The Scope identifies the application security area that is violated, while the Impact describes the
+ negative technical impact that arises if an adversary succeeds in exploiting this weakness. The Likelihood provides information about how likely the specific consequence is expected to be seen
+ relative to the other consequences in the list. For example, there may be high likelihood that a weakness will be exploited to achieve a certain impact, but a low likelihood that it will be exploited
+ to achieve a different impact.
+       Scope                                                                                     Impact                                                                                 Likelihood
+                    Technical Impact: Other
+
+ Integrity          An attacker may ultimately redirect a user to a malicious website, by deceiving the user into believing the URL they are accessing is a trusted domain. However,
+ Confidentiality    the attack can also be used to forge log entries by using homoglyphs in usernames. Homoglyph manipulations are often the first step towards executing advanced
+                    attacks such as stealing a user's credentials, Cross-Site Scripting (XSS), or log forgery. If an attacker redirects a user to a malicious site, the attacker can
+                    mimic a trusted domain to steal account credentials and perform actions on behalf of the user, without the user's knowledge. Similarly, an attacker could create
+                    a username for a website that contains homoglyph characters, making it difficult for an admin to review logs and determine which users performed which actions.
+ + Likelihood Of Exploit
+ Medium
+ + Demonstrative Examples
+ 
+ Example 1
+
+ The following looks like a simple, trusted URL that a user may frequently access.
+
+ (attack code)
+  
+ http://www.еxаmрlе.соm
+
+ However, the URL above is comprised of Cyrillic characters that look identical to the expected ASCII characters. This results in most users not being able to distinguish between the two and assuming
+ that the above URL is trusted and safe. The "e" is actually the "CYRILLIC SMALL LETTER IE" which is represented in HTML as the character &#x435, while the "a" is actually the "CYRILLIC SMALL LETTER
+ A" which is represented in HTML as the character &#x430. The "p", "c", and "o" are also Cyrillic characters in this example. Viewing the source reveals a URL of "http://www.&#x435;x&#x430;m&#x440;l&#
+ x435;.&#x441;&#x43e;m". An adversary can utilize this approach to perform an attack such as a phishing attack in order to drive traffic to a malicious website.
+
+ Example 2
+
+ The following displays an example of how creating usernames containing homoglyphs can lead to log forgery.
+
+ Assume an adversary visits a legitimate, trusted domain and creates an account named "admin", except the 'a' and 'i' characters are Cyrillic characters instead of the expected ASCII. Any actions the
+ adversary performs will be saved to the log file and look like they came from a legitimate administrator account.
+
+ (result)
+  
+ 123.123.123.123 аdmіn [17/Jul/2017:09:05:49 -0400] "GET /example/users/userlist HTTP/1.1" 401 12846
+ 123.123.123.123 аdmіn [17/Jul/2017:09:06:51 -0400] "GET /example/users/userlist HTTP/1.1" 200 4523
+ 123.123.123.123 admin [17/Jul/2017:09:10:02 -0400] "GET /example/users/editusers HTTP/1.1" 200 6291
+ 123.123.123.123 аdmіn [17/Jul/2017:09:10:02 -0400] "GET /example/users/editusers HTTP/1.1" 200 6291
+
+ Upon closer inspection, the account that generated three of these log entries is "&#x430;dm&#x456;n". Only the third log entry is by the legitimate admin account. This makes it more difficult to
+ determine which actions were performed by the adversary and which actions were executed by the legitimate "admin" account.
+
+ + Observed Examples
+        Reference                                                                                        Description
+ CVE-2013-7236           web forum allows impersonation of users with homoglyphs in account names
+ CVE-2012-0584           Improper character restriction in URLs in web browser
+ CVE-2009-0652           Incomplete denylist does not include homoglyphs of "/" and "?" characters in URLs
+ CVE-2017-5015           web browser does not convert hyphens to punycode, allowing IDN spoofing in URLs
+ CVE-2005-0233           homoglyph spoofing using punycode in URLs and certificates
+ CVE-2005-0234           homoglyph spoofing using punycode in URLs and certificates
+ CVE-2005-0235           homoglyph spoofing using punycode in URLs and certificates
+ + Potential Mitigations
+ Phase: Implementation
+
+ Use a browser that displays Punycode for IDNs in the URL and status bars, or which color code various scripts in URLs.
+
+ Due to the prominence of homoglyph attacks, several browsers now help safeguard against this attack via the use of Punycode. For example, Mozilla Firefox and Google Chrome will display IDNs as
+ Punycode if top-level domains do not restrict which characters can be used in domain names or if labels mix scripts for different languages.
+
+ Phase: Implementation
+
+ Use an email client that has strict filters and prevents messages that mix character sets to end up in a user's inbox.
+
+ Certain email clients such as Google's GMail prevent the use of non-Latin characters in email addresses or in links contained within emails. This helps prevent homoglyph attacks by flagging these
+ emails and redirecting them to a user's spam folder.
+
+ + Weakness Ordinalities
+ Ordinality                                                                                       Description
+ Resultant  (where the weakness is typically related to the presence of some other weaknesses)
+ + Detection Methods
+ Manual Dynamic Analysis
+
+ If utilizing user accounts, attempt to submit a username that contains homoglyphs. Similarly, check to see if links containing homoglyphs can be sent via email, web browsers, or other mechanisms.
+
+ Effectiveness: Moderate
+
+ + Memberships
+ Section HelpThis MemberOf Relationships table shows additional CWE Categories and Views that reference this weakness as a member. This information is often useful in understanding where a weakness
+ fits within the context of external information sources.
+     Nature                                                       Type                                                     ID                                   Name
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 1412    Comprehensive Categorization: Poor Coding Practices
+ + Vulnerability Mapping Notes
+ Usage: ALLOWED
+
+ (this CWE ID could be used to map to real-world vulnerabilities)
+ Reason: Acceptable-Use
+
+ Rationale:
+
+ This CWE entry is at the Base level of abstraction, which is a preferred level of abstraction for mapping to the root causes of vulnerabilities.
+ Comments:
+
+ Carefully read both the name and description to ensure that this mapping is an appropriate fit. Do not try to 'force' a mapping to a lower-level Base/Variant simply to comply with this preferred
+ level of abstraction.
+ + Related Attack Patterns
+    CAPEC-ID                                                                                     Attack Pattern Name
+ CAPEC-632       Homograph Attack via Homoglyphs
+ + References
+ [REF-7] Michael Howard and David LeBlanc. "Writing Secure Code". Chapter 11, "Canonical Representation Issues", Page 382. 2nd Edition. Microsoft Press. 2002-12-04. <https://
+ www.microsoftpressstore.com/store/writing-secure-code-9780735617223>.
+ [REF-8] Gregory Baatard and Peter Hannay. "The 2011 IDN Homograph Attack Mitigation Survey". ECU Publications. 2012. <http://ro.ecu.edu.au/cgi/viewcontent.cgi?article=1174&context=ecuworks2012>.
+ + Content History
+                                                                                            + Submissions
+                 Submission Date                                                       Submitter                                                               Organization
+ 2017-07-24                                       CWE Content Team                                                                     MITRE
+ (CWE 2.12, 2017-11-08)
+
+                                                                                           + Modifications
+                Modification Date                                                       Modifier                                                               Organization
+ 2018-03-27                                       CWE Content Team                                                                     MITRE
+                                                  updated Demonstrative_Examples, Description, References
+ 2019-01-03                                       CWE Content Team                                                                     MITRE
+                                                  updated Demonstrative_Examples, Description, Related_Attack_Patterns
+ 2020-02-24                                       CWE Content Team                                                                     MITRE
+                                                  updated Applicable_Platforms, Relationships
+ 2020-06-25                                       CWE Content Team                                                                     MITRE
+                                                  updated Observed_Examples
+ 2022-10-13                                       CWE Content Team                                                                     MITRE
+                                                  updated Demonstrative_Examples
+ 2023-01-31                                       CWE Content Team                                                                     MITRE
+                                                  updated Demonstrative_Examples, Description, Related_Attack_Patterns
+ 2023-04-27                                       CWE Content Team                                                                     MITRE
+                                                  updated Relationships
+ 2023-06-29                                       CWE Content Team                                                                     MITRE
+                                                  updated Mapping_Notes
+ More information is available — Please edit the custom filter or select a different filter.
+Page Last Updated: February 29, 2024
+ 
+      Site Map | Terms of Use | Manage Cookies | Cookie Notice | Privacy Policy | Contact Us | CWE X-Twitter CWE Mastodon CWE on LinkedIn CWE YouTube channel CWE Out-of-Bounds-Read Podcast CWE
+      Blog on Medium blog
+
+MITRE Use of the Common Weakness Enumeration (CWE™) and the associated references from this website are subject to the Terms of Use. CWE is sponsored by the U.S. Department of Homeland         HSSEDI
+      Security (DHS) Cybersecurity and Infrastructure Security Agency (CISA) and managed by the Homeland Security Systems Engineering and Development Institute (HSSEDI) which is operated by
+      The MITRE Corporation (MITRE). Copyright © 2006–2024, The MITRE Corporation. CWE, CWSS, CWRAF, and the CWE logo are trademarks of The MITRE Corporation.
+

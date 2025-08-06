@@ -1,0 +1,163 @@
+---
+######################################################################################################
+# DO NOT MODIFY THIS FILE ANYWHERE OTHER THAN WITHIN THE CUSTOMIZE BLOCKS
+#
+#
+# New services are acceptable
+#
+# Profiles
+# We use the profiles "development" and "competition"
+# All containers added by competitors must include the appropriate profiles
+# At competition time only the `--profile competition` will be used
+# This will cause the LiteLLM proxy to disappear.
+# Competitors should be using the AIXCC_LITELLM_HOSTNAME environment variable
+# for accessing LiteLLM, so we can swap the URL at competition time.
+#
+######################################################################################################
+
+# include:
+#  - sandbox/compose.yaml
+
+#############
+### CUSTOMIZE
+#############
+
+
+### Additional services are welcomed, just make sure to use the supplied variables and profile names
+services:
+  # @hanqing: remove before game
+  dind:
+    expose:
+      - "2375"
+    profiles:
+      - development
+    image: docker:24-dind
+    # command: ["dockerd", "-H", "tcp://0.0.0.0:2375", "--tls=false", "--storage-driver=overlay2"]
+    command: ["sh", "-c", "dockerd -H tcp://0.0.0.0:2375 --tls=false --storage-driver=overlay2 > /dev/null 2>&1"]
+    restart: always
+    privileged: true  # This must run with privlege to support nested virtualization within the public Linux CP for `virtme-ng`
+    environment:
+      - DOCKER_TLS_CERTDIR=  # intentionally blank to optimize runtime
+    volumes:
+      - type: bind
+        source: ${PWD}/crs_scratch
+        target: /crs_scratch
+        bind:
+          propagation: rshared
+      - type: bind
+        source: ${PWD}/dind_cache
+        target: /var/lib/docker
+        bind:
+          propagation: rprivate
+          create_host_path: true
+  crs:
+    profiles:
+      - development
+      - competition
+    # Competitors: You MUST change to your repos image name and be versioned pinned to the release intended for competition.
+    # image: ghcr.io/aixcc-sc/crs-sandbox/mock-crs:v2.0.0
+    image: crs-cp-user-crs:latest
+    build:
+      context: .  # Note that this uses the base folder for context, you may not need this for your CRS
+      # Competitors: You MUST change to your Dockerfile location for your CRS.
+      # This points to the mock_crs by default.
+      dockerfile: Dockerfile
+    privileged: true
+      # Competitors: You will need to change this command to trigger your CRS.
+      # If you have multiple containers for your CRS you must design your own
+      # orchestration and sychronization mechanisms.
+    # command: ["make", "-C", "/root/crs", "test"]
+    command: ["./run.py", "--cp", "aixcc_omni_cp"]
+    # command: ["/bin/bash"]
+    # stdin_open: true # keeps stdin open
+    tty: true # enables tty
+    volumes:
+      #################################################################################
+      ### THESE VOLUMES MUST BE INCLUDED WITHOUT MODIFICATION TO ALL CRS CONTAINERS ###
+      # A CRS MUST copy CP repositories from `/cp_root` to a writable location such as `/crs_scratch` for building and testing CPs.
+      # A CRS MUST not modify settings within this section.
+      - type: bind
+        source: ${PWD}/crs_scratch
+        target: /crs_scratch
+        bind:
+          propagation: rshared
+      - ./cp_root:/cp_root
+      #################################################################################
+    environment:
+      # These values will be modified automatically at competition time
+      - DOCKER_HOST=tcp://dind:2375
+      # - AIXCC_LITELLM_HOSTNAME=http://litellm
+      - AIXCC_API_HOSTNAME=http://iapi:8080
+      - AIXCC_CP_ROOT=/cp_root
+      - AIXCC_CRS_SCRATCH_SPACE=/crs_scratch
+      # - LITELLM_KEY=sk-1234
+      - AIXCC_LITELLM_HOSTNAME=http://bombshell.gtisc.gatech.edu:4000 # TODO: Remove before release
+      - LITELLM_KEY=${LITELLM_KEY} # TODO: Remove before release
+      - BUILD_USERSPACE_CP=${BUILD_USERSPACE_CP} # TODO Remove before submission
+      - IN_DOCKER_CONTAINER=1
+      - DEBUG=1
+      - CRS_USER_NODE=0
+      - CRS_USER_CNT=2
+      # - OUR_DOCKER_HOST=tcp://dind:1337
+    depends_on:
+      - dind
+    #   iapi:
+    #     condition: service_healthy
+  crs2:
+    profiles:
+      - development
+      - competition
+    # Competitors: You MUST change to your repos image name and be versioned pinned to the release intended for competition.
+    # image: ghcr.io/aixcc-sc/crs-sandbox/mock-crs:v2.0.0
+    image: crs-cp-user-crs:latest
+    build:
+      context: .  # Note that this uses the base folder for context, you may not need this for your CRS
+      # Competitors: You MUST change to your Dockerfile location for your CRS.
+      # This points to the mock_crs by default.
+      dockerfile: Dockerfile
+    privileged: true
+      # Competitors: You will need to change this command to trigger your CRS.
+      # If you have multiple containers for your CRS you must design your own
+      # orchestration and sychronization mechanisms.
+    # command: ["make", "-C", "/root/crs", "test"]
+    command: ["./run.py", "--cp", "aixcc_omni_cp"]
+    # command: ["/bin/bash"]
+    # stdin_open: true # keeps stdin open
+    tty: true # enables tty
+    volumes:
+      #################################################################################
+      ### THESE VOLUMES MUST BE INCLUDED WITHOUT MODIFICATION TO ALL CRS CONTAINERS ###
+      # A CRS MUST copy CP repositories from `/cp_root` to a writable location such as `/crs_scratch` for building and testing CPs.
+      # A CRS MUST not modify settings within this section.
+      - type: bind
+        source: ${PWD}/crs_scratch
+        target: /crs_scratch
+        bind:
+          propagation: rshared
+      - ./cp_root:/cp_root
+      #################################################################################
+    environment:
+      # These values will be modified automatically at competition time
+      - DOCKER_HOST=tcp://dind:2375
+      # - AIXCC_LITELLM_HOSTNAME=http://litellm
+      - AIXCC_API_HOSTNAME=http://iapi:8080
+      - AIXCC_CP_ROOT=/cp_root
+      - AIXCC_CRS_SCRATCH_SPACE=/crs_scratch
+      # - LITELLM_KEY=sk-1234
+      - AIXCC_LITELLM_HOSTNAME=http://bombshell.gtisc.gatech.edu:4000 # TODO: Remove before release
+      - LITELLM_KEY=${LITELLM_KEY} # TODO: Remove before release
+      - BUILD_USERSPACE_CP=${BUILD_USERSPACE_CP} # TODO Remove before submission
+      - IN_DOCKER_CONTAINER=1
+      - DEBUG=1
+      - CRS_USER_NODE=1
+      - CRS_USER_CNT=2
+      # - OUR_DOCKER_HOST=tcp://dind:1337
+    depends_on:
+      - dind
+    #   iapi:
+    #     condition: service_healthy
+  
+
+#############
+### CUSTOMIZE
+#############

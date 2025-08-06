@@ -1,0 +1,17 @@
+INPUT ::= RENAME0 { size: 4 }
+          COMMAND[RENAME0]
+
+COMMAND ::= SEND_PACKET
+          | RENAME2
+
+SEND_PACKET ::= OPCODE { size: 4, value: 0 }
+                SIZE { size: 4 }
+                FLAGS { size: 4 }
+                PACKET_DATA { size: SIZE }
+
+RENAME2 ::= OPCODE { size: 4, value: 1 }
+            MSG_TYPE { size: 4 }
+            MSG_FLAGS { size: 4 }
+            NETLINK_PROTOCOL { size: 4 }
+            SIZE { size: 4 }
+            DATA { size: SIZE }

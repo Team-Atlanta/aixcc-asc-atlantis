@@ -1,0 +1,432 @@
+CWE
+
+Common Weakness Enumeration
+
+A community-developed list of SW & HW weaknesses that can become vulnerabilities
+
+New to CWE? click here!
+CWE Most Important Hardware Weaknesses
+CWE Top 25 Most Dangerous Weaknesses
+Home > CWE List > CWE- Individual Dictionary Definition (4.14)                                                                                                   ID Lookup: [                    ] [Go]
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  • Home
+  • About ▼
+    About New to CWE User Stories History Documents FAQs Glossary Compatibility
+  • CWE List ▼
+    Latest Version Downloads Reports Visualizations Archive
+  • Mapping ▼
+    Root Cause Mapping Guidance Root Cause Mapping Quick Tips Root Cause Mapping Examples
+  • Top-N Lists ▼
+    Top 25 Software Top Hardware Top 10 KEV Weaknesses
+  • Community ▼
+    Community Working Groups & Special Interest Groups Board Board Meeting Minutes CWE Discussion List CWE Discussion Archives Contribute Weakness Content to CWE
+  • News ▼
+    Current News X-Twitter ● Mastodon ● LinkedIn ● YouTube YouTube Podcast Out of Bounds Read Podcast Medium Medium News Archive
+  • Search
+
+ 
+ CWE Glossary Definition                  x
+ 
+ 
+ CWE-494: Download of Code Without Integrity Check
+ 
+ Weakness ID: 494
+ Vulnerability Mapping: ALLOWEDThis CWE ID may be used to map to real-world vulnerabilities
+ Abstraction: BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level
+ weaknesses typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.
+ View customized information:
+ Conceptual For users who are interested in more notional aspects of a weakness. Example: educators, technical writers, and project/program managers. Operational For users who are concerned with the
+ practical application and details about the nature of a weakness and how to prevent it from happening. Example: tool developers, security researchers, pen-testers, incident response analysts. Mapping
+ Friendly For users who are mapping an issue to CWE/CAPEC IDs, i.e., finding the most appropriate CWE for a specific issue (e.g., a CVE record). Example: tool developers, security researchers. 
+ Complete For users who wish to see all available information for the CWE/CAPEC entry. Custom For users who want to customize what details are displayed.
+ ×
+
+ Edit Custom Filter
+
+ Conceptual Operational Mapping Friendly Select All
+ 
+ Reset Clear Submit Cancel
+ + Description
+ The product downloads source code or an executable from a remote location and executes the code without sufficiently verifying the origin and integrity of the code.
+ + Extended Description
+ An attacker can execute malicious code by compromising the host server, performing DNS spoofing, or modifying the code in transit.
+ + Relationships
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Research Concepts" (CWE-1000)
+     Nature                                                                                                                                                                             Type                                                                                                                                                                           ID         Name
+ ChildOf                                                                               ClassClass - a weakness that is described in a very abstract fashion, typically independent of any specific language or technology. More specific than a Pillar Weakness, but more general than a Base                                                                        669     Incorrect
+                                                                                                                    Weakness. Class level weaknesses typically describe issues in terms of 1 or 2 of the following dimensions: behavior, property, and resource.                                                                                                             Resource
+                                                                                                                                                                                                                                                                                                                                                                             Transfer
+                                                                                                                                                                                                                                                                                                                                                                             Between
+                                                                                                                                                                                                                                                                                                                                                                             Spheres
+ ChildOf                                                                               ClassClass - a weakness that is described in a very abstract fashion, typically independent of any specific language or technology. More specific than a Pillar Weakness, but more general than a Base                                                                        345     Insufficient
+                                                                                                                    Weakness. Class level weaknesses typically describe issues in terms of 1 or 2 of the following dimensions: behavior, property, and resource.                                                                                                             Verification
+                                                                                                                                                                                                                                                                                                                                                                             of Data
+                                                                                                                                                                                                                                                                                                                                                                             Authenticity
+ CanFollow                                                                                 BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level weaknesses                                                                           79      Improper
+                                                                                                                          typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                  Neutralization
+                                                                                                                                                                                                                                                                                                                                                                             of Input
+                                                                                                                                                                                                                                                                                                                                                                             During Web
+                                                                                                                                                                                                                                                                                                                                                                             Page
+                                                                                                                                                                                                                                                                                                                                                                             Generation
+                                                                                                                                                                                                                                                                                                                                                                             ('Cross-site
+                                                                                                                                                                                                                                                                                                                                                                             Scripting')
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Software Development" (CWE-699)
+     Nature                                                       Type                                                     ID                                   Name
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 1214    Data Integrity Issues
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Weaknesses for Simplified Mapping of Published Vulnerabilities" (CWE-1003)
+     Nature                                                                                                                                                                             Type                                                                                                                                                                           ID      Name
+ ChildOf                                                                               ClassClass - a weakness that is described in a very abstract fashion, typically independent of any specific language or technology. More specific than a Pillar Weakness, but more general than a Base                                                                        669     Incorrect
+                                                                                                                    Weakness. Class level weaknesses typically describe issues in terms of 1 or 2 of the following dimensions: behavior, property, and resource.                                                                                                             Resource
+                                                                                                                                                                                                                                                                                                                                                                             Transfer
+                                                                                                                                                                                                                                                                                                                                                                             Between
+                                                                                                                                                                                                                                                                                                                                                                             Spheres
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Architectural Concepts" (CWE-1008)
+     Nature                                                       Type                                                     ID                                   Name
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 1020    Verify Message Integrity
+ + Modes Of Introduction
+ Section HelpThe different Modes of Introduction provide information about how and when this weakness may be introduced. The Phase identifies a point in the life cycle at which introduction may occur,
+ while the Note provides a typical scenario related to introduction during the given phase.
+          Phase                                                                                             Note
+ Architecture and Design OMISSION: This weakness is caused by missing a security tactic during the architecture and design phase.
+ Implementation
+ + Applicable Platforms
+ Section HelpThis listing shows possible areas for which the given weakness could appear. These may be for specific named Languages, Operating Systems, Architectures, Paradigms, Technologies, or a
+ class of such platforms. The platform is listed along with how frequently the given weakness appears for that instance.
+
+ Languages
+
+ Class: Not Language-Specific (Undetermined Prevalence)
+
+ + Common Consequences
+ Section HelpThis table specifies different individual consequences associated with the weakness. The Scope identifies the application security area that is violated, while the Impact describes the
+ negative technical impact that arises if an adversary succeeds in exploiting this weakness. The Likelihood provides information about how likely the specific consequence is expected to be seen
+ relative to the other consequences in the list. For example, there may be high likelihood that a weakness will be exploited to achieve a certain impact, but a low likelihood that it will be exploited
+ to achieve a different impact.
+       Scope                                                                                     Impact                                                                                 Likelihood
+ Integrity          Technical Impact: Execute Unauthorized Code or Commands; Alter Execution Logic; Other
+ Availability
+ Confidentiality    Executing untrusted code could compromise the control flow of the program. The untrusted code could execute attacker-controlled commands, read or modify
+ Other              sensitive resources, or prevent the software from functioning correctly for legitimate users.
+ + Likelihood Of Exploit
+ Medium
+ + Demonstrative Examples
+ 
+ Example 1
+
+ This example loads an external class from a local subdirectory.
+
+ (bad code)
+ Example Language: Java 
+ URL[] classURLs= new URL[]{
+ new URL("file:subdir/")
+ };
+ URLClassLoader loader = new URLClassLoader(classURLs);
+ Class loadedClass = Class.forName("loadMe", true, loader);
+
+ This code does not ensure that the class loaded is the intended one, for example by verifying the class's checksum. An attacker may be able to modify the class file to execute malicious code.
+
+ Example 2
+
+ This code includes an external script to get database credentials, then authenticates a user against the database, allowing access to the application.
+
+ (bad code)
+ Example Language: PHP 
+ //assume the password is already encrypted, avoiding CWE-312
+
+ function authenticate($username,$password){
+
+ include("http://external.example.com/dbInfo.php");
+
+ //dbInfo.php makes $dbhost, $dbuser, $dbpass, $dbname available
+ mysql_connect($dbhost, $dbuser, $dbpass) or die ('Error connecting to mysql');
+ mysql_select_db($dbname);
+ $query = 'Select * from users where username='.$username.' And password='.$password;
+ $result = mysql_query($query);
+
+ if(mysql_numrows($result) == 1){
+ mysql_close();
+ return true;
+ }
+ else{
+ mysql_close();
+ return false;
+ }
+
+ }
+
+ This code does not verify that the external domain accessed is the intended one. An attacker may somehow cause the external domain name to resolve to an attack server, which would provide the
+ information for a false database. The attacker may then steal the usernames and encrypted passwords from real user login attempts, or simply allow themself to access the application without a real
+ user account.
+
+ This example is also vulnerable to an Adversary-in-the-Middle AITM (CWE-300) attack.
+
+ + Observed Examples
+        Reference                                                                                        Description
+ CVE-2019-9534           Satellite phone does not validate its firmware image.
+ CVE-2021-22909          Chain: router's firmware update procedure uses curl with "-k" (insecure) option that disables certificate validation (CWE-295), allowing adversary-in-the-middle (AITM)
+                         compromise with a malicious firmware image (CWE-494).
+ CVE-2008-3438           OS does not verify authenticity of its own updates.
+ CVE-2008-3324           online poker client does not verify authenticity of its own updates.
+ CVE-2001-1125           anti-virus product does not verify automatic updates for itself.
+ CVE-2002-0671           VOIP phone downloads applications from web sites without verifying integrity.
+ + Potential Mitigations
+ Phase: Implementation
+
+ Perform proper forward and reverse DNS lookups to detect DNS spoofing.
+ Note: This is only a partial solution since it will not prevent your code from being modified on the hosting site or in transit.
+ Phases: Architecture and Design; Operation
+
+ Encrypt the code with a reliable encryption scheme before transmitting.
+
+ This will only be a partial solution, since it will not detect DNS spoofing and it will not prevent your code from being modified on the hosting site.
+
+ Phase: Architecture and Design
+
+ Strategy: Libraries or Frameworks
+
+ Use a vetted library or framework that does not allow this weakness to occur or provides constructs that make this weakness easier to avoid.
+
+ Speficially, it may be helpful to use tools or frameworks to perform integrity checking on the transmitted code.
+
+   • When providing the code that is to be downloaded, such as for automatic updates of the software, then use cryptographic signatures for the code and modify the download clients to verify the
+     signatures. Ensure that the implementation does not contain CWE-295, CWE-320, CWE-347, and related weaknesses.
+   • Use code signing technologies such as Authenticode. See references [REF-454] [REF-455] [REF-456].
+
+ Phases: Architecture and Design; Operation
+
+ Strategy: Environment Hardening
+
+ Run your code using the lowest privileges that are required to accomplish the necessary tasks [REF-76]. If possible, create isolated accounts with limited privileges that are only used for a
+ single task. That way, a successful attack will not immediately give the attacker access to the rest of the software or its environment. For example, database applications rarely need to run as
+ the database administrator, especially in day-to-day operations.
+ Phases: Architecture and Design; Operation
+
+ Strategy: Sandbox or Jail
+
+ Run the code in a "jail" or similar sandbox environment that enforces strict boundaries between the process and the operating system. This may effectively restrict which files can be accessed in
+ a particular directory or which commands can be executed by the software.
+
+ OS-level examples include the Unix chroot jail, AppArmor, and SELinux. In general, managed code may provide some protection. For example, java.io.FilePermission in the Java SecurityManager allows
+ the software to specify restrictions on file operations.
+
+ This may not be a feasible solution, and it only limits the impact to the operating system; the rest of the application may still be subject to compromise.
+
+ Be careful to avoid CWE-243 and other weaknesses related to jails.
+
+ Effectiveness: Limited
+
+ Note: The effectiveness of this mitigation depends on the prevention capabilities of the specific sandbox or jail being used and might only help to reduce the scope of an attack, such as
+ restricting the attacker to certain system calls or limiting the portion of the file system that can be accessed.
+ + Detection Methods
+ Manual Analysis
+
+ This weakness can be detected using tools and techniques that require manual (human) analysis, such as penetration testing, threat modeling, and interactive tools that allow the tester to record
+ and modify an active session.
+
+ Specifically, manual static analysis is typically required to find the behavior that triggers the download of code, and to determine whether integrity-checking methods are in use.
+
+ Note: These may be more effective than strictly automated techniques. This is especially the case with weaknesses that are related to design and business rules.
+ Black Box
+
+ Use monitoring tools that examine the software's process as it interacts with the operating system and the network. This technique is useful in cases when source code is unavailable, if the
+ software was not developed by you, or if you want to verify that the build phase did not introduce any new weaknesses. Examples include debuggers that directly attach to the running process;
+ system-call tracing utilities such as truss (Solaris) and strace (Linux); system activity monitors such as FileMon, RegMon, Process Monitor, and other Sysinternals utilities (Windows); and
+ sniffers and protocol analyzers that monitor network traffic.
+
+ Attach the monitor to the process and also sniff the network connection. Trigger features related to product updates or plugin installation, which is likely to force a code download. Monitor when
+ files are downloaded and separately executed, or if they are otherwise read back into the process. Look for evidence of cryptographic library calls that use integrity checking.
+
+ Automated Static Analysis
+
+ Automated static analysis, commonly referred to as Static Application Security Testing (SAST), can find some instances of this weakness by analyzing source code (or binary/compiled code) without
+ having to execute it. Typically, this is done by building a model of data flow and control flow, then searching for potentially-vulnerable patterns that connect "sources" (origins of input) with
+ "sinks" (destinations where the data interacts with external components, a lower layer such as the OS, etc.)
+
+ Effectiveness: High
+
+ + Memberships
+ Section HelpThis MemberOf Relationships table shows additional CWE Categories and Views that reference this weakness as a member. This information is often useful in understanding where a weakness
+ fits within the context of external information sources.
+     Nature                                                                                                  Type                                                                                               ID         Name
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            752     2009 Top 25 -
+                                                                                                                                                                                                                      Risky Resource
+                                                                                                                                                                                                                      Management
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            802     2010 Top 25 -
+                                                                                                                                                                                                                      Risky Resource
+                                                                                                                                                                                                                      Management
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            859     The CERT Oracle
+                                                                                                                                                                                                                      Secure Coding
+                                                                                                                                                                                                                      Standard for
+                                                                                                                                                                                                                      Java (2011)
+                                                                                                                                                                                                                      Chapter 16 -
+                                                                                                                                                                                                                      Platform
+                                                                                                                                                                                                                      Security (SEC)
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            865     2011 Top 25 -
+                                                                                                                                                                                                                      Risky Resource
+                                                                                                                                                                                                                      Management
+ MemberOf        ViewView - a subset of CWE entries that provides a way of examining CWE content. The two main view structures are Slices (flat lists) and Graphs (containing relationships between entries). 884     CWE
+                                                                                                                                                                                                                      Cross-section
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            991     SFP Secondary
+                                                                                                                                                                                                                      Cluster:
+                                                                                                                                                                                                                      Tainted Input
+                                                                                                                                                                                                                      to Environment
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            1354    OWASP Top Ten
+                                                                                                                                                                                                                      2021 Category
+                                                                                                                                                                                                                      A08:2021 -
+                                                                                                                                                                                                                      Software and
+                                                                                                                                                                                                                      Data Integrity
+                                                                                                                                                                                                                      Failures
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            1364    ICS
+                                                                                                                                                                                                                      Communications:
+                                                                                                                                                                                                                      Zone Boundary
+                                                                                                                                                                                                                      Failures
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            1411    Comprehensive
+                                                                                                                                                                                                                      Categorization:
+                                                                                                                                                                                                                      Insufficient
+                                                                                                                                                                                                                      Verification of
+                                                                                                                                                                                                                      Data
+                                                                                                                                                                                                                      Authenticity
+ + Vulnerability Mapping Notes
+ Usage: ALLOWED
+
+ (this CWE ID could be used to map to real-world vulnerabilities)
+ Reason: Acceptable-Use
+
+ Rationale:
+
+ This CWE entry is at the Base level of abstraction, which is a preferred level of abstraction for mapping to the root causes of vulnerabilities.
+ Comments:
+
+ Carefully read both the name and description to ensure that this mapping is an appropriate fit. Do not try to 'force' a mapping to a lower-level Base/Variant simply to comply with this preferred
+ level of abstraction.
+ + Notes
+ 
+ Research Gap
+
+ This is critical for mobile code, but it is likely to become more and more common as developers continue to adopt automated, network-based product distributions and upgrades. Software-as-a-Service
+ (SaaS) might introduce additional subtleties. Common exploitation scenarios may include ad server compromises and bad upgrades.
+ + Taxonomy Mappings
+       Mapped Taxonomy Name          Node ID      Fit                                                                 Mapped Node Name
+ CLASP                                                  Invoking untrusted mobile code
+ The CERT Oracle Secure Coding    SEC06-J               Do not rely on the default automatic signature verification provided by URLClassLoader and java.util.jar
+ Standard for Java (2011)
+ Software Fault Patterns          SFP27                 Tainted input to environment
+ + Related Attack Patterns
+    CAPEC-ID                                                                                     Attack Pattern Name
+ CAPEC-184       Software Integrity Attack
+ CAPEC-185       Malicious Software Download
+ CAPEC-186       Malicious Software Update
+ CAPEC-187       Malicious Automated Software Update via Redirection
+ CAPEC-533       Malicious Manual Software Update
+ CAPEC-538       Open-Source Library Manipulation
+ CAPEC-657       Malicious Automated Software Update via Spoofing
+ CAPEC-662       Adversary in the Browser (AiTB)
+ CAPEC-691       Spoof Open-Source Software Metadata
+ CAPEC-692       Spoof Version Control System Commit Metadata
+ CAPEC-693       StarJacking
+ CAPEC-695       Repo Jacking
+ + References
+ [REF-454] Microsoft. "Introduction to Code Signing". <http://msdn.microsoft.com/en-us/library/ms537361(VS.85).aspx>.
+ [REF-455] Microsoft. "Authenticode". <http://msdn.microsoft.com/en-us/library/ms537359(v=VS.85).aspx>.
+ [REF-456] Apple. "Code Signing Guide". Apple Developer Connection. 2008-11-19. <https://web.archive.org/web/20080724215143/http://developer.apple.com/documentation/Security/Conceptual/
+ CodeSigningGuide/Introduction/chapter_1_section_1.html>. URL validated: 2023-04-07.
+ [REF-457] Anthony Bellissimo, John Burgess and Kevin Fu. "Secure Software Updates: Disappointments and New Challenges". <http://prisms.cs.umass.edu/~kevinfu/papers/secureupdates-hotsec06.pdf>.
+ [REF-44] Michael Howard, David LeBlanc and John Viega. "24 Deadly Sins of Software Security". "Sin 18: The Sins of Mobile Code." Page 267. McGraw-Hill. 2010.
+ [REF-459] Johannes Ullrich. "Top 25 Series - Rank 20 - Download of Code Without Integrity Check". SANS Software Security Institute. 2010-04-05. <https://www.sans.org/blog/
+ top-25-series-rank-20-download-of-code-without-integrity-check/>. URL validated: 2023-04-07.
+ [REF-76] Sean Barnum and Michael Gegick. "Least Privilege". 2005-09-14. <https://web.archive.org/web/20211209014121/https://www.cisa.gov/uscert/bsi/articles/knowledge/principles/least-privilege>.
+ URL validated: 2023-04-07.
+ [REF-18] Secure Software, Inc.. "The CLASP Application Security Process". 2005. <https://cwe.mitre.org/documents/sources/TheCLASPApplicationSecurityProcess.pdf>.
+ + Content History
+                                                                                           + Submissions
+       Submission Date                                                  Submitter                                                                         Organization
+ 2006-07-19                  CLASP
+ (CWE Draft 3, 2006-07-19)
+
+                                                                                          + Modifications
+      Modification Date                                                 Modifier                                                                          Organization
+ 2008-07-01                  Eric Dalci                                                                                      Cigital
+                             updated Time_of_Introduction
+ 2008-09-08                  CWE Content Team                                                                                MITRE
+                             updated Relationships, Other_Notes, Taxonomy_Mappings
+ 2009-01-12                  CWE Content Team                                                                                MITRE
+                             updated Applicable_Platforms, Common_Consequences, Description, Name, Other_Notes, Potential_Mitigations, References, Relationships, Research_Gaps, Type
+ 2009-03-10                  CWE Content Team                                                                                MITRE
+                             updated Potential_Mitigations
+ 2009-07-27                  CWE Content Team                                                                                MITRE
+                             updated Description, Observed_Examples, Related_Attack_Patterns
+ 2010-02-16                  CWE Content Team                                                                                MITRE
+                             updated Detection_Factors, References, Relationships
+ 2010-04-05                  CWE Content Team                                                                                MITRE
+                             updated Applicable_Platforms
+ 2010-06-21                  CWE Content Team                                                                                MITRE
+                             updated Common_Consequences, Detection_Factors, Potential_Mitigations, References
+ 2010-09-27                  CWE Content Team                                                                                MITRE
+                             updated Potential_Mitigations, References
+ 2010-12-13                  CWE Content Team                                                                                MITRE
+                             updated Potential_Mitigations
+ 2011-03-29                  CWE Content Team                                                                                MITRE
+                             updated Demonstrative_Examples
+ 2011-06-01                  CWE Content Team                                                                                MITRE
+                             updated Common_Consequences, Relationships, Taxonomy_Mappings
+ 2011-06-27                  CWE Content Team                                                                                MITRE
+                             updated Relationships
+ 2011-09-13                  CWE Content Team                                                                                MITRE
+                             updated Potential_Mitigations, References
+ 2012-05-11                  CWE Content Team                                                                                MITRE
+                             updated References, Relationships, Taxonomy_Mappings
+ 2012-10-30                  CWE Content Team                                                                                MITRE
+                             updated Potential_Mitigations
+ 2014-07-30                  CWE Content Team                                                                                MITRE
+                             updated Relationships, Taxonomy_Mappings
+ 2017-11-08                  CWE Content Team                                                                                MITRE
+                             updated Modes_of_Introduction, References, Relationships
+ 2019-01-03                  CWE Content Team                                                                                MITRE
+                             updated Taxonomy_Mappings
+ 2019-06-20                  CWE Content Team                                                                                MITRE
+                             updated Related_Attack_Patterns, Relationships
+ 2020-02-24                  CWE Content Team                                                                                MITRE
+                             updated Demonstrative_Examples, Relationships
+ 2020-08-20                  CWE Content Team                                                                                MITRE
+                             updated Relationships
+ 2020-12-10                  CWE Content Team                                                                                MITRE
+                             updated Demonstrative_Examples
+ 2021-03-15                  CWE Content Team                                                                                MITRE
+                             updated References, Related_Attack_Patterns
+ 2021-07-20                  CWE Content Team                                                                                MITRE
+                             updated Demonstrative_Examples
+ 2021-10-28                  CWE Content Team                                                                                MITRE
+                             updated Observed_Examples, Relationships
+ 2022-10-13                  CWE Content Team                                                                                MITRE
+                             updated References, Related_Attack_Patterns
+ 2023-01-31                  CWE Content Team                                                                                MITRE
+                             updated Related_Attack_Patterns
+ 2023-04-27                  CWE Content Team                                                                                MITRE
+                             updated Detection_Factors, References, Relationships
+ 2023-06-29                  CWE Content Team                                                                                MITRE
+                             updated Mapping_Notes
+ 2024-02-29                  CWE Content Team                                                                                MITRE
+ (CWE 4.14, 2024-02-29)      updated Demonstrative_Examples, Relationships
+                                                                                       + Previous Entry Names
+         Change Date                                                                                   Previous Entry Name
+ 2008-04-11                  Mobile Code: Invoking Untrusted Mobile Code
+ 2009-01-12                  Download of Untrusted Mobile Code Without Integrity Check
+ More information is available — Please edit the custom filter or select a different filter.
+Page Last Updated: February 29, 2024
+ 
+      Site Map | Terms of Use | Manage Cookies | Cookie Notice | Privacy Policy | Contact Us | CWE X-Twitter CWE Mastodon CWE on LinkedIn CWE YouTube channel CWE Out-of-Bounds-Read Podcast CWE
+      Blog on Medium blog
+
+MITRE Use of the Common Weakness Enumeration (CWE™) and the associated references from this website are subject to the Terms of Use. CWE is sponsored by the U.S. Department of Homeland         HSSEDI
+      Security (DHS) Cybersecurity and Infrastructure Security Agency (CISA) and managed by the Homeland Security Systems Engineering and Development Institute (HSSEDI) which is operated by
+      The MITRE Corporation (MITRE). Copyright © 2006–2024, The MITRE Corporation. CWE, CWSS, CWRAF, and the CWE logo are trademarks of The MITRE Corporation.
+

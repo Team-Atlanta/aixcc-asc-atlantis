@@ -1,0 +1,43 @@
+type cve_2021_38208_identifier int32[0:99]
+
+syz_harness$cve_2021_38208_cmd0(buf ptr[in, harness_cve_2021_38208_cmd0], len bytesize[buf])
+syz_harness$cve_2021_38208_cmd1(buf ptr[in, harness_cve_2021_38208_cmd1], len bytesize[buf])
+syz_harness$cve_2021_38208_cmd2(buf ptr[in, harness_cve_2021_38208_cmd2], len bytesize[buf])
+syz_harness$cve_2021_38208_cmd3(buf ptr[in, harness_cve_2021_38208_cmd3], len bytesize[buf])
+
+cve_2021_38208_sockaddr_nfc_llcp {
+	family		const[AF_NFC, int16]
+	devidx		const[0, int32]
+	target		nfc_target_idx
+	nfc_protocol	flags[nfc_proto, int32]
+	dsap		int8
+	ssap		int8
+	service_name	array[int8, NFC_LLCP_MAX_SERVICE_NAME]
+	servlen		intptr[0:NFC_LLCP_MAX_SERVICE_NAME]
+}
+
+harness_cve_2021_38208_cmd0 {
+	cmd	int32[0]
+	id	cve_2021_38208_identifier
+	domain	flags[socket_domain, int32]
+	type	flags[socket_type, int32]
+	proto	int32
+} [packed]
+
+harness_cve_2021_38208_cmd1 {
+	cmd	int32[1]
+	id	cve_2021_38208_identifier
+	addrlen	len[addr, int32]
+	addr	cve_2021_38208_sockaddr_nfc_llcp
+} [packed]
+
+harness_cve_2021_38208_cmd2 {
+	cmd	int32[2]
+	id	cve_2021_38208_identifier
+	backlog	int32
+} [packed]
+
+harness_cve_2021_38208_cmd3 {
+	cmd	int32[3]
+	id	cve_2021_38208_identifier
+} [packed]

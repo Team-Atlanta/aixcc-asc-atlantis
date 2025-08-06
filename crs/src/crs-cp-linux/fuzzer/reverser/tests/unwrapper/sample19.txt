@@ -1,0 +1,24 @@
+
+INPUT ::= TEST_CNT { size: 4 }
+          COMMAND[TEST_CNT]
+
+COMMAND ::= SETUP
+            TEST_UNION
+
+SETUP ::= OPCODE { size: 4, value: 0 }
+          SIZE { size: 4 }
+          DATA { size: SIZE }
+
+TEST_UNION ::=  LOOKUP
+             |  DUMMY
+
+LOOKUP ::= OPCODE { size: 4, value: 1 }
+           TABLE_SIZE { size: 4 }
+           TABLE_DATA { size: TABLE_SIZE }
+           SET_SIZE { size: 4 }
+           DUMMY [SET_SIZE]
+
+DUMMY ::=   DATA { size: 16 }
+            DATA2 { size: 8 }
+            
+

@@ -1,0 +1,38 @@
+--- drivers/CROMU-00001/service.c
++++ drivers/CROMU-00001/service.c
+@@ -429,13 +429,14 @@
+ }
+ 
+ void list_unread_messages( pmessage_manager pmm )
+-{
++
+ 	pmessage walker = NULL;
+ 	size_t size = 0;
+ 	unsigned char count = 0;
+-        char *data = 0;
+-
+-	if ( pmm == NULL ) {
++	char *data = 0;
++
++	if (pmm == NULL) {
++		goto end;
+ 		return;
+ 	}
+ 	walker = pmm->root;
+@@ -481,16 +482,10 @@
+ 			strcat( data, "***********************************\n");
+ 		}
+ 		walker = walker->next;
+-    
+-    if(strlen(data) > size){
+-      //This should not happen!
+-      break;
+-    }
+ 	}
+ 
+ 	puts( data );
+ 
+-	cromu00001_deallocate( data, size );
+ 	return;
+ }
+ 

@@ -1,0 +1,8 @@
+.vscode
+__pycache__/
+*.py[cod]
+.venv
+/tests/harnesses/
+/samples/
+tests/.tmp
+/tmp

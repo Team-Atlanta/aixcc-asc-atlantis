@@ -1,0 +1,7 @@
+syz_harness$cromu_00004_cmd0(a0 ptr[in, cromu_00004_cmd0], a1 bytesize[a0])
+
+cromu_00004_cmd0 {
+	cmd		int32[0]
+	wave_len	len[wave, int32]
+	wave		array[int8]
+} [packed]

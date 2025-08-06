@@ -1,0 +1,113 @@
+# Allow directories as sources.
+startup --host_jvm_args=-DBAZEL_TRACK_SOURCE_DIRECTORIES=1
+build --incompatible_strict_action_env
+build --sandbox_tmpfs_path=/tmp
+build --enable_platform_specific_config
+build -c opt
+# Ensure that paths of files printed by our examples are valid.
+build --nozip_undeclared_test_outputs
+# Improve caching for builds involving multiple configurations and work around
+# the Bazel issue fixed by https://github.com/bazelbuild/bazel/pull/17158.
+build --experimental_output_directory_naming_scheme=diff_against_baseline
+
+# C/C++
+# GCC is supported on a best-effort basis.
+common --repo_env=CC=clang
+build --incompatible_enable_cc_toolchain_resolution
+# Requires a relatively modern clang.
+build:ci --features=layering_check
+build:macos --apple_crosstool_top=@local_config_apple_cc//:toolchain
+build:macos --crosstool_top=@local_config_apple_cc//:toolchain
+build:macos --host_crosstool_top=@local_config_apple_cc//:toolchain
+# Workaround for https://github.com/bazelbuild/bazel/issues/17956
+# Compiling the Java tools from source fails due to a missing include in zlib.
+build:macos --per_file_copt='external/remote_java_tools/java_tools/zlib[~/].*\.c@-std=c90'
+build:macos --host_per_file_copt='external/remote_java_tools/java_tools/zlib[~/].*\.c@-std=c90'
+
+# Java
+# Always build for Java 8, even with a newer JDK. This ensures that all
+# artifacts we release are compatible with Java 8 runtimes.
+# Note: We would like to use --release, but can't due to
+#  https://bugs.openjdk.org/browse/JDK-8214165.
+build --javacopt=-target --javacopt=8
+build --java_language_version=8
+build --tool_java_language_version=8
+# Use a hermetic JDK to compile Java code, which also means that contributors
+# don't need to install a JDK to compile Jazzer.
+build --java_runtime_version=remotejdk_17
+build --tool_java_runtime_version=remotejdk_17
+# Speed up Java compilation by removing indirect deps from the compile classpath.
+build --experimental_java_classpath=bazel
+
+# Android
+build:android_arm --incompatible_enable_android_toolchain_resolution
+build:android_arm --android_platforms=//:android_arm64
+build:android_arm --copt=-D_ANDROID
+build:android_arm --java_runtime_version=local_jdk
+
+# Windows
+# Only compiles with clang on Windows.
+build:windows --extra_toolchains=@local_config_cc//:cc-toolchain-x64_windows-clang-cl
+build:windows --extra_execution_platforms=//bazel/platforms:x64_windows-clang-cl
+build:windows --features=static_link_msvcrt
+# Required as PATH doubles as the shared library search path on Windows and the
+# Java agent functionality depends on system-provided shared libraries.
+test:windows --noincompatible_strict_action_env
+run:windows --noincompatible_strict_action_env
+
+# macOS
+# Workaround for https://github.com/bazelbuild/bazel/issues/13944, which breaks external Java
+# dependencies on M1 Macs without Rosetta.
+build:macos --extra_toolchains=//bazel/toolchains:java_non_prebuilt_definition
+
+# Toolchain
+# Since the toolchain is conditional on OS and architecture, set it on the particular GitHub Action.
+common:toolchain --repo_env=BAZEL_DO_NOT_DETECT_CPP_TOOLCHAIN=1
+
+# Forward debug variables to tests
+build --test_env=JAZZER_AUTOFUZZ_DEBUG
+build --test_env=JAZZER_REFLECTION_DEBUG
+
+# Interactively debug Jazzer integration tests by passing --config=debug and attaching to port 5005.
+# This is different from --java_debug: It affects the actual inner Jazzer process rather than the
+# outer FuzzTargetTestWrapper.
+test:debug --test_env=JAZZER_DEBUG=1
+test:debug --test_output=streamed
+test:debug --test_strategy=exclusive
+test:debug --test_timeout=9999
+test:debug --nocache_test_results
+
+# CI tests (not using the toolchain to test OSS-Fuzz & local compatibility)
+build:ci --bes_results_url=https://app.buildbuddy.io/invocation/
+build:ci --bes_backend=grpcs://remote.buildbuddy.io
+build:ci --remote_cache=grpcs://remote.buildbuddy.io
+build:ci --remote_timeout=3600
+# Fail if Bazel can't find Xcode. This improves error messages as the fallback toolchain will only
+# fail when requested to cross-compile.
+build:ci --repo_env=BAZEL_USE_XCODE_TOOLCHAIN=1
+# Suggested by BuildBuddy
+build:ci --noslim_profile
+build:ci --experimental_profile_include_target_label
+build:ci --experimental_profile_include_primary_output
+build:ci --nolegacy_important_outputs
+
+# Docker images
+common:docker --config=toolchain
+common:docker --extra_toolchains=@llvm_toolchain//:cc-toolchain-x86_64-linux
+
+# Generic coverage configuration taken from https://github.com/fmeum/rules_jni
+coverage --combined_report=lcov
+coverage --experimental_use_llvm_covmap
+coverage --experimental_generate_llvm_lcov
+coverage --repo_env=CC=clang
+coverage --repo_env=BAZEL_USE_LLVM_NATIVE_COVERAGE=1
+coverage --repo_env=GCOV=llvm-profdata
+
+# Instrument all source files of non-test targets matching at least one of these regexes.
+coverage --instrumentation_filter=^//src/main[:/],^//sanitizers/src/main[:/]
+coverage --test_tag_filters=-no-coverage
+
+# Hide all non-structured output in scripts.
+# https://github.com/bazelbuild/bazel/issues/4867#issuecomment-830402410
+common:quiet --ui_event_filters=-info,-stderr
+common:quiet --noshow_progress

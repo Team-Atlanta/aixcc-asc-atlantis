@@ -1,0 +1,5 @@
+---
+# Custom Github hosted runner name
+self-hosted-runner:
+  labels:
+    - large-runners

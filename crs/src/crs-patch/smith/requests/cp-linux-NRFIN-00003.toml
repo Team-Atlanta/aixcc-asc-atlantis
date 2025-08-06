@@ -1,0 +1,6 @@
+cp_name = "linux kernel"
+blob_file = "./exemplar_only/blobs/NRFIN-00003_solve.bin"
+harness_id = "id_17"
+sanitizer_id = "id_2"
+bug_introduce_commit = "fdfd9247945b404b837e64b99d45c7188d96e775"
+src_dir = "./src/linux_kernel"

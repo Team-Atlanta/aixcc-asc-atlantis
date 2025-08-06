@@ -1,0 +1,21 @@
+---
+# kustomize/competition/crs-env.yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  labels:
+    io.kompose.service: iapi-env
+  name: env
+data:
+  AIXCC_MOCK_MODE: ${AIXCC_MOCK_MODE:-"false"}
+  ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY}
+  AZURE_API_BASE: ${AZURE_API_BASE:-https://eastus2aoi.openai.azure.com/}
+  AZURE_API_KEY: ${AZURE_API_KEY}
+  CAPI_AUTH_HEADER: ${CAPI_AUTH_HEADER}
+  CAPI_ID: ${CAPI_ID:-00000000-0000-0000-0000-000000000000}
+  CAPI_MOCK_MODE: ${CAPI_MOCK_MODE:-"true"}
+  CAPI_TOKEN: ${CAPI_TOKEN:-secret}
+  GITHUB_TOKEN: ${GITHUB_TOKEN}
+  GITHUB_USER: ${GITHUB_USER}
+  GOOGLE_APPLICATION_CREDENTIALS: ${GOOGLE_APPLICATION_CREDENTIALS:-/vertex-key.json}
+  OPENAI_API_KEY: ${OPENAI_API_KEY}

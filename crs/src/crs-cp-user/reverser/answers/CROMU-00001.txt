@@ -1,0 +1,37 @@
+INPUT ::= COMMAND_CNT { size: 4 }
+          COMMAND[COMMAND_CNT]
+
+COMMAND ::= IOCTL_CREATE
+          | IOCTL_LOGIN
+          | IOCTL_EXIT
+          | IOCTL_SEND_MSG
+          | IOCTL_READ_MSG
+          | IOCTL_LIST_MSG
+          | IOCTL_DEL_MSG
+          | IOCTL_LOGOUT
+
+IOCTL_CREATE ::= OPCODE { size: 4, value: 3221229823 }
+                 SIZE { size: 4 }
+                 USERNAME_DATA { size: SIZE }
+
+IOCTL_LOGIN ::= OPCODE { size: 4, value: 322420463 }
+                SIZE { size: 4 }
+                USERNAME_DATA { size: SIZE }
+
+IOCTL_EXIT ::= OPCODE { size: 4, value: 322371585 }
+
+IOCTL_SEND_MSG ::= OPCODE { size: 4, value: 322371586 }
+                   USERNAME_SIZE { size: 4 }
+                   USERNAME_DATA { size: USERNAME_SIZE }
+                   MSG_SIZE { size: 4 }
+                   MSG_DATA { size: MSG_SIZE }
+
+IOCTL_READ_MSG ::= OPCODE { size: 4, value: 322371587 }
+                   MSG_ID { size: 4 }
+
+IOCTL_LIST_MSG ::= OPCODE { size: 4, value: 322371588 }
+
+IOCTL_DEL_MSG ::= OPCODE { size: 4, value: 322371589 }
+                  MSG_ID { size: 4 }
+
+IOCTL_LOGOUT ::= OPCODE { size: 4, value: 322371590 }

@@ -1,0 +1,72 @@
+# Testlang Syntax
+The syntax of testlang is defined by the following lark (extended Backus-Naur form) grammar:
+<lark>
+start: globals? (record "\n"*)*
+
+globals: "GLOBALS" "::=" normal+
+
+record: CNAME "::=" field+                -> seq
+      | CNAME "::=" field ("|" field)*    -> union
+
+field: normal
+     | CNAME "[" atvalue "]" "\n"         -> array
+     | CNAME "\n"                         -> reference
+
+normal: CNAME "{" attribute_list "}" "\n"
+
+
+attribute_list: [attribute ("," attribute)*]
+attribute: size_attribute
+         | value_attribute
+         | type_attribute
+         | terminator_attribute
+size_attribute: /size/ ":" atvalue
+value_attribute: /value/ ":" atvalue
+type_attribute: /type/ ":" /string/
+terminator_attribute: /terminator/ ":" number
+
+literal: number | CNAME
+atvalue: literal | inrange | exrange | group
+number: ["+" | "-"] ["0x"] (HEXDIGIT)+
+inrange: literal "..=" literal
+exrange: literal ".." literal
+group: literal ("|" literal)+
+
+%import common.CNAME
+%import common.HEXDIGIT
+%ignore " "
+</lark>
+
+# Globals
+All attribute values (e.g. size) must either be a literal or reference a field.
+This property becomes an issue when a reference (e.g. value of `size`) is not encoded
+within the data blob itself.
+We introduce the special record "GLOBALS", whose fields are able to be referenced by
+any attribute and whose fields are invisible to the data blob. The sole purpose of
+"GLOBALS" is to provide fields that can be referenced by the data blob internals.
+
+Here is the difference between an attribute referencing a fields encoded in the data blob
+vs. referencing a field that isn't encoded in the data.
+
+Referencing something encoded in data:
+<testlang>
+INPUT ::= NAME_SIZE { size: 4 }
+          NAME_DATA { size: NAME_SIZE }
+</testlang>
+Data blob format in more human understanding:
+DATA = [ NAME_SIZE, 4 bytes ] [ NAME_DATA, NAME_SIZE bytes ]
+
+<testlang>
+GLOBALS ::= NAME_SIZE { size: 4 }
+
+INPUT ::= NAME_DATA { size: NAME_SIZE }
+</testlang>
+Data blob format in more human understanding:
+DATA = [ NAME_DATA, arbitrary bytes ]
+
+# Attribute Values
+Values can be of the following forms:
+- number (either in natural base 10 or base 16 starting with "0x")
+- reference to a field
+- inclusive range between two literals, of the form "LIT1..=LIT2" (some number between LIT1 and LIT2, including both LIT1 and LIT2)
+- exclusive range two literals, of the form "LIT1..LIT2" (some number between LIT1 and LIT2 - 1)

@@ -1,0 +1,12 @@
+[MASTER]
+ignore-paths=.*/javalang/*, .*/pylspclient/.*
+
+[MESSAGES CONTROL]
+disable=
+    R,
+    missing-function-docstring,
+    missing-class-docstring,
+    missing-module-docstring,
+    logging-fstring-interpolation,
+    fixme,
+    unspecified-encoding,

@@ -1,0 +1,12 @@
+---
+# kustomize/development/cp-root-pvc.yaml
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: cp-root
+spec:
+  storageClassName: "longhorn"
+  accessModes:
+    # Note this is only for local K8S because longhorn does not support ROX
+    # See: https://github.com/longhorn/longhorn/issues/5041
+    - ReadWriteMany

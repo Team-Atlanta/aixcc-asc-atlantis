@@ -1,0 +1,334 @@
+CWE
+
+Common Weakness Enumeration
+
+A community-developed list of SW & HW weaknesses that can become vulnerabilities
+
+New to CWE? click here!
+CWE Most Important Hardware Weaknesses
+CWE Top 25 Most Dangerous Weaknesses
+Home > CWE List > CWE- Individual Dictionary Definition (4.14)                                                                                                   ID Lookup: [                    ] [Go]
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  • Home
+  • About ▼
+    About New to CWE User Stories History Documents FAQs Glossary Compatibility
+  • CWE List ▼
+    Latest Version Downloads Reports Visualizations Archive
+  • Mapping ▼
+    Root Cause Mapping Guidance Root Cause Mapping Quick Tips Root Cause Mapping Examples
+  • Top-N Lists ▼
+    Top 25 Software Top Hardware Top 10 KEV Weaknesses
+  • Community ▼
+    Community Working Groups & Special Interest Groups Board Board Meeting Minutes CWE Discussion List CWE Discussion Archives Contribute Weakness Content to CWE
+  • News ▼
+    Current News X-Twitter ● Mastodon ● LinkedIn ● YouTube YouTube Podcast Out of Bounds Read Podcast Medium Medium News Archive
+  • Search
+
+ 
+ CWE Glossary Definition                  x
+ 
+ 
+ CWE-121: Stack-based Buffer Overflow
+ 
+ Weakness ID: 121
+ Vulnerability Mapping: ALLOWEDThis CWE ID may be used to map to real-world vulnerabilities
+ Abstraction: VariantVariant - a weakness that is linked to a certain type of product, typically involving a specific language or technology. More specific than a Base weakness. Variant level
+ weaknesses typically describe issues in terms of 3 to 5 of the following dimensions: behavior, property, technology, language, and resource.
+ View customized information:
+ Conceptual For users who are interested in more notional aspects of a weakness. Example: educators, technical writers, and project/program managers. Operational For users who are concerned with the
+ practical application and details about the nature of a weakness and how to prevent it from happening. Example: tool developers, security researchers, pen-testers, incident response analysts. Mapping
+ Friendly For users who are mapping an issue to CWE/CAPEC IDs, i.e., finding the most appropriate CWE for a specific issue (e.g., a CVE record). Example: tool developers, security researchers. 
+ Complete For users who wish to see all available information for the CWE/CAPEC entry. Custom For users who want to customize what details are displayed.
+ ×
+
+ Edit Custom Filter
+
+ Conceptual Operational Mapping Friendly Select All
+ 
+ Reset Clear Submit Cancel
+ + Description
+ A stack-based buffer overflow condition is a condition where the buffer being overwritten is allocated on the stack (i.e., is a local variable or, rarely, a parameter to a function).
+ + Alternate Terms
+ Stack Overflow: "Stack Overflow" is often used to mean the same thing as stack-based buffer overflow, however it is also used on occasion to mean stack exhaustion, usually a result from an
+                 excessively recursive function call. Due to the ambiguity of the term, use of stack overflow to describe either circumstance is discouraged.
+ + Relationships
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Research Concepts" (CWE-1000)
+     Nature                                                                                                                                                                    Type                                                                                                                                                                  ID        Name
+ ChildOf                                                                          BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level weaknesses                                                                  787     Out-of-bounds
+                                                                                                                 typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                         Write
+ ChildOf                                                                          BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level weaknesses                                                                  788     Access of
+                                                                                                                 typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                         Memory
+                                                                                                                                                                                                                                                                                                                                                           Location
+                                                                                                                                                                                                                                                                                                                                                           After End of
+                                                                                                                                                                                                                                                                                                                                                           Buffer
+ + Background Details
+ There are generally several security-critical data on an execution stack that can lead to arbitrary code execution. The most prominent is the stored return address, the memory address at which
+ execution should continue once the current function is finished executing. The attacker can overwrite this value with some memory address to which the attacker also has write access, into which
+ they place arbitrary code to be run with the full privileges of the vulnerable program. Alternately, the attacker can supply the address of an important call, for instance the POSIX system()
+ call, leaving arguments to the call on the stack. This is often called a return into libc exploit, since the attacker generally forces the program to jump at return time into an interesting
+ routine in the C standard library (libc). Other important data commonly on the stack include the stack pointer and frame pointer, two values that indicate offsets for computing memory addresses.
+ Modifying those values can often be leveraged into a "write-what-where" condition.
+ + Modes Of Introduction
+ Section HelpThe different Modes of Introduction provide information about how and when this weakness may be introduced. The Phase identifies a point in the life cycle at which introduction may occur,
+ while the Note provides a typical scenario related to introduction during the given phase.
+     Phase                                                                                              Note
+ Implementation
+ + Applicable Platforms
+ Section HelpThis listing shows possible areas for which the given weakness could appear. These may be for specific named Languages, Operating Systems, Architectures, Paradigms, Technologies, or a
+ class of such platforms. The platform is listed along with how frequently the given weakness appears for that instance.
+
+ Languages
+
+ C (Undetermined Prevalence)
+
+ C++ (Undetermined Prevalence)
+
+ + Common Consequences
+ Section HelpThis table specifies different individual consequences associated with the weakness. The Scope identifies the application security area that is violated, while the Impact describes the
+ negative technical impact that arises if an adversary succeeds in exploiting this weakness. The Likelihood provides information about how likely the specific consequence is expected to be seen
+ relative to the other consequences in the list. For example, there may be high likelihood that a weakness will be exploited to achieve a certain impact, but a low likelihood that it will be exploited
+ to achieve a different impact.
+       Scope                                                                                     Impact                                                                                 Likelihood
+                    Technical Impact: Modify Memory; DoS: Crash, Exit, or Restart; DoS: Resource Consumption (CPU); DoS: Resource Consumption (Memory)
+ Availability
+                    Buffer overflows generally lead to crashes. Other attacks leading to lack of availability are possible, including putting the program into an infinite loop.
+ Integrity          Technical Impact: Modify Memory; Execute Unauthorized Code or Commands; Bypass Protection Mechanism
+ Confidentiality
+ Availability       Buffer overflows often can be used to execute arbitrary code, which is usually outside the scope of a program's implicit security policy.
+ Access Control
+ Integrity
+ Confidentiality    Technical Impact: Modify Memory; Execute Unauthorized Code or Commands; Bypass Protection Mechanism; Other
+ Availability
+ Access Control     When the consequence is arbitrary code execution, this can often be used to subvert any other security service.
+ Other
+ + Likelihood Of Exploit
+ High
+ + Demonstrative Examples
+ 
+ Example 1
+
+ While buffer overflow examples can be rather complex, it is possible to have very simple, yet still exploitable, stack-based buffer overflows:
+
+ (bad code)
+ Example Language: C 
+ #define BUFSIZE 256
+ int main(int argc, char **argv) {
+ char buf[BUFSIZE];
+ strcpy(buf, argv[1]);
+ }
+
+ The buffer size is fixed, but there is no guarantee the string in argv[1] will not exceed this size and cause an overflow.
+
+ Example 2
+
+ This example takes an IP address from a user, verifies that it is well formed and then looks up the hostname and copies it into a buffer.
+
+ (bad code)
+ Example Language: C 
+ void host_lookup(char *user_supplied_addr){
+ struct hostent *hp;
+ in_addr_t *addr;
+ char hostname[64];
+ in_addr_t inet_addr(const char *cp);
+
+ /*routine that ensures user_supplied_addr is in the right format for conversion */
+
+ validate_addr_form(user_supplied_addr);
+ addr = inet_addr(user_supplied_addr);
+ hp = gethostbyaddr( addr, sizeof(struct in_addr), AF_INET);
+ strcpy(hostname, hp->h_name);
+ }
+
+ This function allocates a buffer of 64 bytes to store the hostname, however there is no guarantee that the hostname will not be larger than 64 bytes. If an attacker specifies an address which
+ resolves to a very large hostname, then the function may overwrite sensitive data or even relinquish control flow to the attacker.
+
+ Note that this example also contains an unchecked return value (CWE-252) that can lead to a NULL pointer dereference (CWE-476).
+
+ + Observed Examples
+        Reference                                                                                        Description
+ CVE-2021-35395          Stack-based buffer overflows in SFK for wifi chipset used for IoT/embedded devices, as exploited in the wild per CISA KEV.
+ + Potential Mitigations
+ Phases: Operation; Build and Compilation
+
+ Strategy: Environment Hardening
+
+ Use automatic buffer overflow detection mechanisms that are offered by certain compilers or compiler extensions. Examples include: the Microsoft Visual Studio /GS flag, Fedora/Red Hat
+ FORTIFY_SOURCE GCC flag, StackGuard, and ProPolice, which provide various mechanisms including canary-based detection and range/index checking.
+
+ D3-SFCV (Stack Frame Canary Validation) from D3FEND [REF-1334] discusses canary-based detection in detail.
+
+ Effectiveness: Defense in Depth
+
+ Note:
+
+ This is not necessarily a complete solution, since these mechanisms only detect certain types of overflows. In addition, the result is still a denial of service, since the typical response is to
+ exit the application.
+
+ Phase: Architecture and Design
+
+ Use an abstraction library to abstract away risky APIs. Not a complete solution.
+ Phase: Implementation
+
+ Implement and perform bounds checking on input.
+ Phase: Implementation
+
+ Do not use dangerous functions such as gets. Use safer, equivalent functions which check for boundary errors.
+ Phases: Operation; Build and Compilation
+
+ Strategy: Environment Hardening
+
+ Run or compile the software using features or extensions that randomly arrange the positions of a program's executable and libraries in memory. Because this makes the addresses unpredictable, it
+ can prevent an attacker from reliably jumping to exploitable code.
+
+ Examples include Address Space Layout Randomization (ASLR) [REF-58] [REF-60] and Position-Independent Executables (PIE) [REF-64]. Imported modules may be similarly realigned if their default
+ memory addresses conflict with other modules, in a process known as "rebasing" (for Windows) and "prelinking" (for Linux) [REF-1332] using randomly generated addresses. ASLR for libraries cannot
+ be used in conjunction with prelink since it would require relocating the libraries at run-time, defeating the whole purpose of prelinking.
+
+ For more information on these techniques see D3-SAOR (Segment Address Offset Randomization) from D3FEND [REF-1335].
+
+ Effectiveness: Defense in Depth
+
+ Note: These techniques do not provide a complete solution. For instance, exploits frequently use a bug that discloses memory addresses in order to maximize reliability of code execution [REF-1337
+ ]. It has also been shown that a side-channel attack can bypass ASLR [REF-1333]
+ + Weakness Ordinalities
+ Ordinality                                                                                       Description
+ Primary    (where the weakness exists independent of other weaknesses)
+ + Detection Methods
+ Fuzzing
+
+ Fuzz testing (fuzzing) is a powerful technique for generating large numbers of diverse inputs - either randomly or algorithmically - and dynamically invoking the code with those inputs. Even with
+ random inputs, it is often capable of generating unexpected results such as crashes, memory corruption, or resource consumption. Fuzzing effectively produces repeatable test cases that clearly
+ indicate bugs, which helps developers to diagnose the issues.
+
+ Effectiveness: High
+
+ Automated Static Analysis
+
+ Automated static analysis, commonly referred to as Static Application Security Testing (SAST), can find some instances of this weakness by analyzing source code (or binary/compiled code) without
+ having to execute it. Typically, this is done by building a model of data flow and control flow, then searching for potentially-vulnerable patterns that connect "sources" (origins of input) with
+ "sinks" (destinations where the data interacts with external components, a lower layer such as the OS, etc.)
+
+ Effectiveness: High
+
+ + Memberships
+ Section HelpThis MemberOf Relationships table shows additional CWE Categories and Views that reference this weakness as a member. This information is often useful in understanding where a weakness
+ fits within the context of external information sources.
+     Nature                                                       Type                                                     ID                                   Name
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 970     SFP Secondary Cluster: Faulty Buffer Access
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 1160    SEI CERT C Coding Standard - Guidelines 06. Arrays (ARR)
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 1161    SEI CERT C Coding Standard - Guidelines 07. Characters and Strings
+                                                                                                                                 (STR)
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 1365    ICS Communications: Unreliability
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 1366    ICS Communications: Frail Security in Protocols
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 1399    Comprehensive Categorization: Memory Safety
+ + Vulnerability Mapping Notes
+ Usage: ALLOWED
+
+ (this CWE ID could be used to map to real-world vulnerabilities)
+ Reason: Acceptable-Use
+
+ Rationale:
+
+ This CWE entry is at the Variant level of abstraction, which is a preferred level of abstraction for mapping to the root causes of vulnerabilities.
+ Comments:
+
+ Carefully read both the name and description to ensure that this mapping is an appropriate fit. Do not try to 'force' a mapping to a lower-level Base/Variant simply to comply with this preferred
+ level of abstraction.
+ + Notes
+ 
+ Other
+
+ Stack-based buffer overflows can instantiate in return address overwrites, stack pointer overwrites or frame pointer overwrites. They can also be considered function pointer overwrites, array indexer
+ overwrites or write-what-where condition, etc.
+ + Taxonomy Mappings
+       Mapped Taxonomy Name          Node ID              Fit                                                                 Mapped Node Name
+ CLASP                                                                  Stack overflow
+ Software Fault Patterns          SFP8                                  Faulty Buffer Access
+ CERT C Secure Coding             ARR38-C        Imprecise              Guarantee that library functions do not form invalid pointers
+ CERT C Secure Coding             STR31-C        CWE More Specific      Guarantee that storage for strings has sufficient space for character data and the null terminator
+ + References
+ [REF-1029] Aleph One. "Smashing The Stack For Fun And Profit". 1996-11-08. <http://phrack.org/issues/49/14.html>.
+ [REF-7] Michael Howard and David LeBlanc. "Writing Secure Code". Chapter 5, "Stack Overruns" Page 129. 2nd Edition. Microsoft Press. 2002-12-04. <https://www.microsoftpressstore.com/store/
+ writing-secure-code-9780735617223>.
+ [REF-44] Michael Howard, David LeBlanc and John Viega. "24 Deadly Sins of Software Security". "Sin 5: Buffer Overruns." Page 89. McGraw-Hill. 2010.
+ [REF-62] Mark Dowd, John McDonald and Justin Schuh. "The Art of Software Security Assessment". Chapter 3, "Nonexecutable Stack", Page 76. 1st Edition. Addison Wesley. 2006.
+ [REF-62] Mark Dowd, John McDonald and Justin Schuh. "The Art of Software Security Assessment". Chapter 5, "Protection Mechanisms", Page 189. 1st Edition. Addison Wesley. 2006.
+ [REF-18] Secure Software, Inc.. "The CLASP Application Security Process". 2005. <https://cwe.mitre.org/documents/sources/TheCLASPApplicationSecurityProcess.pdf>.
+ [REF-58] Michael Howard. "Address Space Layout Randomization in Windows Vista". <https://learn.microsoft.com/en-us/archive/blogs/michael_howard/address-space-layout-randomization-in-windows-vista
+ >. URL validated: 2023-04-07.
+ [REF-60] "PaX". <https://en.wikipedia.org/wiki/Executable_space_protection#PaX>. URL validated: 2023-04-07.
+ [REF-64] Grant Murphy. "Position Independent Executables (PIE)". Red Hat. 2012-11-28. <https://www.redhat.com/en/blog/position-independent-executables-pie>. URL validated: 2023-04-07.
+ [REF-1332] John Richard Moser. "Prelink and address space randomization". 2006-07-05. <https://lwn.net/Articles/190139/>. URL validated: 2023-04-26.
+ [REF-1333] Dmitry Evtyushkin, Dmitry Ponomarev, Nael Abu-Ghazaleh. "Jump Over ASLR: Attacking Branch Predictors to Bypass ASLR". 2016. <http://www.cs.ucr.edu/~nael/pubs/micro16.pdf>. URL
+ validated: 2023-04-26.
+ [REF-1334] D3FEND. "Stack Frame Canary Validation (D3-SFCV)". 2023. <https://d3fend.mitre.org/technique/d3f:StackFrameCanaryValidation/>. URL validated: 2023-04-26.
+ [REF-1335] D3FEND. "Segment Address Offset Randomization (D3-SAOR)". 2023. <https://d3fend.mitre.org/technique/d3f:SegmentAddressOffsetRandomization/>. URL validated: 2023-04-26.
+ [REF-1337] Alexander Sotirov and Mark Dowd. "Bypassing Browser Memory Protections: Setting back browser security by 10 years". Memory information leaks. 2008. <https://www.blackhat.com/
+ presentations/bh-usa-08/Sotirov_Dowd/bh08-sotirov-dowd.pdf>. URL validated: 2023-04-26.
+ + Content History
+                                                                                            + Submissions
+       Submission Date                                                Submitter                                                                          Organization
+ 2006-07-19                  CLASP
+ (CWE Draft 3, 2006-07-19)
+
+                                                                                           + Modifications
+      Modification Date                                                Modifier                                                                          Organization
+ 2008-07-01                  Eric Dalci                                                                                   Cigital
+                             updated Potential_Mitigations, Time_of_Introduction
+ 2008-08-01                                                                                                               KDM Analytics
+                             added/updated white box definitions
+ 2008-09-08                  CWE Content Team                                                                             MITRE
+                             updated Alternate_Terms, Applicable_Platforms, Background_Details, Common_Consequences, Relationships, Other_Notes, Taxonomy_Mappings, Weakness_Ordinalities
+ 2009-01-12                  CWE Content Team                                                                             MITRE
+                             updated Common_Consequences, Relationships
+ 2009-07-17                  KDM Analytics
+                             Improved the White_Box_Definition
+ 2009-07-27                  CWE Content Team                                                                             MITRE
+                             updated Potential_Mitigations, White_Box_Definitions
+ 2009-10-29                  CWE Content Team                                                                             MITRE
+                             updated Relationships
+ 2010-02-16                  CWE Content Team                                                                             MITRE
+                             updated References
+ 2011-06-01                  CWE Content Team                                                                             MITRE
+                             updated Common_Consequences
+ 2012-05-11                  CWE Content Team                                                                             MITRE
+                             updated Demonstrative_Examples, References, Relationships
+ 2012-10-30                  CWE Content Team                                                                             MITRE
+                             updated Demonstrative_Examples, Potential_Mitigations
+ 2014-07-30                  CWE Content Team                                                                             MITRE
+                             updated Relationships, Taxonomy_Mappings
+ 2017-11-08                  CWE Content Team                                                                             MITRE
+                             updated Background_Details, Causal_Nature, Likelihood_of_Exploit, References, Relationships, Taxonomy_Mappings, White_Box_Definitions
+ 2018-03-27                  CWE Content Team                                                                             MITRE
+                             updated References
+ 2019-01-03                  CWE Content Team                                                                             MITRE
+                             updated Relationships
+ 2019-09-19                  CWE Content Team                                                                             MITRE
+                             updated References
+ 2020-02-24                  CWE Content Team                                                                             MITRE
+                             updated Relationships
+ 2020-06-25                  CWE Content Team                                                                             MITRE
+                             updated Common_Consequences
+ 2021-03-15                  CWE Content Team                                                                             MITRE
+                             updated Demonstrative_Examples, References
+ 2021-07-20                  CWE Content Team                                                                             MITRE
+                             updated Demonstrative_Examples
+ 2022-06-28                  CWE Content Team                                                                             MITRE
+                             updated Observed_Examples
+ 2023-04-27                  CWE Content Team                                                                             MITRE
+                             updated Detection_Factors, Potential_Mitigations, References, Relationships, Time_of_Introduction
+ 2023-06-29                  CWE Content Team                                                                             MITRE
+                             updated Mapping_Notes, Relationships
+ More information is available — Please edit the custom filter or select a different filter.
+Page Last Updated: February 29, 2024
+ 
+      Site Map | Terms of Use | Manage Cookies | Cookie Notice | Privacy Policy | Contact Us | CWE X-Twitter CWE Mastodon CWE on LinkedIn CWE YouTube channel CWE Out-of-Bounds-Read Podcast CWE
+      Blog on Medium blog
+
+MITRE Use of the Common Weakness Enumeration (CWE™) and the associated references from this website are subject to the Terms of Use. CWE is sponsored by the U.S. Department of Homeland         HSSEDI
+      Security (DHS) Cybersecurity and Infrastructure Security Agency (CISA) and managed by the Homeland Security Systems Engineering and Development Institute (HSSEDI) which is operated by
+      The MITRE Corporation (MITRE). Copyright © 2006–2024, The MITRE Corporation. CWE, CWSS, CWRAF, and the CWE logo are trademarks of The MITRE Corporation.
+

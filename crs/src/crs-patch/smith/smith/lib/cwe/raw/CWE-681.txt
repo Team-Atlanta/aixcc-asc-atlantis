@@ -1,0 +1,391 @@
+CWE
+
+Common Weakness Enumeration
+
+A community-developed list of SW & HW weaknesses that can become vulnerabilities
+
+New to CWE? click here!
+CWE Most Important Hardware Weaknesses
+CWE Top 25 Most Dangerous Weaknesses
+Home > CWE List > CWE- Individual Dictionary Definition (4.14)                                                                                                   ID Lookup: [                    ] [Go]
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  • Home
+  • About ▼
+    About New to CWE User Stories History Documents FAQs Glossary Compatibility
+  • CWE List ▼
+    Latest Version Downloads Reports Visualizations Archive
+  • Mapping ▼
+    Root Cause Mapping Guidance Root Cause Mapping Quick Tips Root Cause Mapping Examples
+  • Top-N Lists ▼
+    Top 25 Software Top Hardware Top 10 KEV Weaknesses
+  • Community ▼
+    Community Working Groups & Special Interest Groups Board Board Meeting Minutes CWE Discussion List CWE Discussion Archives Contribute Weakness Content to CWE
+  • News ▼
+    Current News X-Twitter ● Mastodon ● LinkedIn ● YouTube YouTube Podcast Out of Bounds Read Podcast Medium Medium News Archive
+  • Search
+
+ 
+ CWE Glossary Definition                  x
+ 
+ 
+ CWE-681: Incorrect Conversion between Numeric Types
+ 
+ Weakness ID: 681
+ Vulnerability Mapping: ALLOWEDThis CWE ID may be used to map to real-world vulnerabilities
+ Abstraction: BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level
+ weaknesses typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.
+ View customized information:
+ Conceptual For users who are interested in more notional aspects of a weakness. Example: educators, technical writers, and project/program managers. Operational For users who are concerned with the
+ practical application and details about the nature of a weakness and how to prevent it from happening. Example: tool developers, security researchers, pen-testers, incident response analysts. Mapping
+ Friendly For users who are mapping an issue to CWE/CAPEC IDs, i.e., finding the most appropriate CWE for a specific issue (e.g., a CVE record). Example: tool developers, security researchers. 
+ Complete For users who wish to see all available information for the CWE/CAPEC entry. Custom For users who want to customize what details are displayed.
+ ×
+
+ Edit Custom Filter
+
+ Conceptual Operational Mapping Friendly Select All
+ 
+ Reset Clear Submit Cancel
+ + Description
+ When converting from one data type to another, such as long to integer, data can be omitted or translated in a way that produces unexpected values. If the resulting values are used in a sensitive
+ context, then dangerous behaviors may occur.
+ + Relationships
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Research Concepts" (CWE-1000)
+     Nature                                                                                                                                                                               Type                                                                                                                                                                            ID       Name
+ ChildOf                                                                                 ClassClass - a weakness that is described in a very abstract fashion, typically independent of any specific language or technology. More specific than a Pillar Weakness, but more general than a Base                                                                         704     Incorrect
+                                                                                                                      Weakness. Class level weaknesses typically describe issues in terms of 1 or 2 of the following dimensions: behavior, property, and resource.                                                                                                              Type
+                                                                                                                                                                                                                                                                                                                                                                                Conversion
+                                                                                                                                                                                                                                                                                                                                                                                or Cast
+ ParentOf                                                                                VariantVariant - a weakness that is linked to a certain type of product, typically involving a specific language or technology. More specific than a Base weakness. Variant level weaknesses typically                                                                         192     Integer
+                                                                                                                                describe issues in terms of 3 to 5 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                         Coercion
+                                                                                                                                                                                                                                                                                                                                                                                Error
+ ParentOf                                                                                VariantVariant - a weakness that is linked to a certain type of product, typically involving a specific language or technology. More specific than a Base weakness. Variant level weaknesses typically                                                                         194     Unexpected
+                                                                                                                                describe issues in terms of 3 to 5 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                         Sign
+                                                                                                                                                                                                                                                                                                                                                                                Extension
+ ParentOf                                                                                VariantVariant - a weakness that is linked to a certain type of product, typically involving a specific language or technology. More specific than a Base weakness. Variant level weaknesses typically                                                                         195     Signed to
+                                                                                                                                describe issues in terms of 3 to 5 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                         Unsigned
+                                                                                                                                                                                                                                                                                                                                                                                Conversion
+                                                                                                                                                                                                                                                                                                                                                                                Error
+ ParentOf                                                                                VariantVariant - a weakness that is linked to a certain type of product, typically involving a specific language or technology. More specific than a Base weakness. Variant level weaknesses typically                                                                         196     Unsigned to
+                                                                                                                                describe issues in terms of 3 to 5 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                         Signed
+                                                                                                                                                                                                                                                                                                                                                                                Conversion
+                                                                                                                                                                                                                                                                                                                                                                                Error
+ ParentOf                                                                                   BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level weaknesses                                                                             197     Numeric
+                                                                                                                           typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                    Truncation
+                                                                                                                                                                                                                                                                                                                                                                                Error
+ CanPrecede                                                                              PillarPillar - a weakness that is the most abstract type of weakness and represents a theme for all class/base/variant weaknesses related to it. A Pillar is different from a Category as a Pillar is                                                                          682     Incorrect
+                                                                                                                    still technically a type of weakness that describes a mistake, while a Category represents a common characteristic used to group related things.                                                                                                            Calculation
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Software Development" (CWE-699)
+     Nature                                                       Type                                                     ID                                   Name
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 136     Type Errors
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 189     Numeric Errors
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Weaknesses for Simplified Mapping of Published Vulnerabilities" (CWE-1003)
+     Nature                                                                                                                                                                             Type                                                                                                                                                                           ID       Name
+ ChildOf                                                                               ClassClass - a weakness that is described in a very abstract fashion, typically independent of any specific language or technology. More specific than a Pillar Weakness, but more general than a Base                                                                        704     Incorrect
+                                                                                                                    Weakness. Class level weaknesses typically describe issues in terms of 1 or 2 of the following dimensions: behavior, property, and resource.                                                                                                             Type
+                                                                                                                                                                                                                                                                                                                                                                             Conversion
+                                                                                                                                                                                                                                                                                                                                                                             or Cast
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "CISQ Quality Measures (2020)" (CWE-1305)
+     Nature                                                                                                                                                                    Type                                                                                                                                                                  ID       Name
+ ParentOf                                                                     VariantVariant - a weakness that is linked to a certain type of product, typically involving a specific language or technology. More specific than a Base weakness. Variant level weaknesses typically                                                               194     Unexpected
+                                                                                                                      describe issues in terms of 3 to 5 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                              Sign
+                                                                                                                                                                                                                                                                                                                                                           Extension
+ ParentOf                                                                     VariantVariant - a weakness that is linked to a certain type of product, typically involving a specific language or technology. More specific than a Base weakness. Variant level weaknesses typically                                                               195     Signed to
+                                                                                                                      describe issues in terms of 3 to 5 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                              Unsigned
+                                                                                                                                                                                                                                                                                                                                                           Conversion
+                                                                                                                                                                                                                                                                                                                                                           Error
+ ParentOf                                                                     VariantVariant - a weakness that is linked to a certain type of product, typically involving a specific language or technology. More specific than a Base weakness. Variant level weaknesses typically                                                               196     Unsigned
+                                                                                                                      describe issues in terms of 3 to 5 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                              to Signed
+                                                                                                                                                                                                                                                                                                                                                           Conversion
+                                                                                                                                                                                                                                                                                                                                                           Error
+ ParentOf                                                                         BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level weaknesses                                                                  197     Numeric
+                                                                                                                 typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                         Truncation
+                                                                                                                                                                                                                                                                                                                                                           Error
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "CISQ Data Protection Measures" (CWE-1340)
+     Nature                                                                                                                                                                    Type                                                                                                                                                                  ID       Name
+ ParentOf                                                                     VariantVariant - a weakness that is linked to a certain type of product, typically involving a specific language or technology. More specific than a Base weakness. Variant level weaknesses typically                                                               194     Unexpected
+                                                                                                                      describe issues in terms of 3 to 5 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                              Sign
+                                                                                                                                                                                                                                                                                                                                                           Extension
+ ParentOf                                                                     VariantVariant - a weakness that is linked to a certain type of product, typically involving a specific language or technology. More specific than a Base weakness. Variant level weaknesses typically                                                               195     Signed to
+                                                                                                                      describe issues in terms of 3 to 5 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                              Unsigned
+                                                                                                                                                                                                                                                                                                                                                           Conversion
+                                                                                                                                                                                                                                                                                                                                                           Error
+ ParentOf                                                                     VariantVariant - a weakness that is linked to a certain type of product, typically involving a specific language or technology. More specific than a Base weakness. Variant level weaknesses typically                                                               196     Unsigned
+                                                                                                                      describe issues in terms of 3 to 5 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                              to Signed
+                                                                                                                                                                                                                                                                                                                                                           Conversion
+                                                                                                                                                                                                                                                                                                                                                           Error
+ ParentOf                                                                         BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level weaknesses                                                                  197     Numeric
+                                                                                                                 typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                         Truncation
+                                                                                                                                                                                                                                                                                                                                                           Error
+ + Modes Of Introduction
+ Section HelpThe different Modes of Introduction provide information about how and when this weakness may be introduced. The Phase identifies a point in the life cycle at which introduction may occur,
+ while the Note provides a typical scenario related to introduction during the given phase.
+     Phase                                                                                              Note
+ Implementation
+ + Applicable Platforms
+ Section HelpThis listing shows possible areas for which the given weakness could appear. These may be for specific named Languages, Operating Systems, Architectures, Paradigms, Technologies, or a
+ class of such platforms. The platform is listed along with how frequently the given weakness appears for that instance.
+
+ Languages
+
+ Class: Not Language-Specific (Undetermined Prevalence)
+
+ + Common Consequences
+ Section HelpThis table specifies different individual consequences associated with the weakness. The Scope identifies the application security area that is violated, while the Impact describes the
+ negative technical impact that arises if an adversary succeeds in exploiting this weakness. The Likelihood provides information about how likely the specific consequence is expected to be seen
+ relative to the other consequences in the list. For example, there may be high likelihood that a weakness will be exploited to achieve a certain impact, but a low likelihood that it will be exploited
+ to achieve a different impact.
+       Scope                                                                                     Impact                                                                                 Likelihood
+                    Technical Impact: Unexpected State; Quality Degradation
+ Other
+ Integrity          The program could wind up using the wrong number and generate incorrect results. If the number is used to allocate resources or make a security decision, then
+                    this could introduce a vulnerability.
+ + Likelihood Of Exploit
+ High
+ + Demonstrative Examples
+ 
+ Example 1
+
+ In the following Java example, a float literal is cast to an integer, thus causing a loss of precision.
+
+ (bad code)
+ Example Language: Java 
+ int i = (int) 33457.8f;
+
+ Example 2
+
+ This code adds a float and an integer together, casting the result to an integer.
+
+ (bad code)
+ Example Language: PHP 
+ $floatVal = 1.8345;
+ $intVal = 3;
+ $result = (int)$floatVal + $intVal;
+
+ Normally, PHP will preserve the precision of this operation, making $result = 4.8345. After the cast to int, it is reasonable to expect PHP to follow rounding convention and set $result = 5. However,
+ the explicit cast to int always rounds DOWN, so the final value of $result is 4. This behavior may have unintended consequences.
+
+ Example 3
+
+ In this example the variable amount can hold a negative value when it is returned. Because the function is declared to return an unsigned int, amount will be implicitly converted to unsigned.
+
+ (bad code)
+ Example Language: C 
+ unsigned int readdata () {
+ int amount = 0;
+ ...
+ if (result == ERROR)
+ amount = -1;
+ ...
+ return amount;
+ }
+
+ If the error condition in the code above is met, then the return value of readdata() will be 4,294,967,295 on a system that uses 32-bit integers.
+
+ Example 4
+
+ In this example, depending on the return value of accecssmainframe(), the variable amount can hold a negative value when it is returned. Because the function is declared to return an unsigned value,
+ amount will be implicitly cast to an unsigned number.
+
+ (bad code)
+ Example Language: C 
+ unsigned int readdata () {
+ int amount = 0;
+ ...
+ amount = accessmainframe();
+ ...
+ return amount;
+ }
+
+ If the return value of accessmainframe() is -1, then the return value of readdata() will be 4,294,967,295 on a system that uses 32-bit integers.
+
+ + Observed Examples
+        Reference                                                                                        Description
+ CVE-2022-2639           Chain: integer coercion error (CWE-192) prevents a return value from indicating an error, leading to out-of-bounds write (CWE-787)
+ CVE-2021-43537          Chain: in a web browser, an unsigned 64-bit integer is forcibly cast to a 32-bit integer (CWE-681) and potentially leading to an integer overflow (CWE-190). If an integer
+                         overflow occurs, this can cause heap memory corruption (CWE-122)
+ CVE-2007-4268           Chain: integer signedness error (CWE-195) passes signed comparison, leading to heap overflow (CWE-122)
+ CVE-2007-4988           Chain: signed short width value in image processor is sign extended during conversion to unsigned int, which leads to integer overflow and heap-based buffer overflow.
+ CVE-2009-0231           Integer truncation of length value leads to heap-based buffer overflow.
+ CVE-2008-3282           Size of a particular type changes for 64-bit platforms, leading to an integer truncation in document processor causes incorrect index to be generated.
+ + Potential Mitigations
+ Phase: Implementation
+
+ Avoid making conversion between numeric types. Always check for the allowed ranges.
+ + Memberships
+ Section HelpThis MemberOf Relationships table shows additional CWE Categories and Views that reference this weakness as a member. This information is often useful in understanding where a weakness
+ fits within the context of external information sources.
+     Nature                                                                                                  Type                                                                                               ID         Name
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            738     CERT C Secure
+                                                                                                                                                                                                                      Coding Standard
+                                                                                                                                                                                                                      (2008) Chapter
+                                                                                                                                                                                                                      5 - Integers
+                                                                                                                                                                                                                      (INT)
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            739     CERT C Secure
+                                                                                                                                                                                                                      Coding Standard
+                                                                                                                                                                                                                      (2008) Chapter
+                                                                                                                                                                                                                      6 - Floating
+                                                                                                                                                                                                                      Point (FLP)
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            808     2010 Top 25 -
+                                                                                                                                                                                                                      Weaknesses On
+                                                                                                                                                                                                                      the Cusp
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            848     The CERT Oracle
+                                                                                                                                                                                                                      Secure Coding
+                                                                                                                                                                                                                      Standard for
+                                                                                                                                                                                                                      Java (2011)
+                                                                                                                                                                                                                      Chapter 5 -
+                                                                                                                                                                                                                      Numeric Types
+                                                                                                                                                                                                                      and Operations
+                                                                                                                                                                                                                      (NUM)
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            867     2011 Top 25 -
+                                                                                                                                                                                                                      Weaknesses On
+                                                                                                                                                                                                                      the Cusp
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            872     CERT C++ Secure
+                                                                                                                                                                                                                      Coding Section
+                                                                                                                                                                                                                      04 - Integers
+                                                                                                                                                                                                                      (INT)
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            873     CERT C++ Secure
+                                                                                                                                                                                                                      Coding Section
+                                                                                                                                                                                                                      05 - Floating
+                                                                                                                                                                                                                      Point
+                                                                                                                                                                                                                      Arithmetic
+                                                                                                                                                                                                                      (FLP)
+ MemberOf        ViewView - a subset of CWE entries that provides a way of examining CWE content. The two main view structures are Slices (flat lists) and Graphs (containing relationships between entries). 884     CWE
+                                                                                                                                                                                                                      Cross-section
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            998     SFP Secondary
+                                                                                                                                                                                                                      Cluster: Glitch
+                                                                                                                                                                                                                      in Computation
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            1131    CISQ Quality
+                                                                                                                                                                                                                      Measures (2016)
+                                                                                                                                                                                                                      - Security
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            1137    SEI CERT Oracle
+                                                                                                                                                                                                                      Secure Coding
+                                                                                                                                                                                                                      Standard for
+                                                                                                                                                                                                                      Java -
+                                                                                                                                                                                                                      Guidelines 03.
+                                                                                                                                                                                                                      Numeric Types
+                                                                                                                                                                                                                      and Operations
+                                                                                                                                                                                                                      (NUM)
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            1158    SEI CERT C
+                                                                                                                                                                                                                      Coding Standard
+                                                                                                                                                                                                                      - Guidelines
+                                                                                                                                                                                                                      04. Integers
+                                                                                                                                                                                                                      (INT)
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            1159    SEI CERT C
+                                                                                                                                                                                                                      Coding Standard
+                                                                                                                                                                                                                      - Guidelines
+                                                                                                                                                                                                                      05. Floating
+                                                                                                                                                                                                                      Point (FLP)
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            1306    CISQ Quality
+                                                                                                                                                                                                                      Measures -
+                                                                                                                                                                                                                      Reliability
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            1308    CISQ Quality
+                                                                                                                                                                                                                      Measures -
+                                                                                                                                                                                                                      Security
+ MemberOf        ViewView - a subset of CWE entries that provides a way of examining CWE content. The two main view structures are Slices (flat lists) and Graphs (containing relationships between entries). 1340    CISQ Data
+                                                                                                                                                                                                                      Protection
+                                                                                                                                                                                                                      Measures
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            1416    Comprehensive
+                                                                                                                                                                                                                      Categorization:
+                                                                                                                                                                                                                      Resource
+                                                                                                                                                                                                                      Lifecycle
+                                                                                                                                                                                                                      Management
+ + Vulnerability Mapping Notes
+ Usage: ALLOWED
+
+ (this CWE ID could be used to map to real-world vulnerabilities)
+ Reason: Acceptable-Use
+
+ Rationale:
+
+ This CWE entry is at the Base level of abstraction, which is a preferred level of abstraction for mapping to the root causes of vulnerabilities.
+ Comments:
+
+ Carefully read both the name and description to ensure that this mapping is an appropriate fit. Do not try to 'force' a mapping to a lower-level Base/Variant simply to comply with this preferred
+ level of abstraction.
+ + Taxonomy Mappings
+       Mapped Taxonomy Name          Node ID              Fit                                                                 Mapped Node Name
+ CERT C Secure Coding             FLP34-C        CWE More Abstract      Ensure that floating point conversions are within range of the new type
+ CERT C Secure Coding             INT15-C                               Use intmax_t or uintmax_t for formatted IO on programmer-defined integer types
+ CERT C Secure Coding             INT31-C        CWE More Abstract      Ensure that integer conversions do not result in lost or misinterpreted data
+ CERT C Secure Coding             INT35-C                               Evaluate integer expressions in a larger size before comparing or assigning to that size
+ The CERT Oracle Secure Coding    NUM12-J                               Ensure conversions of numeric types to narrower types do not result in lost or misinterpreted data
+ Standard for Java (2011)
+ Software Fault Patterns          SFP1                                  Glitch in computation
+ OMG ASCSM                        ASCSM-CWE-681
+ + References
+ [REF-962] Object Management Group (OMG). "Automated Source Code Security Measure (ASCSM)". ASCSM-CWE-681. 2016-01. <http://www.omg.org/spec/ASCSM/1.0/>.
+ + Content History
+                                                                                            + Submissions
+                 Submission Date                                                      Submitter                                                               Organization
+ 2008-04-11                                       CWE Community
+ (CWE Draft 9, 2008-04-11)                        Submitted by members of the CWE community to extend early CWE versions
+                                                                                           + Modifications
+                Modification Date                                                      Modifier                                                               Organization
+ 2008-07-01                                       Sean Eidemiller                                                                    Cigital
+                                                  added/updated demonstrative examples
+ 2008-07-01                                       Eric Dalci                                                                         Cigital
+                                                  updated Potential_Mitigations, Time_of_Introduction
+ 2008-09-08                                       CWE Content Team                                                                   MITRE
+                                                  updated Relationships
+ 2008-11-24                                       CWE Content Team                                                                   MITRE
+                                                  updated Description, Relationships, Taxonomy_Mappings
+ 2009-12-28                                       CWE Content Team                                                                   MITRE
+                                                  updated Applicable_Platforms, Likelihood_of_Exploit, Potential_Mitigations
+ 2010-02-16                                       CWE Content Team                                                                   MITRE
+                                                  updated Relationships
+ 2011-03-29                                       CWE Content Team                                                                   MITRE
+                                                  updated Demonstrative_Examples
+ 2011-06-01                                       CWE Content Team                                                                   MITRE
+                                                  updated Common_Consequences, Relationships, Taxonomy_Mappings
+ 2011-06-27                                       CWE Content Team                                                                   MITRE
+                                                  updated Common_Consequences, Observed_Examples, Relationships
+ 2011-09-13                                       CWE Content Team                                                                   MITRE
+                                                  updated Relationships, Taxonomy_Mappings
+ 2012-05-11                                       CWE Content Team                                                                   MITRE
+                                                  updated Demonstrative_Examples, References, Relationships, Taxonomy_Mappings
+ 2014-07-30                                       CWE Content Team                                                                   MITRE
+                                                  updated Relationships, Taxonomy_Mappings
+ 2017-11-08                                       CWE Content Team                                                                   MITRE
+                                                  updated Likelihood_of_Exploit, Observed_Examples, Taxonomy_Mappings, Type
+ 2019-01-03                                       CWE Content Team                                                                   MITRE
+                                                  updated References, Relationships, Taxonomy_Mappings
+ 2019-06-20                                       CWE Content Team                                                                   MITRE
+                                                  updated Relationships, Type
+ 2020-02-24                                       CWE Content Team                                                                   MITRE
+                                                  updated Relationships
+ 2020-08-20                                       CWE Content Team                                                                   MITRE
+                                                  updated Relationships
+ 2020-12-10                                       CWE Content Team                                                                   MITRE
+                                                  updated Relationships
+ 2021-03-15                                       CWE Content Team                                                                   MITRE
+                                                  updated Relationships
+ 2023-04-27                                       CWE Content Team                                                                   MITRE
+                                                  updated Relationships
+ 2023-06-29                                       CWE Content Team                                                                   MITRE
+                                                  updated Mapping_Notes
+ 2023-10-26                                       CWE Content Team                                                                   MITRE
+                                                  updated Observed_Examples
+ 2024-02-29                                       CWE Content Team                                                                   MITRE
+ (CWE 4.14, 2024-02-29)                           updated Observed_Examples
+ More information is available — Please edit the custom filter or select a different filter.
+Page Last Updated: February 29, 2024
+ 
+      Site Map | Terms of Use | Manage Cookies | Cookie Notice | Privacy Policy | Contact Us | CWE X-Twitter CWE Mastodon CWE on LinkedIn CWE YouTube channel CWE Out-of-Bounds-Read Podcast CWE
+      Blog on Medium blog
+
+MITRE Use of the Common Weakness Enumeration (CWE™) and the associated references from this website are subject to the Terms of Use. CWE is sponsored by the U.S. Department of Homeland         HSSEDI
+      Security (DHS) Cybersecurity and Infrastructure Security Agency (CISA) and managed by the Homeland Security Systems Engineering and Development Institute (HSSEDI) which is operated by
+      The MITRE Corporation (MITRE). Copyright © 2006–2024, The MITRE Corporation. CWE, CWSS, CWRAF, and the CWE logo are trademarks of The MITRE Corporation.
+

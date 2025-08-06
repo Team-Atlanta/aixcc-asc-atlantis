@@ -1,0 +1,6 @@
+cp_name = "ARVO"
+blob_file = "./exemplar_only/cpv_1/blobs/sample_solve.bin"
+harness_id = "id_1"
+sanitizer_id = "id_1"
+bug_introduce_commit = "8babb2d078f83a4956c7cf70a013c80f78e6f71d~0"
+src_dir = "./src/net-snmp"

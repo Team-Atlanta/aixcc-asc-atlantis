@@ -1,0 +1,276 @@
+CWE
+
+Common Weakness Enumeration
+
+A community-developed list of SW & HW weaknesses that can become vulnerabilities
+
+New to CWE? click here!
+CWE Most Important Hardware Weaknesses
+CWE Top 25 Most Dangerous Weaknesses
+Home > CWE List > CWE- Individual Dictionary Definition (4.14)                                                                                                   ID Lookup: [                    ] [Go]
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  • Home
+  • About ▼
+    About New to CWE User Stories History Documents FAQs Glossary Compatibility
+  • CWE List ▼
+    Latest Version Downloads Reports Visualizations Archive
+  • Mapping ▼
+    Root Cause Mapping Guidance Root Cause Mapping Quick Tips Root Cause Mapping Examples
+  • Top-N Lists ▼
+    Top 25 Software Top Hardware Top 10 KEV Weaknesses
+  • Community ▼
+    Community Working Groups & Special Interest Groups Board Board Meeting Minutes CWE Discussion List CWE Discussion Archives Contribute Weakness Content to CWE
+  • News ▼
+    Current News X-Twitter ● Mastodon ● LinkedIn ● YouTube YouTube Podcast Out of Bounds Read Podcast Medium Medium News Archive
+  • Search
+
+ 
+ CWE Glossary Definition                  x
+ 
+ 
+ CWE-325: Missing Cryptographic Step
+ 
+ Weakness ID: 325
+ Vulnerability Mapping: ALLOWEDThis CWE ID may be used to map to real-world vulnerabilities
+ Abstraction: BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level
+ weaknesses typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.
+ View customized information:
+ Conceptual For users who are interested in more notional aspects of a weakness. Example: educators, technical writers, and project/program managers. Operational For users who are concerned with the
+ practical application and details about the nature of a weakness and how to prevent it from happening. Example: tool developers, security researchers, pen-testers, incident response analysts. Mapping
+ Friendly For users who are mapping an issue to CWE/CAPEC IDs, i.e., finding the most appropriate CWE for a specific issue (e.g., a CVE record). Example: tool developers, security researchers. 
+ Complete For users who wish to see all available information for the CWE/CAPEC entry. Custom For users who want to customize what details are displayed.
+ ×
+
+ Edit Custom Filter
+
+ Conceptual Operational Mapping Friendly Select All
+ 
+ Reset Clear Submit Cancel
+ + Description
+ The product does not implement a required step in a cryptographic algorithm, resulting in weaker encryption than advertised by the algorithm.
+ + Relationships
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Research Concepts" (CWE-1000)
+     Nature                                                                                                                                                                             Type                                                                                                                                                                           ID        Name
+ ChildOf                                                                               ClassClass - a weakness that is described in a very abstract fashion, typically independent of any specific language or technology. More specific than a Pillar Weakness, but more general than a Base                                                                        573     Improper
+                                                                                                                    Weakness. Class level weaknesses typically describe issues in terms of 1 or 2 of the following dimensions: behavior, property, and resource.                                                                                                             Following of
+                                                                                                                                                                                                                                                                                                                                                                             Specification
+                                                                                                                                                                                                                                                                                                                                                                             by Caller
+ PeerOf                                                                                    BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level weaknesses                                                                           358     Improperly
+                                                                                                                          typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                  Implemented
+                                                                                                                                                                                                                                                                                                                                                                             Security
+                                                                                                                                                                                                                                                                                                                                                                             Check for
+                                                                                                                                                                                                                                                                                                                                                                             Standard
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Software Development" (CWE-699)
+     Nature                                                       Type                                                     ID                                   Name
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 310     Cryptographic Issues
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Hardware Design" (CWE-1194)
+     Nature                                                       Type                                                     ID                                   Name
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 1205    Security Primitives and Cryptography Issues
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Architectural Concepts" (CWE-1008)
+     Nature                                                       Type                                                     ID                                   Name
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 1013    Encrypt Data
+ + Modes Of Introduction
+ Section HelpThe different Modes of Introduction provide information about how and when this weakness may be introduced. The Phase identifies a point in the life cycle at which introduction may occur,
+ while the Note provides a typical scenario related to introduction during the given phase.
+     Phase                                                                                              Note
+ Implementation Developers sometimes omit "expensive" (resource-intensive) steps in order to improve performance, especially in devices with limited memory or slower CPUs. This step may be taken
+                under a mistaken impression that the step is unnecessary for the cryptographic algorithm.
+ Requirements   This issue may happen when the requirements for the cryptographic algorithm are not clearly stated.
+ + Applicable Platforms
+ Section HelpThis listing shows possible areas for which the given weakness could appear. These may be for specific named Languages, Operating Systems, Architectures, Paradigms, Technologies, or a
+ class of such platforms. The platform is listed along with how frequently the given weakness appears for that instance.
+
+ Languages
+
+ Class: Not Language-Specific (Undetermined Prevalence)
+
+ Technologies
+
+ Class: Not Technology-Specific (Undetermined Prevalence)
+
+ + Common Consequences
+ Section HelpThis table specifies different individual consequences associated with the weakness. The Scope identifies the application security area that is violated, while the Impact describes the
+ negative technical impact that arises if an adversary succeeds in exploiting this weakness. The Likelihood provides information about how likely the specific consequence is expected to be seen
+ relative to the other consequences in the list. For example, there may be high likelihood that a weakness will be exploited to achieve a certain impact, but a low likelihood that it will be exploited
+ to achieve a different impact.
+       Scope                                                                                     Impact                                                                                 Likelihood
+ Access Control     Technical Impact: Bypass Protection Mechanism
+
+ Confidentiality    Technical Impact: Read Application Data; Modify Application Data
+ Integrity
+ Accountability     Technical Impact: Hide Activities
+ Non-Repudiation
+ + Demonstrative Examples
+ 
+ Example 1
+
+ The example code is taken from the HMAC engine inside the buggy OpenPiton SoC of HACK@DAC'21 [REF-1358]. HAMC is a message authentication code (MAC) that uses both a hash and a secret crypto key. The
+ HMAC engine in HACK@DAC SoC uses the SHA-256 module for the calculation of the HMAC for 512 bits messages.
+
+ (bad code)
+ Example Language: Verilog 
+ logic [511:0] bigData;
+ ...
+
+ hmac hmac(
+ .clk_i(clk_i),
+ .rst_ni(rst_ni && ~rst_4),
+ .init_i(startHash && ~startHash_r),
+ .key_i(key),
+ .ikey_hash_i(ikey_hash),
+ .okey_hash_i(okey_hash),
+ .key_hash_bypass_i(key_hash_bypass),
+ .message_i(bigData),
+ .hash_o(hash),
+ .ready_o(ready),
+ .hash_valid_o(hashValid)
+
+ However, this HMAC engine cannot handle messages that are longer than 512 bits. Moreover, a complete HMAC will contain an iterate hash function that breaks up a message into blocks of a fixed size
+ and iterates over them with a compression function (e.g., SHA-256). Therefore, the implementation of the HMAC in OpenPiton SoC is incomplete. Such HMAC engines will not be used in real-world
+ applications as the messages will usually be longer than 512 bits. For instance, OpenTitan offers a comprehensive HMAC implementation that utilizes a FIFO for temporarily storing the truncated
+ message, as detailed in [REF-1359].
+
+ To mitigate this, implement the iterative function to break up a message into blocks of a fixed size.
+
+ + Observed Examples
+        Reference                                                                                        Description
+ CVE-2001-1585           Missing challenge-response step allows authentication bypass using public key.
+ + Functional Areas
+ 
+   • Cryptography
+
+ + Memberships
+ Section HelpThis MemberOf Relationships table shows additional CWE Categories and Views that reference this weakness as a member. This information is often useful in understanding where a weakness
+ fits within the context of external information sources.
+     Nature                                                                                                  Type                                                                                               ID         Name
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            719     OWASP Top Ten
+                                                                                                                                                                                                                      2007 Category
+                                                                                                                                                                                                                      A8 - Insecure
+                                                                                                                                                                                                                      Cryptographic
+                                                                                                                                                                                                                      Storage
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            720     OWASP Top Ten
+                                                                                                                                                                                                                      2007 Category
+                                                                                                                                                                                                                      A9 - Insecure
+                                                                                                                                                                                                                      Communications
+ MemberOf        ViewView - a subset of CWE entries that provides a way of examining CWE content. The two main view structures are Slices (flat lists) and Graphs (containing relationships between entries). 884     CWE
+                                                                                                                                                                                                                      Cross-section
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            934     OWASP Top Ten
+                                                                                                                                                                                                                      2013 Category
+                                                                                                                                                                                                                      A6 - Sensitive
+                                                                                                                                                                                                                      Data Exposure
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            958     SFP Secondary
+                                                                                                                                                                                                                      Cluster: Broken
+                                                                                                                                                                                                                      Cryptography
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            1029    OWASP Top Ten
+                                                                                                                                                                                                                      2017 Category
+                                                                                                                                                                                                                      A3 - Sensitive
+                                                                                                                                                                                                                      Data Exposure
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            1346    OWASP Top Ten
+                                                                                                                                                                                                                      2021 Category
+                                                                                                                                                                                                                      A02:2021 -
+                                                                                                                                                                                                                      Cryptographic
+                                                                                                                                                                                                                      Failures
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            1366    ICS
+                                                                                                                                                                                                                      Communications:
+                                                                                                                                                                                                                      Frail Security
+                                                                                                                                                                                                                      in Protocols
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            1402    Comprehensive
+                                                                                                                                                                                                                      Categorization:
+                                                                                                                                                                                                                      Encryption
+ + Vulnerability Mapping Notes
+ Usage: ALLOWED
+
+ (this CWE ID could be used to map to real-world vulnerabilities)
+ Reason: Acceptable-Use
+
+ Rationale:
+
+ This CWE entry is at the Base level of abstraction, which is a preferred level of abstraction for mapping to the root causes of vulnerabilities.
+ Comments:
+
+ Carefully read both the name and description to ensure that this mapping is an appropriate fit. Do not try to 'force' a mapping to a lower-level Base/Variant simply to comply with this preferred
+ level of abstraction.
+ + Notes
+ 
+ Relationship
+
+ Overlaps incomplete/missing security check.
+
+ Relationship
+
+ Can be resultant.
+ + Taxonomy Mappings
+       Mapped Taxonomy Name          Node ID                           Fit                                                                Mapped Node Name
+ PLOVER                                                                                          Missing Required Cryptographic Step
+ OWASP Top Ten 2007               A8             CWE More Specific                               Insecure Cryptographic Storage
+ OWASP Top Ten 2007               A9             CWE More Specific                               Insecure Communications
+ + Related Attack Patterns
+    CAPEC-ID                                                                                     Attack Pattern Name
+ CAPEC-68        Subvert Code-signing Facilities
+ + References
+ [REF-1358] "hmac_wrapper.sv". 2021. <https://github.com/HACK-EVENT/hackatdac21/blob/main/piton/design/chip/tile/ariane/src/hmac/hmac_wrapper.sv#L41>. URL validated: 2023-07-15.
+ [REF-1359] "HMAC HWIP Technical Specification". 2023. <https://opentitan.org/book/hw/ip/hmac/>. URL validated: 2023-10-05.
+ + Content History
+                                                                                           + Submissions
+         Submission Date                                                      Submitter                                                                       Organization
+ 2006-07-19                      PLOVER
+ (CWE Draft 3, 2006-07-19)
+
+                                                                                          + Contributions
+        Contribution Date                                                    Contributor                                                                      Organization
+ 2023-06-21                      Chen Chen, Rahul Kande, Jeyavijayan Rajendran                                                        Texas A&M University
+                                 suggested demonstrative example
+ 2023-06-21                      Shaza Zeitouni, Mohamadreza Rostami, Ahmad-Reza Sadeghi                                              Technical University of Darmstadt
+                                 suggested demonstrative example
+                                                                                          + Modifications
+        Modification Date                                                      Modifier                                                                       Organization
+ 2008-07-01                      Eric Dalci                                                                                           Cigital
+                                 updated Time_of_Introduction
+ 2008-09-08                      CWE Content Team                                                                                     MITRE
+                                 updated Description, Functional_Areas, Modes_of_Introduction, Relationships, Observed_Example, Relationship_Notes, Taxonomy_Mappings
+ 2011-06-01                      CWE Content Team                                                                                     MITRE
+                                 updated Common_Consequences
+ 2012-05-11                      CWE Content Team                                                                                     MITRE
+                                 updated Common_Consequences, Relationships
+ 2014-06-23                      CWE Content Team                                                                                     MITRE
+                                 updated Relationships
+ 2014-07-30                      CWE Content Team                                                                                     MITRE
+                                 updated Relationships
+ 2017-11-08                      CWE Content Team                                                                                     MITRE
+                                 updated Applicable_Platforms, Modes_of_Introduction, Relationships
+ 2018-03-27                      CWE Content Team                                                                                     MITRE
+                                 updated Relationships
+ 2020-02-24                      CWE Content Team                                                                                     MITRE
+                                 updated Applicable_Platforms, Description, Relationships
+ 2020-08-20                      CWE Content Team                                                                                     MITRE
+                                 updated Common_Consequences, Description, Modes_of_Introduction, Name
+ 2021-10-28                      CWE Content Team                                                                                     MITRE
+                                 updated Relationships
+ 2023-04-27                      CWE Content Team                                                                                     MITRE
+                                 updated Relationships, Time_of_Introduction
+ 2023-06-29                      CWE Content Team                                                                                     MITRE
+                                 updated Mapping_Notes
+ 2023-10-26                      CWE Content Team                                                                                     MITRE
+                                 updated Demonstrative_Examples, References
+                                                                                       + Previous Entry Names
+           Change Date                                                                                   Previous Entry Name
+ 2020-08-20                      Missing Required Cryptographic Step
+ More information is available — Please edit the custom filter or select a different filter.
+Page Last Updated: February 29, 2024
+ 
+      Site Map | Terms of Use | Manage Cookies | Cookie Notice | Privacy Policy | Contact Us | CWE X-Twitter CWE Mastodon CWE on LinkedIn CWE YouTube channel CWE Out-of-Bounds-Read Podcast CWE
+      Blog on Medium blog
+
+MITRE Use of the Common Weakness Enumeration (CWE™) and the associated references from this website are subject to the Terms of Use. CWE is sponsored by the U.S. Department of Homeland         HSSEDI
+      Security (DHS) Cybersecurity and Infrastructure Security Agency (CISA) and managed by the Homeland Security Systems Engineering and Development Institute (HSSEDI) which is operated by
+      The MITRE Corporation (MITRE). Copyright © 2006–2024, The MITRE Corporation. CWE, CWSS, CWRAF, and the CWE logo are trademarks of The MITRE Corporation.
+

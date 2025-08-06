@@ -1,0 +1,102 @@
+######################################################################################################
+# DO NOT MODIFY THIS FILE ANYWHERE OTHER THAN WITHIN THE CUSTOMIZE BLOCKS
+#
+#
+# New services are acceptable
+# Any service which needs KVM or Docker MUST run privleged and pass the appropriate volume (see below)
+# /dev/kvm for QEMU or /var/run/docker.sock for Docker
+#
+# Profiles
+# We use the profiles "development" and "competition"
+# All containers added by competitors must include the appropriate profiles
+# At competition time only the `--profile competition` will be used
+# This will cause the LiteLLM proxy to disappear. 
+# Competitors should be using the LITELLM_URL environment variable
+# for accessing LiteLLM, so we can swap the URL at competition time.
+#
+######################################################################################################
+
+#include:
+  #- sandbox/docker-compose.yaml
+
+#############
+### CUSTOMIZE
+#############
+
+### Additional services are welcomed, just make sure to use the supplied variables and profile names
+services:
+
+  crs:
+    profiles:
+      - development
+      - competition
+    build: 
+      context: . # Note that this uses the base folder for context, you may not need this for your CRS
+      dockerfile: Dockerfile
+    privileged: true
+    volumes:
+      - /dev/kvm:/dev/kvm
+      - /var/run/docker.sock:/var/run/docker.sock
+      - type: bind
+        source: /cp-linux-build-${LOGNAME}
+        target: /cp-linux-build-${LOGNAME}
+        bind:
+          create_host_path: true
+      - type: bind
+        source: ./cp_root
+        target: /cp_root
+        # This is the core CP mount point where repos are attached as subdirectories. 
+        # A CRS must automatically copy subdirectories here to some location for building and should not modify this read_only setting.
+        read_only: true  # DO NOT MODIFY FROM READ-ONLY
+        # TODO: Remove this before release, this is for sharing docker image cache
+      - /var/lib/docker/:/var/lib/docker/
+      - type: bind
+        source: /crs-workdir-${LOGNAME}
+        target: /crs-workdir-${LOGNAME}
+        bind:
+          create_host_path: true
+    environment:
+      - AIXCC_CP_ROOT=/cp_root
+      - AIXCC_CRS_SCRATCH_SPACE=/cp-linux-build-${LOGNAME}
+      - CRS_WORKDIR=/crs-workdir-${LOGNAME}/main
+      - AIXCC_LITELLM_HOSTNAME=http://bombshell.gtisc.gatech.edu:4000 # TODO: Remove before release
+      - LITELLM_KEY=${LITELLM_KEY} # TODO: Remove before release
+      - CP_LINUX_CRS_TYPE=MAIN
+      - CP_LINUX_CRS_CNT=2
+  crs2:
+    profiles:
+      - development
+      - competition
+    build: 
+      context: . # Note that this uses the base folder for context, you may not need this for your CRS
+      dockerfile: Dockerfile
+    privileged: true
+    volumes:
+      - /dev/kvm:/dev/kvm
+      - /var/run/docker.sock:/var/run/docker.sock
+      - type: bind
+        source: /cp-linux-build-${LOGNAME}
+        target: /cp-linux-build-${LOGNAME}
+        bind:
+          create_host_path: true
+      - type: bind
+        source: ./cp_root
+        target: /cp_root
+        # This is the core CP mount point where repos are attached as subdirectories. 
+        # A CRS must automatically copy subdirectories here to some location for building and should not modify this read_only setting.
+        read_only: true  # DO NOT MODIFY FROM READ-ONLY
+        # TODO: Remove this before release, this is for sharing docker image cache
+      - /var/lib/docker/:/var/lib/docker/
+      - type: bind
+        source: /crs-workdir-${LOGNAME}
+        target: /crs-workdir-${LOGNAME}
+        bind:
+          create_host_path: true
+    environment:
+      - AIXCC_CP_ROOT=/cp_root
+      - AIXCC_CRS_SCRATCH_SPACE=/cp-linux-build-${LOGNAME}
+      - CRS_WORKDIR=/crs-workdir-${LOGNAME}/worker_1
+      - AIXCC_LITELLM_HOSTNAME=http://bombshell.gtisc.gatech.edu:4000 # TODO: Remove before release
+      - LITELLM_KEY=${LITELLM_KEY} # TODO: Remove before release
+      - CP_LINUX_CRS_TYPE=WORKER_1
+      - CP_LINUX_CRS_CNT=2

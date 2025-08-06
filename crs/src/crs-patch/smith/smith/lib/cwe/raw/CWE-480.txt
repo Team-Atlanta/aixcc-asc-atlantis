@@ -1,0 +1,380 @@
+CWE
+
+Common Weakness Enumeration
+
+A community-developed list of SW & HW weaknesses that can become vulnerabilities
+
+New to CWE? click here!
+CWE Most Important Hardware Weaknesses
+CWE Top 25 Most Dangerous Weaknesses
+Home > CWE List > CWE- Individual Dictionary Definition (4.14)                                                                                                   ID Lookup: [                    ] [Go]
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  • Home
+  • About ▼
+    About New to CWE User Stories History Documents FAQs Glossary Compatibility
+  • CWE List ▼
+    Latest Version Downloads Reports Visualizations Archive
+  • Mapping ▼
+    Root Cause Mapping Guidance Root Cause Mapping Quick Tips Root Cause Mapping Examples
+  • Top-N Lists ▼
+    Top 25 Software Top Hardware Top 10 KEV Weaknesses
+  • Community ▼
+    Community Working Groups & Special Interest Groups Board Board Meeting Minutes CWE Discussion List CWE Discussion Archives Contribute Weakness Content to CWE
+  • News ▼
+    Current News X-Twitter ● Mastodon ● LinkedIn ● YouTube YouTube Podcast Out of Bounds Read Podcast Medium Medium News Archive
+  • Search
+
+ 
+ CWE Glossary Definition                  x
+ 
+ 
+ CWE-480: Use of Incorrect Operator
+ 
+ Weakness ID: 480
+ Vulnerability Mapping: ALLOWEDThis CWE ID may be used to map to real-world vulnerabilities
+ Abstraction: BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level
+ weaknesses typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.
+ View customized information:
+ Conceptual For users who are interested in more notional aspects of a weakness. Example: educators, technical writers, and project/program managers. Operational For users who are concerned with the
+ practical application and details about the nature of a weakness and how to prevent it from happening. Example: tool developers, security researchers, pen-testers, incident response analysts. Mapping
+ Friendly For users who are mapping an issue to CWE/CAPEC IDs, i.e., finding the most appropriate CWE for a specific issue (e.g., a CVE record). Example: tool developers, security researchers. 
+ Complete For users who wish to see all available information for the CWE/CAPEC entry. Custom For users who want to customize what details are displayed.
+ ×
+
+ Edit Custom Filter
+
+ Conceptual Operational Mapping Friendly Select All
+ 
+ Reset Clear Submit Cancel
+ + Description
+ The product accidentally uses the wrong operator, which changes the logic in security-relevant ways.
+ + Extended Description
+ These types of errors are generally the result of a typo by the programmer.
+ + Relationships
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Research Concepts" (CWE-1000)
+     Nature                                                                                                                                                                             Type                                                                                                                                                                           ID          Name
+ ChildOf                                                                               ClassClass - a weakness that is described in a very abstract fashion, typically independent of any specific language or technology. More specific than a Pillar Weakness, but more general than a Base                                                                        670     Always-Incorrect
+                                                                                                                    Weakness. Class level weaknesses typically describe issues in terms of 1 or 2 of the following dimensions: behavior, property, and resource.                                                                                                             Control Flow
+                                                                                                                                                                                                                                                                                                                                                                             Implementation
+ ParentOf                                                                              VariantVariant - a weakness that is linked to a certain type of product, typically involving a specific language or technology. More specific than a Base weakness. Variant level weaknesses typically                                                                        481     Assigning
+                                                                                                                               describe issues in terms of 3 to 5 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                       instead of
+                                                                                                                                                                                                                                                                                                                                                                             Comparing
+ ParentOf                                                                              VariantVariant - a weakness that is linked to a certain type of product, typically involving a specific language or technology. More specific than a Base weakness. Variant level weaknesses typically                                                                        482     Comparing
+                                                                                                                               describe issues in terms of 3 to 5 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                       instead of
+                                                                                                                                                                                                                                                                                                                                                                             Assigning
+ ParentOf                                                                              VariantVariant - a weakness that is linked to a certain type of product, typically involving a specific language or technology. More specific than a Base weakness. Variant level weaknesses typically                                                                        597     Use of Wrong
+                                                                                                                               describe issues in terms of 3 to 5 of the following dimensions: behavior, property, technology, language, and resource.                                                                                                                       Operator in
+                                                                                                                                                                                                                                                                                                                                                                             String
+                                                                                                                                                                                                                                                                                                                                                                             Comparison
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Software Development" (CWE-699)
+     Nature                                                       Type                                                     ID                                   Name
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 133     String Errors
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 438     Behavioral Problems
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 569     Expression Issues
+ + Modes Of Introduction
+ Section HelpThe different Modes of Introduction provide information about how and when this weakness may be introduced. The Phase identifies a point in the life cycle at which introduction may occur,
+ while the Note provides a typical scenario related to introduction during the given phase.
+     Phase                                                                                              Note
+ Implementation
+ + Applicable Platforms
+ Section HelpThis listing shows possible areas for which the given weakness could appear. These may be for specific named Languages, Operating Systems, Architectures, Paradigms, Technologies, or a
+ class of such platforms. The platform is listed along with how frequently the given weakness appears for that instance.
+
+ Languages
+
+ C (Sometimes Prevalent)
+
+ C++ (Sometimes Prevalent)
+
+ Perl (Sometimes Prevalent)
+
+ Class: Not Language-Specific (Undetermined Prevalence)
+
+ + Common Consequences
+ Section HelpThis table specifies different individual consequences associated with the weakness. The Scope identifies the application security area that is violated, while the Impact describes the
+ negative technical impact that arises if an adversary succeeds in exploiting this weakness. The Likelihood provides information about how likely the specific consequence is expected to be seen
+ relative to the other consequences in the list. For example, there may be high likelihood that a weakness will be exploited to achieve a certain impact, but a low likelihood that it will be exploited
+ to achieve a different impact.
+       Scope                                                                                     Impact                                                                                 Likelihood
+                    Technical Impact: Alter Execution Logic
+ Other
+                    This weakness can cause unintended logic to be executed and other unexpected application behavior.
+ + Likelihood Of Exploit
+ Low
+ + Demonstrative Examples
+ 
+ Example 1
+
+ The following C/C++ and C# examples attempt to validate an int input parameter against the integer value 100.
+
+ (bad code)
+ Example Language: C 
+ int isValid(int value) {
+ if (value=100) {
+ printf("Value is valid\n");
+ return(1);
+ }
+ printf("Value is not valid\n");
+ return(0);
+ }
+ (bad code)
+ Example Language: C# 
+ bool isValid(int value) {
+ if (value=100) {
+ Console.WriteLine("Value is valid.");
+ return true;
+ }
+ Console.WriteLine("Value is not valid.");
+ return false;
+ }
+
+ However, the expression to be evaluated in the if statement uses the assignment operator "=" rather than the comparison operator "==". The result of using the assignment operator instead of the
+ comparison operator causes the int variable to be reassigned locally and the expression in the if statement will always evaluate to the value on the right hand side of the expression. This will
+ result in the input value not being properly validated, which can cause unexpected results.
+
+ Example 2
+
+ The following C/C++ example shows a simple implementation of a stack that includes methods for adding and removing integer values from the stack. The example uses pointers to add and remove integer
+ values to the stack array variable.
+
+ (bad code)
+ Example Language: C 
+ #define SIZE 50
+ int *tos, *p1, stack[SIZE];
+
+ void push(int i) {
+ p1++;
+ if(p1==(tos+SIZE)) {
+
+ // Print stack overflow error message and exit
+ }
+ *p1 == i;
+ }
+
+ int pop(void) {
+ if(p1==tos) {
+
+ // Print stack underflow error message and exit
+ }
+ p1--;
+ return *(p1+1);
+ }
+
+ int main(int argc, char *argv[]) {
+
+ // initialize tos and p1 to point to the top of stack
+ tos = stack;
+ p1 = stack;
+ // code to add and remove items from stack
+ ...
+ return 0;
+ }
+
+ The push method includes an expression to assign the integer value to the location in the stack pointed to by the pointer variable.
+
+ However, this expression uses the comparison operator "==" rather than the assignment operator "=". The result of using the comparison operator instead of the assignment operator causes erroneous
+ values to be entered into the stack and can cause unexpected results.
+
+ Example 3
+
+ The example code below is taken from the CVA6 processor core of the HACK@DAC'21 buggy OpenPiton SoC. Debug access allows users to access internal hardware registers that are otherwise not exposed for
+ user access or restricted access through access control protocols. Hence, requests to enter debug mode are checked and authorized only if the processor has sufficient privileges. In addition, debug
+ accesses are also locked behind password checkers. Thus, the processor enters debug mode only when the privilege level requirement is met, and the correct debug password is provided.
+
+ The following code [REF-1377] illustrates an instance of a vulnerable implementation of debug mode. The core correctly checks if the debug requests have sufficient privileges and enables the
+ debug_mode_d and debug_mode_q signals. It also correctly checks for debug password and enables umode_i signal.
+
+ (bad code)
+ Example Language: Verilog 
+ module csr_regfile #(
+ ...
+ // check that we actually want to enter debug depending on the privilege level we are currently in
+ unique case (priv_lvl_o)
+ riscv::PRIV_LVL_M: begin
+ debug_mode_d = dcsr_q.ebreakm;
+ ...
+ riscv::PRIV_LVL_U: begin
+ debug_mode_d = dcsr_q.ebreaku;
+ ...
+ assign priv_lvl_o = (debug_mode_q || umode_i) ? riscv::PRIV_LVL_M : priv_lvl_q;
+ ...
+ debug_mode_q <= debug_mode_d;
+ ...
+
+ However, it grants debug access and changes the privilege level, priv_lvl_o, even when one of the two checks is satisfied and the other is not. Because of this, debug access can be granted by simply
+ requesting with sufficient privileges (i.e., debug_mode_q is enabled) and failing the password check (i.e., umode_i is disabled). This allows an attacker to bypass the debug password checking and
+ gain debug access to the core, compromising the security of the processor.
+
+ A fix to this issue is to only change the privilege level of the processor when both checks are satisfied, i.e., the request has enough privileges (i.e., debug_mode_q is enabled) and the password
+ checking is successful (i.e., umode_i is enabled) [REF-1378].
+
+ (good code)
+ Example Language: Verilog 
+ module csr_regfile #(
+ ...
+ // check that we actually want to enter debug depending on the privilege level we are currently in
+ unique case (priv_lvl_o)
+ riscv::PRIV_LVL_M: begin
+ debug_mode_d = dcsr_q.ebreakm;
+ ...
+ riscv::PRIV_LVL_U: begin
+ debug_mode_d = dcsr_q.ebreaku;
+ ...
+ assign priv_lvl_o = (debug_mode_q && umode_i) ? riscv::PRIV_LVL_M : priv_lvl_q;
+ ...
+ debug_mode_q <= debug_mode_d;
+ ...
+ + Observed Examples
+        Reference                                                                                        Description
+ CVE-2022-3979           Chain: data visualization program written in PHP uses the "!=" operator instead of the type-strict "!==" operator (CWE-480) when validating hash values, potentially
+                         leading to an incorrect type conversion (CWE-704)
+ CVE-2021-3116           Chain: Python-based HTTP Proxy server uses the wrong boolean operators (CWE-480) causing an incorrect comparison (CWE-697) that identifies an authN failure if all three
+                         conditions are met instead of only one, allowing bypass of the proxy authentication (CWE-1390)
+ + Detection Methods
+ Automated Static Analysis
+
+ This weakness can be found easily using static analysis. However in some cases an operator might appear to be incorrect, but is actually correct and reflects unusual logic within the program.
+ Manual Static Analysis
+
+ This weakness can be found easily using static analysis. However in some cases an operator might appear to be incorrect, but is actually correct and reflects unusual logic within the program.
+ + Memberships
+ Section HelpThis MemberOf Relationships table shows additional CWE Categories and Views that reference this weakness as a member. This information is often useful in understanding where a weakness
+ fits within the context of external information sources.
+     Nature                                                                                                  Type                                                                                               ID         Name
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            747     CERT C Secure
+                                                                                                                                                                                                                      Coding Standard
+                                                                                                                                                                                                                      (2008) Chapter
+                                                                                                                                                                                                                      14 -
+                                                                                                                                                                                                                      Miscellaneous
+                                                                                                                                                                                                                      (MSC)
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            871     CERT C++ Secure
+                                                                                                                                                                                                                      Coding Section
+                                                                                                                                                                                                                      03 -
+                                                                                                                                                                                                                      Expressions
+                                                                                                                                                                                                                      (EXP)
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            883     CERT C++ Secure
+                                                                                                                                                                                                                      Coding Section
+                                                                                                                                                                                                                      49 -
+                                                                                                                                                                                                                      Miscellaneous
+                                                                                                                                                                                                                      (MSC)
+ MemberOf        ViewView - a subset of CWE entries that provides a way of examining CWE content. The two main view structures are Slices (flat lists) and Graphs (containing relationships between entries). 884     CWE
+                                                                                                                                                                                                                      Cross-section
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            998     SFP Secondary
+                                                                                                                                                                                                                      Cluster: Glitch
+                                                                                                                                                                                                                      in Computation
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            1157    SEI CERT C
+                                                                                                                                                                                                                      Coding Standard
+                                                                                                                                                                                                                      - Guidelines
+                                                                                                                                                                                                                      03. Expressions
+                                                                                                                                                                                                                      (EXP)
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            1306    CISQ Quality
+                                                                                                                                                                                                                      Measures -
+                                                                                                                                                                                                                      Reliability
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            1307    CISQ Quality
+                                                                                                                                                                                                                      Measures -
+                                                                                                                                                                                                                      Maintainability
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            1308    CISQ Quality
+                                                                                                                                                                                                                      Measures -
+                                                                                                                                                                                                                      Security
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            1410    Comprehensive
+                                                                                                                                                                                                                      Categorization:
+                                                                                                                                                                                                                      Insufficient
+                                                                                                                                                                                                                      Control Flow
+                                                                                                                                                                                                                      Management
+ + Vulnerability Mapping Notes
+ Usage: ALLOWED
+
+ (this CWE ID could be used to map to real-world vulnerabilities)
+ Reason: Acceptable-Use
+
+ Rationale:
+
+ This CWE entry is at the Base level of abstraction, which is a preferred level of abstraction for mapping to the root causes of vulnerabilities.
+ Comments:
+
+ Carefully read both the name and description to ensure that this mapping is an appropriate fit. Do not try to 'force' a mapping to a lower-level Base/Variant simply to comply with this preferred
+ level of abstraction.
+ + Taxonomy Mappings
+       Mapped Taxonomy Name          Node ID                    Fit                                                                Mapped Node Name
+ CLASP                                                                             Using the wrong operator
+ CERT C Secure Coding             EXP45-C        CWE More Abstract                 Do not perform assignments in selection statements
+ CERT C Secure Coding             EXP46-C        CWE More Abstract                 Do not use a bitwise operator with a Boolean-like operand
+ Software Fault Patterns          SFP1                                             Glitch in Computation
+ + References
+ [REF-18] Secure Software, Inc.. "The CLASP Application Security Process". 2005. <https://cwe.mitre.org/documents/sources/TheCLASPApplicationSecurityProcess.pdf>.
+ [REF-62] Mark Dowd, John McDonald and Justin Schuh. "The Art of Software Security Assessment". Chapter 6, "Typos", Page 289. 1st Edition. Addison Wesley. 2006.
+ [REF-1377] "csr_regile.sv line 938". 2021. <https://github.com/HACK-EVENT/hackatdac19/blob/57e7b2109c1ea2451914878df2e6ca740c2dcf34/src/csr_regfile.sv#L938>. URL validated: 2023-12-13.
+ [REF-1378] "Fix for csr_regfile.sv line 938". 2021. <https://github.com/HACK-EVENT/hackatdac19/blob/a7b61209e56c48eec585eeedea8413997ec71e4a/src/csr_regfile.sv#L938C31-L938C56>. URL validated:
+ 2023-12-13.
+ + Content History
+                                                                                           + Submissions
+               Submission Date                                                         Submitter                                                                 Organization
+ 2006-07-19                                  CLASP
+ (CWE Draft 3, 2006-07-19)
+
+                                                                                          + Contributions
+              Contribution Date                                                       Contributor                                                                Organization
+ 2023-11-07                                  Chen Chen, Rahul Kande, Jeyavijayan Rajendran                                                 Texas A&M University
+                                             suggested demonstrative example
+ 2023-11-07                                  Shaza Zeitouni, Mohamadreza Rostami, Ahmad-Reza Sadeghi                                       Technical University of Darmstadt
+                                             suggested demonstrative example
+                                                                                          + Modifications
+              Modification Date                                                        Modifier                                                                  Organization
+ 2008-07-01                                  Eric Dalci                                                                                    Cigital
+                                             updated Time_of_Introduction
+ 2008-09-08                                  CWE Content Team                                                                              MITRE
+                                             updated Applicable_Platforms, Relationships, Other_Notes, Taxonomy_Mappings
+ 2008-10-14                                  CWE Content Team                                                                              MITRE
+                                             updated Relationships
+ 2008-11-24                                  CWE Content Team                                                                              MITRE
+                                             updated Relationships, Taxonomy_Mappings
+ 2011-06-01                                  CWE Content Team                                                                              MITRE
+                                             updated Common_Consequences, Relationships, Taxonomy_Mappings
+ 2011-09-13                                  CWE Content Team                                                                              MITRE
+                                             updated Relationships, Taxonomy_Mappings
+ 2012-05-11                                  CWE Content Team                                                                              MITRE
+                                             updated Common_Consequences, References, Relationships, Taxonomy_Mappings
+ 2012-10-30                                  CWE Content Team                                                                              MITRE
+                                             updated Demonstrative_Examples, Potential_Mitigations
+ 2014-06-23                                  CWE Content Team                                                                              MITRE
+                                             updated Applicable_Platforms, Description, Detection_Factors, Other_Notes
+ 2014-07-30                                  CWE Content Team                                                                              MITRE
+                                             updated Relationships
+ 2017-11-08                                  CWE Content Team                                                                              MITRE
+                                             updated Demonstrative_Examples, Taxonomy_Mappings
+ 2019-01-03                                  CWE Content Team                                                                              MITRE
+                                             updated Relationships
+ 2020-02-24                                  CWE Content Team                                                                              MITRE
+                                             updated References, Relationships, Taxonomy_Mappings
+ 2020-08-20                                  CWE Content Team                                                                              MITRE
+                                             updated Relationships
+ 2021-03-15                                  CWE Content Team                                                                              MITRE
+                                             updated Demonstrative_Examples, Relationships
+ 2023-01-31                                  CWE Content Team                                                                              MITRE
+                                             updated Description, Observed_Examples
+ 2023-04-27                                  CWE Content Team                                                                              MITRE
+                                             updated Relationships
+ 2023-06-29                                  CWE Content Team                                                                              MITRE
+                                             updated Mapping_Notes
+ 2023-10-26                                  CWE Content Team                                                                              MITRE
+                                             updated Observed_Examples
+ 2024-02-29                                  CWE Content Team                                                                              MITRE
+ (CWE 4.14, 2024-02-29)                      updated Demonstrative_Examples, References
+                                                                                       + Previous Entry Names
+                 Change Date                                                                                   Previous Entry Name
+ 2008-04-11                                  Using the Wrong Operator
+ More information is available — Please edit the custom filter or select a different filter.
+Page Last Updated: February 29, 2024
+ 
+      Site Map | Terms of Use | Manage Cookies | Cookie Notice | Privacy Policy | Contact Us | CWE X-Twitter CWE Mastodon CWE on LinkedIn CWE YouTube channel CWE Out-of-Bounds-Read Podcast CWE
+      Blog on Medium blog
+
+MITRE Use of the Common Weakness Enumeration (CWE™) and the associated references from this website are subject to the Terms of Use. CWE is sponsored by the U.S. Department of Homeland         HSSEDI
+      Security (DHS) Cybersecurity and Infrastructure Security Agency (CISA) and managed by the Homeland Security Systems Engineering and Development Institute (HSSEDI) which is operated by
+      The MITRE Corporation (MITRE). Copyright © 2006–2024, The MITRE Corporation. CWE, CWSS, CWRAF, and the CWE logo are trademarks of The MITRE Corporation.
+

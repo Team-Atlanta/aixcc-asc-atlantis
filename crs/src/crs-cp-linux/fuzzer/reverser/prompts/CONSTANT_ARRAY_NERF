@@ -1,0 +1,47 @@
+For loops of compile-time constant iterations, we want to represent the data generated
+by the loop body in a command and add an array with the known iterations to the grammar.
+
+Test harness:
+<harness>
+int harness( uint8_t *blob, uint32_t blob_size)
+{
+    int index = 0;
+    uint32_t size = 0;
+
+    if ( blob == NULL ) {
+        return -1;
+    }
+
+    for ( uint32_t i = 0; i < 10; i++) {
+        if ( blob_size - index < 4 ) {
+            printf("[ERROR] create_user error\n");
+            close(g_fd);
+            return -1;
+        }
+        memcpy(&size, blob + index, 4);
+        index += 4;
+        if ( blob_size - index < size ) {
+            printf("[ERROR] create_user error\n");
+            close(g_fd);
+            return -1;
+        }
+        if (create_user(blob + index, size) < 0) {
+            printf("[ERROR] create_user error\n");
+            close(g_fd);
+            return -1;
+        }
+        index += size;
+    }
+
+    close(g_fd);
+    return 0;
+}
+</harness>
+
+Test language:
+<testlang>
+INPUT ::= CREATE_USER[10]
+
+CREATE_USER ::= SIZE { size: 4 }
+                USER { size: SIZE } 
+</testlang>

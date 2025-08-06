@@ -1,0 +1,434 @@
+CWE
+
+Common Weakness Enumeration
+
+A community-developed list of SW & HW weaknesses that can become vulnerabilities
+
+New to CWE? click here!
+CWE Most Important Hardware Weaknesses
+CWE Top 25 Most Dangerous Weaknesses
+Home > CWE List > CWE- Individual Dictionary Definition (4.14)                                                                                                   ID Lookup: [                    ] [Go]
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  • Home
+  • About ▼
+    About New to CWE User Stories History Documents FAQs Glossary Compatibility
+  • CWE List ▼
+    Latest Version Downloads Reports Visualizations Archive
+  • Mapping ▼
+    Root Cause Mapping Guidance Root Cause Mapping Quick Tips Root Cause Mapping Examples
+  • Top-N Lists ▼
+    Top 25 Software Top Hardware Top 10 KEV Weaknesses
+  • Community ▼
+    Community Working Groups & Special Interest Groups Board Board Meeting Minutes CWE Discussion List CWE Discussion Archives Contribute Weakness Content to CWE
+  • News ▼
+    Current News X-Twitter ● Mastodon ● LinkedIn ● YouTube YouTube Podcast Out of Bounds Read Podcast Medium Medium News Archive
+  • Search
+
+ 
+ CWE Glossary Definition                  x
+ 
+ 
+ CWE-307: Improper Restriction of Excessive Authentication Attempts
+ 
+ Weakness ID: 307
+ Vulnerability Mapping: ALLOWEDThis CWE ID may be used to map to real-world vulnerabilities
+ Abstraction: BaseBase - a weakness that is still mostly independent of a resource or technology, but with sufficient details to provide specific methods for detection and prevention. Base level
+ weaknesses typically describe issues in terms of 2 or 3 of the following dimensions: behavior, property, technology, language, and resource.
+ View customized information:
+ Conceptual For users who are interested in more notional aspects of a weakness. Example: educators, technical writers, and project/program managers. Operational For users who are concerned with the
+ practical application and details about the nature of a weakness and how to prevent it from happening. Example: tool developers, security researchers, pen-testers, incident response analysts. Mapping
+ Friendly For users who are mapping an issue to CWE/CAPEC IDs, i.e., finding the most appropriate CWE for a specific issue (e.g., a CVE record). Example: tool developers, security researchers. 
+ Complete For users who wish to see all available information for the CWE/CAPEC entry. Custom For users who want to customize what details are displayed.
+ ×
+
+ Edit Custom Filter
+
+ Conceptual Operational Mapping Friendly Select All
+ 
+ Reset Clear Submit Cancel
+ + Description
+ The product does not implement sufficient measures to prevent multiple failed authentication attempts within a short time frame, making it more susceptible to brute force attacks.
+ + Relationships
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Research Concepts" (CWE-1000)
+     Nature                                                                                                                                                                             Type                                                                                                                                                                           ID         Name
+ ChildOf                                                                               ClassClass - a weakness that is described in a very abstract fashion, typically independent of any specific language or technology. More specific than a Pillar Weakness, but more general than a Base                                                                        799     Improper
+                                                                                                                    Weakness. Class level weaknesses typically describe issues in terms of 1 or 2 of the following dimensions: behavior, property, and resource.                                                                                                             Control of
+                                                                                                                                                                                                                                                                                                                                                                             Interaction
+                                                                                                                                                                                                                                                                                                                                                                             Frequency
+ ChildOf                                                                               ClassClass - a weakness that is described in a very abstract fashion, typically independent of any specific language or technology. More specific than a Pillar Weakness, but more general than a Base                                                                        1390    Weak
+                                                                                                                    Weakness. Class level weaknesses typically describe issues in terms of 1 or 2 of the following dimensions: behavior, property, and resource.                                                                                                             Authentication
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Software Development" (CWE-699)
+     Nature                                                       Type                                                     ID                                   Name
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 1211    Authentication Errors
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Weaknesses for Simplified Mapping of Published Vulnerabilities" (CWE-1003)
+     Nature                                                                                                                                                                             Type                                                                                                                                                                           ID         Name
+ ChildOf                                                                               ClassClass - a weakness that is described in a very abstract fashion, typically independent of any specific language or technology. More specific than a Pillar Weakness, but more general than a Base                                                                        287     Improper
+                                                                                                                    Weakness. Class level weaknesses typically describe issues in terms of 1 or 2 of the following dimensions: behavior, property, and resource.                                                                                                             Authentication
+ Section HelpThis table shows the weaknesses and high level categories that are related to this weakness. These relationships are defined as ChildOf, ParentOf, MemberOf and give insight to similar
+ items that may exist at higher and lower levels of abstraction. In addition, relationships such as PeerOf and CanAlsoBe are defined to show similar weaknesses that the user may want to explore.
+ + Relevant to the view "Architectural Concepts" (CWE-1008)
+     Nature                                                       Type                                                     ID                                   Name
+ MemberOf        CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic. 1010    Authenticate Actors
+ + Modes Of Introduction
+ Section HelpThe different Modes of Introduction provide information about how and when this weakness may be introduced. The Phase identifies a point in the life cycle at which introduction may occur,
+ while the Note provides a typical scenario related to introduction during the given phase.
+          Phase                                                                                             Note
+ Architecture and Design COMMISSION: This weakness refers to an incorrect design related to an architectural security tactic.
+ + Applicable Platforms
+ Section HelpThis listing shows possible areas for which the given weakness could appear. These may be for specific named Languages, Operating Systems, Architectures, Paradigms, Technologies, or a
+ class of such platforms. The platform is listed along with how frequently the given weakness appears for that instance.
+
+ Languages
+
+ Class: Not Language-Specific (Undetermined Prevalence)
+
+ + Common Consequences
+ Section HelpThis table specifies different individual consequences associated with the weakness. The Scope identifies the application security area that is violated, while the Impact describes the
+ negative technical impact that arises if an adversary succeeds in exploiting this weakness. The Likelihood provides information about how likely the specific consequence is expected to be seen
+ relative to the other consequences in the list. For example, there may be high likelihood that a weakness will be exploited to achieve a certain impact, but a low likelihood that it will be exploited
+ to achieve a different impact.
+       Scope                                                                                     Impact                                                                                 Likelihood
+                    Technical Impact: Bypass Protection Mechanism
+ Access Control
+                    An attacker could perform an arbitrary number of authentication attempts using different passwords, and eventually gain access to the targeted account.
+ + Demonstrative Examples
+ 
+ Example 1
+
+ In January 2009, an attacker was able to gain administrator access to a Twitter server because the server did not restrict the number of login attempts [REF-236]. The attacker targeted a member of
+ Twitter's support team and was able to successfully guess the member's password using a brute force attack by guessing a large number of common words. After gaining access as the member of the
+ support staff, the attacker used the administrator panel to gain access to 33 accounts that belonged to celebrities and politicians. Ultimately, fake Twitter messages were sent that appeared to come
+ from the compromised accounts.
+ 
+ Example 1 References:
+ [REF-236] Kim Zetter. "Weak Password Brings 'Happiness' to Twitter Hacker". 2009-01-09. <https://www.wired.com/2009/01/professed-twitt/>. URL validated: 2023-04-07.
+
+ Example 2
+
+ The following code, extracted from a servlet's doPost() method, performs an authentication lookup every time the servlet is invoked.
+
+ (bad code)
+ Example Language: Java 
+ String username = request.getParameter("username");
+ String password = request.getParameter("password");
+
+ int authResult = authenticateUser(username, password);
+
+ However, the software makes no attempt to restrict excessive authentication attempts.
+
+ Example 3
+
+ This code attempts to limit the number of login attempts by causing the process to sleep before completing the authentication.
+
+ (bad code)
+ Example Language: PHP 
+ $username = $_POST['username'];
+ $password = $_POST['password'];
+ sleep(2000);
+ $isAuthenticated = authenticateUser($username, $password);
+
+ However, there is no limit on parallel connections, so this does not increase the amount of time an attacker needs to complete an attack.
+
+ Example 4
+
+ In the following C/C++ example the validateUser method opens a socket connection, reads a username and password from the socket and attempts to authenticate the username and password.
+
+ (bad code)
+ Example Language: C 
+ int validateUser(char *host, int port)
+ {
+ int socket = openSocketConnection(host, port);
+ if (socket < 0) {
+ printf("Unable to open socket connection");
+ return(FAIL);
+ }
+
+ int isValidUser = 0;
+ char username[USERNAME_SIZE];
+ char password[PASSWORD_SIZE];
+
+ while (isValidUser == 0) {
+ if (getNextMessage(socket, username, USERNAME_SIZE) > 0) {
+ if (getNextMessage(socket, password, PASSWORD_SIZE) > 0) {
+ isValidUser = AuthenticateUser(username, password);
+ }
+ }
+ }
+ return(SUCCESS);
+ }
+
+ The validateUser method will continuously check for a valid username and password without any restriction on the number of authentication attempts made. The method should limit the number of
+ authentication attempts made to prevent brute force attacks as in the following example code.
+
+ (good code)
+ Example Language: C 
+ int validateUser(char *host, int port)
+ {
+ ...
+
+ int count = 0;
+ while ((isValidUser == 0) && (count < MAX_ATTEMPTS)) {
+ if (getNextMessage(socket, username, USERNAME_SIZE) > 0) {
+ if (getNextMessage(socket, password, PASSWORD_SIZE) > 0) {
+ isValidUser = AuthenticateUser(username, password);
+ }
+ }
+ count++;
+ }
+ if (isValidUser) {
+ return(SUCCESS);
+ }
+ else {
+ return(FAIL);
+ }
+ }
+
+ Example 5
+
+ Consider this example from a real-world attack against the iPhone [REF-1218]. An attacker can use brute force methods; each time there is a failed guess, the attacker quickly cuts the power before
+ the failed entry is recorded, effectively bypassing the intended limit on the number of failed authentication attempts. Note that this attack requires removal of the cell phone battery and connecting
+ directly to the phone's power source, and the brute force attack is still time-consuming.
+
+ + Observed Examples
+        Reference                                                                                        Description
+ CVE-2019-0039           the REST API for a network OS has a high limit for number of connections, allowing brute force password guessing
+ CVE-1999-1152           Product does not disconnect or timeout after multiple failed logins.
+ CVE-2001-1291           Product does not disconnect or timeout after multiple failed logins.
+ CVE-2001-0395           Product does not disconnect or timeout after multiple failed logins.
+ CVE-2001-1339           Product does not disconnect or timeout after multiple failed logins.
+ CVE-2002-0628           Product does not disconnect or timeout after multiple failed logins.
+ CVE-1999-1324           User accounts not disabled when they exceed a threshold; possibly a resultant problem.
+ + Potential Mitigations
+ Phase: Architecture and Design
+
+ Common protection mechanisms include:
+
+   • Disconnecting the user after a small number of failed attempts
+   • Implementing a timeout
+   • Locking out a targeted account
+   • Requiring a computational task on the user's part.
+
+ Phase: Architecture and Design
+
+ Strategy: Libraries or Frameworks
+
+ Use a vetted library or framework that does not allow this weakness to occur or provides constructs that make this weakness easier to avoid.
+
+ Consider using libraries with authentication capabilities such as OpenSSL or the ESAPI Authenticator. [REF-45]
+
+ + Detection Methods
+ Dynamic Analysis with Automated Results Interpretation
+
+ According to SOAR, the following detection techniques may be useful:
+
+ Highly cost effective:
+
+   • Web Application Scanner
+   • Web Services Scanner
+   • Database Scanners
+
+ Cost effective for partial coverage:
+
+   • Host-based Vulnerability Scanners - Examine configuration for flaws, verifying that audit mechanisms work, ensure host configuration meets certain predefined criteria
+
+ Effectiveness: High
+
+ Dynamic Analysis with Manual Results Interpretation
+
+ According to SOAR, the following detection techniques may be useful:
+
+ Highly cost effective:
+
+   • Fuzz Tester
+   • Framework-based Fuzzer
+
+ Cost effective for partial coverage:
+
+   • Forced Path Execution
+
+ Effectiveness: High
+
+ Manual Static Analysis - Source Code
+
+ According to SOAR, the following detection techniques may be useful:
+
+ Highly cost effective:
+
+   • Focused Manual Spotcheck - Focused manual analysis of source
+   • Manual Source Code Review (not inspections)
+
+ Effectiveness: High
+
+ Automated Static Analysis - Source Code
+
+ According to SOAR, the following detection techniques may be useful:
+
+ Cost effective for partial coverage:
+
+   • Source code Weakness Analyzer
+   • Context-configured Source Code Weakness Analyzer
+
+ Effectiveness: SOAR Partial
+
+ Automated Static Analysis
+
+ According to SOAR, the following detection techniques may be useful:
+
+ Cost effective for partial coverage:
+
+   • Configuration Checker
+
+ Effectiveness: SOAR Partial
+
+ Architecture or Design Review
+
+ According to SOAR, the following detection techniques may be useful:
+
+ Highly cost effective:
+
+   • Formal Methods / Correct-By-Construction
+
+ Cost effective for partial coverage:
+
+   • Inspection (IEEE 1028 standard) (can apply to requirements, design, source code, etc.)
+
+ Effectiveness: High
+
+ + Memberships
+ Section HelpThis MemberOf Relationships table shows additional CWE Categories and Views that reference this weakness as a member. This information is often useful in understanding where a weakness
+ fits within the context of external information sources.
+     Nature                                                                                                  Type                                                                                               ID         Name
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            724     OWASP Top Ten
+                                                                                                                                                                                                                      2004 Category
+                                                                                                                                                                                                                      A3 - Broken
+                                                                                                                                                                                                                      Authentication
+                                                                                                                                                                                                                      and Session
+                                                                                                                                                                                                                      Management
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            808     2010 Top 25 -
+                                                                                                                                                                                                                      Weaknesses On
+                                                                                                                                                                                                                      the Cusp
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            812     OWASP Top Ten
+                                                                                                                                                                                                                      2010 Category
+                                                                                                                                                                                                                      A3 - Broken
+                                                                                                                                                                                                                      Authentication
+                                                                                                                                                                                                                      and Session
+                                                                                                                                                                                                                      Management
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            866     2011 Top 25 -
+                                                                                                                                                                                                                      Porous Defenses
+ MemberOf        ViewView - a subset of CWE entries that provides a way of examining CWE content. The two main view structures are Slices (flat lists) and Graphs (containing relationships between entries). 884     CWE
+                                                                                                                                                                                                                      Cross-section
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            955     SFP Secondary
+                                                                                                                                                                                                                      Cluster:
+                                                                                                                                                                                                                      Unrestricted
+                                                                                                                                                                                                                      Authentication
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            1353    OWASP Top Ten
+                                                                                                                                                                                                                      2021 Category
+                                                                                                                                                                                                                      A07:2021 -
+                                                                                                                                                                                                                      Identification
+                                                                                                                                                                                                                      and
+                                                                                                                                                                                                                      Authentication
+                                                                                                                                                                                                                      Failures
+ MemberOf                                                  CategoryCategory - a CWE entry that contains a set of other entries that share a common characteristic.                                            1396    Comprehensive
+                                                                                                                                                                                                                      Categorization:
+                                                                                                                                                                                                                      Access Control
+ + Vulnerability Mapping Notes
+ Usage: ALLOWED
+
+ (this CWE ID could be used to map to real-world vulnerabilities)
+ Reason: Acceptable-Use
+
+ Rationale:
+
+ This CWE entry is at the Base level of abstraction, which is a preferred level of abstraction for mapping to the root causes of vulnerabilities.
+ Comments:
+
+ Carefully read both the name and description to ensure that this mapping is an appropriate fit. Do not try to 'force' a mapping to a lower-level Base/Variant simply to comply with this preferred
+ level of abstraction.
+ + Taxonomy Mappings
+       Mapped Taxonomy Name           Node ID         Fit                                                                Mapped Node Name
+ PLOVER                           AUTHENT.MULTFAIL            Multiple Failed Authentication Attempts not Prevented
+ Software Fault Patterns          SFP34                       Unrestricted authentication
+ + Related Attack Patterns
+    CAPEC-ID                                                                                     Attack Pattern Name
+ CAPEC-16        Dictionary-based Password Attack
+ CAPEC-49        Password Brute Forcing
+ CAPEC-560       Use of Known Domain Credentials
+ CAPEC-565       Password Spraying
+ CAPEC-600       Credential Stuffing
+ CAPEC-652       Use of Known Kerberos Credentials
+ CAPEC-653       Use of Known Operating System Credentials
+ + References
+ [REF-45] OWASP. "OWASP Enterprise Security API (ESAPI) Project". <http://www.owasp.org/index.php/ESAPI>.
+ [REF-236] Kim Zetter. "Weak Password Brings 'Happiness' to Twitter Hacker". 2009-01-09. <https://www.wired.com/2009/01/professed-twitt/>. URL validated: 2023-04-07.
+ [REF-1218] Graham Cluley. "This Black Box Can Brute Force Crack iPhone PIN Passcodes". The Mac Security Blog. 2015-03-16. <https://www.intego.com/mac-security-blog/iphone-pin-pass-code/>.
+ + Content History
+                                                                                           + Submissions
+              Submission Date                                                    Submitter                                                                  Organization
+ 2006-07-19                                PLOVER
+ (CWE Draft 3, 2006-07-19)
+
+                                                                                          + Modifications
+             Modification Date                                                    Modifier                                                                  Organization
+ 2008-07-01                                Sean Eidemiller                                                                        Cigital
+                                           added/updated demonstrative examples
+ 2008-09-08                                CWE Content Team                                                                       MITRE
+                                           updated Relationships, Taxonomy_Mappings
+ 2009-03-10                                CWE Content Team                                                                       MITRE
+                                           updated Relationships
+ 2009-07-27                                CWE Content Team                                                                       MITRE
+                                           updated Observed_Examples
+ 2009-12-28                                CWE Content Team                                                                       MITRE
+                                           updated Applicable_Platforms, Demonstrative_Examples, Potential_Mitigations
+ 2010-02-16                                CWE Content Team                                                                       MITRE
+                                           updated Demonstrative_Examples, Name, Potential_Mitigations, Relationships, Taxonomy_Mappings
+ 2010-04-05                                CWE Content Team                                                                       MITRE
+                                           updated Demonstrative_Examples
+ 2011-03-29                                CWE Content Team                                                                       MITRE
+                                           updated Demonstrative_Examples
+ 2011-06-01                                CWE Content Team                                                                       MITRE
+                                           updated Common_Consequences
+ 2011-06-27                                CWE Content Team                                                                       MITRE
+                                           updated Common_Consequences, Related_Attack_Patterns, Relationships
+ 2011-09-13                                CWE Content Team                                                                       MITRE
+                                           updated Potential_Mitigations, References, Relationships
+ 2012-05-11                                CWE Content Team                                                                       MITRE
+                                           updated Relationships
+ 2014-07-30                                CWE Content Team                                                                       MITRE
+                                           updated Detection_Factors, Relationships, Taxonomy_Mappings
+ 2017-11-08                                CWE Content Team                                                                       MITRE
+                                           updated Demonstrative_Examples, Modes_of_Introduction, Relationships
+ 2019-06-20                                CWE Content Team                                                                       MITRE
+                                           updated Demonstrative_Examples, Relationships
+ 2020-02-24                                CWE Content Team                                                                       MITRE
+                                           updated Detection_Factors, Relationships
+ 2020-08-20                                CWE Content Team                                                                       MITRE
+                                           updated Related_Attack_Patterns
+ 2021-10-28                                CWE Content Team                                                                       MITRE
+                                           updated Demonstrative_Examples, References, Relationships
+ 2022-10-13                                CWE Content Team                                                                       MITRE
+                                           updated Demonstrative_Examples, Description, Observed_Examples, References, Relationships
+ 2023-04-27                                CWE Content Team                                                                       MITRE
+                                           updated Demonstrative_Examples, References, Relationships
+ 2023-06-29                                CWE Content Team                                                                       MITRE
+                                           updated Mapping_Notes
+                                                                                       + Previous Entry Names
+                Change Date                                                                                   Previous Entry Name
+ 2008-04-11                                Multiple Failed Authentication Attempts not Prevented
+ 2010-02-16                                Failure to Restrict Excessive Authentication Attempts
+ More information is available — Please edit the custom filter or select a different filter.
+Page Last Updated: February 29, 2024
+ 
+      Site Map | Terms of Use | Manage Cookies | Cookie Notice | Privacy Policy | Contact Us | CWE X-Twitter CWE Mastodon CWE on LinkedIn CWE YouTube channel CWE Out-of-Bounds-Read Podcast CWE
+      Blog on Medium blog
+
+MITRE Use of the Common Weakness Enumeration (CWE™) and the associated references from this website are subject to the Terms of Use. CWE is sponsored by the U.S. Department of Homeland         HSSEDI
+      Security (DHS) Cybersecurity and Infrastructure Security Agency (CISA) and managed by the Homeland Security Systems Engineering and Development Institute (HSSEDI) which is operated by
+      The MITRE Corporation (MITRE). Copyright © 2006–2024, The MITRE Corporation. CWE, CWSS, CWRAF, and the CWE logo are trademarks of The MITRE Corporation.
+

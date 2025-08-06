@@ -1,0 +1,18 @@
+syz_harness$linux_test_harness_cmd0(buf ptr[in, linux_test_harness_cmd0], len bytesize[buf])
+syz_harness$linux_test_harness_cmd1(buf ptr[in, linux_test_harness_cmd1], len bytesize[buf])
+
+linux_test_harness_cmd0 {
+	cmd	int32[0]
+	size	len[buf, int32]
+	f	flags[send_flags, int32]
+	buf	array[int8]
+} [packed]
+
+linux_test_harness_cmd1 {
+	cmd	int32[1]
+	t	int32[NLMSG_MIN_TYPE:NLMSG_MAX_TYPE]
+	f	flags[netlink_msg_flags, int32]
+	proto	flags[netlink_proto, int32]
+	size	len[buf, int32]
+	buf	array[int8]
+} [packed]

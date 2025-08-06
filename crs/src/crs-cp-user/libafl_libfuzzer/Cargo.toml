@@ -1,0 +1,40 @@
+[package]
+name = "skynet_libfuzzer"
+version = "0.13.0"
+authors = ["Andrea Fioraldi <andreafioraldi@gmail.com>", "Dominik Maier <domenukk@gmail.com>"]
+edition = "2021"
+
+[features]
+default = ["std"]
+std = []
+
+[profile.release]
+lto = true
+codegen-units = 1
+opt-level = 3
+debug = true
+
+[build-dependencies]
+cc = { version = "1.0", features = ["parallel"] }
+which = "6.0"
+
+[dependencies]
+libafl = { path = "../third_party/LibAFL/libafl/" }
+libafl_bolts = { path = "../third_party/LibAFL/libafl_bolts/" }
+libafl_targets = { path = "../third_party/LibAFL/libafl_targets/", features = ["sancov_pcguard_edges", "libfuzzer", "sancov_cmplog"] }
+libafl_cc = { path = "../third_party/LibAFL/libafl_cc/" }
+clap = { version = "4.0", features = ["derive"] }
+mimalloc = { version = "*", default-features = false }
+pathsearch = "0.2.0"
+which = "6.0"
+
+[lib]
+name = "skynet_libfuzzer"
+crate-type = ["staticlib"]
+
+[source.crates-io]
+registry = 'sparse+https://index.crates.io/'
+replace-with = 'local-registry'
+
+[source.local-registry]
+local-registry = './local-registry'

@@ -1,0 +1,8 @@
+INPUT ::= COMMAND_CNT { size: 4 }
+          COMMAND[COMMAND_CNT]
+
+COMMAND ::= COMMAND1
+
+COMMAND1 ::= OPCODE { size: 4, value: 0 }
+             SIZE { size: 4 }
+             PACKET_DATA { size: SIZE }

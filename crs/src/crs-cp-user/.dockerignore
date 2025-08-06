@@ -1,0 +1,3 @@
+libafl_libfuzzer/target
+token_analyzer/target/
+testlang_fuzz/target/
